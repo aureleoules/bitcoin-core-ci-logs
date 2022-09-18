@@ -1,0 +1,28 @@
+# Github action template to run index.js and commit & push the changes
+name: Fetch
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run every day at midnight
+  workflow_dispatch:
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - run: node index.js
+        env:
+          API_URL: https://api.cirrus-ci.com
+      - name: Commit changess
+        run: |
+          git config --local user.email "ci@aureleoules.com"
+          git config --local user.name "CI"
+          git add .
+          git commit -m "Update logs"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
