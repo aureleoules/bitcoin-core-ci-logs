@@ -1,0 +1,34 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at b519b3520 QA: wallet_listtransactions: Extend coinjoin test to get correct results using foreign_outputs metadata
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ src/net.cpp                        | 46 +++++++++++++++++++++-----------------
+ src/net.h                          | 21 +++++++++++------
+ src/qt/rpcconsole.cpp              |  4 ++--
+ src/rpc/net.cpp                    |  2 +-
+ src/test/denialofservice_tests.cpp |  1 -
+ src/test/fuzz/util.cpp             |  1 -
+ src/test/fuzz/util.h               |  7 ++++--
+ src/test/util/net.cpp              |  2 --
+ src/test/util/net.h                |  1 -
+ 9 files changed, 47 insertions(+), 38 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

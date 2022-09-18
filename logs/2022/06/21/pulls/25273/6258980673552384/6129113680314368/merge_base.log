@@ -1,0 +1,24 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ configure.ac                             |    7 +-
+ depends/Makefile                         |    4 +-
+ depends/gen_id                           |    7 +-
+ src/compat.h                             |    3 -
+ src/fs.cpp                               |    3 -
+ src/qt/forms/sendcoinsentry.ui           | 1437 ++++--------------------------
+ src/qt/guiutil.cpp                       |    3 -
+ src/qt/intro.cpp                         |    2 +-
+ src/qt/sendcoinsentry.cpp                |   31 +-
+ src/qt/sendcoinsentry.h                  |    6 +-
+ src/support/lockedpool.cpp               |    3 -
+ src/util/system.cpp                      |    3 -
+ test/functional/test_framework/wallet.py |   28 +-
+ 13 files changed, 230 insertions(+), 1307 deletions(-)

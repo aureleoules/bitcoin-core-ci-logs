@@ -1,0 +1,29 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-26 16:24:52.861 xcodebuild[705:5951] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-26 16:24:52.861 xcodebuild[705:5951] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/net.h
+Auto-merging src/net.cpp
+Merge made by the 'recursive' strategy.
+ doc/i2p.md                                         | 26 +++++++--
+ doc/release-notes-25355.md                         |  8 +++
+ src/i2p.cpp                                        | 63 ++++++++++++++++------
+ src/i2p.h                                          | 19 +++++++
+ src/net.cpp                                        | 54 ++++++++++++-------
+ src/net.h                                          | 29 ++++++++--
+ src/test/i2p_tests.cpp                             |  2 +-
+ src/wallet/load.cpp                                |  2 +-
+ src/wallet/wallet.cpp                              |  1 +
+ test/functional/p2p_i2p_sessions.py                | 36 +++++++++++++
+ test/functional/test_runner.py                     |  1 +
+ test/functional/wallet_resendwallettransactions.py | 12 ++---
+ 12 files changed, 201 insertions(+), 52 deletions(-)
+ create mode 100644 doc/release-notes-25355.md
+ create mode 100755 test/functional/p2p_i2p_sessions.py

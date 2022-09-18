@@ -1,0 +1,63 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-usdt --enable-zmq --with-incompatible-bdb --with-gui=qt5 CPPFLAGS='-DARENA_DEBUG -DDEBUG_LOCKORDER' --with-sanitizers=address,integer,undefined CC=clang CXX=clang++
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Repository: 'deb https://ppa.launchpadcontent.net/hadret/bpfcc/ubuntu/ jammy main'
+Description:
+Port of latest version of bpfcc-tools to Ubuntu 18.04+.
+More info: https://launchpad.net/~hadret/+archive/ubuntu/bpfcc
+Adding repository.
+Adding deb entry to /etc/apt/sources.list.d/hadret-ubuntu-bpfcc-jammy.list
+Adding disabled deb-src entry to /etc/apt/sources.list.d/hadret-ubuntu-bpfcc-jammy.list
+Traceback (most recent call last):
+  File "/usr/bin/add-apt-repository", line 364, in <module>
+    sys.exit(0 if addaptrepo.main() else 1)
+  File "/usr/bin/add-apt-repository", line 357, in main
+    shortcut.add()
+  File "/usr/lib/python3/dist-packages/softwareproperties/shortcuthandler.py", line 222, in add
+    self.add_key()
+  File "/usr/lib/python3/dist-packages/softwareproperties/shortcuthandler.py", line 398, in add_key
+    if not all((self.trustedparts_file, self.trustedparts_content)):
+  File "/usr/lib/python3/dist-packages/softwareproperties/ppa.py", line 141, in trustedparts_content
+    key = self.lpppa.getSigningKeyData()
+  File "/usr/lib/python3/dist-packages/lazr/restfulclient/resource.py", line 592, in __call__
+    response, content = self.root._browser._request(
+  File "/usr/lib/python3/dist-packages/lazr/restfulclient/_browser.py", line 429, in _request
+    raise error
+lazr.restfulclient.errors.ServerError: HTTP Error 500: Internal Server Error
+Response headers:
+---
+connection: close
+content-length: 30
+content-type: text/plain;charset=utf-8
+date: Thu, 11 Aug 2022 17:51:00 GMT
+server: gunicorn/19.8.1
+status: 500
+x-lazr-oopsid: OOPS-2779224f83e9628309a00768fbb8eafb
+x-powered-by: Zope (www.zope.org), Python (www.python.org)
+x-request-id: 6d6b634e-32e0-4035-993a-6e5bf5f6fd79
+x-vcs-revision: 70fcfda0dab878e9072e0f29b48d0ec714e91034
+---
+Response body:
+---
+b'GPGKeyTemporarilyNotFoundError'
+---
+

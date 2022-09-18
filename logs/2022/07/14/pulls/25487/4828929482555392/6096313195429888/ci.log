@@ -1,0 +1,263 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=--enable-reduce-exports CC=clang-8 CXX='clang++-8 -stdlib=libc++' --enable-experimental-util-chainstate --with-experimental-kernel-lib --enable-shared
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+Running on host system without docker wrapper
+Hit:1 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu bionic InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping git, it is already installed and upgrade is not set.
+Skipping procps, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binfmt-support binutils binutils-common binutils-x86-64-linux-gnu
+  cpp cpp-7 dpkg-dev file g++ g++-7 gcc gcc-7 gcc-7-base lib32gcc1
+  lib32stdc++6 libasan4 libatomic1 libbinutils libbison-dev libc++1-8
+  libc++abi1-8 libc-dev-bin libc6-dev libc6-i386 libcc1-0 libcilkrts5
+  libclang-common-8-dev libclang1-8 libcurl4 libdpkg-perl libgc1c2
+  libgcc-7-dev libglib2.0-0 libgomp1 libisl19 libitm1 libllvm8 liblsan0
+  libmagic-mgc libmagic1 libmpc3 libmpdec2 libmpfr6 libmpx2 libnorm1
+  libobjc-7-dev libobjc4 libpgm-5.2-0 libpipeline1 libpopt0 libpython3-stdlib
+  libpython3.6-minimal libpython3.6-stdlib libquadmath0 libreadline7
+  libsigsegv2 libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq5
+  linux-libc-dev llvm-8-runtime m4 make mime-support python3-minimal python3.6
+  python3.6-minimal readline-common xz-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  wamerican | wordlist whois vacation distcc clang-8-doc cpp-doc gcc-7-locales
+  debian-keyring g++-multilib g++-7-multilib gcc-7-doc libstdc++6-7-dbg
+  gcc-multilib manpages-dev flex gdb gcc-doc gcc-7-multilib libgcc1-dbg
+  libgomp1-dbg libitm1-dbg libatomic1-dbg libasan4-dbg liblsan0-dbg
+  libtsan0-dbg libubsan0-dbg libcilkrts5-dbg libmpx2-dbg libquadmath0-dbg
+  clang glibc-doc gnupg | gnupg2 bzr libstdc++-7-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk llvm-8-doc m4-doc make-doc python3-doc
+  python3-tk python3-venv python3.6-venv python3.6-doc readline-doc
+  openssh-server
+Recommended packages:
+  llvm-8-dev python libomp-8-dev fakeroot gnupg | gnupg2
+  libalgorithm-merge-perl manpages manpages-dev libfile-fcntllock-perl
+  liblocale-gettext-perl libglib2.0-data shared-mime-info xdg-user-dirs
+  libltdl-dev
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binfmt-support binutils binutils-common
+  binutils-x86-64-linux-gnu bison bsdmainutils build-essential ccache clang-8
+  cpp cpp-7 curl dpkg-dev file g++ g++-7 gcc gcc-7 gcc-7-base lib32gcc1
+  lib32stdc++6 libasan4 libatomic1 libbinutils libbison-dev libc++-8-dev
+  libc++1-8 libc++abi-8-dev libc++abi1-8 libc-dev-bin libc6-dev libc6-i386
+  libcc1-0 libcilkrts5 libclang-common-8-dev libclang1-8 libcurl4 libdpkg-perl
+  libgc1c2 libgcc-7-dev libglib2.0-0 libgomp1 libisl19 libitm1 libllvm8
+  liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec2 libmpfr6 libmpx2 libnorm1
+  libobjc-7-dev libobjc4 libpgm-5.2-0 libpipeline1 libpopt0 libpython3-stdlib
+  libpython3.6-minimal libpython3.6-stdlib libquadmath0 libreadline7
+  libsigsegv2 libsodium23 libstdc++-7-dev libtool libtsan0 libubsan0 libzmq5
+  linux-libc-dev llvm-8 llvm-8-runtime m4 make mime-support pkg-config python3
+  python3-minimal python3-zmq python3.6 python3.6-minimal readline-common
+  rsync xz-utils
+0 upgraded, 88 newly installed, 0 to remove and 7 not upgraded.
+Need to get 92.3 MB of archives.
+After this operation, 427 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3.6-minimal amd64 3.6.9-1~18.04ubuntu1.7 [534 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3.6-minimal amd64 3.6.9-1~18.04ubuntu1.7 [1610 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-minimal amd64 3.6.7-1~18.04 [23.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic/main amd64 mime-support all 3.60ubuntu1 [30.1 kB]
+Get:5 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpdec2 amd64 2.4.2-1ubuntu1 [84.1 kB]
+Get:6 http://archive.ubuntu.com/ubuntu bionic/main amd64 readline-common all 7.0-3 [52.9 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/main amd64 libreadline7 amd64 7.0-3 [124 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3.6-stdlib amd64 3.6.9-1~18.04ubuntu1.7 [1710 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3.6 amd64 3.6.9-1~18.04ubuntu1.7 [203 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython3-stdlib amd64 3.6.7-1~18.04 [7240 B]
+Get:11 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3 amd64 3.6.7-1~18.04 [47.2 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmagic-mgc amd64 1:5.32-2ubuntu0.4 [184 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmagic1 amd64 1:5.32-2ubuntu0.4 [68.6 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 file amd64 1:5.32-2ubuntu0.4 [22.1 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libglib2.0-0 amd64 2.56.4-0ubuntu0.18.04.9 [1169 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/main amd64 libpopt0 amd64 1.16-11 [26.2 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 xz-utils amd64 5.2.2-1.3ubuntu0.1 [83.8 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic/main amd64 bsdmainutils amd64 11.1.2ubuntu1 [181 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic/main amd64 libpipeline1 amd64 1.5.0-1 [25.3 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 rsync amd64 3.1.2-2.1ubuntu1.4 [334 kB]
+Get:21 http://archive.ubuntu.com/ubuntu bionic/main amd64 libsigsegv2 amd64 2.12-1 [14.7 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic/main amd64 m4 amd64 1.4.18-1 [197 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic/main amd64 autoconf all 2.69-11 [322 kB]
+Get:24 http://archive.ubuntu.com/ubuntu bionic/main amd64 autotools-dev all 20180224.1 [39.6 kB]
+Get:25 http://archive.ubuntu.com/ubuntu bionic/main amd64 automake all 1:1.15.1-3ubuntu2 [509 kB]
+Get:26 http://archive.ubuntu.com/ubuntu bionic/main amd64 binfmt-support amd64 2.1.8-2 [51.6 kB]
+Get:27 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.7 [197 kB]
+Get:28 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.7 [489 kB]
+Get:29 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.7 [1839 kB]
+Get:30 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.7 [3388 B]
+Get:31 http://archive.ubuntu.com/ubuntu bionic/main amd64 libbison-dev amd64 2:3.0.4.dfsg-1build1 [339 kB]
+Get:32 http://archive.ubuntu.com/ubuntu bionic/main amd64 bison amd64 2:3.0.4.dfsg-1build1 [266 kB]
+Get:33 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
+Get:34 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-189.200 [982 kB]
+Get:35 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
+Get:36 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
+Get:37 http://archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:38 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpfr6 amd64 4.0.1-1 [243 kB]
+Get:39 http://archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:40 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
+Get:41 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
+Get:42 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
+Get:43 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
+Get:44 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
+Get:45 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
+Get:46 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
+Get:47 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
+Get:48 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
+Get:49 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
+Get:50 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
+Get:51 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
+Get:52 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
+Get:53 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
+Get:54 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
+Get:55 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
+Get:56 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
+Get:57 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
+Get:58 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
+Get:59 http://archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Get:60 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libdpkg-perl all 1.19.0.5ubuntu2.4 [212 kB]
+Get:61 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 dpkg-dev all 1.19.0.5ubuntu2.4 [607 kB]
+Get:62 http://archive.ubuntu.com/ubuntu bionic/main amd64 build-essential amd64 12.4ubuntu1 [4758 B]
+Get:63 http://archive.ubuntu.com/ubuntu bionic/main amd64 ccache amd64 3.4.1-1 [110 kB]
+Get:64 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libllvm8 amd64 1:8-3~ubuntu18.04.2 [13.6 MB]
+Get:65 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgc1c2 amd64 1:7.4.2-8ubuntu1 [81.8 kB]
+Get:66 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libobjc4 amd64 8.4.0-1ubuntu1~18.04 [52.6 kB]
+Get:67 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libobjc-7-dev amd64 7.5.0-3ubuntu1~18.04 [206 kB]
+Get:68 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-i386 amd64 2.27-3ubuntu1.6 [2651 kB]
+Get:69 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 lib32gcc1 amd64 1:8.4.0-1ubuntu1~18.04 [48.1 kB]
+Get:70 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 lib32stdc++6 amd64 8.4.0-1ubuntu1~18.04 [415 kB]
+Get:71 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libclang-common-8-dev amd64 1:8-3~ubuntu18.04.2 [3802 kB]
+Get:72 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libclang1-8 amd64 1:8-3~ubuntu18.04.2 [6225 kB]
+Get:73 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 clang-8 amd64 1:8-3~ubuntu18.04.2 [7940 kB]
+Get:74 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcurl4 amd64 7.58.0-2ubuntu3.19 [220 kB]
+Get:75 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 curl amd64 7.58.0-2ubuntu3.19 [159 kB]
+Get:76 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libc++abi1-8 amd64 1:8-3~ubuntu18.04.2 [211 kB]
+Get:77 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libc++1-8 amd64 1:8-3~ubuntu18.04.2 [789 kB]
+Get:78 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libc++-8-dev amd64 1:8-3~ubuntu18.04.2 [623 kB]
+Get:79 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libc++abi-8-dev amd64 1:8-3~ubuntu18.04.2 [74.7 kB]
+Get:80 http://archive.ubuntu.com/ubuntu bionic/universe amd64 libnorm1 amd64 1.5r6+dfsg1-6 [224 kB]
+Get:81 http://archive.ubuntu.com/ubuntu bionic/universe amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-2 [157 kB]
+Get:82 http://archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
+Get:83 http://archive.ubuntu.com/ubuntu bionic/main amd64 libtool all 2.4.6-2 [194 kB]
+Get:84 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq5 amd64 4.2.5-1ubuntu0.2 [221 kB]
+Get:85 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 llvm-8-runtime amd64 1:8-3~ubuntu18.04.2 [166 kB]
+Get:86 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 llvm-8 amd64 1:8-3~ubuntu18.04.2 [4585 kB]
+Get:87 http://archive.ubuntu.com/ubuntu bionic/main amd64 pkg-config amd64 0.29.1-0ubuntu2 [45.0 kB]
+Get:88 http://archive.ubuntu.com/ubuntu bionic/universe amd64 python3-zmq amd64 16.0.2-2build2 [239 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 92.3 MB in 5s (18.3 MB/s)
+Selecting previously unselected package libpython3.6-minimal:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7800 files and directories currently installed.)
+Preparing to unpack .../libpython3.6-minimal_3.6.9-1~18.04ubuntu1.7_amd64.deb ...
+Unpacking libpython3.6-minimal:amd64 (3.6.9-1~18.04ubuntu1.7) ...
+Selecting previously unselected package python3.6-minimal.
+Preparing to unpack .../python3.6-minimal_3.6.9-1~18.04ubuntu1.7_amd64.deb ...
+Unpacking python3.6-minimal (3.6.9-1~18.04ubuntu1.7) ...
+Setting up libpython3.6-minimal:amd64 (3.6.9-1~18.04ubuntu1.7) ...
+Setting up python3.6-minimal (3.6.9-1~18.04ubuntu1.7) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8039 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.6.7-1~18.04_amd64.deb ...
+Unpacking python3-minimal (3.6.7-1~18.04) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.60ubuntu1_all.deb ...
+Unpacking mime-support (3.60ubuntu1) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-1ubuntu1_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-1ubuntu1) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../3-readline-common_7.0-3_all.deb ...
+Unpacking readline-common (7.0-3) ...
+Selecting previously unselected package libreadline7:amd64.
+Preparing to unpack .../4-libreadline7_7.0-3_amd64.deb ...
+Unpacking libreadline7:amd64 (7.0-3) ...
+Selecting previously unselected package libpython3.6-stdlib:amd64.
+Preparing to unpack .../5-libpython3.6-stdlib_3.6.9-1~18.04ubuntu1.7_amd64.deb ...
+Unpacking libpython3.6-stdlib:amd64 (3.6.9-1~18.04ubuntu1.7) ...
+Selecting previously unselected package python3.6.
+Preparing to unpack .../6-python3.6_3.6.9-1~18.04ubuntu1.7_amd64.deb ...
+Unpacking python3.6 (3.6.9-1~18.04ubuntu1.7) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../7-libpython3-stdlib_3.6.7-1~18.04_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.6.7-1~18.04) ...
+Setting up python3-minimal (3.6.7-1~18.04) ...
+Selecting previously unselected package python3.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8491 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.6.7-1~18.04_amd64.deb ...
+Unpacking python3 (3.6.7-1~18.04) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../01-libmagic-mgc_1%3a5.32-2ubuntu0.4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.32-2ubuntu0.4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../02-libmagic1_1%3a5.32-2ubuntu0.4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.32-2ubuntu0.4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../03-file_1%3a5.32-2ubuntu0.4_amd64.deb ...
+Unpacking file (1:5.32-2ubuntu0.4) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../04-libglib2.0-0_2.56.4-0ubuntu0.18.04.9_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.56.4-0ubuntu0.18.04.9) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../05-libpopt0_1.16-11_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-11) ...
+Selecting previously unselected package xz-utils.
+Preparing to unpack .../06-xz-utils_5.2.2-1.3ubuntu0.1_amd64.deb ...
+Unpacking xz-utils (5.2.2-1.3ubuntu0.1) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../07-bsdmainutils_11.1.2ubuntu1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2ubuntu1) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../08-libpipeline1_1.5.0-1_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.0-1) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../09-rsync_3.1.2-2.1ubuntu1.4_amd64.deb ...
+Unpacking rsync (3.1.2-2.1ubuntu1.4) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../10-libsigsegv2_2.12-1_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-1) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../11-m4_1.4.18-1_amd64.deb ...
+Unpacking m4 (1.4.18-1) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../12-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../13-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../14-automake_1%3a1.15.1-3ubuntu2_all.deb ...
+Unpacking automake (1:1.15.1-3ubuntu2) ...
+Selecting previously unselected package binfmt-support.
+Preparing to unpack .../15-binfmt-support_2.1.8-2_amd64.deb ...
+Unpacking binfmt-support (2.1.8-2) ...
+Selecting previously unselected package binutils-common:amd64.
+Preparing to unpack .../16-binutils-common_2.30-21ubuntu1~18.04.7_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.7) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../17-libbinutils_2.30-21ubuntu1~18.04.7_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.7) ...
+
+Timed out!

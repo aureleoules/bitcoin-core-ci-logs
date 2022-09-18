@@ -1,0 +1,55 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-19 02:42:36.901 xcodebuild[696:5570] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-19 02:42:36.902 xcodebuild[696:5570] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/validation.cpp
+Merge made by the 'recursive' strategy.
+ configure.ac                                |   1 +
+ depends/config.site.in                      |   8 +-
+ depends/hosts/linux.mk                      |   4 +
+ depends/hosts/mingw32.mk                    |   4 +
+ depends/hosts/netbsd.mk                     |   4 +
+ src/.clang-tidy                             |   2 +
+ src/bench/wallet_loading.cpp                |   2 -
+ src/init.cpp                                |   1 -
+ src/interfaces/chain.h                      |   3 +
+ src/net.cpp                                 |  43 +++---
+ src/net.h                                   |  52 ++-----
+ src/net_processing.cpp                      | 221 ++++++++++++++++------------
+ src/net_processing.h                        |   1 +
+ src/node/interfaces.cpp                     |   5 +
+ src/qt/bitcoin.cpp                          |   2 -
+ src/qt/bitcoingui.cpp                       |   6 +
+ src/qt/rpcconsole.cpp                       |   2 +-
+ src/qt/test/test_main.cpp                   |   2 -
+ src/qt/walletmodel.cpp                      |   5 +
+ src/qt/walletmodel.h                        |   1 +
+ src/rpc/mempool.cpp                         |   1 -
+ src/rpc/net.cpp                             |   5 +-
+ src/rpc/output_script.cpp                   |   5 -
+ src/rpc/rawtransaction.cpp                  |   2 -
+ src/test/coinstatsindex_tests.cpp           |   3 -
+ src/test/denialofservice_tests.cpp          |  44 +++---
+ src/test/fuzz/net.cpp                       |   1 -
+ src/test/fuzz/util.cpp                      |   1 +
+ src/test/fuzz/util.h                        |   3 -
+ src/test/miniscript_tests.cpp               |   2 +
+ src/test/net_tests.cpp                      |  23 +--
+ src/test/util/net.cpp                       |   5 +-
+ src/test/util/net.h                         |   1 +
+ src/validation.cpp                          |   4 -
+ src/wallet/rpc/backup.cpp                   |  20 ++-
+ src/wallet/test/wallet_tests.cpp            |   8 +-
+ src/wallet/wallet.cpp                       |  27 +++-
+ test/functional/rpc_psbt.py                 |  11 ++
+ test/functional/wallet_balance.py           |  20 +++
+ test/functional/wallet_import_rescan.py     |  57 ++++++-
+ test/functional/wallet_importdescriptors.py |   4 +-
+ 41 files changed, 366 insertions(+), 250 deletions(-)

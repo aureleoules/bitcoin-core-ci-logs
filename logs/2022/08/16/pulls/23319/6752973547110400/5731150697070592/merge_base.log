@@ -1,0 +1,34 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 23 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/rpc/client.cpp
+Merge made by the 'ort' strategy.
+ doc/release-notes-25504.md               |  6 +++
+ src/rpc/client.cpp                       |  1 +
+ src/wallet/receive.cpp                   |  6 +--
+ src/wallet/receive.h                     |  3 +-
+ src/wallet/rpc/coins.cpp                 |  4 ++
+ src/wallet/rpc/transactions.cpp          | 23 +++++++++---
+ src/wallet/rpc/util.cpp                  |  9 +++++
+ src/wallet/rpc/util.h                    |  4 ++
+ src/wallet/wallet.cpp                    | 12 ++++++
+ src/wallet/wallet.h                      |  3 ++
+ test/functional/wallet_basic.py          | 33 +++++++++++++++++
+ test/functional/wallet_listsinceblock.py | 63 ++++++++++++++++++++++++++++++++
+ 12 files changed, 158 insertions(+), 9 deletions(-)
+ create mode 100644 doc/release-notes-25504.md

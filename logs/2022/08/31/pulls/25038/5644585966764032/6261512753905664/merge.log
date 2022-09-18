@@ -1,0 +1,112 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at ac995a078 [functional test] package RBF and V3
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/Makefile.am
+Auto-merging src/validation.cpp
+Auto-merging test/functional/test_runner.py
+Merge made by the 'ort' strategy.
+ ci/test/06_script_b.sh                             |   1 +
+ src/.clang-tidy                                    |   7 +
+ src/Makefile.am                                    |   3 +
+ src/Makefile.test.include                          |   2 +
+ src/bitcoin-chainstate.cpp                         |   5 +-
+ src/chain.cpp                                      |  47 +-
+ src/chain.h                                        |  10 +-
+ src/consensus/validation.h                         |   1 +
+ src/headerssync.cpp                                | 317 ++++++++++++
+ src/headerssync.h                                  | 277 +++++++++++
+ src/interfaces/node.h                              |   2 +-
+ src/logging.cpp                                    |   3 +
+ src/logging.h                                      |   1 +
+ src/net.cpp                                        |  10 +-
+ src/net.h                                          |  16 +-
+ src/net_processing.cpp                             | 465 ++++++++++++++++--
+ src/net_processing.h                               |   1 +
+ src/node/interface_ui.cpp                          |   2 +-
+ src/node/interface_ui.h                            |   2 +-
+ src/node/interfaces.cpp                            |  10 +-
+ src/node/mempool_args.cpp                          |   1 +
+ src/pow.cpp                                        |  51 ++
+ src/pow.h                                          |  14 +
+ src/primitives/block.h                             |   2 +-
+ src/qt/bitcoin.cpp                                 |   2 +
+ src/qt/bitcoingui.cpp                              |  26 +-
+ src/qt/bitcoingui.h                                |   5 +-
+ src/qt/clientmodel.cpp                             |  18 +-
+ src/qt/clientmodel.h                               |  10 +-
+ src/qt/modaloverlay.cpp                            |  12 +-
+ src/qt/modaloverlay.h                              |   3 +-
+ src/qt/rpcconsole.cpp                              |   6 +-
+ src/qt/rpcconsole.h                                |   4 +-
+ src/qt/sendcoinsdialog.cpp                         |   2 +-
+ src/qt/sendcoinsdialog.h                           |   4 +-
+ src/rpc/blockchain.cpp                             |   2 +-
+ src/rpc/mining.cpp                                 |   6 +-
+ src/rpc/net.cpp                                    |   2 +
+ src/script/descriptor.cpp                          |   6 +-
+ src/test/blockfilter_index_tests.cpp               |   8 +-
+ src/test/coinstatsindex_tests.cpp                  |   2 +-
+ src/test/fuzz/bitdeque.cpp                         | 542 +++++++++++++++++++++
+ src/test/fuzz/pow.cpp                              |  37 ++
+ src/test/fuzz/txorphan.cpp                         |   1 -
+ src/test/fuzz/utxo_snapshot.cpp                    |   2 +-
+ src/test/headers_sync_chainwork_tests.cpp          | 146 ++++++
+ src/test/miner_tests.cpp                           |   2 +-
+ src/test/pow_tests.cpp                             |  27 +-
+ src/test/skiplist_tests.cpp                        |   2 +-
+ src/test/util/mining.cpp                           |   2 +-
+ src/test/util/setup_common.cpp                     |   2 +-
+ src/test/util_tests.cpp                            |   7 +-
+ src/test/validation_block_tests.cpp                |  10 +-
+ src/test/validation_chainstate_tests.cpp           |   2 +-
+ src/threadinterrupt.h                              |   1 +
+ src/univalue/include/univalue.h                    |   8 +-
+ src/univalue/lib/univalue.cpp                      |  20 +-
+ src/util/bip32.cpp                                 |   2 -
+ src/util/bitdeque.h                                | 469 ++++++++++++++++++
+ src/util/message.cpp                               |   1 -
+ src/util/strencodings.cpp                          |   1 -
+ src/util/string.cpp                                |   3 +-
+ src/util/string.h                                  |   1 -
+ src/validation.cpp                                 |  66 ++-
+ src/validation.h                                   |  33 +-
+ src/wallet/spend.cpp                               |   2 +-
+ test/functional/feature_block.py                   |   2 +-
+ test/functional/p2p_compactblocks.py               |  24 +
+ test/functional/p2p_dos_header_tree.py             |   3 +-
+ .../p2p_headers_sync_with_minchainwork.py          | 144 ++++++
+ test/functional/p2p_unrequested_blocks.py          |  14 +-
+ test/functional/rpc_blockchain.py                  |  11 +-
+ test/functional/rpc_fundrawtransaction.py          |   4 +-
+ test/functional/test_runner.py                     |   1 +
+ test/functional/wallet_balance.py                  |   1 -
+ test/functional/wallet_basic.py                    |  10 +-
+ test/functional/wallet_bumpfee.py                  |   2 +-
+ test/functional/wallet_groups.py                   |   2 +-
+ 78 files changed, 2766 insertions(+), 209 deletions(-)
+ create mode 100644 src/headerssync.cpp
+ create mode 100644 src/headerssync.h
+ create mode 100644 src/test/fuzz/bitdeque.cpp
+ create mode 100644 src/test/headers_sync_chainwork_tests.cpp
+ create mode 100644 src/util/bitdeque.h
+ create mode 100755 test/functional/p2p_headers_sync_with_minchainwork.py
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

@@ -1,0 +1,44 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-17 15:36:25.876 xcodebuild[698:5542] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-17 15:36:25.876 xcodebuild[698:5542] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/wallet.h
+Auto-merging src/wallet/wallet.cpp
+Auto-merging src/wallet/scriptpubkeyman.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging src/validation.h
+Auto-merging src/script/descriptor.cpp
+Auto-merging src/init.cpp
+Merge made by the 'recursive' strategy.
+ contrib/guix/libexec/build.sh                   |  2 ++
+ share/setup.nsi.in                              |  5 +++++
+ src/bitcoin-chainstate.cpp                      |  6 ++++--
+ src/init.cpp                                    |  6 +++---
+ src/net_processing.cpp                          |  2 +-
+ src/qt/test/wallettests.cpp                     |  4 ++--
+ src/rest.cpp                                    | 14 +++++++++-----
+ src/rpc/mining.cpp                              | 16 ----------------
+ src/script/descriptor.cpp                       |  2 +-
+ src/script/signingprovider.cpp                  | 22 ++++++++--------------
+ src/script/signingprovider.h                    |  5 +++--
+ src/test/descriptor_tests.cpp                   |  2 +-
+ src/test/interfaces_tests.cpp                   |  6 +++++-
+ src/test/validation_block_tests.cpp             |  5 +++--
+ src/test/validation_chainstatemanager_tests.cpp | 16 ++++++++--------
+ src/validation.h                                | 19 ++++++++++++++++---
+ src/wallet/rpc/spend.cpp                        |  2 +-
+ src/wallet/rpc/util.cpp                         |  9 ++++-----
+ src/wallet/scriptpubkeyman.cpp                  | 10 +++++-----
+ src/wallet/test/availablecoins_tests.cpp        |  1 +
+ src/wallet/test/spend_tests.cpp                 |  2 +-
+ src/wallet/test/wallet_tests.cpp                | 22 +++++++++++++++-------
+ src/wallet/wallet.cpp                           |  7 +++++++
+ src/wallet/wallet.h                             |  1 +
+ 24 files changed, 106 insertions(+), 80 deletions(-)

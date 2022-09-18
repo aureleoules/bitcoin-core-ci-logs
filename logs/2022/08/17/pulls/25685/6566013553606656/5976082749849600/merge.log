@@ -1,0 +1,43 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 5ca1be4cc bench: add benchmark for tx creation using pre-set inputs and coin selection
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ contrib/guix/libexec/build.sh                   |  2 ++
+ share/setup.nsi.in                              |  5 +++++
+ src/bitcoin-chainstate.cpp                      |  6 ++++--
+ src/init.cpp                                    |  6 +++---
+ src/net_processing.cpp                          |  2 +-
+ src/qt/test/wallettests.cpp                     |  4 ++--
+ src/rest.cpp                                    | 14 +++++++++-----
+ src/rpc/mining.cpp                              | 16 ----------------
+ src/test/interfaces_tests.cpp                   |  6 +++++-
+ src/test/validation_block_tests.cpp             |  5 +++--
+ src/test/validation_chainstatemanager_tests.cpp | 16 ++++++++--------
+ src/validation.h                                | 19 ++++++++++++++++---
+ src/wallet/rpc/util.cpp                         |  9 ++++-----
+ src/wallet/test/availablecoins_tests.cpp        |  1 +
+ src/wallet/test/spend_tests.cpp                 |  2 +-
+ src/wallet/test/wallet_tests.cpp                | 22 +++++++++++++++-------
+ src/wallet/wallet.cpp                           |  7 +++++++
+ src/wallet/wallet.h                             |  1 +
+ 18 files changed, 87 insertions(+), 56 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

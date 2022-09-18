@@ -1,0 +1,733 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/aarch64-linux-android
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--disable-tests --enable-gui-tests --disable-bench --disable-fuzz-binary --without-utils --without-libs --without-daemon
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/aarch64-linux-android
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping git, it is already installed and upgrade is not set.
+Skipping procps, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  adwaita-icon-theme ant ant-optional antlr autoconf binutils binutils-common
+  binutils-x86-64-linux-gnu bnd ca-certificates-java cpp cpp-9
+  default-jre-headless dpkg-dev file fontconfig fontconfig-config
+  fonts-dejavu-core g++ g++-9 gcc gcc-9 gcc-9-base groovy
+  gtk-update-icon-cache hicolor-icon-theme humanity-icon-theme ivy java-common
+  java-wrappers junit4 libantlr-java libaopalliance-java libapache-pom-java
+  libapparmor1 libasan5 libasm-java libasound2 libasound2-data libasyncns0
+  libatinject-jsr330-api-java libatk-bridge2.0-0 libatk-wrapper-java
+  libatk-wrapper-java-jni libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libbcel-java
+  libbcpg-java libbcprov-java libbinutils libbsf-java libbsh-java libc-dev-bin
+  libc6-dev libcairo-gobject2 libcairo2 libcc1-0 libcdi-api-java
+  libcommons-cli-java libcommons-codec-java libcommons-collections3-java
+  libcommons-compress-java libcommons-io-java libcommons-lang-java
+  libcommons-lang3-java libcommons-logging-java libcommons-parent-java
+  libcrypt-dev libctf-nobfd0 libctf0 libcups2 libcurl4 libdatrie1 libdbus-1-3
+  libdd-plist-java libdom4j-java libdpkg-perl libdrm-amdgpu1 libdrm-common
+  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libel-api-java libelf1
+  libfelix-framework-java libfelix-gogo-runtime-java libfelix-resolver-java
+  libfindbugs-java libflac8 libfontconfig1 libfontenc1 libfreetype6
+  libfribidi0 libgcc-9-dev libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common
+  libgeronimo-annotation-1.3-spec-java libgeronimo-interceptor-3.0-spec-java
+  libgif7 libgl1 libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa libglib2.0-0
+  libglvnd0 libglx-mesa0 libglx0 libgomp1 libgoogle-gson-java
+  libgradle-core-java libgradle-plugins-java libgraphite2-3 libgtk2.0-0
+  libgtk2.0-common libguava-java libguice-java libhamcrest-java libharfbuzz0b
+  libhawtjni-runtime-java libhttpclient-java libhttpcore-java libice6 libicu66
+  libisl22 libitm1 libjansi-java libjansi-native-java libjarjar-java
+  libjatl-java libjavaewah-java libjaxen-java libjbig0 libjcifs-java
+  libjcip-annotations-java libjcommander-java libjformatstring-java
+  libjgit-java libjline2-java libjna-java libjna-jni libjpeg-turbo8 libjpeg8
+  libjs-jquery libjsch-java libjsoup-java libjsp-api-java libjsr305-java
+  libjzlib-java libkryo-java liblcms2-2 libllvm12 liblogback-java liblsan0
+  libmagic-mgc libmagic1 libmaven-parent-java libmaven-resolver-java
+  libmaven-shared-utils-java libmaven3-core-java libminlog-java libmpc3
+  libmpdec2 libmpfr6 libnative-platform-java libnative-platform-jni
+  libnekohtml-java libnspr4 libnss3 libobjenesis-java libogg0
+  libosgi-annotation-java libosgi-compendium-java libosgi-core-java
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+  libpcsclite1 libpixman-1-0 libplexus-cipher-java libplexus-classworlds-java
+  libplexus-component-annotations-java libplexus-container-default-java
+  libplexus-container-default1.5-java libplexus-interpolation-java
+  libplexus-sec-dispatcher-java libplexus-utils2-java libpng16-16
+  libpolyglot-maven-java libpopt0 libpulse0 libpython3-stdlib
+  libpython3.8-minimal libpython3.8-stdlib libqdox-java libquadmath0
+  libreadline8 libreflectasm-java librhino-java librsvg2-2 librsvg2-common
+  libsensors-config libsensors5 libservlet-api-java libservlet3.1-java
+  libsigsegv2 libsimple-http-java libsisu-inject-java libsisu-plexus-java
+  libslf4j-java libsm6 libsndfile1 libstdc++-9-dev libthai-data libthai0
+  libtiff5 libtsan0 libubsan1 libvorbis0a libvorbisenc2 libvulkan1
+  libwagon-file-java libwagon-http-java libwagon-provider-api-java libwebp6
+  libwebsocket-api-java libwrap0 libx11-xcb1 libxaw7 libxbean-reflect-java
+  libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-render0
+  libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcomposite1
+  libxcursor1 libxdamage1 libxerces2-java libxfixes3 libxft2 libxi6
+  libxinerama1 libxkbfile1 libxml-commons-external-java
+  libxml-commons-resolver1.1-java libxml2 libxmu6 libxpm4 libxpp3-java
+  libxrandr2 libxrender1 libxshmfence1 libxstream-java libxt6 libxtst6 libxv1
+  libxxf86dga1 libxxf86vm1 libxz-java libyaml-snake-java linux-libc-dev m4
+  make mime-support openjdk-11-jre-headless openjdk-8-jdk-headless
+  openjdk-8-jre openjdk-8-jre-headless python3-minimal python3.8
+  python3.8-minimal readline-common shared-mime-info testng tzdata ubuntu-mono
+  ucf x11-common x11-utils xz-utils
+Suggested packages:
+  ant-doc javacc junit jython libactivation-java libcommons-net-java
+  libmail-java libjaxp1.3-java libjdepend-java liblog4j1.2-java liboro-java
+  libregexp-java libxalan2-java autoconf-archive gnu-standards autoconf-doc
+  gettext binutils-doc bison-doc wamerican | wordlist whois vacation distcc
+  | icecc cpp-doc gcc-9-locales default-jre debian-keyring g++-multilib
+  g++-9-multilib gcc-9-doc gcc-multilib manpages-dev flex gdb gcc-doc
+  gcc-9-multilib gradle-doc groovy-doc ivy-doc libjsch-agent-proxy-java
+  libaopalliance-java-doc libasound2-plugins alsa-utils
+  libatinject-jsr330-api-java-doc libbcel-java-doc libbcpg-java-doc
+  libbcprov-java-doc bsh rhino glibc-doc libcommons-collections3-java-doc
+  libcommons-io-java-doc libcommons-lang-java-doc libcommons-lang3-java-doc
+  libavalon-framework-java libcommons-logging-java-doc
+  libexcalibur-logkit-java cups-common libdom4j-java-doc libmsv-java
+  libxpp2-java gnupg | gnupg2 bzr libfelix-framework-java-doc
+  libfelix-gogo-runtime-java-doc libgoogle-gson-java-doc gvfs libcglib-java
+  libjavaewah-java-doc libjdom1-java libxom-java libjcifs-java-doc
+  libjcommander-java-doc libjgit-java-doc libjna-java-doc libjsoup-java-doc
+  libjsr305-java-doc liblcms2-utils libjanino-java libjetty9-java
+  libtomcat9-java libmaven-shared-utils-java-doc libnative-platform-java-doc
+  libnekohtml-java-doc libobjenesis-java-doc libosgi-annotation-java-doc
+  libosgi-compendium-java-doc libosgi-core-java-doc pciutils pcscd
+  libplexus-cipher-java-doc libplexus-classworlds-java-doc
+  libplexus-sec-dispatcher-java-doc libplexus-utils2-java-doc
+  libpolyglot-maven-java-doc pulseaudio libqdox-java-doc librsvg2-bin
+  lm-sensors libsimple-http-java-doc libstdc++-9-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libxerces2-java-doc
+  libxml-commons-resolver1.1-java-doc libcglib-nodep-java libjdom2-java
+  libjettison-java libjoda-time-java libkxml2-java libwoodstox-java m4-doc
+  make-doc libnss-mdns fonts-dejavu-extra fonts-ipafont-gothic
+  fonts-ipafont-mincho fonts-wqy-microhei | fonts-wqy-zenhei fonts-indic
+  openjdk-8-demo openjdk-8-source visualvm fonts-wqy-microhei fonts-wqy-zenhei
+  python3-doc python3-tk python3-venv python3.8-venv python3.8-doc
+  binfmt-support readline-doc openssh-server zip mesa-utils
+Recommended packages:
+  libbindex-java fakeroot gnupg | gnupg2 libalgorithm-merge-perl
+  libgpars-groovy-java alsa-ucm-conf alsa-topology-conf at-spi2-core manpages
+  manpages-dev dbus libfile-fcntllock-perl liblocale-gettext-perl
+  libgdk-pixbuf2.0-bin libglib2.0-data xdg-user-dirs libgail-common
+  libgtk2.0-bin javascript-common libltdl-dev mesa-vulkan-drivers | vulkan-icd
+  libxt-dev fonts-dejavu-extra
+The following NEW packages will be installed:
+  adwaita-icon-theme ant ant-optional antlr autoconf automake autotools-dev
+  binutils binutils-common binutils-x86-64-linux-gnu bison bnd bsdmainutils
+  build-essential ca-certificates-java ccache cpp cpp-9 curl
+  default-jre-headless dpkg-dev file fontconfig fontconfig-config
+  fonts-dejavu-core g++ g++-9 gcc gcc-9 gcc-9-base gradle groovy
+  gtk-update-icon-cache hicolor-icon-theme humanity-icon-theme ivy java-common
+  java-wrappers junit4 libantlr-java libaopalliance-java libapache-pom-java
+  libapparmor1 libasan5 libasm-java libasound2 libasound2-data libasyncns0
+  libatinject-jsr330-api-java libatk-bridge2.0-0 libatk-wrapper-java
+  libatk-wrapper-java-jni libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libbcel-java
+  libbcpg-java libbcprov-java libbinutils libbsf-java libbsh-java libc-dev-bin
+  libc6-dev libcairo-gobject2 libcairo2 libcc1-0 libcdi-api-java
+  libcommons-cli-java libcommons-codec-java libcommons-collections3-java
+  libcommons-compress-java libcommons-io-java libcommons-lang-java
+  libcommons-lang3-java libcommons-logging-java libcommons-parent-java
+  libcrypt-dev libctf-nobfd0 libctf0 libcups2 libcurl4 libdatrie1 libdbus-1-3
+  libdd-plist-java libdom4j-java libdpkg-perl libdrm-amdgpu1 libdrm-common
+  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libel-api-java libelf1
+  libfelix-framework-java libfelix-gogo-runtime-java libfelix-resolver-java
+  libfindbugs-java libflac8 libfontconfig1 libfontenc1 libfreetype6
+  libfribidi0 libgcc-9-dev libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common
+  libgeronimo-annotation-1.3-spec-java libgeronimo-interceptor-3.0-spec-java
+  libgif7 libgl1 libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa libglib2.0-0
+  libglvnd0 libglx-mesa0 libglx0 libgomp1 libgoogle-gson-java
+  libgradle-core-java libgradle-plugins-java libgraphite2-3 libgtk2.0-0
+  libgtk2.0-common libguava-java libguice-java libhamcrest-java libharfbuzz0b
+  libhawtjni-runtime-java libhttpclient-java libhttpcore-java libice6 libicu66
+  libisl22 libitm1 libjansi-java libjansi-native-java libjarjar-java
+  libjatl-java libjavaewah-java libjaxen-java libjbig0 libjcifs-java
+  libjcip-annotations-java libjcommander-java libjformatstring-java
+  libjgit-java libjline2-java libjna-java libjna-jni libjpeg-turbo8 libjpeg8
+  libjs-jquery libjsch-java libjsoup-java libjsp-api-java libjsr305-java
+  libjzlib-java libkryo-java liblcms2-2 libllvm12 liblogback-java liblsan0
+  libmagic-mgc libmagic1 libmaven-parent-java libmaven-resolver-java
+  libmaven-shared-utils-java libmaven3-core-java libminlog-java libmpc3
+  libmpdec2 libmpfr6 libnative-platform-java libnative-platform-jni
+  libnekohtml-java libnspr4 libnss3 libobjenesis-java libogg0
+  libosgi-annotation-java libosgi-compendium-java libosgi-core-java
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+  libpcsclite1 libpixman-1-0 libplexus-cipher-java libplexus-classworlds-java
+  libplexus-component-annotations-java libplexus-container-default-java
+  libplexus-container-default1.5-java libplexus-interpolation-java
+  libplexus-sec-dispatcher-java libplexus-utils2-java libpng16-16
+  libpolyglot-maven-java libpopt0 libpulse0 libpython3-stdlib
+  libpython3.8-minimal libpython3.8-stdlib libqdox-java libquadmath0
+  libreadline8 libreflectasm-java librhino-java librsvg2-2 librsvg2-common
+  libsensors-config libsensors5 libservlet-api-java libservlet3.1-java
+  libsigsegv2 libsimple-http-java libsisu-inject-java libsisu-plexus-java
+  libslf4j-java libsm6 libsndfile1 libstdc++-9-dev libthai-data libthai0
+  libtiff5 libtool libtsan0 libubsan1 libvorbis0a libvorbisenc2 libvulkan1
+  libwagon-file-java libwagon-http-java libwagon-provider-api-java libwebp6
+  libwebsocket-api-java libwrap0 libx11-xcb1 libxaw7 libxbean-reflect-java
+  libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-render0
+  libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcomposite1
+  libxcursor1 libxdamage1 libxerces2-java libxfixes3 libxft2 libxi6
+  libxinerama1 libxkbfile1 libxml-commons-external-java
+  libxml-commons-resolver1.1-java libxml2 libxmu6 libxpm4 libxpp3-java
+  libxrandr2 libxrender1 libxshmfence1 libxstream-java libxt6 libxtst6 libxv1
+  libxxf86dga1 libxxf86vm1 libxz-java libyaml-snake-java linux-libc-dev m4
+  make mime-support openjdk-11-jre-headless openjdk-8-jdk
+  openjdk-8-jdk-headless openjdk-8-jre openjdk-8-jre-headless pkg-config
+  python3 python3-minimal python3.8 python3.8-minimal readline-common rsync
+  shared-mime-info testng tzdata ubuntu-mono ucf unzip x11-common x11-utils
+  xz-utils
+0 upgraded, 305 newly installed, 0 to remove and 0 not upgraded.
+Need to get 257 MB of archives.
+After this operation, 1283 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpython3.8-minimal amd64 3.8.10-0ubuntu1~20.04.5 [717 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 python3.8-minimal amd64 3.8.10-0ubuntu1~20.04.5 [1905 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal/main amd64 python3-minimal amd64 3.8.2-0ubuntu2 [23.6 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 mime-support all 3.64ubuntu1 [30.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/main amd64 libmpdec2 amd64 2.4.2-3 [81.1 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 readline-common all 8.0-4 [53.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal/main amd64 libreadline8 amd64 8.0-4 [131 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpython3.8-stdlib amd64 3.8.10-0ubuntu1~20.04.5 [1675 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 python3.8 amd64 3.8.10-0ubuntu1~20.04.5 [387 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal/main amd64 libpython3-stdlib amd64 3.8.2-0ubuntu2 [7068 B]
+Get:11 http://archive.ubuntu.com/ubuntu focal/main amd64 python3 amd64 3.8.2-0ubuntu2 [47.6 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal/main amd64 libpopt0 amd64 1.16-14 [26.3 kB]
+Get:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 rsync amd64 3.1.3-8ubuntu0.4 [318 kB]
+Get:14 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic-mgc amd64 1:5.38-4 [218 kB]
+Get:15 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic1 amd64 1:5.38-4 [75.9 kB]
+Get:16 http://archive.ubuntu.com/ubuntu focal/main amd64 file amd64 1:5.38-4 [23.3 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]
+Get:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdbus-1-3 amd64 1.12.16-2ubuntu2.2 [179 kB]
+Get:19 http://archive.ubuntu.com/ubuntu focal/main amd64 libelf1 amd64 0.176-1.1build1 [44.0 kB]
+Get:20 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libfribidi0 amd64 1.0.8-2ubuntu0.1 [24.2 kB]
+Get:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglib2.0-0 amd64 2.64.6-1~ubuntu20.04.4 [1287 kB]
+Get:22 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 tzdata all 2022c-0ubuntu0.20.04.0 [288 kB]
+Get:23 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libicu66 amd64 66.1-2ubuntu2.1 [8515 kB]
+Get:24 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libxml2 amd64 2.9.10+dfsg-5ubuntu0.20.04.4 [640 kB]
+Get:25 http://archive.ubuntu.com/ubuntu focal/main amd64 shared-mime-info amd64 1.15-1 [430 kB]
+Get:26 http://archive.ubuntu.com/ubuntu focal/main amd64 ucf all 3.0038+nmu1 [51.6 kB]
+Get:27 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 xz-utils amd64 5.2.4-1ubuntu1.1 [82.6 kB]
+Get:28 http://archive.ubuntu.com/ubuntu focal/main amd64 bsdmainutils amd64 11.1.2ubuntu3 [181 kB]
+Get:29 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdrm-common all 2.4.107-8ubuntu1~20.04.2 [5396 B]
+Get:30 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdrm2 amd64 2.4.107-8ubuntu1~20.04.2 [34.1 kB]
+Get:31 http://archive.ubuntu.com/ubuntu focal/main amd64 libpng16-16 amd64 1.6.37-2 [179 kB]
+Get:32 http://archive.ubuntu.com/ubuntu focal/main amd64 hicolor-icon-theme all 0.17-2 [9976 B]
+Get:33 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libjpeg-turbo8 amd64 2.0.3-0ubuntu1.20.04.1 [117 kB]
+Get:34 http://archive.ubuntu.com/ubuntu focal/main amd64 libjpeg8 amd64 8c-2ubuntu8 [2194 B]
+Get:35 http://archive.ubuntu.com/ubuntu focal/main amd64 libjbig0 amd64 2.1-3.1build1 [26.7 kB]
+Get:36 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libwebp6 amd64 0.6.1-2ubuntu0.20.04.1 [185 kB]
+Get:37 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libtiff5 amd64 4.1.0+git191117-2ubuntu0.20.04.3 [162 kB]
+Get:38 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgdk-pixbuf2.0-common all 2.40.0+dfsg-3ubuntu0.3 [4628 B]
+Get:39 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgdk-pixbuf2.0-0 amd64 2.40.0+dfsg-3ubuntu0.3 [168 kB]
+Get:40 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gtk-update-icon-cache amd64 3.24.20-0ubuntu1.1 [28.8 kB]
+Get:41 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libfreetype6 amd64 2.10.1-2ubuntu0.2 [341 kB]
+Get:42 http://archive.ubuntu.com/ubuntu focal/main amd64 fonts-dejavu-core all 2.37-1 [1041 kB]
+Get:43 http://archive.ubuntu.com/ubuntu focal/main amd64 fontconfig-config all 2.13.1-2ubuntu3 [28.8 kB]
+Get:44 http://archive.ubuntu.com/ubuntu focal/main amd64 libfontconfig1 amd64 2.13.1-2ubuntu3 [114 kB]
+Get:45 http://archive.ubuntu.com/ubuntu focal/main amd64 libpixman-1-0 amd64 0.38.4-0ubuntu1 [227 kB]
+Get:46 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-render0 amd64 1.14-2 [14.8 kB]
+Get:47 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-shm0 amd64 1.14-2 [5584 B]
+Get:48 http://archive.ubuntu.com/ubuntu focal/main amd64 libxrender1 amd64 1:0.9.10-1 [18.7 kB]
+Get:49 http://archive.ubuntu.com/ubuntu focal/main amd64 libcairo2 amd64 1.16.0-4ubuntu1 [583 kB]
+Get:50 http://archive.ubuntu.com/ubuntu focal/main amd64 libcairo-gobject2 amd64 1.16.0-4ubuntu1 [17.2 kB]
+Get:51 http://archive.ubuntu.com/ubuntu focal/main amd64 fontconfig amd64 2.13.1-2ubuntu3 [171 kB]
+Get:52 http://archive.ubuntu.com/ubuntu focal/main amd64 libgraphite2-3 amd64 1.3.13-11build1 [73.5 kB]
+Get:53 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libharfbuzz0b amd64 2.6.4-1ubuntu4.2 [391 kB]
+Get:54 http://archive.ubuntu.com/ubuntu focal/main amd64 libthai-data all 0.1.28-3 [134 kB]
+Get:55 http://archive.ubuntu.com/ubuntu focal/main amd64 libdatrie1 amd64 0.2.12-3 [18.7 kB]
+Get:56 http://archive.ubuntu.com/ubuntu focal/main amd64 libthai0 amd64 0.1.28-3 [18.1 kB]
+Get:57 http://archive.ubuntu.com/ubuntu focal/main amd64 libpango-1.0-0 amd64 1.44.7-2ubuntu4 [162 kB]
+Get:58 http://archive.ubuntu.com/ubuntu focal/main amd64 libpangoft2-1.0-0 amd64 1.44.7-2ubuntu4 [34.9 kB]
+Get:59 http://archive.ubuntu.com/ubuntu focal/main amd64 libpangocairo-1.0-0 amd64 1.44.7-2ubuntu4 [24.8 kB]
+Get:60 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 librsvg2-2 amd64 2.48.9-1ubuntu0.20.04.1 [2253 kB]
+Get:61 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 librsvg2-common amd64 2.48.9-1ubuntu0.20.04.1 [9212 B]
+Get:62 http://archive.ubuntu.com/ubuntu focal/main amd64 humanity-icon-theme all 0.6.15 [1250 kB]
+Get:63 http://archive.ubuntu.com/ubuntu focal/main amd64 ubuntu-mono all 19.04-0ubuntu3 [147 kB]
+Get:64 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 adwaita-icon-theme all 3.36.1-2ubuntu0.20.04.2 [3441 kB]
+Get:65 http://archive.ubuntu.com/ubuntu focal/main amd64 java-common all 0.72 [6816 B]
+Get:66 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libavahi-common-data amd64 0.7-4ubuntu7.1 [21.4 kB]
+Get:67 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libavahi-common3 amd64 0.7-4ubuntu7.1 [21.7 kB]
+Get:68 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libavahi-client3 amd64 0.7-4ubuntu7.1 [25.5 kB]
+Get:69 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcups2 amd64 2.3.1-9ubuntu1.2 [233 kB]
+Get:70 http://archive.ubuntu.com/ubuntu focal/main amd64 liblcms2-2 amd64 2.9-4 [140 kB]
+Get:71 http://archive.ubuntu.com/ubuntu focal/main amd64 libnspr4 amd64 2:4.25-1 [107 kB]
+Get:72 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss3 amd64 2:3.49.1-1ubuntu1.8 [1256 kB]
+Get:73 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]
+Get:74 http://archive.ubuntu.com/ubuntu focal/main amd64 libxi6 amd64 2:1.7.10-0ubuntu1 [29.9 kB]
+Get:75 http://archive.ubuntu.com/ubuntu focal/main amd64 x11-common all 1:7.7+19ubuntu14 [22.3 kB]
+Get:76 http://archive.ubuntu.com/ubuntu focal/main amd64 libxtst6 amd64 2:1.2.3-1 [12.8 kB]
+Get:77 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 openjdk-8-jre-headless amd64 8u342-b07-0ubuntu1~20.04 [28.2 MB]
+Get:78 http://archive.ubuntu.com/ubuntu focal/main amd64 ca-certificates-java all 20190405ubuntu1 [12.2 kB]
+Get:79 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libasound2-data all 1.2.2-2.1ubuntu2.5 [20.1 kB]
+Get:80 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libasound2 amd64 1.2.2-2.1ubuntu2.5 [335 kB]
+Get:81 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openjdk-11-jre-headless amd64 11.0.16+8-0ubuntu1~20.04 [37.4 MB]
+Get:82 http://archive.ubuntu.com/ubuntu focal/main amd64 default-jre-headless amd64 2:1.11-72 [3192 B]
+Get:83 http://archive.ubuntu.com/ubuntu focal/universe amd64 ant all 1.10.7-1 [2100 kB]
+Get:84 http://archive.ubuntu.com/ubuntu focal/universe amd64 ant-optional all 1.10.7-1 [368 kB]
+Get:85 http://archive.ubuntu.com/ubuntu focal/universe amd64 libantlr-java all 2.7.7+dfsg-10build1 [451 kB]
+Get:86 http://archive.ubuntu.com/ubuntu focal/universe amd64 antlr all 2.7.7+dfsg-10build1 [5108 B]
+Get:87 http://archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
+Get:88 http://archive.ubuntu.com/ubuntu focal/main amd64 m4 amd64 1.4.18-4 [199 kB]
+Get:89 http://archive.ubuntu.com/ubuntu focal/main amd64 autoconf all 2.69-11.1 [321 kB]
+Get:90 http://archive.ubuntu.com/ubuntu focal/main amd64 autotools-dev all 20180224.1 [39.6 kB]
+Get:91 http://archive.ubuntu.com/ubuntu focal/main amd64 automake all 1:1.16.1-4ubuntu6 [522 kB]
+Get:92 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 binutils-common amd64 2.34-6ubuntu1.3 [207 kB]
+Get:93 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libbinutils amd64 2.34-6ubuntu1.3 [474 kB]
+Get:94 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libctf-nobfd0 amd64 2.34-6ubuntu1.3 [47.4 kB]
+Get:95 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libctf0 amd64 2.34-6ubuntu1.3 [46.6 kB]
+Get:96 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.34-6ubuntu1.3 [1613 kB]
+Get:97 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 binutils amd64 2.34-6ubuntu1.3 [3380 B]
+Get:98 http://archive.ubuntu.com/ubuntu focal/main amd64 bison amd64 2:3.5.1+dfsg-1 [657 kB]
+Get:99 http://archive.ubuntu.com/ubuntu focal/main amd64 unzip amd64 6.0-25ubuntu1 [169 kB]
+Get:100 http://archive.ubuntu.com/ubuntu focal/universe amd64 java-wrappers all 0.3 [9560 B]
+Get:101 http://archive.ubuntu.com/ubuntu focal/universe amd64 libhamcrest-java all 1.3-9 [386 kB]
+Get:102 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 junit4 all 4.12-8ubuntu0.20.04.1 [291 kB]
+Get:103 http://archive.ubuntu.com/ubuntu focal/universe amd64 libfelix-framework-java all 4.6.1-2 [526 kB]
+Get:104 http://archive.ubuntu.com/ubuntu focal/universe amd64 libfelix-gogo-runtime-java all 0.16.2-1 [110 kB]
+Get:105 http://archive.ubuntu.com/ubuntu focal/universe amd64 libosgi-annotation-java all 6.0.0-2 [3734 B]
+Get:106 http://archive.ubuntu.com/ubuntu focal/universe amd64 libosgi-core-java all 6.0.0-1 [147 kB]
+Get:107 http://archive.ubuntu.com/ubuntu focal/universe amd64 libfelix-resolver-java all 1.14.0-1 [175 kB]
+Get:108 http://archive.ubuntu.com/ubuntu focal/universe amd64 libosgi-compendium-java all 6.0.0-1 [244 kB]
+Get:109 http://archive.ubuntu.com/ubuntu focal/universe amd64 libslf4j-java all 1.7.25-3 [141 kB]
+Get:110 http://archive.ubuntu.com/ubuntu focal/universe amd64 libxz-java all 1.8-2 [140 kB]
+Get:111 http://archive.ubuntu.com/ubuntu focal/universe amd64 libyaml-snake-java all 1.25+ds-2 [273 kB]
+Get:112 http://archive.ubuntu.com/ubuntu focal/universe amd64 bnd all 3.5.0-4 [7600 kB]
+Get:113 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc-dev-bin amd64 2.31-0ubuntu9.9 [71.8 kB]
+Get:114 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 linux-libc-dev amd64 5.4.0-125.141 [1100 kB]
+Get:115 http://archive.ubuntu.com/ubuntu focal/main amd64 libcrypt-dev amd64 1:4.4.10-10ubuntu4 [104 kB]
+Get:116 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6-dev amd64 2.31-0ubuntu9.9 [2519 kB]
+Get:117 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gcc-9-base amd64 9.4.0-1ubuntu1~20.04.1 [19.4 kB]
+Get:118 http://archive.ubuntu.com/ubuntu focal/main amd64 libisl22 amd64 0.22.1-1 [592 kB]
+Get:119 http://archive.ubuntu.com/ubuntu focal/main amd64 libmpfr6 amd64 4.0.2-1 [240 kB]
+Get:120 http://archive.ubuntu.com/ubuntu focal/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:121 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 cpp-9 amd64 9.4.0-1ubuntu1~20.04.1 [7500 kB]
+Get:122 http://archive.ubuntu.com/ubuntu focal/main amd64 cpp amd64 4:9.3.0-1ubuntu2 [27.6 kB]
+Get:123 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcc1-0 amd64 10.3.0-1ubuntu1~20.04 [48.8 kB]
+Get:124 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgomp1 amd64 10.3.0-1ubuntu1~20.04 [102 kB]
+Get:125 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libitm1 amd64 10.3.0-1ubuntu1~20.04 [26.2 kB]
+Get:126 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libatomic1 amd64 10.3.0-1ubuntu1~20.04 [9284 B]
+Get:127 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libasan5 amd64 9.4.0-1ubuntu1~20.04.1 [2751 kB]
+Get:128 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 liblsan0 amd64 10.3.0-1ubuntu1~20.04 [835 kB]
+Get:129 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libtsan0 amd64 10.3.0-1ubuntu1~20.04 [2009 kB]
+Get:130 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libubsan1 amd64 10.3.0-1ubuntu1~20.04 [784 kB]
+Get:131 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libquadmath0 amd64 10.3.0-1ubuntu1~20.04 [146 kB]
+Get:132 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgcc-9-dev amd64 9.4.0-1ubuntu1~20.04.1 [2359 kB]
+Get:133 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gcc-9 amd64 9.4.0-1ubuntu1~20.04.1 [8274 kB]
+Get:134 http://archive.ubuntu.com/ubuntu focal/main amd64 gcc amd64 4:9.3.0-1ubuntu2 [5208 B]
+Get:135 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libstdc++-9-dev amd64 9.4.0-1ubuntu1~20.04.1 [1722 kB]
+Get:136 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 g++-9 amd64 9.4.0-1ubuntu1~20.04.1 [8420 kB]
+Get:137 http://archive.ubuntu.com/ubuntu focal/main amd64 g++ amd64 4:9.3.0-1ubuntu2 [1604 B]
+Get:138 http://archive.ubuntu.com/ubuntu focal/main amd64 make amd64 4.2.1-1.2 [162 kB]
+Get:139 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdpkg-perl all 1.19.7ubuntu3.2 [231 kB]
+Get:140 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 dpkg-dev all 1.19.7ubuntu3.2 [679 kB]
+Get:141 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 build-essential amd64 12.8ubuntu1.1 [4664 B]
+Get:142 http://archive.ubuntu.com/ubuntu focal/main amd64 ccache amd64 3.7.7-1 [121 kB]
+Get:143 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcurl4 amd64 7.68.0-1ubuntu2.13 [235 kB]
+Get:144 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.13 [161 kB]
+Get:145 http://archive.ubuntu.com/ubuntu focal/universe amd64 ivy all 2.4.0-5 [1206 kB]
+Get:146 http://archive.ubuntu.com/ubuntu focal/universe amd64 libasm-java all 7.2-1 [361 kB]
+Get:147 http://archive.ubuntu.com/ubuntu focal/universe amd64 libbsf-java all 1:2.4.0-8 [73.6 kB]
+Get:148 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-cli-java all 1.4-1 [53.8 kB]
+Get:149 http://archive.ubuntu.com/ubuntu focal/universe amd64 libapache-pom-java all 18-1 [4720 B]
+Get:150 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-parent-java all 43-1 [10.8 kB]
+Get:151 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-logging-java all 1.2-2 [60.3 kB]
+Get:152 http://archive.ubuntu.com/ubuntu focal/universe amd64 libhawtjni-runtime-java all 1.17-1 [28.8 kB]
+Get:153 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjansi-native-java all 1.8-1 [23.8 kB]
+Get:154 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjansi-java all 1.18-1 [56.8 kB]
+Get:155 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjline2-java all 2.14.6-3 [150 kB]
+Get:156 http://archive.ubuntu.com/ubuntu focal/universe amd64 libqdox-java all 1.12.1-3 [172 kB]
+Get:157 http://archive.ubuntu.com/ubuntu focal/universe amd64 libservlet-api-java all 4.0.1-2 [81.0 kB]
+Get:158 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjsp-api-java all 2.3.4-2 [53.6 kB]
+Get:159 http://archive.ubuntu.com/ubuntu focal/universe amd64 libel-api-java all 3.0.0-2 [64.8 kB]
+Get:160 http://archive.ubuntu.com/ubuntu focal/universe amd64 libwebsocket-api-java all 1.1-1 [39.9 kB]
+Get:161 http://archive.ubuntu.com/ubuntu focal/universe amd64 libservlet3.1-java all 1:4.0.1-2 [9276 B]
+Get:162 http://archive.ubuntu.com/ubuntu focal/universe amd64 libxpp3-java all 1.1.4c-3 [292 kB]
+Get:163 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libxstream-java all 1.4.11.1-1ubuntu0.2 [539 kB]
+Get:164 http://archive.ubuntu.com/ubuntu focal/universe amd64 groovy all 2.4.17-4ubuntu1 [12.9 MB]
+Get:165 http://archive.ubuntu.com/ubuntu focal/universe amd64 libatinject-jsr330-api-java all 1.0+ds1-5 [5348 B]
+Get:166 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-collections3-java all 3.2.2-2 [525 kB]
+Get:167 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-compress-java all 1.19-1 [540 kB]
+Get:168 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libcommons-io-java all 2.6-2ubuntu0.20.04.1 [198 kB]
+Get:169 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-lang-java all 2.6-9 [272 kB]
+Get:170 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjsr305-java all 0.1~+svn49-11 [27.0 kB]
+Get:171 http://archive.ubuntu.com/ubuntu focal/universe amd64 libguava-java all 19.0-1 [2028 kB]
+Get:172 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-codec-java all 1.14-1 [285 kB]
+Get:173 http://archive.ubuntu.com/ubuntu focal/universe amd64 libhttpcore-java all 4.4.13-1 [610 kB]
+Get:174 http://archive.ubuntu.com/ubuntu focal/universe amd64 libhttpclient-java all 4.5.11-1 [1207 kB]
+Get:175 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjarjar-java all 1.4+svn142-10 [191 kB]
+Get:176 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjcip-annotations-java all 20060626-5 [11.6 kB]
+Get:177 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjna-jni amd64 4.5.2-1build2 [30.6 kB]
+Get:178 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjna-java all 4.5.2-1build2 [170 kB]
+Get:179 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjzlib-java all 1.1.3-2 [77.5 kB]
+Get:180 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjsch-java all 0.1.55-1 [283 kB]
+Get:181 http://archive.ubuntu.com/ubuntu focal/universe amd64 libminlog-java all 1.3.0-1 [7650 B]
+Get:182 http://archive.ubuntu.com/ubuntu focal/universe amd64 libobjenesis-java all 3.1-1 [51.5 kB]
+Get:183 http://archive.ubuntu.com/ubuntu focal/universe amd64 libreflectasm-java all 1.05-4 [17.7 kB]
+Get:184 http://archive.ubuntu.com/ubuntu focal/universe amd64 libkryo-java all 2.20-6 [151 kB]
+Get:185 http://archive.ubuntu.com/ubuntu focal/universe amd64 liblogback-java all 1:1.2.3-5 [761 kB]
+Get:186 http://archive.ubuntu.com/ubuntu focal/universe amd64 libnative-platform-jni amd64 0.14-5build1 [11.7 kB]
+Get:187 http://archive.ubuntu.com/ubuntu focal/universe amd64 libnative-platform-java all 0.14-5build1 [68.5 kB]
+Get:188 http://archive.ubuntu.com/ubuntu focal/universe amd64 libxml-commons-external-java all 1.4.01-3 [240 kB]
+Get:189 http://archive.ubuntu.com/ubuntu focal/universe amd64 libxml-commons-resolver1.1-java all 1.2-9 [91.1 kB]
+Get:190 http://archive.ubuntu.com/ubuntu focal/universe amd64 libxerces2-java all 2.12.1-1 [1437 kB]
+Get:191 http://archive.ubuntu.com/ubuntu focal/universe amd64 libnekohtml-java all 1.9.22-1 [120 kB]
+Get:192 http://archive.ubuntu.com/ubuntu focal/universe amd64 libxbean-reflect-java all 4.5-8 [132 kB]
+Get:193 http://archive.ubuntu.com/ubuntu focal/universe amd64 libgradle-core-java all 4.4.1-10 [4235 kB]
+Get:194 http://archive.ubuntu.com/ubuntu focal/universe amd64 libbcprov-java all 1.61-1 [3473 kB]
+Get:195 http://archive.ubuntu.com/ubuntu focal/universe amd64 libbcpg-java all 1.61-1 [257 kB]
+Get:196 http://archive.ubuntu.com/ubuntu focal/universe amd64 libbsh-java all 2.0b4-20 [289 kB]
+Get:197 http://archive.ubuntu.com/ubuntu focal/universe amd64 libdd-plist-java all 1.20-1 [72.5 kB]
+Get:198 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjaxen-java all 1.1.6-4 [214 kB]
+Get:199 http://archive.ubuntu.com/ubuntu focal/universe amd64 libdom4j-java all 2.1.1-2 [309 kB]
+Get:200 http://archive.ubuntu.com/ubuntu focal/universe amd64 libbcel-java all 6.4.1-1 [627 kB]
+Get:201 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjformatstring-java all 0.10~20131207-2 [33.8 kB]
+Get:202 http://archive.ubuntu.com/ubuntu focal/universe amd64 libfindbugs-java all 3.1.0~preview2-3 [3502 kB]
+Get:203 http://archive.ubuntu.com/ubuntu focal/universe amd64 libgoogle-gson-java all 2.8.5-3 [219 kB]
+Get:204 http://archive.ubuntu.com/ubuntu focal/universe amd64 libaopalliance-java all 20070526-6 [9084 B]
+Get:205 http://archive.ubuntu.com/ubuntu focal/universe amd64 libguice-java all 4.2.1-1 [962 kB]
+Get:206 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjatl-java all 0.2.3-1 [28.2 kB]
+Get:207 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjcifs-java all 1.3.19-2 [376 kB]
+Get:208 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjavaewah-java all 0.7.9-1 [117 kB]
+Get:209 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjgit-java all 3.7.1-6 [1884 kB]
+Get:210 http://archive.ubuntu.com/ubuntu focal/main amd64 libjs-jquery all 3.3.1~dfsg-3 [329 kB]
+Get:211 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-utils2-java all 3.3.0-1 [250 kB]
+Get:212 http://archive.ubuntu.com/ubuntu focal/universe amd64 libwagon-provider-api-java all 3.3.4-1 [48.5 kB]
+Get:213 http://archive.ubuntu.com/ubuntu focal/universe amd64 libmaven-resolver-java all 1.4.1-1 [555 kB]
+Get:214 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcommons-lang3-java all 3.8-2 [458 kB]
+Get:215 http://archive.ubuntu.com/ubuntu focal/universe amd64 libgeronimo-annotation-1.3-spec-java all 1.0-1 [10.7 kB]
+Get:216 http://archive.ubuntu.com/ubuntu focal/universe amd64 libmaven-parent-java all 31-2 [5140 B]
+Get:217 http://archive.ubuntu.com/ubuntu focal/universe amd64 libmaven-shared-utils-java all 3.3.0-1 [149 kB]
+Get:218 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-cipher-java all 1.7-3 [15.1 kB]
+Get:219 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-classworlds-java all 2.6.0-1 [49.4 kB]
+Get:220 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-component-annotations-java all 2.1.0-1 [6564 B]
+Get:221 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-interpolation-java all 1.26-1 [76.8 kB]
+Get:222 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-sec-dispatcher-java all 1.4-4 [28.1 kB]
+Get:223 http://archive.ubuntu.com/ubuntu focal/universe amd64 libgeronimo-interceptor-3.0-spec-java all 1.0.1-4fakesync [8616 B]
+Get:224 http://archive.ubuntu.com/ubuntu focal/universe amd64 libcdi-api-java all 1.2-2 [54.5 kB]
+Get:225 http://archive.ubuntu.com/ubuntu focal/universe amd64 libsisu-inject-java all 0.3.3-1 [347 kB]
+Get:226 http://archive.ubuntu.com/ubuntu focal/universe amd64 libsisu-plexus-java all 0.3.3-3 [182 kB]
+Get:227 http://archive.ubuntu.com/ubuntu focal/universe amd64 libmaven3-core-java all 3.6.3-1 [1535 kB]
+Get:228 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-container-default-java all 2.1.0-1 [192 kB]
+Get:229 http://archive.ubuntu.com/ubuntu focal/universe amd64 libplexus-container-default1.5-java all 2.1.0-1 [2324 B]
+Get:230 http://archive.ubuntu.com/ubuntu focal/universe amd64 libpolyglot-maven-java all 0.8~tobrien+git20120905-9 [74.8 kB]
+Get:231 http://archive.ubuntu.com/ubuntu focal/universe amd64 librhino-java all 1.7.7.1-1 [1150 kB]
+Get:232 http://archive.ubuntu.com/ubuntu focal/universe amd64 libsimple-http-java all 4.1.21-1fakesync1 [205 kB]
+Get:233 http://archive.ubuntu.com/ubuntu focal/universe amd64 libwagon-file-java all 3.3.4-1 [7928 B]
+Get:234 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjsoup-java all 1.10.2-2 [337 kB]
+Get:235 http://archive.ubuntu.com/ubuntu focal/universe amd64 libwagon-http-java all 3.3.4-1 [51.1 kB]
+Get:236 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjcommander-java all 1.71-3 [69.3 kB]
+Get:237 http://archive.ubuntu.com/ubuntu focal/universe amd64 testng all 6.9.12-4 [773 kB]
+Get:238 http://archive.ubuntu.com/ubuntu focal/universe amd64 libgradle-plugins-java all 4.4.1-10 [5156 kB]
+Get:239 http://archive.ubuntu.com/ubuntu focal/universe amd64 gradle all 4.4.1-10 [391 kB]
+Get:240 http://archive.ubuntu.com/ubuntu focal/main amd64 libasyncns0 amd64 0.8-6 [12.1 kB]
+Get:241 http://archive.ubuntu.com/ubuntu focal/main amd64 libatk1.0-data all 2.35.1-1ubuntu2 [2964 B]
+Get:242 http://archive.ubuntu.com/ubuntu focal/main amd64 libatk1.0-0 amd64 2.35.1-1ubuntu2 [45.5 kB]
+Get:243 http://archive.ubuntu.com/ubuntu focal/main amd64 libatspi2.0-0 amd64 2.36.0-2 [64.2 kB]
+Get:244 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libatk-bridge2.0-0 amd64 2.34.2-0ubuntu2~20.04.1 [58.2 kB]
+Get:245 http://archive.ubuntu.com/ubuntu focal/main amd64 libfontenc1 amd64 1:1.1.4-0ubuntu1 [14.0 kB]
+Get:246 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglvnd0 amd64 1.3.2-1~ubuntu0.20.04.2 [48.1 kB]
+Get:247 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglapi-mesa amd64 21.2.6-0ubuntu0.1~20.04.2 [27.4 kB]
+Get:248 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libx11-xcb1 amd64 2:1.6.9-2ubuntu1.2 [9372 B]
+Get:249 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-dri2-0 amd64 1.14-2 [6920 B]
+Get:250 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-dri3-0 amd64 1.14-2 [6552 B]
+Get:251 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-glx0 amd64 1.14-2 [22.1 kB]
+Get:252 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-present0 amd64 1.14-2 [5560 B]
+Get:253 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-sync1 amd64 1.14-2 [8884 B]
+Get:254 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-xfixes0 amd64 1.14-2 [9296 B]
+Get:255 http://archive.ubuntu.com/ubuntu focal/main amd64 libxfixes3 amd64 1:5.0.3-2 [10.9 kB]
+Get:256 http://archive.ubuntu.com/ubuntu focal/main amd64 libxshmfence1 amd64 1.3-1 [5028 B]
+Get:257 http://archive.ubuntu.com/ubuntu focal/main amd64 libxxf86vm1 amd64 1:1.1.4-1build1 [10.2 kB]
+Get:258 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdrm-amdgpu1 amd64 2.4.107-8ubuntu1~20.04.2 [18.6 kB]
+Get:259 http://archive.ubuntu.com/ubuntu focal/main amd64 libpciaccess0 amd64 0.16-0ubuntu1 [17.9 kB]
+Get:260 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdrm-intel1 amd64 2.4.107-8ubuntu1~20.04.2 [60.3 kB]
+Get:261 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdrm-nouveau2 amd64 2.4.107-8ubuntu1~20.04.2 [16.6 kB]
+Get:262 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdrm-radeon1 amd64 2.4.107-8ubuntu1~20.04.2 [19.7 kB]
+Get:263 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libllvm12 amd64 1:12.0.0-3ubuntu1~20.04.5 [18.8 MB]
+Get:264 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsensors-config all 1:3.6.0-2ubuntu1.1 [6052 B]
+Get:265 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsensors5 amd64 1:3.6.0-2ubuntu1.1 [27.2 kB]
+Get:266 http://archive.ubuntu.com/ubuntu focal/main amd64 libvulkan1 amd64 1.2.131.2-1 [93.3 kB]
+Get:267 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgl1-mesa-dri amd64 21.2.6-0ubuntu0.1~20.04.2 [11.0 MB]
+Get:268 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglx-mesa0 amd64 21.2.6-0ubuntu0.1~20.04.2 [137 kB]
+Get:269 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglx0 amd64 1.3.2-1~ubuntu0.20.04.2 [32.5 kB]
+Get:270 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgl1 amd64 1.3.2-1~ubuntu0.20.04.2 [85.8 kB]
+Get:271 http://archive.ubuntu.com/ubuntu focal/main amd64 libice6 amd64 2:1.0.10-0ubuntu1 [41.0 kB]
+Get:272 http://archive.ubuntu.com/ubuntu focal/main amd64 libsm6 amd64 2:1.2.3-1 [16.1 kB]
+Get:273 http://archive.ubuntu.com/ubuntu focal/main amd64 libxt6 amd64 1:1.1.5-1 [160 kB]
+Get:274 http://archive.ubuntu.com/ubuntu focal/main amd64 libxmu6 amd64 2:1.1.3-0ubuntu1 [45.8 kB]
+Get:275 http://archive.ubuntu.com/ubuntu focal/main amd64 libxpm4 amd64 1:3.5.12-1 [34.0 kB]
+Get:276 http://archive.ubuntu.com/ubuntu focal/main amd64 libxaw7 amd64 2:1.0.13-1 [173 kB]
+Get:277 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcb-shape0 amd64 1.14-2 [5928 B]
+Get:278 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcomposite1 amd64 1:0.4.5-1 [6976 B]
+Get:279 http://archive.ubuntu.com/ubuntu focal/main amd64 libxft2 amd64 2.3.3-0ubuntu1 [39.2 kB]
+Get:280 http://archive.ubuntu.com/ubuntu focal/main amd64 libxinerama1 amd64 2:1.1.4-2 [6904 B]
+Get:281 http://archive.ubuntu.com/ubuntu focal/main amd64 libxkbfile1 amd64 1:1.1.0-1 [65.3 kB]
+Get:282 http://archive.ubuntu.com/ubuntu focal/main amd64 libxrandr2 amd64 2:1.5.2-0ubuntu1 [18.5 kB]
+Get:283 http://archive.ubuntu.com/ubuntu focal/main amd64 libxv1 amd64 2:1.0.11-1 [10.7 kB]
+Get:284 http://archive.ubuntu.com/ubuntu focal/main amd64 libxxf86dga1 amd64 2:1.1.5-0ubuntu1 [12.0 kB]
+Get:285 http://archive.ubuntu.com/ubuntu focal/main amd64 x11-utils amd64 7.7+5 [199 kB]
+Get:286 http://archive.ubuntu.com/ubuntu focal/main amd64 libatk-wrapper-java all 0.37.1-1 [53.0 kB]
+Get:287 http://archive.ubuntu.com/ubuntu focal/main amd64 libatk-wrapper-java-jni amd64 0.37.1-1 [45.1 kB]
+Get:288 http://archive.ubuntu.com/ubuntu focal/main amd64 libogg0 amd64 1.3.4-0ubuntu1 [24.0 kB]
+Get:289 http://archive.ubuntu.com/ubuntu focal/main amd64 libflac8 amd64 1.3.3-1build1 [103 kB]
+Get:290 http://archive.ubuntu.com/ubuntu focal/main amd64 libgif7 amd64 5.1.9-1 [32.2 kB]
+Get:291 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgl1-mesa-glx amd64 21.2.6-0ubuntu0.1~20.04.2 [5536 B]
+Get:292 http://archive.ubuntu.com/ubuntu focal/main amd64 libgtk2.0-common all 2.24.32-4ubuntu4 [126 kB]
+Get:293 http://archive.ubuntu.com/ubuntu focal/main amd64 libxcursor1 amd64 1:1.2.0-2 [20.1 kB]
+Get:294 http://archive.ubuntu.com/ubuntu focal/main amd64 libxdamage1 amd64 1:1.1.5-2 [6996 B]
+Get:295 http://archive.ubuntu.com/ubuntu focal/main amd64 libgtk2.0-0 amd64 2.24.32-4ubuntu4 [1791 kB]
+Get:296 http://archive.ubuntu.com/ubuntu focal/main amd64 libvorbis0a amd64 1.3.6-2ubuntu1 [87.0 kB]
+Get:297 http://archive.ubuntu.com/ubuntu focal/main amd64 libvorbisenc2 amd64 1.3.6-2ubuntu1 [70.7 kB]
+Get:298 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsndfile1 amd64 1.0.28-7ubuntu0.1 [170 kB]
+Get:299 http://archive.ubuntu.com/ubuntu focal/main amd64 libwrap0 amd64 7.6.q-30 [46.3 kB]
+Get:300 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpulse0 amd64 1:13.99.1-1ubuntu3.13 [262 kB]
+Get:301 http://archive.ubuntu.com/ubuntu focal/main amd64 libtool all 2.4.6-14 [161 kB]
+Get:302 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 openjdk-8-jre amd64 8u342-b07-0ubuntu1~20.04 [69.9 kB]
+Get:303 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 openjdk-8-jdk-headless amd64 8u342-b07-0ubuntu1~20.04 [8298 kB]
+Get:304 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 openjdk-8-jdk amd64 8u342-b07-0ubuntu1~20.04 [3982 kB]
+Get:305 http://archive.ubuntu.com/ubuntu focal/main amd64 pkg-config amd64 0.29.1-0ubuntu4 [45.5 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 257 MB in 10s (24.7 MB/s)
+Selecting previously unselected package libpython3.8-minimal:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7946 files and directories currently installed.)
+Preparing to unpack .../libpython3.8-minimal_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking libpython3.8-minimal:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package python3.8-minimal.
+Preparing to unpack .../python3.8-minimal_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking python3.8-minimal (3.8.10-0ubuntu1~20.04.5) ...
+Setting up libpython3.8-minimal:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Setting up python3.8-minimal (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8229 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.8.2-0ubuntu2_amd64.deb ...
+Unpacking python3-minimal (3.8.2-0ubuntu2) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.64ubuntu1_all.deb ...
+Unpacking mime-support (3.64ubuntu1) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-3_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-3) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../3-readline-common_8.0-4_all.deb ...
+Unpacking readline-common (8.0-4) ...
+Selecting previously unselected package libreadline8:amd64.
+Preparing to unpack .../4-libreadline8_8.0-4_amd64.deb ...
+Unpacking libreadline8:amd64 (8.0-4) ...
+Selecting previously unselected package libpython3.8-stdlib:amd64.
+Preparing to unpack .../5-libpython3.8-stdlib_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking libpython3.8-stdlib:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package python3.8.
+Preparing to unpack .../6-python3.8_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking python3.8 (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../7-libpython3-stdlib_3.8.2-0ubuntu2_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.8.2-0ubuntu2) ...
+Setting up python3-minimal (3.8.2-0ubuntu2) ...
+Selecting previously unselected package python3.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8653 files and directories currently installed.)
+Preparing to unpack .../000-python3_3.8.2-0ubuntu2_amd64.deb ...
+Unpacking python3 (3.8.2-0ubuntu2) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../001-libpopt0_1.16-14_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-14) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../002-rsync_3.1.3-8ubuntu0.4_amd64.deb ...
+Unpacking rsync (3.1.3-8ubuntu0.4) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../003-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../004-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../005-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package libapparmor1:amd64.
+Preparing to unpack .../006-libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...
+Unpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Preparing to unpack .../007-libdbus-1-3_1.12.16-2ubuntu2.2_amd64.deb ...
+Unpacking libdbus-1-3:amd64 (1.12.16-2ubuntu2.2) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../008-libelf1_0.176-1.1build1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1.1build1) ...
+Selecting previously unselected package libfribidi0:amd64.
+Preparing to unpack .../009-libfribidi0_1.0.8-2ubuntu0.1_amd64.deb ...
+Unpacking libfribidi0:amd64 (1.0.8-2ubuntu0.1) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../010-libglib2.0-0_2.64.6-1~ubuntu20.04.4_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.64.6-1~ubuntu20.04.4) ...
+Selecting previously unselected package tzdata.
+Preparing to unpack .../011-tzdata_2022c-0ubuntu0.20.04.0_all.deb ...
+Unpacking tzdata (2022c-0ubuntu0.20.04.0) ...
+Selecting previously unselected package libicu66:amd64.
+Preparing to unpack .../012-libicu66_66.1-2ubuntu2.1_amd64.deb ...
+Unpacking libicu66:amd64 (66.1-2ubuntu2.1) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../013-libxml2_2.9.10+dfsg-5ubuntu0.20.04.4_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-5ubuntu0.20.04.4) ...
+Selecting previously unselected package shared-mime-info.
+Preparing to unpack .../014-shared-mime-info_1.15-1_amd64.deb ...
+Unpacking shared-mime-info (1.15-1) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../015-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package xz-utils.
+Preparing to unpack .../016-xz-utils_5.2.4-1ubuntu1.1_amd64.deb ...
+Unpacking xz-utils (5.2.4-1ubuntu1.1) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../017-bsdmainutils_11.1.2ubuntu3_amd64.deb ...
+Unpacking bsdmainutils (11.1.2ubuntu3) ...
+Selecting previously unselected package libdrm-common.
+Preparing to unpack .../018-libdrm-common_2.4.107-8ubuntu1~20.04.2_all.deb ...
+Unpacking libdrm-common (2.4.107-8ubuntu1~20.04.2) ...
+Selecting previously unselected package libdrm2:amd64.
+Preparing to unpack .../019-libdrm2_2.4.107-8ubuntu1~20.04.2_amd64.deb ...
+Unpacking libdrm2:amd64 (2.4.107-8ubuntu1~20.04.2) ...
+Selecting previously unselected package libpng16-16:amd64.
+Preparing to unpack .../020-libpng16-16_1.6.37-2_amd64.deb ...
+Unpacking libpng16-16:amd64 (1.6.37-2) ...
+Selecting previously unselected package hicolor-icon-theme.
+Preparing to unpack .../021-hicolor-icon-theme_0.17-2_all.deb ...
+Unpacking hicolor-icon-theme (0.17-2) ...
+Selecting previously unselected package libjpeg-turbo8:amd64.
+Preparing to unpack .../022-libjpeg-turbo8_2.0.3-0ubuntu1.20.04.1_amd64.deb ...
+Unpacking libjpeg-turbo8:amd64 (2.0.3-0ubuntu1.20.04.1) ...
+Selecting previously unselected package libjpeg8:amd64.
+Preparing to unpack .../023-libjpeg8_8c-2ubuntu8_amd64.deb ...
+Unpacking libjpeg8:amd64 (8c-2ubuntu8) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../024-libjbig0_2.1-3.1build1_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-3.1build1) ...
+Selecting previously unselected package libwebp6:amd64.
+Preparing to unpack .../025-libwebp6_0.6.1-2ubuntu0.20.04.1_amd64.deb ...
+Unpacking libwebp6:amd64 (0.6.1-2ubuntu0.20.04.1) ...
+Selecting previously unselected package libtiff5:amd64.
+Preparing to unpack .../026-libtiff5_4.1.0+git191117-2ubuntu0.20.04.3_amd64.deb ...
+Unpacking libtiff5:amd64 (4.1.0+git191117-2ubuntu0.20.04.3) ...
+Selecting previously unselected package libgdk-pixbuf2.0-common.
+Preparing to unpack .../027-libgdk-pixbuf2.0-common_2.40.0+dfsg-3ubuntu0.3_all.deb ...
+Unpacking libgdk-pixbuf2.0-common (2.40.0+dfsg-3ubuntu0.3) ...
+Selecting previously unselected package libgdk-pixbuf2.0-0:amd64.
+Preparing to unpack .../028-libgdk-pixbuf2.0-0_2.40.0+dfsg-3ubuntu0.3_amd64.deb ...
+Unpacking libgdk-pixbuf2.0-0:amd64 (2.40.0+dfsg-3ubuntu0.3) ...
+Selecting previously unselected package gtk-update-icon-cache.
+Preparing to unpack .../029-gtk-update-icon-cache_3.24.20-0ubuntu1.1_amd64.deb ...
+No diversion 'diversion of /usr/sbin/update-icon-caches to /usr/sbin/update-icon-caches.gtk2 by libgtk-3-bin', none removed.
+No diversion 'diversion of /usr/share/man/man8/update-icon-caches.8.gz to /usr/share/man/man8/update-icon-caches.gtk2.8.gz by libgtk-3-bin', none removed.
+Unpacking gtk-update-icon-cache (3.24.20-0ubuntu1.1) ...
+Selecting previously unselected package libfreetype6:amd64.
+Preparing to unpack .../030-libfreetype6_2.10.1-2ubuntu0.2_amd64.deb ...
+Unpacking libfreetype6:amd64 (2.10.1-2ubuntu0.2) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../031-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../032-fontconfig-config_2.13.1-2ubuntu3_all.deb ...
+Unpacking fontconfig-config (2.13.1-2ubuntu3) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../033-libfontconfig1_2.13.1-2ubuntu3_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.13.1-2ubuntu3) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Preparing to unpack .../034-libpixman-1-0_0.38.4-0ubuntu1_amd64.deb ...
+Unpacking libpixman-1-0:amd64 (0.38.4-0ubuntu1) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Preparing to unpack .../035-libxcb-render0_1.14-2_amd64.deb ...
+Unpacking libxcb-render0:amd64 (1.14-2) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Preparing to unpack .../036-libxcb-shm0_1.14-2_amd64.deb ...
+Unpacking libxcb-shm0:amd64 (1.14-2) ...
+Selecting previously unselected package libxrender1:amd64.
+Preparing to unpack .../037-libxrender1_1%3a0.9.10-1_amd64.deb ...
+Unpacking libxrender1:amd64 (1:0.9.10-1) ...
+Selecting previously unselected package libcairo2:amd64.
+Preparing to unpack .../038-libcairo2_1.16.0-4ubuntu1_amd64.deb ...
+Unpacking libcairo2:amd64 (1.16.0-4ubuntu1) ...
+Selecting previously unselected package libcairo-gobject2:amd64.
+Preparing to unpack .../039-libcairo-gobject2_1.16.0-4ubuntu1_amd64.deb ...
+Unpacking libcairo-gobject2:amd64 (1.16.0-4ubuntu1) ...
+Selecting previously unselected package fontconfig.
+Preparing to unpack .../040-fontconfig_2.13.1-2ubuntu3_amd64.deb ...
+Unpacking fontconfig (2.13.1-2ubuntu3) ...
+Selecting previously unselected package libgraphite2-3:amd64.
+Preparing to unpack .../041-libgraphite2-3_1.3.13-11build1_amd64.deb ...
+Unpacking libgraphite2-3:amd64 (1.3.13-11build1) ...
+Selecting previously unselected package libharfbuzz0b:amd64.
+Preparing to unpack .../042-libharfbuzz0b_2.6.4-1ubuntu4.2_amd64.deb ...
+Unpacking libharfbuzz0b:amd64 (2.6.4-1ubuntu4.2) ...
+Selecting previously unselected package libthai-data.
+Preparing to unpack .../043-libthai-data_0.1.28-3_all.deb ...
+Unpacking libthai-data (0.1.28-3) ...
+Selecting previously unselected package libdatrie1:amd64.
+Preparing to unpack .../044-libdatrie1_0.2.12-3_amd64.deb ...
+Unpacking libdatrie1:amd64 (0.2.12-3) ...
+Selecting previously unselected package libthai0:amd64.
+Preparing to unpack .../045-libthai0_0.1.28-3_amd64.deb ...
+Unpacking libthai0:amd64 (0.1.28-3) ...
+Selecting previously unselected package libpango-1.0-0:amd64.
+Preparing to unpack .../046-libpango-1.0-0_1.44.7-2ubuntu4_amd64.deb ...
+Unpacking libpango-1.0-0:amd64 (1.44.7-2ubuntu4) ...
+Selecting previously unselected package libpangoft2-1.0-0:amd64.
+Preparing to unpack .../047-libpangoft2-1.0-0_1.44.7-2ubuntu4_amd64.deb ...
+Unpacking libpangoft2-1.0-0:amd64 (1.44.7-2ubuntu4) ...
+Selecting previously unselected package libpangocairo-1.0-0:amd64.
+Preparing to unpack .../048-libpangocairo-1.0-0_1.44.7-2ubuntu4_amd64.deb ...
+Unpacking libpangocairo-1.0-0:amd64 (1.44.7-2ubuntu4) ...
+Selecting previously unselected package librsvg2-2:amd64.
+Preparing to unpack .../049-librsvg2-2_2.48.9-1ubuntu0.20.04.1_amd64.deb ...
+Unpacking librsvg2-2:amd64 (2.48.9-1ubuntu0.20.04.1) ...
+Selecting previously unselected package librsvg2-common:amd64.
+Preparing to unpack .../050-librsvg2-common_2.48.9-1ubuntu0.20.04.1_amd64.deb ...
+Unpacking librsvg2-common:amd64 (2.48.9-1ubuntu0.20.04.1) ...
+Selecting previously unselected package humanity-icon-theme.
+Preparing to unpack .../051-humanity-icon-theme_0.6.15_all.deb ...
+Unpacking humanity-icon-theme (0.6.15) ...
+Selecting previously unselected package ubuntu-mono.
+Preparing to unpack .../052-ubuntu-mono_19.04-0ubuntu3_all.deb ...
+Unpacking ubuntu-mono (19.04-0ubuntu3) ...
+Selecting previously unselected package adwaita-icon-theme.
+Preparing to unpack .../053-adwaita-icon-theme_3.36.1-2ubuntu0.20.04.2_all.deb ...
+Unpacking adwaita-icon-theme (3.36.1-2ubuntu0.20.04.2) ...
+Selecting previously unselected package java-common.
+Preparing to unpack .../054-java-common_0.72_all.deb ...
+Unpacking java-common (0.72) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Preparing to unpack .../055-libavahi-common-data_0.7-4ubuntu7.1_amd64.deb ...
+Unpacking libavahi-common-data:amd64 (0.7-4ubuntu7.1) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Preparing to unpack .../056-libavahi-common3_0.7-4ubuntu7.1_amd64.deb ...
+Unpacking libavahi-common3:amd64 (0.7-4ubuntu7.1) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Preparing to unpack .../057-libavahi-client3_0.7-4ubuntu7.1_amd64.deb ...
+Unpacking libavahi-client3:amd64 (0.7-4ubuntu7.1) ...
+Selecting previously unselected package libcups2:amd64.
+Preparing to unpack .../058-libcups2_2.3.1-9ubuntu1.2_amd64.deb ...
+Unpacking libcups2:amd64 (2.3.1-9ubuntu1.2) ...
+
+Timed out!

@@ -1,0 +1,51 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at d8988d0d9 Add unit test for HeadersSyncState
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/net_processing.cpp
+Merge made by the 'ort' strategy.
+ depends/packages/expat.mk  |   9 ++-
+ depends/packages/qt.mk     |   1 +
+ src/.clang-tidy            |   2 +
+ src/addrman.cpp            | 149 ++++++++++++++++++++++++---------------------
+ src/addrman.h              |  25 ++++----
+ src/addrman_impl.h         |  42 +++++++------
+ src/bench/addrman.cpp      |   2 +-
+ src/blockfilter.cpp        |   2 +-
+ src/external_signer.cpp    |   2 +-
+ src/net.cpp                |  19 +++---
+ src/net_processing.cpp     |  17 +++---
+ src/node/interfaces.cpp    |   1 -
+ src/protocol.h             |  11 ++--
+ src/rpc/net.cpp            |   4 +-
+ src/serialize.h            |  23 +++++++
+ src/test/addrman_tests.cpp |  26 ++++----
+ src/test/fuzz/addrman.cpp  |  18 +++---
+ src/test/fuzz/util.cpp     |   5 ++
+ src/test/fuzz/util.h       |   5 +-
+ src/test/netbase_tests.cpp |  18 +++---
+ src/timedata.h             |   8 ++-
+ src/util/system.cpp        |   2 +-
+ src/util/time.h            |   1 +
+ src/wallet/rpc/backup.cpp  |   2 +-
+ src/wallet/rpc/wallet.cpp  |   2 +-
+ 25 files changed, 221 insertions(+), 175 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

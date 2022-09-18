@@ -1,0 +1,63 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at a2a29ecc5 test: Add functional tests for sendtxrcncl message from outbound
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/Makefile.am
+Auto-merging src/init.cpp
+Auto-merging test/functional/test_runner.py
+Merge made by the 'ort' strategy.
+ contrib/guix/libexec/build.sh                      |   1 +
+ contrib/guix/manifest.scm                          |  27 +---
+ .../patches/elfsteem-value-error-python-39.patch   |  13 --
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |  25 ++++
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |  25 ++++
+ src/Makefile.am                                    |   3 +-
+ src/init.cpp                                       |   2 +-
+ src/minisketch/README.md                           |   4 +-
+ src/minisketch/include/minisketch.h                |   3 +-
+ src/rpc/blockchain.cpp                             |   6 +-
+ src/rpc/client.cpp                                 |   1 +
+ src/rpc/mempool.cpp                                | 146 +++++++++++++++++++++
+ src/test/fuzz/rpc.cpp                              |   1 +
+ src/util/error.cpp                                 |   2 +
+ src/util/error.h                                   |   1 +
+ src/util/system.cpp                                |   7 -
+ src/wallet/bdb.cpp                                 |   6 -
+ src/wallet/coinselection.cpp                       |   3 -
+ src/wallet/spend.cpp                               |   3 +-
+ src/wallet/test/coinselector_tests.cpp             |   7 +-
+ src/wallet/walletdb.cpp                            |  10 +-
+ test/functional/feature_dbcrash.py                 |   8 +-
+ test/functional/feature_maxuploadtarget.py         |   2 +-
+ test/functional/feature_nulldummy.py               |  65 +++++----
+ test/functional/mempool_limit.py                   |   2 +-
+ test/functional/mining_prioritisetransaction.py    |   2 +-
+ test/functional/p2p_timeouts.py                    |   5 +
+ test/functional/rpc_packages.py                    | 133 ++++++++++++++++++-
+ test/functional/test_framework/blocktools.py       |  24 ----
+ test/functional/test_framework/util.py             |  19 +--
+ test/functional/test_runner.py                     |   5 +-
+ test/functional/wallet_basic.py                    |   2 +-
+ 32 files changed, 423 insertions(+), 140 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

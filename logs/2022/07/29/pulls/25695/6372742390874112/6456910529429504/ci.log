@@ -1,0 +1,189 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+CONFIG_SHELL=/bin/dash
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=--enable-zmq --with-gui=qt5 --enable-reduce-exports
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Running on host system without docker wrapper
+Last metadata expiration check: 0:00:16 ago on Fri Jul 29 11:27:17 2022.
+Dependencies resolved.
+================================================================================
+ Package               Architecture    Version            Repository       Size
+================================================================================
+Installing:
+ epel-release          noarch          8-11.el8           extras           24 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 35 k
+Downloading Packages:
+epel-release-8-11.el8.noarch.rpm                561 kB/s |  24 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           257 kB/s |  24 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : epel-release-8-11.el8.noarch                           1/1 
+  Running scriptlet: epel-release-8-11.el8.noarch                           1/1 
+  Verifying        : epel-release-8-11.el8.noarch                           1/1 
+
+Installed:
+  epel-release-8-11.el8.noarch                                                  
+
+Complete!
+Extra Packages for Enterprise Linux 8 - x86_64  9.6 MB/s |  13 MB     00:01    
+Extra Packages for Enterprise Linux Modular 8 - 1.3 MB/s | 1.0 MB     00:00    
+Last metadata expiration check: 0:00:01 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #1: sleeping 0.3 seconds
+Last metadata expiration check: 0:00:04 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #2: sleeping 0.6 seconds
+Last metadata expiration check: 0:00:06 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #3: sleeping 1.2 seconds
+Last metadata expiration check: 0:00:09 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #4: sleeping 2.4 seconds
+Last metadata expiration check: 0:00:13 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #5: sleeping 4.8 seconds
+Last metadata expiration check: 0:00:19 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #6: sleeping 9.6 seconds
+Last metadata expiration check: 0:00:31 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #7: sleeping 19.2 seconds
+Last metadata expiration check: 0:00:51 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #8: sleeping 38.4 seconds
+Last metadata expiration check: 0:01:31 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #9: sleeping 60 seconds
+Last metadata expiration check: 0:02:33 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Before retry #10: sleeping 60 seconds
+Last metadata expiration check: 0:03:35 ago on Fri Jul 29 11:27:40 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Error: 
+ Problem 1: cannot install the best candidate for the job
+  - nothing provides libstdc++ = 8.5.0-15.el8 needed by gcc-c++-8.5.0-15.el8.x86_64
+ Problem 2: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-64) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.x86_64
+ Problem 3: cannot install the best candidate for the job
+  - nothing provides libstdc++(x86-32) = 8.5.0-15.el8 needed by libstdc++-devel-8.5.0-15.el8.i686
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Retries exhausted

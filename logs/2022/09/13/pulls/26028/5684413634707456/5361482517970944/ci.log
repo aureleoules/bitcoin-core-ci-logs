@@ -1,0 +1,3314 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=250M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--with-sanitizers=memory --disable-hardening --with-asm=no --prefix=/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/ CC=clang CXX=clang++ CFLAGS='-fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls' CXXFLAGS='-fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls -nostdinc++ -stdlib=libc++ -L/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -lc++abi -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include/c++/v1 -lpthread -Wl,-rpath,/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -Wno-unused-command-line-argument'
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping git, it is already installed and upgrade is not set.
+Skipping procps, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binutils binutils-common binutils-x86-64-linux-gnu cmake-data cpp
+  cpp-9 dpkg-dev file g++ g++-9 gcc gcc-9 gcc-9-base lib32gcc-s1 lib32stdc++6
+  libarchive13 libasan5 libatomic1 libbinutils libc-dev-bin libc6-dev
+  libc6-i386 libcc1-0 libclang-common-12-dev libclang-cpp12 libclang1-12
+  libcrypt-dev libctf-nobfd0 libctf0 libcurl4 libdpkg-perl libgc1c2
+  libgcc-9-dev libglib2.0-0 libgomp1 libicu66 libisl22 libitm1 libjsoncpp1
+  libllvm12 liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec2 libmpfr6
+  libobjc-9-dev libobjc4 libpfm4 libpopt0 libpython3-stdlib
+  libpython3.8-minimal libpython3.8-stdlib libquadmath0 libreadline8 librhash0
+  libsigsegv2 libstdc++-9-dev libtsan0 libubsan1 libuv1 libxml2 linux-libc-dev
+  llvm-12-linker-tools llvm-12-runtime m4 make mime-support python3-minimal
+  python3.8 python3.8-minimal readline-common tzdata xz-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  wamerican | wordlist whois vacation distcc | icecc clang-12-doc cmake-doc
+  ninja-build cpp-doc gcc-9-locales debian-keyring g++-multilib g++-9-multilib
+  gcc-9-doc gcc-multilib manpages-dev flex gdb gcc-doc gcc-9-multilib lrzip
+  glibc-doc gnupg | gnupg2 bzr libstdc++-9-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk llvm-12-doc m4-doc make-doc python3-doc
+  python3-tk python3-venv python3.8-venv python3.8-doc binfmt-support
+  readline-doc openssh-server
+Recommended packages:
+  llvm-12-dev libomp-12-dev fakeroot gnupg | gnupg2 libalgorithm-merge-perl
+  manpages manpages-dev libfile-fcntllock-perl liblocale-gettext-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libltdl-dev binfmt-support
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binutils binutils-common
+  binutils-x86-64-linux-gnu bison bsdmainutils build-essential ccache clang-12
+  cmake cmake-data cpp cpp-9 curl dpkg-dev file g++ g++-9 gcc gcc-9 gcc-9-base
+  lib32gcc-s1 lib32stdc++6 libarchive13 libasan5 libatomic1 libbinutils
+  libc-dev-bin libc6-dev libc6-i386 libcc1-0 libclang-common-12-dev
+  libclang-cpp12 libclang1-12 libcrypt-dev libctf-nobfd0 libctf0 libcurl4
+  libdpkg-perl libgc1c2 libgcc-9-dev libglib2.0-0 libgomp1 libicu66 libisl22
+  libitm1 libjsoncpp1 libllvm12 liblsan0 libmagic-mgc libmagic1 libmpc3
+  libmpdec2 libmpfr6 libobjc-9-dev libobjc4 libpfm4 libpopt0 libpython3-stdlib
+  libpython3.8-minimal libpython3.8-stdlib libquadmath0 libreadline8 librhash0
+  libsigsegv2 libstdc++-9-dev libtool libtsan0 libubsan1 libuv1 libxml2
+  linux-libc-dev llvm-12 llvm-12-linker-tools llvm-12-runtime m4 make
+  mime-support pkg-config python3 python3-minimal python3.8 python3.8-minimal
+  readline-common rsync tzdata xz-utils
+0 upgraded, 89 newly installed, 0 to remove and 0 not upgraded.
+Need to get 123 MB of archives.
+After this operation, 609 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpython3.8-minimal amd64 3.8.10-0ubuntu1~20.04.5 [717 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 python3.8-minimal amd64 3.8.10-0ubuntu1~20.04.5 [1905 kB]
+Get:3 http://archive.ubuntu.com/ubuntu focal/main amd64 python3-minimal amd64 3.8.2-0ubuntu2 [23.6 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 mime-support all 3.64ubuntu1 [30.6 kB]
+Get:5 http://archive.ubuntu.com/ubuntu focal/main amd64 libmpdec2 amd64 2.4.2-3 [81.1 kB]
+Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 readline-common all 8.0-4 [53.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu focal/main amd64 libreadline8 amd64 8.0-4 [131 kB]
+Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpython3.8-stdlib amd64 3.8.10-0ubuntu1~20.04.5 [1675 kB]
+Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 python3.8 amd64 3.8.10-0ubuntu1~20.04.5 [387 kB]
+Get:10 http://archive.ubuntu.com/ubuntu focal/main amd64 libpython3-stdlib amd64 3.8.2-0ubuntu2 [7068 B]
+Get:11 http://archive.ubuntu.com/ubuntu focal/main amd64 python3 amd64 3.8.2-0ubuntu2 [47.6 kB]
+Get:12 http://archive.ubuntu.com/ubuntu focal/main amd64 libpopt0 amd64 1.16-14 [26.3 kB]
+Get:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 rsync amd64 3.1.3-8ubuntu0.4 [318 kB]
+Get:14 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic-mgc amd64 1:5.38-4 [218 kB]
+Get:15 http://archive.ubuntu.com/ubuntu focal/main amd64 libmagic1 amd64 1:5.38-4 [75.9 kB]
+Get:16 http://archive.ubuntu.com/ubuntu focal/main amd64 file amd64 1:5.38-4 [23.3 kB]
+Get:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglib2.0-0 amd64 2.64.6-1~ubuntu20.04.4 [1287 kB]
+Get:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 tzdata all 2022c-0ubuntu0.20.04.0 [288 kB]
+Get:19 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libicu66 amd64 66.1-2ubuntu2.1 [8515 kB]
+Get:20 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libxml2 amd64 2.9.10+dfsg-5ubuntu0.20.04.4 [640 kB]
+Get:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 xz-utils amd64 5.2.4-1ubuntu1.1 [82.6 kB]
+Get:22 http://archive.ubuntu.com/ubuntu focal/main amd64 bsdmainutils amd64 11.1.2ubuntu3 [181 kB]
+Get:23 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libuv1 amd64 1.34.2-1ubuntu1.3 [80.8 kB]
+Get:24 http://archive.ubuntu.com/ubuntu focal/main amd64 libsigsegv2 amd64 2.12-2 [13.9 kB]
+Get:25 http://archive.ubuntu.com/ubuntu focal/main amd64 m4 amd64 1.4.18-4 [199 kB]
+Get:26 http://archive.ubuntu.com/ubuntu focal/main amd64 autoconf all 2.69-11.1 [321 kB]
+Get:27 http://archive.ubuntu.com/ubuntu focal/main amd64 autotools-dev all 20180224.1 [39.6 kB]
+Get:28 http://archive.ubuntu.com/ubuntu focal/main amd64 automake all 1:1.16.1-4ubuntu6 [522 kB]
+Get:29 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 binutils-common amd64 2.34-6ubuntu1.3 [207 kB]
+Get:30 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libbinutils amd64 2.34-6ubuntu1.3 [474 kB]
+Get:31 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libctf-nobfd0 amd64 2.34-6ubuntu1.3 [47.4 kB]
+Get:32 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libctf0 amd64 2.34-6ubuntu1.3 [46.6 kB]
+Get:33 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.34-6ubuntu1.3 [1613 kB]
+Get:34 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 binutils amd64 2.34-6ubuntu1.3 [3380 B]
+Get:35 http://archive.ubuntu.com/ubuntu focal/main amd64 bison amd64 2:3.5.1+dfsg-1 [657 kB]
+Get:36 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc-dev-bin amd64 2.31-0ubuntu9.9 [71.8 kB]
+Get:37 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 linux-libc-dev amd64 5.4.0-125.141 [1100 kB]
+Get:38 http://archive.ubuntu.com/ubuntu focal/main amd64 libcrypt-dev amd64 1:4.4.10-10ubuntu4 [104 kB]
+Get:39 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6-dev amd64 2.31-0ubuntu9.9 [2519 kB]
+Get:40 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gcc-9-base amd64 9.4.0-1ubuntu1~20.04.1 [19.4 kB]
+Get:41 http://archive.ubuntu.com/ubuntu focal/main amd64 libisl22 amd64 0.22.1-1 [592 kB]
+Get:42 http://archive.ubuntu.com/ubuntu focal/main amd64 libmpfr6 amd64 4.0.2-1 [240 kB]
+Get:43 http://archive.ubuntu.com/ubuntu focal/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:44 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 cpp-9 amd64 9.4.0-1ubuntu1~20.04.1 [7500 kB]
+Get:45 http://archive.ubuntu.com/ubuntu focal/main amd64 cpp amd64 4:9.3.0-1ubuntu2 [27.6 kB]
+Get:46 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcc1-0 amd64 10.3.0-1ubuntu1~20.04 [48.8 kB]
+Get:47 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgomp1 amd64 10.3.0-1ubuntu1~20.04 [102 kB]
+Get:48 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libitm1 amd64 10.3.0-1ubuntu1~20.04 [26.2 kB]
+Get:49 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libatomic1 amd64 10.3.0-1ubuntu1~20.04 [9284 B]
+Get:50 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libasan5 amd64 9.4.0-1ubuntu1~20.04.1 [2751 kB]
+Get:51 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 liblsan0 amd64 10.3.0-1ubuntu1~20.04 [835 kB]
+Get:52 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libtsan0 amd64 10.3.0-1ubuntu1~20.04 [2009 kB]
+Get:53 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libubsan1 amd64 10.3.0-1ubuntu1~20.04 [784 kB]
+Get:54 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libquadmath0 amd64 10.3.0-1ubuntu1~20.04 [146 kB]
+Get:55 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgcc-9-dev amd64 9.4.0-1ubuntu1~20.04.1 [2359 kB]
+Get:56 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gcc-9 amd64 9.4.0-1ubuntu1~20.04.1 [8274 kB]
+Get:57 http://archive.ubuntu.com/ubuntu focal/main amd64 gcc amd64 4:9.3.0-1ubuntu2 [5208 B]
+Get:58 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libstdc++-9-dev amd64 9.4.0-1ubuntu1~20.04.1 [1722 kB]
+Get:59 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 g++-9 amd64 9.4.0-1ubuntu1~20.04.1 [8420 kB]
+Get:60 http://archive.ubuntu.com/ubuntu focal/main amd64 g++ amd64 4:9.3.0-1ubuntu2 [1604 B]
+Get:61 http://archive.ubuntu.com/ubuntu focal/main amd64 make amd64 4.2.1-1.2 [162 kB]
+Get:62 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdpkg-perl all 1.19.7ubuntu3.2 [231 kB]
+Get:63 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 dpkg-dev all 1.19.7ubuntu3.2 [679 kB]
+Get:64 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 build-essential amd64 12.8ubuntu1.1 [4664 B]
+Get:65 http://archive.ubuntu.com/ubuntu focal/main amd64 ccache amd64 3.7.7-1 [121 kB]
+Get:66 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libllvm12 amd64 1:12.0.0-3ubuntu1~20.04.5 [18.8 MB]
+Get:67 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libclang-cpp12 amd64 1:12.0.0-3ubuntu1~20.04.5 [9664 kB]
+Get:68 http://archive.ubuntu.com/ubuntu focal/main amd64 libgc1c2 amd64 1:7.6.4-0.4ubuntu1 [83.9 kB]
+Get:69 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libobjc4 amd64 10.3.0-1ubuntu1~20.04 [42.8 kB]
+Get:70 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libobjc-9-dev amd64 9.4.0-1ubuntu1~20.04.1 [225 kB]
+Get:71 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6-i386 amd64 2.31-0ubuntu9.9 [2730 kB]
+Get:72 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 lib32gcc-s1 amd64 10.3.0-1ubuntu1~20.04 [49.2 kB]
+Get:73 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 lib32stdc++6 amd64 10.3.0-1ubuntu1~20.04 [525 kB]
+Get:74 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libclang-common-12-dev amd64 1:12.0.0-3ubuntu1~20.04.5 [5280 kB]
+Get:75 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 llvm-12-linker-tools amd64 1:12.0.0-3ubuntu1~20.04.5 [1146 kB]
+Get:76 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 libclang1-12 amd64 1:12.0.0-3ubuntu1~20.04.5 [5523 kB]
+Get:77 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 clang-12 amd64 1:12.0.0-3ubuntu1~20.04.5 [68.7 kB]
+Get:78 http://archive.ubuntu.com/ubuntu focal/main amd64 cmake-data all 3.16.3-1ubuntu1 [1612 kB]
+Get:79 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libarchive13 amd64 3.4.0-2ubuntu1.2 [327 kB]
+Get:80 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libcurl4 amd64 7.68.0-1ubuntu2.13 [235 kB]
+Get:81 http://archive.ubuntu.com/ubuntu focal/main amd64 libjsoncpp1 amd64 1.7.4-3.1ubuntu2 [75.6 kB]
+Get:82 http://archive.ubuntu.com/ubuntu focal/main amd64 librhash0 amd64 1.3.9-1 [113 kB]
+Get:83 http://archive.ubuntu.com/ubuntu focal/main amd64 cmake amd64 3.16.3-1ubuntu1 [3669 kB]
+Get:84 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.13 [161 kB]
+Get:85 http://archive.ubuntu.com/ubuntu focal/main amd64 libtool all 2.4.6-14 [161 kB]
+Get:86 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 llvm-12-runtime amd64 1:12.0.0-3ubuntu1~20.04.5 [178 kB]
+Get:87 http://archive.ubuntu.com/ubuntu focal/main amd64 libpfm4 amd64 4.10.1+git20-g7700f49-2 [266 kB]
+Get:88 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 llvm-12 amd64 1:12.0.0-3ubuntu1~20.04.5 [10.4 MB]
+Get:89 http://archive.ubuntu.com/ubuntu focal/main amd64 pkg-config amd64 0.29.1-0ubuntu4 [45.5 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 123 MB in 2s (55.1 MB/s)
+Selecting previously unselected package libpython3.8-minimal:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 7946 files and directories currently installed.)
+Preparing to unpack .../libpython3.8-minimal_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking libpython3.8-minimal:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package python3.8-minimal.
+Preparing to unpack .../python3.8-minimal_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking python3.8-minimal (3.8.10-0ubuntu1~20.04.5) ...
+Setting up libpython3.8-minimal:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Setting up python3.8-minimal (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8229 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.8.2-0ubuntu2_amd64.deb ...
+Unpacking python3-minimal (3.8.2-0ubuntu2) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.64ubuntu1_all.deb ...
+Unpacking mime-support (3.64ubuntu1) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-3_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-3) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../3-readline-common_8.0-4_all.deb ...
+Unpacking readline-common (8.0-4) ...
+Selecting previously unselected package libreadline8:amd64.
+Preparing to unpack .../4-libreadline8_8.0-4_amd64.deb ...
+Unpacking libreadline8:amd64 (8.0-4) ...
+Selecting previously unselected package libpython3.8-stdlib:amd64.
+Preparing to unpack .../5-libpython3.8-stdlib_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking libpython3.8-stdlib:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package python3.8.
+Preparing to unpack .../6-python3.8_3.8.10-0ubuntu1~20.04.5_amd64.deb ...
+Unpacking python3.8 (3.8.10-0ubuntu1~20.04.5) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../7-libpython3-stdlib_3.8.2-0ubuntu2_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.8.2-0ubuntu2) ...
+Setting up python3-minimal (3.8.2-0ubuntu2) ...
+Selecting previously unselected package python3.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8653 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.8.2-0ubuntu2_amd64.deb ...
+Unpacking python3 (3.8.2-0ubuntu2) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../01-libpopt0_1.16-14_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-14) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../02-rsync_3.1.3-8ubuntu0.4_amd64.deb ...
+Unpacking rsync (3.1.3-8ubuntu0.4) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../03-libmagic-mgc_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.38-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../04-libmagic1_1%3a5.38-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.38-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../05-file_1%3a5.38-4_amd64.deb ...
+Unpacking file (1:5.38-4) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../06-libglib2.0-0_2.64.6-1~ubuntu20.04.4_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.64.6-1~ubuntu20.04.4) ...
+Selecting previously unselected package tzdata.
+Preparing to unpack .../07-tzdata_2022c-0ubuntu0.20.04.0_all.deb ...
+Unpacking tzdata (2022c-0ubuntu0.20.04.0) ...
+Selecting previously unselected package libicu66:amd64.
+Preparing to unpack .../08-libicu66_66.1-2ubuntu2.1_amd64.deb ...
+Unpacking libicu66:amd64 (66.1-2ubuntu2.1) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../09-libxml2_2.9.10+dfsg-5ubuntu0.20.04.4_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.10+dfsg-5ubuntu0.20.04.4) ...
+Selecting previously unselected package xz-utils.
+Preparing to unpack .../10-xz-utils_5.2.4-1ubuntu1.1_amd64.deb ...
+Unpacking xz-utils (5.2.4-1ubuntu1.1) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../11-bsdmainutils_11.1.2ubuntu3_amd64.deb ...
+Unpacking bsdmainutils (11.1.2ubuntu3) ...
+Selecting previously unselected package libuv1:amd64.
+Preparing to unpack .../12-libuv1_1.34.2-1ubuntu1.3_amd64.deb ...
+Unpacking libuv1:amd64 (1.34.2-1ubuntu1.3) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../13-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../14-m4_1.4.18-4_amd64.deb ...
+Unpacking m4 (1.4.18-4) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../15-autoconf_2.69-11.1_all.deb ...
+Unpacking autoconf (2.69-11.1) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../16-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../17-automake_1%3a1.16.1-4ubuntu6_all.deb ...
+Unpacking automake (1:1.16.1-4ubuntu6) ...
+Selecting previously unselected package binutils-common:amd64.
+Preparing to unpack .../18-binutils-common_2.34-6ubuntu1.3_amd64.deb ...
+Unpacking binutils-common:amd64 (2.34-6ubuntu1.3) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../19-libbinutils_2.34-6ubuntu1.3_amd64.deb ...
+Unpacking libbinutils:amd64 (2.34-6ubuntu1.3) ...
+Selecting previously unselected package libctf-nobfd0:amd64.
+Preparing to unpack .../20-libctf-nobfd0_2.34-6ubuntu1.3_amd64.deb ...
+Unpacking libctf-nobfd0:amd64 (2.34-6ubuntu1.3) ...
+Selecting previously unselected package libctf0:amd64.
+Preparing to unpack .../21-libctf0_2.34-6ubuntu1.3_amd64.deb ...
+Unpacking libctf0:amd64 (2.34-6ubuntu1.3) ...
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../22-binutils-x86-64-linux-gnu_2.34-6ubuntu1.3_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.34-6ubuntu1.3) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../23-binutils_2.34-6ubuntu1.3_amd64.deb ...
+Unpacking binutils (2.34-6ubuntu1.3) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../24-bison_2%3a3.5.1+dfsg-1_amd64.deb ...
+Unpacking bison (2:3.5.1+dfsg-1) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../25-libc-dev-bin_2.31-0ubuntu9.9_amd64.deb ...
+Unpacking libc-dev-bin (2.31-0ubuntu9.9) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../26-linux-libc-dev_5.4.0-125.141_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (5.4.0-125.141) ...
+Selecting previously unselected package libcrypt-dev:amd64.
+Preparing to unpack .../27-libcrypt-dev_1%3a4.4.10-10ubuntu4_amd64.deb ...
+Unpacking libcrypt-dev:amd64 (1:4.4.10-10ubuntu4) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../28-libc6-dev_2.31-0ubuntu9.9_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.31-0ubuntu9.9) ...
+Selecting previously unselected package gcc-9-base:amd64.
+Preparing to unpack .../29-gcc-9-base_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking gcc-9-base:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package libisl22:amd64.
+Preparing to unpack .../30-libisl22_0.22.1-1_amd64.deb ...
+Unpacking libisl22:amd64 (0.22.1-1) ...
+Selecting previously unselected package libmpfr6:amd64.
+Preparing to unpack .../31-libmpfr6_4.0.2-1_amd64.deb ...
+Unpacking libmpfr6:amd64 (4.0.2-1) ...
+Selecting previously unselected package libmpc3:amd64.
+Preparing to unpack .../32-libmpc3_1.1.0-1_amd64.deb ...
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Selecting previously unselected package cpp-9.
+Preparing to unpack .../33-cpp-9_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking cpp-9 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../34-cpp_4%3a9.3.0-1ubuntu2_amd64.deb ...
+Unpacking cpp (4:9.3.0-1ubuntu2) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../35-libcc1-0_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libcc1-0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../36-libgomp1_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libgomp1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../37-libitm1_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libitm1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libatomic1:amd64.
+Preparing to unpack .../38-libatomic1_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libatomic1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libasan5:amd64.
+Preparing to unpack .../39-libasan5_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking libasan5:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../40-liblsan0_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking liblsan0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../41-libtsan0_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libtsan0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libubsan1:amd64.
+Preparing to unpack .../42-libubsan1_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libubsan1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../43-libquadmath0_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libquadmath0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libgcc-9-dev:amd64.
+Preparing to unpack .../44-libgcc-9-dev_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking libgcc-9-dev:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package gcc-9.
+Preparing to unpack .../45-gcc-9_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking gcc-9 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../46-gcc_4%3a9.3.0-1ubuntu2_amd64.deb ...
+Unpacking gcc (4:9.3.0-1ubuntu2) ...
+Selecting previously unselected package libstdc++-9-dev:amd64.
+Preparing to unpack .../47-libstdc++-9-dev_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking libstdc++-9-dev:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package g++-9.
+Preparing to unpack .../48-g++-9_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking g++-9 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../49-g++_4%3a9.3.0-1ubuntu2_amd64.deb ...
+Unpacking g++ (4:9.3.0-1ubuntu2) ...
+Selecting previously unselected package make.
+Preparing to unpack .../50-make_4.2.1-1.2_amd64.deb ...
+Unpacking make (4.2.1-1.2) ...
+Selecting previously unselected package libdpkg-perl.
+Preparing to unpack .../51-libdpkg-perl_1.19.7ubuntu3.2_all.deb ...
+Unpacking libdpkg-perl (1.19.7ubuntu3.2) ...
+Selecting previously unselected package dpkg-dev.
+Preparing to unpack .../52-dpkg-dev_1.19.7ubuntu3.2_all.deb ...
+Unpacking dpkg-dev (1.19.7ubuntu3.2) ...
+Selecting previously unselected package build-essential.
+Preparing to unpack .../53-build-essential_12.8ubuntu1.1_amd64.deb ...
+Unpacking build-essential (12.8ubuntu1.1) ...
+Selecting previously unselected package ccache.
+Preparing to unpack .../54-ccache_3.7.7-1_amd64.deb ...
+Unpacking ccache (3.7.7-1) ...
+Selecting previously unselected package libllvm12:amd64.
+Preparing to unpack .../55-libllvm12_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking libllvm12:amd64 (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package libclang-cpp12.
+Preparing to unpack .../56-libclang-cpp12_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking libclang-cpp12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package libgc1c2:amd64.
+Preparing to unpack .../57-libgc1c2_1%3a7.6.4-0.4ubuntu1_amd64.deb ...
+Unpacking libgc1c2:amd64 (1:7.6.4-0.4ubuntu1) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../58-libobjc4_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking libobjc4:amd64 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libobjc-9-dev:amd64.
+Preparing to unpack .../59-libobjc-9-dev_9.4.0-1ubuntu1~20.04.1_amd64.deb ...
+Unpacking libobjc-9-dev:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../60-libc6-i386_2.31-0ubuntu9.9_amd64.deb ...
+Unpacking libc6-i386 (2.31-0ubuntu9.9) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../61-lib32gcc-s1_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking lib32gcc-s1 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../62-lib32stdc++6_10.3.0-1ubuntu1~20.04_amd64.deb ...
+Unpacking lib32stdc++6 (10.3.0-1ubuntu1~20.04) ...
+Selecting previously unselected package libclang-common-12-dev.
+Preparing to unpack .../63-libclang-common-12-dev_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking libclang-common-12-dev (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package llvm-12-linker-tools.
+Preparing to unpack .../64-llvm-12-linker-tools_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking llvm-12-linker-tools (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package libclang1-12.
+Preparing to unpack .../65-libclang1-12_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking libclang1-12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package clang-12.
+Preparing to unpack .../66-clang-12_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking clang-12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package cmake-data.
+Preparing to unpack .../67-cmake-data_3.16.3-1ubuntu1_all.deb ...
+Unpacking cmake-data (3.16.3-1ubuntu1) ...
+Selecting previously unselected package libarchive13:amd64.
+Preparing to unpack .../68-libarchive13_3.4.0-2ubuntu1.2_amd64.deb ...
+Unpacking libarchive13:amd64 (3.4.0-2ubuntu1.2) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../69-libcurl4_7.68.0-1ubuntu2.13_amd64.deb ...
+Unpacking libcurl4:amd64 (7.68.0-1ubuntu2.13) ...
+Selecting previously unselected package libjsoncpp1:amd64.
+Preparing to unpack .../70-libjsoncpp1_1.7.4-3.1ubuntu2_amd64.deb ...
+Unpacking libjsoncpp1:amd64 (1.7.4-3.1ubuntu2) ...
+Selecting previously unselected package librhash0:amd64.
+Preparing to unpack .../71-librhash0_1.3.9-1_amd64.deb ...
+Unpacking librhash0:amd64 (1.3.9-1) ...
+Selecting previously unselected package cmake.
+Preparing to unpack .../72-cmake_3.16.3-1ubuntu1_amd64.deb ...
+Unpacking cmake (3.16.3-1ubuntu1) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../73-curl_7.68.0-1ubuntu2.13_amd64.deb ...
+Unpacking curl (7.68.0-1ubuntu2.13) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../74-libtool_2.4.6-14_all.deb ...
+Unpacking libtool (2.4.6-14) ...
+Selecting previously unselected package llvm-12-runtime.
+Preparing to unpack .../75-llvm-12-runtime_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking llvm-12-runtime (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package libpfm4:amd64.
+Preparing to unpack .../76-libpfm4_4.10.1+git20-g7700f49-2_amd64.deb ...
+Unpacking libpfm4:amd64 (4.10.1+git20-g7700f49-2) ...
+Selecting previously unselected package llvm-12.
+Preparing to unpack .../77-llvm-12_1%3a12.0.0-3ubuntu1~20.04.5_amd64.deb ...
+Unpacking llvm-12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../78-pkg-config_0.29.1-0ubuntu4_amd64.deb ...
+Unpacking pkg-config (0.29.1-0ubuntu4) ...
+Setting up mime-support (3.64ubuntu1) ...
+Setting up libmagic-mgc (1:5.38-4) ...
+Setting up libgc1c2:amd64 (1:7.6.4-0.4ubuntu1) ...
+Setting up libglib2.0-0:amd64 (2.64.6-1~ubuntu20.04.4) ...
+No schema files found: doing nothing.
+Setting up ccache (3.7.7-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up binutils-common:amd64 (2.34-6ubuntu1.3) ...
+Setting up libmagic1:amd64 (1:5.38-4) ...
+Setting up linux-libc-dev:amd64 (5.4.0-125.141) ...
+Setting up libctf-nobfd0:amd64 (2.34-6ubuntu1.3) ...
+Setting up libobjc4:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up file (1:5.38-4) ...
+Setting up libgomp1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up tzdata (2022c-0ubuntu0.20.04.0) ...
+
+Current default time zone: 'Etc/UTC'
+Local time is now:      Tue Sep 13 00:20:23 UTC 2022.
+Universal Time is now:  Tue Sep 13 00:20:23 UTC 2022.
+Run 'dpkg-reconfigure tzdata' if you wish to change it.
+
+Setting up autotools-dev (20180224.1) ...
+Setting up libuv1:amd64 (1.34.2-1ubuntu1.3) ...
+Setting up libpfm4:amd64 (4.10.1+git20-g7700f49-2) ...
+Setting up make (4.2.1-1.2) ...
+Setting up libmpfr6:amd64 (4.0.2-1) ...
+Setting up libllvm12:amd64 (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up xz-utils (5.2.4-1ubuntu1.1) ...
+update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+Setting up libquadmath0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up bsdmainutils (11.1.2ubuntu3) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/write.1.gz because associated file /usr/share/man/man1/bsd-write.1.gz (of link group write) doesn't exist
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/from.1.gz because associated file /usr/share/man/man1/bsd-from.1.gz (of link group from) doesn't exist
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up libatomic1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up libdpkg-perl (1.19.7ubuntu3.2) ...
+Setting up libubsan1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up librhash0:amd64 (1.3.9-1) ...
+Setting up libcrypt-dev:amd64 (1:4.4.10-10ubuntu4) ...
+Setting up libc6-i386 (2.31-0ubuntu9.9) ...
+Setting up libcurl4:amd64 (7.68.0-1ubuntu2.13) ...
+Setting up libisl22:amd64 (0.22.1-1) ...
+Setting up cmake-data (3.16.3-1ubuntu1) ...
+Setting up curl (7.68.0-1ubuntu2.13) ...
+Setting up libmpdec2:amd64 (2.4.2-3) ...
+Setting up libbinutils:amd64 (2.34-6ubuntu1.3) ...
+Setting up libc-dev-bin (2.31-0ubuntu9.9) ...
+Setting up readline-common (8.0-4) ...
+Setting up libcc1-0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up liblsan0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up libitm1:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up libjsoncpp1:amd64 (1.7.4-3.1ubuntu2) ...
+Setting up libpopt0:amd64 (1.16-14) ...
+Setting up gcc-9-base:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libtsan0:amd64 (10.3.0-1ubuntu1~20.04) ...
+Setting up libctf0:amd64 (2.34-6ubuntu1.3) ...
+Setting up libicu66:amd64 (66.1-2ubuntu2.1) ...
+Setting up libreadline8:amd64 (8.0-4) ...
+Setting up m4 (1.4.18-4) ...
+Setting up llvm-12-linker-tools (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up libclang1-12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up libasan5:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up llvm-12-runtime (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up libclang-cpp12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up lib32gcc-s1 (10.3.0-1ubuntu1~20.04) ...
+Setting up lib32stdc++6 (10.3.0-1ubuntu1~20.04) ...
+Setting up pkg-config (0.29.1-0ubuntu4) ...
+Setting up autoconf (2.69-11.1) ...
+Setting up libclang-common-12-dev (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up bison (2:3.5.1+dfsg-1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/yacc.1.gz because associated file /usr/share/man/man1/bison.yacc.1.gz (of link group yacc) doesn't exist
+Setting up cpp-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libc6-dev:amd64 (2.31-0ubuntu9.9) ...
+Setting up libpython3.8-stdlib:amd64 (3.8.10-0ubuntu1~20.04.5) ...
+Setting up python3.8 (3.8.10-0ubuntu1~20.04.5) ...
+Setting up libxml2:amd64 (2.9.10+dfsg-5ubuntu0.20.04.4) ...
+Setting up rsync (3.1.3-8ubuntu0.4) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libpython3-stdlib:amd64 (3.8.2-0ubuntu2) ...
+Setting up binutils-x86-64-linux-gnu (2.34-6ubuntu1.3) ...
+Setting up automake (1:1.16.1-4ubuntu6) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.16.1.gz (of link group automake) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.16.1.gz (of link group automake) doesn't exist
+Setting up llvm-12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Setting up libarchive13:amd64 (3.4.0-2ubuntu1.2) ...
+Setting up python3 (3.8.2-0ubuntu2) ...
+Setting up binutils (2.34-6ubuntu1.3) ...
+Setting up dpkg-dev (1.19.7ubuntu3.2) ...
+Setting up libgcc-9-dev:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libobjc-9-dev:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up cpp (4:9.3.0-1ubuntu2) ...
+Setting up cmake (3.16.3-1ubuntu1) ...
+Setting up gcc-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libstdc++-9-dev:amd64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libtool (2.4.6-14) ...
+Setting up gcc (4:9.3.0-1ubuntu2) ...
+Setting up g++-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up g++ (4:9.3.0-1ubuntu2) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/c++.1.gz because associated file /usr/share/man/man1/g++.1.gz (of link group c++) doesn't exist
+Setting up build-essential (12.8ubuntu1.1) ...
+Setting up clang-12 (1:12.0.0-3ubuntu1~20.04.5) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+              total        used        free      shared  buff/cache   available
+Mem:          125Gi       4.7Gi        16Gi       2.0Mi       104Gi       120Gi
+Swap:            0B          0B          0B
+Number of CPUs (nproc): 32
+Byte Order: Little Endian
+Free disk space:
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         488G  123G  366G  26% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            63G     0   63G   0% /sys/fs/cgroup
+/dev/sda1       488G  123G  366G  26% /tmp
+tmpfs           117G     0  117G   0% /dev/shm
+tmpfs            63G     0   63G   0% /proc/acpi
+tmpfs            63G     0   63G   0% /proc/scsi
+tmpfs            63G     0   63G   0% /sys/firmware
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0 9025k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 9025k  100 9025k    0     0  15.7M      0 --:--:-- --:--:-- --:--:-- 91.8M
+update-alternatives: using /usr/bin/clang++-12 to provide /usr/bin/clang++ (clang++) in auto mode
+update-alternatives: using /usr/bin/clang-12 to provide /usr/bin/clang (clang) in auto mode
+Cloning into '/tmp/cirrus-ci-build/ci/scratch/msan/llvm-project'...
+Note: switching to 'd28af7c654d8db0b68c175db5ce212d74fb5e9bc'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Updating files:  17% (17788/100407)Updating files:  18% (18074/100407)Updating files:  19% (19078/100407)Updating files:  20% (20082/100407)Updating files:  21% (21086/100407)Updating files:  22% (22090/100407)Updating files:  23% (23094/100407)Updating files:  24% (24098/100407)Updating files:  25% (25102/100407)Updating files:  26% (26106/100407)Updating files:  27% (27110/100407)Updating files:  28% (28114/100407)Updating files:  29% (29119/100407)Updating files:  30% (30123/100407)Updating files:  31% (31127/100407)Updating files:  32% (32131/100407)Updating files:  33% (33135/100407)Updating files:  34% (34139/100407)Updating files:  35% (35143/100407)Updating files:  36% (36147/100407)Updating files:  37% (37151/100407)Updating files:  38% (38155/100407)Updating files:  39% (39159/100407)Updating files:  39% (39456/100407)Updating files:  40% (40163/100407)Updating files:  41% (41167/100407)Updating files:  42% (42171/100407)Updating files:  43% (43176/100407)Updating files:  44% (44180/100407)Updating files:  45% (45184/100407)Updating files:  46% (46188/100407)Updating files:  47% (47192/100407)Updating files:  48% (48196/100407)Updating files:  49% (49200/100407)Updating files:  50% (50204/100407)Updating files:  51% (51208/100407)Updating files:  51% (51321/100407)Updating files:  52% (52212/100407)Updating files:  53% (53216/100407)Updating files:  54% (54220/100407)Updating files:  55% (55224/100407)Updating files:  56% (56228/100407)Updating files:  57% (57232/100407)Updating files:  58% (58237/100407)Updating files:  59% (59241/100407)Updating files:  60% (60245/100407)Updating files:  60% (60266/100407)Updating files:  61% (61249/100407)Updating files:  62% (62253/100407)Updating files:  63% (63257/100407)Updating files:  64% (64261/100407)Updating files:  65% (65265/100407)Updating files:  66% (66269/100407)Updating files:  67% (67273/100407)Updating files:  68% (68277/100407)Updating files:  69% (69281/100407)Updating files:  70% (70285/100407)Updating files:  71% (71289/100407)Updating files:  72% (72294/100407)Updating files:  72% (72453/100407)Updating files:  73% (73298/100407)Updating files:  74% (74302/100407)Updating files:  75% (75306/100407)Updating files:  76% (76310/100407)Updating files:  77% (77314/100407)Updating files:  78% (78318/100407)Updating files:  79% (79322/100407)Updating files:  80% (80326/100407)Updating files:  81% (81330/100407)Updating files:  82% (82334/100407)Updating files:  83% (83338/100407)Updating files:  84% (84342/100407)Updating files:  85% (85346/100407)Updating files:  86% (86351/100407)Updating files:  87% (87355/100407)Updating files:  88% (88359/100407)Updating files:  89% (89363/100407)Updating files:  90% (90367/100407)Updating files:  91% (91371/100407)Updating files:  91% (92045/100407)Updating files:  92% (92375/100407)Updating files:  93% (93379/100407)Updating files:  94% (94383/100407)Updating files:  95% (95387/100407)Updating files:  96% (96391/100407)Updating files:  97% (97395/100407)Updating files:  98% (98399/100407)Updating files:  99% (99403/100407)Updating files:  99% (100297/100407)Updating files: 100% (100407/100407)Updating files: 100% (100407/100407), done.
+-- The C compiler identification is Clang 12.0.0
+-- The CXX compiler identification is Clang 12.0.0
+-- The ASM compiler identification is Clang
+-- Found assembler: /usr/bin/clang
+-- Check for working C compiler: /usr/bin/clang
+-- Check for working C compiler: /usr/bin/clang -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/clang++
+-- Check for working CXX compiler: /usr/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- clang project is disabled
+-- clang-tools-extra project is disabled
+-- compiler-rt project is disabled
+-- debuginfo-tests project is disabled
+-- libc project is disabled
+-- libclc project is disabled
+-- libcxx project is enabled
+-- libcxxabi project is enabled
+-- libunwind project is disabled
+-- lld project is disabled
+-- lldb project is disabled
+-- mlir project is disabled
+-- openmp project is disabled
+-- parallel-libs project is disabled
+-- polly project is disabled
+-- pstl project is disabled
+-- flang project is disabled
+-- Performing Test LLVM_LIBSTDCXX_MIN
+-- Performing Test LLVM_LIBSTDCXX_MIN - Success
+-- Performing Test LLVM_LIBSTDCXX_SOFT_ERROR
+-- Performing Test LLVM_LIBSTDCXX_SOFT_ERROR - Success
+-- Looking for dlfcn.h
+-- Looking for dlfcn.h - found
+-- Looking for errno.h
+-- Looking for errno.h - found
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Looking for link.h
+-- Looking for link.h - found
+-- Looking for malloc/malloc.h
+-- Looking for malloc/malloc.h - not found
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for signal.h
+-- Looking for signal.h - found
+-- Looking for sys/ioctl.h
+-- Looking for sys/ioctl.h - found
+-- Looking for sys/mman.h
+-- Looking for sys/mman.h - found
+-- Looking for sys/param.h
+-- Looking for sys/param.h - found
+-- Looking for sys/resource.h
+-- Looking for sys/resource.h - found
+-- Looking for sys/stat.h
+-- Looking for sys/stat.h - found
+-- Looking for sys/time.h
+-- Looking for sys/time.h - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for sysexits.h
+-- Looking for sysexits.h - found
+-- Looking for termios.h
+-- Looking for termios.h - found
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for valgrind/valgrind.h
+-- Looking for valgrind/valgrind.h - not found
+-- Looking for fenv.h
+-- Looking for fenv.h - found
+-- Looking for FE_ALL_EXCEPT
+-- Looking for FE_ALL_EXCEPT - found
+-- Looking for FE_INEXACT
+-- Looking for FE_INEXACT - found
+-- Looking for mach/mach.h
+-- Looking for mach/mach.h - not found
+-- Looking for histedit.h
+-- Looking for histedit.h - not found
+-- Looking for CrashReporterClient.h
+-- Looking for CrashReporterClient.h - not found
+-- Looking for linux/magic.h
+-- Looking for linux/magic.h - found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for pthread_getspecific in pthread
+-- Looking for pthread_getspecific in pthread - found
+-- Looking for pthread_rwlock_init in pthread
+-- Looking for pthread_rwlock_init in pthread - found
+-- Looking for pthread_mutex_lock in pthread
+-- Looking for pthread_mutex_lock in pthread - found
+-- Looking for dlopen in dl
+-- Looking for dlopen in dl - found
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - found
+-- Looking for pfm_initialize in pfm
+-- Looking for pfm_initialize in pfm - not found
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Looking for xar_open in xar
+-- Looking for xar_open in xar - not found
+-- Looking for arc4random
+-- Looking for arc4random - not found
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- backtrace facility detected in default set of libraries
+-- Found Backtrace: /usr/include  
+-- Performing Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW
+-- Performing Test C_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW - Success
+-- Looking for __register_frame
+-- Looking for __register_frame - found
+-- Looking for __deregister_frame
+-- Looking for __deregister_frame - found
+-- Looking for _Unwind_Backtrace
+-- Looking for _Unwind_Backtrace - found
+-- Looking for getpagesize
+-- Looking for getpagesize - found
+-- Looking for sysconf
+-- Looking for sysconf - found
+-- Looking for getrusage
+-- Looking for getrusage - found
+-- Looking for setrlimit
+-- Looking for setrlimit - found
+-- Looking for isatty
+-- Looking for isatty - found
+-- Looking for futimens
+-- Looking for futimens - found
+-- Looking for futimes
+-- Looking for futimes - found
+-- Looking for posix_fallocate
+-- Looking for posix_fallocate - found
+-- Looking for sigaltstack
+-- Looking for sigaltstack - found
+-- Looking for lseek64
+-- Looking for lseek64 - found
+-- Looking for mallctl
+-- Looking for mallctl - not found
+-- Looking for mallinfo
+-- Looking for mallinfo - found
+-- Looking for malloc_zone_statistics
+-- Looking for malloc_zone_statistics - not found
+-- Looking for getrlimit
+-- Looking for getrlimit - found
+-- Looking for posix_spawn
+-- Looking for posix_spawn - found
+-- Looking for pread
+-- Looking for pread - found
+-- Looking for sbrk
+-- Looking for sbrk - found
+-- Looking for strerror
+-- Looking for strerror - found
+-- Looking for strerror_r
+-- Looking for strerror_r - found
+-- Looking for strerror_s
+-- Looking for strerror_s - not found
+-- Looking for setenv
+-- Looking for setenv - found
+-- Looking for dlopen
+-- Looking for dlopen - found
+-- Looking for dladdr
+-- Looking for dladdr - not found
+-- Performing Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC
+-- Performing Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC - Failed
+-- Performing Test HAVE_STRUCT_STAT_ST_MTIM_TV_NSEC
+-- Performing Test HAVE_STRUCT_STAT_ST_MTIM_TV_NSEC - Success
+-- Looking for __GLIBC__
+-- Looking for __GLIBC__ - found
+-- Looking for pthread_getname_np
+-- Looking for pthread_getname_np - found
+-- Looking for pthread_setname_np
+-- Looking for pthread_setname_np - found
+-- Performing Test HAVE_STD_IS_TRIVIALLY_COPYABLE
+-- Performing Test HAVE_STD_IS_TRIVIALLY_COPYABLE - Success
+-- Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB
+-- Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB - Success
+-- Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB
+-- Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB - Success
+-- Performing Test LLVM_HAS_ATOMICS
+-- Performing Test LLVM_HAS_ATOMICS - Success
+-- Performing Test SUPPORTS_VARIADIC_MACROS_FLAG
+-- Performing Test SUPPORTS_VARIADIC_MACROS_FLAG - Success
+-- Performing Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG
+-- Performing Test SUPPORTS_GNU_ZERO_VARIADIC_MACRO_ARGUMENTS_FLAG - Success
+-- Native target architecture is X86
+-- Threads enabled.
+-- Doxygen disabled.
+-- Go bindings disabled.
+-- Could NOT find OCaml (missing: OCAMLFIND OCAML_VERSION OCAML_STDLIB_PATH) 
+-- Could NOT find OCaml (missing: OCAMLFIND OCAML_VERSION OCAML_STDLIB_PATH) 
+-- OCaml bindings disabled.
+-- Could NOT find Python module pygments
+-- Could NOT find Python module pygments.lexers.c_cpp
+-- Could NOT find Python module yaml
+-- LLVM host triple: x86_64-unknown-linux-gnu
+-- LLVM default target triple: x86_64-unknown-linux-gnu
+-- Performing Test C_SUPPORTS_FPIC
+-- Performing Test C_SUPPORTS_FPIC - Success
+-- Performing Test CXX_SUPPORTS_FPIC
+-- Performing Test CXX_SUPPORTS_FPIC - Success
+-- Building with -fPIC
+-- Performing Test SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG
+-- Performing Test SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG - Success
+-- Performing Test C_SUPPORTS_WERROR_DATE_TIME
+-- Performing Test C_SUPPORTS_WERROR_DATE_TIME - Success
+-- Performing Test CXX_SUPPORTS_WERROR_DATE_TIME
+-- Performing Test CXX_SUPPORTS_WERROR_DATE_TIME - Success
+-- Performing Test CXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW
+-- Performing Test CXX_SUPPORTS_WERROR_UNGUARDED_AVAILABILITY_NEW - Success
+-- Performing Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG
+-- Performing Test CXX_SUPPORTS_MISSING_FIELD_INITIALIZERS_FLAG - Success
+-- Performing Test C_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG
+-- Performing Test C_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG - Success
+-- Performing Test CXX_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG
+-- Performing Test CXX_SUPPORTS_IMPLICIT_FALLTHROUGH_FLAG - Success
+-- Performing Test C_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG
+-- Performing Test C_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG - Success
+-- Performing Test CXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG
+-- Performing Test CXX_SUPPORTS_COVERED_SWITCH_DEFAULT_FLAG - Success
+-- Performing Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG
+-- Performing Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG - Failed
+-- Performing Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG
+-- Performing Test CXX_SUPPORTS_NOEXCEPT_TYPE_FLAG - Success
+-- Performing Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR
+-- Performing Test CXX_WONT_WARN_ON_FINAL_NONVIRTUALDTOR - Success
+-- Performing Test C_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG
+-- Performing Test C_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG - Success
+-- Performing Test CXX_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG
+-- Performing Test CXX_SUPPORTS_DELETE_NON_VIRTUAL_DTOR_FLAG - Success
+-- Performing Test CXX_SUPPORTS_SUGGEST_OVERRIDE_FLAG
+-- Performing Test CXX_SUPPORTS_SUGGEST_OVERRIDE_FLAG - Success
+-- Performing Test CXX_WSUGGEST_OVERRIDE_ALLOWS_ONLY_FINAL
+-- Performing Test CXX_WSUGGEST_OVERRIDE_ALLOWS_ONLY_FINAL - Success
+-- Performing Test C_WCOMMENT_ALLOWS_LINE_WRAP
+-- Performing Test C_WCOMMENT_ALLOWS_LINE_WRAP - Success
+-- Performing Test C_SUPPORTS_STRING_CONVERSION_FLAG
+-- Performing Test C_SUPPORTS_STRING_CONVERSION_FLAG - Success
+-- Performing Test CXX_SUPPORTS_STRING_CONVERSION_FLAG
+-- Performing Test CXX_SUPPORTS_STRING_CONVERSION_FLAG - Success
+-- Performing Test C_SUPPORTS_FNO_OMIT_FRAME_POINTER
+-- Performing Test C_SUPPORTS_FNO_OMIT_FRAME_POINTER - Success
+-- Performing Test CXX_SUPPORTS_FNO_OMIT_FRAME_POINTER
+-- Performing Test CXX_SUPPORTS_FNO_OMIT_FRAME_POINTER - Success
+-- Performing Test C_SUPPORTS_GLINE_TABLES_ONLY
+-- Performing Test C_SUPPORTS_GLINE_TABLES_ONLY - Success
+-- Performing Test CXX_SUPPORTS_GLINE_TABLES_ONLY
+-- Performing Test CXX_SUPPORTS_GLINE_TABLES_ONLY - Success
+-- Performing Test C_SUPPORTS_FNO_FUNCTION_SECTIONS
+-- Performing Test C_SUPPORTS_FNO_FUNCTION_SECTIONS - Success
+-- Performing Test C_SUPPORTS_FFUNCTION_SECTIONS
+-- Performing Test C_SUPPORTS_FFUNCTION_SECTIONS - Success
+-- Performing Test CXX_SUPPORTS_FFUNCTION_SECTIONS
+-- Performing Test CXX_SUPPORTS_FFUNCTION_SECTIONS - Success
+-- Performing Test C_SUPPORTS_FDATA_SECTIONS
+-- Performing Test C_SUPPORTS_FDATA_SECTIONS - Success
+-- Performing Test CXX_SUPPORTS_FDATA_SECTIONS
+-- Performing Test CXX_SUPPORTS_FDATA_SECTIONS - Success
+-- Looking for os_signpost_interval_begin
+-- Looking for os_signpost_interval_begin - not found
+-- Found Python3: /usr/bin/python3.8 (found version "3.8.10") found components: Interpreter 
+-- Linker detection: GNU ld
+-- Found Git: /usr/bin/git (found version "2.25.1") 
+-- Targeting X86
+-- Libc++abi will be using libc++ includes from /tmp/cirrus-ci-build/ci/scratch/msan/llvm-project/libcxxabi/../libcxx/include
+-- Looking for fopen in c
+-- Looking for fopen in c - found
+-- Looking for __gcc_personality_v0 in gcc_s
+-- Looking for __gcc_personality_v0 in gcc_s - found
+-- Looking for __aeabi_uldivmod in gcc
+-- Looking for __aeabi_uldivmod in gcc - not found
+-- Performing Test LIBCXXABI_HAS_NODEFAULTLIBS_FLAG
+-- Performing Test LIBCXXABI_HAS_NODEFAULTLIBS_FLAG - Success
+-- Performing Test LIBCXXABI_HAS_COMMENT_LIB_PRAGMA
+-- Performing Test LIBCXXABI_HAS_COMMENT_LIB_PRAGMA - Success
+-- Performing Test LIBCXXABI_HAS_NOSTDINCXX_FLAG
+-- Performing Test LIBCXXABI_HAS_NOSTDINCXX_FLAG - Success
+-- Looking for dladdr in dl
+-- Looking for dladdr in dl - found
+-- Looking for pthread_once in pthread
+-- Looking for pthread_once in pthread - found
+-- Looking for __cxa_thread_atexit_impl in c
+-- Looking for __cxa_thread_atexit_impl in c - found
+-- Looking for write in System
+-- Looking for write in System - not found
+-- Performing Test LIBCXXABI_SUPPORTS_WERROR_EQ_RETURN_TYPE_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WERROR_EQ_RETURN_TYPE_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_W_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_W_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WALL_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WALL_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WCHAR_SUBSCRIPTS_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WCHAR_SUBSCRIPTS_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WCONVERSION_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WCONVERSION_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WMISMATCHED_TAGS_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WMISMATCHED_TAGS_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WMISSING_BRACES_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WMISSING_BRACES_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WNEWLINE_EOF_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WNEWLINE_EOF_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WUNUSED_FUNCTION_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WUNUSED_FUNCTION_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WSHADOW_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WSHADOW_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WSHORTEN_64_TO_32_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WSHORTEN_64_TO_32_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WSIGN_COMPARE_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WSIGN_COMPARE_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WSIGN_CONVERSION_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WSIGN_CONVERSION_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WSTRICT_ALIASING_EQ_2_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WSTRICT_ALIASING_EQ_2_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WSTRICT_OVERFLOW_EQ_4_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WSTRICT_OVERFLOW_EQ_4_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WUNUSED_PARAMETER_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WUNUSED_PARAMETER_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WUNUSED_VARIABLE_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WUNUSED_VARIABLE_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WWRITE_STRINGS_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WWRITE_STRINGS_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WUNDEF_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WUNDEF_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WNO_SUGGEST_OVERRIDE_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WNO_SUGGEST_OVERRIDE_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WNO_ERROR_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WNO_ERROR_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_WX_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_WX_FLAG - Failed
+-- Performing Test LIBCXXABI_SUPPORTS_PEDANTIC_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_PEDANTIC_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_FSTRICT_ALIASING_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_FSTRICT_ALIASING_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_EHSC_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_EHSC_FLAG - Failed
+-- Performing Test LIBCXXABI_SUPPORTS_FUNWIND_TABLES_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_FUNWIND_TABLES_FLAG - Success
+-- Performing Test LIBCXXABI_SUPPORTS_NODEFAULTLIBS_FLAG
+-- Performing Test LIBCXXABI_SUPPORTS_NODEFAULTLIBS_FLAG - Success
+-- Could not find ParallelSTL, libc++abi will not attempt to use it but the build may fail if the libc++ in use needs it to be available.
+-- Looking for fopen in c
+-- Looking for fopen in c - found
+-- Looking for __gcc_personality_v0 in gcc_s
+-- Looking for __gcc_personality_v0 in gcc_s - found
+-- Performing Test LIBCXX_SUPPORTS_NODEFAULTLIBS_FLAG
+-- Performing Test LIBCXX_SUPPORTS_NODEFAULTLIBS_FLAG - Success
+-- Performing Test LIBCXX_HAS_COMMENT_LIB_PRAGMA
+-- Performing Test LIBCXX_HAS_COMMENT_LIB_PRAGMA - Success
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for ccos in m
+-- Looking for ccos in m - found
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - found
+-- Looking for __atomic_fetch_add_8 in atomic
+-- Looking for __atomic_fetch_add_8 in atomic - found
+-- Looking for cxxabi.h in /tmp/cirrus-ci-build/ci/scratch/msan/llvm-project/libcxx/../libcxxabi/include
+-- Looking for cxxabi.h in /tmp/cirrus-ci-build/ci/scratch/msan/llvm-project/libcxx/../libcxxabi/include - found
+-- Looking for __cxxabi_config.h in /tmp/cirrus-ci-build/ci/scratch/msan/llvm-project/libcxx/../libcxxabi/include
+-- Looking for __cxxabi_config.h in /tmp/cirrus-ci-build/ci/scratch/msan/llvm-project/libcxx/../libcxxabi/include - found
+-- Performing Test LIBCXX_SUPPORTS_FNO_OMIT_FRAME_POINTER_FLAG
+-- Performing Test LIBCXX_SUPPORTS_FNO_OMIT_FRAME_POINTER_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_GLINE_TABLES_ONLY_FLAG
+-- Performing Test LIBCXX_SUPPORTS_GLINE_TABLES_ONLY_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_FALIGNED_ALLOCATION_FLAG
+-- Performing Test LIBCXX_SUPPORTS_FALIGNED_ALLOCATION_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_NOSTDINCXX_FLAG
+-- Performing Test LIBCXX_SUPPORTS_NOSTDINCXX_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG
+-- Performing Test LIBCXX_SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_FVISIBILITY_EQ_HIDDEN_FLAG
+-- Performing Test LIBCXX_SUPPORTS_FVISIBILITY_EQ_HIDDEN_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WALL_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WALL_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WEXTRA_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WEXTRA_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_W_FLAG
+-- Performing Test LIBCXX_SUPPORTS_W_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WWRITE_STRINGS_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WWRITE_STRINGS_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_UNUSED_PARAMETER_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_UNUSED_PARAMETER_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_LONG_LONG_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_LONG_LONG_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WERROR_EQ_RETURN_TYPE_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WERROR_EQ_RETURN_TYPE_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WEXTRA_SEMI_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WEXTRA_SEMI_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_USER_DEFINED_LITERALS_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_USER_DEFINED_LITERALS_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_COVERED_SWITCH_DEFAULT_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_COVERED_SWITCH_DEFAULT_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_SUGGEST_OVERRIDE_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_SUGGEST_OVERRIDE_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_IGNORED_ATTRIBUTES_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_IGNORED_ATTRIBUTES_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_WNO_ERROR_FLAG
+-- Performing Test LIBCXX_SUPPORTS_WNO_ERROR_FLAG - Success
+-- Performing Test LIBCXX_SUPPORTS_EHSC_FLAG
+-- Performing Test LIBCXX_SUPPORTS_EHSC_FLAG - Failed
+-- Performing Test LIBCXX_SUPPORTS_ZL_FLAG
+-- Performing Test LIBCXX_SUPPORTS_ZL_FLAG - Failed
+-- Performing Test LIBCXX_SUPPORTS_NODEFAULTLIB_FLAG
+-- Performing Test LIBCXX_SUPPORTS_NODEFAULTLIB_FLAG - Failed
+-- Adding Benchmark: algorithms.bench.cpp
+-- Adding Benchmark: algorithms.partition_point.bench.cpp
+-- Adding Benchmark: allocation.bench.cpp
+-- Adding Benchmark: deque.bench.cpp
+-- Adding Benchmark: filesystem.bench.cpp
+-- Adding Benchmark: function.bench.cpp
+-- Adding Benchmark: map.bench.cpp
+-- Adding Benchmark: ordered_set.bench.cpp
+-- Adding Benchmark: string.bench.cpp
+-- Adding Benchmark: stringstream.bench.cpp
+-- Adding Benchmark: unordered_set_operations.bench.cpp
+-- Adding Benchmark: util_smartptr.bench.cpp
+-- Adding Benchmark: variant_visit_1.bench.cpp
+-- Adding Benchmark: variant_visit_2.bench.cpp
+-- Adding Benchmark: variant_visit_3.bench.cpp
+-- Adding Benchmark: vector_operations.bench.cpp
+-- Registering Bye as a pass plugin (static build: OFF)
+-- Failed to find LLVM FileCheck
+-- Version: 0.0.0
+-- Performing Test HAVE_CXX_FLAG_STD_CXX11
+-- Performing Test HAVE_CXX_FLAG_STD_CXX11 - Success
+-- Performing Test HAVE_CXX_FLAG_WALL
+-- Performing Test HAVE_CXX_FLAG_WALL - Success
+-- Performing Test HAVE_CXX_FLAG_WEXTRA
+-- Performing Test HAVE_CXX_FLAG_WEXTRA - Success
+-- Performing Test HAVE_CXX_FLAG_WSHADOW
+-- Performing Test HAVE_CXX_FLAG_WSHADOW - Success
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC - Success
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS - Success
+-- Performing Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32
+-- Performing Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32 - Success
+-- Performing Test HAVE_CXX_FLAG_WFLOAT_EQUAL
+-- Performing Test HAVE_CXX_FLAG_WFLOAT_EQUAL - Success
+-- Performing Test HAVE_CXX_FLAG_FSTRICT_ALIASING
+-- Performing Test HAVE_CXX_FLAG_FSTRICT_ALIASING - Success
+-- Performing Test HAVE_CXX_FLAG_FNO_EXCEPTIONS
+-- Performing Test HAVE_CXX_FLAG_FNO_EXCEPTIONS - Success
+-- Performing Test HAVE_CXX_FLAG_WNO_SUGGEST_OVERRIDE
+-- Performing Test HAVE_CXX_FLAG_WNO_SUGGEST_OVERRIDE - Success
+-- Performing Test HAVE_CXX_FLAG_WSTRICT_ALIASING
+-- Performing Test HAVE_CXX_FLAG_WSTRICT_ALIASING - Success
+-- Performing Test HAVE_CXX_FLAG_WD654
+-- Performing Test HAVE_CXX_FLAG_WD654 - Failed
+-- Performing Test HAVE_CXX_FLAG_WTHREAD_SAFETY
+-- Performing Test HAVE_CXX_FLAG_WTHREAD_SAFETY - Success
+-- Performing Test HAVE_THREAD_SAFETY_ATTRIBUTES
+-- Performing Test HAVE_THREAD_SAFETY_ATTRIBUTES
+-- Performing Test HAVE_THREAD_SAFETY_ATTRIBUTES -- failed to compile
+-- Performing Test HAVE_CXX_FLAG_COVERAGE
+-- Performing Test HAVE_CXX_FLAG_COVERAGE - Success
+-- Performing Test HAVE_GNU_POSIX_REGEX
+-- Performing Test HAVE_GNU_POSIX_REGEX
+-- Performing Test HAVE_GNU_POSIX_REGEX -- failed to compile
+-- Performing Test HAVE_POSIX_REGEX
+-- Performing Test HAVE_POSIX_REGEX
+-- Performing Test HAVE_POSIX_REGEX -- compiled but failed to run
+CMake Warning at utils/benchmark/CMakeLists.txt:248 (message):
+  Using std::regex with exceptions disabled is not fully supported
+
+
+-- Performing Test HAVE_STEADY_CLOCK
+-- Performing Test HAVE_STEADY_CLOCK
+-- Performing Test HAVE_STEADY_CLOCK -- success
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/cirrus-ci-build/ci/scratch/msan/build
+Scanning dependencies of target cxx_abi_headers
+Scanning dependencies of target cxx-generated-config
+[  0%] Copying C++ ABI header cxxabi.h...
+[  0%] Generating ../__generated_config
+[  0%] Copying C++ ABI header cxxabi.h...
+Scanning dependencies of target cxxabi_shared
+[  0%] Copying C++ ABI header __cxxabi_config.h...
+[  0%] Copying C++ ABI header __cxxabi_config.h...
+[  0%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_aux_runtime.cpp.o
+[  0%] Built target cxx-generated-config
+[  0%] Built target cxx_abi_headers
+[  0%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_default_handlers.cpp.o
+[  0%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_demangle.cpp.o
+Scanning dependencies of target generate-cxx-headers
+[ 12%] Copying CXX header __availability
+[ 12%] Copying CXX header __bit_reference
+[ 12%] Copying CXX header __bits
+[ 12%] Copying CXX header __bsd_locale_defaults.h
+[ 12%] Copying CXX header __bsd_locale_fallbacks.h
+[ 12%] Copying CXX header __debug
+[ 12%] Copying CXX header __errc
+[ 12%] Copying CXX header __functional_03
+[ 12%] Copying CXX header __functional_base
+[ 12%] Copying CXX header __functional_base_03
+[ 12%] Copying CXX header __hash_table
+[ 12%] Copying CXX header __libcpp_version
+[ 12%] Copying CXX header __locale
+[ 12%] Copying CXX header __memory/allocator_traits.h
+[ 12%] Copying CXX header __memory/base.h
+[ 12%] Copying CXX header __memory/pointer_traits.h
+[ 12%] Copying CXX header __memory/utilities.h
+[ 12%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_exception_storage.cpp.o
+[ 12%] Copying CXX header __mutex_base
+[ 12%] Copying CXX header __node_handle
+[ 12%] Copying CXX header __nullptr
+[ 12%] Copying CXX header __split_buffer
+[ 12%] Copying CXX header __sso_allocator
+[ 12%] Copying CXX header __std_stream
+[ 12%] Copying CXX header __string
+[ 12%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_guard.cpp.o
+[ 12%] Copying CXX header __threading_support
+[ 12%] Copying CXX header __tree
+[ 12%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_handlers.cpp.o
+[ 12%] Copying CXX header __tuple
+[ 12%] Copying CXX header __undef_macros
+[ 12%] Copying CXX header algorithm
+[ 12%] Copying CXX header any
+[ 12%] Copying CXX header array
+[ 12%] Copying CXX header atomic
+[ 12%] Copying CXX header barrier
+[ 12%] Copying CXX header bit
+[ 12%] Copying CXX header bitset
+[ 12%] Copying CXX header cassert
+[ 12%] Copying CXX header ccomplex
+[ 12%] Copying CXX header cctype
+[ 25%] Copying CXX header cerrno
+[ 25%] Copying CXX header cfenv
+[ 25%] Copying CXX header cfloat
+[ 25%] Copying CXX header charconv
+[ 25%] Copying CXX header chrono
+[ 25%] Copying CXX header cinttypes
+[ 25%] Copying CXX header ciso646
+[ 25%] Copying CXX header climits
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_vector.cpp.o
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_virtual.cpp.o
+[ 25%] Copying CXX header clocale
+[ 25%] Copying CXX header cmath
+[ 25%] Copying CXX header codecvt
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/stdlib_exception.cpp.o
+[ 25%] Copying CXX header compare
+[ 25%] Copying CXX header complex
+[ 25%] Copying CXX header complex.h
+[ 25%] Copying CXX header concepts
+[ 25%] Copying CXX header condition_variable
+[ 25%] Copying CXX header csetjmp
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/stdlib_stdexcept.cpp.o
+[ 25%] Copying CXX header csignal
+[ 25%] Copying CXX header cstdarg
+[ 25%] Copying CXX header cstdbool
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/stdlib_typeinfo.cpp.o
+[ 25%] Copying CXX header cstddef
+[ 25%] Copying CXX header cstdint
+[ 25%] Copying CXX header cstdio
+[ 25%] Copying CXX header cstdlib
+[ 25%] Copying CXX header cstring
+[ 25%] Copying CXX header ctgmath
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/abort_message.cpp.o
+[ 25%] Copying CXX header ctime
+[ 25%] Copying CXX header ctype.h
+[ 25%] Copying CXX header cwchar
+[ 25%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/fallback_malloc.cpp.o
+[ 25%] Copying CXX header cwctype
+[ 25%] Copying CXX header deque
+[ 25%] Copying CXX header errno.h
+[ 25%] Copying CXX header exception
+[ 25%] Copying CXX header execution
+[ 25%] Copying CXX header experimental/__config
+[ 25%] Copying CXX header experimental/__memory
+[ 25%] Copying CXX header experimental/algorithm
+[ 25%] Copying CXX header experimental/coroutine
+[ 37%] Copying CXX header experimental/deque
+[ 37%] Copying CXX header experimental/filesystem
+[ 37%] Copying CXX header experimental/forward_list
+[ 37%] Copying CXX header experimental/functional
+[ 37%] Copying CXX header experimental/iterator
+[ 37%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/private_typeinfo.cpp.o
+[ 37%] Copying CXX header experimental/list
+[ 37%] Copying CXX header experimental/map
+[ 37%] Copying CXX header experimental/memory_resource
+[ 37%] Copying CXX header experimental/propagate_const
+[ 37%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/stdlib_new_delete.cpp.o
+[ 37%] Copying CXX header experimental/regex
+[ 37%] Copying CXX header experimental/set
+[ 37%] Copying CXX header experimental/simd
+[ 37%] Copying CXX header experimental/string
+[ 37%] Copying CXX header experimental/type_traits
+[ 37%] Copying CXX header experimental/unordered_map
+[ 37%] Copying CXX header experimental/unordered_set
+[ 37%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_exception.cpp.o
+[ 37%] Copying CXX header experimental/utility
+[ 37%] Copying CXX header experimental/vector
+[ 37%] Copying CXX header ext/__hash
+[ 37%] Copying CXX header ext/hash_map
+[ 37%] Copying CXX header ext/hash_set
+[ 37%] Copying CXX header fenv.h
+[ 37%] Copying CXX header filesystem
+[ 37%] Copying CXX header float.h
+[ 37%] Copying CXX header forward_list
+[ 37%] Copying CXX header fstream
+[ 37%] Copying CXX header functional
+[ 37%] Copying CXX header future
+[ 37%] Copying CXX header initializer_list
+[ 37%] Copying CXX header inttypes.h
+[ 37%] Copying CXX header iomanip
+[ 37%] Copying CXX header ios
+[ 37%] Copying CXX header iosfwd
+[ 37%] Copying CXX header iostream
+[ 37%] Copying CXX header istream
+[ 37%] Copying CXX header iterator
+[ 37%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_personality.cpp.o
+[ 37%] Copying CXX header latch
+[ 37%] Copying CXX header limits
+[ 50%] Copying CXX header limits.h
+[ 50%] Copying CXX header list
+[ 50%] Copying CXX header locale
+[ 50%] Copying CXX header locale.h
+[ 50%] Copying CXX header map
+[ 50%] Copying CXX header math.h
+[ 50%] Copying CXX header memory
+[ 50%] Building CXX object projects/libcxxabi/src/CMakeFiles/cxxabi_shared.dir/cxa_thread_atexit.cpp.o
+[ 50%] Copying CXX header module.modulemap
+[ 50%] Copying CXX header mutex
+[ 50%] Copying CXX header new
+[ 50%] Copying CXX header numbers
+[ 50%] Copying CXX header numeric
+[ 50%] Copying CXX header optional
+[ 50%] Copying CXX header ostream
+[ 50%] Copying CXX header queue
+[ 50%] Copying CXX header random
+[ 50%] Copying CXX header ratio
+[ 50%] Copying CXX header regex
+[ 50%] Copying CXX header scoped_allocator
+[ 50%] Copying CXX header semaphore
+[ 50%] Copying CXX header set
+[ 50%] Copying CXX header setjmp.h
+[ 50%] Copying CXX header shared_mutex
+[ 50%] Copying CXX header span
+[ 50%] Copying CXX header sstream
+[ 50%] Copying CXX header stack
+[ 50%] Copying CXX header stdbool.h
+[ 50%] Copying CXX header stddef.h
+[ 50%] Copying CXX header stdexcept
+[ 50%] Copying CXX header stdio.h
+[ 50%] Copying CXX header stdint.h
+[ 50%] Copying CXX header stdlib.h
+[ 50%] Copying CXX header streambuf
+[ 50%] Copying CXX header string
+[ 50%] Copying CXX header string.h
+[ 50%] Copying CXX header string_view
+[ 50%] Copying CXX header strstream
+[ 62%] Copying CXX header __support/android/locale_bionic.h
+[ 62%] Copying CXX header __support/fuchsia/xlocale.h
+[ 62%] Copying CXX header __support/ibm/nanosleep.h
+[ 62%] Copying CXX header __support/ibm/locale_mgmt_aix.h
+[ 62%] Copying CXX header __support/ibm/limits.h
+[ 62%] Copying CXX header __support/ibm/support.h
+[ 62%] Copying CXX header __support/ibm/xlocale.h
+[ 62%] Copying CXX header __support/musl/xlocale.h
+[ 62%] Copying CXX header __support/nuttx/xlocale.h
+[ 62%] Copying CXX header __support/openbsd/xlocale.h
+[ 62%] Copying CXX header __support/newlib/xlocale.h
+[ 62%] Copying CXX header __support/solaris/floatingpoint.h
+[ 62%] Copying CXX header __support/solaris/wchar.h
+[ 62%] Copying CXX header __support/solaris/xlocale.h
+[ 62%] Copying CXX header __support/win32/locale_win32.h
+[ 62%] Copying CXX header __support/win32/limits_msvc_win32.h
+[ 62%] Copying CXX header __support/xlocale/__posix_l_fallback.h
+[ 62%] Copying CXX header __support/xlocale/__nop_locale_mgmt.h
+[ 62%] Copying CXX header __support/xlocale/__strtonum_fallback.h
+[ 62%] Copying CXX header system_error
+[ 62%] Copying CXX header tgmath.h
+[ 62%] Copying CXX header thread
+[ 62%] Copying CXX header tuple
+[ 62%] Copying CXX header type_traits
+[ 62%] Copying CXX header typeindex
+[ 62%] Copying CXX header typeinfo
+[ 62%] Copying CXX header unordered_map
+[ 62%] Copying CXX header unordered_set
+[ 62%] Copying CXX header utility
+[ 62%] Copying CXX header valarray
+[ 62%] Copying CXX header variant
+[ 62%] Copying CXX header vector
+[ 62%] Copying CXX header version
+[ 62%] Copying CXX header wchar.h
+[ 62%] Copying CXX header wctype.h
+[ 62%] Copying CXX __config
+[ 62%] Built target generate-cxx-headers
+Scanning dependencies of target cxx_static
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/algorithm.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/atomic.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/any.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/barrier.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/bind.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/charconv.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/chrono.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/condition_variable.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/condition_variable_destructor.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/exception.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/functional.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/future.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/hash.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/memory.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/mutex.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/mutex_destructor.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/new.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/optional.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/random_shuffle.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/shared_mutex.cpp.o
+[ 62%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/stdexcept.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/string.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/system_error.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/thread.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/typeinfo.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/utility.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/valarray.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/variant.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/vector.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/debug.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/random.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/ios.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/ios.instantiations.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/iostream.cpp.o
+[ 75%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/locale.cpp.o
+[ 87%] Linking CXX shared library ../../../lib/libc++abi.so
+[ 87%] Built target cxxabi_shared
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/regex.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/strstream.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/filesystem/operations.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/filesystem/directory_iterator.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_static.dir/filesystem/int128_builtins.cpp.o
+Scanning dependencies of target cxx_shared
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/algorithm.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/any.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/atomic.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/barrier.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/bind.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/charconv.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/chrono.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/condition_variable.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/condition_variable_destructor.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/exception.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/functional.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/future.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/hash.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/memory.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/mutex.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/mutex_destructor.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/new.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/optional.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/random_shuffle.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/shared_mutex.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/stdexcept.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/string.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/system_error.cpp.o
+[ 87%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/thread.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/typeinfo.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/utility.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/valarray.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/variant.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/vector.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/debug.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/random.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/ios.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/ios.instantiations.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/iostream.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/locale.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/regex.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/strstream.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/filesystem/operations.cpp.o
+[100%] Linking CXX static library ../../../lib/libc++.a
+[100%] Built target cxx_static
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/filesystem/directory_iterator.cpp.o
+[100%] Building CXX object projects/libcxx/src/CMakeFiles/cxx_shared.dir/filesystem/int128_builtins.cpp.o
+[100%] Linking CXX shared library ../../../lib/libc++.so
+Generating linker script: 'INPUT($<TARGET_SONAME_FILE_NAME:cxx_shared> -l$<IF:$<TARGET_EXISTS:cxxabi_shared>,$<TARGET_PROPERTY:$<IF:$<TARGET_EXISTS:cxxabi_shared>,cxxabi_shared,cxx_shared>,OUTPUT_NAME>,cxxabi_shared>)' as file $<TARGET_LINKER_FILE:cxx_shared>
+[100%] Built target cxx_shared
+Scanning dependencies of target cxx
+[100%] Built target cxx
+make: Entering directory '/tmp/cirrus-ci-build/depends'
+copying packages: boost libevent sqlite miniupnpc libnatpmp systemtap zeromq
+to: /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu
+make: Leaving directory '/tmp/cirrus-ci-build/depends'
+Statistics zeroed
+Set cache size limit to 250.0 MB
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:40: installing 'build-aux/ar-lib'
+configure.ac:35: installing 'build-aux/compile'
+configure.ac:24: installing 'build-aux/config.guess'
+configure.ac:24: installing 'build-aux/config.sub'
+configure.ac:30: installing 'build-aux/install-sh'
+configure.ac:30: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:116: installing 'build-aux/compile'
+configure.ac:51: installing 'build-aux/config.guess'
+configure.ac:51: installing 'build-aux/config.sub'
+configure.ac:58: installing 'build-aux/install-sh'
+configure.ac:58: installing 'build-aux/missing'
+src/Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+configure: loading site script /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/share/config.site
+configure: creating cache config.cache
+checking for x86_64-pc-linux-gnu-pkg-config... /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for x86_64-pc-linux-gnu-strip... strip
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether clang++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang++... none
+checking whether clang++ supports C++17 features with -std=c++17... yes
+checking whether std::filesystem can be used without link library... yes
+checking for x86_64-pc-linux-gnu-g++... clang++ -std=c++17
+checking whether we are using the GNU Objective C++ compiler... yes
+checking whether clang++ -std=c++17 accepts -g... yes
+checking dependency style of clang++ -std=c++17... none
+checking how to print strings... printf
+checking for x86_64-pc-linux-gnu-gcc... clang
+checking whether we are using the GNU C compiler... yes
+checking whether clang accepts -g... yes
+checking for clang option to accept ISO C89... none needed
+checking whether clang understands -c and -o together... yes
+checking dependency style of clang... none
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by clang... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... nm
+checking the name lister (nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for x86_64-pc-linux-gnu-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for x86_64-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for x86_64-pc-linux-gnu-ar... ar
+checking for archiver @FILE support... @
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for x86_64-pc-linux-gnu-ranlib... ranlib
+checking command to parse nm output from clang object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for x86_64-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... clang -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if clang supports -fno-rtti -fno-exceptions... yes
+checking for clang option to produce PIC... -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... yes
+checking if clang static flag -static works... yes
+checking if clang supports -c -o file.o... yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... clang++ -std=c++17 -E
+checking for ld used by clang++ -std=c++17... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the clang++ -std=c++17 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for clang++ -std=c++17 option to produce PIC... -fPIC -DPIC
+checking if clang++ -std=c++17 PIC flag -fPIC -DPIC works... yes
+checking if clang++ -std=c++17 static flag -static works... no
+checking if clang++ -std=c++17 supports -c -o file.o... yes
+checking if clang++ -std=c++17 supports -c -o file.o... (cached) yes
+checking whether the clang++ -std=c++17 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking for x86_64-pc-linux-gnu-gcov... no
+checking for gcov... /usr/bin/gcov
+checking for x86_64-pc-linux-gnu-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.6... no
+checking for python3.7... no
+checking for python3.8... /usr/bin/python3.8
+checking for genhtml... no
+checking for git... /usr/bin/git
+checking for ccache... /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... /usr/bin/hexdump
+checking for x86_64-pc-linux-gnu-objcopy... no
+checking for objcopy... /usr/bin/objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... yes
+checking whether the linker accepts -Wl,--fatal-warnings... yes
+checking whether C++ compiler accepts -fsanitize=memory... yes
+checking whether the linker accepts -fsanitize=memory... yes
+checking whether C++ compiler accepts -Werror=return-type... yes
+checking whether C++ compiler accepts -fno-extended-identifiers... no
+checking whether C++ compiler accepts -msse4.2... yes
+checking whether C++ compiler accepts -msse4.1... yes
+checking whether C++ compiler accepts -mavx -mavx2... yes
+checking whether C++ compiler accepts -msse4 -msha... yes
+checking whether C++ compiler accepts -mpclmul... yes
+checking for SSE4.2 intrinsics... yes
+checking for SSE4.1 intrinsics... yes
+checking for AVX2 intrinsics... yes
+checking for x86 SHA-NI intrinsics... yes
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking for ARMv8 CRC32 intrinsics... no
+checking for ARMv8 SHA-NI intrinsics... no
+checking whether byte ordering is bigendian... no
+checking whether clang is Clang... yes
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... no
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking whether std::atomic can be used without link library... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking for library containing clock_gettime... none required
+checking whether C++ compiler accepts -fPIC... yes
+checking whether C++ compiler accepts -fstack-reuse=none... no
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/sysctl.h usability... yes
+checking sys/sysctl.h presence... yes
+checking for sys/sysctl.h... yes
+checking vm/vm_param.h usability... no
+checking vm/vm_param.h presence... no
+checking for vm/vm_param.h... no
+checking sys/vmmeter.h usability... no
+checking sys/vmmeter.h presence... no
+checking for sys/vmmeter.h... no
+checking sys/resources.h usability... no
+checking sys/resources.h presence... no
+checking for sys/resources.h... no
+checking whether getifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether fork is declared... yes
+checking whether setsid is declared... yes
+checking whether pipe2 is declared... yes
+checking for timingsafe_bcmp... no
+checking whether le16toh is declared... yes
+checking whether le32toh is declared... yes
+checking whether le64toh is declared... yes
+checking whether htole16 is declared... yes
+checking whether htole32 is declared... yes
+checking whether htole64 is declared... yes
+checking whether be16toh is declared... yes
+checking whether be32toh is declared... yes
+checking whether be64toh is declared... yes
+checking whether htobe16 is declared... yes
+checking whether htobe32 is declared... yes
+checking whether htobe64 is declared... yes
+checking whether bswap_16 is declared... yes
+checking whether bswap_32 is declared... yes
+checking whether bswap_64 is declared... yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for default visibility attribute... yes
+checking for dllexport attribute... no
+checking for thread_local support... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... yes
+checking for strong getauxval support in the system headers... yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking whether to build Bitcoin Core GUI... no
+checking whether main function is needed for fuzz binary... checking whether the linker accepts ... no
+yes
+checking for __builtin_mul_overflow... yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking whether Userspace, Statically Defined Tracing tracepoints are supported... yes
+checking miniupnpc/miniupnpc.h usability... yes
+checking miniupnpc/miniupnpc.h presence... yes
+checking for miniupnpc/miniupnpc.h... yes
+checking for upnpDiscover in -lminiupnpc... yes
+checking miniupnpc/upnpcommands.h usability... yes
+checking miniupnpc/upnpcommands.h presence... yes
+checking for miniupnpc/upnpcommands.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking miniupnpc/upnperrors.h usability... yes
+checking miniupnpc/upnperrors.h presence... yes
+checking for miniupnpc/upnperrors.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking natpmp.h usability... yes
+checking natpmp.h presence... yes
+checking for natpmp.h... yes
+checking for initnatpmp in -lnatpmp... yes
+checking for boostlib >= 1.64.0 (106400) includes in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include"... yes
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib/x86_64-linux-gnu"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib64"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/libx32"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib"... yes
+checking for boostlib >= 1.64.0 (106400)... yes
+checking whether Boost.Process can be used... yes
+configure: WARNING: Specifying --with-sanitizers forces --without-seccomp since the sanitizers introduce use of syscalls not allowed by the bitcoind syscall sandbox (-sandbox=<mode>).
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking if evhttp_connection_get_peer expects const char**... no
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build bitcoin-util... yes
+checking whether to build experimental bitcoin-chainstate... no
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking whether C compiler accepts -fdebug-prefix-map=A=B... yes
+checking whether C preprocessor accepts -fmacro-prefix-map=A=B... yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build with support for NAT-PMP... yes
+checking whether to build with NAT-PMP enabled by default... no
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... no
+configure: updating cache config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/security-check.py to contrib/devtools/security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/symbol-check.py to contrib/devtools/symbol-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-security-check.py to contrib/devtools/test-security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-symbol-check.py to contrib/devtools/test-symbol-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/iwyu/bitcoin.core.imp to contrib/devtools/iwyu/bitcoin.core.imp
+config.status: linking /tmp/cirrus-ci-build/contrib/filter-lcov.py to contrib/filter-lcov.py
+config.status: linking /tmp/cirrus-ci-build/contrib/macdeploy/background.tiff to contrib/macdeploy/background.tiff
+config.status: linking /tmp/cirrus-ci-build/src/.bear-tidy-config to src/.bear-tidy-config
+config.status: linking /tmp/cirrus-ci-build/src/.clang-tidy to src/.clang-tidy
+config.status: linking /tmp/cirrus-ci-build/test/functional/test_runner.py to test/functional/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/fuzz/test_runner.py to test/fuzz/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/test_runner.py to test/util/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/rpcauth-test.py to test/util/rpcauth-test.py
+config.status: linking /tmp/cirrus-ci-build/src/qt/Makefile to src/qt/Makefile
+config.status: linking /tmp/cirrus-ci-build/src/qt/test/Makefile to src/qt/test/Makefile
+config.status: linking /tmp/cirrus-ci-build/src/test/Makefile to src/test/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1)
+configure: running /bin/bash /tmp/cirrus-ci-build/src/secp256k1/configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--enable-werror' '--enable-external-signer' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib' '--with-sanitizers=memory' '--disable-hardening' '--with-asm=no' 'CC=clang' 'CXX=clang++' 'CFLAGS=-fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls' 'CXXFLAGS=-fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls -nostdinc++ -stdlib=libc++ -L/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -lc++abi -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include/c++/v1 -lpthread -Wl,-rpath,/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -Wno-unused-command-line-argument' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--enable-module-recovery' '--enable-module-schnorrsig' --cache-file=../../config.cache --srcdir=/tmp/cirrus-ci-build/src/secp256k1
+configure: loading site script /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/share/config.site
+configure: loading cache ../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking for x86_64-pc-linux-gnu-gcc... (cached) clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to accept ISO C89... (cached) none needed
+checking whether clang understands -c and -o together... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang... (cached) none
+checking dependency style of clang... none
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking the archiver (ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by clang... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for x86_64-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for x86_64-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from clang object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /usr/bin/dd
+checking how to truncate binary pipes... (cached) /usr/bin/dd bs=4096 count=1
+checking for x86_64-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) clang -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if clang supports -fno-rtti -fno-exceptions... (cached) yes
+checking for clang option to produce PIC... (cached) -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... (cached) yes
+checking if clang static flag -static works... (cached) yes
+checking if clang supports -c -o file.o... (cached) yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking if clang supports -Werror=unknown-warning-option... yes
+checking if clang supports -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef... yes
+checking if clang supports -Wno-overlength-strings... yes
+checking if clang supports -Wall... yes
+checking if clang supports -Wno-unused-function... yes
+checking if clang supports -Wextra... yes
+checking if clang supports -Wcast-align... yes
+checking if clang supports -Wcast-align=strict... no
+checking if clang supports -Wconditional-uninitialized... yes
+checking if clang supports -fvisibility=hidden... yes
+configure: updating cache ../../config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with coverage           = no
+  with examples           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = clang
+  CPPFLAGS                =  -I/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/ 
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wconditional-uninitialized -fvisibility=hidden 
+  CFLAGS                  = -pipe -std=c11 -O2 -fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib 
+
+Options used to compile and link:
+  external signer = yes
+  multiprocess    = no
+  with experimental syscall sandbox support = no
+  with libs       = yes
+  with wallet     = yes
+    with sqlite   = yes
+    with bdb      = no
+  with gui / qt   = no
+  with zmq        = yes
+  with test       = yes
+  with fuzz binary = yes
+  with bench      = yes
+  with upnp       = yes
+  with natpmp     = yes
+  use asm         = yes
+  USDT tracing    = yes
+  sanitizers      = memory
+  debug enabled   = no
+  gprof enabled   = no
+  werror          = yes
+  LTO             = no
+
+  target os       = linux-gnu
+  build os        = linux-gnu
+
+  CC              = /usr/bin/ccache clang
+  CFLAGS          = -pthread -pipe -std=c11 -O2 -fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls
+  CPPFLAGS        =  -fmacro-prefix-map=$(abs_top_srcdir)=.   -DHAVE_BUILD_INFO -DPROVIDE_FUZZ_MAIN_FUNCTION -I/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/ 
+  CXX             = /usr/bin/ccache clang++ -std=c++17
+  CXXFLAGS        =   -fdebug-prefix-map=$(abs_top_srcdir)=.    -Werror   -pipe -std=c++17 -O2 -fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls -nostdinc++ -stdlib=libc++ -L/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -lc++abi -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include/c++/v1 -lpthread -Wl,-rpath,/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -Wno-unused-command-line-argument
+  LDFLAGS         =  -lpthread    -L/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib 
+  AR              = ar
+  ARFLAGS         = cr
+
+make  distdir-am
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+if test -d "bitcoin-x86_64-pc-linux-gnu"; then find "bitcoin-x86_64-pc-linux-gnu" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "bitcoin-x86_64-pc-linux-gnu" || { sleep 5 && rm -rf "bitcoin-x86_64-pc-linux-gnu"; }; else :; fi
+test -d "bitcoin-x86_64-pc-linux-gnu" || mkdir "bitcoin-x86_64-pc-linux-gnu"
+ (cd src && make  top_distdir=../bitcoin-x86_64-pc-linux-gnu distdir=../bitcoin-x86_64-pc-linux-gnu/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make  distdir-am
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+Generated bench/data/block413567.raw.h
+Generated test/data/script_tests.json.h
+Generated test/data/bip341_wallet_vectors.json.h
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/sighash.json.h
+Generated test/data/tx_invalid.json.h
+Generated test/data/tx_valid.json.h
+Generated test/data/asmap.raw.h
+ (cd secp256k1 && make  top_distdir=../../bitcoin-x86_64-pc-linux-gnu distdir=../../bitcoin-x86_64-pc-linux-gnu/src/secp256k1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make  distdir-am
+make[5]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+:
+test -d "../../bitcoin-x86_64-pc-linux-gnu/src/secp256k1" || mkdir "../../bitcoin-x86_64-pc-linux-gnu/src/secp256k1"
+test -n ":" \
+|| find "../../bitcoin-x86_64-pc-linux-gnu/src/secp256k1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/bash /tmp/cirrus-ci-build/src/secp256k1/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../../bitcoin-x86_64-pc-linux-gnu/src/secp256k1"
+make[5]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+ (cd doc/man && make  top_distdir=../../bitcoin-x86_64-pc-linux-gnu distdir=../../bitcoin-x86_64-pc-linux-gnu/doc/man \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make  distdir-am
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make  \
+  top_distdir="bitcoin-x86_64-pc-linux-gnu" distdir="bitcoin-x86_64-pc-linux-gnu" \
+  dist-hook
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+/usr/bin/git archive --format=tar HEAD -- src/clientversion.cpp | ${TAR-tar} -C bitcoin-x86_64-pc-linux-gnu -xf -
+fatal: current working directory is untracked
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+make[2]: [Makefile:1255: dist-hook] Error 2 (ignored)
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+test -n "" \
+|| find "bitcoin-x86_64-pc-linux-gnu" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/bash /tmp/cirrus-ci-build/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "bitcoin-x86_64-pc-linux-gnu"
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+configure: loading site script /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/share/config.site
+configure: loading cache ../config.cache
+checking for x86_64-pc-linux-gnu-pkg-config... (cached) /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether clang++ accepts -g... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang++... (cached) none
+checking whether clang++ supports C++17 features with -std=c++17... (cached) yes
+checking whether std::filesystem can be used without link library... yes
+checking for x86_64-pc-linux-gnu-g++... (cached) clang++ -std=c++17
+checking whether we are using the GNU Objective C++ compiler... (cached) yes
+checking whether clang++ -std=c++17 accepts -g... (cached) yes
+checking dependency style of clang++ -std=c++17... (cached) none
+checking how to print strings... printf
+checking for x86_64-pc-linux-gnu-gcc... (cached) clang
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to accept ISO C89... (cached) none needed
+checking whether clang understands -c and -o together... (cached) yes
+checking dependency style of clang... (cached) none
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by clang... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for x86_64-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for x86_64-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from clang object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /usr/bin/dd
+checking how to truncate binary pipes... (cached) /usr/bin/dd bs=4096 count=1
+checking for x86_64-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) clang -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if clang supports -fno-rtti -fno-exceptions... (cached) yes
+checking for clang option to produce PIC... (cached) -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... (cached) yes
+checking if clang static flag -static works... (cached) yes
+checking if clang supports -c -o file.o... (cached) yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... (cached) no
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... (cached) clang++ -std=c++17 -E
+checking for ld used by clang++ -std=c++17... (cached) /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... (cached) yes
+checking whether the clang++ -std=c++17 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for clang++ -std=c++17 option to produce PIC... (cached) -fPIC -DPIC
+checking if clang++ -std=c++17 PIC flag -fPIC -DPIC works... (cached) yes
+checking if clang++ -std=c++17 static flag -static works... (cached) no
+checking if clang++ -std=c++17 supports -c -o file.o... (cached) yes
+checking if clang++ -std=c++17 supports -c -o file.o... (cached) yes
+checking whether the clang++ -std=c++17 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking for x86_64-pc-linux-gnu-gcov... no
+checking for gcov... (cached) /usr/bin/gcov
+checking for x86_64-pc-linux-gnu-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.6... (cached) /usr/bin/python3.8
+checking for genhtml... no
+checking for git... (cached) /usr/bin/git
+checking for ccache... (cached) /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... (cached) /usr/bin/hexdump
+checking for x86_64-pc-linux-gnu-objcopy... no
+checking for objcopy... (cached) /usr/bin/objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... (cached) yes
+checking whether the linker accepts -Wl,--fatal-warnings... (cached) yes
+checking whether C++ compiler accepts -fsanitize=memory... (cached) yes
+checking whether the linker accepts -fsanitize=memory... (cached) yes
+checking whether C++ compiler accepts -Werror=return-type... (cached) yes
+checking whether C++ compiler accepts -fno-extended-identifiers... (cached) no
+checking whether C++ compiler accepts -msse4.2... (cached) yes
+checking whether C++ compiler accepts -msse4.1... (cached) yes
+checking whether C++ compiler accepts -mavx -mavx2... (cached) yes
+checking whether C++ compiler accepts -msse4 -msha... (cached) yes
+checking whether C++ compiler accepts -mpclmul... (cached) yes
+checking for SSE4.2 intrinsics... yes
+checking for SSE4.1 intrinsics... yes
+checking for AVX2 intrinsics... yes
+checking for x86 SHA-NI intrinsics... yes
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking for ARMv8 CRC32 intrinsics... no
+checking for ARMv8 SHA-NI intrinsics... no
+checking whether byte ordering is bigendian... (cached) no
+checking whether clang is Clang... (cached) yes
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking whether Clang needs flag to prevent "argument unused" warning when linking with -pthread... (cached) no
+checking for joinable pthread attribute... (cached) PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... (cached) no
+checking for PTHREAD_PRIO_INHERIT... (cached) yes
+checking whether std::atomic can be used without link library... yes
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking whether strerror_r is declared... (cached) yes
+checking for strerror_r... (cached) yes
+checking whether strerror_r returns char *... (cached) yes
+checking for library containing clock_gettime... (cached) none required
+checking whether C++ compiler accepts -fPIC... (cached) yes
+checking whether C++ compiler accepts -fstack-reuse=none... (cached) no
+checking for endian.h... (cached) yes
+checking for sys/endian.h... (cached) no
+checking for byteswap.h... (cached) yes
+checking for stdio.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/select.h... (cached) yes
+checking for sys/prctl.h... (cached) yes
+checking for sys/sysctl.h... (cached) yes
+checking for vm/vm_param.h... (cached) no
+checking for sys/vmmeter.h... (cached) no
+checking for sys/resources.h... (cached) no
+checking whether getifaddrs is declared... (cached) yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... (cached) yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether fork is declared... (cached) yes
+checking whether setsid is declared... (cached) yes
+checking whether pipe2 is declared... (cached) yes
+checking for timingsafe_bcmp... (cached) no
+checking whether le16toh is declared... (cached) yes
+checking whether le32toh is declared... (cached) yes
+checking whether le64toh is declared... (cached) yes
+checking whether htole16 is declared... (cached) yes
+checking whether htole32 is declared... (cached) yes
+checking whether htole64 is declared... (cached) yes
+checking whether be16toh is declared... (cached) yes
+checking whether be32toh is declared... (cached) yes
+checking whether be64toh is declared... (cached) yes
+checking whether htobe16 is declared... (cached) yes
+checking whether htobe32 is declared... (cached) yes
+checking whether htobe64 is declared... (cached) yes
+checking whether bswap_16 is declared... (cached) yes
+checking whether bswap_32 is declared... (cached) yes
+checking whether bswap_64 is declared... (cached) yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for default visibility attribute... yes
+checking for dllexport attribute... no
+checking for thread_local support... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... yes
+checking for strong getauxval support in the system headers... yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking whether to build Bitcoin Core GUI... no
+checking whether main function is needed for fuzz binary... checking whether the linker accepts ... (cached) no
+yes
+checking for __builtin_mul_overflow... yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking whether Userspace, Statically Defined Tracing tracepoints are supported... yes
+checking for miniupnpc/miniupnpc.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/upnpcommands.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/upnperrors.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking for natpmp.h... (cached) yes
+checking for initnatpmp in -lnatpmp... (cached) yes
+checking for boostlib >= 1.64.0 (106400) includes in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include"... yes
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib/x86_64-linux-gnu"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib64"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/libx32"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib"... yes
+checking for boostlib >= 1.64.0 (106400)... yes
+checking whether Boost.Process can be used... yes
+configure: WARNING: Specifying --with-sanitizers forces --without-seccomp since the sanitizers introduce use of syscalls not allowed by the bitcoind syscall sandbox (-sandbox=<mode>).
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking if evhttp_connection_get_peer expects const char**... no
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build bitcoin-util... yes
+checking whether to build experimental bitcoin-chainstate... no
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking whether C compiler accepts -fdebug-prefix-map=A=B... (cached) yes
+checking whether C preprocessor accepts -fmacro-prefix-map=A=B... (cached) yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build with support for NAT-PMP... yes
+checking whether to build with NAT-PMP enabled by default... no
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--enable-werror' '--enable-external-signer' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib' '--with-sanitizers=memory' '--disable-hardening' '--with-asm=no' 'CC=clang' 'CXX=clang++' 'CFLAGS=-fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls' 'CXXFLAGS=-fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls -nostdinc++ -stdlib=libc++ -L/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -lc++abi -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include/c++/v1 -lpthread -Wl,-rpath,/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -Wno-unused-command-line-argument' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--enable-module-recovery' '--enable-module-schnorrsig' --cache-file=../../../config.cache --srcdir=.
+configure: loading site script /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/share/config.site
+configure: loading cache ../../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking for x86_64-pc-linux-gnu-gcc... (cached) clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to accept ISO C89... (cached) none needed
+checking whether clang understands -c and -o together... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang... (cached) none
+checking dependency style of clang... (cached) none
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking the archiver (ar) interface... (cached) ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by clang... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for x86_64-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for x86_64-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for x86_64-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for x86_64-pc-linux-gnu-strip... (cached) strip
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from clang object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /usr/bin/dd
+checking how to truncate binary pipes... (cached) /usr/bin/dd bs=4096 count=1
+checking for x86_64-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) clang -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if clang supports -fno-rtti -fno-exceptions... (cached) yes
+checking for clang option to produce PIC... (cached) -fPIC -DPIC
+checking if clang PIC flag -fPIC -DPIC works... (cached) yes
+checking if clang static flag -static works... (cached) yes
+checking if clang supports -c -o file.o... (cached) yes
+checking if clang supports -c -o file.o... (cached) yes
+checking whether the clang linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking if clang supports -Werror=unknown-warning-option... yes
+checking if clang supports -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef... yes
+checking if clang supports -Wno-overlength-strings... yes
+checking if clang supports -Wall... yes
+checking if clang supports -Wno-unused-function... yes
+checking if clang supports -Wextra... yes
+checking if clang supports -Wcast-align... yes
+checking if clang supports -Wcast-align=strict... no
+checking if clang supports -Wconditional-uninitialized... yes
+checking if clang supports -fvisibility=hidden... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with coverage           = no
+  with examples           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = clang
+  CPPFLAGS                =  -I/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/ 
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wconditional-uninitialized -fvisibility=hidden 
+  CFLAGS                  = -pipe -std=c11 -O2 -fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib 
+
+Options used to compile and link:
+  external signer = yes
+  multiprocess    = no
+  with experimental syscall sandbox support = no
+  with libs       = yes
+  with wallet     = yes
+    with sqlite   = yes
+    with bdb      = no
+  with gui / qt   = no
+  with zmq        = yes
+  with test       = yes
+  with fuzz binary = yes
+  with bench      = yes
+  with upnp       = yes
+  with natpmp     = yes
+  use asm         = yes
+  USDT tracing    = yes
+  sanitizers      = memory
+  debug enabled   = no
+  gprof enabled   = no
+  werror          = yes
+  LTO             = no
+
+  target os       = linux-gnu
+  build os        = linux-gnu
+
+  CC              = /usr/bin/ccache clang
+  CFLAGS          = -pthread -pipe -std=c11 -O2 -fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls
+  CPPFLAGS        =  -fmacro-prefix-map=$(abs_top_srcdir)=.   -DHAVE_BUILD_INFO -DPROVIDE_FUZZ_MAIN_FUNCTION -I/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/ 
+  CXX             = /usr/bin/ccache clang++ -std=c++17
+  CXXFLAGS        =   -fdebug-prefix-map=$(abs_top_srcdir)=.    -Werror   -pipe -std=c++17 -O2 -fsanitize=memory -fsanitize-memory-track-origins=2 -fno-omit-frame-pointer -g -O1 -fno-optimize-sibling-calls -nostdinc++ -stdlib=libc++ -L/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -lc++abi -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include -I/tmp/cirrus-ci-build/ci/scratch/msan/build/include/c++/v1 -lpthread -Wl,-rpath,/tmp/cirrus-ci-build/ci/scratch/msan/build/lib -Wno-unused-command-line-argument
+  LDFLAGS         =  -lpthread    -L/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/lib 
+  AR              = ar
+  ARFLAGS         = cr
+
+Making install in src
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+  CXX      bitcoind-bitcoind.o
+  CXX      libbitcoin_node_a-addrdb.o
+  CXX      libbitcoin_node_a-addrman.o
+  CXX      libbitcoin_node_a-banman.o
+  CXX      libbitcoin_node_a-blockencodings.o
+  CXX      libbitcoin_node_a-blockfilter.o
+  CXX      libbitcoin_node_a-chain.o
+  CXX      libbitcoin_node_a-dbwrapper.o
+  CXX      libbitcoin_node_a-deploymentstatus.o
+  CXX      libbitcoin_node_a-flatfile.o
+  CXX      libbitcoin_node_a-headerssync.o
+  CXX      libbitcoin_node_a-httprpc.o
+  CXX      libbitcoin_node_a-httpserver.o
+  CXX      libbitcoin_node_a-i2p.o
+  CXX      libbitcoin_node_a-init.o
+  CXX      libbitcoin_node_a-mapport.o
+  CXX      libbitcoin_node_a-net.o
+  CXX      libbitcoin_node_a-net_processing.o
+  CXX      libbitcoin_node_a-netgroup.o
+  CXX      libbitcoin_node_a-noui.o
+  CXX      libbitcoin_node_a-pow.o
+  CXX      libbitcoin_node_a-rest.o
+  CXX      libbitcoin_node_a-shutdown.o
+  CXX      libbitcoin_node_a-signet.o
+  CXX      libbitcoin_node_a-timedata.o
+  CXX      libbitcoin_node_a-torcontrol.o
+  CXX      libbitcoin_node_a-txdb.o
+  CXX      libbitcoin_node_a-txmempool.o
+  CXX      libbitcoin_node_a-txorphanage.o
+  CXX      libbitcoin_node_a-txrequest.o
+  CXX      libbitcoin_node_a-validation.o
+  CXX      libbitcoin_node_a-validationinterface.o
+  CXX      libbitcoin_node_a-versionbits.o
+  CXX      wallet/libbitcoin_wallet_a-scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-spend.o
+  CXX      wallet/libbitcoin_wallet_a-transaction.o
+  CXX      wallet/libbitcoin_wallet_a-wallet.o
+  CXX      wallet/libbitcoin_wallet_a-walletdb.o
+  CXX      wallet/libbitcoin_wallet_a-walletutil.o
+  CXX      wallet/libbitcoin_wallet_a-coinselection.o
+  CXX      wallet/libbitcoin_wallet_a-sqlite.o
+  CXX      libbitcoin_common_a-base58.o
+  CXX      libbitcoin_common_a-bech32.o
+  CXX      libbitcoin_common_a-chainparams.o
+  CXX      libbitcoin_common_a-coins.o
+  CXX      libbitcoin_common_a-compressor.o
+  CXX      libbitcoin_common_a-core_read.o
+  CXX      libbitcoin_common_a-core_write.o
+  CXX      libbitcoin_common_a-deploymentinfo.o
+  CXX      libbitcoin_common_a-external_signer.o
+  CXX      init/libbitcoin_common_a-common.o
+  CXX      libbitcoin_common_a-key.o
+  CXX      libbitcoin_common_a-key_io.o
+  CXX      libbitcoin_common_a-merkleblock.o
+  CXX      libbitcoin_common_a-net_types.o
+  CXX      libbitcoin_common_a-netaddress.o
+  CXX      libbitcoin_common_a-netbase.o
+  CXX      libbitcoin_common_a-net_permissions.o
+  CXX      libbitcoin_common_a-outputtype.o
+  CXX      policy/libbitcoin_common_a-feerate.o
+  CXX      policy/libbitcoin_common_a-policy.o
+  CXX      libbitcoin_common_a-protocol.o
+  CXX      libbitcoin_common_a-psbt.o
+  CXX      rpc/libbitcoin_common_a-rawtransaction_util.o
+  CXX      rpc/libbitcoin_common_a-external_signer.o
+  CXX      rpc/libbitcoin_common_a-util.o
+  CXX      libbitcoin_common_a-scheduler.o
+  CXX      script/libbitcoin_common_a-descriptor.o
+  CXX      script/libbitcoin_common_a-miniscript.o
+  CXX      script/libbitcoin_common_a-sign.o
+  CXX      script/libbitcoin_common_a-signingprovider.o
+  CXX      script/libbitcoin_common_a-standard.o
+  CXX      libbitcoin_common_a-warnings.o
+  CXX      libbitcoin_util_a-chainparamsbase.o
+  CXX      libbitcoin_util_a-fs.o
+  CXX      libbitcoin_util_a-logging.o
+  CXX      libbitcoin_util_a-random.o
+  CXX      libbitcoin_util_a-randomenv.o
+  CXX      rpc/libbitcoin_util_a-request.o
+  CXX      support/libbitcoin_util_a-cleanse.o
+  CXX      libbitcoin_util_a-sync.o
+  CXX      libbitcoin_util_a-threadinterrupt.o
+  CXX      libbitcoin_consensus_a-arith_uint256.o
+  CXX      consensus/libbitcoin_consensus_a-merkle.o
+  CXX      consensus/libbitcoin_consensus_a-tx_check.o
+  CXX      libbitcoin_consensus_a-hash.o
+  CXX      libbitcoin_consensus_a-pubkey.o
+  CXX      script/libbitcoin_consensus_a-bitcoinconsensus.o
+  CXX      script/libbitcoin_consensus_a-interpreter.o
+  CXX      script/libbitcoin_consensus_a-script.o
+  CXX      script/libbitcoin_consensus_a-script_error.o
+  CXX      libbitcoin_consensus_a-uint256.o
+  CXX      util/libbitcoin_consensus_a-strencodings.o
+  CXX      crc32c/src/libcrc32c_sse42_la-crc32c_sse42.lo
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+  CC       src/libsecp256k1_la-secp256k1.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult_gen.lo
+  CXX      bitcoin_cli-bitcoin-cli.o
+  CXX      rpc/libbitcoin_cli_a-client.o
+  CXX      bitcoin_tx-bitcoin-tx.o
+  CXX      bitcoin_wallet-bitcoin-wallet.o
+  CXX      init/bitcoin_wallet-bitcoin-wallet.o
+  CXX      wallet/libbitcoin_wallet_tool_a-wallettool.o
+  CCLD     libsecp256k1_precomputed.la
+  CCLD     libsecp256k1.la
+  CXX      bitcoin_util-bitcoin-util.o
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+Generated test/data/script_tests.json.h
+Generated test/data/bip341_wallet_vectors.json.h
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/sighash.json.h
+Generated test/data/tx_invalid.json.h
+Generated test/data/tx_valid.json.h
+Generated test/data/asmap.raw.h
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_1byte.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_2bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_3bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_4bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_5bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_6bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_7bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_8bytes.o
+  CXX      bench/bench_bitcoin-descriptors.o
+Generated bench/data/block413567.raw.h
+  CXX      bench/bench_bitcoin-duplicate_inputs.o
+  CXX      bench/bench_bitcoin-examples.o
+  CXX      bench/bench_bitcoin-gcs_filter.o
+  CXX      bench/bench_bitcoin-hashpadding.o
+  CXX      bench/bench_bitcoin-lockedpool.o
+  CXX      bench/bench_bitcoin-logging.o
+  CXX      bench/bench_bitcoin-mempool_eviction.o
+  CXX      bench/bench_bitcoin-mempool_stress.o
+  CXX      bench/bench_bitcoin-merkle_root.o
+  CXX      bench/bench_bitcoin-nanobench.o
+  CXX      bench/bench_bitcoin-peer_eviction.o
+  CXX      bench/bench_bitcoin-poly1305.o
+  CXX      bench/bench_bitcoin-prevector.o
+  CXX      bench/bench_bitcoin-rollingbloom.o
+  CXX      bench/bench_bitcoin-rpc_blockchain.o
+  CXX      bench/bench_bitcoin-rpc_mempool.o
+  CXX      bench/bench_bitcoin-strencodings.o
+  CXX      bench/bench_bitcoin-util_time.o
+  CXX      bench/bench_bitcoin-verify_script.o
+  CXX      bench/bench_bitcoin-coin_selection.o
+  CXX      bench/bench_bitcoin-wallet_balance.o
+  CXX      bench/bench_bitcoin-wallet_loading.o
+  CXX      minisketch/src/test-test.o
+  CXX      support/libbitcoinconsensus_la-cleanse.lo
+  CXX      crypto/libbitcoinconsensus_la-aes.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha_poly_aead.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha20.lo
+  CXX      crypto/libbitcoinconsensus_la-hkdf_sha256_32.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-poly1305.lo
+  CXX      crypto/libbitcoinconsensus_la-muhash.lo
+  CXX      crypto/libbitcoinconsensus_la-ripemd160.lo
+  CXX      crypto/libbitcoinconsensus_la-sha1.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-sha3.lo
+  CXX      crypto/libbitcoinconsensus_la-sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-siphash.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256_sse4.lo
+  CXX      libbitcoinconsensus_la-arith_uint256.lo
+  CXX      consensus/libbitcoinconsensus_la-merkle.lo
+  CXX      consensus/libbitcoinconsensus_la-tx_check.lo
+  CXX      libbitcoinconsensus_la-hash.lo
+  CXX      primitives/libbitcoinconsensus_la-block.lo
+  CXX      primitives/libbitcoinconsensus_la-transaction.lo
+  CXX      libbitcoinconsensus_la-pubkey.lo
+  CXX      script/libbitcoinconsensus_la-bitcoinconsensus.lo
+  CXX      script/libbitcoinconsensus_la-interpreter.lo
+  CXX      script/libbitcoinconsensus_la-script.lo
+  CXX      script/libbitcoinconsensus_la-script_error.lo
+  CXX      libbitcoinconsensus_la-uint256.lo
+  CXX      util/libbitcoinconsensus_la-strencodings.lo
+  CXX      init/bitcoind-bitcoind.o
+  CXX      consensus/libbitcoin_node_a-tx_verify.o
+  CXX      index/libbitcoin_node_a-base.o
+  CXX      index/libbitcoin_node_a-blockfilterindex.o
+  CXX      index/libbitcoin_node_a-coinstatsindex.o
+  CXX      index/libbitcoin_node_a-txindex.o
+  CXX      kernel/libbitcoin_node_a-chain.o
+  CXX      kernel/libbitcoin_node_a-checks.o
+  CXX      kernel/libbitcoin_node_a-coinstats.o
+  CXX      kernel/libbitcoin_node_a-context.o
+  CXX      kernel/libbitcoin_node_a-mempool_persist.o
+  CXX      node/libbitcoin_node_a-blockstorage.o
+  CXX      node/libbitcoin_node_a-caches.o
+  CXX      node/libbitcoin_node_a-chainstate.o
+  CXX      node/libbitcoin_node_a-coin.o
+  CXX      node/libbitcoin_node_a-connection_types.o
+  CXX      node/libbitcoin_node_a-context.o
+  CXX      node/libbitcoin_node_a-eviction.o
+  CXX      node/libbitcoin_node_a-interface_ui.o
+  CXX      node/libbitcoin_node_a-interfaces.o
+  CXX      node/libbitcoin_node_a-mempool_args.o
+  CXX      node/libbitcoin_node_a-mempool_persist_args.o
+  CXX      node/libbitcoin_node_a-miner.o
+  CXX      node/libbitcoin_node_a-minisketchwrapper.o
+  CXX      node/libbitcoin_node_a-psbt.o
+  CXX      node/libbitcoin_node_a-transaction.o
+  CXX      node/libbitcoin_node_a-validation_cache_args.o
+  CXX      policy/libbitcoin_node_a-fees.o
+  CXX      policy/libbitcoin_node_a-fees_args.o
+  CXX      policy/libbitcoin_node_a-packages.o
+  CXX      policy/libbitcoin_node_a-rbf.o
+  CXX      policy/libbitcoin_node_a-settings.o
+  CXX      rpc/libbitcoin_node_a-blockchain.o
+  CXX      rpc/libbitcoin_node_a-fees.o
+  CXX      rpc/libbitcoin_node_a-mempool.o
+  CXX      rpc/libbitcoin_node_a-mining.o
+  CXX      rpc/libbitcoin_node_a-net.o
+  CXX      rpc/libbitcoin_node_a-node.o
+  CXX      rpc/libbitcoin_node_a-output_script.o
+  CXX      rpc/libbitcoin_node_a-rawtransaction.o
+  CXX      rpc/libbitcoin_node_a-server.o
+  CXX      rpc/libbitcoin_node_a-server_util.o
+  CXX      rpc/libbitcoin_node_a-signmessage.o
+  CXX      rpc/libbitcoin_node_a-txoutproof.o
+  CXX      script/libbitcoin_node_a-sigcache.o
+  CXX      wallet/libbitcoin_node_a-init.o
+  CXX      wallet/libbitcoin_wallet_a-coincontrol.o
+  CXX      wallet/libbitcoin_wallet_a-context.o
+  CXX      wallet/libbitcoin_wallet_a-crypter.o
+  CXX      wallet/libbitcoin_wallet_a-db.o
+  CXX      wallet/libbitcoin_wallet_a-dump.o
+  CXX      wallet/libbitcoin_wallet_a-external_signer_scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-feebumper.o
+  CXX      wallet/libbitcoin_wallet_a-fees.o
+  CXX      wallet/libbitcoin_wallet_a-interfaces.o
+  CXX      wallet/libbitcoin_wallet_a-load.o
+  CXX      wallet/libbitcoin_wallet_a-receive.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-addresses.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-backup.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-coins.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-encrypt.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-spend.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-signmessage.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-transactions.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-util.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-wallet.o
+  CXX      common/libbitcoin_common_a-bloom.o
+  CXX      support/libbitcoin_util_a-lockedpool.o
+  CXX      libbitcoin_util_a-clientversion.o
+  CXX      interfaces/libbitcoin_util_a-echo.o
+  CXX      interfaces/libbitcoin_util_a-handler.o
+  CXX      interfaces/libbitcoin_util_a-init.o
+  CXX      util/libbitcoin_util_a-asmap.o
+  CXX      util/libbitcoin_util_a-bip32.o
+  CXX      util/libbitcoin_util_a-bytevectorhash.o
+  CXX      util/libbitcoin_util_a-check.o
+  CXX      util/libbitcoin_util_a-error.o
+  CXX      util/libbitcoin_util_a-fees.o
+  CXX      util/libbitcoin_util_a-getuniquepath.o
+  CXX      util/libbitcoin_util_a-hasher.o
+  CXX      util/libbitcoin_util_a-sock.o
+  CXX      util/libbitcoin_util_a-syserror.o
+  CXX      util/libbitcoin_util_a-system.o
+  CXX      util/libbitcoin_util_a-message.o
+  CXX      util/libbitcoin_util_a-moneystr.o
+  CXX      util/libbitcoin_util_a-rbf.o
+  CXX      util/libbitcoin_util_a-readwritefile.o
+  CXX      util/libbitcoin_util_a-settings.o
+  CXX      util/libbitcoin_util_a-thread.o
+  CXX      util/libbitcoin_util_a-threadnames.o
+  CXX      util/libbitcoin_util_a-serfloat.o
+  CXX      util/libbitcoin_util_a-spanparsing.o
+  CXX      util/libbitcoin_util_a-strencodings.o
+  CXX      util/libbitcoin_util_a-string.o
+  CXX      util/libbitcoin_util_a-syscall_sandbox.o
+  CXX      util/libbitcoin_util_a-time.o
+  CXX      util/libbitcoin_util_a-tokenpipe.o
+  CXX      util/libbitcoin_util_a-url.o
+  CXX      univalue/lib/libunivalue_la-univalue.lo
+  CXX      univalue/lib/libunivalue_la-univalue_get.lo
+  CXX      univalue/lib/libunivalue_la-univalue_read.lo
+  CXX      univalue/lib/libunivalue_la-univalue_write.lo
+  CXX      zmq/libbitcoin_zmq_a-zmqabstractnotifier.o
+  CXX      zmq/libbitcoin_zmq_a-zmqnotificationinterface.o
+  CXX      zmq/libbitcoin_zmq_a-zmqpublishnotifier.o
+  CXX      zmq/libbitcoin_zmq_a-zmqrpc.o
+  CXX      zmq/libbitcoin_zmq_a-zmqutil.o
+  CXX      primitives/libbitcoin_consensus_a-block.o
+  CXX      primitives/libbitcoin_consensus_a-transaction.o
+  CXX      crypto/libbitcoin_crypto_base_la-aes.lo
+  CXX      crypto/libbitcoin_crypto_base_la-chacha_poly_aead.lo
+  CXX      crypto/libbitcoin_crypto_base_la-chacha20.lo
+  CXX      crypto/libbitcoin_crypto_base_la-hkdf_sha256_32.lo
+  CXX      crypto/libbitcoin_crypto_base_la-hmac_sha256.lo
+  CXX      crypto/libbitcoin_crypto_base_la-hmac_sha512.lo
+  CXX      crypto/libbitcoin_crypto_base_la-poly1305.lo
+  CXX      crypto/libbitcoin_crypto_base_la-muhash.lo
+  CXX      crypto/libbitcoin_crypto_base_la-ripemd160.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha1.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha256.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha3.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha512.lo
+  CXX      crypto/libbitcoin_crypto_base_la-siphash.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha256_sse4.lo
+  CXX      crypto/libbitcoin_crypto_sse41_la-sha256_sse41.lo
+  CXX      crypto/libbitcoin_crypto_avx2_la-sha256_avx2.lo
+  CXX      crypto/libbitcoin_crypto_x86_shani_la-sha256_x86_shani.lo
+  CXX      leveldb/db/libleveldb_la-builder.lo
+  CXX      leveldb/db/libleveldb_la-c.lo
+  CXX      leveldb/db/libleveldb_la-dbformat.lo
+  CXX      leveldb/db/libleveldb_la-db_impl.lo
+  CXX      leveldb/db/libleveldb_la-db_iter.lo
+  CXX      leveldb/db/libleveldb_la-dumpfile.lo
+  CXX      leveldb/db/libleveldb_la-filename.lo
+  CXX      leveldb/db/libleveldb_la-log_reader.lo
+  CXX      leveldb/db/libleveldb_la-log_writer.lo
+  CXX      leveldb/db/libleveldb_la-memtable.lo
+  CXX      leveldb/db/libleveldb_la-repair.lo
+  CXX      leveldb/db/libleveldb_la-table_cache.lo
+  CXX      leveldb/db/libleveldb_la-version_edit.lo
+  CXX      leveldb/db/libleveldb_la-version_set.lo
+  CXX      leveldb/db/libleveldb_la-write_batch.lo
+  CXX      leveldb/table/libleveldb_la-block_builder.lo
+  CXX      leveldb/table/libleveldb_la-block.lo
+  CXX      leveldb/table/libleveldb_la-filter_block.lo
+  CXX      leveldb/table/libleveldb_la-format.lo
+  CXX      leveldb/table/libleveldb_la-iterator.lo
+  CXX      leveldb/table/libleveldb_la-merger.lo
+  CXX      leveldb/table/libleveldb_la-table_builder.lo
+  CXX      leveldb/table/libleveldb_la-table.lo
+  CXX      leveldb/table/libleveldb_la-two_level_iterator.lo
+  CXX      leveldb/util/libleveldb_la-arena.lo
+  CXX      leveldb/util/libleveldb_la-bloom.lo
+  CXX      leveldb/util/libleveldb_la-cache.lo
+  CXX      leveldb/util/libleveldb_la-coding.lo
+  CXX      leveldb/util/libleveldb_la-comparator.lo
+  CXX      leveldb/util/libleveldb_la-crc32c.lo
+  CXX      leveldb/util/libleveldb_la-env.lo
+  CXX      leveldb/util/libleveldb_la-filter_policy.lo
+  CXX      leveldb/util/libleveldb_la-hash.lo
+  CXX      leveldb/util/libleveldb_la-histogram.lo
+  CXX      leveldb/util/libleveldb_la-logging.lo
+  CXX      leveldb/util/libleveldb_la-options.lo
+  CXX      leveldb/util/libleveldb_la-status.lo
+  CXX      leveldb/util/libleveldb_la-env_posix.lo
+  CXX      crc32c/src/libcrc32c_la-crc32c.lo
+  CXX      crc32c/src/libcrc32c_la-crc32c_portable.lo
+  CXXLD    crc32c/libcrc32c_sse42.la
+  CXX      leveldb/helpers/memenv/libmemenv_la-memenv.lo
+  CXX      compat/libbitcoin_cli_a-stdin.o
+  AR       libbitcoin_wallet_tool.a
+  CXX      test/test_bitcoin-main.o
+  CXX      wallet/test/test_test_bitcoin-util.o
+  CXX      wallet/test/test_test_bitcoin-wallet_test_fixture.o
+  CXX      wallet/test/test_test_bitcoin-init_test_fixture.o
+  CXX      test/test_bitcoin-addrman_tests.o
+  CXX      test/test_bitcoin-allocator_tests.o
+  CXX      test/test_bitcoin-amount_tests.o
+  CXX      test/test_bitcoin-arith_uint256_tests.o
+  CXX      test/test_bitcoin-banman_tests.o
+  CXX      test/test_bitcoin-base32_tests.o
+  CXX      test/test_bitcoin-base58_tests.o
+  CXX      test/test_bitcoin-base64_tests.o
+  CXX      test/test_bitcoin-bech32_tests.o
+  CXX      test/test_bitcoin-bip32_tests.o
+  CXX      test/test_bitcoin-blockchain_tests.o
+  CXX      test/test_bitcoin-blockencodings_tests.o
+  CXX      test/test_bitcoin-blockfilter_index_tests.o
+  CXX      test/test_bitcoin-blockfilter_tests.o
+  CXX      test/test_bitcoin-bloom_tests.o
+  CXX      test/test_bitcoin-bswap_tests.o
+  CXX      test/test_bitcoin-checkqueue_tests.o
+  CXX      test/test_bitcoin-coins_tests.o
+  CXX      test/test_bitcoin-coinstatsindex_tests.o
+  CXX      test/test_bitcoin-compilerbug_tests.o
+  CXX      test/test_bitcoin-compress_tests.o
+  CXX      test/test_bitcoin-crypto_tests.o
+  CXX      test/test_bitcoin-cuckoocache_tests.o
+  CXX      test/test_bitcoin-dbwrapper_tests.o
+  CXX      test/test_bitcoin-denialofservice_tests.o
+  CXX      test/test_bitcoin-descriptor_tests.o
+  CXX      test/test_bitcoin-flatfile_tests.o
+  CXX      test/test_bitcoin-fs_tests.o
+  CXX      test/test_bitcoin-getarg_tests.o
+  CXX      test/test_bitcoin-hash_tests.o
+  CXX      test/test_bitcoin-headers_sync_chainwork_tests.o
+  CXX      test/test_bitcoin-httpserver_tests.o
+  CXX      test/test_bitcoin-i2p_tests.o
+  CXX      test/test_bitcoin-interfaces_tests.o
+  CXX      test/test_bitcoin-key_io_tests.o
+  CXX      test/test_bitcoin-key_tests.o
+  CXX      test/test_bitcoin-logging_tests.o
+  CXX      test/test_bitcoin-mempool_tests.o
+  CXX      test/test_bitcoin-merkle_tests.o
+  CXX      test/test_bitcoin-merkleblock_tests.o
+  CXX      test/test_bitcoin-miner_tests.o
+  CXX      test/test_bitcoin-miniscript_tests.o
+  CXX      test/test_bitcoin-minisketch_tests.o
+  CXX      test/test_bitcoin-multisig_tests.o
+  CXX      test/test_bitcoin-net_peer_eviction_tests.o
+  CXX      test/test_bitcoin-net_tests.o
+  CXX      test/test_bitcoin-netbase_tests.o
+  CXX      test/test_bitcoin-orphanage_tests.o
+  CXX      test/test_bitcoin-pmt_tests.o
+  CXX      test/test_bitcoin-policy_fee_tests.o
+  CXX      test/test_bitcoin-policyestimator_tests.o
+  CXX      test/test_bitcoin-pow_tests.o
+  CXX      test/test_bitcoin-prevector_tests.o
+  CXX      test/test_bitcoin-raii_event_tests.o
+  CXX      test/test_bitcoin-random_tests.o
+  CXX      test/test_bitcoin-rbf_tests.o
+  CXX      test/test_bitcoin-rest_tests.o
+  CXX      test/test_bitcoin-result_tests.o
+  CXX      test/test_bitcoin-reverselock_tests.o
+  CXX      test/test_bitcoin-rpc_tests.o
+  CXX      test/test_bitcoin-sanity_tests.o
+  CXX      test/test_bitcoin-scheduler_tests.o
+  CXX      test/test_bitcoin-script_p2sh_tests.o
+  CXX      test/test_bitcoin-script_parse_tests.o
+  CXX      test/test_bitcoin-script_segwit_tests.o
+  CXX      test/test_bitcoin-script_standard_tests.o
+  CXX      test/test_bitcoin-script_tests.o
+  CXX      test/test_bitcoin-scriptnum_tests.o
+  CXX      test/test_bitcoin-serfloat_tests.o
+  CXX      test/test_bitcoin-serialize_tests.o
+  CXX      test/test_bitcoin-settings_tests.o
+  CXX      test/test_bitcoin-sighash_tests.o
+  CXX      test/test_bitcoin-sigopcount_tests.o
+  CXX      test/test_bitcoin-skiplist_tests.o
+  CXX      test/test_bitcoin-sock_tests.o
+  CXX      test/test_bitcoin-streams_tests.o
+  CXX      test/test_bitcoin-sync_tests.o
+  CXX      test/test_bitcoin-system_tests.o
+  CXX      test/test_bitcoin-timedata_tests.o
+  CXX      test/test_bitcoin-torcontrol_tests.o
+  CXX      test/test_bitcoin-transaction_tests.o
+  CXX      test/test_bitcoin-txindex_tests.o
+  CXX      test/test_bitcoin-txpackage_tests.o
+  CXX      test/test_bitcoin-txrequest_tests.o
+  CXX      test/test_bitcoin-txvalidation_tests.o
+  CXX      test/test_bitcoin-txvalidationcache_tests.o
+  CXX      test/test_bitcoin-uint256_tests.o
+  CXX      test/test_bitcoin-util_tests.o
+  CXX      test/test_bitcoin-util_threadnames_tests.o
+  CXX      test/test_bitcoin-validation_block_tests.o
+  CXX      test/test_bitcoin-validation_chainstate_tests.o
+  CXX      test/test_bitcoin-validation_chainstatemanager_tests.o
+  CXX      test/test_bitcoin-validation_flush_tests.o
+  CXX      test/test_bitcoin-validation_tests.o
+  CXX      test/test_bitcoin-validationinterface_tests.o
+  CXX      test/test_bitcoin-versionbits_tests.o
+  CXX      wallet/test/test_test_bitcoin-feebumper_tests.o
+  CXX      wallet/test/test_test_bitcoin-psbt_wallet_tests.o
+  CXX      wallet/test/test_test_bitcoin-spend_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_tests.o
+  CXX      wallet/test/test_test_bitcoin-walletdb_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_crypto_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_transaction_tests.o
+  CXX      wallet/test/test_test_bitcoin-coinselector_tests.o
+  CXX      wallet/test/test_test_bitcoin-availablecoins_tests.o
+  CXX      wallet/test/test_test_bitcoin-init_tests.o
+  CXX      wallet/test/test_test_bitcoin-ismine_tests.o
+  CXX      wallet/test/test_test_bitcoin-scriptpubkeyman_tests.o
+  CXX      test/util/libtest_util_a-blockfilter.o
+  CXX      test/util/libtest_util_a-logging.o
+  CXX      test/util/libtest_util_a-mining.o
+  CXX      test/util/libtest_util_a-net.o
+  CXX      test/util/libtest_util_a-script.o
+  CXX      test/util/libtest_util_a-setup_common.o
+  CXX      test/util/libtest_util_a-str.o
+  CXX      test/util/libtest_util_a-transaction_utils.o
+  CXX      test/util/libtest_util_a-validation.o
+  CXX      test/util/libtest_util_a-wallet.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_1byte.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_2bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_3bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_4bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_5bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_6bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_7bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_8bytes.o
+  CXX      minisketch/src/libminisketch_a-minisketch.o
+  AR       minisketch/libminisketch_clmul.a
+  CXX      bench/bench_bitcoin-addrman.o
+  CXX      bench/bench_bitcoin-base58.o
+  CXX      bench/bench_bitcoin-bech32.o
+  CXX      bench/bench_bitcoin-bench.o
+  CXX      bench/bench_bitcoin-bench_bitcoin.o
+  CXX      bench/bench_bitcoin-block_assemble.o
+  CXX      bench/bench_bitcoin-ccoins_caching.o
+  CXX      bench/bench_bitcoin-chacha20.o
+  CXX      bench/bench_bitcoin-chacha_poly_aead.o
+  CXX      bench/bench_bitcoin-checkblock.o
+  CXX      bench/bench_bitcoin-checkqueue.o
+  CXX      bench/bench_bitcoin-crypto_hash.o
+  CXX      bench/bench_bitcoin-data.o
+  CXX      wallet/test/fuzz/test_fuzz_fuzz-coinselection.o
+  CXX      wallet/test/fuzz/test_fuzz_fuzz-notifications.o
+  CXX      test/fuzz/fuzz-addition_overflow.o
+  CXX      test/fuzz/fuzz-addrman.o
+  CXX      test/fuzz/fuzz-asmap.o
+  CXX      test/fuzz/fuzz-asmap_direct.o
+  CXX      test/fuzz/fuzz-autofile.o
+  CXX      test/fuzz/fuzz-banman.o
+  CXX      test/fuzz/fuzz-base_encode_decode.o
+  CXX      test/fuzz/fuzz-bech32.o
+  CXX      test/fuzz/fuzz-bitdeque.o
+  CXX      test/fuzz/fuzz-block.o
+  CXX      test/fuzz/fuzz-block_header.o
+  CXX      test/fuzz/fuzz-blockfilter.o
+  CXX      test/fuzz/fuzz-bloom_filter.o
+  CXX      test/fuzz/fuzz-buffered_file.o
+  CXX      test/fuzz/fuzz-chain.o
+  CXX      test/fuzz/fuzz-checkqueue.o
+  CXX      test/fuzz/fuzz-coins_view.o
+  CXX      test/fuzz/fuzz-connman.o
+  CXX      test/fuzz/fuzz-crypto.o
+  CXX      test/fuzz/fuzz-crypto_aes256.o
+  CXX      test/fuzz/fuzz-crypto_aes256cbc.o
+  CXX      test/fuzz/fuzz-crypto_chacha20.o
+  CXX      test/fuzz/fuzz-crypto_chacha20_poly1305_aead.o
+  CXX      test/fuzz/fuzz-crypto_common.o
+  CXX      test/fuzz/fuzz-crypto_diff_fuzz_chacha20.o
+  CXX      test/fuzz/fuzz-crypto_hkdf_hmac_sha256_l32.o
+  CXX      test/fuzz/fuzz-crypto_poly1305.o
+  CXX      test/fuzz/fuzz-cuckoocache.o
+  CXX      test/fuzz/fuzz-decode_tx.o
+  CXX      test/fuzz/fuzz-descriptor_parse.o
+  CXX      test/fuzz/fuzz-deserialize.o
+  CXX      test/fuzz/fuzz-eval_script.o
+  CXX      test/fuzz/fuzz-fee_rate.o
+  CXX      test/fuzz/fuzz-fees.o
+  CXX      test/fuzz/fuzz-flatfile.o
+  CXX      test/fuzz/fuzz-float.o
+  CXX      test/fuzz/fuzz-golomb_rice.o
+  CXX      test/fuzz/fuzz-hex.o
+  CXX      test/fuzz/fuzz-http_request.o
+  CXX      test/fuzz/fuzz-i2p.o
+  CXX      test/fuzz/fuzz-integer.o
+  CXX      test/fuzz/fuzz-key.o
+  CXX      test/fuzz/fuzz-key_io.o
+  CXX      test/fuzz/fuzz-kitchen_sink.o
+  CXX      test/fuzz/fuzz-load_external_block_file.o
+  CXX      test/fuzz/fuzz-locale.o
+  CXX      test/fuzz/fuzz-merkleblock.o
+  CXX      test/fuzz/fuzz-message.o
+  CXX      test/fuzz/fuzz-miniscript.o
+  CXX      test/fuzz/fuzz-minisketch.o
+  CXX      test/fuzz/fuzz-muhash.o
+  CXX      test/fuzz/fuzz-multiplication_overflow.o
+  CXX      test/fuzz/fuzz-net.o
+  CXX      test/fuzz/fuzz-net_permissions.o
+  CXX      test/fuzz/fuzz-netaddress.o
+  CXX      test/fuzz/fuzz-netbase_dns_lookup.o
+  CXX      test/fuzz/fuzz-node_eviction.o
+  CXX      test/fuzz/fuzz-p2p_transport_serialization.o
+  CXX      test/fuzz/fuzz-parse_hd_keypath.o
+  CXX      test/fuzz/fuzz-parse_iso8601.o
+  CXX      test/fuzz/fuzz-parse_numbers.o
+  CXX      test/fuzz/fuzz-parse_script.o
+  CXX      test/fuzz/fuzz-parse_univalue.o
+  CXX      test/fuzz/fuzz-policy_estimator.o
+  CXX      test/fuzz/fuzz-policy_estimator_io.o
+  CXX      test/fuzz/fuzz-pow.o
+  CXX      test/fuzz/fuzz-prevector.o
+  CXX      test/fuzz/fuzz-primitives_transaction.o
+  CXX      test/fuzz/fuzz-process_message.o
+  CXX      test/fuzz/fuzz-process_messages.o
+  CXX      test/fuzz/fuzz-protocol.o
+  CXX      test/fuzz/fuzz-psbt.o
+  CXX      test/fuzz/fuzz-random.o
+  CXX      test/fuzz/fuzz-rbf.o
+  CXX      test/fuzz/fuzz-rolling_bloom_filter.o
+  CXX      test/fuzz/fuzz-rpc.o
+  CXX      test/fuzz/fuzz-script.o
+  CXX      test/fuzz/fuzz-script_assets_test_minimizer.o
+  CXX      test/fuzz/fuzz-script_bitcoin_consensus.o
+  CXX      test/fuzz/fuzz-script_descriptor_cache.o
+  CXX      test/fuzz/fuzz-script_flags.o
+  CXX      test/fuzz/fuzz-script_format.o
+  CXX      test/fuzz/fuzz-script_interpreter.o
+  CXX      test/fuzz/fuzz-script_ops.o
+  CXX      test/fuzz/fuzz-script_sigcache.o
+  CXX      test/fuzz/fuzz-script_sign.o
+  CXX      test/fuzz/fuzz-scriptnum_ops.o
+  CXX      test/fuzz/fuzz-secp256k1_ec_seckey_import_export_der.o
+  CXX      test/fuzz/fuzz-secp256k1_ecdsa_signature_parse_der_lax.o
+  CXX      test/fuzz/fuzz-signature_checker.o
+  CXX      test/fuzz/fuzz-signet.o
+  CXX      test/fuzz/fuzz-socks5.o
+  CXX      test/fuzz/fuzz-span.o
+  CXX      test/fuzz/fuzz-spanparsing.o
+  CXX      test/fuzz/fuzz-string.o
+  CXX      test/fuzz/fuzz-strprintf.o
+  CXX      test/fuzz/fuzz-system.o
+  CXX      test/fuzz/fuzz-timedata.o
+  CXX      test/fuzz/fuzz-torcontrol.o
+  CXX      test/fuzz/fuzz-transaction.o
+  CXX      test/fuzz/fuzz-tx_in.o
+  CXX      test/fuzz/fuzz-tx_out.o
+  CXX      test/fuzz/fuzz-tx_pool.o
+  CXX      test/fuzz/fuzz-txorphan.o
+  CXX      test/fuzz/fuzz-txrequest.o
+  CXX      test/fuzz/fuzz-utxo_snapshot.o
+  CXX      test/fuzz/fuzz-validation_load_mempool.o
+  CXX      test/fuzz/fuzz-versionbits.o
+  CXX      test/fuzz/libtest_fuzz_a-fuzz.o
+  CXX      test/fuzz/libtest_fuzz_a-util.o
+  CXX      univalue/test/object-object.o
+  CXX      univalue/test/unitester-unitester.o
+  CXXLD    libbitcoinconsensus.la
+  AR       libbitcoin_node.a
+  AR       libbitcoin_wallet.a
+  AR       libbitcoin_common.a
+  AR       libbitcoin_util.a
+  CXXLD    libunivalue.la
+  AR       libbitcoin_zmq.a
+  AR       libbitcoin_consensus.a
+  CXXLD    crypto/libbitcoin_crypto_base.la
+  CXXLD    crypto/libbitcoin_crypto_sse41.la
+  CXXLD    crypto/libbitcoin_crypto_avx2.la
+  CXXLD    crypto/libbitcoin_crypto_x86_shani.la
+  CXXLD    leveldb/libleveldb.la
+  CXXLD    crc32c/libcrc32c.la
+  CXXLD    leveldb/libmemenv.la
+  AR       libbitcoin_cli.a
+  CXXLD    bitcoin-tx
+  CXXLD    bitcoin-wallet
+  CXXLD    bitcoin-util
+  AR       libtest_util.a
+  AR       minisketch/libminisketch.a
+  AR       libtest_fuzz.a
+  CXXLD    univalue/test/object
+  CXXLD    univalue/test/unitester
+  CXXLD    bitcoind
+  CXXLD    bitcoin-cli
+  CXXLD    test/test_bitcoin
+  CXXLD    bench/bench_bitcoin
+  CXXLD    minisketch/test
+  CXXLD    test/fuzz/fuzz
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib'
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include'
+ /bin/bash ../libtool --preserve-dup-deps  --mode=install /usr/bin/install -c   libbitcoinconsensus.la '/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib'
+ /usr/bin/install -c -m 644 script/bitcoinconsensus.h '/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include'
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.so.0.0.0 /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/libbitcoinconsensus.so.0.0.0
+libtool: install: (cd /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib && { ln -s -f libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so.0 || { rm -f libbitcoinconsensus.so.0 && ln -s libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so.0; }; })
+libtool: install: (cd /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib && { ln -s -f libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so || { rm -f libbitcoinconsensus.so && ln -s libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so; }; })
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.lai /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/libbitcoinconsensus.la
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.a /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/libbitcoinconsensus.a
+libtool: install: chmod 644 /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/libbitcoinconsensus.a
+libtool: install: ranlib /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/libbitcoinconsensus.a
+libtool: finish: PATH="/tmp/cirrus-ci-build/ci/scratch/bins/:/tmp/cirrus-ci-build/ci/retry:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin'
+  /bin/bash ../libtool --preserve-dup-deps  --mode=install /usr/bin/install -c bitcoind bitcoin-cli bitcoin-tx bitcoin-wallet bitcoin-util test/test_bitcoin bench/bench_bitcoin '/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin'
+libtool: install: /usr/bin/install -c bitcoind /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/bitcoind
+libtool: install: /usr/bin/install -c bitcoin-cli /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/bitcoin-cli
+libtool: install: /usr/bin/install -c bitcoin-tx /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/bitcoin-tx
+libtool: install: /usr/bin/install -c bitcoin-wallet /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/bitcoin-wallet
+libtool: install: /usr/bin/install -c bitcoin-util /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/bitcoin-util
+libtool: install: /usr/bin/install -c test/test_bitcoin /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/test_bitcoin
+libtool: install: /usr/bin/install -c bench/bench_bitcoin /tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/bin/bench_bitcoin
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+Making install in doc/man
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/doc/man'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/doc/man'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/share/man/man1'
+ /usr/bin/install -c -m 644 bitcoind.1 bitcoin-cli.1 bitcoin-tx.1 bitcoin-util.1 bitcoin-wallet.1 '/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/share/man/man1'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/doc/man'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/doc/man'
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libbitcoinconsensus.pc '/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu/lib/pkgconfig'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu'
+ccache version 3.7.7
+cache directory                     /tmp/ccache_dir
+primary config                      /tmp/ccache_dir/ccache.conf
+secondary config      (readonly)    /etc/ccache.conf
+stats updated                       Tue Sep 13 00:31:36 2022
+stats zeroed                        Tue Sep 13 00:22:27 2022
+cache hit (direct)                   163
+cache hit (preprocessed)             116
+cache miss                           344
+cache hit rate                     44.78 %
+called for link                       11
+cleanups performed                    40
+files in cache                       988
+cache size                         225.4 MB
+max cache size                     250.0 MB
+4.0K	/tmp/cirrus-ci-build/depends/SDKs/
+28K	/tmp/cirrus-ci-build/depends/builders/
+29M	/tmp/cirrus-ci-build/depends/built/
+40K	/tmp/cirrus-ci-build/depends/hosts/
+148K	/tmp/cirrus-ci-build/depends/packages/
+128K	/tmp/cirrus-ci-build/depends/patches/
+4.0K	/tmp/cirrus-ci-build/depends/sdk-sources/
+4.0K	/tmp/cirrus-ci-build/depends/sources/
+232M	/tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/
+4.0K	/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+Making check in src
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make  check-TESTS check-local
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+Running tests: amount_tests from test/amount_tests.cpp
+Running tests: allocator_tests from test/allocator_tests.cpp
+Running tests: addrman_tests from test/addrman_tests.cpp
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+Running tests: arith_uint256_tests from test/arith_uint256_tests.cpp
+Running tests: banman_tests from test/banman_tests.cpp
+Running tests: base32_tests from test/base32_tests.cpp
+Running tests: base58_tests from test/base58_tests.cpp
+Running tests: base64_tests from test/base64_tests.cpp
+Running tests: bech32_tests from test/bech32_tests.cpp
+Running tests: bip32_tests from test/bip32_tests.cpp
+Running tests: blockchain_tests from test/blockchain_tests.cpp
+Running tests: blockencodings_tests from test/blockencodings_tests.cpp
+Running tests: blockfilter_index_tests from test/blockfilter_index_tests.cpp
+Running tests: blockfilter_tests from test/blockfilter_tests.cpp
+Running tests: bloom_tests from test/bloom_tests.cpp
+Running tests: bswap_tests from test/bswap_tests.cpp
+Running tests: checkqueue_tests from test/checkqueue_tests.cpp
+Running tests: coins_tests from test/coins_tests.cpp
+Running tests: coinstatsindex_tests from test/coinstatsindex_tests.cpp
+Running tests: compilerbug_tests from test/compilerbug_tests.cpp
+Running tests: compress_tests from test/compress_tests.cpp
+Running tests: crypto_tests from test/crypto_tests.cpp
+PASS: minisketch/test
+PASS: univalue/test/object
+PASS: univalue/test/unitester
+============================================================================
+Testsuite summary for Bitcoin Core 23.99.0
+============================================================================
+# TOTAL: 3
+# PASS:  3
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+Running tests: cuckoocache_tests from test/cuckoocache_tests.cpp
+Running tests: dbwrapper_tests from test/dbwrapper_tests.cpp
+Running tests: denialofservice_tests from test/denialofservice_tests.cpp
+Running tests: descriptor_tests from test/descriptor_tests.cpp
+Running tests: flatfile_tests from test/flatfile_tests.cpp
+Running tests: fs_tests from test/fs_tests.cpp
+Running tests: getarg_tests from test/getarg_tests.cpp
+Running tests: hash_tests from test/hash_tests.cpp
+Running tests: headers_sync_chainwork_tests from test/headers_sync_chainwork_tests.cpp
+Running tests: httpserver_tests from test/httpserver_tests.cpp
+Running tests: i2p_tests from test/i2p_tests.cpp
+Running tests: interfaces_tests from test/interfaces_tests.cpp
+Running tests: key_io_tests from test/key_io_tests.cpp
+Running tests: key_tests from test/key_tests.cpp
+Running tests: logging_tests from test/logging_tests.cpp
+Running tests: mempool_tests from test/mempool_tests.cpp
+Running tests: merkle_tests from test/merkle_tests.cpp
+Running tests: merkleblock_tests from test/merkleblock_tests.cpp
+Running tests: miner_tests from test/miner_tests.cpp
+Running tests: miniscript_tests from test/miniscript_tests.cpp
+Running tests: minisketch_tests from test/minisketch_tests.cpp
+Running tests: multisig_tests from test/multisig_tests.cpp
+Running tests: net_peer_eviction_tests from test/net_peer_eviction_tests.cpp
+Running tests: net_tests from test/net_tests.cpp
+Running tests: netbase_tests from test/netbase_tests.cpp
+Running tests: orphanage_tests from test/orphanage_tests.cpp
+Running tests: pmt_tests from test/pmt_tests.cpp
+Running tests: policy_fee_tests from test/policy_fee_tests.cpp
+Running tests: policyestimator_tests from test/policyestimator_tests.cpp
+Running tests: pow_tests from test/pow_tests.cpp
+Running tests: prevector_tests from test/prevector_tests.cpp
+Running tests: raii_event_tests from test/raii_event_tests.cpp
+Running tests: random_tests from test/random_tests.cpp
+Running tests: rbf_tests from test/rbf_tests.cpp
+Running tests: rest_tests from test/rest_tests.cpp
+Running tests: result_tests from test/result_tests.cpp
+Running tests: reverselock_tests from test/reverselock_tests.cpp
+Running tests: rpc_tests from test/rpc_tests.cpp
+Running tests: sanity_tests from test/sanity_tests.cpp
+Running tests: scheduler_tests from test/scheduler_tests.cpp
+Running tests: script_p2sh_tests from test/script_p2sh_tests.cpp
+Running tests: script_parse_tests from test/script_parse_tests.cpp
+Running tests: script_segwit_tests from test/script_segwit_tests.cpp
+Running tests: script_standard_tests from test/script_standard_tests.cpp
+Running tests: script_tests from test/script_tests.cpp
+Running tests: scriptnum_tests from test/scriptnum_tests.cpp
+Running tests: serfloat_tests from test/serfloat_tests.cpp
+Running tests: serialize_tests from test/serialize_tests.cpp
+Running tests: settings_tests from test/settings_tests.cpp
+Running tests: sighash_tests from test/sighash_tests.cpp
+Running tests: sigopcount_tests from test/sigopcount_tests.cpp
+Running tests: skiplist_tests from test/skiplist_tests.cpp
+Running tests: sock_tests from test/sock_tests.cpp
+Running tests: streams_tests from test/streams_tests.cpp
+Running tests: sync_tests from test/sync_tests.cpp
+Running tests: system_tests from test/system_tests.cpp
+Running tests: timedata_tests from test/timedata_tests.cpp
+Running tests: torcontrol_tests from test/torcontrol_tests.cpp
+Running tests: transaction_tests from test/transaction_tests.cpp
+Running tests: txindex_tests from test/txindex_tests.cpp
+Running tests: txpackage_tests from test/txpackage_tests.cpp
+Running tests: txrequest_tests from test/txrequest_tests.cpp
+Running tests: txvalidation_tests from test/txvalidation_tests.cpp
+Running tests: txvalidationcache_tests from test/txvalidationcache_tests.cpp
+Running tests: uint256_tests from test/uint256_tests.cpp
+Running tests: util_tests from test/util_tests.cpp
+Running tests: util_threadnames_tests from test/util_threadnames_tests.cpp
+Running tests: validation_block_tests from test/validation_block_tests.cpp
+Running tests: validation_chainstate_tests from test/validation_chainstate_tests.cpp
+Running tests: validation_chainstatemanager_tests from test/validation_chainstatemanager_tests.cpp
+Running tests: validation_flush_tests from test/validation_flush_tests.cpp
+Running tests: validation_tests from test/validation_tests.cpp
+Running tests: validationinterface_tests from test/validationinterface_tests.cpp
+Running tests: versionbits_tests from test/versionbits_tests.cpp
+Running tests: feebumper_tests from wallet/test/feebumper_tests.cpp
+Running tests: psbt_wallet_tests from wallet/test/psbt_wallet_tests.cpp
+Running tests: spend_tests from wallet/test/spend_tests.cpp
+Running tests: wallet_tests from wallet/test/wallet_tests.cpp
+Running tests: walletdb_tests from wallet/test/walletdb_tests.cpp
+Running tests: wallet_crypto_tests from wallet/test/wallet_crypto_tests.cpp
+Running tests: wallet_transaction_tests from wallet/test/wallet_transaction_tests.cpp
+Running tests: coinselector_tests from wallet/test/coinselector_tests.cpp
+Running tests: availablecoins_tests from wallet/test/availablecoins_tests.cpp
+Running tests: init_tests from wallet/test/init_tests.cpp
+Running tests: ismine_tests from wallet/test/ismine_tests.cpp
+Running tests: scriptpubkeyman_tests from wallet/test/scriptpubkeyman_tests.cpp
+Running test/util/test_runner.py...
+/usr/bin/python3.8 ../test/util/test_runner.py
+Running test/util/rpcauth-test.py...
+/usr/bin/python3.8 ../test/util/rpcauth-test.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+OK
+Running bench/bench_bitcoin (one iteration sanity check)...
+bench/bench_bitcoin --sanity-check > /dev/null
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+make  check-am
+make[5]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+  CC       src/tests-tests.o
+  CC       src/exhaustive_tests-tests_exhaustive.o
+  CCLD     exhaustive_tests
+  CCLD     tests
+make  check-TESTS
+make[6]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+make[7]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+PASS: exhaustive_tests
+PASS: tests
+============================================================================
+Testsuite summary for libsecp256k1 0.1.0-pre
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[7]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+make[6]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+make[5]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/secp256k1'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+Making check in doc/man
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/doc/man'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/doc/man'
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu'
+make[1]: Nothing to be done for 'check-am'.
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu'

@@ -1,0 +1,92 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-05 15:50:44.359 xcodebuild[699:5704] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-05 15:50:44.359 xcodebuild[699:5704] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/rpc/client.cpp
+Removing contrib/guix/patches/elfsteem-value-error-python-39.patch
+Merge made by the 'recursive' strategy.
+ build_msvc/libsecp256k1_config.h                   |  17 -
+ ci/test/06_script_a.sh                             |   7 +-
+ contrib/guix/libexec/build.sh                      |   1 +
+ contrib/guix/manifest.scm                          |  27 +-
+ .../patches/elfsteem-value-error-python-39.patch   |  13 -
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |  25 ++
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |  25 ++
+ contrib/signet/miner                               |  12 +-
+ src/Makefile.am                                    |   9 +-
+ src/init.cpp                                       |  40 +-
+ src/kernel/mempool_limits.h                        |  30 ++
+ src/kernel/mempool_options.h                       |  38 ++
+ src/mempool_args.cpp                               |  37 ++
+ src/mempool_args.h                                 |  22 +
+ src/minisketch/README.md                           |   4 +-
+ src/minisketch/include/minisketch.h                |   3 +-
+ src/net_processing.cpp                             | 465 +++++++++++++--------
+ src/node/interfaces.cpp                            |  19 +-
+ src/policy/fees.cpp                                |  16 +-
+ src/policy/fees.h                                  |   4 +-
+ src/policy/fees_args.cpp                           |  12 +
+ src/policy/fees_args.h                             |  15 +
+ src/policy/packages.h                              |   4 +-
+ src/policy/policy.h                                |   6 +-
+ src/qt/bitcoingui.cpp                              |   1 +
+ src/qt/optionsdialog.cpp                           |  15 +-
+ src/qt/optionsdialog.h                             |   3 +
+ src/rpc/blockchain.cpp                             |   6 +-
+ src/rpc/client.cpp                                 |   1 +
+ src/rpc/fees.cpp                                   |   2 +-
+ src/rpc/mempool.cpp                                | 151 ++++++-
+ src/test/fuzz/policy_estimator.cpp                 |   8 +-
+ src/test/fuzz/policy_estimator_io.cpp              |   8 +-
+ src/test/fuzz/rbf.cpp                              |  21 +-
+ src/test/fuzz/rpc.cpp                              |   1 +
+ src/test/fuzz/tx_pool.cpp                          |  20 +-
+ src/test/fuzz/validation_load_mempool.cpp          |   4 +-
+ src/test/mempool_tests.cpp                         |   8 +-
+ src/test/util/setup_common.cpp                     |  26 +-
+ src/test/util/setup_common.h                       |   3 +
+ src/txmempool.cpp                                  |  17 +-
+ src/txmempool.h                                    |  37 +-
+ src/util/error.cpp                                 |   2 +
+ src/util/error.h                                   |   1 +
+ src/util/system.cpp                                |  59 ++-
+ src/util/system.h                                  |   8 +
+ src/validation.cpp                                 |  36 +-
+ src/validation.h                                   |   2 -
+ src/wallet/bdb.cpp                                 |   6 -
+ src/wallet/coinselection.cpp                       |   3 -
+ src/wallet/spend.cpp                               |   3 +-
+ src/wallet/test/coinselector_tests.cpp             |   7 +-
+ src/wallet/walletdb.cpp                            |  10 +-
+ test/functional/feature_dbcrash.py                 |   8 +-
+ test/functional/feature_maxuploadtarget.py         |   2 +-
+ test/functional/feature_minchainwork.py            |   2 +-
+ test/functional/feature_nulldummy.py               |  65 ++-
+ test/functional/mempool_expiry.py                  |   8 +-
+ test/functional/mempool_limit.py                   |   2 +-
+ test/functional/mining_prioritisetransaction.py    |   2 +-
+ test/functional/p2p_invalid_tx.py                  |  68 ++-
+ test/functional/p2p_segwit.py                      |   4 +
+ test/functional/p2p_timeouts.py                    |   5 +
+ test/functional/rpc_packages.py                    | 133 +++++-
+ test/functional/test_framework/blocktools.py       |  24 --
+ test/functional/test_framework/util.py             |  19 +-
+ test/functional/test_runner.py                     |   5 +-
+ test/functional/wallet_basic.py                    |   2 +-
+ 68 files changed, 1198 insertions(+), 471 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch
+ create mode 100644 src/kernel/mempool_limits.h
+ create mode 100644 src/kernel/mempool_options.h
+ create mode 100644 src/mempool_args.cpp
+ create mode 100644 src/mempool_args.h
+ create mode 100644 src/policy/fees_args.cpp
+ create mode 100644 src/policy/fees_args.h

@@ -1,0 +1,39 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at fb4d20f3b qa: add a "smart" Miniscript fuzz target
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ configure.ac                                    |  3 +++
+ contrib/guix/manifest.scm                       |  3 +--
+ src/test/fuzz/txorphan.cpp                      |  2 +-
+ src/univalue/include/univalue.h                 | 30 +++++++++++++------------
+ src/univalue/lib/univalue.cpp                   | 19 +++++++++++-----
+ src/univalue/lib/univalue_get.cpp               | 19 +++++-----------
+ test/functional/mining_prioritisetransaction.py |  4 ++--
+ test/functional/rpc_blockchain.py               |  6 ++---
+ test/functional/rpc_fundrawtransaction.py       |  2 +-
+ test/functional/rpc_help.py                     |  2 +-
+ test/functional/rpc_rawtransaction.py           | 14 ++++++------
+ test/functional/wallet_basic.py                 |  2 +-
+ test/functional/wallet_hd.py                    |  4 ++--
+ test/functional/wallet_multiwallet.py           |  2 +-
+ 14 files changed, 59 insertions(+), 53 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

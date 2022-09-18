@@ -1,0 +1,36 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at e25b0c683 tidy: enable bugprone-use-after-move
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                  |  14 ++-
+ REVIEWERS                                    | 123 ---------------------------
+ ci/test/00_setup_env_native_asan.sh          |  11 ++-
+ ci/test/00_setup_env_native_tidy.sh          |   2 +-
+ ci/test/04_install.sh                        |   8 ++
+ src/node/interfaces.cpp                      |  51 +++--------
+ src/wallet/interfaces.cpp                    |   2 +
+ test/functional/feature_taproot.py           |   6 ++
+ test/functional/interface_usdt_net.py        |   2 +-
+ test/functional/interface_usdt_utxocache.py  |  40 +++++----
+ test/functional/interface_usdt_validation.py |   2 +-
+ 11 files changed, 74 insertions(+), 187 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

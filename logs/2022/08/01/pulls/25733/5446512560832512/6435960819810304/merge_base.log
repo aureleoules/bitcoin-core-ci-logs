@@ -1,0 +1,24 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-01 03:11:27.987 xcodebuild[697:5567] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-01 03:11:27.987 xcodebuild[697:5567] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ .cirrus.yml                                  |  14 ++-
+ REVIEWERS                                    | 123 ---------------------------
+ ci/test/00_setup_env_native_asan.sh          |  11 ++-
+ ci/test/00_setup_env_native_tidy.sh          |   2 +-
+ ci/test/04_install.sh                        |   8 ++
+ src/node/interfaces.cpp                      |  51 +++--------
+ src/wallet/interfaces.cpp                    |   2 +
+ test/functional/feature_taproot.py           |   6 ++
+ test/functional/interface_usdt_net.py        |   2 +-
+ test/functional/interface_usdt_utxocache.py  |  40 +++++----
+ test/functional/interface_usdt_validation.py |   2 +-
+ 11 files changed, 74 insertions(+), 187 deletions(-)

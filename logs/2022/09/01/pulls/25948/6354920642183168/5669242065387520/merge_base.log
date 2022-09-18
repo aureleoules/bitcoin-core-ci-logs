@@ -1,0 +1,30 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 29 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'ort' strategy.
+ src/blockfilter.h                                  | 11 ++++----
+ src/hash.cpp                                       |  2 +-
+ src/headerssync.cpp                                | 24 ++++++++--------
+ src/index/blockfilterindex.h                       |  5 ++--
+ src/init.cpp                                       |  9 +++---
+ src/logging.cpp                                    |  3 --
+ src/logging.h                                      |  1 -
+ src/net_processing.cpp                             |  7 +++++
+ src/validation.cpp                                 |  2 +-
+ .../p2p_headers_sync_with_minchainwork.py          | 32 ++++++++++++++++++----
+ 10 files changed, 61 insertions(+), 35 deletions(-)

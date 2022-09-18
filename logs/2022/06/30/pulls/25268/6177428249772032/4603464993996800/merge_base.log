@@ -1,0 +1,110 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Get:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease [114 kB]
+Hit:3 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Get:4 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease [108 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease [114 kB]
+Get:6 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease [114 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease [108 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease [114 kB]
+Get:9 http://mirror.hetzner.de/ubuntu/packages focal-updates/main amd64 Packages [1,935 kB]
+Get:10 http://mirror.hetzner.de/ubuntu/packages focal-updates/main i386 Packages [685 kB]
+Get:11 http://mirror.hetzner.de/ubuntu/packages focal-updates/restricted amd64 Packages [1,119 kB]
+Get:12 http://mirror.hetzner.de/ubuntu/packages focal-updates/universe amd64 Packages [924 kB]
+Get:13 http://mirror.hetzner.de/ubuntu/packages focal-updates/universe i386 Packages [677 kB]
+Get:14 https://mirror.hetzner.com/ubuntu/packages focal-updates/main i386 Packages [685 kB]
+Get:15 https://mirror.hetzner.com/ubuntu/packages focal-updates/main amd64 Packages [1,935 kB]
+Get:16 https://mirror.hetzner.com/ubuntu/packages focal-updates/restricted amd64 Packages [1,119 kB]
+Get:17 https://mirror.hetzner.com/ubuntu/packages focal-updates/universe amd64 Packages [924 kB]
+Get:18 https://mirror.hetzner.com/ubuntu/packages focal-updates/universe i386 Packages [677 kB]
+Fetched 11.4 MB in 3s (4,209 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 80 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/test/util/setup_common.cpp
+Auto-merging src/net_processing.cpp
+Auto-merging src/init.cpp
+Auto-merging src/Makefile.am
+Merge made by the 'recursive' strategy.
+ build_msvc/libsecp256k1_config.h          |  17 --
+ contrib/guix/manifest.scm                 |  16 +-
+ src/Makefile.am                           |   6 +
+ src/bench/wallet_loading.cpp              |  76 ++++++--
+ src/consensus/consensus.h                 |   2 -
+ src/init.cpp                              |  38 ++--
+ src/kernel/mempool_limits.h               |  30 ++++
+ src/kernel/mempool_options.h              |  38 ++++
+ src/mempool_args.cpp                      |  37 ++++
+ src/mempool_args.h                        |  22 +++
+ src/minisketch/README.md                  |   4 +-
+ src/minisketch/include/minisketch.h       |   3 +-
+ src/net_processing.cpp                    |   4 +-
+ src/node/interfaces.cpp                   |  19 +-
+ src/policy/fees.cpp                       |  16 +-
+ src/policy/fees.h                         |   4 +-
+ src/policy/fees_args.cpp                  |  12 ++
+ src/policy/fees_args.h                    |  15 ++
+ src/policy/packages.h                     |   4 +-
+ src/policy/policy.h                       |   9 +-
+ src/psbt.cpp                              |  69 ++++++-
+ src/psbt.h                                | 288 +++++++++++++++++++++++++++++-
+ src/pubkey.h                              |   3 +
+ src/qt/bitcoingui.cpp                     |   1 +
+ src/qt/optionsdialog.cpp                  |  15 +-
+ src/qt/optionsdialog.h                    |   3 +
+ src/rpc/fees.cpp                          |   2 +-
+ src/rpc/mempool.cpp                       |   5 +-
+ src/rpc/net.cpp                           |   6 +-
+ src/rpc/rawtransaction.cpp                | 169 +++++++++++++++++-
+ src/script/descriptor.cpp                 |   2 +-
+ src/script/sign.cpp                       |  26 ++-
+ src/script/sign.h                         |   2 +
+ src/script/signingprovider.cpp            |  21 ++-
+ src/script/signingprovider.h              |   5 +-
+ src/script/standard.cpp                   |  17 ++
+ src/script/standard.h                     |   2 +
+ src/test/fuzz/policy_estimator.cpp        |   8 +-
+ src/test/fuzz/policy_estimator_io.cpp     |   8 +-
+ src/test/fuzz/rbf.cpp                     |  21 ++-
+ src/test/fuzz/tx_pool.cpp                 |  20 ++-
+ src/test/fuzz/validation_load_mempool.cpp |   4 +-
+ src/test/mempool_tests.cpp                |   8 +-
+ src/test/miner_tests.cpp                  |   4 +-
+ src/test/util/setup_common.cpp            |  26 ++-
+ src/test/util/setup_common.h              |   3 +
+ src/txmempool.cpp                         |  17 +-
+ src/txmempool.h                           |  37 ++--
+ src/util/system.cpp                       |  59 ++++--
+ src/util/system.h                         |   8 +
+ src/util/time.h                           |   5 -
+ src/validation.cpp                        |  46 ++---
+ src/validation.h                          |   2 -
+ src/wallet/coinselection.cpp              |   3 -
+ src/wallet/scriptpubkeyman.cpp            |  13 ++
+ src/wallet/spend.cpp                      |   3 +-
+ src/wallet/test/coinselector_tests.cpp    |   7 +-
+ src/wallet/wallet.cpp                     |  29 +++
+ src/wallet/walletdb.cpp                   |  31 +++-
+ src/wallet/walletdb.h                     |   1 +
+ test/functional/data/rpc_psbt.json        |  21 ++-
+ test/functional/mempool_expiry.py         |   8 +-
+ test/functional/rpc_psbt.py               |  43 ++++-
+ test/functional/test_framework/key.py     |   4 +
+ test/functional/wallet_taproot.py         |  25 ++-
+ 65 files changed, 1234 insertions(+), 238 deletions(-)
+ create mode 100644 src/kernel/mempool_limits.h
+ create mode 100644 src/kernel/mempool_options.h
+ create mode 100644 src/mempool_args.cpp
+ create mode 100644 src/mempool_args.h
+ create mode 100644 src/policy/fees_args.cpp
+ create mode 100644 src/policy/fees_args.h

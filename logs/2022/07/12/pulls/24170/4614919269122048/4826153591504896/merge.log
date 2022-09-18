@@ -1,0 +1,50 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 70595a585 doc: add release note for manual block-relay connections
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ ci/test/06_script_b.sh      | 12 ++++++++++++
+ src/util/asmap.cpp          |  5 ++++-
+ src/util/bip32.cpp          |  7 +++++--
+ src/util/bip32.h            |  1 +
+ src/util/bytevectorhash.cpp |  2 ++
+ src/util/bytevectorhash.h   |  3 ++-
+ src/util/error.cpp          |  4 +++-
+ src/util/hasher.cpp         |  4 ++--
+ src/util/hasher.h           |  6 ++++++
+ src/util/message.cpp        | 18 +++++++++++-------
+ src/util/message.h          |  3 ++-
+ src/util/moneystr.cpp       |  1 +
+ src/util/readwritefile.cpp  |  3 ++-
+ src/util/serfloat.h         |  2 +-
+ src/util/spanparsing.cpp    |  3 ++-
+ src/util/strencodings.cpp   |  9 +++++----
+ src/util/strencodings.h     |  5 ++++-
+ src/util/string.cpp         |  2 ++
+ src/util/syserror.cpp       |  1 +
+ src/util/thread.cpp         |  1 +
+ src/util/time.cpp           | 11 +++++++----
+ src/util/time.h             |  2 +-
+ src/util/translation.h      |  2 ++
+ src/util/url.cpp            |  3 ++-
+ src/util/vector.h           |  1 +
+ 25 files changed, 82 insertions(+), 29 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

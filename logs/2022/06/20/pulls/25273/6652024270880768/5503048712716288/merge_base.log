@@ -1,0 +1,51 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 79 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/test/wallet_tests.cpp
+Auto-merging src/wallet/spend.h
+Auto-merging src/wallet/spend.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging src/wallet/interfaces.cpp
+Merge made by the 'recursive' strategy.
+ contrib/devtools/symbol-check.py                   |  5 +-
+ contrib/devtools/test-symbol-check.py              |  2 +-
+ contrib/seeds/asmap.py                             |  2 +-
+ depends/packages/systemtap.mk                      |  4 +-
+ ...e_SDT_ASM_SECTION_AUTOGROUP_SUPPORT_check.patch | 22 +++---
+ src/Makefile.am                                    |  1 -
+ src/node/blockstorage.h                            |  2 +-
+ src/psbt.h                                         |  2 +-
+ src/wallet/interfaces.cpp                          |  6 +-
+ src/wallet/receive.cpp                             | 17 ++--
+ src/wallet/rpc/coins.cpp                           |  8 +-
+ src/wallet/rpc/spend.cpp                           |  6 +-
+ src/wallet/spend.cpp                               | 90 ++++++++++++----------
+ src/wallet/spend.h                                 | 19 ++++-
+ src/wallet/test/wallet_tests.cpp                   |  8 +-
+ src/wallet/wallet.cpp                              | 62 +++++++--------
+ src/wallet/wallet.h                                |  8 +-
+ test/functional/rpc_createmultisig.py              |  6 +-
+ test/functional/test_framework/address.py          |  7 +-
+ test/functional/test_framework/script_util.py      |  5 ++
+ test/functional/test_framework/wallet.py           | 17 +++-
+ test/functional/wallet_taproot.py                  |  8 +-
+ 22 files changed, 161 insertions(+), 146 deletions(-)

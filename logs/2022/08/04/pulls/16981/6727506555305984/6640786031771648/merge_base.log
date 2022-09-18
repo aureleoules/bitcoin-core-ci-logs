@@ -1,0 +1,95 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-04 14:33:49.618 xcodebuild[701:5745] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-04 14:33:49.619 xcodebuild[701:5745] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/validation.cpp
+Removing src/mempool_args.cpp
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_b.sh                    |   2 +
+ configure.ac                              |  12 +-
+ depends/config.site.in                    |   7 +-
+ depends/hosts/darwin.mk                   |   3 +
+ depends/packages/bdb.mk                   |   2 +-
+ depends/packages/native_cctools.mk        |  14 +-
+ depends/packages/native_clang.mk          |   3 +
+ depends/packages/native_libtapi.mk        |   4 +-
+ doc/policy/README.md                      |   2 +-
+ doc/policy/mempool-replacements.md        |   2 +-
+ doc/policy/packages.md                    |   2 +-
+ src/Makefile.am                           |  19 +-
+ src/bitcoin-chainstate.cpp                |   6 +-
+ src/bitcoin-cli.cpp                       |   2 +-
+ src/chain.cpp                             |   8 +-
+ src/chain.h                               |   2 +-
+ src/cuckoocache.h                         |  23 ++-
+ src/init.cpp                              |  62 ++----
+ src/init/common.cpp                       |   2 +-
+ src/kernel/mempool_options.h              |  19 ++
+ src/kernel/validation_cache_sizes.h       |  20 ++
+ src/mempool_args.cpp                      |  39 ----
+ src/net_processing.cpp                    |   4 +-
+ src/node/interfaces.cpp                   |  24 ++-
+ src/node/mempool_args.cpp                 |  99 ++++++++++
+ src/{ => node}/mempool_args.h             |  13 +-
+ src/node/psbt.cpp                         |   2 +-
+ src/node/validation_cache_args.cpp        |  34 ++++
+ src/node/validation_cache_args.h          |  17 ++
+ src/policy/policy.cpp                     |  13 +-
+ src/policy/policy.h                       |   8 +-
+ src/policy/settings.cpp                   |   5 -
+ src/policy/settings.h                     |  29 ---
+ src/qt/guiutil.cpp                        |   2 +-
+ src/rpc/fees.cpp                          |   3 +-
+ src/rpc/mempool.cpp                       |   6 +-
+ src/rpc/net.cpp                           |   7 +-
+ src/rpc/request.cpp                       |   6 +-
+ src/script/sigcache.cpp                   |  18 +-
+ src/script/sigcache.h                     |  11 +-
+ src/script/standard.cpp                   |   3 -
+ src/script/standard.h                     |  11 +-
+ src/test/fuzz/integer.cpp                 |   3 -
+ src/test/fuzz/key.cpp                     |   4 +-
+ src/test/fuzz/rbf.cpp                     |   2 +-
+ src/test/fuzz/script.cpp                  |   2 +-
+ src/test/fuzz/script_sigcache.cpp         |  11 +-
+ src/test/fuzz/transaction.cpp             |   5 +-
+ src/test/fuzz/tx_pool.cpp                 |  11 +-
+ src/test/fuzz/validation_load_mempool.cpp |   2 +-
+ src/test/miner_tests.cpp                  |   6 +-
+ src/test/multisig_tests.cpp               |  22 ++-
+ src/test/rpc_tests.cpp                    |   4 +-
+ src/test/script_p2sh_tests.cpp            |  14 +-
+ src/test/skiplist_tests.cpp               |   6 +-
+ src/test/transaction_tests.cpp            |  22 ++-
+ src/test/txvalidationcache_tests.cpp      |   5 -
+ src/test/util/setup_common.cpp            |  18 +-
+ src/txmempool.cpp                         |  14 +-
+ src/txmempool.h                           |  16 +-
+ src/univalue/include/univalue.h           |  20 +-
+ src/univalue/lib/univalue.cpp             |  33 ++--
+ src/univalue/test/object.cpp              |  45 +++--
+ src/util/system.cpp                       |  16 +-
+ src/util/system.h                         |   2 +-
+ src/validation.cpp                        |  44 +++--
+ src/validation.h                          |   3 +-
+ src/wallet/fees.cpp                       |   2 +-
+ src/wallet/test/wallet_tests.cpp          | 106 ++++++++++
+ src/wallet/wallet.cpp                     |   8 +-
+ src/wallet/wallet.h                       |   4 +
+ test/functional/mempool_package_limits.py | 316 +++++++-----------------------
+ test/functional/p2p_segwit.py             |   6 +-
+ test/functional/test_framework/wallet.py  |  58 +++---
+ 74 files changed, 754 insertions(+), 646 deletions(-)
+ create mode 100644 src/kernel/validation_cache_sizes.h
+ delete mode 100644 src/mempool_args.cpp
+ create mode 100644 src/node/mempool_args.cpp
+ rename src/{ => node}/mempool_args.h (57%)
+ create mode 100644 src/node/validation_cache_args.cpp
+ create mode 100644 src/node/validation_cache_args.h

@@ -1,0 +1,31 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-29 00:12:36.783 xcodebuild[701:5657] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-29 00:12:36.783 xcodebuild[701:5657] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ src/Makefile.test.include                          |   2 +
+ src/bench/coin_selection.cpp                       |   6 +-
+ src/test/rbf_tests.cpp                             | 230 ++++++++++++++++++
+ src/test/system_tests.cpp                          |   5 -
+ src/wallet/rpc/coins.cpp                           |   2 +-
+ src/wallet/rpc/spend.cpp                           |   2 +-
+ src/wallet/spend.cpp                               | 164 ++++++++++---
+ src/wallet/spend.h                                 |  69 ++++--
+ src/wallet/test/availablecoins_tests.cpp           | 105 ++++++++
+ src/wallet/test/coinselector_tests.cpp             | 264 ++++++++++-----------
+ src/wallet/test/wallet_tests.cpp                   |   4 +-
+ test/functional/rpc_psbt.py                        |  10 +
+ test/functional/test_framework/psbt.py             |   8 +-
+ test/functional/test_runner.py                     |   1 +
+ .../functional/wallet_avoid_mixing_output_types.py | 176 ++++++++++++++
+ 15 files changed, 857 insertions(+), 191 deletions(-)
+ create mode 100644 src/test/rbf_tests.cpp
+ create mode 100644 src/wallet/test/availablecoins_tests.cpp
+ create mode 100755 test/functional/wallet_avoid_mixing_output_types.py

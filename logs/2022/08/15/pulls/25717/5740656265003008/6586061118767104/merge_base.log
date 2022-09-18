@@ -1,0 +1,37 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-15 09:16:32.371 xcodebuild[696:5573] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-15 09:16:32.372 xcodebuild[696:5573] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/validation.h
+Auto-merging src/validation.cpp
+Auto-merging src/test/miner_tests.cpp
+Merge made by the 'recursive' strategy.
+ SECURITY.md                                    |  1 -
+ depends/hosts/default.mk                       |  3 ++-
+ depends/packages/qt.mk                         | 31 ++++++++++----------------
+ depends/patches/qt/guix_cross_lib_path.patch   |  2 +-
+ src/Makefile.bench.include                     |  1 +
+ src/bench/descriptors.cpp                      | 30 +++++++++++++++++++++++++
+ src/crc32c/CMakeLists.txt                      |  7 +++---
+ src/net.cpp                                    |  5 ++---
+ src/qt/walletcontroller.cpp                    |  4 ++++
+ src/test/miner_tests.cpp                       | 10 ++++-----
+ src/validation.cpp                             | 11 +++++----
+ src/validation.h                               |  2 +-
+ src/wallet/external_signer_scriptpubkeyman.cpp |  3 ++-
+ src/wallet/rpc/spend.cpp                       | 22 +++++++++---------
+ test/functional/mocks/invalid_signer.py        |  2 +-
+ test/functional/mocks/multi_signers.py         | 30 +++++++++++++++++++++++++
+ test/functional/mocks/signer.py                |  2 +-
+ test/functional/rpc_signer.py                  |  5 +----
+ test/functional/wallet_signer.py               | 15 +++++++++++++
+ 19 files changed, 128 insertions(+), 58 deletions(-)
+ create mode 100644 src/bench/descriptors.cpp
+ create mode 100755 test/functional/mocks/multi_signers.py

@@ -1,0 +1,3066 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+CONFIG_SHELL=/bin/dash
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=--enable-zmq --with-gui=qt5 --enable-reduce-exports
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Running on host system without docker wrapper
+Last metadata expiration check: 0:00:14 ago on Thu Sep 15 06:49:37 2022.
+Dependencies resolved.
+================================================================================
+ Package               Architecture    Version            Repository       Size
+================================================================================
+Installing:
+ epel-release          noarch          8-11.el8           extras           24 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 35 k
+Downloading Packages:
+epel-release-8-11.el8.noarch.rpm                150 kB/s |  24 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                           114 kB/s |  24 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : epel-release-8-11.el8.noarch                           1/1 
+  Running scriptlet: epel-release-8-11.el8.noarch                           1/1 
+  Verifying        : epel-release-8-11.el8.noarch                           1/1 
+
+Installed:
+  epel-release-8-11.el8.noarch                                                  
+
+Complete!
+Extra Packages for Enterprise Linux 8 - x86_64  8.1 MB/s |  13 MB     00:01    
+Extra Packages for Enterprise Linux Modular 8 - 909 kB/s | 733 kB     00:00    
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Dependencies resolved.
+=======================================================================================
+ Package                  Arch    Version                              Repo        Size
+=======================================================================================
+Installing:
+ bison                    x86_64  3.0.4-10.el8                         appstream  688 k
+ ccache                   x86_64  3.7.7-1.el8                          epel       232 k
+ coreutils                x86_64  8.30-13.el8                          baseos     1.2 M
+ dash                     x86_64  0.5.10.2-4.el8                       epel        99 k
+ gcc-c++                  x86_64  8.5.0-15.el8                         appstream   12 M
+ glibc-devel              i686    2.28-211.el8                         baseos      81 k
+ glibc-devel              x86_64  2.28-211.el8                         baseos      82 k
+ lbzip2                   x86_64  2.5-15.20171011gitb6dc48a.el8        epel        98 k
+ libstdc++-devel          i686    8.5.0-15.el8                         appstream  2.1 M
+ libstdc++-devel          x86_64  8.5.0-15.el8                         appstream  2.1 M
+ libtool                  x86_64  2.4.6-25.el8                         appstream  709 k
+ make                     x86_64  1:4.2.1-11.el8                       baseos     498 k
+ patch                    x86_64  2.7.6-11.el8                         baseos     138 k
+ procps-ng                x86_64  3.3.15-9.el8                         baseos     329 k
+ python3-zmq              x86_64  19.0.0-1.el8                         epel       418 k
+ python36                 x86_64  3.6.8-38.module_el8.5.0+895+a459eca8 appstream   19 k
+ rsync                    x86_64  3.1.3-19.el8                         baseos     410 k
+ xz                       x86_64  5.2.4-4.el8                          baseos     153 k
+Upgrading:
+ glibc                    x86_64  2.28-211.el8                         baseos     2.2 M
+ glibc-common             x86_64  2.28-211.el8                         baseos     1.0 M
+ glibc-minimal-langpack   x86_64  2.28-211.el8                         baseos      63 k
+Installing dependencies:
+ autoconf                 noarch  2.69-29.el8                          appstream  710 k
+ automake                 noarch  1.16.1-7.el8                         appstream  713 k
+ binutils                 x86_64  2.30-117.el8                         baseos     5.8 M
+ coreutils-common         x86_64  8.30-13.el8                          baseos     2.0 M
+ cpp                      x86_64  8.5.0-15.el8                         appstream   10 M
+ gcc                      x86_64  8.5.0-15.el8                         appstream   23 M
+ glibc                    i686    2.28-211.el8                         baseos     2.0 M
+ glibc-headers            i686    2.28-211.el8                         baseos     486 k
+ glibc-headers            x86_64  2.28-211.el8                         baseos     486 k
+ isl                      x86_64  0.16.1-6.el8                         appstream  841 k
+ kernel-headers           x86_64  4.18.0-408.el8                       baseos     9.8 M
+ libgcc                   i686    8.5.0-15.el8                         baseos      88 k
+ libgomp                  x86_64  8.5.0-15.el8                         baseos     207 k
+ libmpc                   x86_64  1.1.0-9.1.el8                        appstream   61 k
+ libpkgconf               x86_64  1.4.2-1.el8                          baseos      35 k
+ libsodium                x86_64  1.0.18-2.el8                         epel       162 k
+ libstdc++                i686    8.5.0-15.el8                         baseos     491 k
+ libunwind                x86_64  1.3.1-3.el8                          epel        75 k
+ libxcrypt                i686    4.1.1-6.el8                          baseos      74 k
+ libxcrypt-devel          i686    4.1.1-6.el8                          baseos      25 k
+ libxcrypt-devel          x86_64  4.1.1-6.el8                          baseos      25 k
+ m4                       x86_64  1.4.18-7.el8                         baseos     223 k
+ openpgm                  x86_64  5.2.122-21.el8                       epel       180 k
+ perl-Data-Dumper         x86_64  2.167-399.el8                        baseos      58 k
+ perl-Thread-Queue        noarch  3.13-1.el8                           appstream   24 k
+ pkgconf                  x86_64  1.4.2-1.el8                          baseos      38 k
+ pkgconf-m4               noarch  1.4.2-1.el8                          baseos      17 k
+ pkgconf-pkg-config       x86_64  1.4.2-1.el8                          baseos      15 k
+ platform-python-pip      noarch  9.0.3-22.el8                         baseos     1.6 M
+ python3-pip              noarch  9.0.3-22.el8                         appstream   20 k
+ python3-setuptools       noarch  39.2.0-6.el8                         baseos     163 k
+ zeromq                   x86_64  4.3.4-2.el8                          epel       479 k
+Installing weak dependencies:
+ glibc-gconv-extra        i686    2.28-211.el8                         appstream  1.6 M
+ glibc-gconv-extra        x86_64  2.28-211.el8                         baseos     1.5 M
+ glibc-langpack-en        x86_64  2.28-211.el8                         baseos     825 k
+Removing dependent packages:
+ coreutils-single         x86_64  8.30-13.el8                          @baseos    1.3 M
+Downgrading:
+ xz-libs                  x86_64  5.2.4-4.el8                          baseos      94 k
+Enabling module streams:
+ python36                         3.6                                                  
+
+Transaction Summary
+=======================================================================================
+Install    53 Packages
+Upgrade     3 Packages
+Remove      1 Package
+Downgrade   1 Package
+
+Total download size: 89 M
+Downloading Packages:
+(1/57): xz-libs-5.2.4-4.el8.x86_64.rpm          562 kB/s |  94 kB     00:00    
+(2/57): automake-1.16.1-7.el8.noarch.rpm        1.5 MB/s | 713 kB     00:00    
+(3/57): autoconf-2.69-29.el8.noarch.rpm         1.2 MB/s | 710 kB     00:00    
+(4/57): bison-3.0.4-10.el8.x86_64.rpm           1.1 MB/s | 688 kB     00:00    
+(5/57): cpp-8.5.0-15.el8.x86_64.rpm             8.0 MB/s |  10 MB     00:01    
+(6/57): gcc-c++-8.5.0-15.el8.x86_64.rpm          10 MB/s |  12 MB     00:01    
+(7/57): glibc-gconv-extra-2.28-211.el8.i686.rpm 4.4 MB/s | 1.6 MB     00:00    
+(8/57): gcc-8.5.0-15.el8.x86_64.rpm              14 MB/s |  23 MB     00:01    
+(9/57): isl-0.16.1-6.el8.x86_64.rpm             2.8 MB/s | 841 kB     00:00    
+(10/57): libmpc-1.1.0-9.1.el8.x86_64.rpm        393 kB/s |  61 kB     00:00    
+(11/57): libtool-2.4.6-25.el8.x86_64.rpm        2.9 MB/s | 709 kB     00:00    
+(12/57): libstdc++-devel-8.5.0-15.el8.x86_64.rp 5.9 MB/s | 2.1 MB     00:00    
+(13/57): perl-Thread-Queue-3.13-1.el8.noarch.rp 262 kB/s |  24 kB     00:00    
+(14/57): libstdc++-devel-8.5.0-15.el8.i686.rpm  5.7 MB/s | 2.1 MB     00:00    
+(15/57): python3-pip-9.0.3-22.el8.noarch.rpm    235 kB/s |  20 kB     00:00    
+(16/57): python36-3.6.8-38.module_el8.5.0+895+a 222 kB/s |  19 kB     00:00    
+(17/57): binutils-2.30-117.el8.x86_64.rpm        19 MB/s | 5.8 MB     00:00    
+(18/57): coreutils-8.30-13.el8.x86_64.rpm       4.9 MB/s | 1.2 MB     00:00    
+(19/57): coreutils-common-8.30-13.el8.x86_64.rp 7.3 MB/s | 2.0 MB     00:00    
+(20/57): glibc-devel-2.28-211.el8.i686.rpm      1.7 MB/s |  81 kB     00:00    
+(21/57): glibc-devel-2.28-211.el8.x86_64.rpm    1.8 MB/s |  82 kB     00:00    
+(22/57): glibc-headers-2.28-211.el8.i686.rpm     11 MB/s | 486 kB     00:00    
+(23/57): glibc-headers-2.28-211.el8.x86_64.rpm   13 MB/s | 486 kB     00:00    
+(24/57): glibc-langpack-en-2.28-211.el8.x86_64.  21 MB/s | 825 kB     00:00    
+(25/57): kernel-headers-4.18.0-408.el8.x86_64.r  57 MB/s | 9.8 MB     00:00    
+(26/57): libgcc-8.5.0-15.el8.i686.rpm           2.7 MB/s |  88 kB     00:00    
+(27/57): libgomp-8.5.0-15.el8.x86_64.rpm        6.1 MB/s | 207 kB     00:00    
+(28/57): libpkgconf-1.4.2-1.el8.x86_64.rpm      1.1 MB/s |  35 kB     00:00    
+(29/57): libstdc++-8.5.0-15.el8.i686.rpm        6.7 MB/s | 491 kB     00:00    
+(30/57): libxcrypt-4.1.1-6.el8.i686.rpm         2.4 MB/s |  74 kB     00:00    
+(31/57): libxcrypt-devel-4.1.1-6.el8.i686.rpm   494 kB/s |  25 kB     00:00    
+(32/57): glibc-gconv-extra-2.28-211.el8.x86_64. 2.6 MB/s | 1.5 MB     00:00    
+(33/57): libxcrypt-devel-4.1.1-6.el8.x86_64.rpm 806 kB/s |  25 kB     00:00    
+(34/57): m4-1.4.18-7.el8.x86_64.rpm             6.3 MB/s | 223 kB     00:00    
+(35/57): make-4.2.1-11.el8.x86_64.rpm            13 MB/s | 498 kB     00:00    
+(36/57): patch-2.7.6-11.el8.x86_64.rpm          4.2 MB/s | 138 kB     00:00    
+(37/57): glibc-2.28-211.el8.i686.rpm            2.7 MB/s | 2.0 MB     00:00    
+(38/57): perl-Data-Dumper-2.167-399.el8.x86_64. 1.3 MB/s |  58 kB     00:00    
+(39/57): pkgconf-1.4.2-1.el8.x86_64.rpm         1.1 MB/s |  38 kB     00:00    
+(40/57): pkgconf-m4-1.4.2-1.el8.noarch.rpm      502 kB/s |  17 kB     00:00    
+(41/57): pkgconf-pkg-config-1.4.2-1.el8.x86_64. 444 kB/s |  15 kB     00:00    
+(42/57): python3-setuptools-39.2.0-6.el8.noarch 5.0 MB/s | 163 kB     00:00    
+(43/57): procps-ng-3.3.15-9.el8.x86_64.rpm      7.5 MB/s | 329 kB     00:00    
+(44/57): platform-python-pip-9.0.3-22.el8.noarc  21 MB/s | 1.6 MB     00:00    
+(45/57): rsync-3.1.3-19.el8.x86_64.rpm           11 MB/s | 410 kB     00:00    
+(46/57): xz-5.2.4-4.el8.x86_64.rpm              4.2 MB/s | 153 kB     00:00    
+(47/57): dash-0.5.10.2-4.el8.x86_64.rpm         369 kB/s |  99 kB     00:00    
+(48/57): libsodium-1.0.18-2.el8.x86_64.rpm      1.3 MB/s | 162 kB     00:00    
+(49/57): lbzip2-2.5-15.20171011gitb6dc48a.el8.x 238 kB/s |  98 kB     00:00    
+(50/57): ccache-3.7.7-1.el8.x86_64.rpm          482 kB/s | 232 kB     00:00    
+(51/57): libunwind-1.3.1-3.el8.x86_64.rpm       884 kB/s |  75 kB     00:00    
+(52/57): python3-zmq-19.0.0-1.el8.x86_64.rpm    2.6 MB/s | 418 kB     00:00    
+(53/57): openpgm-5.2.122-21.el8.x86_64.rpm      882 kB/s | 180 kB     00:00    
+(54/57): zeromq-4.3.4-2.el8.x86_64.rpm          2.4 MB/s | 479 kB     00:00    
+(55/57): glibc-minimal-langpack-2.28-211.el8.x8 2.1 MB/s |  63 kB     00:00    
+(56/57): glibc-2.28-211.el8.x86_64.rpm           23 MB/s | 2.2 MB     00:00    
+(57/57): glibc-common-2.28-211.el8.x86_64.rpm   8.7 MB/s | 1.0 MB     00:00    
+--------------------------------------------------------------------------------
+Total                                           9.2 MB/s |  89 MB     00:09     
+Extra Packages for Enterprise Linux 8 - x86_64  1.6 MB/s | 1.6 kB     00:00    
+Importing GPG key 0x2F86D6A1:
+ Userid     : "Fedora EPEL (8) <epel@fedoraproject.org>"
+ Fingerprint: 94E2 79EB 8D8F 25B2 1810 ADF1 21EA 45AB 2F86 D6A1
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : kernel-headers-4.18.0-408.el8.x86_64                  1/62 
+  Installing       : glibc-langpack-en-2.28-211.el8.x86_64                 2/62 
+  Upgrading        : glibc-common-2.28-211.el8.x86_64                      3/62 
+  Running scriptlet: glibc-2.28-211.el8.x86_64                             4/62 
+  Upgrading        : glibc-2.28-211.el8.x86_64                             4/62 
+  Running scriptlet: glibc-2.28-211.el8.x86_64                             4/62 
+  Installing       : glibc-gconv-extra-2.28-211.el8.x86_64                 5/62 
+  Running scriptlet: glibc-gconv-extra-2.28-211.el8.x86_64                 5/62 
+  Installing       : libmpc-1.1.0-9.1.el8.x86_64                           6/62 
+  Running scriptlet: glibc-headers-2.28-211.el8.i686                       7/62 
+  Installing       : glibc-headers-2.28-211.el8.i686                       7/62 
+  Installing       : m4-1.4.18-7.el8.x86_64                                8/62 
+  Running scriptlet: m4-1.4.18-7.el8.x86_64                                8/62 
+  Installing       : cpp-8.5.0-15.el8.x86_64                               9/62 
+  Running scriptlet: cpp-8.5.0-15.el8.x86_64                               9/62 
+  Downgrading      : xz-libs-5.2.4-4.el8.x86_64                           10/62 
+  Installing       : isl-0.16.1-6.el8.x86_64                              11/62 
+  Running scriptlet: isl-0.16.1-6.el8.x86_64                              11/62 
+  Running scriptlet: glibc-headers-2.28-211.el8.x86_64                    12/62 
+  Installing       : glibc-headers-2.28-211.el8.x86_64                    12/62 
+  Installing       : libgomp-8.5.0-15.el8.x86_64                          13/62 
+  Running scriptlet: libgomp-8.5.0-15.el8.x86_64                          13/62 
+  Installing       : libpkgconf-1.4.2-1.el8.x86_64                        14/62 
+  Installing       : pkgconf-1.4.2-1.el8.x86_64                           15/62 
+  Installing       : perl-Data-Dumper-2.167-399.el8.x86_64                16/62 
+  Installing       : autoconf-2.69-29.el8.noarch                          17/62 
+  Running scriptlet: autoconf-2.69-29.el8.noarch                          17/62 
+  Installing       : libsodium-1.0.18-2.el8.x86_64                        18/62 
+  Installing       : libunwind-1.3.1-3.el8.x86_64                         19/62 
+  Installing       : openpgm-5.2.122-21.el8.x86_64                        20/62 
+  Installing       : zeromq-4.3.4-2.el8.x86_64                            21/62 
+  Installing       : python3-setuptools-39.2.0-6.el8.noarch               22/62 
+  Installing       : platform-python-pip-9.0.3-22.el8.noarch              23/62 
+  Installing       : python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   24/62 
+  Running scriptlet: python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   24/62 
+  Installing       : python3-pip-9.0.3-22.el8.noarch                      25/62 
+  Installing       : pkgconf-m4-1.4.2-1.el8.noarch                        26/62 
+  Installing       : pkgconf-pkg-config-1.4.2-1.el8.x86_64                27/62 
+  Installing       : libxcrypt-devel-4.1.1-6.el8.x86_64                   28/62 
+  Installing       : glibc-devel-2.28-211.el8.x86_64                      29/62 
+  Running scriptlet: glibc-devel-2.28-211.el8.x86_64                      29/62 
+  Installing       : coreutils-common-8.30-13.el8.x86_64                  30/62 
+  Running scriptlet: coreutils-common-8.30-13.el8.x86_64                  30/62 
+  Installing       : coreutils-8.30-13.el8.x86_64                         31/62 
+  Installing       : binutils-2.30-117.el8.x86_64                         32/62 
+  Running scriptlet: binutils-2.30-117.el8.x86_64                         32/62 
+  Installing       : perl-Thread-Queue-3.13-1.el8.noarch                  33/62 
+  Installing       : automake-1.16.1-7.el8.noarch                         34/62 
+  Running scriptlet: ccache-3.7.7-1.el8.x86_64                            35/62 
+  Installing       : ccache-3.7.7-1.el8.x86_64                            35/62 
+  Installing       : python3-zmq-19.0.0-1.el8.x86_64                      36/62 
+  Installing       : xz-5.2.4-4.el8.x86_64                                37/62 
+  Installing       : bison-3.0.4-10.el8.x86_64                            38/62 
+  Running scriptlet: bison-3.0.4-10.el8.x86_64                            38/62 
+  Installing       : make-1:4.2.1-11.el8.x86_64                           39/62 
+  Running scriptlet: make-1:4.2.1-11.el8.x86_64                           39/62 
+  Installing       : patch-2.7.6-11.el8.x86_64                            40/62 
+  Installing       : procps-ng-3.3.15-9.el8.x86_64                        41/62 
+  Installing       : rsync-3.1.3-19.el8.x86_64                            42/62 
+  Installing       : dash-0.5.10.2-4.el8.x86_64                           43/62 
+  Running scriptlet: dash-0.5.10.2-4.el8.x86_64                           43/62 
+  Installing       : lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64          44/62 
+  Upgrading        : glibc-minimal-langpack-2.28-211.el8.x86_64           45/62 
+  Installing       : libstdc++-devel-8.5.0-15.el8.x86_64                  46/62 
+  Running scriptlet: glibc-2.28-211.el8.i686                              47/62 
+  Installing       : glibc-2.28-211.el8.i686                              47/62 
+  Running scriptlet: glibc-2.28-211.el8.i686                              47/62 
+  Installing       : glibc-gconv-extra-2.28-211.el8.i686                  48/62 
+  Running scriptlet: glibc-gconv-extra-2.28-211.el8.i686                  48/62 
+  Installing       : libgcc-8.5.0-15.el8.i686                             49/62 
+  Running scriptlet: libgcc-8.5.0-15.el8.i686                             49/62 
+  Installing       : libstdc++-8.5.0-15.el8.i686                          50/62 
+  Running scriptlet: libstdc++-8.5.0-15.el8.i686                          50/62 
+  Installing       : libstdc++-devel-8.5.0-15.el8.i686                    51/62 
+  Installing       : libxcrypt-4.1.1-6.el8.i686                           52/62 
+  Installing       : glibc-devel-2.28-211.el8.i686                        53/62 
+  Running scriptlet: glibc-devel-2.28-211.el8.i686                        53/62 
+  Installing       : libxcrypt-devel-4.1.1-6.el8.i686                     54/62 
+  Installing       : gcc-8.5.0-15.el8.x86_64                              55/62 
+  Running scriptlet: gcc-8.5.0-15.el8.x86_64                              55/62 
+  Installing       : gcc-c++-8.5.0-15.el8.x86_64                          56/62 
+  Running scriptlet: gcc-c++-8.5.0-15.el8.x86_64                          56/62 
+  Installing       : libtool-2.4.6-25.el8.x86_64                          57/62 
+  Running scriptlet: libtool-2.4.6-25.el8.x86_64                          57/62 
+  Erasing          : coreutils-single-8.30-13.el8.x86_64                  58/62 
+  Cleanup          : xz-libs-5.2.4-4.el8_6.x86_64                         59/62 
+  Cleanup          : glibc-2.28-208.el8.x86_64                            60/62 
+  Cleanup          : glibc-minimal-langpack-2.28-208.el8.x86_64           61/62 
+  Cleanup          : glibc-common-2.28-208.el8.x86_64                     62/62 
+  Running scriptlet: glibc-common-2.28-208.el8.x86_64                     62/62 
+  Running scriptlet: glibc-common-2.28-211.el8.x86_64                     62/62 
+  Verifying        : xz-libs-5.2.4-4.el8.x86_64                            1/62 
+  Verifying        : xz-libs-5.2.4-4.el8_6.x86_64                          2/62 
+  Verifying        : autoconf-2.69-29.el8.noarch                           3/62 
+  Verifying        : automake-1.16.1-7.el8.noarch                          4/62 
+  Verifying        : bison-3.0.4-10.el8.x86_64                             5/62 
+  Verifying        : cpp-8.5.0-15.el8.x86_64                               6/62 
+  Verifying        : gcc-8.5.0-15.el8.x86_64                               7/62 
+  Verifying        : gcc-c++-8.5.0-15.el8.x86_64                           8/62 
+  Verifying        : glibc-gconv-extra-2.28-211.el8.i686                   9/62 
+  Verifying        : isl-0.16.1-6.el8.x86_64                              10/62 
+  Verifying        : libmpc-1.1.0-9.1.el8.x86_64                          11/62 
+  Verifying        : libstdc++-devel-8.5.0-15.el8.i686                    12/62 
+  Verifying        : libstdc++-devel-8.5.0-15.el8.x86_64                  13/62 
+  Verifying        : libtool-2.4.6-25.el8.x86_64                          14/62 
+  Verifying        : perl-Thread-Queue-3.13-1.el8.noarch                  15/62 
+  Verifying        : python3-pip-9.0.3-22.el8.noarch                      16/62 
+  Verifying        : python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   17/62 
+  Verifying        : binutils-2.30-117.el8.x86_64                         18/62 
+  Verifying        : coreutils-8.30-13.el8.x86_64                         19/62 
+  Verifying        : coreutils-common-8.30-13.el8.x86_64                  20/62 
+  Verifying        : glibc-2.28-211.el8.i686                              21/62 
+  Verifying        : glibc-devel-2.28-211.el8.i686                        22/62 
+  Verifying        : glibc-devel-2.28-211.el8.x86_64                      23/62 
+  Verifying        : glibc-gconv-extra-2.28-211.el8.x86_64                24/62 
+  Verifying        : glibc-headers-2.28-211.el8.i686                      25/62 
+  Verifying        : glibc-headers-2.28-211.el8.x86_64                    26/62 
+  Verifying        : glibc-langpack-en-2.28-211.el8.x86_64                27/62 
+  Verifying        : kernel-headers-4.18.0-408.el8.x86_64                 28/62 
+  Verifying        : libgcc-8.5.0-15.el8.i686                             29/62 
+  Verifying        : libgomp-8.5.0-15.el8.x86_64                          30/62 
+  Verifying        : libpkgconf-1.4.2-1.el8.x86_64                        31/62 
+  Verifying        : libstdc++-8.5.0-15.el8.i686                          32/62 
+  Verifying        : libxcrypt-4.1.1-6.el8.i686                           33/62 
+  Verifying        : libxcrypt-devel-4.1.1-6.el8.i686                     34/62 
+  Verifying        : libxcrypt-devel-4.1.1-6.el8.x86_64                   35/62 
+  Verifying        : m4-1.4.18-7.el8.x86_64                               36/62 
+  Verifying        : make-1:4.2.1-11.el8.x86_64                           37/62 
+  Verifying        : patch-2.7.6-11.el8.x86_64                            38/62 
+  Verifying        : perl-Data-Dumper-2.167-399.el8.x86_64                39/62 
+  Verifying        : pkgconf-1.4.2-1.el8.x86_64                           40/62 
+  Verifying        : pkgconf-m4-1.4.2-1.el8.noarch                        41/62 
+  Verifying        : pkgconf-pkg-config-1.4.2-1.el8.x86_64                42/62 
+  Verifying        : platform-python-pip-9.0.3-22.el8.noarch              43/62 
+  Verifying        : procps-ng-3.3.15-9.el8.x86_64                        44/62 
+  Verifying        : python3-setuptools-39.2.0-6.el8.noarch               45/62 
+  Verifying        : rsync-3.1.3-19.el8.x86_64                            46/62 
+  Verifying        : xz-5.2.4-4.el8.x86_64                                47/62 
+  Verifying        : ccache-3.7.7-1.el8.x86_64                            48/62 
+  Verifying        : dash-0.5.10.2-4.el8.x86_64                           49/62 
+  Verifying        : lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64          50/62 
+  Verifying        : libsodium-1.0.18-2.el8.x86_64                        51/62 
+  Verifying        : libunwind-1.3.1-3.el8.x86_64                         52/62 
+  Verifying        : openpgm-5.2.122-21.el8.x86_64                        53/62 
+  Verifying        : python3-zmq-19.0.0-1.el8.x86_64                      54/62 
+  Verifying        : zeromq-4.3.4-2.el8.x86_64                            55/62 
+  Verifying        : glibc-2.28-211.el8.x86_64                            56/62 
+  Verifying        : glibc-2.28-208.el8.x86_64                            57/62 
+  Verifying        : glibc-common-2.28-211.el8.x86_64                     58/62 
+  Verifying        : glibc-common-2.28-208.el8.x86_64                     59/62 
+  Verifying        : glibc-minimal-langpack-2.28-211.el8.x86_64           60/62 
+  Verifying        : glibc-minimal-langpack-2.28-208.el8.x86_64           61/62 
+  Verifying        : coreutils-single-8.30-13.el8.x86_64                  62/62 
+
+Upgraded:
+  glibc-2.28-211.el8.x86_64                   glibc-common-2.28-211.el8.x86_64 
+  glibc-minimal-langpack-2.28-211.el8.x86_64 
+Downgraded:
+  xz-libs-5.2.4-4.el8.x86_64                                                    
+Installed:
+  autoconf-2.69-29.el8.noarch                                                   
+  automake-1.16.1-7.el8.noarch                                                  
+  binutils-2.30-117.el8.x86_64                                                  
+  bison-3.0.4-10.el8.x86_64                                                     
+  ccache-3.7.7-1.el8.x86_64                                                     
+  coreutils-8.30-13.el8.x86_64                                                  
+  coreutils-common-8.30-13.el8.x86_64                                           
+  cpp-8.5.0-15.el8.x86_64                                                       
+  dash-0.5.10.2-4.el8.x86_64                                                    
+  gcc-8.5.0-15.el8.x86_64                                                       
+  gcc-c++-8.5.0-15.el8.x86_64                                                   
+  glibc-2.28-211.el8.i686                                                       
+  glibc-devel-2.28-211.el8.i686                                                 
+  glibc-devel-2.28-211.el8.x86_64                                               
+  glibc-gconv-extra-2.28-211.el8.i686                                           
+  glibc-gconv-extra-2.28-211.el8.x86_64                                         
+  glibc-headers-2.28-211.el8.i686                                               
+  glibc-headers-2.28-211.el8.x86_64                                             
+  glibc-langpack-en-2.28-211.el8.x86_64                                         
+  isl-0.16.1-6.el8.x86_64                                                       
+  kernel-headers-4.18.0-408.el8.x86_64                                          
+  lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64                                   
+  libgcc-8.5.0-15.el8.i686                                                      
+  libgomp-8.5.0-15.el8.x86_64                                                   
+  libmpc-1.1.0-9.1.el8.x86_64                                                   
+  libpkgconf-1.4.2-1.el8.x86_64                                                 
+  libsodium-1.0.18-2.el8.x86_64                                                 
+  libstdc++-8.5.0-15.el8.i686                                                   
+  libstdc++-devel-8.5.0-15.el8.i686                                             
+  libstdc++-devel-8.5.0-15.el8.x86_64                                           
+  libtool-2.4.6-25.el8.x86_64                                                   
+  libunwind-1.3.1-3.el8.x86_64                                                  
+  libxcrypt-4.1.1-6.el8.i686                                                    
+  libxcrypt-devel-4.1.1-6.el8.i686                                              
+  libxcrypt-devel-4.1.1-6.el8.x86_64                                            
+  m4-1.4.18-7.el8.x86_64                                                        
+  make-1:4.2.1-11.el8.x86_64                                                    
+  openpgm-5.2.122-21.el8.x86_64                                                 
+  patch-2.7.6-11.el8.x86_64                                                     
+  perl-Data-Dumper-2.167-399.el8.x86_64                                         
+  perl-Thread-Queue-3.13-1.el8.noarch                                           
+  pkgconf-1.4.2-1.el8.x86_64                                                    
+  pkgconf-m4-1.4.2-1.el8.noarch                                                 
+  pkgconf-pkg-config-1.4.2-1.el8.x86_64                                         
+  platform-python-pip-9.0.3-22.el8.noarch                                       
+  procps-ng-3.3.15-9.el8.x86_64                                                 
+  python3-pip-9.0.3-22.el8.noarch                                               
+  python3-setuptools-39.2.0-6.el8.noarch                                        
+  python3-zmq-19.0.0-1.el8.x86_64                                               
+  python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_64                          
+  rsync-3.1.3-19.el8.x86_64                                                     
+  xz-5.2.4-4.el8.x86_64                                                         
+  zeromq-4.3.4-2.el8.x86_64                                                     
+Removed:
+  coreutils-single-8.30-13.el8.x86_64                                           
+
+Complete!
+              total        used        free      shared  buff/cache   available
+Mem:          125Gi       8.8Gi        59Gi       4.0Mi        57Gi       116Gi
+Swap:            0B          0B          0B
+Number of CPUs (nproc): 32
+Byte Order: Little Endian
+Free disk space:
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         488G  371G  118G  76% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            63G     0   63G   0% /sys/fs/cgroup
+/dev/sda1       488G  371G  118G  76% /tmp
+tmpfs           117G     0  117G   0% /dev/shm
+tmpfs            63G     0   63G   0% /proc/acpi
+tmpfs            63G     0   63G   0% /proc/scsi
+tmpfs            63G     0   63G   0% /sys/firmware
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 9025k  100 9025k    0     0  20.1M      0 --:--:-- --:--:-- --:--:-- 20.1M
+make: Entering directory '/tmp/cirrus-ci-build/depends'
+copying packages: boost libevent qt expat libxcb xcb_proto libXau xproto freetype fontconfig libxkbcommon libxcb_util libxcb_util_render libxcb_util_keysyms libxcb_util_image libxcb_util_wm qrencode bdb sqlite miniupnpc libnatpmp systemtap zeromq
+to: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu
+make: Leaving directory '/tmp/cirrus-ci-build/depends'
+Statistics zeroed
+Set cache size limit to 200.0 MB
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:40: installing 'build-aux/ar-lib'
+configure.ac:35: installing 'build-aux/compile'
+configure.ac:24: installing 'build-aux/config.guess'
+configure.ac:24: installing 'build-aux/config.sub'
+configure.ac:30: installing 'build-aux/install-sh'
+configure.ac:30: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:116: installing 'build-aux/compile'
+configure.ac:51: installing 'build-aux/config.guess'
+configure.ac:51: installing 'build-aux/config.sub'
+configure.ac:58: installing 'build-aux/install-sh'
+configure.ac:58: installing 'build-aux/missing'
+src/Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+configure: loading site script /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/config.site
+configure: creating cache config.cache
+checking for i686-pc-linux-gnu-pkg-config... /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i686-pc-linux-gnu-strip... strip
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ -m32 accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of g++ -m32... none
+checking whether g++ -m32 supports C++17 features with -std=c++17... yes
+checking whether std::filesystem can be used without link library... no
+checking whether std::filesystem needs -lstdc++fs... yes
+checking for i686-pc-linux-gnu-g++... g++ -m32 -std=c++17
+checking whether we are using the GNU Objective C++ compiler... no
+checking whether g++ -m32 -std=c++17 accepts -g... no
+checking dependency style of g++ -m32 -std=c++17... none
+checking how to print strings... printf
+checking for i686-pc-linux-gnu-gcc... gcc -m32
+checking whether we are using the GNU C compiler... yes
+checking whether gcc -m32 accepts -g... yes
+checking for gcc -m32 option to accept ISO C89... none needed
+checking whether gcc -m32 understands -c and -o together... yes
+checking dependency style of gcc -m32... none
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc -m32... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... nm
+checking the name lister (nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for i686-pc-linux-gnu-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for i686-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for i686-pc-linux-gnu-ar... ar
+checking for archiver @FILE support... @
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for i686-pc-linux-gnu-ranlib... ranlib
+checking command to parse nm output from gcc -m32 object... ok
+checking for sysroot... no
+checking for a working dd... /tmp/cirrus-ci-build/configure: 10073: /tmp/cirrus-ci-build/configure: cmp: not found
+/tmp/cirrus-ci-build/configure: 10073: /tmp/cirrus-ci-build/configure: cmp: not found
+
+checking how to truncate binary pipes... /usr/bin/sed -e 4q
+checking for i686-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -m32 -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc -m32 supports -fno-rtti -fno-exceptions... /tmp/cirrus-ci-build/configure: 12313: /tmp/cirrus-ci-build/configure: diff: not found
+no
+checking for gcc -m32 option to produce PIC... -fPIC -DPIC
+checking if gcc -m32 PIC flag -fPIC -DPIC works... yes
+checking if gcc -m32 static flag -static works... no
+checking if gcc -m32 supports -c -o file.o... yes
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking whether the gcc -m32 linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -m32 -std=c++17 -E
+checking for ld used by g++ -m32 -std=c++17... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the g++ -m32 -std=c++17 linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ -m32 -std=c++17 option to produce PIC... -fPIC -DPIC
+checking if g++ -m32 -std=c++17 PIC flag -fPIC -DPIC works... yes
+checking if g++ -m32 -std=c++17 static flag -static works... no
+checking if g++ -m32 -std=c++17 supports -c -o file.o... yes
+checking if g++ -m32 -std=c++17 supports -c -o file.o... (cached) yes
+checking whether the g++ -m32 -std=c++17 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking for i686-pc-linux-gnu-gcov... no
+checking for gcov... /usr/bin/gcov
+checking for i686-pc-linux-gnu-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.6... /usr/bin/python3.6
+checking for genhtml... no
+checking for git... /usr/bin/git
+checking for ccache... /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... /usr/bin/hexdump
+checking for i686-pc-linux-gnu-objcopy... no
+checking for objcopy... /usr/bin/objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... yes
+checking whether the linker accepts -Wl,--fatal-warnings... yes
+checking whether C++ compiler accepts -Werror=return-type... yes
+checking whether C++ compiler accepts -fno-extended-identifiers... yes
+checking whether C++ compiler accepts -msse4.2... yes
+checking whether C++ compiler accepts -msse4.1... yes
+checking whether C++ compiler accepts -mavx -mavx2... yes
+checking whether C++ compiler accepts -msse4 -msha... yes
+checking whether C++ compiler accepts -mpclmul... no
+checking for SSE4.2 intrinsics... no
+checking for SSE4.1 intrinsics... yes
+checking for AVX2 intrinsics... yes
+checking for x86 SHA-NI intrinsics... yes
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking for ARMv8 CRC32 intrinsics... no
+checking for ARMv8 SHA-NI intrinsics... no
+checking whether byte ordering is bigendian... no
+checking whether gcc -m32 is Clang... no
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking whether std::atomic can be used without link library... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking for library containing clock_gettime... none required
+checking whether C++ compiler accepts -fPIC... yes
+checking whether C++ compiler accepts -fstack-reuse=none... yes
+checking whether C++ compiler accepts -Wstack-protector... yes
+checking whether C++ compiler accepts -fstack-protector-all... yes
+checking whether C++ compiler accepts -fcf-protection=full... yes
+checking whether C++ compiler accepts -fstack-clash-protection... yes
+checking whether C++ preprocessor accepts -D_FORTIFY_SOURCE=2... yes
+checking whether C++ preprocessor accepts -U_FORTIFY_SOURCE... yes
+checking whether the linker accepts -Wl,--enable-reloc-section... no
+checking whether the linker accepts -Wl,--dynamicbase... no
+checking whether the linker accepts -Wl,--nxcompat... no
+checking whether the linker accepts -Wl,--high-entropy-va... no
+checking whether the linker accepts -Wl,-z,relro... yes
+checking whether the linker accepts -Wl,-z,now... yes
+checking whether the linker accepts -Wl,-z,separate-code... yes
+checking whether the linker accepts -fPIE -pie... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/sysctl.h usability... yes
+checking sys/sysctl.h presence... yes
+checking for sys/sysctl.h... yes
+checking vm/vm_param.h usability... no
+checking vm/vm_param.h presence... no
+checking for vm/vm_param.h... no
+checking sys/vmmeter.h usability... no
+checking sys/vmmeter.h presence... no
+checking for sys/vmmeter.h... no
+checking sys/resources.h usability... no
+checking sys/resources.h presence... no
+checking for sys/resources.h... no
+checking whether getifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether fork is declared... yes
+checking whether setsid is declared... yes
+checking whether pipe2 is declared... yes
+checking for timingsafe_bcmp... no
+checking whether le16toh is declared... yes
+checking whether le32toh is declared... yes
+checking whether le64toh is declared... yes
+checking whether htole16 is declared... yes
+checking whether htole32 is declared... yes
+checking whether htole64 is declared... yes
+checking whether be16toh is declared... yes
+checking whether be32toh is declared... yes
+checking whether be64toh is declared... yes
+checking whether htobe16 is declared... yes
+checking whether htobe32 is declared... yes
+checking whether htobe64 is declared... yes
+checking whether bswap_16 is declared... yes
+checking whether bswap_32 is declared... yes
+checking whether bswap_64 is declared... yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for default visibility attribute... yes
+checking for dllexport attribute... no
+checking for thread_local support... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... yes
+checking for strong getauxval support in the system headers... yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking for QT_CORE... yes
+checking for QT_GUI... yes
+checking for QT_WIDGETS... yes
+checking for QT_NETWORK... yes
+checking for QT_TEST... yes
+checking for QT_DBUS... yes
+checking for static Qt... yes
+checking for QT_ACCESSIBILITY... yes
+checking for QT_DEVICEDISCOVERY... yes
+checking for QT_EDID... yes
+checking for QT_EVENTDISPATCHER... yes
+checking for QT_FB... yes
+checking for QT_FONTDATABASE... yes
+checking for QT_THEME... yes
+checking for QT_INPUT... yes
+checking for QT_SERVICE... yes
+checking for QT_XCBQPA... yes
+checking for QT_XKBCOMMON... yes
+checking for QMinimalIntegrationPlugin (-lqminimal)... yes
+checking for QXcbIntegrationPlugin (-lqxcb)... yes
+checking whether -fPIE can be used with this Qt config... yes
+checking for moc-qt5... no
+checking for moc5... no
+checking for moc... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/moc
+checking for uic-qt5... no
+checking for uic5... no
+checking for uic... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/uic
+checking for rcc-qt5... no
+checking for rcc5... no
+checking for rcc... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/rcc
+checking for lrelease-qt5... no
+checking for lrelease5... no
+checking for lrelease... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lrelease
+checking for lupdate-qt5... no
+checking for lupdate5... no
+checking for lupdate... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lupdate
+checking for lconvert-qt5... no
+checking for lconvert5... no
+checking for lconvert... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lconvert
+checking whether to build Bitcoin Core GUI... yes (Qt5)
+checking whether main function is needed for fuzz binary... checking whether the linker accepts ... no
+yes
+checking for __builtin_mul_overflow... yes
+checking for Berkeley DB C++ headers... default
+checking for main in -ldb_cxx-4.8... yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking whether Userspace, Statically Defined Tracing tracepoints are supported... yes
+checking miniupnpc/miniupnpc.h usability... yes
+checking miniupnpc/miniupnpc.h presence... yes
+checking for miniupnpc/miniupnpc.h... yes
+checking for upnpDiscover in -lminiupnpc... yes
+checking miniupnpc/upnpcommands.h usability... yes
+checking miniupnpc/upnpcommands.h presence... yes
+checking for miniupnpc/upnpcommands.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking miniupnpc/upnperrors.h usability... yes
+checking miniupnpc/upnperrors.h presence... yes
+checking for miniupnpc/upnperrors.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking natpmp.h usability... yes
+checking natpmp.h presence... yes
+checking for natpmp.h... yes
+checking for initnatpmp in -lnatpmp... yes
+checking for boostlib >= 1.64.0 (106400) includes in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include"... yes
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/i386-linux-gnu"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib"... yes
+checking for boostlib >= 1.64.0 (106400)... yes
+checking whether Boost.Process can be used... yes
+checking for seccomp-bpf (Linux x86-64)... no
+checking whether C++ compiler accepts -fvisibility=hidden... yes
+checking whether the linker accepts -Wl,--exclude-libs,ALL... yes
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking if evhttp_connection_get_peer expects const char**... no
+checking for QR... yes
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build bitcoin-util... yes
+checking whether to build experimental bitcoin-chainstate... no
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking whether C compiler accepts -fdebug-prefix-map=A=B... yes
+checking whether C preprocessor accepts -fmacro-prefix-map=A=B... yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build with support for NAT-PMP... yes
+checking whether to build with NAT-PMP enabled by default... no
+checking whether to build GUI with support for D-Bus... yes
+checking whether to build GUI with support for QR codes... yes
+configure: WARNING: xgettext is required to update qt translations
+checking whether to build test_bitcoin-qt... yes
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... yes
+configure: updating cache config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/security-check.py to contrib/devtools/security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/symbol-check.py to contrib/devtools/symbol-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-security-check.py to contrib/devtools/test-security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-symbol-check.py to contrib/devtools/test-symbol-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/iwyu/bitcoin.core.imp to contrib/devtools/iwyu/bitcoin.core.imp
+config.status: linking /tmp/cirrus-ci-build/contrib/filter-lcov.py to contrib/filter-lcov.py
+config.status: linking /tmp/cirrus-ci-build/contrib/macdeploy/background.tiff to contrib/macdeploy/background.tiff
+config.status: linking /tmp/cirrus-ci-build/src/.bear-tidy-config to src/.bear-tidy-config
+config.status: linking /tmp/cirrus-ci-build/src/.clang-tidy to src/.clang-tidy
+config.status: linking /tmp/cirrus-ci-build/test/functional/test_runner.py to test/functional/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/fuzz/test_runner.py to test/fuzz/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/test_runner.py to test/util/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/rpcauth-test.py to test/util/rpcauth-test.py
+config.status: linking /tmp/cirrus-ci-build/src/qt/Makefile to src/qt/Makefile
+config.status: linking /tmp/cirrus-ci-build/src/qt/test/Makefile to src/qt/test/Makefile
+config.status: linking /tmp/cirrus-ci-build/src/test/Makefile to src/test/Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1)
+configure: running /bin/dash /tmp/cirrus-ci-build/src/secp256k1/configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--enable-werror' '--enable-external-signer' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib' '--enable-zmq' '--with-gui=qt5' '--enable-reduce-exports' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--enable-module-recovery' '--enable-module-schnorrsig' --cache-file=../../config.cache --srcdir=/tmp/cirrus-ci-build/src/secp256k1
+configure: loading site script /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/config.site
+configure: loading cache ../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) i686-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) gawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking for i686-pc-linux-gnu-gcc... (cached) gcc -m32
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc -m32 accepts -g... (cached) yes
+checking for gcc -m32 option to accept ISO C89... (cached) none needed
+checking whether gcc -m32 understands -c and -o together... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc -m32... (cached) none
+checking dependency style of gcc -m32... none
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking the archiver (ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by gcc -m32... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for i686-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for i686-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for i686-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from gcc -m32 object... (cached) ok
+checking for sysroot... no
+checking for a working dd... /tmp/cirrus-ci-build/src/secp256k1/configure: 6619: /tmp/cirrus-ci-build/src/secp256k1/configure: cmp: not found
+/tmp/cirrus-ci-build/src/secp256k1/configure: 6619: /tmp/cirrus-ci-build/src/secp256k1/configure: cmp: not found
+
+checking how to truncate binary pipes... (cached) /usr/bin/sed -e 4q
+checking for i686-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) gcc -m32 -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if gcc -m32 supports -fno-rtti -fno-exceptions... (cached) no
+checking for gcc -m32 option to produce PIC... (cached) -fPIC -DPIC
+checking if gcc -m32 PIC flag -fPIC -DPIC works... (cached) yes
+checking if gcc -m32 static flag -static works... (cached) no
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking whether the gcc -m32 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking if gcc -m32 supports -Werror=unknown-warning-option... no
+checking if gcc -m32 supports -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef... yes
+checking if gcc -m32 supports -Wno-overlength-strings... yes
+checking if gcc -m32 supports -Wall... yes
+checking if gcc -m32 supports -Wno-unused-function... yes
+checking if gcc -m32 supports -Wextra... yes
+checking if gcc -m32 supports -Wcast-align... yes
+checking if gcc -m32 supports -Wcast-align=strict... yes
+checking if gcc -m32 supports -Wconditional-uninitialized... no
+checking if gcc -m32 supports -fvisibility=hidden... yes
+checking for x86_64 assembly availability... no
+configure: updating cache ../../config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with coverage           = no
+  with examples           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = gcc -m32
+  CPPFLAGS                =  -I/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/ 
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wcast-align=strict -fvisibility=hidden 
+  CFLAGS                  = -pipe -std=c11 -O2 
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib 
+
+Options used to compile and link:
+  external signer = yes
+  multiprocess    = no
+  with experimental syscall sandbox support = no
+  with libs       = yes
+  with wallet     = yes
+    with sqlite   = yes
+    with bdb      = yes
+  with gui / qt   = yes
+    with qr       = yes
+  with zmq        = yes
+  with test       = yes
+  with fuzz binary = yes
+  with bench      = yes
+  with upnp       = yes
+  with natpmp     = yes
+  use asm         = yes
+  USDT tracing    = yes
+  sanitizers      = 
+  debug enabled   = no
+  gprof enabled   = no
+  werror          = yes
+  LTO             = no
+
+  target os       = linux-gnu
+  build os        = linux-gnu
+
+  CC              = /usr/bin/ccache gcc -m32
+  CFLAGS          = -pthread -pipe -std=c11 -O2 
+  CPPFLAGS        =  -fmacro-prefix-map=$(abs_top_srcdir)=.  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -DHAVE_BUILD_INFO -D_FILE_OFFSET_BITS=64 -DPROVIDE_FUZZ_MAIN_FUNCTION -I/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/ 
+  CXX             = /usr/bin/ccache g++ -m32 -std=c++17
+  CXXFLAGS        =   -fdebug-prefix-map=$(abs_top_srcdir)=.  -fstack-reuse=none -Wstack-protector -fstack-protector-all -fcf-protection=full -fstack-clash-protection   -Werror   -fno-extended-identifiers -fvisibility=hidden -pipe -std=c++17 -O2 
+  LDFLAGS         =  -lpthread  -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code -pie   -L/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib 
+  AR              = ar
+  ARFLAGS         = cr
+
+make  distdir-am
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+if test -d "bitcoin-i686-pc-linux-gnu"; then find "bitcoin-i686-pc-linux-gnu" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "bitcoin-i686-pc-linux-gnu" || { sleep 5 && rm -rf "bitcoin-i686-pc-linux-gnu"; }; else :; fi
+test -d "bitcoin-i686-pc-linux-gnu" || mkdir "bitcoin-i686-pc-linux-gnu"
+ (cd src && make  top_distdir=../bitcoin-i686-pc-linux-gnu distdir=../bitcoin-i686-pc-linux-gnu/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make  distdir-am
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+Generated bench/data/block413567.raw.h
+Generated test/data/script_tests.json.h
+Generated test/data/bip341_wallet_vectors.json.h
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/sighash.json.h
+Generated test/data/tx_invalid.json.h
+Generated test/data/tx_valid.json.h
+Generated test/data/asmap.raw.h
+ (cd secp256k1 && make  top_distdir=../../bitcoin-i686-pc-linux-gnu distdir=../../bitcoin-i686-pc-linux-gnu/src/secp256k1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make  distdir-am
+make[5]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+:
+test -d "../../bitcoin-i686-pc-linux-gnu/src/secp256k1" || mkdir "../../bitcoin-i686-pc-linux-gnu/src/secp256k1"
+test -n ":" \
+|| find "../../bitcoin-i686-pc-linux-gnu/src/secp256k1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/dash /tmp/cirrus-ci-build/src/secp256k1/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../../bitcoin-i686-pc-linux-gnu/src/secp256k1"
+make[5]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+ (cd doc/man && make  top_distdir=../../bitcoin-i686-pc-linux-gnu distdir=../../bitcoin-i686-pc-linux-gnu/doc/man \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make  distdir-am
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make  \
+  top_distdir="bitcoin-i686-pc-linux-gnu" distdir="bitcoin-i686-pc-linux-gnu" \
+  dist-hook
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+/usr/bin/git archive --format=tar HEAD -- src/clientversion.cpp | ${TAR-tar} -C bitcoin-i686-pc-linux-gnu -xf -
+fatal: current working directory is untracked
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+make[2]: [Makefile:1254: dist-hook] Error 2 (ignored)
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+test -n "" \
+|| find "bitcoin-i686-pc-linux-gnu" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/dash /tmp/cirrus-ci-build/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "bitcoin-i686-pc-linux-gnu"
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+configure: loading site script /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/config.site
+configure: loading cache ../config.cache
+checking for i686-pc-linux-gnu-pkg-config... (cached) /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) i686-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) gawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether g++ -m32 accepts -g... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of g++ -m32... (cached) none
+checking whether g++ -m32 supports C++17 features with -std=c++17... (cached) yes
+checking whether std::filesystem can be used without link library... no
+checking whether std::filesystem needs -lstdc++fs... yes
+checking for i686-pc-linux-gnu-g++... (cached) g++ -m32 -std=c++17
+checking whether we are using the GNU Objective C++ compiler... (cached) no
+checking whether g++ -m32 -std=c++17 accepts -g... (cached) no
+checking dependency style of g++ -m32 -std=c++17... (cached) none
+checking how to print strings... printf
+checking for i686-pc-linux-gnu-gcc... (cached) gcc -m32
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc -m32 accepts -g... (cached) yes
+checking for gcc -m32 option to accept ISO C89... (cached) none needed
+checking whether gcc -m32 understands -c and -o together... (cached) yes
+checking dependency style of gcc -m32... (cached) none
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by gcc -m32... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for i686-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for i686-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for i686-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from gcc -m32 object... (cached) ok
+checking for sysroot... no
+checking for a working dd... ./configure: 10073: ./configure: cmp: not found
+./configure: 10073: ./configure: cmp: not found
+
+checking how to truncate binary pipes... (cached) /usr/bin/sed -e 4q
+checking for i686-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) gcc -m32 -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if gcc -m32 supports -fno-rtti -fno-exceptions... (cached) no
+checking for gcc -m32 option to produce PIC... (cached) -fPIC -DPIC
+checking if gcc -m32 PIC flag -fPIC -DPIC works... (cached) yes
+checking if gcc -m32 static flag -static works... (cached) no
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking whether the gcc -m32 linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... (cached) no
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... (cached) g++ -m32 -std=c++17 -E
+checking for ld used by g++ -m32 -std=c++17... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking whether the g++ -m32 -std=c++17 linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ -m32 -std=c++17 option to produce PIC... (cached) -fPIC -DPIC
+checking if g++ -m32 -std=c++17 PIC flag -fPIC -DPIC works... (cached) yes
+checking if g++ -m32 -std=c++17 static flag -static works... (cached) no
+checking if g++ -m32 -std=c++17 supports -c -o file.o... (cached) yes
+checking if g++ -m32 -std=c++17 supports -c -o file.o... (cached) yes
+checking whether the g++ -m32 -std=c++17 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking for i686-pc-linux-gnu-gcov... no
+checking for gcov... (cached) /usr/bin/gcov
+checking for i686-pc-linux-gnu-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.6... (cached) /usr/bin/python3.6
+checking for genhtml... no
+checking for git... (cached) /usr/bin/git
+checking for ccache... (cached) /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... (cached) /usr/bin/hexdump
+checking for i686-pc-linux-gnu-objcopy... no
+checking for objcopy... (cached) /usr/bin/objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... (cached) yes
+checking whether the linker accepts -Wl,--fatal-warnings... (cached) yes
+checking whether C++ compiler accepts -Werror=return-type... (cached) yes
+checking whether C++ compiler accepts -fno-extended-identifiers... (cached) yes
+checking whether C++ compiler accepts -msse4.2... (cached) yes
+checking whether C++ compiler accepts -msse4.1... (cached) yes
+checking whether C++ compiler accepts -mavx -mavx2... (cached) yes
+checking whether C++ compiler accepts -msse4 -msha... (cached) yes
+checking whether C++ compiler accepts -mpclmul... (cached) no
+checking for SSE4.2 intrinsics... no
+checking for SSE4.1 intrinsics... yes
+checking for AVX2 intrinsics... yes
+checking for x86 SHA-NI intrinsics... yes
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking for ARMv8 CRC32 intrinsics... no
+checking for ARMv8 SHA-NI intrinsics... no
+checking whether byte ordering is bigendian... (cached) no
+checking whether gcc -m32 is Clang... (cached) no
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking for joinable pthread attribute... (cached) PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... (cached) no
+checking for PTHREAD_PRIO_INHERIT... (cached) yes
+checking whether std::atomic can be used without link library... yes
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) 64
+checking whether strerror_r is declared... (cached) yes
+checking for strerror_r... (cached) yes
+checking whether strerror_r returns char *... (cached) yes
+checking for library containing clock_gettime... (cached) none required
+checking whether C++ compiler accepts -fPIC... (cached) yes
+checking whether C++ compiler accepts -fstack-reuse=none... (cached) yes
+checking whether C++ compiler accepts -Wstack-protector... (cached) yes
+checking whether C++ compiler accepts -fstack-protector-all... (cached) yes
+checking whether C++ compiler accepts -fcf-protection=full... (cached) yes
+checking whether C++ compiler accepts -fstack-clash-protection... (cached) yes
+checking whether C++ preprocessor accepts -D_FORTIFY_SOURCE=2... (cached) yes
+checking whether C++ preprocessor accepts -U_FORTIFY_SOURCE... (cached) yes
+checking whether the linker accepts -Wl,--enable-reloc-section... (cached) no
+checking whether the linker accepts -Wl,--dynamicbase... (cached) no
+checking whether the linker accepts -Wl,--nxcompat... (cached) no
+checking whether the linker accepts -Wl,--high-entropy-va... (cached) no
+checking whether the linker accepts -Wl,-z,relro... (cached) yes
+checking whether the linker accepts -Wl,-z,now... (cached) yes
+checking whether the linker accepts -Wl,-z,separate-code... (cached) yes
+checking whether the linker accepts -fPIE -pie... (cached) yes
+checking for endian.h... (cached) yes
+checking for sys/endian.h... (cached) no
+checking for byteswap.h... (cached) yes
+checking for stdio.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/select.h... (cached) yes
+checking for sys/prctl.h... (cached) yes
+checking for sys/sysctl.h... (cached) yes
+checking for vm/vm_param.h... (cached) no
+checking for sys/vmmeter.h... (cached) no
+checking for sys/resources.h... (cached) no
+checking whether getifaddrs is declared... (cached) yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... (cached) yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether fork is declared... (cached) yes
+checking whether setsid is declared... (cached) yes
+checking whether pipe2 is declared... (cached) yes
+checking for timingsafe_bcmp... (cached) no
+checking whether le16toh is declared... (cached) yes
+checking whether le32toh is declared... (cached) yes
+checking whether le64toh is declared... (cached) yes
+checking whether htole16 is declared... (cached) yes
+checking whether htole32 is declared... (cached) yes
+checking whether htole64 is declared... (cached) yes
+checking whether be16toh is declared... (cached) yes
+checking whether be32toh is declared... (cached) yes
+checking whether be64toh is declared... (cached) yes
+checking whether htobe16 is declared... (cached) yes
+checking whether htobe32 is declared... (cached) yes
+checking whether htobe64 is declared... (cached) yes
+checking whether bswap_16 is declared... (cached) yes
+checking whether bswap_32 is declared... (cached) yes
+checking whether bswap_64 is declared... (cached) yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for default visibility attribute... yes
+checking for dllexport attribute... no
+checking for thread_local support... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... yes
+checking for strong getauxval support in the system headers... yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking for QT_CORE... yes
+checking for QT_GUI... yes
+checking for QT_WIDGETS... yes
+checking for QT_NETWORK... yes
+checking for QT_TEST... yes
+checking for QT_DBUS... yes
+checking for static Qt... (cached) yes
+checking for QT_ACCESSIBILITY... yes
+checking for QT_DEVICEDISCOVERY... yes
+checking for QT_EDID... yes
+checking for QT_EVENTDISPATCHER... yes
+checking for QT_FB... yes
+checking for QT_FONTDATABASE... yes
+checking for QT_THEME... yes
+checking for QT_INPUT... yes
+checking for QT_SERVICE... yes
+checking for QT_XCBQPA... yes
+checking for QT_XKBCOMMON... yes
+checking for QMinimalIntegrationPlugin (-lqminimal)... yes
+checking for QXcbIntegrationPlugin (-lqxcb)... yes
+checking whether -fPIE can be used with this Qt config... yes
+checking for moc-qt5... (cached) /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/moc
+checking for uic-qt5... (cached) /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/uic
+checking for rcc-qt5... (cached) /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/rcc
+checking for lrelease-qt5... (cached) /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lrelease
+checking for lupdate-qt5... (cached) /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lupdate
+checking for lconvert-qt5... (cached) /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lconvert
+checking whether to build Bitcoin Core GUI... yes (Qt5)
+checking whether main function is needed for fuzz binary... checking whether the linker accepts ... (cached) no
+yes
+checking for __builtin_mul_overflow... yes
+checking for Berkeley DB C++ headers... default
+checking for main in -ldb_cxx-4.8... (cached) yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking whether Userspace, Statically Defined Tracing tracepoints are supported... yes
+checking for miniupnpc/miniupnpc.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/upnpcommands.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/upnperrors.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking for natpmp.h... (cached) yes
+checking for initnatpmp in -lnatpmp... (cached) yes
+checking for boostlib >= 1.64.0 (106400) includes in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include"... yes
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/i386-linux-gnu"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib"... yes
+checking for boostlib >= 1.64.0 (106400)... yes
+checking whether Boost.Process can be used... yes
+checking for seccomp-bpf (Linux x86-64)... no
+checking whether C++ compiler accepts -fvisibility=hidden... (cached) yes
+checking whether the linker accepts -Wl,--exclude-libs,ALL... (cached) yes
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking if evhttp_connection_get_peer expects const char**... no
+checking for QR... yes
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build bitcoin-util... yes
+checking whether to build experimental bitcoin-chainstate... no
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking whether C compiler accepts -fdebug-prefix-map=A=B... (cached) yes
+checking whether C preprocessor accepts -fmacro-prefix-map=A=B... (cached) yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build with support for NAT-PMP... yes
+checking whether to build with NAT-PMP enabled by default... no
+checking whether to build GUI with support for D-Bus... yes
+checking whether to build GUI with support for QR codes... yes
+configure: WARNING: xgettext is required to update qt translations
+checking whether to build test_bitcoin-qt... yes
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... yes
+configure: updating cache ../config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1)
+configure: running /bin/dash ./configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--enable-werror' '--enable-external-signer' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib' '--enable-zmq' '--with-gui=qt5' '--enable-reduce-exports' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--enable-module-recovery' '--enable-module-schnorrsig' --cache-file=../../../config.cache --srcdir=.
+configure: loading site script /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/config.site
+configure: loading cache ../../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) i686-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) gawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking for i686-pc-linux-gnu-gcc... (cached) gcc -m32
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc -m32 accepts -g... (cached) yes
+checking for gcc -m32 option to accept ISO C89... (cached) none needed
+checking whether gcc -m32 understands -c and -o together... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc -m32... (cached) none
+checking dependency style of gcc -m32... (cached) none
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking the archiver (ar) interface... (cached) ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by gcc -m32... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for i686-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for i686-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for i686-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from gcc -m32 object... (cached) ok
+checking for sysroot... no
+checking for a working dd... ./configure: 6619: ./configure: cmp: not found
+./configure: 6619: ./configure: cmp: not found
+
+checking how to truncate binary pipes... (cached) /usr/bin/sed -e 4q
+checking for i686-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) gcc -m32 -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if gcc -m32 supports -fno-rtti -fno-exceptions... (cached) no
+checking for gcc -m32 option to produce PIC... (cached) -fPIC -DPIC
+checking if gcc -m32 PIC flag -fPIC -DPIC works... (cached) yes
+checking if gcc -m32 static flag -static works... (cached) no
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking whether the gcc -m32 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking if gcc -m32 supports -Werror=unknown-warning-option... no
+checking if gcc -m32 supports -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef... yes
+checking if gcc -m32 supports -Wno-overlength-strings... yes
+checking if gcc -m32 supports -Wall... yes
+checking if gcc -m32 supports -Wno-unused-function... yes
+checking if gcc -m32 supports -Wextra... yes
+checking if gcc -m32 supports -Wcast-align... yes
+checking if gcc -m32 supports -Wcast-align=strict... yes
+checking if gcc -m32 supports -Wconditional-uninitialized... no
+checking if gcc -m32 supports -fvisibility=hidden... yes
+checking for x86_64 assembly availability... no
+configure: updating cache ../../../config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with coverage           = no
+  with examples           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = gcc -m32
+  CPPFLAGS                =  -I/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/ 
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wcast-align=strict -fvisibility=hidden 
+  CFLAGS                  = -pipe -std=c11 -O2 
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib 
+
+Options used to compile and link:
+  external signer = yes
+  multiprocess    = no
+  with experimental syscall sandbox support = no
+  with libs       = yes
+  with wallet     = yes
+    with sqlite   = yes
+    with bdb      = yes
+  with gui / qt   = yes
+    with qr       = yes
+  with zmq        = yes
+  with test       = yes
+  with fuzz binary = yes
+  with bench      = yes
+  with upnp       = yes
+  with natpmp     = yes
+  use asm         = yes
+  USDT tracing    = yes
+  sanitizers      = 
+  debug enabled   = no
+  gprof enabled   = no
+  werror          = yes
+  LTO             = no
+
+  target os       = linux-gnu
+  build os        = linux-gnu
+
+  CC              = /usr/bin/ccache gcc -m32
+  CFLAGS          = -pthread -pipe -std=c11 -O2 
+  CPPFLAGS        =  -fmacro-prefix-map=$(abs_top_srcdir)=.  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -DHAVE_BUILD_INFO -D_FILE_OFFSET_BITS=64 -DPROVIDE_FUZZ_MAIN_FUNCTION -I/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/ 
+  CXX             = /usr/bin/ccache g++ -m32 -std=c++17
+  CXXFLAGS        =   -fdebug-prefix-map=$(abs_top_srcdir)=.  -fstack-reuse=none -Wstack-protector -fstack-protector-all -fcf-protection=full -fstack-clash-protection   -Werror   -fno-extended-identifiers -fvisibility=hidden -pipe -std=c++17 -O2 
+  LDFLAGS         =  -lpthread  -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code -pie   -L/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib 
+  AR              = ar
+  ARFLAGS         = cr
+
+Making install in src
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+  CXX      bitcoind-bitcoind.o
+  CXX      libbitcoin_node_a-addrdb.o
+  CXX      libbitcoin_node_a-addrman.o
+  CXX      libbitcoin_node_a-banman.o
+  CXX      libbitcoin_node_a-blockencodings.o
+  CXX      libbitcoin_node_a-blockfilter.o
+  CXX      libbitcoin_node_a-chain.o
+  CXX      libbitcoin_node_a-dbwrapper.o
+  CXX      libbitcoin_node_a-deploymentstatus.o
+  CXX      libbitcoin_node_a-flatfile.o
+  CXX      libbitcoin_node_a-headerssync.o
+  CXX      libbitcoin_node_a-httprpc.o
+  CXX      libbitcoin_node_a-httpserver.o
+  CXX      libbitcoin_node_a-i2p.o
+  CXX      libbitcoin_node_a-init.o
+  CXX      libbitcoin_node_a-mapport.o
+  CXX      libbitcoin_node_a-net.o
+  CXX      libbitcoin_node_a-net_processing.o
+  CXX      libbitcoin_node_a-netgroup.o
+  CXX      libbitcoin_node_a-noui.o
+  CXX      libbitcoin_node_a-pow.o
+  CXX      libbitcoin_node_a-rest.o
+  CXX      libbitcoin_node_a-shutdown.o
+  CXX      libbitcoin_node_a-signet.o
+  CXX      libbitcoin_node_a-timedata.o
+  CXX      libbitcoin_node_a-torcontrol.o
+  CXX      libbitcoin_node_a-txdb.o
+  CXX      libbitcoin_node_a-txmempool.o
+  CXX      libbitcoin_node_a-txorphanage.o
+  CXX      libbitcoin_node_a-txrequest.o
+  CXX      libbitcoin_node_a-validation.o
+  CXX      libbitcoin_node_a-validationinterface.o
+  CXX      libbitcoin_node_a-versionbits.o
+  CXX      wallet/libbitcoin_wallet_a-scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-spend.o
+  CXX      wallet/libbitcoin_wallet_a-transaction.o
+  CXX      wallet/libbitcoin_wallet_a-wallet.o
+  CXX      wallet/libbitcoin_wallet_a-walletdb.o
+  CXX      wallet/libbitcoin_wallet_a-walletutil.o
+  CXX      wallet/libbitcoin_wallet_a-coinselection.o
+  CXX      wallet/libbitcoin_wallet_a-sqlite.o
+  CXX      wallet/libbitcoin_wallet_a-bdb.o
+  CXX      wallet/libbitcoin_wallet_a-salvage.o
+  CXX      libbitcoin_common_a-base58.o
+  CXX      libbitcoin_common_a-bech32.o
+  CXX      libbitcoin_common_a-chainparams.o
+  CXX      libbitcoin_common_a-coins.o
+  CXX      libbitcoin_common_a-compressor.o
+  CXX      libbitcoin_common_a-core_read.o
+  CXX      libbitcoin_common_a-core_write.o
+  CXX      libbitcoin_common_a-deploymentinfo.o
+  CXX      libbitcoin_common_a-external_signer.o
+  CXX      init/libbitcoin_common_a-common.o
+  CXX      libbitcoin_common_a-key.o
+  CXX      libbitcoin_common_a-key_io.o
+  CXX      libbitcoin_common_a-merkleblock.o
+  CXX      libbitcoin_common_a-net_types.o
+  CXX      libbitcoin_common_a-netaddress.o
+  CXX      libbitcoin_common_a-netbase.o
+  CXX      libbitcoin_common_a-net_permissions.o
+  CXX      libbitcoin_common_a-outputtype.o
+  CXX      policy/libbitcoin_common_a-feerate.o
+  CXX      policy/libbitcoin_common_a-policy.o
+  CXX      libbitcoin_common_a-protocol.o
+  CXX      libbitcoin_common_a-psbt.o
+  CXX      rpc/libbitcoin_common_a-rawtransaction_util.o
+  CXX      rpc/libbitcoin_common_a-external_signer.o
+  CXX      rpc/libbitcoin_common_a-util.o
+  CXX      libbitcoin_common_a-scheduler.o
+  CXX      script/libbitcoin_common_a-descriptor.o
+  CXX      script/libbitcoin_common_a-miniscript.o
+  CXX      script/libbitcoin_common_a-sign.o
+  CXX      script/libbitcoin_common_a-signingprovider.o
+  CXX      script/libbitcoin_common_a-standard.o
+  CXX      libbitcoin_common_a-warnings.o
+  CXX      libbitcoin_util_a-chainparamsbase.o
+  CXX      libbitcoin_util_a-fs.o
+  CXX      libbitcoin_util_a-logging.o
+  CXX      libbitcoin_util_a-random.o
+  CXX      libbitcoin_util_a-randomenv.o
+  CXX      rpc/libbitcoin_util_a-request.o
+  CXX      support/libbitcoin_util_a-cleanse.o
+  CXX      libbitcoin_util_a-sync.o
+  CXX      libbitcoin_util_a-threadinterrupt.o
+  CXX      libbitcoin_consensus_a-arith_uint256.o
+  CXX      consensus/libbitcoin_consensus_a-merkle.o
+  CXX      consensus/libbitcoin_consensus_a-tx_check.o
+  CXX      libbitcoin_consensus_a-hash.o
+  CXX      libbitcoin_consensus_a-pubkey.o
+  CXX      script/libbitcoin_consensus_a-bitcoinconsensus.o
+  CXX      script/libbitcoin_consensus_a-interpreter.o
+  CXX      script/libbitcoin_consensus_a-script.o
+  CXX      script/libbitcoin_consensus_a-script_error.o
+  CXX      libbitcoin_consensus_a-uint256.o
+  CXX      util/libbitcoin_consensus_a-strencodings.o
+  CXX      bitcoin_cli-bitcoin-cli.o
+  CXX      rpc/libbitcoin_cli_a-client.o
+  CXX      bitcoin_tx-bitcoin-tx.o
+  CXX      bitcoin_wallet-bitcoin-wallet.o
+  CXX      init/bitcoin_wallet-bitcoin-wallet.o
+  CXX      wallet/libbitcoin_wallet_tool_a-wallettool.o
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+  CXX      bitcoin_util-bitcoin-util.o
+  CC       src/libsecp256k1_la-secp256k1.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult_gen.lo
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/bip341_wallet_vectors.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/asmap.raw.h
+Generated test/data/tx_invalid.json.h
+  GEN      qt/forms/ui_addressbookpage.h
+Generated test/data/tx_valid.json.h
+Generated test/data/script_tests.json.h
+  GEN      qt/forms/ui_askpassphrasedialog.h
+  GEN      qt/forms/ui_coincontroldialog.h
+  GEN      qt/forms/ui_createwalletdialog.h
+  GEN      qt/forms/ui_editaddressdialog.h
+  GEN      qt/forms/ui_helpmessagedialog.h
+  GEN      qt/forms/ui_intro.h
+  GEN      qt/forms/ui_modaloverlay.h
+Generated test/data/sighash.json.h
+  GEN      qt/forms/ui_openuridialog.h
+  GEN      qt/forms/ui_optionsdialog.h
+  GEN      qt/forms/ui_overviewpage.h
+  GEN      qt/forms/ui_psbtoperationsdialog.h
+  GEN      qt/forms/ui_receivecoinsdialog.h
+  GEN      qt/forms/ui_receiverequestdialog.h
+  GEN      qt/forms/ui_debugwindow.h
+  GEN      qt/forms/ui_sendcoinsdialog.h
+  GEN      qt/forms/ui_sendcoinsentry.h
+  GEN      qt/forms/ui_signverifymessagedialog.h
+  GEN      qt/forms/ui_transactiondescdialog.h
+  GEN      qt/moc_addressbookpage.cpp
+  GEN      qt/moc_addresstablemodel.cpp
+  GEN      qt/moc_askpassphrasedialog.cpp
+  GEN      qt/moc_createwalletdialog.cpp
+  GEN      qt/moc_bantablemodel.cpp
+  GEN      qt/moc_bitcoin.cpp
+  GEN      qt/moc_bitcoinaddressvalidator.cpp
+  GEN      qt/moc_bitcoinamountfield.cpp
+  GEN      qt/moc_bitcoingui.cpp
+  GEN      qt/moc_bitcoinunits.cpp
+  GEN      qt/moc_clientmodel.cpp
+  GEN      qt/moc_coincontroldialog.cpp
+  GEN      qt/moc_coincontroltreewidget.cpp
+  GEN      qt/moc_csvmodelwriter.cpp
+  GEN      qt/moc_editaddressdialog.cpp
+  GEN      qt/moc_guiutil.cpp
+  GEN      qt/moc_initexecutor.cpp
+  GEN      qt/moc_intro.cpp
+  GEN      qt/moc_macdockiconhandler.cpp
+  GEN      qt/moc_macnotificationhandler.cpp
+  GEN      qt/moc_modaloverlay.cpp
+  GEN      qt/moc_notificator.cpp
+  GEN      qt/moc_openuridialog.cpp
+  GEN      qt/moc_optionsdialog.cpp
+  GEN      qt/moc_optionsmodel.cpp
+  GEN      qt/moc_overviewpage.cpp
+  GEN      qt/moc_peertablemodel.cpp
+  GEN      qt/moc_peertablesortproxy.cpp
+  GEN      qt/moc_paymentserver.cpp
+  GEN      qt/moc_psbtoperationsdialog.cpp
+  GEN      qt/moc_qrimagewidget.cpp
+  GEN      qt/moc_qvalidatedlineedit.cpp
+  GEN      qt/moc_qvaluecombobox.cpp
+  GEN      qt/moc_receivecoinsdialog.cpp
+  GEN      qt/moc_receiverequestdialog.cpp
+  GEN      qt/moc_recentrequeststablemodel.cpp
+  GEN      qt/moc_rpcconsole.cpp
+  GEN      qt/moc_sendcoinsdialog.cpp
+  GEN      qt/moc_sendcoinsentry.cpp
+  GEN      qt/moc_signverifymessagedialog.cpp
+  GEN      qt/moc_splashscreen.cpp
+  GEN      qt/moc_trafficgraphwidget.cpp
+  GEN      qt/moc_transactiondesc.cpp
+  GEN      qt/moc_transactiondescdialog.cpp
+  GEN      qt/moc_transactionfilterproxy.cpp
+  GEN      qt/moc_transactionoverviewwidget.cpp
+  GEN      qt/moc_transactiontablemodel.cpp
+  GEN      qt/moc_transactionview.cpp
+  GEN      qt/moc_utilitydialog.cpp
+  GEN      qt/moc_walletcontroller.cpp
+  GEN      qt/moc_walletframe.cpp
+  GEN      qt/moc_walletmodel.cpp
+  GEN      qt/moc_walletview.cpp
+  GEN      qt/qrc_bitcoin.cpp
+  GEN      qt/locale/bitcoin_am.qm
+  GEN      qt/locale/bitcoin_ar.qm
+  GEN      qt/locale/bitcoin_az.qm
+  GEN      qt/locale/bitcoin_be.qm
+  GEN      qt/locale/bitcoin_bg.qm
+  GEN      qt/locale/bitcoin_bn.qm
+  GEN      qt/locale/bitcoin_bs.qm
+  GEN      qt/locale/bitcoin_ca.qm
+  GEN      qt/locale/bitcoin_cs.qm
+  GEN      qt/locale/bitcoin_cy.qm
+  GEN      qt/locale/bitcoin_da.qm
+  GEN      qt/locale/bitcoin_de.qm
+  GEN      qt/locale/bitcoin_el.qm
+  GEN      qt/locale/bitcoin_en.qm
+  GEN      qt/locale/bitcoin_eo.qm
+  GEN      qt/locale/bitcoin_es.qm
+  GEN      qt/locale/bitcoin_es_CL.qm
+  GEN      qt/locale/bitcoin_es_CO.qm
+  GEN      qt/locale/bitcoin_es_DO.qm
+  GEN      qt/locale/bitcoin_es_MX.qm
+  GEN      qt/locale/bitcoin_es_VE.qm
+  GEN      qt/locale/bitcoin_et.qm
+  GEN      qt/locale/bitcoin_eu.qm
+  GEN      qt/locale/bitcoin_fa.qm
+  GEN      qt/locale/bitcoin_fi.qm
+  GEN      qt/locale/bitcoin_fil.qm
+  GEN      qt/locale/bitcoin_fr.qm
+  GEN      qt/locale/bitcoin_ga.qm
+  GEN      qt/locale/bitcoin_gd.qm
+  GEN      qt/locale/bitcoin_gl.qm
+  GEN      qt/locale/bitcoin_gl_ES.qm
+  GEN      qt/locale/bitcoin_gu.qm
+  GEN      qt/locale/bitcoin_he.qm
+  GEN      qt/locale/bitcoin_hr.qm
+  GEN      qt/locale/bitcoin_hu.qm
+  GEN      qt/locale/bitcoin_id.qm
+  GEN      qt/locale/bitcoin_is.qm
+Generated bench/data/block413567.raw.h
+  GEN      qt/locale/bitcoin_it.qm
+  GEN      qt/locale/bitcoin_ja.qm
+  GEN      qt/locale/bitcoin_ka.qm
+  GEN      qt/locale/bitcoin_kk.qm
+  GEN      qt/locale/bitcoin_kl.qm
+  GEN      qt/locale/bitcoin_km.qm
+  GEN      qt/locale/bitcoin_ko.qm
+  GEN      qt/locale/bitcoin_ku_IQ.qm
+  GEN      qt/locale/bitcoin_ky.qm
+  GEN      qt/locale/bitcoin_la.qm
+  GEN      qt/locale/bitcoin_lt.qm
+  GEN      qt/locale/bitcoin_lv.qm
+  GEN      qt/locale/bitcoin_mk.qm
+  GEN      qt/locale/bitcoin_ml.qm
+  GEN      qt/locale/bitcoin_mn.qm
+  GEN      qt/locale/bitcoin_mr_IN.qm
+  GEN      qt/locale/bitcoin_ms.qm
+  GEN      qt/locale/bitcoin_my.qm
+  GEN      qt/locale/bitcoin_nb.qm
+  GEN      qt/locale/bitcoin_ne.qm
+  GEN      qt/locale/bitcoin_nl.qm
+  GEN      qt/locale/bitcoin_no.qm
+  GEN      qt/locale/bitcoin_pam.qm
+  GEN      qt/locale/bitcoin_pl.qm
+  GEN      qt/locale/bitcoin_pt.qm
+  GEN      qt/locale/bitcoin_pt_BR.qm
+  GEN      qt/locale/bitcoin_ro.qm
+  GEN      qt/locale/bitcoin_ru.qm
+  GEN      qt/locale/bitcoin_sc.qm
+  GEN      qt/locale/bitcoin_si.qm
+  GEN      qt/locale/bitcoin_sk.qm
+  GEN      qt/locale/bitcoin_sn.qm
+  GEN      qt/locale/bitcoin_sl.qm
+  GEN      qt/locale/bitcoin_sq.qm
+  GEN      qt/locale/bitcoin_sr.qm
+  GEN      qt/locale/bitcoin_sr@latin.qm
+  GEN      qt/locale/bitcoin_sv.qm
+  GEN      qt/locale/bitcoin_sw.qm
+  GEN      qt/locale/bitcoin_szl.qm
+  GEN      qt/locale/bitcoin_ta.qm
+  GEN      qt/locale/bitcoin_te.qm
+  GEN      qt/locale/bitcoin_th.qm
+  GEN      qt/locale/bitcoin_tr.qm
+  GEN      qt/locale/bitcoin_ug.qm
+  GEN      qt/locale/bitcoin_uk.qm
+  GEN      qt/locale/bitcoin_ur.qm
+  GEN      qt/locale/bitcoin_uz@Cyrl.qm
+  GEN      qt/locale/bitcoin_uz@Latn.qm
+  GEN      qt/locale/bitcoin_vi.qm
+  GEN      qt/locale/bitcoin_yo.qm
+  GEN      qt/locale/bitcoin_zh-Hans.qm
+  GEN      qt/locale/bitcoin_zh.qm
+  GEN      qt/locale/bitcoin_zh_CN.qm
+  CXX      init/qt_test_test_bitcoin_qt-bitcoin-qt.o
+  GEN      qt/locale/bitcoin_zh_HK.qm
+  GEN      qt/locale/bitcoin_zh_TW.qm
+  GEN      qt/locale/bitcoin_zu.qm
+  CXX      wallet/test/qt_test_test_bitcoin_qt-wallet_test_fixture.o
+  GEN      qt/test/moc_apptests.cpp
+  GEN      qt/test/moc_optiontests.cpp
+  GEN      qt/test/moc_rpcnestedtests.cpp
+  GEN      qt/test/moc_uritests.cpp
+  GEN      qt/test/moc_addressbooktests.cpp
+  GEN      qt/test/moc_wallettests.cpp
+  CXX      minisketch/src/test-test.o
+  CXX      support/libbitcoinconsensus_la-cleanse.lo
+  CXX      crypto/libbitcoinconsensus_la-aes.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha_poly_aead.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha20.lo
+  CXX      crypto/libbitcoinconsensus_la-hkdf_sha256_32.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-poly1305.lo
+  CXX      crypto/libbitcoinconsensus_la-muhash.lo
+  CXX      crypto/libbitcoinconsensus_la-ripemd160.lo
+  CXX      crypto/libbitcoinconsensus_la-sha1.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-sha3.lo
+  CXX      crypto/libbitcoinconsensus_la-sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-siphash.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256_sse4.lo
+  CXX      libbitcoinconsensus_la-arith_uint256.lo
+  CXX      consensus/libbitcoinconsensus_la-merkle.lo
+  CXX      consensus/libbitcoinconsensus_la-tx_check.lo
+  CXX      libbitcoinconsensus_la-hash.lo
+  CXX      primitives/libbitcoinconsensus_la-block.lo
+  CXX      primitives/libbitcoinconsensus_la-transaction.lo
+  CXX      libbitcoinconsensus_la-pubkey.lo
+  CXX      script/libbitcoinconsensus_la-bitcoinconsensus.lo
+  CXX      script/libbitcoinconsensus_la-interpreter.lo
+  CXX      script/libbitcoinconsensus_la-script.lo
+  CXX      script/libbitcoinconsensus_la-script_error.lo
+  CXX      libbitcoinconsensus_la-uint256.lo
+  CXX      util/libbitcoinconsensus_la-strencodings.lo
+  CXX      init/bitcoind-bitcoind.o
+  CXX      consensus/libbitcoin_node_a-tx_verify.o
+  CXX      index/libbitcoin_node_a-base.o
+  CXX      index/libbitcoin_node_a-blockfilterindex.o
+  CXX      index/libbitcoin_node_a-coinstatsindex.o
+  CXX      index/libbitcoin_node_a-txindex.o
+  CXX      kernel/libbitcoin_node_a-chain.o
+  CXX      kernel/libbitcoin_node_a-checks.o
+  CXX      kernel/libbitcoin_node_a-coinstats.o
+  CXX      kernel/libbitcoin_node_a-context.o
+  CXX      kernel/libbitcoin_node_a-mempool_persist.o
+  CXX      node/libbitcoin_node_a-blockstorage.o
+  CXX      node/libbitcoin_node_a-caches.o
+  CXX      node/libbitcoin_node_a-chainstate.o
+  CXX      node/libbitcoin_node_a-coin.o
+  CXX      node/libbitcoin_node_a-connection_types.o
+  CXX      node/libbitcoin_node_a-context.o
+  CXX      node/libbitcoin_node_a-eviction.o
+  CXX      node/libbitcoin_node_a-interface_ui.o
+  CXX      node/libbitcoin_node_a-interfaces.o
+  CXX      node/libbitcoin_node_a-mempool_args.o
+  CXX      node/libbitcoin_node_a-mempool_persist_args.o
+  CXX      node/libbitcoin_node_a-miner.o
+  CXX      node/libbitcoin_node_a-minisketchwrapper.o
+  CXX      node/libbitcoin_node_a-psbt.o
+  CXX      node/libbitcoin_node_a-transaction.o
+  CXX      node/libbitcoin_node_a-validation_cache_args.o
+  CXX      policy/libbitcoin_node_a-fees.o
+  CXX      policy/libbitcoin_node_a-fees_args.o
+  CXX      policy/libbitcoin_node_a-packages.o
+  CXX      policy/libbitcoin_node_a-rbf.o
+  CXX      policy/libbitcoin_node_a-settings.o
+  CXX      rpc/libbitcoin_node_a-blockchain.o
+  CXX      rpc/libbitcoin_node_a-fees.o
+  CXX      rpc/libbitcoin_node_a-mempool.o
+  CXX      rpc/libbitcoin_node_a-mining.o
+  CXX      rpc/libbitcoin_node_a-net.o
+  CXX      rpc/libbitcoin_node_a-node.o
+  CXX      rpc/libbitcoin_node_a-output_script.o
+  CXX      rpc/libbitcoin_node_a-rawtransaction.o
+  CXX      rpc/libbitcoin_node_a-server.o
+  CXX      rpc/libbitcoin_node_a-server_util.o
+  CXX      rpc/libbitcoin_node_a-signmessage.o
+  CXX      rpc/libbitcoin_node_a-txoutproof.o
+  CXX      script/libbitcoin_node_a-sigcache.o
+  CXX      wallet/libbitcoin_node_a-init.o
+  CXX      wallet/libbitcoin_wallet_a-coincontrol.o
+  CXX      wallet/libbitcoin_wallet_a-context.o
+  CXX      wallet/libbitcoin_wallet_a-crypter.o
+  CXX      wallet/libbitcoin_wallet_a-db.o
+  CXX      wallet/libbitcoin_wallet_a-dump.o
+  CXX      wallet/libbitcoin_wallet_a-external_signer_scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-feebumper.o
+  CXX      wallet/libbitcoin_wallet_a-fees.o
+  CXX      wallet/libbitcoin_wallet_a-interfaces.o
+  CXX      wallet/libbitcoin_wallet_a-load.o
+  CXX      wallet/libbitcoin_wallet_a-receive.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-addresses.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-backup.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-coins.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-encrypt.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-spend.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-signmessage.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-transactions.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-util.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-wallet.o
+  CXX      common/libbitcoin_common_a-bloom.o
+  CXX      support/libbitcoin_util_a-lockedpool.o
+  CXX      libbitcoin_util_a-clientversion.o
+  CXX      interfaces/libbitcoin_util_a-echo.o
+  CXX      interfaces/libbitcoin_util_a-handler.o
+  CXX      interfaces/libbitcoin_util_a-init.o
+  CXX      util/libbitcoin_util_a-asmap.o
+  CXX      util/libbitcoin_util_a-bip32.o
+  CXX      util/libbitcoin_util_a-bytevectorhash.o
+  CXX      util/libbitcoin_util_a-check.o
+  CXX      util/libbitcoin_util_a-error.o
+  CXX      util/libbitcoin_util_a-fees.o
+  CXX      util/libbitcoin_util_a-getuniquepath.o
+  CXX      util/libbitcoin_util_a-hasher.o
+  CXX      util/libbitcoin_util_a-sock.o
+  CXX      util/libbitcoin_util_a-syserror.o
+  CXX      util/libbitcoin_util_a-system.o
+  CXX      util/libbitcoin_util_a-message.o
+  CXX      util/libbitcoin_util_a-moneystr.o
+  CXX      util/libbitcoin_util_a-rbf.o
+  CXX      util/libbitcoin_util_a-readwritefile.o
+  CXX      util/libbitcoin_util_a-settings.o
+  CXX      util/libbitcoin_util_a-thread.o
+  CXX      util/libbitcoin_util_a-threadnames.o
+  CXX      util/libbitcoin_util_a-serfloat.o
+  CXX      util/libbitcoin_util_a-spanparsing.o
+  CXX      util/libbitcoin_util_a-strencodings.o
+  CXX      util/libbitcoin_util_a-string.o
+  CXX      util/libbitcoin_util_a-syscall_sandbox.o
+  CXX      util/libbitcoin_util_a-time.o
+  CXX      util/libbitcoin_util_a-tokenpipe.o
+  CXX      util/libbitcoin_util_a-url.o
+  CXX      univalue/lib/libunivalue_la-univalue.lo
+  CXX      univalue/lib/libunivalue_la-univalue_get.lo
+  CXX      univalue/lib/libunivalue_la-univalue_read.lo
+  CXX      univalue/lib/libunivalue_la-univalue_write.lo
+  CXX      zmq/libbitcoin_zmq_a-zmqabstractnotifier.o
+  CXX      zmq/libbitcoin_zmq_a-zmqnotificationinterface.o
+  CXX      zmq/libbitcoin_zmq_a-zmqpublishnotifier.o
+  CXX      zmq/libbitcoin_zmq_a-zmqrpc.o
+  CXX      zmq/libbitcoin_zmq_a-zmqutil.o
+  CXX      primitives/libbitcoin_consensus_a-block.o
+  CXX      primitives/libbitcoin_consensus_a-transaction.o
+  CXX      crypto/libbitcoin_crypto_base_la-aes.lo
+  CXX      crypto/libbitcoin_crypto_base_la-chacha_poly_aead.lo
+  CXX      crypto/libbitcoin_crypto_base_la-chacha20.lo
+  CXX      crypto/libbitcoin_crypto_base_la-hkdf_sha256_32.lo
+  CXX      crypto/libbitcoin_crypto_base_la-hmac_sha256.lo
+  CXX      crypto/libbitcoin_crypto_base_la-hmac_sha512.lo
+  CXX      crypto/libbitcoin_crypto_base_la-poly1305.lo
+  CXX      crypto/libbitcoin_crypto_base_la-muhash.lo
+  CXX      crypto/libbitcoin_crypto_base_la-ripemd160.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha1.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha256.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha3.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha512.lo
+  CXX      crypto/libbitcoin_crypto_base_la-siphash.lo
+  CXX      crypto/libbitcoin_crypto_base_la-sha256_sse4.lo
+  CXX      crypto/libbitcoin_crypto_sse41_la-sha256_sse41.lo
+  CXX      crypto/libbitcoin_crypto_avx2_la-sha256_avx2.lo
+  CCLD     libsecp256k1_precomputed.la
+  CXX      crypto/libbitcoin_crypto_x86_shani_la-sha256_x86_shani.lo
+  CXX      leveldb/db/libleveldb_la-builder.lo
+  CXX      leveldb/db/libleveldb_la-c.lo
+  CXX      leveldb/db/libleveldb_la-dbformat.lo
+  CXX      leveldb/db/libleveldb_la-db_impl.lo
+  CXX      leveldb/db/libleveldb_la-db_iter.lo
+  CXX      leveldb/db/libleveldb_la-dumpfile.lo
+  CXX      leveldb/db/libleveldb_la-filename.lo
+  CXX      leveldb/db/libleveldb_la-log_reader.lo
+  CXX      leveldb/db/libleveldb_la-log_writer.lo
+  CXX      leveldb/db/libleveldb_la-memtable.lo
+  CXX      leveldb/db/libleveldb_la-repair.lo
+  CXX      leveldb/db/libleveldb_la-table_cache.lo
+  CXX      leveldb/db/libleveldb_la-version_edit.lo
+  CXX      leveldb/db/libleveldb_la-version_set.lo
+  CXX      leveldb/db/libleveldb_la-write_batch.lo
+  CXX      leveldb/table/libleveldb_la-block_builder.lo
+  CXX      leveldb/table/libleveldb_la-block.lo
+  CXX      leveldb/table/libleveldb_la-filter_block.lo
+  CXX      leveldb/table/libleveldb_la-format.lo
+  CXX      leveldb/table/libleveldb_la-iterator.lo
+  CXX      leveldb/table/libleveldb_la-merger.lo
+  CXX      leveldb/table/libleveldb_la-table_builder.lo
+  CXX      leveldb/table/libleveldb_la-table.lo
+  CXX      leveldb/table/libleveldb_la-two_level_iterator.lo
+  CXX      leveldb/util/libleveldb_la-arena.lo
+  CXX      leveldb/util/libleveldb_la-bloom.lo
+  CXX      leveldb/util/libleveldb_la-cache.lo
+  CXX      leveldb/util/libleveldb_la-coding.lo
+  CXX      leveldb/util/libleveldb_la-comparator.lo
+  CXX      leveldb/util/libleveldb_la-crc32c.lo
+  CXX      leveldb/util/libleveldb_la-env.lo
+  CXX      leveldb/util/libleveldb_la-filter_policy.lo
+  CXX      leveldb/util/libleveldb_la-hash.lo
+  CXX      leveldb/util/libleveldb_la-histogram.lo
+  CXX      leveldb/util/libleveldb_la-logging.lo
+  CXX      leveldb/util/libleveldb_la-options.lo
+  CXX      leveldb/util/libleveldb_la-status.lo
+  CXX      leveldb/util/libleveldb_la-env_posix.lo
+  CXX      crc32c/src/libcrc32c_la-crc32c.lo
+  CXX      crc32c/src/libcrc32c_la-crc32c_portable.lo
+  CXX      leveldb/helpers/memenv/libmemenv_la-memenv.lo
+  CXX      compat/libbitcoin_cli_a-stdin.o
+  AR       libbitcoin_wallet_tool.a
+  CXX      test/test_bitcoin-main.o
+  CXX      wallet/test/test_test_bitcoin-util.o
+  CXX      wallet/test/test_test_bitcoin-wallet_test_fixture.o
+  CXX      wallet/test/test_test_bitcoin-init_test_fixture.o
+  CXX      test/test_bitcoin-addrman_tests.o
+  CXX      test/test_bitcoin-allocator_tests.o
+  CXX      test/test_bitcoin-amount_tests.o
+  CXX      test/test_bitcoin-arith_uint256_tests.o
+  CXX      test/test_bitcoin-banman_tests.o
+  CXX      test/test_bitcoin-base32_tests.o
+  CXX      test/test_bitcoin-base58_tests.o
+  CXX      test/test_bitcoin-base64_tests.o
+  CXX      test/test_bitcoin-bech32_tests.o
+  CXX      test/test_bitcoin-bip32_tests.o
+  CXX      test/test_bitcoin-blockchain_tests.o
+  CXX      test/test_bitcoin-blockencodings_tests.o
+  CXX      test/test_bitcoin-blockfilter_index_tests.o
+  CXX      test/test_bitcoin-blockfilter_tests.o
+  CXX      test/test_bitcoin-bloom_tests.o
+  CXX      test/test_bitcoin-bswap_tests.o
+  CXX      test/test_bitcoin-checkqueue_tests.o
+  CXX      test/test_bitcoin-coins_tests.o
+  CXX      test/test_bitcoin-coinstatsindex_tests.o
+  CXX      test/test_bitcoin-compilerbug_tests.o
+  CXX      test/test_bitcoin-compress_tests.o
+  CXX      test/test_bitcoin-crypto_tests.o
+  CXX      test/test_bitcoin-cuckoocache_tests.o
+  CXX      test/test_bitcoin-dbwrapper_tests.o
+  CXX      test/test_bitcoin-denialofservice_tests.o
+  CXX      test/test_bitcoin-descriptor_tests.o
+  CXX      test/test_bitcoin-flatfile_tests.o
+  CXX      test/test_bitcoin-fs_tests.o
+  CXX      test/test_bitcoin-getarg_tests.o
+  CXX      test/test_bitcoin-hash_tests.o
+  CXX      test/test_bitcoin-headers_sync_chainwork_tests.o
+  CXX      test/test_bitcoin-httpserver_tests.o
+  CXX      test/test_bitcoin-i2p_tests.o
+  CXX      test/test_bitcoin-interfaces_tests.o
+  CXX      test/test_bitcoin-key_io_tests.o
+  CXX      test/test_bitcoin-key_tests.o
+  CXX      test/test_bitcoin-logging_tests.o
+  CXX      test/test_bitcoin-mempool_tests.o
+  CXX      test/test_bitcoin-merkle_tests.o
+  CXX      test/test_bitcoin-merkleblock_tests.o
+  CXX      test/test_bitcoin-miner_tests.o
+  CXX      test/test_bitcoin-miniscript_tests.o
+  CXX      test/test_bitcoin-minisketch_tests.o
+  CXX      test/test_bitcoin-multisig_tests.o
+  CXX      test/test_bitcoin-net_peer_eviction_tests.o
+  CXX      test/test_bitcoin-net_tests.o
+  CXX      test/test_bitcoin-netbase_tests.o
+  CXX      test/test_bitcoin-orphanage_tests.o
+  CXX      test/test_bitcoin-pmt_tests.o
+  CXX      test/test_bitcoin-policy_fee_tests.o
+  CXX      test/test_bitcoin-policyestimator_tests.o
+  CXX      test/test_bitcoin-pow_tests.o
+  CXX      test/test_bitcoin-prevector_tests.o
+  CXX      test/test_bitcoin-raii_event_tests.o
+  CXX      test/test_bitcoin-random_tests.o
+  CXX      test/test_bitcoin-rbf_tests.o
+  CXX      test/test_bitcoin-rest_tests.o
+  CXX      test/test_bitcoin-result_tests.o
+  CXX      test/test_bitcoin-reverselock_tests.o
+  CXX      test/test_bitcoin-rpc_tests.o
+  CXX      test/test_bitcoin-sanity_tests.o
+  CXX      test/test_bitcoin-scheduler_tests.o
+  CXX      test/test_bitcoin-script_p2sh_tests.o
+  CXX      test/test_bitcoin-script_parse_tests.o
+  CXX      test/test_bitcoin-script_segwit_tests.o
+  CXX      test/test_bitcoin-script_standard_tests.o
+  CXX      test/test_bitcoin-script_tests.o
+  CXX      test/test_bitcoin-scriptnum_tests.o
+  CXX      test/test_bitcoin-serfloat_tests.o
+  CXX      test/test_bitcoin-serialize_tests.o
+  CXX      test/test_bitcoin-settings_tests.o
+  CXX      test/test_bitcoin-sighash_tests.o
+  CXX      test/test_bitcoin-sigopcount_tests.o
+  CXX      test/test_bitcoin-skiplist_tests.o
+  CXX      test/test_bitcoin-sock_tests.o
+  CXX      test/test_bitcoin-streams_tests.o
+  CXX      test/test_bitcoin-sync_tests.o
+  CXX      test/test_bitcoin-system_tests.o
+  CXX      test/test_bitcoin-timedata_tests.o
+  CXX      test/test_bitcoin-torcontrol_tests.o
+  CXX      test/test_bitcoin-transaction_tests.o
+  CXX      test/test_bitcoin-txindex_tests.o
+  CXX      test/test_bitcoin-txpackage_tests.o
+  CXX      test/test_bitcoin-txrequest_tests.o
+  CXX      test/test_bitcoin-txvalidation_tests.o
+  CXX      test/test_bitcoin-txvalidationcache_tests.o
+  CCLD     libsecp256k1.la
+  CXX      test/test_bitcoin-uint256_tests.o
+  CXX      test/test_bitcoin-util_tests.o
+  CXX      test/test_bitcoin-util_threadnames_tests.o
+  CXX      test/test_bitcoin-validation_block_tests.o
+  CXX      test/test_bitcoin-validation_chainstate_tests.o
+  CXX      test/test_bitcoin-validation_chainstatemanager_tests.o
+  CXX      test/test_bitcoin-validation_flush_tests.o
+  CXX      test/test_bitcoin-validation_tests.o
+  CXX      test/test_bitcoin-validationinterface_tests.o
+  CXX      test/test_bitcoin-versionbits_tests.o
+  CXX      wallet/test/test_test_bitcoin-feebumper_tests.o
+  CXX      wallet/test/test_test_bitcoin-psbt_wallet_tests.o
+  CXX      wallet/test/test_test_bitcoin-spend_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_tests.o
+  CXX      wallet/test/test_test_bitcoin-walletdb_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_crypto_tests.o
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+  CXX      wallet/test/test_test_bitcoin-wallet_transaction_tests.o
+  CXX      wallet/test/test_test_bitcoin-coinselector_tests.o
+  CXX      wallet/test/test_test_bitcoin-availablecoins_tests.o
+  CXX      wallet/test/test_test_bitcoin-init_tests.o
+  CXX      wallet/test/test_test_bitcoin-ismine_tests.o
+  CXX      wallet/test/test_test_bitcoin-scriptpubkeyman_tests.o
+  CXX      wallet/test/test_test_bitcoin-walletload_tests.o
+  CXX      wallet/test/test_test_bitcoin-db_tests.o
+  CXX      test/util/libtest_util_a-blockfilter.o
+  CXX      test/util/libtest_util_a-logging.o
+  CXX      test/util/libtest_util_a-mining.o
+  CXX      test/util/libtest_util_a-net.o
+  CXX      test/util/libtest_util_a-script.o
+  CXX      test/util/libtest_util_a-setup_common.o
+  CXX      test/util/libtest_util_a-str.o
+  CXX      test/util/libtest_util_a-transaction_utils.o
+  CXX      test/util/libtest_util_a-validation.o
+  CXX      test/util/libtest_util_a-wallet.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_1byte.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_2bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_3bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_4bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_5bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_6bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_7bytes.o
+  CXX      minisketch/src/fields/libminisketch_a-generic_8bytes.o
+  CXX      minisketch/src/libminisketch_a-minisketch.o
+  CXX      bench/bench_bitcoin-addrman.o
+  CXX      bench/bench_bitcoin-base58.o
+  CXX      bench/bench_bitcoin-bech32.o
+  CXX      bench/bench_bitcoin-bench.o
+  CXX      bench/bench_bitcoin-bench_bitcoin.o
+  CXX      bench/bench_bitcoin-block_assemble.o
+  CXX      bench/bench_bitcoin-ccoins_caching.o
+  CXX      bench/bench_bitcoin-chacha20.o
+  CXX      bench/bench_bitcoin-chacha_poly_aead.o
+  CXX      bench/bench_bitcoin-checkblock.o
+  CXX      bench/bench_bitcoin-checkqueue.o
+  CXX      bench/bench_bitcoin-crypto_hash.o
+  CXX      bench/bench_bitcoin-data.o
+  CXX      bench/bench_bitcoin-descriptors.o
+  CXX      bench/bench_bitcoin-duplicate_inputs.o
+  CXX      bench/bench_bitcoin-examples.o
+  CXX      bench/bench_bitcoin-gcs_filter.o
+  CXX      bench/bench_bitcoin-hashpadding.o
+  CXX      bench/bench_bitcoin-lockedpool.o
+  CXX      bench/bench_bitcoin-logging.o
+  CXX      bench/bench_bitcoin-mempool_eviction.o
+  CXX      bench/bench_bitcoin-mempool_stress.o
+  CXX      bench/bench_bitcoin-merkle_root.o
+  CXX      bench/bench_bitcoin-nanobench.o
+  CXX      bench/bench_bitcoin-peer_eviction.o
+  CXX      bench/bench_bitcoin-poly1305.o
+  CXX      bench/bench_bitcoin-prevector.o
+  CXX      bench/bench_bitcoin-rollingbloom.o
+  CXX      bench/bench_bitcoin-rpc_blockchain.o
+  CXX      bench/bench_bitcoin-rpc_mempool.o
+  CXX      bench/bench_bitcoin-strencodings.o
+  CXX      bench/bench_bitcoin-util_time.o
+  CXX      bench/bench_bitcoin-verify_script.o
+  CXX      bench/bench_bitcoin-coin_selection.o
+  CXX      bench/bench_bitcoin-wallet_balance.o
+  CXX      bench/bench_bitcoin-wallet_loading.o
+  GEN      qt/bitcoinamountfield.moc
+  GEN      qt/intro.moc
+  GEN      qt/overviewpage.moc
+  GEN      qt/rpcconsole.moc
+  CXX      qt/test/test_bitcoin_qt-apptests.o
+  GEN      qt/qrc_bitcoin_locale.cpp
+  CXX      qt/test/test_bitcoin_qt-optiontests.o
+  CXX      qt/test/test_bitcoin_qt-rpcnestedtests.o
+  CXX      qt/test/test_bitcoin_qt-test_main.o
+  CXX      qt/test/test_bitcoin_qt-uritests.o
+  CXX      qt/test/test_bitcoin_qt-util.o
+  CXX      qt/test/test_bitcoin_qt-addressbooktests.o
+  CXX      qt/test/test_bitcoin_qt-wallettests.o
+  CXX      qt/test/test_bitcoin_qt-moc_apptests.o
+  CXX      qt/test/test_bitcoin_qt-moc_optiontests.o
+  CXX      qt/test/test_bitcoin_qt-moc_rpcnestedtests.o
+  CXX      qt/test/test_bitcoin_qt-moc_uritests.o
+  CXX      qt/test/test_bitcoin_qt-moc_addressbooktests.o
+  CXX      qt/test/test_bitcoin_qt-moc_wallettests.o
+  CXX      wallet/test/fuzz/test_fuzz_fuzz-coinselection.o
+  CXX      wallet/test/fuzz/test_fuzz_fuzz-notifications.o
+  CXX      test/fuzz/fuzz-addition_overflow.o
+  CXX      test/fuzz/fuzz-addrman.o
+  CXX      test/fuzz/fuzz-asmap.o
+  CXX      test/fuzz/fuzz-asmap_direct.o
+  CXX      test/fuzz/fuzz-autofile.o
+  CXX      test/fuzz/fuzz-banman.o
+  CXX      test/fuzz/fuzz-base_encode_decode.o
+  CXX      test/fuzz/fuzz-bech32.o
+  CXX      test/fuzz/fuzz-bitdeque.o
+  CXX      test/fuzz/fuzz-block.o
+  CXX      test/fuzz/fuzz-block_header.o
+  CXX      test/fuzz/fuzz-blockfilter.o
+  CXX      test/fuzz/fuzz-bloom_filter.o
+  CXX      test/fuzz/fuzz-buffered_file.o
+  CXX      test/fuzz/fuzz-chain.o
+  CXX      test/fuzz/fuzz-checkqueue.o
+  CXX      test/fuzz/fuzz-coins_view.o
+  CXX      test/fuzz/fuzz-connman.o
+  CXX      test/fuzz/fuzz-crypto.o
+  CXX      test/fuzz/fuzz-crypto_aes256.o
+  CXX      test/fuzz/fuzz-crypto_aes256cbc.o
+  CXX      test/fuzz/fuzz-crypto_chacha20.o
+  CXX      test/fuzz/fuzz-crypto_chacha20_poly1305_aead.o
+  CXX      test/fuzz/fuzz-crypto_common.o
+  CXX      test/fuzz/fuzz-crypto_diff_fuzz_chacha20.o
+  CXX      test/fuzz/fuzz-crypto_hkdf_hmac_sha256_l32.o
+  CXX      test/fuzz/fuzz-crypto_poly1305.o
+  CXX      test/fuzz/fuzz-cuckoocache.o
+  CXX      test/fuzz/fuzz-decode_tx.o
+  CXX      test/fuzz/fuzz-descriptor_parse.o
+  CXX      test/fuzz/fuzz-deserialize.o
+  CXX      test/fuzz/fuzz-eval_script.o
+  CXX      test/fuzz/fuzz-fee_rate.o
+  CXX      test/fuzz/fuzz-fees.o
+  CXX      test/fuzz/fuzz-flatfile.o
+  CXX      test/fuzz/fuzz-float.o
+  CXX      test/fuzz/fuzz-golomb_rice.o
+  CXX      test/fuzz/fuzz-hex.o
+  CXX      test/fuzz/fuzz-http_request.o
+  CXX      test/fuzz/fuzz-i2p.o
+  CXX      test/fuzz/fuzz-integer.o
+  CXX      test/fuzz/fuzz-key.o
+  CXX      test/fuzz/fuzz-key_io.o
+  CXX      test/fuzz/fuzz-kitchen_sink.o
+  CXX      test/fuzz/fuzz-load_external_block_file.o
+  CXX      test/fuzz/fuzz-locale.o
+  CXX      test/fuzz/fuzz-merkleblock.o
+  CXX      test/fuzz/fuzz-message.o
+  CXX      test/fuzz/fuzz-miniscript.o
+  CXX      test/fuzz/fuzz-minisketch.o
+  CXX      test/fuzz/fuzz-muhash.o
+  CXX      test/fuzz/fuzz-multiplication_overflow.o
+  CXX      test/fuzz/fuzz-net.o
+  CXX      test/fuzz/fuzz-net_permissions.o
+  CXX      test/fuzz/fuzz-netaddress.o
+  CXX      test/fuzz/fuzz-netbase_dns_lookup.o
+  CXX      test/fuzz/fuzz-node_eviction.o
+  CXX      test/fuzz/fuzz-p2p_transport_serialization.o
+  CXX      test/fuzz/fuzz-parse_hd_keypath.o
+  CXX      test/fuzz/fuzz-parse_iso8601.o
+  CXX      test/fuzz/fuzz-parse_numbers.o
+  CXX      test/fuzz/fuzz-parse_script.o
+  CXX      test/fuzz/fuzz-parse_univalue.o
+  CXX      test/fuzz/fuzz-policy_estimator.o
+  CXX      test/fuzz/fuzz-policy_estimator_io.o
+  CXX      test/fuzz/fuzz-pow.o
+  CXX      test/fuzz/fuzz-prevector.o
+  CXX      test/fuzz/fuzz-primitives_transaction.o
+  CXX      test/fuzz/fuzz-process_message.o
+  CXX      test/fuzz/fuzz-process_messages.o
+  CXX      test/fuzz/fuzz-protocol.o
+  CXX      test/fuzz/fuzz-psbt.o
+  CXX      test/fuzz/fuzz-random.o
+  CXX      test/fuzz/fuzz-rbf.o
+  CXX      test/fuzz/fuzz-rolling_bloom_filter.o
+  CXX      test/fuzz/fuzz-rpc.o
+  CXX      test/fuzz/fuzz-script.o
+  CXX      test/fuzz/fuzz-script_assets_test_minimizer.o
+  CXX      test/fuzz/fuzz-script_bitcoin_consensus.o
+  CXX      test/fuzz/fuzz-script_descriptor_cache.o
+  CXX      test/fuzz/fuzz-script_flags.o
+  CXX      test/fuzz/fuzz-script_format.o
+  CXX      test/fuzz/fuzz-script_interpreter.o
+  CXX      test/fuzz/fuzz-script_ops.o
+  CXX      test/fuzz/fuzz-script_sigcache.o
+  CXX      test/fuzz/fuzz-script_sign.o
+  CXX      test/fuzz/fuzz-scriptnum_ops.o
+  CXX      test/fuzz/fuzz-secp256k1_ec_seckey_import_export_der.o
+  CXX      test/fuzz/fuzz-secp256k1_ecdsa_signature_parse_der_lax.o
+  CXX      test/fuzz/fuzz-signature_checker.o
+  CXX      test/fuzz/fuzz-signet.o
+  CXX      test/fuzz/fuzz-socks5.o
+  CXX      test/fuzz/fuzz-span.o
+  CXX      test/fuzz/fuzz-spanparsing.o
+  CXX      test/fuzz/fuzz-string.o
+  CXX      test/fuzz/fuzz-strprintf.o
+  CXX      test/fuzz/fuzz-system.o
+  CXX      test/fuzz/fuzz-timedata.o
+  CXX      test/fuzz/fuzz-torcontrol.o
+  CXX      test/fuzz/fuzz-transaction.o
+  CXX      test/fuzz/fuzz-tx_in.o
+  CXX      test/fuzz/fuzz-tx_out.o
+  CXX      test/fuzz/fuzz-tx_pool.o
+  CXX      test/fuzz/fuzz-txorphan.o
+  CXX      test/fuzz/fuzz-txrequest.o
+  CXX      test/fuzz/fuzz-utxo_snapshot.o
+  CXX      test/fuzz/fuzz-validation_load_mempool.o
+  CXX      test/fuzz/fuzz-versionbits.o
+  CXX      test/fuzz/libtest_fuzz_a-fuzz.o
+  CXX      test/fuzz/libtest_fuzz_a-util.o
+  CXX      univalue/test/object-object.o
+  CXX      univalue/test/unitester-unitester.o
+  CXXLD    libbitcoinconsensus.la
+  AR       libbitcoin_node.a
+  AR       libbitcoin_common.a
+  CXXLD    libunivalue.la
+  AR       libbitcoin_util.a
+  CXXLD    crypto/libbitcoin_crypto_base.la
+  AR       libbitcoin_zmq.a
+  AR       libbitcoin_consensus.a
+  CXXLD    crypto/libbitcoin_crypto_sse41.la
+  CXXLD    crypto/libbitcoin_crypto_avx2.la
+  CXXLD    crypto/libbitcoin_crypto_x86_shani.la
+  CXXLD    leveldb/libleveldb.la
+  CXXLD    crc32c/libcrc32c.la
+  CXXLD    leveldb/libmemenv.la
+  AR       libbitcoin_cli.a
+  AR       libtest_util.a
+  AR       minisketch/libminisketch.a
+  CXX      qt/bitcoin_qt-main.o
+  CXX      init/qt_bitcoin_qt-bitcoin-qt.o
+  CXX      qt/libbitcoinqt_a-bantablemodel.o
+  CXX      qt/libbitcoinqt_a-bitcoin.o
+  CXX      qt/libbitcoinqt_a-bitcoinaddressvalidator.o
+  CXX      qt/libbitcoinqt_a-bitcoinamountfield.o
+  CXX      qt/libbitcoinqt_a-bitcoingui.o
+  CXX      qt/libbitcoinqt_a-bitcoinunits.o
+  CXX      qt/libbitcoinqt_a-clientmodel.o
+  CXX      qt/libbitcoinqt_a-csvmodelwriter.o
+  CXX      qt/libbitcoinqt_a-guiutil.o
+  CXX      qt/libbitcoinqt_a-initexecutor.o
+  CXX      qt/libbitcoinqt_a-intro.o
+  CXX      qt/libbitcoinqt_a-modaloverlay.o
+  CXX      qt/libbitcoinqt_a-networkstyle.o
+  CXX      qt/libbitcoinqt_a-notificator.o
+  CXX      qt/libbitcoinqt_a-optionsdialog.o
+  CXX      qt/libbitcoinqt_a-optionsmodel.o
+  CXX      qt/libbitcoinqt_a-peertablemodel.o
+  CXX      qt/libbitcoinqt_a-peertablesortproxy.o
+  CXX      qt/libbitcoinqt_a-platformstyle.o
+  CXX      qt/libbitcoinqt_a-qvalidatedlineedit.o
+  CXX      qt/libbitcoinqt_a-qvaluecombobox.o
+  CXX      qt/libbitcoinqt_a-rpcconsole.o
+  CXX      qt/libbitcoinqt_a-splashscreen.o
+  CXX      qt/libbitcoinqt_a-trafficgraphwidget.o
+  CXX      qt/libbitcoinqt_a-utilitydialog.o
+  CXX      qt/libbitcoinqt_a-addressbookpage.o
+  CXX      qt/libbitcoinqt_a-addresstablemodel.o
+  CXX      qt/libbitcoinqt_a-askpassphrasedialog.o
+  CXX      qt/libbitcoinqt_a-coincontroldialog.o
+  CXX      qt/libbitcoinqt_a-coincontroltreewidget.o
+  CXX      qt/libbitcoinqt_a-createwalletdialog.o
+  CXX      qt/libbitcoinqt_a-editaddressdialog.o
+  CXX      qt/libbitcoinqt_a-openuridialog.o
+  CXX      qt/libbitcoinqt_a-overviewpage.o
+  CXX      qt/libbitcoinqt_a-paymentserver.o
+  CXX      qt/libbitcoinqt_a-psbtoperationsdialog.o
+  CXX      qt/libbitcoinqt_a-qrimagewidget.o
+  CXX      qt/libbitcoinqt_a-receivecoinsdialog.o
+  CXX      qt/libbitcoinqt_a-receiverequestdialog.o
+  CXX      qt/libbitcoinqt_a-recentrequeststablemodel.o
+  CXX      qt/libbitcoinqt_a-sendcoinsdialog.o
+  CXX      qt/libbitcoinqt_a-sendcoinsentry.o
+  CXX      qt/libbitcoinqt_a-signverifymessagedialog.o
+  CXX      qt/libbitcoinqt_a-transactiondesc.o
+  CXX      qt/libbitcoinqt_a-transactiondescdialog.o
+  CXX      qt/libbitcoinqt_a-transactionfilterproxy.o
+  CXX      qt/libbitcoinqt_a-transactionoverviewwidget.o
+  CXX      qt/libbitcoinqt_a-transactionrecord.o
+  CXX      qt/libbitcoinqt_a-transactiontablemodel.o
+  CXX      qt/libbitcoinqt_a-transactionview.o
+  CXX      qt/libbitcoinqt_a-walletcontroller.o
+  CXX      qt/libbitcoinqt_a-walletframe.o
+  CXX      qt/libbitcoinqt_a-walletmodel.o
+  CXX      qt/libbitcoinqt_a-walletmodeltransaction.o
+  CXX      qt/libbitcoinqt_a-walletview.o
+  CXX      qt/libbitcoinqt_a-moc_addressbookpage.o
+  CXX      qt/libbitcoinqt_a-moc_addresstablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_askpassphrasedialog.o
+  CXX      qt/libbitcoinqt_a-moc_createwalletdialog.o
+  CXX      qt/libbitcoinqt_a-moc_bantablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoin.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoinaddressvalidator.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoinamountfield.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoingui.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoinunits.o
+  CXX      qt/libbitcoinqt_a-moc_clientmodel.o
+  CXX      qt/libbitcoinqt_a-moc_coincontroldialog.o
+  CXX      qt/libbitcoinqt_a-moc_coincontroltreewidget.o
+  CXX      qt/libbitcoinqt_a-moc_csvmodelwriter.o
+  CXX      qt/libbitcoinqt_a-moc_editaddressdialog.o
+  CXX      qt/libbitcoinqt_a-moc_guiutil.o
+  CXX      qt/libbitcoinqt_a-moc_initexecutor.o
+  CXX      qt/libbitcoinqt_a-moc_intro.o
+  CXX      qt/libbitcoinqt_a-moc_macdockiconhandler.o
+  CXX      qt/libbitcoinqt_a-moc_macnotificationhandler.o
+  CXX      qt/libbitcoinqt_a-moc_modaloverlay.o
+  CXX      qt/libbitcoinqt_a-moc_notificator.o
+  CXX      qt/libbitcoinqt_a-moc_openuridialog.o
+  CXX      qt/libbitcoinqt_a-moc_optionsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_optionsmodel.o
+  CXX      qt/libbitcoinqt_a-moc_overviewpage.o
+  CXX      qt/libbitcoinqt_a-moc_peertablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_peertablesortproxy.o
+  CXX      qt/libbitcoinqt_a-moc_paymentserver.o
+  CXX      qt/libbitcoinqt_a-moc_psbtoperationsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_qrimagewidget.o
+  CXX      qt/libbitcoinqt_a-moc_qvalidatedlineedit.o
+  CXX      qt/libbitcoinqt_a-moc_qvaluecombobox.o
+  CXX      qt/libbitcoinqt_a-moc_receivecoinsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_receiverequestdialog.o
+  CXX      qt/libbitcoinqt_a-moc_recentrequeststablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_rpcconsole.o
+  CXX      qt/libbitcoinqt_a-moc_sendcoinsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_sendcoinsentry.o
+  CXX      qt/libbitcoinqt_a-moc_signverifymessagedialog.o
+  CXX      qt/libbitcoinqt_a-moc_splashscreen.o
+  CXX      qt/libbitcoinqt_a-moc_trafficgraphwidget.o
+  CXX      qt/libbitcoinqt_a-moc_transactiondesc.o
+  CXX      qt/libbitcoinqt_a-moc_transactiondescdialog.o
+  CXX      qt/libbitcoinqt_a-moc_transactionfilterproxy.o
+  CXX      qt/libbitcoinqt_a-moc_transactionoverviewwidget.o
+  CXX      qt/libbitcoinqt_a-moc_transactiontablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_transactionview.o
+  CXX      qt/libbitcoinqt_a-moc_utilitydialog.o
+  CXX      qt/libbitcoinqt_a-moc_walletcontroller.o
+  CXX      qt/libbitcoinqt_a-moc_walletframe.o
+  CXX      qt/libbitcoinqt_a-moc_walletmodel.o
+  CXX      qt/libbitcoinqt_a-moc_walletview.o
+  CXX      qt/libbitcoinqt_a-qrc_bitcoin.o
+  CXX      qt/libbitcoinqt_a-qrc_bitcoin_locale.o
+  CXXLD    minisketch/test
+  AR       libtest_fuzz.a
+  CXXLD    univalue/test/object
+  CXXLD    univalue/test/unitester
+  CXXLD    bitcoin-cli
+  CXXLD    bitcoin-tx
+  CXXLD    bitcoin-util
+  AR       qt/libbitcoinqt.a
+  AR       libbitcoin_wallet.a
+  CXXLD    bitcoind
+  CXXLD    bitcoin-wallet
+  CXXLD    test/test_bitcoin
+  CXXLD    bench/bench_bitcoin
+  CXXLD    qt/bitcoin-qt
+  CXXLD    qt/test/test_bitcoin-qt
+  CXXLD    test/fuzz/fuzz
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib'
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include'
+ /bin/dash ../libtool --preserve-dup-deps  --mode=install /usr/bin/install -c   libbitcoinconsensus.la '/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib'
+ /usr/bin/install -c -m 644 script/bitcoinconsensus.h '/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include'
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.so.0.0.0 /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.so.0.0.0
+libtool: install: (cd /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib && { ln -s -f libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so.0 || { rm -f libbitcoinconsensus.so.0 && ln -s libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so.0; }; })
+libtool: install: (cd /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib && { ln -s -f libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so || { rm -f libbitcoinconsensus.so && ln -s libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so; }; })
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.lai /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.la
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.a /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.a
+libtool: install: chmod 644 /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.a
+libtool: install: ranlib /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.a
+libtool: finish: PATH="/tmp/cirrus-ci-build/ci/scratch/bins/:/tmp/cirrus-ci-build/ci/retry:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin'
+  /bin/dash ../libtool --preserve-dup-deps  --mode=install /usr/bin/install -c bitcoind bitcoin-cli bitcoin-tx bitcoin-wallet bitcoin-util test/test_bitcoin bench/bench_bitcoin qt/bitcoin-qt qt/test/test_bitcoin-qt '/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin'
+libtool: install: /usr/bin/install -c bitcoind /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoind
+libtool: install: /usr/bin/install -c bitcoin-cli /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-cli
+libtool: install: /usr/bin/install -c bitcoin-tx /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-tx
+libtool: install: /usr/bin/install -c bitcoin-wallet /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-wallet
+libtool: install: /usr/bin/install -c bitcoin-util /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-util
+libtool: install: /usr/bin/install -c test/test_bitcoin /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/test_bitcoin
+libtool: install: /usr/bin/install -c bench/bench_bitcoin /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bench_bitcoin
+libtool: install: /usr/bin/install -c qt/bitcoin-qt /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-qt
+libtool: install: /usr/bin/install -c qt/test/test_bitcoin-qt /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/test_bitcoin-qt
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+Making install in doc/man
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/doc/man'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/doc/man'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/man/man1'
+ /usr/bin/install -c -m 644 bitcoind.1 bitcoin-qt.1 bitcoin-cli.1 bitcoin-tx.1 bitcoin-util.1 bitcoin-wallet.1 '/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/man/man1'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/doc/man'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/doc/man'
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libbitcoinconsensus.pc '/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/pkgconfig'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu'
+ccache version 3.7.7
+cache directory                     /tmp/ccache_dir
+primary config                      /tmp/ccache_dir/ccache.conf
+secondary config      (readonly)    /etc/ccache.conf
+stats updated                       Thu Sep 15 06:51:42 2022
+stats zeroed                        Thu Sep 15 06:50:31 2022
+cache hit (direct)                   744
+cache hit (preprocessed)               0
+cache miss                             2
+cache hit rate                     99.73 %
+called for link                       13
+cleanups performed                     0
+files in cache                      4837
+cache size                         180.9 MB
+max cache size                     200.0 MB
+4.0K	/tmp/cirrus-ci-build/depends/SDKs/
+28K	/tmp/cirrus-ci-build/depends/builders/
+46M	/tmp/cirrus-ci-build/depends/built/
+40K	/tmp/cirrus-ci-build/depends/hosts/
+291M	/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/
+148K	/tmp/cirrus-ci-build/depends/packages/
+128K	/tmp/cirrus-ci-build/depends/patches/
+4.0K	/tmp/cirrus-ci-build/depends/sdk-sources/
+4.0K	/tmp/cirrus-ci-build/depends/sources/
+4.0K	/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Making check in src
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make  check-TESTS check-local
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+Running tests: addrman_tests from test/addrman_tests.cpp
+Running tests: allocator_tests from test/allocator_tests.cpp
+Running tests: amount_tests from test/amount_tests.cpp
+Running tests: base32_tests from test/base32_tests.cpp
+Running tests: arith_uint256_tests from test/arith_uint256_tests.cpp
+Running tests: banman_tests from test/banman_tests.cpp
+Running tests: base64_tests from test/base64_tests.cpp
+Running tests: base58_tests from test/base58_tests.cpp
+Running tests: bech32_tests from test/bech32_tests.cpp
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+Running tests: bip32_tests from test/bip32_tests.cpp
+Running tests: blockchain_tests from test/blockchain_tests.cpp
+Running tests: blockencodings_tests from test/blockencodings_tests.cpp
+Running tests: blockfilter_index_tests from test/blockfilter_index_tests.cpp
+Running tests: blockfilter_tests from test/blockfilter_tests.cpp
+Running tests: bloom_tests from test/bloom_tests.cpp
+Running tests: bswap_tests from test/bswap_tests.cpp
+Running tests: checkqueue_tests from test/checkqueue_tests.cpp
+PASS: univalue/test/object
+PASS: univalue/test/unitester
+Running tests: coins_tests from test/coins_tests.cpp
+Running tests: coinstatsindex_tests from test/coinstatsindex_tests.cpp
+Running tests: compilerbug_tests from test/compilerbug_tests.cpp
+Running tests: compress_tests from test/compress_tests.cpp
+Running tests: crypto_tests from test/crypto_tests.cpp
+Running tests: cuckoocache_tests from test/cuckoocache_tests.cpp
+Running tests: dbwrapper_tests from test/dbwrapper_tests.cpp
+Running tests: denialofservice_tests from test/denialofservice_tests.cpp
+Running tests: descriptor_tests from test/descriptor_tests.cpp
+Running tests: flatfile_tests from test/flatfile_tests.cpp
+Running tests: fs_tests from test/fs_tests.cpp
+Running tests: getarg_tests from test/getarg_tests.cpp
+Running tests: hash_tests from test/hash_tests.cpp
+Running tests: headers_sync_chainwork_tests from test/headers_sync_chainwork_tests.cpp
+Running tests: httpserver_tests from test/httpserver_tests.cpp
+Running tests: i2p_tests from test/i2p_tests.cpp
+Running tests: interfaces_tests from test/interfaces_tests.cpp
+Running tests: key_io_tests from test/key_io_tests.cpp
+Running tests: key_tests from test/key_tests.cpp
+Running tests: logging_tests from test/logging_tests.cpp
+Running tests: mempool_tests from test/mempool_tests.cpp
+Running tests: merkle_tests from test/merkle_tests.cpp
+Running tests: merkleblock_tests from test/merkleblock_tests.cpp
+Running tests: miner_tests from test/miner_tests.cpp
+Running tests: miniscript_tests from test/miniscript_tests.cpp
+Running tests: minisketch_tests from test/minisketch_tests.cpp
+Running tests: multisig_tests from test/multisig_tests.cpp
+Running tests: net_peer_eviction_tests from test/net_peer_eviction_tests.cpp
+Running tests: net_tests from test/net_tests.cpp
+Running tests: netbase_tests from test/netbase_tests.cpp
+Running tests: orphanage_tests from test/orphanage_tests.cpp
+Running tests: pmt_tests from test/pmt_tests.cpp
+Running tests: policy_fee_tests from test/policy_fee_tests.cpp
+Running tests: policyestimator_tests from test/policyestimator_tests.cpp
+Running tests: pow_tests from test/pow_tests.cpp
+Running tests: prevector_tests from test/prevector_tests.cpp
+Running tests: raii_event_tests from test/raii_event_tests.cpp
+Running tests: random_tests from test/random_tests.cpp
+Running tests: rbf_tests from test/rbf_tests.cpp
+Running tests: rest_tests from test/rest_tests.cpp
+Running tests: result_tests from test/result_tests.cpp
+Running tests: reverselock_tests from test/reverselock_tests.cpp
+Running tests: rpc_tests from test/rpc_tests.cpp
+Running tests: sanity_tests from test/sanity_tests.cpp
+Running tests: scheduler_tests from test/scheduler_tests.cpp
+Running tests: script_p2sh_tests from test/script_p2sh_tests.cpp
+Running tests: script_parse_tests from test/script_parse_tests.cpp
+Running tests: script_segwit_tests from test/script_segwit_tests.cpp
+Running tests: script_standard_tests from test/script_standard_tests.cpp
+Running tests: script_tests from test/script_tests.cpp
+Running tests: scriptnum_tests from test/scriptnum_tests.cpp
+Running tests: serfloat_tests from test/serfloat_tests.cpp
+Running tests: serialize_tests from test/serialize_tests.cpp
+Running tests: settings_tests from test/settings_tests.cpp
+Running tests: sighash_tests from test/sighash_tests.cpp
+Running tests: sigopcount_tests from test/sigopcount_tests.cpp
+Running tests: skiplist_tests from test/skiplist_tests.cpp
+PASS: minisketch/test
+Running tests: sock_tests from test/sock_tests.cpp
+Running tests: streams_tests from test/streams_tests.cpp
+Running tests: sync_tests from test/sync_tests.cpp
+Running tests: system_tests from test/system_tests.cpp
+Running tests: timedata_tests from test/timedata_tests.cpp
+Running tests: torcontrol_tests from test/torcontrol_tests.cpp
+Running tests: transaction_tests from test/transaction_tests.cpp
+Running tests: txindex_tests from test/txindex_tests.cpp
+Running tests: txpackage_tests from test/txpackage_tests.cpp
+Running tests: txrequest_tests from test/txrequest_tests.cpp
+Running tests: txvalidation_tests from test/txvalidation_tests.cpp
+Running tests: txvalidationcache_tests from test/txvalidationcache_tests.cpp
+Running tests: uint256_tests from test/uint256_tests.cpp
+Running tests: util_tests from test/util_tests.cpp
+Running tests: util_threadnames_tests from test/util_threadnames_tests.cpp
+Running tests: validation_block_tests from test/validation_block_tests.cpp
+Running tests: validation_chainstate_tests from test/validation_chainstate_tests.cpp
+Running tests: validation_chainstatemanager_tests from test/validation_chainstatemanager_tests.cpp
+Running tests: validation_flush_tests from test/validation_flush_tests.cpp
+Running tests: validation_tests from test/validation_tests.cpp
+Running tests: validationinterface_tests from test/validationinterface_tests.cpp
+Running tests: versionbits_tests from test/versionbits_tests.cpp
+Running tests: feebumper_tests from wallet/test/feebumper_tests.cpp
+Running tests: psbt_wallet_tests from wallet/test/psbt_wallet_tests.cpp
+Running tests: spend_tests from wallet/test/spend_tests.cpp
+Running tests: wallet_tests from wallet/test/wallet_tests.cpp
+Running tests: walletdb_tests from wallet/test/walletdb_tests.cpp
+Running tests: wallet_crypto_tests from wallet/test/wallet_crypto_tests.cpp
+Running tests: wallet_transaction_tests from wallet/test/wallet_transaction_tests.cpp
+Running tests: coinselector_tests from wallet/test/coinselector_tests.cpp
+PASS: qt/test/test_bitcoin-qt
+============================================================================
+Testsuite summary for Bitcoin Core 23.99.0
+============================================================================
+# TOTAL: 4
+# PASS:  4
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+Running tests: availablecoins_tests from wallet/test/availablecoins_tests.cpp
+Running tests: init_tests from wallet/test/init_tests.cpp
+Running tests: ismine_tests from wallet/test/ismine_tests.cpp
+Running tests: scriptpubkeyman_tests from wallet/test/scriptpubkeyman_tests.cpp
+Running tests: walletload_tests from wallet/test/walletload_tests.cpp
+Running tests: db_tests from wallet/test/db_tests.cpp
+Running test/util/test_runner.py...
+/usr/bin/python3.6 ../test/util/test_runner.py
+Running test/util/rpcauth-test.py...
+/usr/bin/python3.6 ../test/util/rpcauth-test.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+OK
+Running bench/bench_bitcoin (one iteration sanity check)...
+bench/bench_bitcoin --sanity-check > /dev/null
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+make  check-am
+make[5]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+  CC       src/tests-tests.o
+  CC       src/exhaustive_tests-tests_exhaustive.o
+  CCLD     exhaustive_tests
+  CCLD     tests
+make  check-TESTS
+make[6]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+make[7]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+PASS: exhaustive_tests
+PASS: tests
+============================================================================
+Testsuite summary for libsecp256k1 0.1.0-pre
+============================================================================
+# TOTAL: 2
+# PASS:  2
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[7]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+make[6]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+make[5]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src/secp256k1'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/src'
+Making check in doc/man
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/doc/man'
+make[1]: Nothing to be done for 'check'.
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/doc/man'
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu'
+make[1]: Nothing to be done for 'check-am'.
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu'
+..........Running Unit Tests for Test Framework Modules
+..........          . .............             ....    ....    ..  ........        . ..........          ...   ....    . . ...   ....    . ..............              . ...   ...   . ..........          ..  ....    ..  .........         ......      . ......      .......       . . ..  ...   ...   . .....     ....    ......      ....    ..  . . . ..............              .....     . ...   ...   ........        . . . ...............               ......      . . . . ..  . . . . ..  . . ..  ..  ....    . ..  . . . ....    . ..  . . . ...   . ..  . . . . . Remaining jobs: [wallet_taproot.py, feature_coinstatsindex.py, p2p_node_network_limited.py, p2p_permissions.py, p2p_i2p_ports.py, feature_config_args.py, feature_help.py, feature_shutdown.py, wallet_migration.py, p2p_ibd_txrelay.py]
+Remaining jobs: [wallet_taproot.py, feature_coinstatsindex.py, p2p_node_network_limited.py, p2p_permissions.py, p2p_i2p_ports.py, feature_config_args.py, feature_shutdown.py, wallet_migration.py, p2p_ibd_txrelay.py]
+. Remaining jobs: [wallet_taproot.py, feature_coinstatsindex.py, p2p_node_network_limited.py, p2p_permissions.py, p2p_i2p_ports.py, feature_config_args.py, wallet_migration.py]
+...   Remaining jobs: [wallet_taproot.py, p2p_node_network_limited.py, p2p_permissions.py, p2p_i2p_ports.py, feature_config_args.py, wallet_migration.py]
+..  Remaining jobs: [wallet_taproot.py, p2p_node_network_limited.py, p2p_i2p_ports.py, feature_config_args.py, wallet_migration.py]
+Remaining jobs: [wallet_taproot.py, p2p_node_network_limited.py, p2p_i2p_ports.py, feature_config_args.py]
+.......       Remaining jobs: [wallet_taproot.py, p2p_node_network_limited.py, p2p_i2p_ports.py]
+...   Remaining jobs: [p2p_node_network_limited.py, p2p_i2p_ports.py]
+..............................................................................................................................                                                                                                                              Remaining jobs: [p2p_node_network_limited.py]
+.......................................................................................................................................................................................................................................................                                                                                                                                                                                                                                                       
+[1mTEST                                                   | STATUS    | DURATION
+
+[0m[0;32mexample_test.py                                        | ✓ Passed  | 1 s
+[0m[0;32mfeature_abortnode.py                                   | ✓ Passed  | 31 s
+[0m[0;32mfeature_addrman.py                                     | ✓ Passed  | 3 s
+[0m[0;32mfeature_anchors.py                                     | ✓ Passed  | 2 s
+[0m[0;32mfeature_asmap.py                                       | ✓ Passed  | 3 s
+[0m[0;32mfeature_assumevalid.py                                 | ✓ Passed  | 10 s
+[0m[0;32mfeature_bind_extra.py                                  | ✓ Passed  | 1 s
+[0m[0;32mfeature_bip68_sequence.py                              | ✓ Passed  | 17 s
+[0m[0;32mfeature_block.py                                       | ✓ Passed  | 56 s
+[0m[0;32mfeature_blocksdir.py                                   | ✓ Passed  | 1 s
+[0m[0;32mfeature_cltv.py                                        | ✓ Passed  | 2 s
+[0m[0;32mfeature_coinstatsindex.py                              | ✓ Passed  | 13 s
+[0m[0;32mfeature_config_args.py                                 | ✓ Passed  | 14 s
+[0m[0;32mfeature_csv_activation.py                              | ✓ Passed  | 16 s
+[0m[0;32mfeature_dersig.py                                      | ✓ Passed  | 1 s
+[0m[0;32mfeature_dirsymlinks.py                                 | ✓ Passed  | 1 s
+[0m[0;32mfeature_fee_estimation.py                              | ✓ Passed  | 92 s
+[0m[0;32mfeature_filelock.py                                    | ✓ Passed  | 1 s
+[0m[0;32mfeature_help.py                                        | ✓ Passed  | 1 s
+[0m[0;32mfeature_includeconf.py                                 | ✓ Passed  | 2 s
+[0m[0;32mfeature_init.py                                        | ✓ Passed  | 8 s
+[0m[0;32mfeature_loadblock.py                                   | ✓ Passed  | 2 s
+[0m[0;32mfeature_logging.py                                     | ✓ Passed  | 3 s
+[0m[0;32mfeature_maxtipage.py                                   | ✓ Passed  | 4 s
+[0m[0;32mfeature_maxuploadtarget.py                             | ✓ Passed  | 58 s
+[0m[0;32mfeature_minchainwork.py                                | ✓ Passed  | 10 s
+[0m[0;32mfeature_notifications.py                               | ✓ Passed  | 8 s
+[0m[0;32mfeature_nulldummy.py                                   | ✓ Passed  | 1 s
+[0m[0;32mfeature_presegwit_node_upgrade.py                      | ✓ Passed  | 1 s
+[0m[0;32mfeature_proxy.py                                       | ✓ Passed  | 3 s
+[0m[0;32mfeature_rbf.py --descriptors                           | ✓ Passed  | 7 s
+[0m[0;32mfeature_rbf.py --legacy-wallet                         | ✓ Passed  | 8 s
+[0m[0;32mfeature_reindex.py                                     | ✓ Passed  | 2 s
+[0m[0;32mfeature_segwit.py --descriptors                        | ✓ Passed  | 8 s
+[0m[0;32mfeature_segwit.py --legacy-wallet                      | ✓ Passed  | 11 s
+[0m[0;32mfeature_settings.py                                    | ✓ Passed  | 2 s
+[0m[0;32mfeature_shutdown.py                                    | ✓ Passed  | 2 s
+[0m[0;32mfeature_signet.py                                      | ✓ Passed  | 1 s
+[0m[0;32mfeature_startupnotify.py                               | ✓ Passed  | 1 s
+[0m[0;32mfeature_taproot.py                                     | ✓ Passed  | 113 s
+[0m[0;32mfeature_uacomment.py                                   | ✓ Passed  | 2 s
+[0m[0;32mfeature_utxo_set_hash.py                               | ✓ Passed  | 1 s
+[0m[0;32mfeature_versionbits_warning.py                         | ✓ Passed  | 2 s
+[0m[0;32minterface_bitcoin_cli.py --descriptors                 | ✓ Passed  | 9 s
+[0m[0;32minterface_bitcoin_cli.py --legacy-wallet               | ✓ Passed  | 10 s
+[0m[0;32minterface_http.py                                      | ✓ Passed  | 1 s
+[0m[0;32minterface_rest.py                                      | ✓ Passed  | 4 s
+[0m[0;32minterface_rpc.py                                       | ✓ Passed  | 52 s
+[0m[0;32minterface_zmq.py                                       | ✓ Passed  | 12 s
+[0m[0;32mmempool_accept.py                                      | ✓ Passed  | 5 s
+[0m[0;32mmempool_accept_wtxid.py                                | ✓ Passed  | 6 s
+[0m[0;32mmempool_datacarrier.py                                 | ✓ Passed  | 1 s
+[0m[0;32mmempool_expiry.py                                      | ✓ Passed  | 1 s
+[0m[0;32mmempool_limit.py                                       | ✓ Passed  | 2 s
+[0m[0;32mmempool_package_limits.py                              | ✓ Passed  | 2 s
+[0m[0;32mmempool_package_onemore.py                             | ✓ Passed  | 1 s
+[0m[0;32mmempool_packages.py                                    | ✓ Passed  | 9 s
+[0m[0;32mmempool_persist.py                                     | ✓ Passed  | 20 s
+[0m[0;32mmempool_reorg.py                                       | ✓ Passed  | 2 s
+[0m[0;32mmempool_resurrect.py                                   | ✓ Passed  | 1 s
+[0m[0;32mmempool_spend_coinbase.py                              | ✓ Passed  | 1 s
+[0m[0;32mmempool_unbroadcast.py                                 | ✓ Passed  | 7 s
+[0m[0;32mmempool_updatefromblock.py                             | ✓ Passed  | 54 s
+[0m[0;32mmining_basic.py                                        | ✓ Passed  | 9 s
+[0m[0;32mmining_getblocktemplate_longpoll.py                    | ✓ Passed  | 67 s
+[0m[0;32mmining_prioritisetransaction.py                        | ✓ Passed  | 3 s
+[0m[0;32mp2p_add_connections.py                                 | ✓ Passed  | 6 s
+[0m[0;32mp2p_addr_relay.py                                      | ✓ Passed  | 16 s
+[0m[0;32mp2p_addrfetch.py                                       | ✓ Passed  | 1 s
+[0m[0;32mp2p_addrv2_relay.py                                    | ✓ Passed  | 1 s
+[0m[0;32mp2p_block_sync.py                                      | ✓ Passed  | 2 s
+[0m[0;32mp2p_blockfilters.py                                    | ✓ Passed  | 14 s
+[0m[0;32mp2p_blocksonly.py                                      | ✓ Passed  | 18 s
+[0m[0;32mp2p_compactblocks.py                                   | ✓ Passed  | 6 s
+[0m[0;32mp2p_compactblocks_blocksonly.py                        | ✓ Passed  | 2 s
+[0m[0;32mp2p_compactblocks_hb.py                                | ✓ Passed  | 12 s
+[0m[0;32mp2p_disconnect_ban.py                                  | ✓ Passed  | 2 s
+[0m[0;32mp2p_dns_seeds.py                                       | ✓ Passed  | 26 s
+[0m[0;32mp2p_dos_header_tree.py                                 | ✓ Passed  | 2 s
+[0m[0;32mp2p_eviction.py                                        | ✓ Passed  | 5 s
+[0m[0;32mp2p_feefilter.py                                       | ✓ Passed  | 5 s
+[0m[0;32mp2p_filter.py                                          | ✓ Passed  | 4 s
+[0m[0;32mp2p_fingerprint.py                                     | ✓ Passed  | 1 s
+[0m[0;32mp2p_getaddr_caching.py                                 | ✓ Passed  | 9 s
+[0m[0;32mp2p_getdata.py                                         | ✓ Passed  | 1 s
+[0m[0;32mp2p_headers_sync_with_minchainwork.py                  | ✓ Passed  | 20 s
+[0m[0;32mp2p_i2p_ports.py                                       | ✓ Passed  | 80 s
+[0m[0;32mp2p_i2p_sessions.py                                    | ✓ Passed  | 1 s
+[0m[0;32mp2p_ibd_txrelay.py                                     | ✓ Passed  | 1 s
+[0m[0;32mp2p_initial_headers_sync.py                            | ✓ Passed  | 1 s
+[0m[0;32mp2p_invalid_block.py                                   | ✓ Passed  | 2 s
+[0m[0;32mp2p_invalid_locator.py                                 | ✓ Passed  | 2 s
+[0m[0;32mp2p_invalid_messages.py                                | ✓ Passed  | 9 s
+[0m[0;32mp2p_invalid_tx.py                                      | ✓ Passed  | 7 s
+[0m[0;32mp2p_leak.py                                            | ✓ Passed  | 6 s
+[0m[0;32mp2p_leak_tx.py                                         | ✓ Passed  | 1 s
+[0m[0;32mp2p_message_capture.py                                 | ✓ Passed  | 1 s
+[0m[0;32mp2p_nobloomfilter_messages.py                          | ✓ Passed  | 1 s
+[0m[0;32mp2p_node_network_limited.py                            | ✓ Passed  | 206 s
+[0m[0;32mp2p_permissions.py                                     | ✓ Passed  | 12 s
+[0m[0;32mp2p_ping.py                                            | ✓ Passed  | 1 s
+[0m[0;32mp2p_segwit.py                                          | ✓ Passed  | 92 s
+[0m[0;32mp2p_sendheaders.py                                     | ✓ Passed  | 16 s
+[0m[0;32mp2p_timeouts.py                                        | ✓ Passed  | 1 s
+[0m[0;32mp2p_tx_download.py                                     | ✓ Passed  | 27 s
+[0m[0;32mp2p_unrequested_blocks.py                              | ✓ Passed  | 3 s
+[0m[0;32mrpc_bind.py --ipv4                                     | ✓ Passed  | 2 s
+[0m[0;32mrpc_bind.py --nonloopback                              | ✓ Passed  | 31 s
+[0m[0;32mrpc_blockchain.py                                      | ✓ Passed  | 15 s
+[0m[0;32mrpc_createmultisig.py                                  | ✓ Passed  | 2 s
+[0m[0;32mrpc_decodescript.py                                    | ✓ Passed  | 1 s
+[0m[0;32mrpc_deprecated.py                                      | ✓ Passed  | 1 s
+[0m[0;32mrpc_deriveaddresses.py                                 | ✓ Passed  | 1 s
+[0m[0;32mrpc_deriveaddresses.py --usecli                        | ✓ Passed  | 1 s
+[0m[0;32mrpc_dumptxoutset.py                                    | ✓ Passed  | 1 s
+[0m[0;32mrpc_estimatefee.py                                     | ✓ Passed  | 1 s
+[0m[0;32mrpc_fundrawtransaction.py --descriptors                | ✓ Passed  | 25 s
+[0m[0;32mrpc_fundrawtransaction.py --legacy-wallet              | ✓ Passed  | 34 s
+[0m[0;32mrpc_generate.py                                        | ✓ Passed  | 1 s
+[0m[0;32mrpc_getblockfilter.py                                  | ✓ Passed  | 1 s
+[0m[0;32mrpc_getblockfrompeer.py                                | ✓ Passed  | 1 s
+[0m[0;32mrpc_getblockstats.py                                   | ✓ Passed  | 1 s
+[0m[0;32mrpc_getchaintips.py                                    | ✓ Passed  | 4 s
+[0m[0;32mrpc_getdescriptorinfo.py                               | ✓ Passed  | 1 s
+[0m[0;32mrpc_help.py                                            | ✓ Passed  | 2 s
+[0m[0;32mrpc_invalid_address_message.py                         | ✓ Passed  | 1 s
+[0m[0;32mrpc_invalidateblock.py                                 | ✓ Passed  | 1 s
+[0m[0;32mrpc_mempool_info.py                                    | ✓ Passed  | 1 s
+[0m[0;32mrpc_misc.py                                            | ✓ Passed  | 9 s
+[0m[0;32mrpc_named_arguments.py                                 | ✓ Passed  | 1 s
+[0m[0;32mrpc_net.py                                             | ✓ Passed  | 10 s
+[0m[0;32mrpc_packages.py                                        | ✓ Passed  | 47 s
+[0m[0;32mrpc_preciousblock.py                                   | ✓ Passed  | 1 s
+[0m[0;32mrpc_psbt.py --descriptors                              | ✓ Passed  | 26 s
+[0m[0;32mrpc_psbt.py --legacy-wallet                            | ✓ Passed  | 66 s
+[0m[0;32mrpc_rawtransaction.py --legacy-wallet                  | ✓ Passed  | 9 s
+[0m[0;32mrpc_scantxoutset.py                                    | ✓ Passed  | 11 s
+[0m[0;32mrpc_setban.py                                          | ✓ Passed  | 3 s
+[0m[0;32mrpc_signer.py                                          | ✓ Passed  | 1 s
+[0m[0;32mrpc_signmessagewithprivkey.py                          | ✓ Passed  | 1 s
+[0m[0;32mrpc_signrawtransactionwithkey.py                       | ✓ Passed  | 2 s
+[0m[0;32mrpc_txoutproof.py                                      | ✓ Passed  | 1 s
+[0m[0;32mrpc_uptime.py                                          | ✓ Passed  | 1 s
+[0m[0;32mrpc_users.py                                           | ✓ Passed  | 6 s
+[0m[0;32mrpc_whitelist.py                                       | ✓ Passed  | 1 s
+[0m[0;32mtool_signet_miner.py --descriptors                     | ✓ Passed  | 2 s
+[0m[0;32mtool_signet_miner.py --legacy-wallet                   | ✓ Passed  | 1 s
+[0m[0;32mtool_wallet.py --descriptors                           | ✓ Passed  | 9 s
+[0m[0;32mtool_wallet.py --legacy-wallet                         | ✓ Passed  | 9 s
+[0m[0;32mwallet_abandonconflict.py --descriptors                | ✓ Passed  | 6 s
+[0m[0;32mwallet_abandonconflict.py --legacy-wallet              | ✓ Passed  | 6 s
+[0m[0;32mwallet_address_types.py --descriptors                  | ✓ Passed  | 13 s
+[0m[0;32mwallet_address_types.py --legacy-wallet                | ✓ Passed  | 25 s
+[0m[0;32mwallet_avoid_mixing_output_types.py --descriptors      | ✓ Passed  | 9 s
+[0m[0;32mwallet_avoidreuse.py --descriptors                     | ✓ Passed  | 12 s
+[0m[0;32mwallet_avoidreuse.py --legacy-wallet                   | ✓ Passed  | 40 s
+[0m[0;32mwallet_backup.py --descriptors                         | ✓ Passed  | 37 s
+[0m[0;32mwallet_backup.py --legacy-wallet                       | ✓ Passed  | 38 s
+[0m[0;32mwallet_balance.py --descriptors                        | ✓ Passed  | 5 s
+[0m[0;32mwallet_balance.py --legacy-wallet                      | ✓ Passed  | 7 s
+[0m[0;32mwallet_basic.py --descriptors                          | ✓ Passed  | 18 s
+[0m[0;32mwallet_basic.py --legacy-wallet                        | ✓ Passed  | 19 s
+[0m[0;32mwallet_bumpfee.py --descriptors                        | ✓ Passed  | 19 s
+[0m[0;32mwallet_bumpfee.py --legacy-wallet                      | ✓ Passed  | 31 s
+[0m[0;32mwallet_coinbase_category.py --descriptors              | ✓ Passed  | 1 s
+[0m[0;32mwallet_coinbase_category.py --legacy-wallet            | ✓ Passed  | 1 s
+[0m[0;32mwallet_create_tx.py --descriptors                      | ✓ Passed  | 3 s
+[0m[0;32mwallet_create_tx.py --legacy-wallet                    | ✓ Passed  | 6 s
+[0m[0;32mwallet_createwallet.py --descriptors                   | ✓ Passed  | 3 s
+[0m[0;32mwallet_createwallet.py --legacy-wallet                 | ✓ Passed  | 3 s
+[0m[0;32mwallet_createwallet.py --usecli                        | ✓ Passed  | 4 s
+[0m[0;32mwallet_crosschain.py                                   | ✓ Passed  | 1 s
+[0m[0;32mwallet_descriptor.py --descriptors                     | ✓ Passed  | 5 s
+[0m[0;32mwallet_disable.py                                      | ✓ Passed  | 1 s
+[0m[0;32mwallet_dump.py --legacy-wallet                         | ✓ Passed  | 7 s
+[0m[0;32mwallet_encryption.py --descriptors                     | ✓ Passed  | 6 s
+[0m[0;32mwallet_encryption.py --legacy-wallet                   | ✓ Passed  | 6 s
+[0m[0;32mwallet_fallbackfee.py --descriptors                    | ✓ Passed  | 2 s
+[0m[0;32mwallet_fallbackfee.py --legacy-wallet                  | ✓ Passed  | 1 s
+[0m[0;32mwallet_groups.py --descriptors                         | ✓ Passed  | 42 s
+[0m[0;32mwallet_groups.py --legacy-wallet                       | ✓ Passed  | 49 s
+[0m[0;32mwallet_hd.py --descriptors                             | ✓ Passed  | 5 s
+[0m[0;32mwallet_hd.py --legacy-wallet                           | ✓ Passed  | 6 s
+[0m[0;32mwallet_implicitsegwit.py --legacy-wallet               | ✓ Passed  | 7 s
+[0m[0;32mwallet_import_rescan.py --legacy-wallet                | ✓ Passed  | 43 s
+[0m[0;32mwallet_import_with_label.py --legacy-wallet            | ✓ Passed  | 1 s
+[0m[0;32mwallet_importdescriptors.py --descriptors              | ✓ Passed  | 23 s
+[0m[0;32mwallet_importmulti.py --legacy-wallet                  | ✓ Passed  | 5 s
+[0m[0;32mwallet_importprunedfunds.py --descriptors              | ✓ Passed  | 2 s
+[0m[0;32mwallet_importprunedfunds.py --legacy-wallet            | ✓ Passed  | 2 s
+[0m[0;32mwallet_keypool.py --descriptors                        | ✓ Passed  | 4 s
+[0m[0;32mwallet_keypool.py --legacy-wallet                      | ✓ Passed  | 4 s
+[0m[0;32mwallet_keypool_topup.py --descriptors                  | ✓ Passed  | 8 s
+[0m[0;32mwallet_keypool_topup.py --legacy-wallet                | ✓ Passed  | 11 s
+[0m[0;32mwallet_labels.py --descriptors                         | ✓ Passed  | 1 s
+[0m[0;32mwallet_labels.py --legacy-wallet                       | ✓ Passed  | 2 s
+[0m[0;32mwallet_listdescriptors.py --descriptors                | ✓ Passed  | 1 s
+[0m[0;32mwallet_listreceivedby.py --descriptors                 | ✓ Passed  | 7 s
+[0m[0;32mwallet_listreceivedby.py --legacy-wallet               | ✓ Passed  | 9 s
+[0m[0;32mwallet_listsinceblock.py --descriptors                 | ✓ Passed  | 7 s
+[0m[0;32mwallet_listsinceblock.py --legacy-wallet               | ✓ Passed  | 7 s
+[0m[0;32mwallet_listtransactions.py --descriptors               | ✓ Passed  | 18 s
+[0m[0;32mwallet_listtransactions.py --legacy-wallet             | ✓ Passed  | 17 s
+[0m[0;32mwallet_migration.py                                    | ✓ Passed  | 5 s
+[0m[0;32mwallet_miniscript.py                                   | ✓ Passed  | 1 s
+[0m[0;32mwallet_multisig_descriptor_psbt.py                     | ✓ Passed  | 3 s
+[0m[0;32mwallet_multiwallet.py --descriptors                    | ✓ Passed  | 36 s
+[0m[0;32mwallet_multiwallet.py --legacy-wallet                  | ✓ Passed  | 38 s
+[0m[0;32mwallet_multiwallet.py --usecli                         | ✓ Passed  | 11 s
+[0m[0;32mwallet_orphanedreward.py                               | ✓ Passed  | 5 s
+[0m[0;32mwallet_reorgsrestore.py                                | ✓ Passed  | 3 s
+[0m[0;32mwallet_resendwallettransactions.py --descriptors       | ✓ Passed  | 2 s
+[0m[0;32mwallet_resendwallettransactions.py --legacy-wallet     | ✓ Passed  | 2 s
+[0m[0;32mwallet_send.py --descriptors                           | ✓ Passed  | 13 s
+[0m[0;32mwallet_send.py --legacy-wallet                         | ✓ Passed  | 18 s
+[0m[0;32mwallet_sendall.py --descriptors                        | ✓ Passed  | 1 s
+[0m[0;32mwallet_sendall.py --legacy-wallet                      | ✓ Passed  | 2 s
+[0m[0;32mwallet_signer.py --descriptors                         | ✓ Passed  | 3 s
+[0m[0;32mwallet_signmessagewithaddress.py                       | ✓ Passed  | 1 s
+[0m[0;32mwallet_signrawtransactionwithwallet.py --descriptors   | ✓ Passed  | 3 s
+[0m[0;32mwallet_signrawtransactionwithwallet.py --legacy-wallet | ✓ Passed  | 3 s
+[0m[0;32mwallet_simulaterawtx.py --descriptors                  | ✓ Passed  | 1 s
+[0m[0;32mwallet_simulaterawtx.py --legacy-wallet                | ✓ Passed  | 1 s
+[0m[0;32mwallet_startup.py                                      | ✓ Passed  | 2 s
+[0m[0;32mwallet_taproot.py                                      | ✓ Passed  | 36 s
+[0m[0;32mwallet_timelock.py                                     | ✓ Passed  | 1 s
+[0m[0;32mwallet_transactiontime_rescan.py --descriptors         | ✓ Passed  | 6 s
+[0m[0;32mwallet_transactiontime_rescan.py --legacy-wallet       | ✓ Passed  | 4 s
+[0m[0;32mwallet_txn_clone.py                                    | ✓ Passed  | 2 s
+[0m[0;32mwallet_txn_clone.py --mineblock                        | ✓ Passed  | 3 s
+[0m[0;32mwallet_txn_clone.py --segwit                           | ✓ Passed  | 2 s
+[0m[0;32mwallet_txn_doublespend.py --descriptors                | ✓ Passed  | 1 s
+[0m[0;32mwallet_txn_doublespend.py --legacy-wallet              | ✓ Passed  | 1 s
+[0m[0;32mwallet_txn_doublespend.py --mineblock                  | ✓ Passed  | 4 s
+[0m[0;32mwallet_watchonly.py --legacy-wallet                    | ✓ Passed  | 1 s
+[0m[0;32mwallet_watchonly.py --usecli --legacy-wallet           | ✓ Passed  | 1 s
+[0m[0mfeature_backwards_compatibility.py --descriptors       | ○ Skipped | 1 s
+[0m[0mfeature_backwards_compatibility.py --legacy-wallet     | ○ Skipped | 0 s
+[0m[0mfeature_bind_port_discover.py                          | ○ Skipped | 0 s
+[0m[0mfeature_bind_port_externalip.py                        | ○ Skipped | 0 s
+[0m[0mfeature_syscall_sandbox.py                             | ○ Skipped | 0 s
+[0m[0mfeature_txindex_compatibility.py                       | ○ Skipped | 0 s
+[0m[0mfeature_unsupported_utxo_db.py                         | ○ Skipped | 1 s
+[0m[0minterface_usdt_coinselection.py                        | ○ Skipped | 0 s
+[0m[0minterface_usdt_net.py                                  | ○ Skipped | 0 s
+[0m[0minterface_usdt_utxocache.py                            | ○ Skipped | 0 s
+[0m[0minterface_usdt_validation.py                           | ○ Skipped | 1 s
+[0m[0mmempool_compatibility.py                               | ○ Skipped | 0 s
+[0m[0mrpc_bind.py --ipv6                                     | ○ Skipped | 0 s
+[0m[0mwallet_inactive_hdchains.py                            | ○ Skipped | 0 s
+[0m[0mwallet_upgradewallet.py --legacy-wallet                | ○ Skipped | 0 s
+[0m[1m
+ALL                                                    | ✓ Passed  | 2609 s (accumulated) 
+[0mRuntime: 436 s
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.773s
+
+OK
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        

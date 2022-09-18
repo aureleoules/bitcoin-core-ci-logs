@@ -1,0 +1,27 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-19 09:54:26.237 xcodebuild[695:5439] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-19 09:54:26.238 xcodebuild[695:5439] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ configure.ac                                    |  3 +++
+ contrib/guix/manifest.scm                       |  3 +--
+ src/test/fuzz/txorphan.cpp                      |  2 +-
+ src/univalue/include/univalue.h                 | 30 +++++++++++++------------
+ src/univalue/lib/univalue.cpp                   | 19 +++++++++++-----
+ src/univalue/lib/univalue_get.cpp               | 19 +++++-----------
+ test/functional/mining_prioritisetransaction.py |  4 ++--
+ test/functional/rpc_blockchain.py               |  6 ++---
+ test/functional/rpc_fundrawtransaction.py       |  2 +-
+ test/functional/rpc_help.py                     |  2 +-
+ test/functional/rpc_rawtransaction.py           | 14 ++++++------
+ test/functional/wallet_basic.py                 |  2 +-
+ test/functional/wallet_hd.py                    |  4 ++--
+ test/functional/wallet_multiwallet.py           |  2 +-
+ 14 files changed, 59 insertions(+), 53 deletions(-)

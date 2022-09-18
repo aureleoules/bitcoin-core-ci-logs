@@ -1,0 +1,177 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/rpc/addresses.cpp
+Auto-merging src/wallet/rpc/wallet.cpp
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                        |  20 +-
+ REVIEWERS                                          | 123 --------
+ build_msvc/README.md                               |   2 +-
+ ci/test/00_setup_env_native_asan.sh                |  11 +-
+ ci/test/00_setup_env_native_qt5.sh                 |   2 +-
+ ci/test/00_setup_env_native_tidy.sh                |   2 +-
+ ci/test/04_install.sh                              |   8 +
+ ci/test/05_before_script.sh                        |   4 +-
+ ci/test/06_script_b.sh                             |   5 +-
+ configure.ac                                       |  12 +-
+ contrib/guix/manifest.scm                          |  28 +-
+ .../patches/nsis-disable-installer-reloc.patch     |  30 ++
+ depends/config.site.in                             |   7 +-
+ depends/hosts/darwin.mk                            |   3 +
+ depends/packages/bdb.mk                            |   2 +-
+ depends/packages/libxcb.mk                         |   3 +-
+ depends/packages/native_cctools.mk                 |  14 +-
+ depends/packages/native_clang.mk                   |   3 +
+ depends/packages/native_libtapi.mk                 |   4 +-
+ depends/packages/qt.mk                             |  15 +-
+ depends/patches/libxcb/remove_pthread_stubs.patch  |  12 +
+ depends/patches/qt/dont_hardcode_x86_64.patch      |   4 +-
+ depends/patches/qt/fix_android_jni_static.patch    |   2 +-
+ depends/patches/qt/fix_limits_header.patch         |  33 ---
+ depends/patches/qt/guix_cross_lib_path.patch       |  17 ++
+ doc/dependencies.md                                |   2 +-
+ doc/policy/README.md                               |   2 +-
+ doc/policy/mempool-replacements.md                 |   2 +-
+ doc/policy/packages.md                             |   2 +-
+ doc/release-notes-25610.md                         |  12 +
+ src/Makefile.am                                    |  19 +-
+ src/Makefile.test.include                          |   1 +
+ src/addrman.cpp                                    |  10 +-
+ src/addrman.h                                      |   7 +-
+ src/addrman_impl.h                                 |   4 +-
+ src/bench/addrman.cpp                              |   2 +-
+ src/bench/wallet_loading.cpp                       |   5 +-
+ src/bitcoin-chainstate.cpp                         |   6 +-
+ src/bitcoin-cli.cpp                                |   2 +-
+ src/chain.cpp                                      |   8 +-
+ src/chain.h                                        |   2 +-
+ src/coins.cpp                                      |   6 +-
+ src/cuckoocache.h                                  |  23 +-
+ src/init.cpp                                       |  62 ++--
+ src/init/common.cpp                                |   2 +-
+ src/interfaces/wallet.h                            |  10 +-
+ src/kernel/mempool_options.h                       |  19 ++
+ src/kernel/validation_cache_sizes.h                |  20 ++
+ src/leveldb/util/env_posix.cc                      |   2 +-
+ src/mempool_args.cpp                               |  39 ---
+ src/net.cpp                                        |   6 +-
+ src/net_processing.cpp                             |  10 +-
+ src/node/interfaces.cpp                            |  75 +++--
+ src/node/mempool_args.cpp                          |  99 +++++++
+ src/{ => node}/mempool_args.h                      |  13 +-
+ src/node/psbt.cpp                                  |   2 +-
+ src/node/validation_cache_args.cpp                 |  34 +++
+ src/node/validation_cache_args.h                   |  17 ++
+ src/policy/policy.cpp                              |  13 +-
+ src/policy/policy.h                                |   8 +-
+ src/policy/settings.cpp                            |   5 -
+ src/policy/settings.h                              |  29 --
+ src/qt/addresstablemodel.cpp                       |   2 +-
+ src/qt/guiutil.cpp                                 |   2 +-
+ src/qt/walletcontroller.cpp                        |   4 +-
+ src/qt/walletmodel.cpp                             |   4 +-
+ src/rest.cpp                                       |  41 +--
+ src/rpc/client.cpp                                 |   2 +
+ src/rpc/fees.cpp                                   |   3 +-
+ src/rpc/mempool.cpp                                |   6 +-
+ src/rpc/net.cpp                                    |  10 +-
+ src/rpc/rawtransaction.cpp                         |   6 +-
+ src/rpc/rawtransaction_util.cpp                    |   7 +-
+ src/rpc/rawtransaction_util.h                      |   3 +-
+ src/rpc/request.cpp                                |   6 +-
+ src/script/script.h                                |   2 +-
+ src/script/sigcache.cpp                            |  18 +-
+ src/script/sigcache.h                              |  11 +-
+ src/script/standard.cpp                            |   3 -
+ src/script/standard.h                              |  11 +-
+ src/test/addrman_tests.cpp                         |  18 +-
+ src/test/fuzz/integer.cpp                          |   3 -
+ src/test/fuzz/key.cpp                              |   4 +-
+ src/test/fuzz/rbf.cpp                              |   2 +-
+ src/test/fuzz/script.cpp                           |   2 +-
+ src/test/fuzz/script_sigcache.cpp                  |  11 +-
+ src/test/fuzz/transaction.cpp                      |   5 +-
+ src/test/fuzz/tx_pool.cpp                          |  11 +-
+ src/test/fuzz/validation_load_mempool.cpp          |   2 +-
+ src/test/miner_tests.cpp                           |   6 +-
+ src/test/multisig_tests.cpp                        |  22 +-
+ src/test/result_tests.cpp                          |  96 +++++++
+ src/test/rpc_tests.cpp                             |   4 +-
+ src/test/script_p2sh_tests.cpp                     |  14 +-
+ src/test/skiplist_tests.cpp                        |   6 +-
+ src/test/transaction_tests.cpp                     |  22 +-
+ src/test/txvalidationcache_tests.cpp               |   5 -
+ src/test/util/setup_common.cpp                     |  18 +-
+ src/test/util/wallet.cpp                           |   6 +-
+ src/timedata.h                                     |   1 -
+ src/txmempool.cpp                                  |  14 +-
+ src/txmempool.h                                    |  16 +-
+ src/univalue/include/univalue.h                    |  20 +-
+ src/univalue/lib/univalue.cpp                      |  33 +--
+ src/univalue/test/object.cpp                       |  45 ++-
+ src/util/result.h                                  |  87 ++++--
+ src/util/system.cpp                                |  16 +-
+ src/util/system.h                                  |   2 +-
+ src/validation.cpp                                 |  44 +--
+ src/validation.h                                   |   3 +-
+ src/wallet/feebumper.cpp                           |   6 +-
+ src/wallet/fees.cpp                                |   2 +-
+ src/wallet/interfaces.cpp                          |  25 +-
+ src/wallet/rpc/addresses.cpp                       |   8 +-
+ src/wallet/rpc/spend.cpp                           |   6 +-
+ src/wallet/rpc/wallet.cpp                          | 112 ++++++++
+ src/wallet/scriptpubkeyman.cpp                     |  37 ++-
+ src/wallet/scriptpubkeyman.h                       |   8 +-
+ src/wallet/spend.cpp                               |  56 ++--
+ src/wallet/spend.h                                 |   2 +-
+ src/wallet/test/availablecoins_tests.cpp           |  18 +-
+ src/wallet/test/coinselector_tests.cpp             |   4 +-
+ src/wallet/test/fuzz/notifications.cpp             |   5 +-
+ src/wallet/test/spend_tests.cpp                    |   2 +-
+ src/wallet/test/wallet_tests.cpp                   | 114 +++++++-
+ src/wallet/wallet.cpp                              |  64 +++--
+ src/wallet/wallet.h                                |  18 +-
+ test/README.md                                     |   6 +-
+ test/functional/feature_taproot.py                 |   6 +
+ test/functional/interface_usdt_net.py              |   2 +-
+ test/functional/interface_usdt_utxocache.py        |  40 +--
+ test/functional/interface_usdt_validation.py       |   2 +-
+ test/functional/mempool_package_limits.py          | 316 +++++----------------
+ test/functional/p2p_permissions.py                 |   3 +-
+ test/functional/p2p_segwit.py                      |   6 +-
+ test/functional/rpc_psbt.py                        |   2 +-
+ test/functional/test_framework/util.py             |   4 +
+ test/functional/test_framework/wallet.py           |  58 ++--
+ test/functional/test_runner.py                     |   2 +
+ test/functional/wallet_listtransactions.py         |   6 +-
+ test/functional/wallet_simulaterawtx.py            | 129 +++++++++
+ test/get_previous_releases.py                      | 113 ++++----
+ 142 files changed, 1626 insertions(+), 1181 deletions(-)
+ create mode 100644 contrib/guix/patches/nsis-disable-installer-reloc.patch
+ create mode 100644 depends/patches/libxcb/remove_pthread_stubs.patch
+ delete mode 100644 depends/patches/qt/fix_limits_header.patch
+ create mode 100644 depends/patches/qt/guix_cross_lib_path.patch
+ create mode 100644 doc/release-notes-25610.md
+ create mode 100644 src/kernel/validation_cache_sizes.h
+ delete mode 100644 src/mempool_args.cpp
+ create mode 100644 src/node/mempool_args.cpp
+ rename src/{ => node}/mempool_args.h (57%)
+ create mode 100644 src/node/validation_cache_args.cpp
+ create mode 100644 src/node/validation_cache_args.h
+ create mode 100644 src/test/result_tests.cpp
+ create mode 100755 test/functional/wallet_simulaterawtx.py

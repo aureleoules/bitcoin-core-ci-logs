@@ -1,0 +1,26 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-09 14:47:25.967 xcodebuild[693:5451] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-09 14:47:25.967 xcodebuild[693:5451] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/wallet.cpp
+Merge made by the 'recursive' strategy.
+ .tx/config                                    |    2 +-
+ doc/descriptors.md                            |    3 +-
+ src/qt/bitcoinstrings.cpp                     |   42 +-
+ src/qt/locale/bitcoin_en.ts                   |  537 ++--
+ src/qt/locale/bitcoin_en.xlf                  | 3498 +++++++++++++------------
+ src/script/descriptor.cpp                     |   35 +
+ src/script/sign.cpp                           |    5 +
+ src/validation.h                              |    2 +-
+ src/wallet/wallet.cpp                         |    4 +-
+ test/functional/data/rpc_decodescript.json    |    2 +-
+ test/functional/rpc_signmessagewithprivkey.py |   22 +-
+ test/functional/wallet_taproot.py             |   17 +-
+ 12 files changed, 2282 insertions(+), 1887 deletions(-)

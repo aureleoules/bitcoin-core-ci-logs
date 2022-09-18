@@ -1,0 +1,3067 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+QEMU_USER_CMD=qemu-arm -L /usr/arm-linux-gnueabihf/
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-glibc-back-compat --enable-reduce-exports CXXFLAGS=-Wno-psabi --with-boost-process
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/arm-linux-gnueabihf
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://deb.debian.org/debian buster InRelease
+Hit:2 http://security.debian.org/debian-security buster/updates InRelease
+Hit:3 http://deb.debian.org/debian buster-updates InRelease
+Get:4 http://deb.debian.org/debian buster/main armhf Packages [7702 kB]
+Get:5 http://security.debian.org/debian-security buster/updates/main armhf Packages [331 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main armhf Packages [8784 B]
+Fetched 8042 kB in 2s (4915 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binutils binutils-arm-linux-gnueabihf binutils-common
+  binutils-x86-64-linux-gnu bzip2 cpp cpp-8 cpp-8-arm-linux-gnueabihf
+  cpp-arm-linux-gnueabihf dpkg-dev file fontconfig-config fonts-dejavu-core
+  g++ g++-8 g++-8-arm-linux-gnueabihf gcc gcc-8 gcc-8-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf gcc-8-cross-base
+  gcc-arm-linux-gnueabihf libasan5 libasan5-armhf-cross libatomic1
+  libatomic1-armhf-cross libbinutils libbsd0:armhf libc-dev-bin
+  libc6-armhf-cross libc6-dev libc6-dev-armhf-cross libcapstone3 libcc1-0
+  libcurl4 libdpkg-perl libexpat1:armhf libfreetype6:armhf libgcc-8-dev
+  libgcc-8-dev-armhf-cross libgcc1:armhf libgcc1-armhf-cross libglib2.0-0
+  libgomp1 libgomp1-armhf-cross libisl19 libitm1 liblsan0 libmagic-mgc
+  libmagic1 libmpc3 libmpdec2 libmpfr6 libmpx2 libncurses6 libnorm1
+  libpgm-5.2-0 libpng16-16:armhf libpopt0 libprocps7 libpython3-stdlib
+  libpython3.7-minimal libpython3.7-stdlib libquadmath0 libreadline7
+  libsigsegv2 libsodium23 libsqlite3-0 libstdc++-8-dev
+  libstdc++-8-dev-armhf-cross libstdc++6-armhf-cross libtsan0 libubsan1
+  libubsan1-armhf-cross libuuid1:armhf libxau6:armhf libxdmcp6:armhf libzmq5
+  linux-libc-dev linux-libc-dev-armhf-cross lsb-base m4 make mime-support
+  python3-minimal python3.7 python3.7-minimal readline-common sensible-utils
+  ucf xz-utils zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc wamerican
+  | wordlist whois vacation bzip2-doc distcc | icecc cpp-doc gcc-8-locales
+  debian-keyring g++-multilib g++-8-multilib gcc-8-doc libstdc++6-8-dbg
+  libstdc++6-8-dbg-armhf-cross gcc-multilib manpages-dev flex bison gdb
+  gcc-doc gcc-8-multilib libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg
+  libasan5-dbg liblsan0-dbg libtsan0-dbg libubsan1-dbg libmpx2-dbg
+  libquadmath0-dbg libgcc1-dbg-armhf-cross libgomp1-dbg-armhf-cross
+  libitm1-dbg-armhf-cross libatomic1-dbg-armhf-cross libasan5-dbg-armhf-cross
+  liblsan0-dbg-armhf-cross libtsan0-dbg-armhf-cross libubsan1-dbg-armhf-cross
+  libmpx2-dbg-armhf-cross libquadmath0-dbg-armhf-cross gdb-arm-linux-gnueabihf
+  glibc-doc:armhf libc-l10n:armhf locales:armhf glibc-doc gnupg | gnupg2 bzr
+  libstdc++-8-doc libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc
+  make-doc python3-doc python3-tk python3-venv python3.7-venv python3.7-doc
+  binfmt-support sudo readline-doc openssh-server
+Recommended packages:
+  fakeroot gnupg | gnupg2 libalgorithm-merge-perl manpages manpages-dev
+  libidn2-0:armhf libfile-fcntllock-perl liblocale-gettext-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpm2 libltdl-dev
+  uuid-runtime:armhf psmisc qemu-user-binfmt
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binutils binutils-arm-linux-gnueabihf
+  binutils-common binutils-x86-64-linux-gnu bsdmainutils build-essential
+  busybox bzip2 ccache cpp cpp-8 cpp-8-arm-linux-gnueabihf
+  cpp-arm-linux-gnueabihf curl dpkg-dev file fontconfig-config
+  fonts-dejavu-core g++ g++-8 g++-8-arm-linux-gnueabihf
+  g++-arm-linux-gnueabihf gcc gcc-8 gcc-8-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf gcc-8-cross-base
+  gcc-arm-linux-gnueabihf libasan5 libasan5-armhf-cross libatomic1
+  libatomic1-armhf-cross libbinutils libbsd0:armhf libc-dev-bin libc6:armhf
+  libc6-armhf-cross libc6-dev libc6-dev-armhf-cross libcapstone3 libcc1-0
+  libcurl4 libdpkg-perl libexpat1:armhf libfontconfig1:armhf
+  libfreetype6:armhf libgcc-8-dev libgcc-8-dev-armhf-cross libgcc1:armhf
+  libgcc1-armhf-cross libglib2.0-0 libgomp1 libgomp1-armhf-cross libisl19
+  libitm1 liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec2 libmpfr6 libmpx2
+  libncurses6 libnorm1 libpgm-5.2-0 libpng16-16:armhf libpopt0 libprocps7
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libquadmath0
+  libreadline7 libsigsegv2 libsodium23 libsqlite3-0 libstdc++-8-dev
+  libstdc++-8-dev-armhf-cross libstdc++6:armhf libstdc++6-armhf-cross libtool
+  libtsan0 libubsan1 libubsan1-armhf-cross libuuid1:armhf libxau6:armhf
+  libxcb1:armhf libxdmcp6:armhf libzmq5 linux-libc-dev
+  linux-libc-dev-armhf-cross lsb-base m4 make mime-support pkg-config procps
+  python3 python3-minimal python3-zmq python3.7 python3.7-minimal qemu-user
+  readline-common rsync sensible-utils ucf xz-utils zlib1g:armhf
+0 upgraded, 113 newly installed, 0 to remove and 1 not upgraded.
+Need to get 108 MB of archives.
+After this operation, 446 MB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian buster/main amd64 libpython3.7-minimal amd64 3.7.3-2+deb10u3 [589 kB]
+Get:2 http://security.debian.org/debian-security buster/updates/main armhf zlib1g armhf 1:1.2.11.dfsg-1+deb10u1 [85.1 kB]
+Get:3 http://security.debian.org/debian-security buster/updates/main amd64 xz-utils amd64 5.2.4-1+deb10u1 [183 kB]
+Get:4 http://security.debian.org/debian-security buster/updates/main amd64 linux-libc-dev amd64 4.19.249-2 [1530 kB]
+Get:5 http://deb.debian.org/debian buster/main amd64 python3.7-minimal amd64 3.7.3-2+deb10u3 [1737 kB]
+Get:6 http://security.debian.org/debian-security buster/updates/main amd64 libdpkg-perl all 1.19.8 [1415 kB]
+Get:7 http://deb.debian.org/debian buster/main amd64 python3-minimal amd64 3.7.3-1 [36.6 kB]
+Get:8 http://deb.debian.org/debian buster/main amd64 mime-support all 3.62 [37.2 kB]
+Get:9 http://deb.debian.org/debian buster/main amd64 libmpdec2 amd64 2.4.2-2 [87.2 kB]
+Get:10 http://deb.debian.org/debian buster/main amd64 readline-common all 7.0-5 [70.6 kB]
+Get:11 http://deb.debian.org/debian buster/main amd64 libreadline7 amd64 7.0-5 [151 kB]
+Get:12 http://deb.debian.org/debian buster/main amd64 libsqlite3-0 amd64 3.27.2-3+deb10u1 [641 kB]
+Get:13 http://security.debian.org/debian-security buster/updates/main amd64 dpkg-dev all 1.19.8 [1776 kB]
+Get:14 http://deb.debian.org/debian buster/main amd64 libpython3.7-stdlib amd64 3.7.3-2+deb10u3 [1734 kB]
+Get:15 http://deb.debian.org/debian buster/main amd64 python3.7 amd64 3.7.3-2+deb10u3 [330 kB]
+Get:16 http://deb.debian.org/debian buster/main amd64 libpython3-stdlib amd64 3.7.3-1 [20.0 kB]
+Get:17 http://deb.debian.org/debian buster/main amd64 python3 amd64 3.7.3-1 [61.5 kB]
+Get:18 http://deb.debian.org/debian buster/main armhf gcc-8-base armhf 8.3.0-6 [191 kB]
+Get:19 http://deb.debian.org/debian buster/main armhf libgcc1 armhf 1:8.3.0-6 [37.2 kB]
+Get:20 http://deb.debian.org/debian buster/main armhf libc6 armhf 2.28-10+deb10u1 [2387 kB]
+Get:21 http://deb.debian.org/debian buster/main amd64 bsdmainutils amd64 11.1.2+b1 [191 kB]
+Get:22 http://deb.debian.org/debian buster/main amd64 libncurses6 amd64 6.1+20181013-2+deb10u2 [102 kB]
+Get:23 http://deb.debian.org/debian buster/main amd64 libprocps7 amd64 2:3.3.15-2 [61.7 kB]
+Get:24 http://deb.debian.org/debian buster/main amd64 lsb-base all 10.2019051400 [28.4 kB]
+Get:25 http://deb.debian.org/debian buster/main amd64 procps amd64 2:3.3.15-2 [259 kB]
+Get:26 http://deb.debian.org/debian buster/main amd64 sensible-utils all 0.0.12 [15.8 kB]
+Get:27 http://deb.debian.org/debian buster/main amd64 bzip2 amd64 1.0.6-9.2~deb10u1 [48.4 kB]
+Get:28 http://deb.debian.org/debian buster/main amd64 libmagic-mgc amd64 1:5.35-4+deb10u2 [242 kB]
+Get:29 http://deb.debian.org/debian buster/main amd64 libmagic1 amd64 1:5.35-4+deb10u2 [118 kB]
+Get:30 http://deb.debian.org/debian buster/main amd64 file amd64 1:5.35-4+deb10u2 [66.4 kB]
+Get:31 http://deb.debian.org/debian buster/main amd64 ucf all 3.0038+nmu1 [69.0 kB]
+Get:32 http://deb.debian.org/debian buster/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:33 http://deb.debian.org/debian buster/main amd64 m4 amd64 1.4.18-2 [203 kB]
+Get:34 http://deb.debian.org/debian buster/main amd64 autoconf all 2.69-11 [341 kB]
+Get:35 http://deb.debian.org/debian buster/main amd64 autotools-dev all 20180224.1 [77.0 kB]
+Get:36 http://deb.debian.org/debian buster/main amd64 automake all 1:1.16.1-4 [771 kB]
+Get:37 http://deb.debian.org/debian buster/main amd64 binutils-common amd64 2.31.1-16 [2073 kB]
+Get:38 http://deb.debian.org/debian buster/main amd64 libbinutils amd64 2.31.1-16 [478 kB]
+Get:39 http://deb.debian.org/debian buster/main amd64 binutils-x86-64-linux-gnu amd64 2.31.1-16 [1823 kB]
+Get:40 http://deb.debian.org/debian buster/main amd64 binutils amd64 2.31.1-16 [56.8 kB]
+Get:41 http://deb.debian.org/debian buster/main amd64 binutils-arm-linux-gnueabihf amd64 2.31.1-16 [2834 kB]
+Get:42 http://deb.debian.org/debian buster/main amd64 libc-dev-bin amd64 2.28-10+deb10u1 [276 kB]
+Get:43 http://deb.debian.org/debian buster/main amd64 libc6-dev amd64 2.28-10+deb10u1 [2692 kB]
+Get:44 http://deb.debian.org/debian buster/main amd64 libisl19 amd64 0.20-2 [587 kB]
+Get:45 http://deb.debian.org/debian buster/main amd64 libmpfr6 amd64 4.0.2-1 [775 kB]
+Get:46 http://deb.debian.org/debian buster/main amd64 libmpc3 amd64 1.1.0-1 [41.3 kB]
+Get:47 http://deb.debian.org/debian buster/main amd64 cpp-8 amd64 8.3.0-6 [8914 kB]
+Get:48 http://deb.debian.org/debian buster/main amd64 cpp amd64 4:8.3.0-1 [19.4 kB]
+Get:49 http://deb.debian.org/debian buster/main amd64 libcc1-0 amd64 8.3.0-6 [46.6 kB]
+Get:50 http://deb.debian.org/debian buster/main amd64 libgomp1 amd64 8.3.0-6 [75.8 kB]
+Get:51 http://deb.debian.org/debian buster/main amd64 libitm1 amd64 8.3.0-6 [27.7 kB]
+Get:52 http://deb.debian.org/debian buster/main amd64 libatomic1 amd64 8.3.0-6 [9032 B]
+Get:53 http://deb.debian.org/debian buster/main amd64 libasan5 amd64 8.3.0-6 [362 kB]
+Get:54 http://deb.debian.org/debian buster/main amd64 liblsan0 amd64 8.3.0-6 [131 kB]
+Get:55 http://deb.debian.org/debian buster/main amd64 libtsan0 amd64 8.3.0-6 [283 kB]
+Get:56 http://deb.debian.org/debian buster/main amd64 libubsan1 amd64 8.3.0-6 [120 kB]
+Get:57 http://deb.debian.org/debian buster/main amd64 libmpx2 amd64 8.3.0-6 [11.4 kB]
+Get:58 http://deb.debian.org/debian buster/main amd64 libquadmath0 amd64 8.3.0-6 [133 kB]
+Get:59 http://deb.debian.org/debian buster/main amd64 libgcc-8-dev amd64 8.3.0-6 [2298 kB]
+Get:60 http://deb.debian.org/debian buster/main amd64 gcc-8 amd64 8.3.0-6 [9452 kB]
+Get:61 http://deb.debian.org/debian buster/main amd64 gcc amd64 4:8.3.0-1 [5196 B]
+Get:62 http://deb.debian.org/debian buster/main amd64 libstdc++-8-dev amd64 8.3.0-6 [1532 kB]
+Get:63 http://deb.debian.org/debian buster/main amd64 g++-8 amd64 8.3.0-6 [9752 kB]
+Get:64 http://deb.debian.org/debian buster/main amd64 g++ amd64 4:8.3.0-1 [1644 B]
+Get:65 http://deb.debian.org/debian buster/main amd64 make amd64 4.2.1-1.2 [341 kB]
+Get:66 http://deb.debian.org/debian buster/main amd64 build-essential amd64 12.6 [7576 B]
+Get:67 http://deb.debian.org/debian buster/main amd64 busybox amd64 1:1.30.1-4 [432 kB]
+Get:68 http://deb.debian.org/debian buster/main amd64 ccache amd64 3.6-1 [156 kB]
+Get:69 http://deb.debian.org/debian buster/main amd64 gcc-8-arm-linux-gnueabihf-base amd64 8.3.0-2cross1 [190 kB]
+Get:70 http://deb.debian.org/debian buster/main amd64 cpp-8-arm-linux-gnueabihf amd64 8.3.0-2cross1 [6554 kB]
+Get:71 http://deb.debian.org/debian buster/main amd64 cpp-arm-linux-gnueabihf amd64 4:8.3.0-1 [16.5 kB]
+Get:72 http://deb.debian.org/debian buster/main amd64 libcurl4 amd64 7.64.0-4+deb10u2 [332 kB]
+Get:73 http://deb.debian.org/debian buster/main amd64 curl amd64 7.64.0-4+deb10u2 [265 kB]
+Get:74 http://deb.debian.org/debian buster/main amd64 fonts-dejavu-core all 2.37-1 [1068 kB]
+Get:75 http://deb.debian.org/debian buster/main amd64 fontconfig-config all 2.13.1-2 [280 kB]
+Get:76 http://deb.debian.org/debian buster/main amd64 gcc-8-cross-base all 8.3.0-2cross1 [185 kB]
+Get:77 http://deb.debian.org/debian buster/main amd64 libc6-armhf-cross all 2.28-7cross1 [1170 kB]
+Get:78 http://deb.debian.org/debian buster/main amd64 libgcc1-armhf-cross all 1:8.3.0-2cross1 [37.1 kB]
+Get:79 http://deb.debian.org/debian buster/main amd64 libgomp1-armhf-cross all 8.3.0-2cross1 [63.1 kB]
+Get:80 http://deb.debian.org/debian buster/main amd64 libatomic1-armhf-cross all 8.3.0-2cross1 [6580 B]
+Get:81 http://deb.debian.org/debian buster/main amd64 libstdc++6-armhf-cross all 8.3.0-2cross1 [301 kB]
+Get:82 http://deb.debian.org/debian buster/main amd64 libasan5-armhf-cross all 8.3.0-2cross1 [330 kB]
+Get:83 http://deb.debian.org/debian buster/main amd64 libubsan1-armhf-cross all 8.3.0-2cross1 [103 kB]
+Get:84 http://deb.debian.org/debian buster/main amd64 libgcc-8-dev-armhf-cross all 8.3.0-2cross1 [612 kB]
+Get:85 http://deb.debian.org/debian buster/main amd64 gcc-8-arm-linux-gnueabihf amd64 8.3.0-2cross1 [6974 kB]
+Get:86 http://deb.debian.org/debian buster/main amd64 linux-libc-dev-armhf-cross all 4.19.20-1cross1 [1212 kB]
+Get:87 http://deb.debian.org/debian buster/main amd64 libc6-dev-armhf-cross all 2.28-7cross1 [2148 kB]
+Get:88 http://deb.debian.org/debian buster/main amd64 libstdc++-8-dev-armhf-cross all 8.3.0-2cross1 [1556 kB]
+Get:89 http://deb.debian.org/debian buster/main amd64 g++-8-arm-linux-gnueabihf amd64 8.3.0-2cross1 [7133 kB]
+Get:90 http://deb.debian.org/debian buster/main amd64 gcc-arm-linux-gnueabihf amd64 4:8.3.0-1 [1456 B]
+Get:91 http://deb.debian.org/debian buster/main amd64 g++-arm-linux-gnueabihf amd64 4:8.3.0-1 [1180 B]
+Get:92 http://deb.debian.org/debian buster/main armhf libbsd0 armhf 0.9.1-2+deb10u1 [104 kB]
+Get:93 http://deb.debian.org/debian buster/main amd64 libcapstone3 amd64 4.0.1+really+3.0.5-1 [444 kB]
+Get:94 http://deb.debian.org/debian buster/main armhf libexpat1 armhf 2.2.6-2+deb10u4 [79.6 kB]
+Get:95 http://deb.debian.org/debian buster/main armhf libpng16-16 armhf 1.6.36-6 [275 kB]
+Get:96 http://deb.debian.org/debian buster/main armhf libfreetype6 armhf 2.9.1-3+deb10u2 [322 kB]
+Get:97 http://deb.debian.org/debian buster/main armhf libuuid1 armhf 2.33.1-0.1 [77.5 kB]
+Get:98 http://deb.debian.org/debian buster/main armhf libfontconfig1 armhf 2.13.1-2 [328 kB]
+Get:99 http://deb.debian.org/debian buster/main amd64 libglib2.0-0 amd64 2.58.3-2+deb10u3 [1259 kB]
+Get:100 http://deb.debian.org/debian buster/main amd64 libnorm1 amd64 1.5.8+dfsg2-1 [287 kB]
+Get:101 http://deb.debian.org/debian buster/main amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-3 [158 kB]
+Get:102 http://deb.debian.org/debian buster/main amd64 libpopt0 amd64 1.16-12 [49.4 kB]
+Get:103 http://deb.debian.org/debian buster/main amd64 libsodium23 amd64 1.0.17-1 [158 kB]
+Get:104 http://deb.debian.org/debian buster/main armhf libstdc++6 armhf 8.3.0-6 [338 kB]
+Get:105 http://deb.debian.org/debian buster/main amd64 libtool all 2.4.6-9 [547 kB]
+Get:106 http://deb.debian.org/debian buster/main armhf libxau6 armhf 1:1.0.8-1+b2 [19.1 kB]
+Get:107 http://deb.debian.org/debian buster/main armhf libxdmcp6 armhf 1:1.1.2-3 [24.9 kB]
+Get:108 http://deb.debian.org/debian buster/main armhf libxcb1 armhf 1.13.1-2 [132 kB]
+Get:109 http://deb.debian.org/debian buster/main amd64 libzmq5 amd64 4.3.1-4+deb10u2 [246 kB]
+Get:110 http://deb.debian.org/debian buster/main amd64 pkg-config amd64 0.29-6 [63.5 kB]
+Get:111 http://deb.debian.org/debian buster/main amd64 python3-zmq amd64 17.1.2-2+deb10u1 [268 kB]
+Get:112 http://deb.debian.org/debian buster/main amd64 qemu-user amd64 1:3.1+dfsg-8+deb10u8 [9995 kB]
+Get:113 http://deb.debian.org/debian buster/main amd64 rsync amd64 3.1.3-6 [397 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 108 MB in 5s (22.5 MB/s)
+Selecting previously unselected package libpython3.7-minimal:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10476 files and directories currently installed.)
+Preparing to unpack .../libpython3.7-minimal_3.7.3-2+deb10u3_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.3-2+deb10u3) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../python3.7-minimal_3.7.3-2+deb10u3_amd64.deb ...
+Unpacking python3.7-minimal (3.7.3-2+deb10u3) ...
+Setting up libpython3.7-minimal:amd64 (3.7.3-2+deb10u3) ...
+Setting up python3.7-minimal (3.7.3-2+deb10u3) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10717 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.3-1_amd64.deb ...
+Unpacking python3-minimal (3.7.3-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../3-readline-common_7.0-5_all.deb ...
+Unpacking readline-common (7.0-5) ...
+Selecting previously unselected package libreadline7:amd64.
+Preparing to unpack .../4-libreadline7_7.0-5_amd64.deb ...
+Unpacking libreadline7:amd64 (7.0-5) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../5-libsqlite3-0_3.27.2-3+deb10u1_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.27.2-3+deb10u1) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../6-libpython3.7-stdlib_3.7.3-2+deb10u3_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.3-2+deb10u3) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../7-python3.7_3.7.3-2+deb10u3_amd64.deb ...
+Unpacking python3.7 (3.7.3-2+deb10u3) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../8-libpython3-stdlib_3.7.3-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.3-1) ...
+Setting up python3-minimal (3.7.3-1) ...
+Selecting previously unselected package python3.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 11186 files and directories currently installed.)
+Preparing to unpack .../000-python3_3.7.3-1_amd64.deb ...
+Unpacking python3 (3.7.3-1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../001-gcc-8-base_8.3.0-6_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-6) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../002-libgcc1_1%3a8.3.0-6_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-6) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../003-libc6_2.28-10+deb10u1_armhf.deb ...
+Unpacking libc6:armhf (2.28-10+deb10u1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../004-zlib1g_1%3a1.2.11.dfsg-1+deb10u1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1+deb10u1) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../005-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../006-libncurses6_6.1+20181013-2+deb10u2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2+deb10u2) ...
+Selecting previously unselected package libprocps7:amd64.
+Preparing to unpack .../007-libprocps7_2%3a3.3.15-2_amd64.deb ...
+Unpacking libprocps7:amd64 (2:3.3.15-2) ...
+Selecting previously unselected package lsb-base.
+Preparing to unpack .../008-lsb-base_10.2019051400_all.deb ...
+Unpacking lsb-base (10.2019051400) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../009-procps_2%3a3.3.15-2_amd64.deb ...
+Unpacking procps (2:3.3.15-2) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../010-sensible-utils_0.0.12_all.deb ...
+Unpacking sensible-utils (0.0.12) ...
+Selecting previously unselected package bzip2.
+Preparing to unpack .../011-bzip2_1.0.6-9.2~deb10u1_amd64.deb ...
+Unpacking bzip2 (1.0.6-9.2~deb10u1) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../012-libmagic-mgc_1%3a5.35-4+deb10u2_amd64.deb ...
+Unpacking libmagic-mgc (1:5.35-4+deb10u2) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../013-libmagic1_1%3a5.35-4+deb10u2_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.35-4+deb10u2) ...
+Selecting previously unselected package file.
+Preparing to unpack .../014-file_1%3a5.35-4+deb10u2_amd64.deb ...
+Unpacking file (1:5.35-4+deb10u2) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../015-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package xz-utils.
+Preparing to unpack .../016-xz-utils_5.2.4-1+deb10u1_amd64.deb ...
+Unpacking xz-utils (5.2.4-1+deb10u1) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../017-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../018-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../019-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../020-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../021-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package binutils-common:amd64.
+Preparing to unpack .../022-binutils-common_2.31.1-16_amd64.deb ...
+Unpacking binutils-common:amd64 (2.31.1-16) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../023-libbinutils_2.31.1-16_amd64.deb ...
+Unpacking libbinutils:amd64 (2.31.1-16) ...
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../024-binutils-x86-64-linux-gnu_2.31.1-16_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.31.1-16) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../025-binutils_2.31.1-16_amd64.deb ...
+Unpacking binutils (2.31.1-16) ...
+Selecting previously unselected package binutils-arm-linux-gnueabihf.
+Preparing to unpack .../026-binutils-arm-linux-gnueabihf_2.31.1-16_amd64.deb ...
+Unpacking binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../027-libc-dev-bin_2.28-10+deb10u1_amd64.deb ...
+Unpacking libc-dev-bin (2.28-10+deb10u1) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../028-linux-libc-dev_4.19.249-2_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (4.19.249-2) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../029-libc6-dev_2.28-10+deb10u1_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.28-10+deb10u1) ...
+Selecting previously unselected package libisl19:amd64.
+Preparing to unpack .../030-libisl19_0.20-2_amd64.deb ...
+Unpacking libisl19:amd64 (0.20-2) ...
+Selecting previously unselected package libmpfr6:amd64.
+Preparing to unpack .../031-libmpfr6_4.0.2-1_amd64.deb ...
+Unpacking libmpfr6:amd64 (4.0.2-1) ...
+Selecting previously unselected package libmpc3:amd64.
+Preparing to unpack .../032-libmpc3_1.1.0-1_amd64.deb ...
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Selecting previously unselected package cpp-8.
+Preparing to unpack .../033-cpp-8_8.3.0-6_amd64.deb ...
+Unpacking cpp-8 (8.3.0-6) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../034-cpp_4%3a8.3.0-1_amd64.deb ...
+Unpacking cpp (4:8.3.0-1) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../035-libcc1-0_8.3.0-6_amd64.deb ...
+Unpacking libcc1-0:amd64 (8.3.0-6) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../036-libgomp1_8.3.0-6_amd64.deb ...
+Unpacking libgomp1:amd64 (8.3.0-6) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../037-libitm1_8.3.0-6_amd64.deb ...
+Unpacking libitm1:amd64 (8.3.0-6) ...
+Selecting previously unselected package libatomic1:amd64.
+Preparing to unpack .../038-libatomic1_8.3.0-6_amd64.deb ...
+Unpacking libatomic1:amd64 (8.3.0-6) ...
+Selecting previously unselected package libasan5:amd64.
+Preparing to unpack .../039-libasan5_8.3.0-6_amd64.deb ...
+Unpacking libasan5:amd64 (8.3.0-6) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../040-liblsan0_8.3.0-6_amd64.deb ...
+Unpacking liblsan0:amd64 (8.3.0-6) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../041-libtsan0_8.3.0-6_amd64.deb ...
+Unpacking libtsan0:amd64 (8.3.0-6) ...
+Selecting previously unselected package libubsan1:amd64.
+Preparing to unpack .../042-libubsan1_8.3.0-6_amd64.deb ...
+Unpacking libubsan1:amd64 (8.3.0-6) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../043-libmpx2_8.3.0-6_amd64.deb ...
+Unpacking libmpx2:amd64 (8.3.0-6) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../044-libquadmath0_8.3.0-6_amd64.deb ...
+Unpacking libquadmath0:amd64 (8.3.0-6) ...
+Selecting previously unselected package libgcc-8-dev:amd64.
+Preparing to unpack .../045-libgcc-8-dev_8.3.0-6_amd64.deb ...
+Unpacking libgcc-8-dev:amd64 (8.3.0-6) ...
+Selecting previously unselected package gcc-8.
+Preparing to unpack .../046-gcc-8_8.3.0-6_amd64.deb ...
+Unpacking gcc-8 (8.3.0-6) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../047-gcc_4%3a8.3.0-1_amd64.deb ...
+Unpacking gcc (4:8.3.0-1) ...
+Selecting previously unselected package libstdc++-8-dev:amd64.
+Preparing to unpack .../048-libstdc++-8-dev_8.3.0-6_amd64.deb ...
+Unpacking libstdc++-8-dev:amd64 (8.3.0-6) ...
+Selecting previously unselected package g++-8.
+Preparing to unpack .../049-g++-8_8.3.0-6_amd64.deb ...
+Unpacking g++-8 (8.3.0-6) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../050-g++_4%3a8.3.0-1_amd64.deb ...
+Unpacking g++ (4:8.3.0-1) ...
+Selecting previously unselected package make.
+Preparing to unpack .../051-make_4.2.1-1.2_amd64.deb ...
+Unpacking make (4.2.1-1.2) ...
+Selecting previously unselected package libdpkg-perl.
+Preparing to unpack .../052-libdpkg-perl_1.19.8_all.deb ...
+Unpacking libdpkg-perl (1.19.8) ...
+Selecting previously unselected package dpkg-dev.
+Preparing to unpack .../053-dpkg-dev_1.19.8_all.deb ...
+Unpacking dpkg-dev (1.19.8) ...
+Selecting previously unselected package build-essential.
+Preparing to unpack .../054-build-essential_12.6_amd64.deb ...
+Unpacking build-essential (12.6) ...
+Selecting previously unselected package busybox.
+Preparing to unpack .../055-busybox_1%3a1.30.1-4_amd64.deb ...
+Unpacking busybox (1:1.30.1-4) ...
+Selecting previously unselected package ccache.
+Preparing to unpack .../056-ccache_3.6-1_amd64.deb ...
+Unpacking ccache (3.6-1) ...
+Selecting previously unselected package gcc-8-arm-linux-gnueabihf-base:amd64.
+Preparing to unpack .../057-gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1_amd64.deb ...
+Unpacking gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-2cross1) ...
+Selecting previously unselected package cpp-8-arm-linux-gnueabihf.
+Preparing to unpack .../058-cpp-8-arm-linux-gnueabihf_8.3.0-2cross1_amd64.deb ...
+Unpacking cpp-8-arm-linux-gnueabihf (8.3.0-2cross1) ...
+Selecting previously unselected package cpp-arm-linux-gnueabihf.
+Preparing to unpack .../059-cpp-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../060-libcurl4_7.64.0-4+deb10u2_amd64.deb ...
+Unpacking libcurl4:amd64 (7.64.0-4+deb10u2) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../061-curl_7.64.0-4+deb10u2_amd64.deb ...
+Unpacking curl (7.64.0-4+deb10u2) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../062-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../063-fontconfig-config_2.13.1-2_all.deb ...
+Unpacking fontconfig-config (2.13.1-2) ...
+Selecting previously unselected package gcc-8-cross-base.
+Preparing to unpack .../064-gcc-8-cross-base_8.3.0-2cross1_all.deb ...
+Unpacking gcc-8-cross-base (8.3.0-2cross1) ...
+Selecting previously unselected package libc6-armhf-cross.
+Preparing to unpack .../065-libc6-armhf-cross_2.28-7cross1_all.deb ...
+Unpacking libc6-armhf-cross (2.28-7cross1) ...
+Selecting previously unselected package libgcc1-armhf-cross.
+Preparing to unpack .../066-libgcc1-armhf-cross_1%3a8.3.0-2cross1_all.deb ...
+Unpacking libgcc1-armhf-cross (1:8.3.0-2cross1) ...
+Selecting previously unselected package libgomp1-armhf-cross.
+Preparing to unpack .../067-libgomp1-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libgomp1-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package libatomic1-armhf-cross.
+Preparing to unpack .../068-libatomic1-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libatomic1-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package libstdc++6-armhf-cross.
+Preparing to unpack .../069-libstdc++6-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libstdc++6-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package libasan5-armhf-cross.
+Preparing to unpack .../070-libasan5-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libasan5-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package libubsan1-armhf-cross.
+Preparing to unpack .../071-libubsan1-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libubsan1-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package libgcc-8-dev-armhf-cross.
+Preparing to unpack .../072-libgcc-8-dev-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libgcc-8-dev-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package gcc-8-arm-linux-gnueabihf.
+Preparing to unpack .../073-gcc-8-arm-linux-gnueabihf_8.3.0-2cross1_amd64.deb ...
+Unpacking gcc-8-arm-linux-gnueabihf (8.3.0-2cross1) ...
+Selecting previously unselected package linux-libc-dev-armhf-cross.
+Preparing to unpack .../074-linux-libc-dev-armhf-cross_4.19.20-1cross1_all.deb ...
+Unpacking linux-libc-dev-armhf-cross (4.19.20-1cross1) ...
+Selecting previously unselected package libc6-dev-armhf-cross.
+Preparing to unpack .../075-libc6-dev-armhf-cross_2.28-7cross1_all.deb ...
+Unpacking libc6-dev-armhf-cross (2.28-7cross1) ...
+Selecting previously unselected package libstdc++-8-dev-armhf-cross.
+Preparing to unpack .../076-libstdc++-8-dev-armhf-cross_8.3.0-2cross1_all.deb ...
+Unpacking libstdc++-8-dev-armhf-cross (8.3.0-2cross1) ...
+Selecting previously unselected package g++-8-arm-linux-gnueabihf.
+Preparing to unpack .../077-g++-8-arm-linux-gnueabihf_8.3.0-2cross1_amd64.deb ...
+Unpacking g++-8-arm-linux-gnueabihf (8.3.0-2cross1) ...
+Selecting previously unselected package gcc-arm-linux-gnueabihf.
+Preparing to unpack .../078-gcc-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package g++-arm-linux-gnueabihf.
+Preparing to unpack .../079-g++-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../080-libbsd0_0.9.1-2+deb10u1_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2+deb10u1) ...
+Selecting previously unselected package libcapstone3:amd64.
+Preparing to unpack .../081-libcapstone3_4.0.1+really+3.0.5-1_amd64.deb ...
+Unpacking libcapstone3:amd64 (4.0.1+really+3.0.5-1) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../082-libexpat1_2.2.6-2+deb10u4_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-2+deb10u4) ...
+Selecting previously unselected package libpng16-16:armhf.
+Preparing to unpack .../083-libpng16-16_1.6.36-6_armhf.deb ...
+Unpacking libpng16-16:armhf (1.6.36-6) ...
+Selecting previously unselected package libfreetype6:armhf.
+Preparing to unpack .../084-libfreetype6_2.9.1-3+deb10u2_armhf.deb ...
+Unpacking libfreetype6:armhf (2.9.1-3+deb10u2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../085-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libfontconfig1:armhf.
+Preparing to unpack .../086-libfontconfig1_2.13.1-2_armhf.deb ...
+Unpacking libfontconfig1:armhf (2.13.1-2) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../087-libglib2.0-0_2.58.3-2+deb10u3_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-2+deb10u3) ...
+Selecting previously unselected package libnorm1:amd64.
+Preparing to unpack .../088-libnorm1_1.5.8+dfsg2-1_amd64.deb ...
+Unpacking libnorm1:amd64 (1.5.8+dfsg2-1) ...
+Selecting previously unselected package libpgm-5.2-0:amd64.
+Preparing to unpack .../089-libpgm-5.2-0_5.2.122~dfsg-3_amd64.deb ...
+Unpacking libpgm-5.2-0:amd64 (5.2.122~dfsg-3) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../090-libpopt0_1.16-12_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-12) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../091-libsodium23_1.0.17-1_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.17-1) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../092-libstdc++6_8.3.0-6_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-6) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../093-libtool_2.4.6-9_all.deb ...
+Unpacking libtool (2.4.6-9) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../094-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../095-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../096-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libzmq5:amd64.
+Preparing to unpack .../097-libzmq5_4.3.1-4+deb10u2_amd64.deb ...
+Unpacking libzmq5:amd64 (4.3.1-4+deb10u2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../098-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package python3-zmq.
+Preparing to unpack .../099-python3-zmq_17.1.2-2+deb10u1_amd64.deb ...
+Unpacking python3-zmq (17.1.2-2+deb10u1) ...
+Selecting previously unselected package qemu-user.
+Preparing to unpack .../100-qemu-user_1%3a3.1+dfsg-8+deb10u8_amd64.deb ...
+Unpacking qemu-user (1:3.1+dfsg-8+deb10u8) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../101-rsync_3.1.3-6_amd64.deb ...
+Unpacking rsync (3.1.3-6) ...
+Setting up lsb-base (10.2019051400) ...
+Setting up libsodium23:amd64 (1.0.17-1) ...
+Setting up libc6-armhf-cross (2.28-7cross1) ...
+Setting up mime-support (3.62) ...
+Setting up libmagic-mgc (1:5.35-4+deb10u2) ...
+Setting up libglib2.0-0:amd64 (2.58.3-2+deb10u3) ...
+No schema files found: doing nothing.
+Setting up gcc-8-cross-base (8.3.0-2cross1) ...
+Setting up libprocps7:amd64 (2:3.3.15-2) ...
+Setting up libsqlite3-0:amd64 (3.27.2-3+deb10u1) ...
+Setting up ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up libnorm1:amd64 (1.5.8+dfsg2-1) ...
+Setting up binutils-common:amd64 (2.31.1-16) ...
+Setting up libmagic1:amd64 (1:5.35-4+deb10u2) ...
+Setting up linux-libc-dev:amd64 (4.19.249-2) ...
+Setting up file (1:5.35-4+deb10u2) ...
+Setting up libatomic1-armhf-cross (8.3.0-2cross1) ...
+Setting up libgomp1:amd64 (8.3.0-6) ...
+Setting up bzip2 (1.0.6-9.2~deb10u1) ...
+Setting up busybox (1:1.30.1-4) ...
+Setting up libasan5:amd64 (8.3.0-6) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libgcc1-armhf-cross (1:8.3.0-2cross1) ...
+Setting up libcapstone3:amd64 (4.0.1+really+3.0.5-1) ...
+Setting up make (4.2.1-1.2) ...
+Setting up libmpfr6:amd64 (4.0.2-1) ...
+Setting up qemu-user (1:3.1+dfsg-8+deb10u8) ...
+Setting up gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-2cross1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2+deb10u2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up xz-utils (5.2.4-1+deb10u1) ...
+update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+Setting up libquadmath0:amd64 (8.3.0-6) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up libatomic1:amd64 (8.3.0-6) ...
+Setting up gcc-8-base:armhf (8.3.0-6) ...
+Setting up linux-libc-dev-armhf-cross (4.19.20-1cross1) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libdpkg-perl (1.19.8) ...
+Setting up libmpx2:amd64 (8.3.0-6) ...
+Setting up libubsan1:amd64 (8.3.0-6) ...
+Setting up libisl19:amd64 (0.20-2) ...
+Setting up sensible-utils (0.0.12) ...
+Setting up procps (2:3.3.15-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+Setting up libcurl4:amd64 (7.64.0-4+deb10u2) ...
+Setting up curl (7.64.0-4+deb10u2) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libbinutils:amd64 (2.31.1-16) ...
+Setting up cpp-8 (8.3.0-6) ...
+Setting up libc-dev-bin (2.28-10+deb10u1) ...
+Setting up binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Setting up readline-common (7.0-5) ...
+Setting up libcc1-0:amd64 (8.3.0-6) ...
+Setting up liblsan0:amd64 (8.3.0-6) ...
+Setting up libitm1:amd64 (8.3.0-6) ...
+Setting up libreadline7:amd64 (7.0-5) ...
+Setting up libpgm-5.2-0:amd64 (5.2.122~dfsg-3) ...
+Setting up libpopt0:amd64 (1.16-12) ...
+Setting up binutils-x86-64-linux-gnu (2.31.1-16) ...
+Setting up libtsan0:amd64 (8.3.0-6) ...
+Setting up cpp-8-arm-linux-gnueabihf (8.3.0-2cross1) ...
+Setting up libgomp1-armhf-cross (8.3.0-2cross1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.3-2+deb10u3) ...
+Setting up libzmq5:amd64 (4.3.1-4+deb10u2) ...
+Setting up libc6-dev-armhf-cross (2.28-7cross1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up binutils (2.31.1-16) ...
+Setting up dpkg-dev (1.19.8) ...
+Setting up libstdc++6-armhf-cross (8.3.0-2cross1) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libubsan1-armhf-cross (8.3.0-2cross1) ...
+Setting up ucf (3.0038+nmu1) ...
+Setting up libgcc-8-dev:amd64 (8.3.0-6) ...
+Setting up autoconf (2.69-11) ...
+Setting up cpp (4:8.3.0-1) ...
+Setting up libc6-dev:amd64 (2.28-10+deb10u1) ...
+Setting up cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up rsync (3.1.3-6) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of restart.
+Setting up libpython3-stdlib:amd64 (3.7.3-1) ...
+Setting up libstdc++-8-dev:amd64 (8.3.0-6) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.3-2+deb10u3) ...
+Setting up gcc-8 (8.3.0-6) ...
+Setting up libtool (2.4.6-9) ...
+Setting up fontconfig-config (2.13.1-2) ...
+Setting up python3 (3.7.3-1) ...
+Setting up libasan5-armhf-cross (8.3.0-2cross1) ...
+Setting up gcc (4:8.3.0-1) ...
+Setting up python3-zmq (17.1.2-2+deb10u1) ...
+Setting up libgcc-8-dev-armhf-cross (8.3.0-2cross1) ...
+Setting up g++-8 (8.3.0-6) ...
+Setting up libstdc++-8-dev-armhf-cross (8.3.0-2cross1) ...
+Setting up gcc-8-arm-linux-gnueabihf (8.3.0-2cross1) ...
+Setting up gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up g++-8-arm-linux-gnueabihf (8.3.0-2cross1) ...
+Setting up g++ (4:8.3.0-1) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Setting up build-essential (12.6) ...
+Setting up g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up libc6:armhf (2.28-10+deb10u1) ...
+Setting up libbsd0:armhf (0.9.1-2+deb10u1) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libgcc1:armhf (1:8.3.0-6) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1+deb10u1) ...
+Setting up libpng16-16:armhf (1.6.36-6) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-6) ...
+Setting up libexpat1:armhf (2.2.6-2+deb10u4) ...
+Setting up libfreetype6:armhf (2.9.1-3+deb10u2) ...
+Setting up libfontconfig1:armhf (2.13.1-2) ...
+Processing triggers for libc-bin (2.28-10+deb10u1) ...
+              total        used        free      shared  buff/cache   available
+Mem:          7.8Gi       314Mi       4.7Gi       1.0Mi       2.7Gi       7.2Gi
+Swap:            0B          0B          0B
+Number of CPUs (nproc): 2
+Byte Order: Little Endian
+Free disk space:
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         100G   16G   84G  16% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M     0   64M   0% /dev/shm
+/dev/root       100G   16G   84G  16% /sbin/docker-init
+Cloning into '/tmp/cirrus-ci-build/ci/scratch/qa-assets'...
+Checking out files:   1% (6586/336815)   Checking out files:   2% (6737/336815)   Checking out files:   3% (10105/336815)   Checking out files:   3% (11899/336815)   Checking out files:   4% (13473/336815)   Checking out files:   5% (16841/336815)   Checking out files:   5% (18646/336815)   Checking out files:   6% (20209/336815)   Checking out files:   7% (23578/336815)   Checking out files:   7% (25666/336815)   Checking out files:   8% (26946/336815)   Checking out files:   8% (30162/336815)   Checking out files:   9% (30314/336815)   Checking out files:  10% (33682/336815)   Checking out files:  10% (34143/336815)   Checking out files:  11% (37050/336815)   Checking out files:  11% (37771/336815)   Checking out files:  12% (40418/336815)   Checking out files:  12% (42041/336815)   Checking out files:  13% (43786/336815)   Checking out files:  14% (47155/336815)   Checking out files:  14% (49804/336815)   Checking out files:  15% (50523/336815)   Checking out files:  16% (53891/336815)   Checking out files:  16% (54313/336815)   Checking out files:  17% (57259/336815)   Checking out files:  17% (58953/336815)   Checking out files:  18% (60627/336815)   Checking out files:  18% (63713/336815)   Checking out files:  19% (63995/336815)   Checking out files:  20% (67363/336815)   Checking out files:  21% (70732/336815)   Checking out files:  21% (72458/336815)   Checking out files:  22% (74100/336815)   Checking out files:  23% (77468/336815)   Checking out files:  23% (78412/336815)   Checking out files:  24% (80836/336815)   Checking out files:  25% (84204/336815)   Checking out files:  25% (84437/336815)   Checking out files:  26% (87572/336815)   Checking out files:  26% (90580/336815)   Checking out files:  27% (90941/336815)   Checking out files:  28% (94309/336815)   Checking out files:  28% (96946/336815)   Checking out files:  29% (97677/336815)   Checking out files:  30% (101045/336815)   Checking out files:  30% (101301/336815)   Checking out files:  31% (104413/336815)   Checking out files:  31% (106926/336815)   Checking out files:  32% (107781/336815)   Checking out files:  33% (111149/336815)   Checking out files:  34% (114518/336815)   Checking out files:  34% (115052/336815)   Checking out files:  35% (117886/336815)   Checking out files:  35% (118719/336815)   Checking out files:  36% (121254/336815)   Checking out files:  36% (122291/336815)   Checking out files:  37% (124622/336815)   Checking out files:  37% (127722/336815)   Checking out files:  38% (127990/336815)   Checking out files:  39% (131358/336815)   Checking out files:  39% (134498/336815)   Checking out files:  40% (134726/336815)   Checking out files:  41% (138095/336815)   Checking out files:  41% (139842/336815)   Checking out files:  42% (141463/336815)   Checking out files:  42% (144083/336815)   Checking out files:  43% (144831/336815)   Checking out files:  44% (148199/336815)   Checking out files:  44% (148442/336815)   Checking out files:  45% (151567/336815)   Checking out files:  45% (153419/336815)   Checking out files:  46% (154935/336815)   Checking out files:  46% (158260/336815)   Checking out files:  47% (158304/336815)   Checking out files:  48% (161672/336815)   Checking out files:  48% (163478/336815)   Checking out files:  49% (165040/336815)   Checking out files:  50% (168408/336815)   Checking out files:  50% (168495/336815)   Checking out files:  51% (171776/336815)   Checking out files:  51% (173735/336815)   Checking out files:  52% (175144/336815)   Checking out files:  52% (178049/336815)   Checking out files:  53% (178512/336815)   Checking out files:  54% (181881/336815)   Checking out files:  54% (182865/336815)   Checking out files:  55% (185249/336815)   Checking out files:  55% (185468/336815)   Checking out files:  56% (188617/336815)   Checking out files:  56% (189597/336815)   Checking out files:  57% (191985/336815)   Checking out files:  57% (194553/336815)   Checking out files:  58% (195353/336815)   Checking out files:  59% (198721/336815)   Checking out files:  59% (199005/336815)   Checking out files:  60% (202089/336815)   Checking out files:  60% (204662/336815)   Checking out files:  61% (205458/336815)   Checking out files:  62% (208826/336815)   Checking out files:  62% (209830/336815)   Checking out files:  63% (212194/336815)   Checking out files:  63% (213800/336815)   Checking out files:  64% (215562/336815)   Checking out files:  64% (217457/336815)   Checking out files:  65% (218930/336815)   Checking out files:  66% (222298/336815)   Checking out files:  67% (225667/336815)   Checking out files:  67% (225687/336815)   Checking out files:  68% (229035/336815)   Checking out files:  69% (232403/336815)   Checking out files:  69% (234676/336815)   Checking out files:  70% (235771/336815)   Checking out files:  71% (239139/336815)   Checking out files:  71% (239200/336815)   Checking out files:  72% (242507/336815)   Checking out files:  73% (245875/336815)   Checking out files:  73% (248932/336815)   Checking out files:  74% (249244/336815)   Checking out files:  75% (252612/336815)   Checking out files:  75% (255479/336815)   Checking out files:  76% (255980/336815)   Checking out files:  77% (259348/336815)   Checking out files:  77% (259713/336815)   Checking out files:  78% (262716/336815)   Checking out files:  79% (266084/336815)   Checking out files:  79% (266520/336815)   Checking out files:  80% (269452/336815)   Checking out files:  81% (272821/336815)   Checking out files:  81% (274095/336815)   Checking out files:  82% (276189/336815)   Checking out files:  82% (276309/336815)   Checking out files:  82% (279519/336815)   Checking out files:  83% (279557/336815)   Checking out files:  84% (282925/336815)   Checking out files:  84% (284912/336815)   Checking out files:  85% (286293/336815)   Checking out files:  86% (289661/336815)   Checking out files:  86% (290190/336815)   Checking out files:  87% (293030/336815)   Checking out files:  88% (296398/336815)   Checking out files:  88% (298285/336815)   Checking out files:  89% (299766/336815)   Checking out files:  89% (301390/336815)   Checking out files:  90% (303134/336815)   Checking out files:  91% (306502/336815)   Checking out files:  92% (309870/336815)   Checking out files:  92% (310858/336815)   Checking out files:  93% (313238/336815)   Checking out files:  93% (314596/336815)   Checking out files:  94% (316607/336815)   Checking out files:  95% (319975/336815)   Checking out files:  95% (320584/336815)   Checking out files:  96% (323343/336815)   Checking out files:  97% (326711/336815)   Checking out files:  97% (327729/336815)   Checking out files:  98% (330079/336815)   Checking out files:  98% (333204/336815)   Checking out files:  99% (333447/336815)   Checking out files: 100% (336815/336815)   Checking out files: 100% (336815/336815), done.
+Setup to use BusyBox utils
+BusyBox v1.30.1 (Debian 1:1.30.1-4) multi-call binary.
+
+Usage: patch [OPTIONS] [ORIGFILE [PATCHFILE]]
+
+	-p N	Strip N leading components from file names
+	-i DIFF	Read DIFF instead of stdin
+	-R	Reverse patch
+	-N	Ignore already applied patches
+	-E	Remove output files if they become empty
+	--dry-run	Don't actually change files
+make: Entering directory '/tmp/cirrus-ci-build/depends'
+copying packages: boost libevent zlib qt expat libxcb xcb_proto libXau xproto freetype fontconfig qrencode bdb sqlite miniupnpc zeromq
+to: /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf
+make: Leaving directory '/tmp/cirrus-ci-build/depends'
+Statistics zeroed
+Set cache size limit to 200.0 MB
+
+travis_fold:start:autogen
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:45: installing 'build-aux/compile'
+configure.ac:45: installing 'build-aux/config.guess'
+configure.ac:45: installing 'build-aux/config.sub'
+configure.ac:28: installing 'build-aux/install-sh'
+configure.ac:28: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:15: installing 'build-aux/compile'
+configure.ac:5: installing 'build-aux/config.guess'
+configure.ac:5: installing 'build-aux/config.sub'
+configure.ac:9: installing 'build-aux/install-sh'
+configure.ac:9: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:101: installing 'build-aux/compile'
+configure.ac:35: installing 'build-aux/config.guess'
+configure.ac:35: installing 'build-aux/config.sub'
+configure.ac:45: installing 'build-aux/install-sh'
+configure.ac:45: installing 'build-aux/missing'
+src/Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+travis_fold:end:autogen
+
+travis_fold:start:configure
+configure: loading site script /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/config.site
+configure: creating cache config.cache
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-g++... none
+checking whether arm-linux-gnueabihf-g++ supports C++11 features with -std=c++11... yes
+checking whether std::atomic can be used without link library... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++ -std=c++11
+checking whether we are using the GNU Objective C++ compiler... no
+checking whether arm-linux-gnueabihf-g++ -std=c++11 accepts -g... no
+checking dependency style of arm-linux-gnueabihf-g++ -std=c++11... none
+checking how to print strings... printf
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking for a sed that does not truncate output... /tmp/cirrus-ci-build/ci/scratch/bins//sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... arm-linux-gnueabihf-nm
+checking the name lister (arm-linux-gnueabihf-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse arm-linux-gnueabihf-nm output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /tmp/cirrus-ci-build/ci/scratch/bins//dd
+checking how to truncate binary pipes... /tmp/cirrus-ci-build/ci/scratch/bins//dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -std=c++11 -E
+checking for ld used by arm-linux-gnueabihf-g++ -std=c++11... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ -std=c++11 linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ -std=c++11 option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-g++ -std=c++11 PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-g++ -std=c++11 static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ -std=c++11 supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-g++ -std=c++11 supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ -std=c++11 linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for arm-linux-gnueabihf-ar... /usr/bin/arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... /usr/bin/arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... /usr/bin/arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-gcov... /usr/bin/arm-linux-gnueabihf-gcov
+checking for arm-linux-gnueabihf-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.5... no
+checking for python3.6... no
+checking for python3.7... /usr/bin/python3.7
+checking for genhtml... no
+checking for git... /usr/bin/git
+checking for ccache... /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... /tmp/cirrus-ci-build/ci/scratch/bins//hexdump
+checking for arm-linux-gnueabihf-readelf... /usr/bin/arm-linux-gnueabihf-readelf
+checking for arm-linux-gnueabihf-c++filt... /usr/bin/arm-linux-gnueabihf-c++filt
+checking for arm-linux-gnueabihf-objcopy... /usr/bin/arm-linux-gnueabihf-objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... yes
+checking whether the linker accepts -Wl,--fatal-warnings... yes
+checking whether C++ compiler accepts -Werror=gnu... no
+checking whether C++ compiler accepts -Werror=vla... yes
+checking whether C++ compiler accepts -Werror=shadow-field... no
+checking whether C++ compiler accepts -Werror=switch... yes
+checking whether C++ compiler accepts -Werror=thread-safety... no
+checking whether C++ compiler accepts -Werror=range-loop-analysis... no
+checking whether C++ compiler accepts -Werror=unused-variable... yes
+checking whether C++ compiler accepts -Werror=date-time... yes
+checking whether C++ compiler accepts -Werror=return-type... yes
+checking whether C++ compiler accepts -Werror=conditional-uninitialized... no
+checking whether C++ compiler accepts -Werror=sign-compare... yes
+checking whether C++ compiler accepts -Werror=suggest-override... no
+checking whether C++ compiler accepts -Werror=unreachable-code-loop-increment... no
+checking whether C++ compiler accepts -fno-extended-identifiers... yes
+checking whether C++ compiler accepts -msse4.2... no
+checking whether C++ compiler accepts -msse4.1... no
+checking whether C++ compiler accepts -mavx -mavx2... no
+checking whether C++ compiler accepts -msse4 -msha... no
+checking for SSE4.2 intrinsics... no
+checking for SSE4.1 intrinsics... no
+checking for AVX2 intrinsics... no
+checking for SHA-NI intrinsics... no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... yes
+checking for AArch64 CRC32 intrinsics... no
+checking whether byte ordering is bigendian... no
+checking whether arm-linux-gnueabihf-gcc is Clang... no
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking for __attribute__((visibility))... yes
+checking for __attribute__((dllexport))... no
+checking for __attribute__((dllimport))... no
+checking whether the linker accepts -Wl,--wrap=__divmoddi4... yes
+checking whether the linker accepts -Wl,--wrap=log2f... yes
+checking whether C++ compiler accepts -fPIC... yes
+checking whether C++ compiler accepts -fstack-reuse=none... yes
+checking whether C++ compiler accepts -Wstack-protector... yes
+checking whether C++ compiler accepts -fstack-protector-all... yes
+checking whether C++ compiler accepts -fcf-protection=full... no
+checking whether C++ compiler accepts -fstack-clash-protection... yes
+checking whether C++ preprocessor accepts -D_FORTIFY_SOURCE=2... yes
+checking whether C++ preprocessor accepts -U_FORTIFY_SOURCE... yes
+checking whether the linker accepts -Wl,--dynamicbase... no
+checking whether the linker accepts -Wl,--nxcompat... no
+checking whether the linker accepts -Wl,--high-entropy-va... no
+checking whether the linker accepts -Wl,-z,relro... yes
+checking whether the linker accepts -Wl,-z,now... yes
+checking whether the linker accepts -Wl,-z,separate-code... yes
+checking whether the linker accepts -fPIE -pie... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/sysctl.h usability... yes
+checking sys/sysctl.h presence... yes
+checking for sys/sysctl.h... yes
+checking vm/vm_param.h usability... no
+checking vm/vm_param.h presence... no
+checking for vm/vm_param.h... no
+checking sys/vmmeter.h usability... no
+checking sys/vmmeter.h presence... no
+checking for sys/vmmeter.h... no
+checking sys/resources.h usability... no
+checking sys/resources.h presence... no
+checking for sys/resources.h... no
+checking whether getifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether strnlen is declared... yes
+checking whether daemon is declared... yes
+checking whether le16toh is declared... yes
+checking whether le32toh is declared... yes
+checking whether le64toh is declared... yes
+checking whether htole16 is declared... yes
+checking whether htole32 is declared... yes
+checking whether htole64 is declared... yes
+checking whether be16toh is declared... yes
+checking whether be32toh is declared... yes
+checking whether be64toh is declared... yes
+checking whether htobe16 is declared... yes
+checking whether htobe32 is declared... yes
+checking whether htobe64 is declared... yes
+checking whether bswap_16 is declared... yes
+checking whether bswap_32 is declared... yes
+checking whether bswap_64 is declared... yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for visibility attribute... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... no
+checking for strong getauxval support in the system headers... yes
+checking for weak getauxval support in the compiler... yes
+checking whether C++ compiler accepts -fvisibility=hidden... yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking for QT_CORE... yes
+checking for QT_GUI... yes
+checking for QT_WIDGETS... yes
+checking for QT_NETWORK... yes
+checking for QT_TEST... yes
+checking for QT_DBUS... yes
+checking for static Qt... yes
+checking for QTFONTDATABASE... yes
+checking for QTEVENTDISPATCHER... yes
+checking for QTTHEME... yes
+checking for QTDEVICEDISCOVERY... yes
+checking for QTACCESSIBILITY... yes
+checking for QTFB... yes
+checking for QTXCBQPA... yes
+checking for static Qt plugins: -lqminimal... yes
+checking for static Qt plugins: -lqxcb -lxcb-static... yes
+checking whether -fPIE can be used with this Qt config... yes
+checking for moc-qt5... no
+checking for moc5... no
+checking for moc... /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/moc
+checking for uic-qt5... no
+checking for uic5... no
+checking for uic... /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/uic
+checking for rcc-qt5... no
+checking for rcc5... no
+checking for rcc... /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/rcc
+checking for lrelease-qt5... no
+checking for lrelease5... no
+checking for lrelease... /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/lrelease
+checking for lupdate-qt5... no
+checking for lupdate5... no
+checking for lupdate... /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/lupdate
+checking whether to build Bitcoin Core GUI... yes (Qt5)
+checking for Berkeley DB C++ headers... default
+checking for main in -ldb_cxx-4.8... yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking miniupnpc/miniwget.h usability... yes
+checking miniupnpc/miniwget.h presence... yes
+checking for miniupnpc/miniwget.h... yes
+checking for upnpDiscover in -lminiupnpc... yes
+checking miniupnpc/miniupnpc.h usability... yes
+checking miniupnpc/miniupnpc.h presence... yes
+checking for miniupnpc/miniupnpc.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking miniupnpc/upnpcommands.h usability... yes
+checking miniupnpc/upnpcommands.h presence... yes
+checking for miniupnpc/upnpcommands.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking miniupnpc/upnperrors.h usability... yes
+checking miniupnpc/upnperrors.h presence... yes
+checking for miniupnpc/upnperrors.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking for boostlib >= 1.58.0 (105800) includes in "/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../include"... yes
+checking for boostlib >= 1.58.0 (105800) lib path in "/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib/arm-linux-gnueabihf"... no
+checking for boostlib >= 1.58.0 (105800) lib path in "/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib"... yes
+checking for boostlib >= 1.58.0 (105800)... yes
+checking whether the Boost::System library is available... yes
+checking for exit in -lboost_system-mt-a32... yes
+checking whether the Boost::Filesystem library is available... yes
+checking for exit in -lboost_filesystem-mt-a32... yes
+checking whether the Boost::Thread library is available... yes
+checking for exit in -lboost_thread-mt-a32... yes
+checking whether the Boost::Process library is available... yes
+checking whether the linker accepts -Wl,--exclude-libs,ALL... yes
+checking whether the Boost::Unit_Test_Framework library is available... yes
+checking for dynamic linked boost test... no
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking for QR... yes
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build GUI with support for D-Bus... yes
+checking whether to build GUI with support for QR codes... yes
+configure: WARNING: "xgettext is required to update qt translations"
+checking whether to build test_bitcoin-qt... yes
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... yes
+configure: updating cache config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/security-check.py to contrib/devtools/security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-security-check.py to contrib/devtools/test-security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/filter-lcov.py to contrib/filter-lcov.py
+config.status: linking /tmp/cirrus-ci-build/test/functional/test_runner.py to test/functional/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/fuzz/test_runner.py to test/fuzz/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/bitcoin-util-test.py to test/util/bitcoin-util-test.py
+config.status: linking /tmp/cirrus-ci-build/test/util/rpcauth-test.py to test/util/rpcauth-test.py
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/univalue (/tmp/cirrus-ci-build/ci/scratch/build/src/univalue)
+configure: running /bin/bash /tmp/cirrus-ci-build/src/univalue/configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib' '--enable-werror' '--enable-glibc-back-compat' '--enable-reduce-exports' 'CXXFLAGS=-Wno-psabi' '--with-boost-process' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--with-bignum=no' '--enable-module-recovery' '--enable-module-schnorrsig' '--enable-experimental' --cache-file=../../config.cache --srcdir=/tmp/cirrus-ci-build/src/univalue
+configure: loading site script /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/config.site
+configure: loading cache ../../config.cache
+checking whether make supports nested variables... (cached) yes
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... (cached) /bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for a sed that does not truncate output... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//sed
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for fgrep... (cached) /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) arm-linux-gnueabihf-nm
+checking the name lister (arm-linux-gnueabihf-nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... (cached) -r
+checking for arm-linux-gnueabihf-objdump... (cached) arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for archiver @FILE support... (cached) @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... (cached) arm-linux-gnueabihf-ranlib
+checking command to parse arm-linux-gnueabihf-nm output from arm-linux-gnueabihf-gcc object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd
+checking how to truncate binary pipes... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... (cached) mt
+checking if mt is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... (cached) yes
+checking dependency style of arm-linux-gnueabihf-g++... (cached) none
+checking how to run the C++ preprocessor... (cached) arm-linux-gnueabihf-g++ -std=c++11 -E
+checking for ld used by arm-linux-gnueabihf-g++... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating pc/libunivalue.pc
+config.status: creating pc/libunivalue-uninstalled.pc
+config.status: creating univalue-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1)
+configure: running /bin/bash /tmp/cirrus-ci-build/src/secp256k1/configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib' '--enable-werror' '--enable-glibc-back-compat' '--enable-reduce-exports' 'CXXFLAGS=-Wno-psabi' '--with-boost-process' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--with-bignum=no' '--enable-module-recovery' '--enable-module-schnorrsig' '--enable-experimental' --cache-file=../../config.cache --srcdir=/tmp/cirrus-ci-build/src/secp256k1
+configure: loading site script /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/config.site
+configure: loading cache ../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... (cached) /bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for a sed that does not truncate output... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//sed
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for fgrep... (cached) /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) arm-linux-gnueabihf-nm
+checking the name lister (arm-linux-gnueabihf-nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... (cached) -r
+checking for arm-linux-gnueabihf-objdump... (cached) arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for archiver @FILE support... (cached) @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... (cached) arm-linux-gnueabihf-ranlib
+checking command to parse arm-linux-gnueabihf-nm output from arm-linux-gnueabihf-gcc object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd
+checking how to truncate binary pipes... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... (cached) mt
+checking if mt is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking whether make supports nested variables... (cached) yes
+checking for arm-linux-gnueabihf-pkg-config... (cached) /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking for arm-linux-gnueabihf-ar... (cached) /usr/bin/arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... (cached) /usr/bin/arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... (cached) /usr/bin/arm-linux-gnueabihf-strip
+checking for gcc... gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) none
+checking how to run the C preprocessor... gcc -E
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking if arm-linux-gnueabihf-gcc supports -std=c89 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-unused-function -Wno-long-long -Wno-overlength-strings... yes
+checking if arm-linux-gnueabihf-gcc supports -fvisibility=hidden... yes
+checking valgrind/memcheck.h usability... no
+checking valgrind/memcheck.h presence... no
+checking for valgrind/memcheck.h... no
+checking if native gcc supports -Wall -Wextra -Wno-unused-function... yes
+checking for working native compiler: gcc... yes
+checking for x86_64 assembly availability... no
+checking for CRYPTO... no
+checking openssl/crypto.h usability... no
+checking openssl/crypto.h presence... no
+checking for openssl/crypto.h... no
+configure: ******
+configure: WARNING: experimental build
+configure: Experimental features do not have stable APIs or properties, and may not be safe for production use.
+configure: Building extrakeys module: yes
+configure: Building schnorrsig module: yes
+configure: ******
+configure: updating cache ../../config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with ecmult precomp     = yes
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with openssl tests      = no
+  with coverage           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  bignum                  = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = arm-linux-gnueabihf-gcc
+  CFLAGS                  = -O2 -fvisibility=hidden -std=c89 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-unused-function -Wno-long-long -Wno-overlength-strings -W -pipe -O2 
+  CPPFLAGS                = -I/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../include/ 
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib 
+
+
+Options used to compile and link:
+  boost process = yes
+  multiprocess  = no
+  with wallet   = yes
+    with sqlite = yes
+  with gui / qt = yes
+    with qr     = yes
+  with zmq      = yes
+  with test     = yes
+    with fuzz   = no
+  with bench    = yes
+  with upnp     = yes
+  use asm       = yes
+  sanitizers    = 
+  debug enabled = no
+  gprof enabled = no
+  werror        = yes
+
+  target os     = linux
+  build os      = linux-gnu
+
+  CC            = /usr/bin/ccache arm-linux-gnueabihf-gcc
+  CFLAGS        = -pthread -pipe -O2 
+  CPPFLAGS      =   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -I/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64
+  CXX           = /usr/bin/ccache arm-linux-gnueabihf-g++ -std=c++11
+  CXXFLAGS      =   -fstack-reuse=none -Wstack-protector -fstack-protector-all -fstack-clash-protection    -Werror=vla -Werror=switch -Werror=unused-variable -Werror=date-time -Werror=return-type -Werror=sign-compare  -pipe -O2 -Wno-psabi -fno-extended-identifiers -fvisibility=hidden
+  LDFLAGS       = -lpthread  -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code -pie  -L/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib 
+  ARFLAGS       = cr
+
+travis_fold:end:configure
+
+travis_fold:start:distdir
+make  distdir-am
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+if test -d "bitcoin-arm-linux-gnueabihf"; then find "bitcoin-arm-linux-gnueabihf" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "bitcoin-arm-linux-gnueabihf" || { sleep 5 && rm -rf "bitcoin-arm-linux-gnueabihf"; }; else :; fi
+test -d "bitcoin-arm-linux-gnueabihf" || mkdir "bitcoin-arm-linux-gnueabihf"
+ (cd src && make  top_distdir=../bitcoin-arm-linux-gnueabihf distdir=../bitcoin-arm-linux-gnueabihf/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make  distdir-am
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+Generated bench/data/block413567.raw.h
+Generated test/data/script_tests.json.h
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/sighash.json.h
+Generated test/data/tx_invalid.json.h
+Generated test/data/tx_valid.json.h
+Generated test/data/asmap.raw.h
+ (cd secp256k1 && make  top_distdir=../../bitcoin-arm-linux-gnueabihf distdir=../../bitcoin-arm-linux-gnueabihf/src/secp256k1 \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make  distdir-am
+make[5]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+:
+test -d "../../bitcoin-arm-linux-gnueabihf/src/secp256k1" || mkdir "../../bitcoin-arm-linux-gnueabihf/src/secp256k1"
+test -n ":" \
+|| find "../../bitcoin-arm-linux-gnueabihf/src/secp256k1" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/bash /tmp/cirrus-ci-build/src/secp256k1/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../../bitcoin-arm-linux-gnueabihf/src/secp256k1"
+make[5]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1'
+ (cd univalue && make  top_distdir=../../bitcoin-arm-linux-gnueabihf distdir=../../bitcoin-arm-linux-gnueabihf/src/univalue \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/univalue'
+make  distdir-am
+make[5]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src/univalue'
+:
+test -d "../../bitcoin-arm-linux-gnueabihf/src/univalue" || mkdir "../../bitcoin-arm-linux-gnueabihf/src/univalue"
+test -n ":" \
+|| find "../../bitcoin-arm-linux-gnueabihf/src/univalue" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/bash /tmp/cirrus-ci-build/src/univalue/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "../../bitcoin-arm-linux-gnueabihf/src/univalue"
+make[5]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/univalue'
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src/univalue'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+ (cd doc/man && make  top_distdir=../../bitcoin-arm-linux-gnueabihf distdir=../../bitcoin-arm-linux-gnueabihf/doc/man \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make  distdir-am
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/doc/man'
+make  \
+  top_distdir="bitcoin-arm-linux-gnueabihf" distdir="bitcoin-arm-linux-gnueabihf" \
+  dist-hook
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+/usr/bin/git archive --format=tar HEAD -- src/clientversion.cpp | ${TAR-tar} -C bitcoin-arm-linux-gnueabihf -xf -
+fatal: current working directory is untracked
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+make[2]: [Makefile:1235: dist-hook] Error 2 (ignored)
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+test -n "" \
+|| find "bitcoin-arm-linux-gnueabihf" -type d ! -perm -755 \
+	-exec chmod u+rwx,go+rx {} \; -o \
+  ! -type d ! -perm -444 -links 1 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -400 -exec chmod a+r {} \; -o \
+  ! -type d ! -perm -444 -exec /bin/bash /tmp/cirrus-ci-build/build-aux/install-sh -c -m a+r {} {} \; \
+|| chmod -R a+r "bitcoin-arm-linux-gnueabihf"
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+travis_fold:end:distdir
+
+travis_fold:start:configure
+configure: loading site script /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/config.site
+configure: loading cache ../config.cache
+checking for arm-linux-gnueabihf-pkg-config... (cached) /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... (cached) /bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-g++... (cached) none
+checking whether arm-linux-gnueabihf-g++ supports C++11 features with -std=c++11... (cached) yes
+checking whether std::atomic can be used without link library... yes
+checking for arm-linux-gnueabihf-g++... (cached) arm-linux-gnueabihf-g++ -std=c++11
+checking whether we are using the GNU Objective C++ compiler... (cached) no
+checking whether arm-linux-gnueabihf-g++ -std=c++11 accepts -g... (cached) no
+checking dependency style of arm-linux-gnueabihf-g++ -std=c++11... (cached) none
+checking how to print strings... printf
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for a sed that does not truncate output... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//sed
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for fgrep... (cached) /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) arm-linux-gnueabihf-nm
+checking the name lister (arm-linux-gnueabihf-nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... (cached) -r
+checking for arm-linux-gnueabihf-objdump... (cached) arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for archiver @FILE support... (cached) @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... (cached) arm-linux-gnueabihf-ranlib
+checking command to parse arm-linux-gnueabihf-nm output from arm-linux-gnueabihf-gcc object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd
+checking how to truncate binary pipes... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... (cached) mt
+checking if mt is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... (cached) no
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... (cached) arm-linux-gnueabihf-g++ -std=c++11 -E
+checking for ld used by arm-linux-gnueabihf-g++ -std=c++11... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ -std=c++11 linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ -std=c++11 option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-g++ -std=c++11 PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-g++ -std=c++11 static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-g++ -std=c++11 supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-g++ -std=c++11 supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ -std=c++11 linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for arm-linux-gnueabihf-ar... (cached) /usr/bin/arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... (cached) /usr/bin/arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... (cached) /usr/bin/arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-gcov... (cached) /usr/bin/arm-linux-gnueabihf-gcov
+checking for arm-linux-gnueabihf-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.5... (cached) /usr/bin/python3.7
+checking for genhtml... no
+checking for git... (cached) /usr/bin/git
+checking for ccache... (cached) /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//hexdump
+checking for arm-linux-gnueabihf-readelf... (cached) /usr/bin/arm-linux-gnueabihf-readelf
+checking for arm-linux-gnueabihf-c++filt... (cached) /usr/bin/arm-linux-gnueabihf-c++filt
+checking for arm-linux-gnueabihf-objcopy... (cached) /usr/bin/arm-linux-gnueabihf-objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... (cached) yes
+checking whether the linker accepts -Wl,--fatal-warnings... (cached) yes
+checking whether C++ compiler accepts -Werror=gnu... (cached) no
+checking whether C++ compiler accepts -Werror=vla... (cached) yes
+checking whether C++ compiler accepts -Werror=shadow-field... (cached) no
+checking whether C++ compiler accepts -Werror=switch... (cached) yes
+checking whether C++ compiler accepts -Werror=thread-safety... (cached) no
+checking whether C++ compiler accepts -Werror=range-loop-analysis... (cached) no
+checking whether C++ compiler accepts -Werror=unused-variable... (cached) yes
+checking whether C++ compiler accepts -Werror=date-time... (cached) yes
+checking whether C++ compiler accepts -Werror=return-type... (cached) yes
+checking whether C++ compiler accepts -Werror=conditional-uninitialized... (cached) no
+checking whether C++ compiler accepts -Werror=sign-compare... (cached) yes
+checking whether C++ compiler accepts -Werror=suggest-override... (cached) no
+checking whether C++ compiler accepts -Werror=unreachable-code-loop-increment... (cached) no
+checking whether C++ compiler accepts -fno-extended-identifiers... (cached) yes
+checking whether C++ compiler accepts -msse4.2... (cached) no
+checking whether C++ compiler accepts -msse4.1... (cached) no
+checking whether C++ compiler accepts -mavx -mavx2... (cached) no
+checking whether C++ compiler accepts -msse4 -msha... (cached) no
+checking for SSE4.2 intrinsics... no
+checking for SSE4.1 intrinsics... no
+checking for AVX2 intrinsics... no
+checking for SHA-NI intrinsics... no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) yes
+checking for AArch64 CRC32 intrinsics... no
+checking whether byte ordering is bigendian... (cached) no
+checking whether arm-linux-gnueabihf-gcc is Clang... (cached) no
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking for joinable pthread attribute... (cached) PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... (cached) no
+checking for PTHREAD_PRIO_INHERIT... (cached) yes
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) 64
+checking whether strerror_r is declared... (cached) yes
+checking for strerror_r... (cached) yes
+checking whether strerror_r returns char *... (cached) yes
+checking for __attribute__((visibility))... (cached) yes
+checking for __attribute__((dllexport))... (cached) no
+checking for __attribute__((dllimport))... (cached) no
+checking whether the linker accepts -Wl,--wrap=__divmoddi4... (cached) yes
+checking whether the linker accepts -Wl,--wrap=log2f... (cached) yes
+checking whether C++ compiler accepts -fPIC... (cached) yes
+checking whether C++ compiler accepts -fstack-reuse=none... (cached) yes
+checking whether C++ compiler accepts -Wstack-protector... (cached) yes
+checking whether C++ compiler accepts -fstack-protector-all... (cached) yes
+checking whether C++ compiler accepts -fcf-protection=full... (cached) no
+checking whether C++ compiler accepts -fstack-clash-protection... (cached) yes
+checking whether C++ preprocessor accepts -D_FORTIFY_SOURCE=2... (cached) yes
+checking whether C++ preprocessor accepts -U_FORTIFY_SOURCE... (cached) yes
+checking whether the linker accepts -Wl,--dynamicbase... (cached) no
+checking whether the linker accepts -Wl,--nxcompat... (cached) no
+checking whether the linker accepts -Wl,--high-entropy-va... (cached) no
+checking whether the linker accepts -Wl,-z,relro... (cached) yes
+checking whether the linker accepts -Wl,-z,now... (cached) yes
+checking whether the linker accepts -Wl,-z,separate-code... (cached) yes
+checking whether the linker accepts -fPIE -pie... (cached) yes
+checking for endian.h... (cached) yes
+checking for sys/endian.h... (cached) no
+checking for byteswap.h... (cached) yes
+checking for stdio.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/select.h... (cached) yes
+checking for sys/prctl.h... (cached) yes
+checking for sys/sysctl.h... (cached) yes
+checking for vm/vm_param.h... (cached) no
+checking for sys/vmmeter.h... (cached) no
+checking for sys/resources.h... (cached) no
+checking whether getifaddrs is declared... (cached) yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... (cached) yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether strnlen is declared... (cached) yes
+checking whether daemon is declared... (cached) yes
+checking whether le16toh is declared... (cached) yes
+checking whether le32toh is declared... (cached) yes
+checking whether le64toh is declared... (cached) yes
+checking whether htole16 is declared... (cached) yes
+checking whether htole32 is declared... (cached) yes
+checking whether htole64 is declared... (cached) yes
+checking whether be16toh is declared... (cached) yes
+checking whether be32toh is declared... (cached) yes
+checking whether be64toh is declared... (cached) yes
+checking whether htobe16 is declared... (cached) yes
+checking whether htobe32 is declared... (cached) yes
+checking whether htobe64 is declared... (cached) yes
+checking whether bswap_16 is declared... (cached) yes
+checking whether bswap_32 is declared... (cached) yes
+checking whether bswap_64 is declared... (cached) yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for visibility attribute... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... no
+checking for strong getauxval support in the system headers... yes
+checking for weak getauxval support in the compiler... yes
+checking whether C++ compiler accepts -fvisibility=hidden... (cached) yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking for QT_CORE... yes
+checking for QT_GUI... yes
+checking for QT_WIDGETS... yes
+checking for QT_NETWORK... yes
+checking for QT_TEST... yes
+checking for QT_DBUS... yes
+checking for static Qt... (cached) yes
+checking for QTFONTDATABASE... yes
+checking for QTEVENTDISPATCHER... yes
+checking for QTTHEME... yes
+checking for QTDEVICEDISCOVERY... yes
+checking for QTACCESSIBILITY... yes
+checking for QTFB... yes
+checking for QTXCBQPA... yes
+checking for static Qt plugins: -lqminimal... yes
+checking for static Qt plugins: -lqxcb -lxcb-static... yes
+checking whether -fPIE can be used with this Qt config... yes
+checking for moc-qt5... (cached) /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/moc
+checking for uic-qt5... (cached) /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/uic
+checking for rcc-qt5... (cached) /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/rcc
+checking for lrelease-qt5... (cached) /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/lrelease
+checking for lupdate-qt5... (cached) /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../native/bin/lupdate
+checking whether to build Bitcoin Core GUI... yes (Qt5)
+checking for Berkeley DB C++ headers... default
+checking for main in -ldb_cxx-4.8... (cached) yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking for miniupnpc/miniwget.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/miniupnpc.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/upnpcommands.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking for miniupnpc/upnperrors.h... (cached) yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking for boostlib >= 1.58.0 (105800) includes in "/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../include"... yes
+checking for boostlib >= 1.58.0 (105800) lib path in "/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib/arm-linux-gnueabihf"... no
+checking for boostlib >= 1.58.0 (105800) lib path in "/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib"... yes
+checking for boostlib >= 1.58.0 (105800)... yes
+checking whether the Boost::System library is available... (cached) yes
+checking for exit in -lboost_system-mt-a32... (cached) yes
+checking whether the Boost::Filesystem library is available... (cached) yes
+checking for exit in -lboost_filesystem-mt-a32... (cached) yes
+checking whether the Boost::Thread library is available... (cached) yes
+checking for exit in -lboost_thread-mt-a32... (cached) yes
+checking whether the Boost::Process library is available... (cached) yes
+checking whether the linker accepts -Wl,--exclude-libs,ALL... (cached) yes
+checking whether the Boost::Unit_Test_Framework library is available... (cached) yes
+checking for dynamic linked boost test... no
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking for QR... yes
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build GUI with support for D-Bus... yes
+checking whether to build GUI with support for QR codes... yes
+configure: WARNING: "xgettext is required to update qt translations"
+checking whether to build test_bitcoin-qt... yes
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/univalue (/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib' '--enable-werror' '--enable-glibc-back-compat' '--enable-reduce-exports' 'CXXFLAGS=-Wno-psabi' '--with-boost-process' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--with-bignum=no' '--enable-module-recovery' '--enable-module-schnorrsig' '--enable-experimental' --cache-file=../../../config.cache --srcdir=.
+configure: loading site script /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/config.site
+configure: loading cache ../../../config.cache
+checking whether make supports nested variables... (cached) yes
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... (cached) /bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for a sed that does not truncate output... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//sed
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for fgrep... (cached) /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) arm-linux-gnueabihf-nm
+checking the name lister (arm-linux-gnueabihf-nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... (cached) -r
+checking for arm-linux-gnueabihf-objdump... (cached) arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for archiver @FILE support... (cached) @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... (cached) arm-linux-gnueabihf-ranlib
+checking command to parse arm-linux-gnueabihf-nm output from arm-linux-gnueabihf-gcc object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd
+checking how to truncate binary pipes... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... (cached) mt
+checking if mt is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... (cached) yes
+checking dependency style of arm-linux-gnueabihf-g++... (cached) none
+checking how to run the C++ preprocessor... (cached) arm-linux-gnueabihf-g++ -std=c++11 -E
+checking for ld used by arm-linux-gnueabihf-g++... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating pc/libunivalue.pc
+config.status: creating pc/libunivalue-uninstalled.pc
+config.status: creating univalue-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1)
+configure: running /bin/bash ./configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib' '--enable-werror' '--enable-glibc-back-compat' '--enable-reduce-exports' 'CXXFLAGS=-Wno-psabi' '--with-boost-process' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--with-bignum=no' '--enable-module-recovery' '--enable-module-schnorrsig' '--enable-experimental' --cache-file=../../../config.cache --srcdir=.
+configure: loading site script /tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/config.site
+configure: loading cache ../../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... (cached) /bin/mkdir -p
+checking for gawk... (cached) mawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for a sed that does not truncate output... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//sed
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for fgrep... (cached) /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... (cached) /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) arm-linux-gnueabihf-nm
+checking the name lister (arm-linux-gnueabihf-nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... (cached) -r
+checking for arm-linux-gnueabihf-objdump... (cached) arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for archiver @FILE support... (cached) @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... (cached) arm-linux-gnueabihf-ranlib
+checking command to parse arm-linux-gnueabihf-nm output from arm-linux-gnueabihf-gcc object... (cached) ok
+checking for sysroot... no
+checking for a working dd... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd
+checking how to truncate binary pipes... (cached) /tmp/cirrus-ci-build/ci/scratch/bins//dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... (cached) mt
+checking if mt is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... (cached) -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking whether make supports nested variables... (cached) yes
+checking for arm-linux-gnueabihf-pkg-config... (cached) /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking for arm-linux-gnueabihf-ar... (cached) /usr/bin/arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... (cached) /usr/bin/arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... (cached) /usr/bin/arm-linux-gnueabihf-strip
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) none
+checking how to run the C preprocessor... (cached) gcc -E
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking if arm-linux-gnueabihf-gcc supports -std=c89 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-unused-function -Wno-long-long -Wno-overlength-strings... yes
+checking if arm-linux-gnueabihf-gcc supports -fvisibility=hidden... yes
+checking for valgrind/memcheck.h... (cached) no
+checking if native gcc supports -Wall -Wextra -Wno-unused-function... yes
+checking for working native compiler: gcc... yes
+checking for x86_64 assembly availability... no
+checking for CRYPTO... no
+checking for openssl/crypto.h... (cached) no
+configure: ******
+configure: WARNING: experimental build
+configure: Experimental features do not have stable APIs or properties, and may not be safe for production use.
+configure: Building extrakeys module: yes
+configure: Building schnorrsig module: yes
+configure: ******
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with ecmult precomp     = yes
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with openssl tests      = no
+  with coverage           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  bignum                  = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = arm-linux-gnueabihf-gcc
+  CFLAGS                  = -O2 -fvisibility=hidden -std=c89 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-unused-function -Wno-long-long -Wno-overlength-strings -W -pipe -O2 
+  CPPFLAGS                = -I/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../include/ 
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib 
+
+
+Options used to compile and link:
+  boost process = yes
+  multiprocess  = no
+  with wallet   = yes
+    with sqlite = yes
+  with gui / qt = yes
+    with qr     = yes
+  with zmq      = yes
+  with test     = yes
+    with fuzz   = no
+  with bench    = yes
+  with upnp     = yes
+  use asm       = yes
+  sanitizers    = 
+  debug enabled = no
+  gprof enabled = no
+  werror        = yes
+
+  target os     = linux
+  build os      = linux-gnu
+
+  CC            = /usr/bin/ccache arm-linux-gnueabihf-gcc
+  CFLAGS        = -pthread -pipe -O2 
+  CPPFLAGS      =   -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -I/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_FILE_OFFSET_BITS=64
+  CXX           = /usr/bin/ccache arm-linux-gnueabihf-g++ -std=c++11
+  CXXFLAGS      =   -fstack-reuse=none -Wstack-protector -fstack-protector-all -fstack-clash-protection    -Werror=vla -Werror=switch -Werror=unused-variable -Werror=date-time -Werror=return-type -Werror=sign-compare  -pipe -O2 -Wno-psabi -fno-extended-identifiers -fvisibility=hidden
+  LDFLAGS       = -lpthread  -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code -pie  -L/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/../lib 
+  ARFLAGS       = cr
+
+travis_fold:end:configure
+
+travis_fold:start:build
+Making install in src
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+  CXX      bitcoind-bitcoind.o
+  CXX      libbitcoin_server_a-addrdb.o
+  CXX      libbitcoin_server_a-addrman.o
+  CXX      libbitcoin_server_a-banman.o
+  CXX      libbitcoin_server_a-blockencodings.o
+  CXX      libbitcoin_server_a-blockfilter.o
+  CXX      libbitcoin_server_a-chain.o
+  CXX      libbitcoin_server_a-dbwrapper.o
+  CXX      libbitcoin_server_a-flatfile.o
+  CXX      libbitcoin_server_a-httprpc.o
+  CXX      libbitcoin_server_a-httpserver.o
+  CXX      libbitcoin_server_a-init.o
+  CXX      libbitcoin_server_a-miner.o
+  CXX      libbitcoin_server_a-net.o
+  CXX      libbitcoin_server_a-net_processing.o
+  CXX      libbitcoin_server_a-noui.o
+  CXX      libbitcoin_server_a-pow.o
+  CXX      libbitcoin_server_a-rest.o
+  CXX      libbitcoin_server_a-shutdown.o
+  CXX      libbitcoin_server_a-signet.o
+  CXX      libbitcoin_server_a-timedata.o
+  CXX      libbitcoin_server_a-torcontrol.o
+  CXX      libbitcoin_server_a-txdb.o
+  CXX      libbitcoin_server_a-txrequest.o
+  CXX      libbitcoin_server_a-txmempool.o
+  CXX      libbitcoin_server_a-validation.o
+  CXX      libbitcoin_server_a-validationinterface.o
+  CXX      libbitcoin_server_a-versionbits.o
+  CXX      interfaces/libbitcoin_wallet_a-wallet.o
+  CXX      wallet/libbitcoin_wallet_a-bdb.o
+  CXX      wallet/libbitcoin_wallet_a-coincontrol.o
+  CXX      wallet/libbitcoin_wallet_a-context.o
+  CXX      wallet/libbitcoin_wallet_a-crypter.o
+  CXX      wallet/libbitcoin_wallet_a-db.o
+  CXX      wallet/libbitcoin_wallet_a-feebumper.o
+  CXX      wallet/libbitcoin_wallet_a-fees.o
+  CXX      wallet/libbitcoin_wallet_a-load.o
+  CXX      wallet/libbitcoin_wallet_a-rpcdump.o
+  CXX      wallet/libbitcoin_wallet_a-rpcwallet.o
+  CXX      wallet/libbitcoin_wallet_a-salvage.o
+  CXX      wallet/libbitcoin_wallet_a-scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-wallet.o
+  CXX      wallet/libbitcoin_wallet_a-walletdb.o
+  CXX      wallet/libbitcoin_wallet_a-walletutil.o
+  CXX      wallet/libbitcoin_wallet_a-coinselection.o
+  CXX      wallet/libbitcoin_wallet_a-sqlite.o
+  CXX      libbitcoin_common_a-base58.o
+  CXX      libbitcoin_common_a-bech32.o
+  CXX      libbitcoin_common_a-bloom.o
+  CXX      libbitcoin_common_a-chainparams.o
+  CXX      libbitcoin_common_a-coins.o
+  CXX      libbitcoin_common_a-compressor.o
+  CXX      libbitcoin_common_a-core_read.o
+  CXX      libbitcoin_common_a-core_write.o
+  CXX      libbitcoin_common_a-key.o
+  CXX      libbitcoin_common_a-key_io.o
+  CXX      libbitcoin_common_a-merkleblock.o
+  CXX      libbitcoin_common_a-netaddress.o
+  CXX      libbitcoin_common_a-netbase.o
+  CXX      libbitcoin_common_a-net_permissions.o
+  CXX      libbitcoin_common_a-outputtype.o
+  CXX      policy/libbitcoin_common_a-feerate.o
+  CXX      policy/libbitcoin_common_a-policy.o
+  CXX      libbitcoin_common_a-protocol.o
+  CXX      libbitcoin_common_a-psbt.o
+  CXX      rpc/libbitcoin_common_a-rawtransaction_util.o
+  CXX      rpc/libbitcoin_common_a-util.o
+  CXX      libbitcoin_common_a-scheduler.o
+  CXX      script/libbitcoin_common_a-descriptor.o
+  CXX      script/libbitcoin_common_a-sign.o
+  CXX      script/libbitcoin_common_a-signingprovider.o
+  CXX      script/libbitcoin_common_a-standard.o
+  CXX      libbitcoin_common_a-versionbitsinfo.o
+  CXX      libbitcoin_common_a-warnings.o
+  CXX      libbitcoin_util_a-chainparamsbase.o
+  CXX      libbitcoin_util_a-fs.o
+  CXX      interfaces/libbitcoin_util_a-handler.o
+  CXX      libbitcoin_util_a-logging.o
+  CXX      libbitcoin_util_a-random.o
+  CXX      libbitcoin_util_a-randomenv.o
+  CXX      rpc/libbitcoin_util_a-request.o
+  CXX      support/libbitcoin_util_a-cleanse.o
+  CXX      libbitcoin_util_a-sync.o
+  CXX      libbitcoin_util_a-threadinterrupt.o
+  CXX      compat/libbitcoin_util_a-glibc_compat.o
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue'
+  CXX      libbitcoin_consensus_a-arith_uint256.o
+  CXX      consensus/libbitcoin_consensus_a-merkle.o
+  CXX      lib/libunivalue_la-univalue.lo
+  CXX      lib/libunivalue_la-univalue_get.lo
+  CXX      lib/libunivalue_la-univalue_read.lo
+  CXX      lib/libunivalue_la-univalue_write.lo
+  CXX      consensus/libbitcoin_consensus_a-tx_check.o
+  CXX      libbitcoin_consensus_a-hash.o
+  CXX      libbitcoin_consensus_a-pubkey.o
+  CXX      script/libbitcoin_consensus_a-bitcoinconsensus.o
+  CXX      script/libbitcoin_consensus_a-interpreter.o
+  CXX      script/libbitcoin_consensus_a-script.o
+  CXX      script/libbitcoin_consensus_a-script_error.o
+  CXX      libbitcoin_consensus_a-uint256.o
+  CXX      util/libbitcoin_consensus_a-strencodings.o
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1'
+gcc -I. -I./src -Wall -Wextra -Wno-unused-function -g -O2 -c src/gen_context.c -o gen_context.o
+  CXX      bitcoin_cli-bitcoin-cli.o
+  CXX      compat/libbitcoin_cli_a-stdin.o
+  CXX      rpc/libbitcoin_cli_a-client.o
+  CXX      bitcoin_tx-bitcoin-tx.o
+  CXX      bitcoin_wallet-bitcoin-wallet.o
+  CXX      wallet/libbitcoin_wallet_tool_a-wallettool.o
+Generated test/data/script_tests.json.h
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/sighash.json.h
+Generated test/data/tx_invalid.json.h
+Generated test/data/tx_valid.json.h
+Generated test/data/asmap.raw.h
+Generated bench/data/block413567.raw.h
+  CXX      bench/bench_bitcoin-duplicate_inputs.o
+  CXX      bench/bench_bitcoin-examples.o
+  CXX      bench/bench_bitcoin-rollingbloom.o
+  CXX      bench/bench_bitcoin-chacha20.o
+  CXX      bench/bench_bitcoin-chacha_poly_aead.o
+  CXXLD    libunivalue.la
+  CXX      bench/bench_bitcoin-crypto_hash.o
+  CXX      bench/bench_bitcoin-ccoins_caching.o
+  CXX      bench/bench_bitcoin-gcs_filter.o
+  CXX      bench/bench_bitcoin-hashpadding.o
+  CXX      bench/bench_bitcoin-merkle_root.o
+  CXX      bench/bench_bitcoin-mempool_eviction.o
+  CXX      bench/bench_bitcoin-mempool_stress.o
+  CXX      bench/bench_bitcoin-nanobench.o
+  CXX      bench/bench_bitcoin-rpc_blockchain.o
+  CXX      bench/bench_bitcoin-rpc_mempool.o
+  CXX      bench/bench_bitcoin-util_time.o
+  CXX      bench/bench_bitcoin-verify_script.o
+  CXX      bench/bench_bitcoin-base58.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue'
+  CXX      bench/bench_bitcoin-bech32.o
+  CXX      bench/bench_bitcoin-lockedpool.o
+  CXX      bench/bench_bitcoin-poly1305.o
+  CXX      bench/bench_bitcoin-prevector.o
+  CXX      bench/bench_bitcoin-coin_selection.o
+  CXX      bench/bench_bitcoin-wallet_balance.o
+  GEN      qt/forms/ui_addressbookpage.h
+  GEN      qt/forms/ui_askpassphrasedialog.h
+  GEN      qt/forms/ui_coincontroldialog.h
+  GEN      qt/forms/ui_createwalletdialog.h
+  GEN      qt/forms/ui_editaddressdialog.h
+  GEN      qt/forms/ui_helpmessagedialog.h
+  GEN      qt/forms/ui_intro.h
+  GEN      qt/forms/ui_modaloverlay.h
+  GEN      qt/forms/ui_openuridialog.h
+  GEN      qt/forms/ui_optionsdialog.h
+  GEN      qt/forms/ui_overviewpage.h
+  GEN      qt/forms/ui_psbtoperationsdialog.h
+  GEN      qt/forms/ui_receivecoinsdialog.h
+  GEN      qt/forms/ui_receiverequestdialog.h
+  GEN      qt/forms/ui_debugwindow.h
+  GEN      qt/forms/ui_sendcoinsdialog.h
+  GEN      qt/forms/ui_sendcoinsentry.h
+  GEN      qt/forms/ui_signverifymessagedialog.h
+  GEN      qt/moc_addressbookpage.cpp
+  GEN      qt/moc_addresstablemodel.cpp
+  GEN      qt/forms/ui_transactiondescdialog.h
+  GEN      qt/moc_askpassphrasedialog.cpp
+  GEN      qt/moc_createwalletdialog.cpp
+  GEN      qt/moc_bantablemodel.cpp
+  GEN      qt/moc_bitcoinaddressvalidator.cpp
+  GEN      qt/moc_bitcoinamountfield.cpp
+  GEN      qt/moc_bitcoin.cpp
+  GEN      qt/moc_bitcoingui.cpp
+  GEN      qt/moc_bitcoinunits.cpp
+  GEN      qt/moc_clientmodel.cpp
+  GEN      qt/moc_coincontroldialog.cpp
+  GEN      qt/moc_coincontroltreewidget.cpp
+  GEN      qt/moc_csvmodelwriter.cpp
+  GEN      qt/moc_editaddressdialog.cpp
+  GEN      qt/moc_guiutil.cpp
+  GEN      qt/moc_intro.cpp
+  GEN      qt/moc_macdockiconhandler.cpp
+  GEN      qt/moc_macnotificationhandler.cpp
+  GEN      qt/moc_modaloverlay.cpp
+  GEN      qt/moc_notificator.cpp
+  GEN      qt/moc_openuridialog.cpp
+  GEN      qt/moc_optionsdialog.cpp
+  GEN      qt/moc_optionsmodel.cpp
+  GEN      qt/moc_overviewpage.cpp
+  GEN      qt/moc_peertablemodel.cpp
+  GEN      qt/moc_paymentserver.cpp
+  GEN      qt/moc_psbtoperationsdialog.cpp
+  GEN      qt/moc_qrimagewidget.cpp
+  GEN      qt/moc_qvalidatedlineedit.cpp
+  GEN      qt/moc_qvaluecombobox.cpp
+  GEN      qt/moc_receivecoinsdialog.cpp
+  GEN      qt/moc_receiverequestdialog.cpp
+  GEN      qt/moc_recentrequeststablemodel.cpp
+  GEN      qt/moc_rpcconsole.cpp
+  GEN      qt/moc_sendcoinsdialog.cpp
+  GEN      qt/moc_sendcoinsentry.cpp
+  GEN      qt/moc_signverifymessagedialog.cpp
+  GEN      qt/moc_splashscreen.cpp
+  GEN      qt/moc_trafficgraphwidget.cpp
+  GEN      qt/moc_transactiondesc.cpp
+  GEN      qt/moc_transactiondescdialog.cpp
+  GEN      qt/moc_transactionfilterproxy.cpp
+  GEN      qt/moc_transactionoverviewwidget.cpp
+  GEN      qt/moc_transactiontablemodel.cpp
+  GEN      qt/moc_transactionview.cpp
+  GEN      qt/moc_utilitydialog.cpp
+  GEN      qt/moc_walletcontroller.cpp
+  GEN      qt/moc_walletframe.cpp
+  GEN      qt/moc_walletmodel.cpp
+  GEN      qt/moc_walletview.cpp
+  GEN      qt/qrc_bitcoin.cpp
+  GEN      qt/locale/bitcoin_af.qm
+  GEN      qt/locale/bitcoin_am.qm
+  GEN      qt/locale/bitcoin_ar.qm
+  GEN      qt/locale/bitcoin_az.qm
+  GEN      qt/locale/bitcoin_be.qm
+  GEN      qt/locale/bitcoin_bg.qm
+  GEN      qt/locale/bitcoin_bn.qm
+  GEN      qt/locale/bitcoin_bs.qm
+  GEN      qt/locale/bitcoin_ca.qm
+  GEN      qt/locale/bitcoin_cs.qm
+  GEN      qt/locale/bitcoin_cy.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_da.qm
+  GEN      qt/locale/bitcoin_de.qm
+  GEN      qt/locale/bitcoin_el.qm
+  GEN      qt/locale/bitcoin_en.qm
+  GEN      qt/locale/bitcoin_en_GB.qm
+  GEN      qt/locale/bitcoin_eo.qm
+  GEN      qt/locale/bitcoin_es.qm
+  GEN      qt/locale/bitcoin_es_CL.qm
+  GEN      qt/locale/bitcoin_es_CO.qm
+  GEN      qt/locale/bitcoin_es_DO.qm
+  GEN      qt/locale/bitcoin_es_MX.qm
+  GEN      qt/locale/bitcoin_es_VE.qm
+  GEN      qt/locale/bitcoin_et.qm
+  GEN      qt/locale/bitcoin_eu.qm
+  GEN      qt/locale/bitcoin_fa.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_fi.qm
+  GEN      qt/locale/bitcoin_fil.qm
+  GEN      qt/locale/bitcoin_fr.qm
+  GEN      qt/locale/bitcoin_ga.qm
+  GEN      qt/locale/bitcoin_gl.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_gl_ES.qm
+  GEN      qt/locale/bitcoin_gu.qm
+  GEN      qt/locale/bitcoin_he.qm
+  GEN      qt/locale/bitcoin_hi.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_hr.qm
+  GEN      qt/locale/bitcoin_hu.qm
+  GEN      qt/locale/bitcoin_id.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_is.qm
+  GEN      qt/locale/bitcoin_it.qm
+  GEN      qt/locale/bitcoin_ja.qm
+  GEN      qt/locale/bitcoin_ka.qm
+  GEN      qt/locale/bitcoin_kk.qm
+  GEN      qt/locale/bitcoin_kl.qm
+  GEN      qt/locale/bitcoin_km.qm
+  GEN      qt/locale/bitcoin_ko.qm
+  GEN      qt/locale/bitcoin_ku_IQ.qm
+  GEN      qt/locale/bitcoin_ky.qm
+  GEN      qt/locale/bitcoin_la.qm
+  GEN      qt/locale/bitcoin_lt.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_lv.qm
+  GEN      qt/locale/bitcoin_mk.qm
+  GEN      qt/locale/bitcoin_ml.qm
+  GEN      qt/locale/bitcoin_mn.qm
+  GEN      qt/locale/bitcoin_mr_IN.qm
+  GEN      qt/locale/bitcoin_ms.qm
+  GEN      qt/locale/bitcoin_my.qm
+  GEN      qt/locale/bitcoin_nb.qm
+  GEN      qt/locale/bitcoin_ne.qm
+  GEN      qt/locale/bitcoin_nl.qm
+  GEN      qt/locale/bitcoin_no.qm
+  GEN      qt/locale/bitcoin_pam.qm
+  GEN      qt/locale/bitcoin_pl.qm
+  GEN      qt/locale/bitcoin_pt.qm
+  GEN      qt/locale/bitcoin_pt_BR.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_ro.qm
+  GEN      qt/locale/bitcoin_ru.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_si.qm
+  GEN      qt/locale/bitcoin_sk.qm
+  GEN      qt/locale/bitcoin_sl.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_sn.qm
+  GEN      qt/locale/bitcoin_sq.qm
+  GEN      qt/locale/bitcoin_sr.qm
+  GEN      qt/locale/bitcoin_sr@latin.qm
+  GEN      qt/locale/bitcoin_sv.qm
+  GEN      qt/locale/bitcoin_szl.qm
+  GEN      qt/locale/bitcoin_ta.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_te.qm
+  GEN      qt/locale/bitcoin_th.qm
+  GEN      qt/locale/bitcoin_tr.qm
+  GEN      qt/locale/bitcoin_ug.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_uk.qm
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+  GEN      qt/locale/bitcoin_ur.qm
+  GEN      qt/locale/bitcoin_uz@Cyrl.qm
+  GEN      qt/locale/bitcoin_uz@Latn.qm
+  GEN      qt/locale/bitcoin_vi.qm
+  GEN      qt/locale/bitcoin_yo.qm
+  GEN      qt/locale/bitcoin_zh-Hans.qm
+  GEN      qt/locale/bitcoin_zh.qm
+  GEN      qt/locale/bitcoin_zh_CN.qm
+  GEN      qt/locale/bitcoin_zh_HK.qm
+  GEN      qt/locale/bitcoin_zh_TW.qm
+  GEN      qt/locale/bitcoin_zu.qm
+  CXX      wallet/test/qt_test_test_bitcoin_qt-wallet_test_fixture.o
+  GEN      qt/test/moc_apptests.cpp
+  GEN      qt/test/moc_compattests.cpp
+  GEN      qt/test/moc_rpcnestedtests.cpp
+  GEN      qt/test/moc_uritests.cpp
+  GEN      qt/test/moc_addressbooktests.cpp
+  GEN      qt/test/moc_wallettests.cpp
+  CXX      support/libbitcoinconsensus_la-cleanse.lo
+  CXX      crypto/libbitcoinconsensus_la-aes.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha_poly_aead.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha20.lo
+  CXX      crypto/libbitcoinconsensus_la-hkdf_sha256_32.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-poly1305.lo
+  CXX      crypto/libbitcoinconsensus_la-ripemd160.lo
+  CXX      crypto/libbitcoinconsensus_la-sha1.lo
+gcc -Wall -Wextra -Wno-unused-function -g -O2  gen_context.o -o gen_context
+  CXX      crypto/libbitcoinconsensus_la-sha256.lo
+./gen_context
+  CC       src/libsecp256k1_la-secp256k1.lo
+  CXX      crypto/libbitcoinconsensus_la-sha3.lo
+  CXX      crypto/libbitcoinconsensus_la-sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-siphash.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256_sse4.lo
+  CXX      libbitcoinconsensus_la-arith_uint256.lo
+  CXX      consensus/libbitcoinconsensus_la-merkle.lo
+  CXX      consensus/libbitcoinconsensus_la-tx_check.lo
+  CXX      libbitcoinconsensus_la-hash.lo
+  CXX      primitives/libbitcoinconsensus_la-block.lo
+  CXX      primitives/libbitcoinconsensus_la-transaction.lo
+  CXX      libbitcoinconsensus_la-pubkey.lo
+  CXX      script/libbitcoinconsensus_la-bitcoinconsensus.lo
+  CXX      script/libbitcoinconsensus_la-interpreter.lo
+  CXX      script/libbitcoinconsensus_la-script.lo
+  CXX      script/libbitcoinconsensus_la-script_error.lo
+  CXX      libbitcoinconsensus_la-uint256.lo
+  CXX      util/libbitcoinconsensus_la-strencodings.lo
+  CXX      compat/libbitcoinconsensus_la-glibc_compat.lo
+  CXX      consensus/libbitcoin_server_a-tx_verify.o
+  CXX      index/libbitcoin_server_a-base.o
+  CXX      index/libbitcoin_server_a-blockfilterindex.o
+  CXX      index/libbitcoin_server_a-txindex.o
+  CXX      interfaces/libbitcoin_server_a-chain.o
+  CXX      interfaces/libbitcoin_server_a-node.o
+  CXX      node/libbitcoin_server_a-coin.o
+  CXX      node/libbitcoin_server_a-coinstats.o
+  CXX      node/libbitcoin_server_a-context.o
+  CXX      node/libbitcoin_server_a-psbt.o
+  CXX      node/libbitcoin_server_a-transaction.o
+  CXX      node/libbitcoin_server_a-ui_interface.o
+  CXX      policy/libbitcoin_server_a-fees.o
+  CXX      policy/libbitcoin_server_a-rbf.o
+  CXX      policy/libbitcoin_server_a-settings.o
+  CXX      rpc/libbitcoin_server_a-blockchain.o
+  CXX      rpc/libbitcoin_server_a-mining.o
+  CXX      rpc/libbitcoin_server_a-misc.o
+  CXX      rpc/libbitcoin_server_a-net.o
+  CXX      rpc/libbitcoin_server_a-rawtransaction.o
+  CXX      rpc/libbitcoin_server_a-server.o
+  CXX      script/libbitcoin_server_a-sigcache.o
+  CXX      wallet/libbitcoin_server_a-init.o
+  AR       libbitcoin_wallet.a
+  AR       libbitcoin_common.a
+  CXX      support/libbitcoin_util_a-lockedpool.o
+  CXX      libbitcoin_util_a-clientversion.o
+  CXX      compat/libbitcoin_util_a-glibc_sanity.o
+  CXX      compat/libbitcoin_util_a-glibcxx_sanity.o
+  CXX      compat/libbitcoin_util_a-strnlen.o
+  CXX      util/libbitcoin_util_a-asmap.o
+  CXX      util/libbitcoin_util_a-bip32.o
+  CXX      util/libbitcoin_util_a-bytevectorhash.o
+  CXX      util/libbitcoin_util_a-error.o
+  CXX      util/libbitcoin_util_a-fees.o
+  CXX      util/libbitcoin_util_a-system.o
+  CXX      util/libbitcoin_util_a-message.o
+  CXX      util/libbitcoin_util_a-moneystr.o
+  CXX      util/libbitcoin_util_a-rbf.o
+  CXX      util/libbitcoin_util_a-settings.o
+  CXX      util/libbitcoin_util_a-threadnames.o
+  CXX      util/libbitcoin_util_a-spanparsing.o
+  CXX      util/libbitcoin_util_a-strencodings.o
+  CXX      util/libbitcoin_util_a-string.o
+  CXX      util/libbitcoin_util_a-time.o
+  CXX      util/libbitcoin_util_a-url.o
+  CXX      zmq/libbitcoin_zmq_a-zmqabstractnotifier.o
+  CXX      zmq/libbitcoin_zmq_a-zmqnotificationinterface.o
+  CXX      zmq/libbitcoin_zmq_a-zmqpublishnotifier.o
+  CXX      zmq/libbitcoin_zmq_a-zmqrpc.o
+  CXX      zmq/libbitcoin_zmq_a-zmqutil.o
+  CXX      primitives/libbitcoin_consensus_a-block.o
+  CXX      primitives/libbitcoin_consensus_a-transaction.o
+  CXX      crypto/libbitcoin_crypto_base_a-aes.o
+  CXX      crypto/libbitcoin_crypto_base_a-chacha_poly_aead.o
+  CXX      crypto/libbitcoin_crypto_base_a-chacha20.o
+  CXX      crypto/libbitcoin_crypto_base_a-hkdf_sha256_32.o
+  CXX      crypto/libbitcoin_crypto_base_a-hmac_sha256.o
+  CXX      crypto/libbitcoin_crypto_base_a-hmac_sha512.o
+  CXX      crypto/libbitcoin_crypto_base_a-poly1305.o
+  CXX      crypto/libbitcoin_crypto_base_a-ripemd160.o
+  CXX      crypto/libbitcoin_crypto_base_a-sha1.o
+  CXX      crypto/libbitcoin_crypto_base_a-sha256.o
+  CXX      crypto/libbitcoin_crypto_base_a-sha3.o
+  CXX      crypto/libbitcoin_crypto_base_a-sha512.o
+  CXX      crypto/libbitcoin_crypto_base_a-siphash.o
+  CXX      crypto/libbitcoin_crypto_base_a-sha256_sse4.o
+  CXX      leveldb/db/libleveldb_a-builder.o
+  CXX      leveldb/db/libleveldb_a-c.o
+  CXX      leveldb/db/libleveldb_a-dbformat.o
+  CXX      leveldb/db/libleveldb_a-db_impl.o
+  CXX      leveldb/db/libleveldb_a-db_iter.o
+  CXX      leveldb/db/libleveldb_a-dumpfile.o
+  CXX      leveldb/db/libleveldb_a-filename.o
+  CXX      leveldb/db/libleveldb_a-log_reader.o
+  CXX      leveldb/db/libleveldb_a-log_writer.o
+  CXX      leveldb/db/libleveldb_a-memtable.o
+  CXX      leveldb/db/libleveldb_a-repair.o
+  CXX      leveldb/db/libleveldb_a-table_cache.o
+  CXX      leveldb/db/libleveldb_a-version_edit.o
+  CXX      leveldb/db/libleveldb_a-version_set.o
+  CXX      leveldb/db/libleveldb_a-write_batch.o
+  CXX      leveldb/table/libleveldb_a-block_builder.o
+  CXX      leveldb/table/libleveldb_a-block.o
+  CXX      leveldb/table/libleveldb_a-filter_block.o
+  CXX      leveldb/table/libleveldb_a-format.o
+  CXX      leveldb/table/libleveldb_a-iterator.o
+  CXX      leveldb/table/libleveldb_a-merger.o
+  CXX      leveldb/table/libleveldb_a-table_builder.o
+  CXX      leveldb/table/libleveldb_a-table.o
+  CXX      leveldb/table/libleveldb_a-two_level_iterator.o
+  CXX      leveldb/util/libleveldb_a-arena.o
+  CXX      leveldb/util/libleveldb_a-bloom.o
+  CXX      leveldb/util/libleveldb_a-cache.o
+  CXX      leveldb/util/libleveldb_a-coding.o
+  CXX      leveldb/util/libleveldb_a-comparator.o
+  CXX      leveldb/util/libleveldb_a-crc32c.o
+  CXX      leveldb/util/libleveldb_a-env.o
+  CXX      leveldb/util/libleveldb_a-filter_policy.o
+  CXX      leveldb/util/libleveldb_a-hash.o
+  CXX      leveldb/util/libleveldb_a-histogram.o
+  CXX      leveldb/util/libleveldb_a-logging.o
+  CXX      leveldb/util/libleveldb_a-options.o
+  CXX      leveldb/util/libleveldb_a-status.o
+  CXX      leveldb/util/libleveldb_a-env_posix.o
+  CXX      crc32c/src/libcrc32c_a-crc32c.o
+  CXX      crc32c/src/libcrc32c_a-crc32c_portable.o
+  CXX      leveldb/helpers/memenv/libmemenv_a-memenv.o
+  AR       libbitcoin_cli.a
+  AR       libbitcoin_wallet_tool.a
+  CXX      test/test_bitcoin-main.o
+  CXX      wallet/test/test_test_bitcoin-wallet_test_fixture.o
+  CXX      wallet/test/test_test_bitcoin-init_test_fixture.o
+  CXX      test/test_bitcoin-arith_uint256_tests.o
+  CXX      test/test_bitcoin-addrman_tests.o
+  CXX      test/test_bitcoin-amount_tests.o
+  CXX      test/test_bitcoin-allocator_tests.o
+  CXX      test/test_bitcoin-base32_tests.o
+  CXX      test/test_bitcoin-base58_tests.o
+  CXX      test/test_bitcoin-base64_tests.o
+  CXX      test/test_bitcoin-bech32_tests.o
+  CXX      test/test_bitcoin-bip32_tests.o
+  CXX      test/test_bitcoin-blockchain_tests.o
+  CXX      test/test_bitcoin-blockencodings_tests.o
+  CXX      test/test_bitcoin-blockfilter_tests.o
+  CXX      test/test_bitcoin-blockfilter_index_tests.o
+  CXX      test/test_bitcoin-bloom_tests.o
+  CXX      test/test_bitcoin-bswap_tests.o
+  CXX      test/test_bitcoin-checkqueue_tests.o
+  CXX      test/test_bitcoin-coins_tests.o
+  CXX      test/test_bitcoin-compilerbug_tests.o
+  CXX      test/test_bitcoin-compress_tests.o
+  CXX      test/test_bitcoin-crypto_tests.o
+  CXX      test/test_bitcoin-cuckoocache_tests.o
+  CXX      test/test_bitcoin-denialofservice_tests.o
+  CXX      test/test_bitcoin-descriptor_tests.o
+  CXX      test/test_bitcoin-flatfile_tests.o
+  CXX      test/test_bitcoin-fs_tests.o
+  CXX      test/test_bitcoin-getarg_tests.o
+  CXX      test/test_bitcoin-hash_tests.o
+  CXX      test/test_bitcoin-interfaces_tests.o
+  CXX      test/test_bitcoin-key_io_tests.o
+  CXX      test/test_bitcoin-key_tests.o
+  CXX      test/test_bitcoin-logging_tests.o
+  CXX      test/test_bitcoin-dbwrapper_tests.o
+  CXX      test/test_bitcoin-validation_tests.o
+  CXX      test/test_bitcoin-mempool_tests.o
+  CXX      test/test_bitcoin-merkle_tests.o
+  CXX      test/test_bitcoin-merkleblock_tests.o
+  CXX      test/test_bitcoin-miner_tests.o
+  CXX      test/test_bitcoin-multisig_tests.o
+  CXX      test/test_bitcoin-net_tests.o
+  CXX      test/test_bitcoin-netbase_tests.o
+  CXX      test/test_bitcoin-pmt_tests.o
+  CXX      test/test_bitcoin-policy_fee_tests.o
+  CXX      test/test_bitcoin-policyestimator_tests.o
+  CXX      test/test_bitcoin-pow_tests.o
+  CXX      test/test_bitcoin-prevector_tests.o
+  CXX      test/test_bitcoin-raii_event_tests.o
+  CXX      test/test_bitcoin-random_tests.o
+  CXX      test/test_bitcoin-ref_tests.o
+  CXX      test/test_bitcoin-reverselock_tests.o
+  CXX      test/test_bitcoin-rpc_tests.o
+  CXX      test/test_bitcoin-sanity_tests.o
+  CXX      test/test_bitcoin-scheduler_tests.o
+  CXX      test/test_bitcoin-script_p2sh_tests.o
+  CXX      test/test_bitcoin-script_tests.o
+  CXX      test/test_bitcoin-script_standard_tests.o
+  CXX      test/test_bitcoin-scriptnum_tests.o
+  CXX      test/test_bitcoin-serialize_tests.o
+  CXX      test/test_bitcoin-settings_tests.o
+  CXX      test/test_bitcoin-sighash_tests.o
+  CXX      test/test_bitcoin-sigopcount_tests.o
+  CXX      test/test_bitcoin-skiplist_tests.o
+  CXX      test/test_bitcoin-streams_tests.o
+  CXX      test/test_bitcoin-sync_tests.o
+  CXX      test/test_bitcoin-system_tests.o
+  CXX      test/test_bitcoin-util_threadnames_tests.o
+  CXX      test/test_bitcoin-timedata_tests.o
+  CXX      test/test_bitcoin-torcontrol_tests.o
+  CXX      test/test_bitcoin-transaction_tests.o
+  CXX      test/test_bitcoin-txindex_tests.o
+  CXX      test/test_bitcoin-txrequest_tests.o
+  CXX      test/test_bitcoin-txvalidation_tests.o
+  CXX      test/test_bitcoin-txvalidationcache_tests.o
+  CXX      test/test_bitcoin-uint256_tests.o
+  CXX      test/test_bitcoin-util_tests.o
+  CXX      test/test_bitcoin-validation_block_tests.o
+  CXX      test/test_bitcoin-validation_chainstate_tests.o
+  CXX      test/test_bitcoin-validation_chainstatemanager_tests.o
+  CXX      test/test_bitcoin-validation_flush_tests.o
+  CXX      test/test_bitcoin-validationinterface_tests.o
+  CCLD     libsecp256k1.la
+  CXX      test/test_bitcoin-versionbits_tests.o
+  CXX      wallet/test/test_test_bitcoin-db_tests.o
+  CXX      wallet/test/test_test_bitcoin-psbt_wallet_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_tests.o
+  CXX      wallet/test/test_test_bitcoin-wallet_crypto_tests.o
+  CXX      wallet/test/test_test_bitcoin-coinselector_tests.o
+  CXX      wallet/test/test_test_bitcoin-init_tests.o
+  CXX      wallet/test/test_test_bitcoin-ismine_tests.o
+/usr/bin/arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+  CXX      wallet/test/test_test_bitcoin-scriptpubkeyman_tests.o
+  CXX      test/util/libtest_util_a-blockfilter.o
+  CXX      test/util/libtest_util_a-logging.o
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1'
+  CXX      test/util/libtest_util_a-mining.o
+  CXX      test/util/libtest_util_a-net.o
+  CXX      test/util/libtest_util_a-setup_common.o
+  CXX      test/util/libtest_util_a-str.o
+  CXX      test/util/libtest_util_a-transaction_utils.o
+  CXX      test/util/libtest_util_a-validation.o
+  CXX      test/util/libtest_util_a-wallet.o
+  CXX      bench/bench_bitcoin-addrman.o
+  CXX      bench/bench_bitcoin-bench_bitcoin.o
+  CXX      bench/bench_bitcoin-bench.o
+  CXX      bench/bench_bitcoin-block_assemble.o
+  CXX      bench/bench_bitcoin-checkblock.o
+  CXX      bench/bench_bitcoin-checkqueue.o
+  CXX      bench/bench_bitcoin-data.o
+  GEN      qt/bitcoinamountfield.moc
+  GEN      qt/overviewpage.moc
+  GEN      qt/intro.moc
+  GEN      qt/rpcconsole.moc
+  CXX      qt/test/test_bitcoin_qt-apptests.o
+  GEN      qt/qrc_bitcoin_locale.cpp
+  CXX      qt/test/test_bitcoin_qt-compattests.o
+  CXX      qt/test/test_bitcoin_qt-rpcnestedtests.o
+  CXX      qt/test/test_bitcoin_qt-test_main.o
+  CXX      qt/test/test_bitcoin_qt-uritests.o
+  CXX      qt/test/test_bitcoin_qt-util.o
+  CXX      qt/test/test_bitcoin_qt-addressbooktests.o
+  CXX      qt/test/test_bitcoin_qt-wallettests.o
+  CXX      qt/test/test_bitcoin_qt-moc_apptests.o
+  CXX      qt/test/test_bitcoin_qt-moc_compattests.o
+  CXX      qt/test/test_bitcoin_qt-moc_rpcnestedtests.o
+  CXX      qt/test/test_bitcoin_qt-moc_uritests.o
+  CXX      qt/test/test_bitcoin_qt-moc_addressbooktests.o
+  CXX      qt/test/test_bitcoin_qt-moc_wallettests.o
+  CXXLD    libbitcoinconsensus.la
+  AR       libbitcoin_server.a
+  AR       libbitcoin_util.a
+  AR       libbitcoin_zmq.a
+  AR       libbitcoin_consensus.a
+  AR       crypto/libbitcoin_crypto_base.a
+  AR       leveldb/libleveldb.a
+  AR       leveldb/libmemenv.a
+  AR       crc32c/libcrc32c.a
+  CXXLD    bitcoin-cli
+  CXXLD    bitcoin-tx
+/usr/bin/arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+  CXXLD    bitcoin-wallet
+  AR       libtest_util.a
+  CXX      qt/bitcoin_qt-main.o
+  CXX      qt/libbitcoinqt_a-bantablemodel.o
+  CXX      qt/libbitcoinqt_a-bitcoin.o
+  CXX      qt/libbitcoinqt_a-bitcoinaddressvalidator.o
+  CXX      qt/libbitcoinqt_a-bitcoinamountfield.o
+  CXX      qt/libbitcoinqt_a-bitcoingui.o
+  CXX      qt/libbitcoinqt_a-bitcoinunits.o
+  CXX      qt/libbitcoinqt_a-clientmodel.o
+  CXX      qt/libbitcoinqt_a-csvmodelwriter.o
+  CXX      qt/libbitcoinqt_a-guiutil.o
+  CXX      qt/libbitcoinqt_a-intro.o
+  CXX      qt/libbitcoinqt_a-modaloverlay.o
+  CXX      qt/libbitcoinqt_a-networkstyle.o
+  CXX      qt/libbitcoinqt_a-notificator.o
+  CXX      qt/libbitcoinqt_a-optionsdialog.o
+  CXX      qt/libbitcoinqt_a-optionsmodel.o
+  CXX      qt/libbitcoinqt_a-peertablemodel.o
+  CXX      qt/libbitcoinqt_a-platformstyle.o
+  CXX      qt/libbitcoinqt_a-qvalidatedlineedit.o
+  CXX      qt/libbitcoinqt_a-qvaluecombobox.o
+  CXX      qt/libbitcoinqt_a-rpcconsole.o
+  CXX      qt/libbitcoinqt_a-splashscreen.o
+  CXX      qt/libbitcoinqt_a-trafficgraphwidget.o
+  CXX      qt/libbitcoinqt_a-utilitydialog.o
+  CXX      qt/libbitcoinqt_a-addressbookpage.o
+  CXX      qt/libbitcoinqt_a-addresstablemodel.o
+  CXX      qt/libbitcoinqt_a-askpassphrasedialog.o
+  CXX      qt/libbitcoinqt_a-coincontroldialog.o
+  CXX      qt/libbitcoinqt_a-coincontroltreewidget.o
+  CXX      qt/libbitcoinqt_a-createwalletdialog.o
+  CXX      qt/libbitcoinqt_a-editaddressdialog.o
+  CXX      qt/libbitcoinqt_a-openuridialog.o
+  CXX      qt/libbitcoinqt_a-overviewpage.o
+  CXX      qt/libbitcoinqt_a-paymentserver.o
+  CXX      qt/libbitcoinqt_a-psbtoperationsdialog.o
+  CXX      qt/libbitcoinqt_a-qrimagewidget.o
+  CXX      qt/libbitcoinqt_a-receivecoinsdialog.o
+  CXX      qt/libbitcoinqt_a-receiverequestdialog.o
+  CXX      qt/libbitcoinqt_a-recentrequeststablemodel.o
+  CXX      qt/libbitcoinqt_a-sendcoinsdialog.o
+  CXX      qt/libbitcoinqt_a-sendcoinsentry.o
+  CXX      qt/libbitcoinqt_a-signverifymessagedialog.o
+  CXX      qt/libbitcoinqt_a-transactiondesc.o
+  CXX      qt/libbitcoinqt_a-transactiondescdialog.o
+  CXX      qt/libbitcoinqt_a-transactionfilterproxy.o
+  CXX      qt/libbitcoinqt_a-transactionrecord.o
+  CXX      qt/libbitcoinqt_a-transactiontablemodel.o
+  CXX      qt/libbitcoinqt_a-transactionview.o
+  CXX      qt/libbitcoinqt_a-walletcontroller.o
+  CXX      qt/libbitcoinqt_a-walletframe.o
+  CXX      qt/libbitcoinqt_a-walletmodel.o
+  CXX      qt/libbitcoinqt_a-walletmodeltransaction.o
+  CXX      qt/libbitcoinqt_a-walletview.o
+  CXX      qt/libbitcoinqt_a-moc_addressbookpage.o
+  CXX      qt/libbitcoinqt_a-moc_addresstablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_askpassphrasedialog.o
+  CXX      qt/libbitcoinqt_a-moc_createwalletdialog.o
+  CXX      qt/libbitcoinqt_a-moc_bantablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoinaddressvalidator.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoinamountfield.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoin.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoingui.o
+  CXX      qt/libbitcoinqt_a-moc_bitcoinunits.o
+  CXX      qt/libbitcoinqt_a-moc_clientmodel.o
+  CXX      qt/libbitcoinqt_a-moc_coincontroldialog.o
+  CXX      qt/libbitcoinqt_a-moc_coincontroltreewidget.o
+  CXX      qt/libbitcoinqt_a-moc_csvmodelwriter.o
+  CXX      qt/libbitcoinqt_a-moc_editaddressdialog.o
+  CXX      qt/libbitcoinqt_a-moc_guiutil.o
+  CXX      qt/libbitcoinqt_a-moc_intro.o
+  CXX      qt/libbitcoinqt_a-moc_macdockiconhandler.o
+  CXX      qt/libbitcoinqt_a-moc_macnotificationhandler.o
+  CXX      qt/libbitcoinqt_a-moc_modaloverlay.o
+  CXX      qt/libbitcoinqt_a-moc_notificator.o
+  CXX      qt/libbitcoinqt_a-moc_openuridialog.o
+  CXX      qt/libbitcoinqt_a-moc_optionsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_optionsmodel.o
+  CXX      qt/libbitcoinqt_a-moc_overviewpage.o
+  CXX      qt/libbitcoinqt_a-moc_peertablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_paymentserver.o
+  CXX      qt/libbitcoinqt_a-moc_psbtoperationsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_qrimagewidget.o
+  CXX      qt/libbitcoinqt_a-moc_qvalidatedlineedit.o
+  CXX      qt/libbitcoinqt_a-moc_qvaluecombobox.o
+  CXX      qt/libbitcoinqt_a-moc_receivecoinsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_receiverequestdialog.o
+  CXX      qt/libbitcoinqt_a-moc_recentrequeststablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_rpcconsole.o
+  CXX      qt/libbitcoinqt_a-moc_sendcoinsdialog.o
+  CXX      qt/libbitcoinqt_a-moc_sendcoinsentry.o
+  CXX      qt/libbitcoinqt_a-moc_signverifymessagedialog.o
+  CXX      qt/libbitcoinqt_a-moc_splashscreen.o
+  CXX      qt/libbitcoinqt_a-moc_trafficgraphwidget.o
+  CXX      qt/libbitcoinqt_a-moc_transactiondesc.o
+  CXX      qt/libbitcoinqt_a-moc_transactiondescdialog.o
+  CXX      qt/libbitcoinqt_a-moc_transactionfilterproxy.o
+  CXX      qt/libbitcoinqt_a-moc_transactionoverviewwidget.o
+  CXX      qt/libbitcoinqt_a-moc_transactiontablemodel.o
+  CXX      qt/libbitcoinqt_a-moc_transactionview.o
+  CXX      qt/libbitcoinqt_a-moc_utilitydialog.o
+  CXX      qt/libbitcoinqt_a-moc_walletcontroller.o
+  CXX      qt/libbitcoinqt_a-moc_walletframe.o
+  CXX      qt/libbitcoinqt_a-moc_walletmodel.o
+  CXX      qt/libbitcoinqt_a-moc_walletview.o
+  CXX      qt/libbitcoinqt_a-qrc_bitcoin.o
+  CXX      qt/libbitcoinqt_a-qrc_bitcoin_locale.o
+  CXXLD    bitcoind
+  CXXLD    test/test_bitcoin
+  CXXLD    bench/bench_bitcoin
+  AR       qt/libbitcoinqt.a
+  CXXLD    qt/bitcoin-qt
+  CXXLD    qt/test/test_bitcoin-qt
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+ /bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib'
+ /bin/mkdir -p '/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/include'
+ /bin/bash ../libtool --preserve-dup-deps  --mode=install /usr/bin/install -c   libbitcoinconsensus.la '/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib'
+ /usr/bin/install -c -m 644 script/bitcoinconsensus.h '/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/include'
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.so.0.0.0 /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/libbitcoinconsensus.so.0.0.0
+libtool: install: (cd /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib && { ln -s -f libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so.0 || { rm -f libbitcoinconsensus.so.0 && ln -s libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so.0; }; })
+libtool: install: (cd /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib && { ln -s -f libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so || { rm -f libbitcoinconsensus.so && ln -s libbitcoinconsensus.so.0.0.0 libbitcoinconsensus.so; }; })
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.lai /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/libbitcoinconsensus.la
+libtool: install: /usr/bin/install -c .libs/libbitcoinconsensus.a /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/libbitcoinconsensus.a
+libtool: install: chmod 644 /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/libbitcoinconsensus.a
+libtool: install: /usr/bin/arm-linux-gnueabihf-ranlib /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/libbitcoinconsensus.a
+libtool: finish: PATH="/tmp/cirrus-ci-build/ci/scratch/bins/:/tmp/cirrus-ci-build/ci/retry:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin'
+  /bin/bash ../libtool --preserve-dup-deps  --mode=install /usr/bin/install -c bitcoind bitcoin-cli bitcoin-tx bitcoin-wallet test/test_bitcoin bench/bench_bitcoin qt/bitcoin-qt qt/test/test_bitcoin-qt '/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin'
+libtool: install: /usr/bin/install -c bitcoind /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoind
+libtool: install: /usr/bin/install -c bitcoin-cli /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-cli
+libtool: install: /usr/bin/install -c bitcoin-tx /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-tx
+libtool: install: /usr/bin/install -c bitcoin-wallet /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-wallet
+libtool: install: /usr/bin/install -c test/test_bitcoin /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/test_bitcoin
+libtool: install: /usr/bin/install -c bench/bench_bitcoin /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bench_bitcoin
+libtool: install: /usr/bin/install -c qt/bitcoin-qt /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-qt
+libtool: install: /usr/bin/install -c qt/test/test_bitcoin-qt /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/test_bitcoin-qt
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+Making install in doc/man
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/doc/man'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/doc/man'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/man/man1'
+ /usr/bin/install -c -m 644 bitcoind.1 bitcoin-qt.1 bitcoin-cli.1 bitcoin-tx.1 bitcoin-wallet.1 '/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/share/man/man1'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/doc/man'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/doc/man'
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf'
+make[2]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/pkgconfig'
+ /usr/bin/install -c -m 644 libbitcoinconsensus.pc '/tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/lib/pkgconfig'
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf'
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf'
+travis_fold:end:build
+
+travis_fold:start:cache_stats
+ccache version 3.6
+cache directory                     /tmp/ccache_dir
+primary config                      /tmp/ccache_dir/ccache.conf
+secondary config      (readonly)    /etc/ccache.conf
+stats updated                       Mon Jul  4 11:21:39 2022
+stats zeroed                        Mon Jul  4 11:19:44 2022
+cache hit (direct)                   515
+cache hit (preprocessed)               0
+cache miss                             3
+cache hit rate                     99.42 %
+called for link                        8
+cleanups performed                     0
+files in cache                       980
+cache size                          34.9 MB
+max cache size                     200.0 MB
+4.0K	/tmp/cirrus-ci-build/depends/SDKs/
+250.2M	/tmp/cirrus-ci-build/depends/arm-linux-gnueabihf/
+16.0K	/tmp/cirrus-ci-build/depends/builders/
+37.0M	/tmp/cirrus-ci-build/depends/built/
+24.0K	/tmp/cirrus-ci-build/depends/hosts/
+128.0K	/tmp/cirrus-ci-build/depends/packages/
+148.0K	/tmp/cirrus-ci-build/depends/patches/
+4.0K	/tmp/cirrus-ci-build/depends/sdk-sources/
+4.0K	/tmp/cirrus-ci-build/depends/sources/
+4.0K	/tmp/cirrus-ci-build/releases/arm-linux-gnueabihf
+travis_fold:end:cache_stats
+
+travis_fold:start:wrap-qemu
+make: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1'
+  CC       src/exhaustive_tests-tests_exhaustive.o
+  CC       src/tests-tests.o
+  CCLD     exhaustive_tests
+  CCLD     tests
+make: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1'
+make: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue'
+make  all-am
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue'
+  CXX      test/object-object.o
+  CXX      test/unitester-unitester.o
+  CXX      test/no_nul-no_nul.o
+  CXX      test/test_json-test_json.o
+  CXXLD    test/no_nul
+  CXXLD    test/test_json
+  CXXLD    test/unitester
+  CXXLD    test/object
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue'
+make: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue'
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/bench/bench_bitcoin ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bench_bitcoin ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/bitcoin-cli ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-cli ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/qt/bitcoin-qt ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-qt ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/bitcoin-tx ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-tx ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/bitcoin-wallet ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoin-wallet ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/bitcoind ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/bitcoind ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/test/test_bitcoin ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/test_bitcoin ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/qt/test/test_bitcoin-qt ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/out/arm-linux-gnueabihf/bin/test_bitcoin-qt ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1/exhaustive_tests ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/secp256k1/tests ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue/test/no_nul ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue/test/test_json ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue/test/unitester ...
+Wrap /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src/univalue/test/object ...
+travis_fold:end:wrap-qemu
+
+travis_fold:start:unit-tests
+Making check in src
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+make  check-TESTS check-local
+make[3]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+Running tests: arith_uint256_tests from test/arith_uint256_tests.cpp
+Running tests: addrman_tests from test/addrman_tests.cpp
+Running tests: amount_tests from test/amount_tests.cpp
+make[4]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+Running tests: allocator_tests from test/allocator_tests.cpp
+Running tests: base32_tests from test/base32_tests.cpp
+Running tests: base58_tests from test/base58_tests.cpp
+Running tests: base64_tests from test/base64_tests.cpp
+Running tests: bech32_tests from test/bech32_tests.cpp
+Running tests: bip32_tests from test/bip32_tests.cpp
+Running tests: blockchain_tests from test/blockchain_tests.cpp
+Running tests: blockencodings_tests from test/blockencodings_tests.cpp
+Running tests: blockfilter_tests from test/blockfilter_tests.cpp
+Running tests: blockfilter_index_tests from test/blockfilter_index_tests.cpp
+Running tests: bloom_tests from test/bloom_tests.cpp
+Running tests: bswap_tests from test/bswap_tests.cpp
+Running tests: checkqueue_tests from test/checkqueue_tests.cpp
+Running tests: coins_tests from test/coins_tests.cpp
+Running tests: compilerbug_tests from test/compilerbug_tests.cpp
+Running tests: compress_tests from test/compress_tests.cpp
+Running tests: crypto_tests from test/crypto_tests.cpp
+PASS: qt/test/test_bitcoin-qt
+============================================================================
+Testsuite summary for Bitcoin Core 0.21.2
+============================================================================
+# TOTAL: 1
+# PASS:  1
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
+make[4]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-arm-linux-gnueabihf/src'
+Running tests: cuckoocache_tests from test/cuckoocache_tests.cpp
+Running tests: denialofservice_tests from test/denialofservice_tests.cpp
+Running tests: descriptor_tests from test/descriptor_tests.cpp
+Running tests: flatfile_tests from test/flatfile_tests.cpp
+Running tests: fs_tests from test/fs_tests.cpp
+Running tests: getarg_tests from test/getarg_tests.cpp
+Running tests: hash_tests from test/hash_tests.cpp
+Running tests: interfaces_tests from test/interfaces_tests.cpp
+Running tests: key_io_tests from test/key_io_tests.cpp
+Running tests: key_tests from test/key_tests.cpp
+Running tests: logging_tests from test/logging_tests.cpp
+Running tests: dbwrapper_tests from test/dbwrapper_tests.cpp
+Running tests: validation_tests from test/validation_tests.cpp
+Running tests: mempool_tests from test/mempool_tests.cpp
+Running tests: merkle_tests from test/merkle_tests.cpp
+Running tests: merkleblock_tests from test/merkleblock_tests.cpp
+Running tests: miner_tests from test/miner_tests.cpp
+Running tests: multisig_tests from test/multisig_tests.cpp
+Running tests: net_tests from test/net_tests.cpp
+Running tests: netbase_tests from test/netbase_tests.cpp
+Running tests: pmt_tests from test/pmt_tests.cpp
+Running tests: policy_fee_tests from test/policy_fee_tests.cpp
+Running tests: policyestimator_tests from test/policyestimator_tests.cpp
+Running tests: pow_tests from test/pow_tests.cpp
+Running tests: prevector_tests from test/prevector_tests.cpp
+Running tests: raii_event_tests from test/raii_event_tests.cpp
+Running tests: random_tests from test/random_tests.cpp
+Running tests: ref_tests from test/ref_tests.cpp
+Running tests: reverselock_tests from test/reverselock_tests.cpp
+Running tests: rpc_tests from test/rpc_tests.cpp
+Running tests: sanity_tests from test/sanity_tests.cpp
+Running tests: scheduler_tests from test/scheduler_tests.cpp
+Running tests: script_p2sh_tests from test/script_p2sh_tests.cpp
+Running tests: script_tests from test/script_tests.cpp
+Running tests: script_standard_tests from test/script_standard_tests.cpp
+Running tests: scriptnum_tests from test/scriptnum_tests.cpp
+Running tests: serialize_tests from test/serialize_tests.cpp
+Running tests: settings_tests from test/settings_tests.cpp
+Running tests: sighash_tests from test/sighash_tests.cpp
+Running tests: sigopcount_tests from test/sigopcount_tests.cpp
+Running tests: skiplist_tests from test/skiplist_tests.cpp
+Running tests: streams_tests from test/streams_tests.cpp
+Running tests: sync_tests from test/sync_tests.cpp
+Running tests: system_tests from test/system_tests.cpp
+Running tests: util_threadnames_tests from test/util_threadnames_tests.cpp
+Running tests: timedata_tests from test/timedata_tests.cpp
+Running tests: torcontrol_tests from test/torcontrol_tests.cpp
+Running tests: transaction_tests from test/transaction_tests.cpp
+Running tests: txindex_tests from test/txindex_tests.cpp
+Running tests: txrequest_tests from test/txrequest_tests.cpp
+Running tests: txvalidation_tests from test/txvalidation_tests.cpp
+Running tests: txvalidationcache_tests from test/txvalidationcache_tests.cpp
+
+Timed out!

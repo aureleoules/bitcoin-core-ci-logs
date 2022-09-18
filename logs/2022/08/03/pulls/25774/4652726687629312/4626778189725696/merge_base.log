@@ -1,0 +1,136 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 17 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging contrib/guix/manifest.scm
+Merge made by the 'ort' strategy.
+ .tx/config                                         |    2 +-
+ build_msvc/common.init.vcxproj.in                  |    2 +-
+ ci/test/00_setup_env_native_qt5.sh                 |    2 +-
+ ci/test/05_before_script.sh                        |    4 +-
+ ci/test/06_script_b.sh                             |    1 +
+ configure.ac                                       |    2 +-
+ contrib/guix/manifest.scm                          |    8 +-
+ .../patches/nsis-disable-installer-reloc.patch     |   30 +
+ depends/hosts/darwin.mk                            |    3 +
+ depends/packages/native_cctools.mk                 |   14 +-
+ depends/packages/native_clang.mk                   |    3 +
+ depends/packages/native_libtapi.mk                 |    4 +-
+ doc/descriptors.md                                 |    3 +-
+ src/Makefile.am                                    |   12 +
+ src/Makefile.bench.include                         |    9 -
+ src/Makefile.test.include                          |   12 +-
+ src/addrman.cpp                                    |   10 +-
+ src/addrman.h                                      |    7 +-
+ src/addrman_impl.h                                 |    4 +-
+ src/bench/addrman.cpp                              |    2 +-
+ src/bench/wallet_loading.cpp                       |    5 +-
+ src/bitcoin-chainstate.cpp                         |    6 +-
+ src/bitcoin-cli.cpp                                |    2 +-
+ src/chain.cpp                                      |    8 +-
+ src/chain.h                                        |    2 +-
+ src/cuckoocache.h                                  |   23 +-
+ src/init.cpp                                       |   15 +-
+ src/init/common.cpp                                |    2 +-
+ src/interfaces/wallet.h                            |   44 +-
+ src/kernel/validation_cache_sizes.h                |   20 +
+ src/key.cpp                                        |    1 +
+ src/key.h                                          |    4 +-
+ src/net.cpp                                        |    6 +-
+ src/net_processing.cpp                             |    6 +-
+ src/node/validation_cache_args.cpp                 |   34 +
+ src/node/validation_cache_args.h                   |   17 +
+ src/psbt.h                                         |    3 +
+ src/pubkey.cpp                                     |    1 +
+ src/pubkey.h                                       |    4 +-
+ src/qt/addresstablemodel.cpp                       |    2 +-
+ src/qt/bitcoinstrings.cpp                          |   42 +-
+ src/qt/guiutil.cpp                                 |    2 +-
+ src/qt/locale/bitcoin_en.ts                        |  537 +--
+ src/qt/locale/bitcoin_en.xlf                       | 3498 ++++++++++----------
+ src/qt/walletcontroller.cpp                        |   23 +-
+ src/qt/walletmodel.cpp                             |    4 +-
+ src/rest.cpp                                       |   41 +-
+ src/rpc/client.cpp                                 |    2 +
+ src/rpc/net.cpp                                    |    3 +-
+ src/rpc/request.cpp                                |    6 +-
+ src/script/descriptor.cpp                          |   46 +-
+ src/script/sigcache.cpp                            |   18 +-
+ src/script/sigcache.h                              |   11 +-
+ src/script/sign.cpp                                |    5 +
+ src/test/addrman_tests.cpp                         |   18 +-
+ src/test/bip32_tests.cpp                           |   18 +
+ src/test/descriptor_tests.cpp                      |    4 +-
+ src/test/fuzz/script_sigcache.cpp                  |   11 +-
+ src/test/miner_tests.cpp                           |    6 +-
+ src/test/rbf_tests.cpp                             |    2 +-
+ src/test/result_tests.cpp                          |   96 +
+ src/test/script_p2sh_tests.cpp                     |    8 +-
+ src/test/skiplist_tests.cpp                        |    6 +-
+ src/test/txvalidationcache_tests.cpp               |    5 -
+ src/test/util/setup_common.cpp                     |   13 +-
+ src/test/util/wallet.cpp                           |    6 +-
+ src/timedata.h                                     |    1 -
+ src/util/result.h                                  |   87 +-
+ src/util/system.cpp                                |   16 +-
+ src/util/system.h                                  |    2 +-
+ src/validation.cpp                                 |   26 +-
+ src/validation.h                                   |    4 +-
+ src/wallet/feebumper.cpp                           |    6 +-
+ src/wallet/interfaces.cpp                          |   37 +-
+ src/wallet/rpc/addresses.cpp                       |    8 +-
+ src/wallet/rpc/spend.cpp                           |    6 +-
+ src/wallet/rpc/wallet.cpp                          |  112 +
+ src/wallet/scriptpubkeyman.cpp                     |   69 +-
+ src/wallet/scriptpubkeyman.h                       |   14 +-
+ src/wallet/spend.cpp                               |   66 +-
+ src/wallet/spend.h                                 |    2 +-
+ src/wallet/test/availablecoins_tests.cpp           |   18 +-
+ src/wallet/test/coinselector_tests.cpp             |    4 +-
+ src/wallet/test/fuzz/notifications.cpp             |    5 +-
+ src/wallet/test/spend_tests.cpp                    |    2 +-
+ src/wallet/test/wallet_tests.cpp                   |   13 +-
+ src/wallet/wallet.cpp                              |   83 +-
+ src/wallet/wallet.h                                |   14 +-
+ test/README.md                                     |    6 +-
+ test/functional/README.md                          |    4 +-
+ test/functional/data/rpc_decodescript.json         |    2 +-
+ test/functional/data/rpc_psbt.json                 |    6 +
+ test/functional/example_test.py                    |   11 +-
+ test/functional/feature_segwit.py                  |    5 +
+ test/functional/interface_usdt_validation.py       |   11 +-
+ test/functional/mempool_datacarrier.py             |   71 +
+ test/functional/mempool_package_limits.py          |    4 +-
+ test/functional/mempool_package_onemore.py         |   17 +-
+ test/functional/mempool_packages.py                |   45 +-
+ test/functional/rpc_psbt.py                        |    4 +
+ test/functional/rpc_signmessagewithprivkey.py      |   22 +-
+ test/functional/test_framework/messages.py         |    6 +
+ test/functional/test_framework/util.py             |    4 +
+ test/functional/test_framework/wallet.py           |   13 +-
+ test/functional/test_runner.py                     |    3 +
+ test/functional/wallet_simulaterawtx.py            |  129 +
+ test/functional/wallet_taproot.py                  |   17 +-
+ test/get_previous_releases.py                      |  113 +-
+ 108 files changed, 3459 insertions(+), 2399 deletions(-)
+ create mode 100644 contrib/guix/patches/nsis-disable-installer-reloc.patch
+ create mode 100644 src/kernel/validation_cache_sizes.h
+ create mode 100644 src/node/validation_cache_args.cpp
+ create mode 100644 src/node/validation_cache_args.h
+ create mode 100644 src/test/result_tests.cpp
+ create mode 100755 test/functional/mempool_datacarrier.py
+ create mode 100755 test/functional/wallet_simulaterawtx.py

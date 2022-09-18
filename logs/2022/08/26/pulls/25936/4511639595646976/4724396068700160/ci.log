@@ -1,0 +1,58 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+CONFIG_SHELL=/bin/dash
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=--enable-zmq --with-gui=qt5 --enable-reduce-exports
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Running on host system without docker wrapper
+Last metadata expiration check: 0:00:43 ago on Fri Aug 26 18:34:59 2022.
+Dependencies resolved.
+================================================================================
+ Package               Architecture    Version            Repository       Size
+================================================================================
+Installing:
+ epel-release          noarch          8-11.el8           extras           24 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 35 k
+Downloading Packages:
+epel-release-8-11.el8.noarch.rpm                 91 kB/s |  24 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            55 kB/s |  24 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : epel-release-8-11.el8.noarch                           1/1 
+  Running scriptlet: epel-release-8-11.el8.noarch                           1/1 
+  Verifying        : epel-release-8-11.el8.noarch                           1/1 
+
+Installed:
+  epel-release-8-11.el8.noarch                                                  
+
+Complete!
+Extra Packages for Enterprise Linux 8 - x86_64   12 MB/s |  13 MB     00:01    
+
+Timed out!

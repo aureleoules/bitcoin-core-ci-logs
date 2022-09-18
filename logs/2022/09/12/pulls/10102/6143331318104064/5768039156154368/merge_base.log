@@ -1,0 +1,49 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [545 kB]
+Get:6 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main Translation-en [129 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 Packages [253 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe Translation-en [82.9 kB]
+Get:9 https://mirror.hetzner.com/ubuntu/security jammy-security/main amd64 Packages [296 kB]
+Get:10 https://mirror.hetzner.com/ubuntu/security jammy-security/main Translation-en [69.6 kB]
+Get:11 https://mirror.hetzner.com/ubuntu/security jammy-security/universe amd64 Packages [121 kB]
+Get:12 https://mirror.hetzner.com/ubuntu/security jammy-security/universe Translation-en [41.1 kB]
+Fetched 1,861 kB in 1s (2,598 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 31 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/init.cpp
+Auto-merging test/functional/feature_config_args.py
+Auto-merging test/functional/wallet_groups.py
+Merge made by the 'ort' strategy.
+ build-aux/m4/ax_boost_base.m4                     | 14 ++--
+ configure.ac                                      |  9 ++-
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch |  2 +-
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch |  2 +-
+ contrib/message-capture/message-capture-parser.py |  3 +-
+ contrib/seeds/nodes_test.txt                      | 99 ++++++++++++++++++++---
+ src/chainparamsseeds.h                            | 96 +++++++++++++++++++---
+ src/init.cpp                                      | 17 ++++
+ src/net.cpp                                       | 17 +++-
+ src/test/util/chainstate.h                        |  7 +-
+ src/txmempool.cpp                                 | 48 +++--------
+ test/functional/feature_config_args.py            |  3 +-
+ test/functional/rpc_invalidateblock.py            |  5 ++
+ test/functional/test_runner.py                    |  8 +-
+ test/functional/wallet_basic.py                   | 63 ++++++++-------
+ test/functional/wallet_groups.py                  |  5 +-
+ test/functional/wallet_listsinceblock.py          |  3 +-
+ 17 files changed, 279 insertions(+), 122 deletions(-)

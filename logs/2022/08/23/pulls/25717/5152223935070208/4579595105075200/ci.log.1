@@ -1,0 +1,185 @@
+[0;34m node0 2022-08-23T20:26:26.883120Z [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=7bdacb6b3d13a7ed20439d9ddc05d27f37f06d40e6a5311598dad8876b6ef167 block height=14 [0m
+[0;34m node0 2022-08-23T20:26:26.883203Z [scheduler] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs_main, net_processing.cpp:1806 started [0m
+[0;34m node0 2022-08-23T20:26:26.883260Z [scheduler] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs_main, net_processing.cpp:1806 completed (31μs) [0m
+[0;34m node0 2022-08-23T20:26:26.883387Z [scheduler] [validationinterface.cpp:202] [operator()] [validation] UpdatedBlockTip: new block hash=7bdacb6b3d13a7ed20439d9ddc05d27f37f06d40e6a5311598dad8876b6ef167 fork block hash=1435e7ce62d54f8f0b1943f522fe697d09e3f2ecf4901c9cee9d676f987f2e8a (in IBD=false) [0m
+[0;34m node0 2022-08-23T20:26:26.883493Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs_main, net_processing.cpp:4740 started [0m
+[0;34m node0 2022-08-23T20:26:26.883660Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs_main, net_processing.cpp:4740 completed (141μs) [0m
+[0;34m node0 2022-08-23T20:26:26.883729Z [msghand] [net_processing.cpp:5437] [SendMessages] [net] SendMessages: sending inv peer=0 hash=7bdacb6b3d13a7ed20439d9ddc05d27f37f06d40e6a5311598dad8876b6ef167 [0m
+[0;34m node0 2022-08-23T20:26:26.883770Z [msghand] [net.cpp:2744] [PushMessage] [net] sending inv (37 bytes) peer=0 [0m
+[0;34m node0 2022-08-23T20:26:26.883922Z [msghand] [net_processing.cpp:5437] [SendMessages] [net] SendMessages: sending inv peer=1 hash=7bdacb6b3d13a7ed20439d9ddc05d27f37f06d40e6a5311598dad8876b6ef167 [0m
+[0;34m node0 2022-08-23T20:26:26.883965Z [msghand] [net.cpp:2744] [PushMessage] [net] sending inv (37 bytes) peer=1 [0m
+[0;34m node0 2022-08-23T20:26:26.910117Z [net] [net.cpp:1325] [SocketHandlerConnected] [net] socket recv error for peer=0: Connection reset by peer (104) [0m
+[0;34m node0 2022-08-23T20:26:26.910169Z [net] [net.cpp:563] [CloseSocketDisconnect] [net] disconnecting peer=0 [0m
+[0;34m node0 2022-08-23T20:26:26.910589Z [net] [net_processing.cpp:1516] [FinalizeNode] [net] Cleared nodestate for peer=0 [0m
+[0;34m node0 2022-08-23T20:26:26.914445Z [net] [net.cpp:1325] [SocketHandlerConnected] [net] socket recv error for peer=1: Connection reset by peer (104) [0m
+[0;34m node0 2022-08-23T20:26:26.914502Z [net] [net.cpp:563] [CloseSocketDisconnect] [net] disconnecting peer=1 [0m
+[0;34m node0 2022-08-23T20:26:26.914895Z [net] [net_processing.cpp:1516] [FinalizeNode] [net] Cleared nodestate for peer=1 [0m
+[0;34m node0 2022-08-23T20:27:11.442268Z [scheduler] [net.cpp:1527] [StartExtraBlockRelayPeers] [net] enabling extra block-relay-only peers [0m
+[0;34m node0 2022-08-23T20:27:26.280326Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 33458 bytes of dynamic environment data into RNG [0m
+[0;36m test  2022-08-23T20:27:46.860000Z TestFramework (ERROR): Assertion failed [0m
+[0;36m                                   Traceback (most recent call last):[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 133, in main[0m
+[0;36m                                       self.run_test()[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/test/functional/p2p_headers_sync_with_minchainwork.py", line 135, in run_test[0m
+[0;36m                                       self.test_chains_sync_when_long_enough()[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/test/functional/p2p_headers_sync_with_minchainwork.py", line 51, in test_chains_sync_when_long_enough[0m
+[0;36m                                       self.generate(self.nodes[0], NODE1_BLOCKS_REQUIRED-1, sync_fun=self.no_op)[0m
+[0;36m                                     File "/usr/lib/python3.8/contextlib.py", line 120, in __exit__[0m
+[0;36m                                       next(self.gen)[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/test/functional/test_framework/test_node.py", line 423, in assert_debug_log[0m
+[0;36m                                       self._raise_assertion_error('Expected messages "{}" does not partially match log:\n\n{}\n\n'.format(str(expected_msgs), print_log))[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/test/functional/test_framework/test_node.py", line 167, in _raise_assertion_error[0m
+[0;36m                                       raise AssertionError(self._node_msg(msg))[0m
+[0;36m                                   AssertionError: [node 2] Expected messages "['[net] Ignoring low-work chain (height=14)']" does not partially match log:[0m
+[0;36m                                    - 2022-08-23T20:26:26.839813Z [msghand] [net_processing.cpp:3113] [ProcessMessage] [net] received: getheaders (101 bytes) peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.839875Z [msghand] [net_processing.cpp:3789] [ProcessMessage] [net] Ignoring getheaders from peer=0 because active chain has too little work; sending empty response[0m
+[0;36m                                    - 2022-08-23T20:26:26.839906Z [msghand] [net.cpp:2744] [PushMessage] [net] sending headers (1 bytes) peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.840128Z [msghand] [net_processing.cpp:3113] [ProcessMessage] [net] received: inv (37 bytes) peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.840203Z [msghand] [net_processing.cpp:3560] [ProcessMessage] [net] got inv: block 636ba5a94e02a2a3eb6f590b12809bf0fcd80d2a5c4f60ede3792754e96cf3ee  new peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.840249Z [msghand] [net.cpp:2744] [PushMessage] [net] sending getheaders (69 bytes) peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.840332Z [msghand] [net_processing.cpp:3607] [ProcessMessage] [net] getheaders (0) 636ba5a94e02a2a3eb6f590b12809bf0fcd80d2a5c4f60ede3792754e96cf3ee to peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.840462Z [msghand] [net_processing.cpp:3113] [ProcessMessage] [net] received: feefilter (8 bytes) peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.840501Z [msghand] [net_processing.cpp:4645] [ProcessMessage] [net] received: feefilter of 0.00001000 BTC/kvB from peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.842077Z [msghand] [net_processing.cpp:3113] [ProcessMessage] [net] received: headers (163 bytes) peer=0[0m
+[0;36m                                    - 2022-08-23T20:26:26.842260Z [msghand] [net_processing.cpp:2553] [TryLowWorkHeadersSync] [net] Ignoring low-work chain (height=2) from peer=0[0m
+[0;36m test  2022-08-23T20:27:46.862000Z TestFramework (DEBUG): Closing down network thread [0m
+[0;36m test  2022-08-23T20:27:46.913000Z TestFramework (INFO): Stopping nodes [0m
+[0;36m test  2022-08-23T20:27:46.913000Z TestFramework.node0 (DEBUG): Stopping node [0m
+[0;34m node0 2022-08-23T20:27:46.914738Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57022 [0m
+[0;34m node0 2022-08-23T20:27:46.914964Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;34m node0 2022-08-23T20:27:46.915272Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-08-23T20:27:46.915556Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-08-23T20:27:46.915645Z [init] [rpc/server.cpp:301] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-08-23T20:27:46.915783Z [addcon] [util/thread.cpp:20] [TraceThread] addcon thread exit [0m
+[0;34m node0 2022-08-23T20:27:46.915994Z [init] [init.cpp:216] [Shutdown] Shutdown: In progress... [0m
+[0;36m test  2022-08-23T20:27:46.916000Z TestFramework.node1 (DEBUG): Stopping node [0m
+[0;34m node0 2022-08-23T20:27:46.916068Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-08-23T20:27:46.916098Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-08-23T20:27:46.916127Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-08-23T20:27:46.916152Z [shutoff] [rpc/server.cpp:313] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-08-23T20:27:46.916458Z [shutoff] [init.cpp:382] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-08-23T20:27:46.916489Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-08-23T20:27:46.916508Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-08-23T20:27:46.916599Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-08-23T20:27:46.916650Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-08-23T20:27:46.916860Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+
+[0;32m node1 stderr net_processing.cpp:2812 ProcessHeadersMessage: Assertion `headers.empty()' failed. [0m
+[0;31m node2 stderr net_processing.cpp:2812 ProcessHeadersMessage: Assertion `headers.empty()' failed. [0m
+
+[1mTEST                                                   | STATUS    | DURATION
+
+[0m[0;32mfeature_abortnode.py                                   | ✓ Passed  | 32 s
+[0m[0;32mfeature_bind_extra.py                                  | ✓ Passed  | 2 s
+[0m[0;32mfeature_bip68_sequence.py                              | ✓ Passed  | 49 s
+[0m[0;32mfeature_block.py                                       | ✓ Passed  | 177 s
+[0m[0;32mfeature_csv_activation.py                              | ✓ Passed  | 24 s
+[0m[0;32mfeature_maxuploadtarget.py                             | ✓ Passed  | 61 s
+[0m[0;32mfeature_proxy.py                                       | ✓ Passed  | 4 s
+[0m[0;32mfeature_reindex.py                                     | ✓ Passed  | 5 s
+[0m[0;32mfeature_segwit.py --descriptors                        | ✓ Passed  | 17 s
+[0m[0;32mfeature_segwit.py --legacy-wallet                      | ✓ Passed  | 30 s
+[0m[0;32minterface_bitcoin_cli.py --descriptors                 | ✓ Passed  | 18 s
+[0m[0;32minterface_bitcoin_cli.py --legacy-wallet               | ✓ Passed  | 14 s
+[0m[0;32minterface_http.py                                      | ✓ Passed  | 1 s
+[0m[0;32minterface_rest.py                                      | ✓ Passed  | 5 s
+[0m[0;32minterface_rpc.py                                       | ✓ Passed  | 2 s
+[0m[0;32mmempool_limit.py                                       | ✓ Passed  | 13 s
+[0m[0;32mmempool_persist.py                                     | ✓ Passed  | 17 s
+[0m[0;32mmempool_reorg.py                                       | ✓ Passed  | 4 s
+[0m[0;32mmempool_resurrect.py                                   | ✓ Passed  | 2 s
+[0m[0;32mmempool_spend_coinbase.py                              | ✓ Passed  | 1 s
+[0m[0;32mmining_getblocktemplate_longpoll.py                    | ✓ Passed  | 69 s
+[0m[0;32mp2p_addr_relay.py                                      | ✓ Passed  | 30 s
+[0m[0;32mp2p_addrfetch.py                                       | ✓ Passed  | 2 s
+[0m[0;32mp2p_addrv2_relay.py                                    | ✓ Passed  | 2 s
+[0m[0;32mp2p_block_sync.py                                      | ✓ Passed  | 2 s
+[0m[0;32mp2p_compactblocks.py                                   | ✓ Passed  | 9 s
+[0m[0;32mp2p_compactblocks_blocksonly.py                        | ✓ Passed  | 2 s
+[0m[0;32mp2p_compactblocks_hb.py                                | ✓ Passed  | 21 s
+[0m[0;32mp2p_disconnect_ban.py                                  | ✓ Passed  | 3 s
+[0m[0;32mp2p_dns_seeds.py                                       | ✓ Passed  | 32 s
+[0m[0;32mp2p_feefilter.py                                       | ✓ Passed  | 13 s
+[0m[0;32mp2p_getdata.py                                         | ✓ Passed  | 1 s
+[0m[0;32mp2p_segwit.py                                          | ✓ Passed  | 100 s
+[0m[0;32mp2p_sendheaders.py                                     | ✓ Passed  | 20 s
+[0m[0;32mp2p_timeouts.py                                        | ✓ Passed  | 1 s
+[0m[0;32mp2p_tx_download.py                                     | ✓ Passed  | 47 s
+[0m[0;32mrpc_decodescript.py                                    | ✓ Passed  | 1 s
+[0m[0;32mrpc_deprecated.py                                      | ✓ Passed  | 1 s
+[0m[0;32mrpc_fundrawtransaction.py --descriptors                | ✓ Passed  | 171 s
+[0m[0;32mrpc_fundrawtransaction.py --legacy-wallet              | ✓ Passed  | 74 s
+[0m[0;32mrpc_getchaintips.py                                    | ✓ Passed  | 5 s
+[0m[0;32mrpc_invalid_address_message.py                         | ✓ Passed  | 1 s
+[0m[0;32mrpc_misc.py                                            | ✓ Passed  | 23 s
+[0m[0;32mrpc_packages.py                                        | ✓ Passed  | 49 s
+[0m[0;32mrpc_psbt.py --descriptors                              | ✓ Passed  | 54 s
+[0m[0;32mrpc_psbt.py --legacy-wallet                            | ✓ Passed  | 47 s
+[0m[0;32mrpc_rawtransaction.py --legacy-wallet                  | ✓ Passed  | 21 s
+[0m[0;32mrpc_signer.py                                          | ✓ Passed  | 2 s
+[0m[0;32mrpc_signrawtransactionwithkey.py                       | ✓ Passed  | 3 s
+[0m[0;32mrpc_txoutproof.py                                      | ✓ Passed  | 6 s
+[0m[0;32mrpc_users.py                                           | ✓ Passed  | 7 s
+[0m[0;32mrpc_whitelist.py                                       | ✓ Passed  | 1 s
+[0m[0;32mtool_signet_miner.py --descriptors                     | ✓ Passed  | 3 s
+[0m[0;32mtool_signet_miner.py --legacy-wallet                   | ✓ Passed  | 3 s
+[0m[0;32mtool_wallet.py --descriptors                           | ✓ Passed  | 17 s
+[0m[0;32mtool_wallet.py --legacy-wallet                         | ✓ Passed  | 16 s
+[0m[0;32mwallet_abandonconflict.py --descriptors                | ✓ Passed  | 18 s
+[0m[0;32mwallet_abandonconflict.py --legacy-wallet              | ✓ Passed  | 16 s
+[0m[0;32mwallet_address_types.py --descriptors                  | ✓ Passed  | 33 s
+[0m[0;32mwallet_address_types.py --legacy-wallet                | ✓ Passed  | 40 s
+[0m[0;32mwallet_avoid_mixing_output_types.py --descriptors      | ✓ Passed  | 22 s
+[0m[0;32mwallet_avoidreuse.py --descriptors                     | ✓ Passed  | 105 s
+[0m[0;32mwallet_avoidreuse.py --legacy-wallet                   | ✓ Passed  | 124 s
+[0m[0;32mwallet_backup.py --descriptors                         | ✓ Passed  | 49 s
+[0m[0;32mwallet_backup.py --legacy-wallet                       | ✓ Passed  | 50 s
+[0m[0;32mwallet_basic.py --descriptors                          | ✓ Passed  | 50 s
+[0m[0;32mwallet_basic.py --legacy-wallet                        | ✓ Passed  | 53 s
+[0m[0;32mwallet_createwallet.py --descriptors                   | ✓ Passed  | 7 s
+[0m[0;32mwallet_createwallet.py --legacy-wallet                 | ✓ Passed  | 5 s
+[0m[0;32mwallet_createwallet.py --usecli                        | ✓ Passed  | 6 s
+[0m[0;32mwallet_disable.py                                      | ✓ Passed  | 1 s
+[0m[0;32mwallet_dump.py --legacy-wallet                         | ✓ Passed  | 13 s
+[0m[0;32mwallet_hd.py --descriptors                             | ✓ Passed  | 13 s
+[0m[0;32mwallet_hd.py --legacy-wallet                           | ✓ Passed  | 16 s
+[0m[0;32mwallet_importmulti.py --legacy-wallet                  | ✓ Passed  | 16 s
+[0m[0;32mwallet_keypool_topup.py --descriptors                  | ✓ Passed  | 33 s
+[0m[0;32mwallet_keypool_topup.py --legacy-wallet                | ✓ Passed  | 26 s
+[0m[0;32mwallet_labels.py --descriptors                         | ✓ Passed  | 8 s
+[0m[0;32mwallet_labels.py --legacy-wallet                       | ✓ Passed  | 7 s
+[0m[0;32mwallet_listreceivedby.py --descriptors                 | ✓ Passed  | 17 s
+[0m[0;32mwallet_listreceivedby.py --legacy-wallet               | ✓ Passed  | 26 s
+[0m[0;32mwallet_listtransactions.py --descriptors               | ✓ Passed  | 28 s
+[0m[0;32mwallet_listtransactions.py --legacy-wallet             | ✓ Passed  | 33 s
+[0m[0;32mwallet_multiwallet.py --descriptors                    | ✓ Passed  | 62 s
+[0m[0;32mwallet_multiwallet.py --legacy-wallet                  | ✓ Passed  | 50 s
+[0m[0;32mwallet_multiwallet.py --usecli                         | ✓ Passed  | 22 s
+[0m[0;32mwallet_reorgsrestore.py                                | ✓ Passed  | 9 s
+[0m[0;32mwallet_signer.py --descriptors                         | ✓ Passed  | 7 s
+[0m[0;32mwallet_signrawtransactionwithwallet.py --descriptors   | ✓ Passed  | 7 s
+[0m[0;32mwallet_signrawtransactionwithwallet.py --legacy-wallet | ✓ Passed  | 4 s
+[0m[0;32mwallet_transactiontime_rescan.py --descriptors         | ✓ Passed  | 18 s
+[0m[0;32mwallet_transactiontime_rescan.py --legacy-wallet       | ✓ Passed  | 14 s
+[0m[0;32mwallet_txn_clone.py                                    | ✓ Passed  | 5 s
+[0m[0;32mwallet_txn_clone.py --segwit                           | ✓ Passed  | 3 s
+[0m[0;32mwallet_txn_doublespend.py --mineblock                  | ✓ Passed  | 5 s
+[0m[0;32mwallet_watchonly.py --legacy-wallet                    | ✓ Passed  | 4 s
+[0m[0;32mwallet_watchonly.py --usecli --legacy-wallet           | ✓ Passed  | 4 s
+[0m[0mfeature_syscall_sandbox.py                             | ○ Skipped | 0 s
+[0m[0minterface_usdt_coinselection.py                        | ○ Skipped | 1 s
+[0m[0minterface_usdt_net.py                                  | ○ Skipped | 1 s
+[0m[0minterface_usdt_utxocache.py                            | ○ Skipped | 1 s
+[0m[0minterface_usdt_validation.py                           | ○ Skipped | 0 s
+[0m[0minterface_zmq.py                                       | ○ Skipped | 0 s
+[0m[0;31mp2p_headers_sync_with_minchainwork.py                  | ✖ Failed  | 81 s
+[0m[0;31m[1m
+ALL                                                    | ✖ Failed  | 2450 s (accumulated) 
+[0m[0mRuntime: 344 s
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.699s
+
+OK
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

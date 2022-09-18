@@ -1,0 +1,39 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-13 18:28:36.226 xcodebuild[696:5580] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-13 18:28:36.227 xcodebuild[696:5580] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Removing src/util/designator.h
+Auto-merging src/init.cpp
+Auto-merging src/Makefile.am
+Merge made by the 'recursive' strategy.
+ build_msvc/README.md                       |   4 +-
+ build_msvc/bitcoin_config.h.in             |   4 +-
+ build_msvc/common.init.vcxproj.in          |   4 +-
+ build_msvc/msvc-autogen.py                 |   2 +-
+ src/Makefile.am                            |   1 -
+ src/init.cpp                               |   5 +-
+ src/net.cpp                                |  29 ++-
+ src/rpc/blockchain.cpp                     |  44 ++--
+ src/rpc/rawtransaction.cpp                 | 384 +++++++++++++++--------------
+ src/test/util/setup_common.cpp             |   5 +-
+ src/univalue/include/univalue.h            |  10 +
+ src/util/designator.h                      |  21 --
+ src/wallet/rpc/transactions.cpp            |  12 +-
+ test/functional/feature_rbf.py             |  10 +-
+ test/functional/mempool_accept.py          |   6 +-
+ test/functional/p2p_segwit.py              |   4 +-
+ test/functional/rpc_packages.py            |   4 +-
+ test/functional/rpc_psbt.py                |   4 +-
+ test/functional/rpc_rawtransaction.py      |   4 +-
+ test/functional/test_framework/messages.py |   2 +-
+ test/functional/wallet_bumpfee.py          |   8 +-
+ test/functional/wallet_listsinceblock.py   |   4 +-
+ 22 files changed, 285 insertions(+), 286 deletions(-)
+ delete mode 100644 src/util/designator.h

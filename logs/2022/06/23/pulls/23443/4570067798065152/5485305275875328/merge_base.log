@@ -1,0 +1,97 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-06-23 04:07:27.109 xcodebuild[696:5542] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-06-23 04:07:27.109 xcodebuild[696:5542] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/Makefile.test.include
+Auto-merging src/Makefile.am
+Merge made by the 'recursive' strategy.
+ .cirrus.yml                                        |   26 +-
+ ...c_host.sh => 00_setup_env_mac_native_x86_64.sh} |    0
+ configure.ac                                       |   15 +-
+ contrib/devtools/symbol-check.py                   |    5 +-
+ contrib/devtools/test-symbol-check.py              |    2 +-
+ contrib/guix/manifest.scm                          |    2 +-
+ contrib/seeds/asmap.py                             |    2 +-
+ depends/Makefile                                   |    4 +-
+ depends/gen_id                                     |    7 +-
+ depends/packages/qt.mk                             |    2 +-
+ depends/packages/sqlite.mk                         |    6 +-
+ depends/packages/systemtap.mk                      |    4 +-
+ ...e_SDT_ASM_SECTION_AUTOGROUP_SUPPORT_check.patch |   22 +-
+ doc/README.md                                      |    2 +-
+ doc/build-unix.md                                  |   15 +-
+ doc/{ => design}/assumeutxo.md                     |    0
+ doc/design/libraries.md                            |  104 ++
+ doc/{ => design}/multiprocess.md                   |    0
+ src/Makefile.am                                    |    3 -
+ src/Makefile.test.include                          |    4 +-
+ src/chain.h                                        |    2 +-
+ src/compat.h                                       |    3 -
+ src/fs.cpp                                         |    3 -
+ src/i2p.cpp                                        |    2 +-
+ src/net.cpp                                        |    2 +-
+ src/node/blockstorage.h                            |    2 +-
+ src/policy/packages.h                              |    9 +
+ src/policy/policy.h                                |   58 +-
+ src/psbt.h                                         |    2 +-
+ src/qt/bitcoin.cpp                                 |   23 +-
+ src/qt/forms/sendcoinsentry.ui                     | 1437 +++-----------------
+ src/qt/guiutil.cpp                                 |   33 +-
+ src/qt/guiutil.h                                   |    8 +
+ src/qt/intro.cpp                                   |    2 +-
+ src/qt/sendcoinsentry.cpp                          |   31 +-
+ src/qt/sendcoinsentry.h                            |    6 +-
+ src/qt/test/optiontests.cpp                        |   10 +
+ src/qt/test/optiontests.h                          |    1 +
+ src/qt/utilitydialog.cpp                           |    8 +-
+ src/random.cpp                                     |    2 +-
+ src/support/lockedpool.cpp                         |    3 -
+ src/test/fuzz/util.cpp                             |    9 +-
+ src/test/fuzz/util.h                               |    2 -
+ src/test/net_tests.cpp                             |    7 +-
+ src/test/sock_tests.cpp                            |   18 -
+ src/test/util/net.h                                |    7 +-
+ src/util/sock.cpp                                  |   45 +-
+ src/util/sock.h                                    |   21 +-
+ src/util/system.cpp                                |    3 -
+ src/validation.cpp                                 |    6 -
+ src/validation.h                                   |   19 +-
+ src/wallet/coincontrol.h                           |    7 +-
+ src/wallet/feebumper.cpp                           |    2 +-
+ src/wallet/interfaces.cpp                          |    6 +-
+ src/wallet/receive.cpp                             |   17 +-
+ src/wallet/rpc/coins.cpp                           |    8 +-
+ src/wallet/rpc/spend.cpp                           |   16 +-
+ src/wallet/spend.cpp                               |  130 +-
+ src/wallet/spend.h                                 |   19 +-
+ src/wallet/test/coinselector_tests.cpp             |    4 +-
+ src/wallet/test/wallet_tests.cpp                   |    8 +-
+ src/wallet/wallet.cpp                              |   77 +-
+ src/wallet/wallet.h                                |   10 +-
+ test/functional/feature_fee_estimation.py          |    1 -
+ test/functional/feature_rbf.py                     |    1 -
+ test/functional/feature_signet.py                  |    8 +
+ test/functional/mempool_unbroadcast.py             |    2 +-
+ test/functional/mining_prioritisetransaction.py    |    2 +-
+ test/functional/p2p_permissions.py                 |    1 +
+ test/functional/p2p_segwit.py                      |    2 +-
+ test/functional/rpc_createmultisig.py              |    6 +-
+ test/functional/rpc_rawtransaction.py              |    2 +-
+ test/functional/test_framework/address.py          |    7 +-
+ test/functional/test_framework/script_util.py      |    5 +
+ test/functional/test_framework/test_framework.py   |   12 +-
+ test/functional/test_framework/util.py             |    5 +-
+ test/functional/test_framework/wallet.py           |   72 +-
+ test/functional/wallet_taproot.py                  |    8 +-
+ 78 files changed, 734 insertions(+), 1713 deletions(-)
+ rename ci/test/{00_setup_env_mac_host.sh => 00_setup_env_mac_native_x86_64.sh} (100%)
+ rename doc/{ => design}/assumeutxo.md (100%)
+ create mode 100644 doc/design/libraries.md
+ rename doc/{ => design}/multiprocess.md (100%)

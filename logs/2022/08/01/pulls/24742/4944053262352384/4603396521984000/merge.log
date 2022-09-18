@@ -1,0 +1,46 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 9e41207fc build: only copy used Boost headers in depends
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                  |  14 ++-
+ REVIEWERS                                    | 123 ---------------------------
+ ci/test/00_setup_env_native_asan.sh          |  11 ++-
+ ci/test/00_setup_env_native_tidy.sh          |   2 +-
+ ci/test/04_install.sh                        |   8 ++
+ doc/release-notes-25610.md                   |  12 +++
+ src/coins.cpp                                |   6 +-
+ src/node/interfaces.cpp                      |  51 +++--------
+ src/rpc/rawtransaction.cpp                   |   6 +-
+ src/rpc/rawtransaction_util.cpp              |   7 +-
+ src/rpc/rawtransaction_util.h                |   3 +-
+ src/wallet/interfaces.cpp                    |   2 +
+ src/wallet/wallet.h                          |   2 +-
+ test/functional/feature_taproot.py           |   6 ++
+ test/functional/interface_usdt_net.py        |   2 +-
+ test/functional/interface_usdt_utxocache.py  |  40 +++++----
+ test/functional/interface_usdt_validation.py |   2 +-
+ test/functional/p2p_permissions.py           |   3 +-
+ test/functional/rpc_psbt.py                  |   2 +-
+ test/functional/wallet_listtransactions.py   |   6 +-
+ 20 files changed, 105 insertions(+), 203 deletions(-)
+ create mode 100644 doc/release-notes-25610.md
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

@@ -1,0 +1,62 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.5).
+0 upgraded, 0 newly installed, 0 to remove and 95 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_b.sh                             |  2 +
+ depends/packages/qt.mk                             |  2 +
+ .../patches/qt/fast_fixed_dtoa_no_optimize.patch   | 20 +++++++
+ src/Makefile.am                                    |  3 +
+ src/bench/checkblock.cpp                           |  1 +
+ src/dbwrapper.cpp                                  | 19 +++++-
+ src/dbwrapper.h                                    | 16 ++++-
+ src/index/base.cpp                                 | 64 ++++++++++++++------
+ src/index/base.h                                   | 24 +++++---
+ src/index/blockfilterindex.cpp                     | 42 ++++++-------
+ src/index/blockfilterindex.h                       | 12 ++--
+ src/index/coinstatsindex.cpp                       | 69 +++++++++++-----------
+ src/index/coinstatsindex.h                         | 10 ++--
+ src/index/txindex.cpp                              | 17 +++---
+ src/index/txindex.h                                |  4 +-
+ src/init.cpp                                       | 12 ++--
+ src/interfaces/chain.h                             | 31 +++++++++-
+ src/kernel/chain.cpp                               | 26 ++++++++
+ src/kernel/chain.h                                 | 19 ++++++
+ src/node/chainstate.cpp                            | 13 ++++
+ src/node/chainstate.h                              |  3 -
+ src/node/interfaces.cpp                            |  7 ++-
+ src/psbt.h                                         |  6 ++
+ src/qt/optionsdialog.cpp                           |  1 +
+ src/rpc/blockchain.cpp                             |  1 +
+ src/rpc/fees.cpp                                   |  2 -
+ src/rpc/mempool.cpp                                |  1 +
+ src/test/blockfilter_index_tests.cpp               | 11 ++--
+ src/test/coinstatsindex_tests.cpp                  | 13 ++--
+ src/test/txindex_tests.cpp                         |  5 +-
+ src/txdb.h                                         |  1 +
+ src/wallet/test/fuzz/notifications.cpp             | 18 ++++--
+ src/wallet/wallet.cpp                              | 23 ++++----
+ src/wallet/wallet.h                                |  4 +-
+ test/lint/lint-circular-dependencies.py            |  3 +
+ 35 files changed, 353 insertions(+), 152 deletions(-)
+ create mode 100644 depends/patches/qt/fast_fixed_dtoa_no_optimize.patch
+ create mode 100644 src/kernel/chain.cpp
+ create mode 100644 src/kernel/chain.h

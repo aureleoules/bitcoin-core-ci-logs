@@ -1,0 +1,54 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at b8f72010a crypto: Add Write function overload with Span
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ contrib/seeds/makeseeds.py                       |    7 +-
+ contrib/seeds/nodes_main.txt                     | 1502 ++++++++++++----------
+ contrib/seeds/nodes_main_manual.txt              |   77 +-
+ src/blockfilter.cpp                              |   16 +-
+ src/chainparamsseeds.h                           | 1078 +++++++++-------
+ src/policy/rbf.h                                 |    2 +-
+ src/rpc/mempool.cpp                              |    2 +-
+ src/test/descriptor_tests.cpp                    |   95 +-
+ src/test/util_tests.cpp                          |   12 +-
+ src/util/string.h                                |   36 +-
+ src/validation.cpp                               |    2 +-
+ src/validation.h                                 |   16 +-
+ src/wallet/coinselection.cpp                     |   59 +-
+ src/wallet/coinselection.h                       |   46 +-
+ src/wallet/rpc/spend.cpp                         |    4 +-
+ src/wallet/rpc/transactions.cpp                  |    4 +-
+ src/wallet/spend.cpp                             |  117 +-
+ src/wallet/test/coinselector_tests.cpp           |   13 +-
+ src/wallet/test/fuzz/coinselection.cpp           |    8 +-
+ test/functional/wallet_abandonconflict.py        |    3 +
+ test/functional/wallet_balance.py                |    3 +
+ test/functional/wallet_basic.py                  |    2 +-
+ test/functional/wallet_bumpfee.py                |    1 +
+ test/functional/wallet_groups.py                 |    4 +
+ test/functional/wallet_hd.py                     |    4 +
+ test/functional/wallet_importdescriptors.py      |    3 +
+ test/functional/wallet_listreceivedby.py         |    2 +
+ test/functional/wallet_listsinceblock.py         |    2 +
+ test/functional/wallet_transactiontime_rescan.py |    7 +
+ 29 files changed, 1786 insertions(+), 1341 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

@@ -1,0 +1,74 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-14 07:22:33.577 xcodebuild[697:5641] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-14 07:22:33.578 xcodebuild[697:5641] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ configure.ac                                    |  10 ++
+ contrib/guix/libexec/build.sh                   |   1 -
+ contrib/guix/manifest.scm                       |   2 +-
+ doc/build-osx.md                                |   8 --
+ doc/design/assumeutxo.md                        |   4 +-
+ doc/developer-notes.md                          |   4 +-
+ src/Makefile.am                                 |  16 ++--
+ src/Makefile.bench.include                      |   2 +-
+ src/Makefile.qt.include                         |   2 +-
+ src/Makefile.qttest.include                     |   2 +-
+ src/Makefile.test.include                       |   7 +-
+ src/Makefile.test_fuzz.include                  |   2 +-
+ src/Makefile.test_util.include                  |   2 +-
+ src/bitcoin-chainstate.cpp                      |   4 +-
+ src/index/base.h                                |   4 +-
+ src/index/coinstatsindex.cpp                    |   7 +-
+ src/index/coinstatsindex.h                      |  11 ++-
+ src/init.cpp                                    |  22 +++--
+ src/kernel/mempool_persist.cpp                  |   2 +-
+ src/kernel/mempool_persist.h                    |   4 +-
+ src/node/blockstorage.cpp                       |   2 +-
+ src/node/blockstorage.h                         |   6 +-
+ src/node/chainstate.cpp                         |  10 +-
+ src/node/miner.cpp                              |   4 +-
+ src/node/miner.h                                |   6 +-
+ src/node/utxo_snapshot.h                        |   2 +-
+ src/qt/bitcoingui.cpp                           |   2 +-
+ src/qt/forms/intro.ui                           |   2 +-
+ src/rpc/blockchain.cpp                          |  20 ++--
+ src/rpc/blockchain.h                            |   4 +-
+ src/rpc/mempool.cpp                             |   4 +-
+ src/rpc/mining.cpp                              |   2 +-
+ src/rpc/rawtransaction.cpp                      |   2 +-
+ src/rpc/txoutproof.cpp                          |   2 +-
+ src/rpc/util.cpp                                |   3 +-
+ src/sync.h                                      |   2 +-
+ src/test/coinstatsindex_tests.cpp               |  11 ++-
+ src/test/fuzz/mempool_utils.h                   |   2 +-
+ src/test/fuzz/tx_pool.cpp                       |   4 +-
+ src/test/net_tests.cpp                          |   2 +-
+ src/test/util/setup_common.cpp                  |   4 +-
+ src/test/util/setup_common.h                    |   4 +-
+ src/test/util/validation.h                      |   2 +-
+ src/test/validation_chainstate_tests.cpp        |   8 +-
+ src/test/validation_chainstatemanager_tests.cpp |  22 ++---
+ src/test/validation_flush_tests.cpp             |   4 +-
+ src/txmempool.h                                 |   2 +-
+ src/validation.cpp                              | 122 ++++++++++++------------
+ src/validation.h                                |  40 ++++----
+ src/wallet/test/walletload_tests.cpp            |  54 +++++++++++
+ src/wallet/wallet.cpp                           |   8 +-
+ src/wallet/walletdb.cpp                         |  27 ++++--
+ src/wallet/walletdb.h                           |   3 +-
+ test/functional/feature_proxy.py                |  21 ++--
+ test/functional/mempool_accept.py               |   2 +-
+ test/functional/rpc_estimatefee.py              |   8 +-
+ test/functional/rpc_getblockfrompeer.py         |   4 +-
+ test/functional/rpc_getdescriptorinfo.py        |   2 +-
+ test/functional/rpc_rawtransaction.py           |   6 +-
+ test/sanitizer_suppressions/tsan                |   2 +-
+ 60 files changed, 326 insertions(+), 227 deletions(-)
+ create mode 100644 src/wallet/test/walletload_tests.cpp

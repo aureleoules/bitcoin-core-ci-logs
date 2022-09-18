@@ -1,0 +1,326 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Get:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease [108 kB]
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Get:6 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease [108 kB]
+Get:7 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease [114 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease [114 kB]
+Get:9 http://mirror.hetzner.de/ubuntu/packages focal-security/main i386 Packages [471 kB]
+Get:10 http://mirror.hetzner.de/ubuntu/packages focal-security/main amd64 Packages [1,630 kB]
+Get:11 http://mirror.hetzner.de/ubuntu/packages focal-security/universe amd64 Packages [711 kB]
+Get:12 http://mirror.hetzner.de/ubuntu/packages focal-security/universe i386 Packages [556 kB]
+Get:13 http://mirror.hetzner.de/ubuntu/packages focal-security/universe amd64 c-n-f Metadata [14.7 kB]
+Get:14 https://mirror.hetzner.com/ubuntu/security focal-security/main i386 Packages [471 kB]
+Get:15 https://mirror.hetzner.com/ubuntu/security focal-security/main amd64 Packages [1,630 kB]
+Get:16 https://mirror.hetzner.com/ubuntu/security focal-security/universe amd64 Packages [711 kB]
+Get:17 https://mirror.hetzner.com/ubuntu/security focal-security/universe i386 Packages [556 kB]
+Get:18 https://mirror.hetzner.com/ubuntu/security focal-security/universe amd64 c-n-f Metadata [14.7 kB]
+Fetched 7,208 kB in 3s (2,734 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.5).
+0 upgraded, 0 newly installed, 0 to remove and 97 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Removing src/util/designator.h
+Removing src/univalue/test/no_nul.cpp
+Removing contrib/guix/patches/elfsteem-value-error-python-39.patch
+Auto-merging configure.ac
+Merge made by the 'recursive' strategy.
+ build-aux/m4/l_atomic.m4                           |   5 +-
+ build_msvc/README.md                               |   4 +-
+ build_msvc/bitcoin_config.h.in                     |   4 +-
+ build_msvc/common.init.vcxproj.in                  |   4 +-
+ build_msvc/msvc-autogen.py                         |   2 +-
+ ci/test/06_script_a.sh                             |   7 +-
+ ci/test/06_script_b.sh                             |  16 +
+ ci/test/wrap-qemu.sh                               |   2 +-
+ ci/test/wrap-wine.sh                               |   2 +-
+ configure.ac                                       |  10 +-
+ contrib/builder-keys/keys.txt                      |   1 +
+ contrib/devtools/iwyu/bitcoin.core.imp             |   1 +
+ contrib/guix/libexec/build.sh                      |   1 +
+ contrib/guix/manifest.scm                          |  19 +-
+ .../patches/elfsteem-value-error-python-39.patch   |  13 -
+ contrib/guix/patches/gcc-10-remap-guix-store.patch |  25 +
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |  25 +
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |  25 +
+ contrib/signet/miner                               | 111 +---
+ contrib/verify-commits/trusted-keys                |   2 +-
+ depends/config.site.in                             |   8 +-
+ depends/hosts/linux.mk                             |   4 +
+ depends/hosts/mingw32.mk                           |   4 +
+ depends/hosts/netbsd.mk                            |   4 +
+ depends/packages/expat.mk                          |   1 +
+ depends/packages/native_ds_store.mk                |   2 +-
+ depends/packages/native_mac_alias.mk               |   2 +-
+ depends/packages/qt.mk                             |   5 +
+ .../patches/qt/fast_fixed_dtoa_no_optimize.patch   |  20 +
+ doc/build-netbsd.md                                | 122 ++--
+ doc/build-unix.md                                  |  23 -
+ doc/developer-notes.md                             |  11 +-
+ doc/policy/mempool-replacements.md                 |   5 +
+ doc/release-notes-24148.md                         |  23 +
+ doc/release-notes.md                               |   4 +
+ doc/release-notes/release-notes-471.md             |   4 +
+ src/.clang-tidy                                    |   2 +
+ src/Makefile.am                                    |  19 +-
+ src/Makefile.test.include                          |   8 +-
+ src/Makefile.test_fuzz.include                     |   1 +
+ src/bench/checkblock.cpp                           |   1 +
+ src/bench/coin_selection.cpp                       |   3 +-
+ src/bench/gcs_filter.cpp                           |  79 ++-
+ src/bench/wallet_loading.cpp                       |   9 +-
+ src/bitcoin-chainstate.cpp                         |  33 +-
+ src/bitcoin-cli.cpp                                |   2 +-
+ src/bitcoin-tx.cpp                                 |   2 +-
+ src/bitcoin-util.cpp                               |   2 +-
+ src/bitcoin-wallet.cpp                             |   2 +-
+ src/bitcoind.cpp                                   |   2 +-
+ src/blockfilter.cpp                                |   8 +-
+ src/blockfilter.h                                  |   6 +-
+ src/{ => compat}/compat.h                          |  46 +-
+ src/dbwrapper.cpp                                  |  19 +-
+ src/dbwrapper.h                                    |  16 +-
+ src/fs.h                                           |   2 +
+ src/httpserver.cpp                                 |   2 +-
+ src/i2p.cpp                                        |   2 +-
+ src/i2p.h                                          |   2 +-
+ src/index/base.cpp                                 |  64 +-
+ src/index/base.h                                   |  24 +-
+ src/index/blockfilterindex.cpp                     |  63 +-
+ src/index/blockfilterindex.h                       |  14 +-
+ src/index/coinstatsindex.cpp                       |  69 +--
+ src/index/coinstatsindex.h                         |  10 +-
+ src/index/txindex.cpp                              |  17 +-
+ src/index/txindex.h                                |   4 +-
+ src/init.cpp                                       | 181 ++----
+ src/interfaces/chain.h                             |  38 +-
+ src/interfaces/wallet.h                            |  12 +-
+ src/kernel/chain.cpp                               |  26 +
+ src/kernel/chain.h                                 |  19 +
+ src/kernel/chainstatemanager_opts.h                |   4 +
+ src/kernel/checks.cpp                              |  11 +-
+ src/kernel/checks.h                                |  10 +-
+ src/kernel/coinstats.cpp                           |  16 +
+ src/kernel/coinstats.h                             |   6 +-
+ src/kernel/mempool_options.h                       |   3 +
+ src/kernel/mempool_persist.cpp                     | 189 ++++++
+ src/kernel/mempool_persist.h                       |  28 +
+ src/mapport.cpp                                    |   2 +-
+ src/mempool_args.cpp                               |   2 +
+ src/net.cpp                                        | 301 ++-------
+ src/net.h                                          | 177 +-----
+ src/net_processing.cpp                             | 674 +++++++++++++--------
+ src/net_processing.h                               |   1 +
+ src/netaddress.h                                   |   2 +-
+ src/netbase.cpp                                    |   2 +-
+ src/netbase.h                                      |   2 +-
+ src/node/blockstorage.cpp                          |   4 +-
+ src/node/blockstorage.h                            |   2 +-
+ src/node/chainstate.cpp                            | 112 ++--
+ src/node/chainstate.h                              |  81 +--
+ src/node/connection_types.cpp                      |  26 +
+ src/node/connection_types.h                        |  82 +++
+ src/node/eviction.cpp                              | 240 ++++++++
+ src/node/eviction.h                                |  69 +++
+ src/node/interfaces.cpp                            |  65 +-
+ src/node/mempool_persist_args.cpp                  |  23 +
+ src/node/mempool_persist_args.h                    |  25 +
+ src/policy/fees.cpp                                |  16 +-
+ src/policy/fees.h                                  |   6 +-
+ src/psbt.h                                         |   6 +
+ src/qt/addresstablemodel.cpp                       |  14 +-
+ src/qt/bitcoin.cpp                                 |   2 -
+ src/qt/bitcoingui.cpp                              |  39 +-
+ src/qt/bitcoingui.h                                |   1 +
+ src/qt/main.cpp                                    |   2 +-
+ src/qt/optionsdialog.cpp                           |  17 +-
+ src/qt/rpcconsole.cpp                              |   2 +-
+ src/qt/test/test_main.cpp                          |   2 -
+ src/qt/test/wallettests.cpp                        |   2 +-
+ src/qt/walletcontroller.cpp                        |  44 ++
+ src/qt/walletcontroller.h                          |  20 +
+ src/qt/walletframe.cpp                             |   8 +
+ src/qt/walletmodel.cpp                             |  11 +-
+ src/qt/walletmodel.h                               |   1 +
+ src/random.cpp                                     |   2 +-
+ src/randomenv.cpp                                  |   2 +-
+ src/rpc/blockchain.cpp                             |  64 +-
+ src/rpc/blockchain.h                               |   2 +-
+ src/rpc/fees.cpp                                   |   2 -
+ src/rpc/mempool.cpp                                |  19 +-
+ src/rpc/net.cpp                                    |   5 +-
+ src/rpc/output_script.cpp                          |   5 -
+ src/rpc/rawtransaction.cpp                         | 386 ++++++------
+ src/script/descriptor.cpp                          | 262 +++++++-
+ src/script/miniscript.h                            |  34 +-
+ src/streams.h                                      |  69 ++-
+ src/test/blockfilter_index_tests.cpp               |  11 +-
+ src/test/coinstatsindex_tests.cpp                  |  16 +-
+ src/test/denialofservice_tests.cpp                 |  44 +-
+ src/test/descriptor_tests.cpp                      |  32 +-
+ src/test/flatfile_tests.cpp                        |  12 +-
+ src/test/fuzz/autofile.cpp                         |   4 +-
+ src/test/fuzz/mempool_utils.h                      |  19 +
+ src/test/fuzz/net.cpp                              |   1 -
+ src/test/fuzz/node_eviction.cpp                    |   2 +
+ src/test/fuzz/policy_estimator.cpp                 |   2 +-
+ src/test/fuzz/policy_estimator_io.cpp              |   2 +-
+ src/test/fuzz/process_message.cpp                  |   3 +-
+ src/test/fuzz/process_messages.cpp                 |   3 +-
+ src/test/fuzz/tx_pool.cpp                          |  10 +-
+ src/test/fuzz/txorphan.cpp                         | 149 +++++
+ src/test/fuzz/util.cpp                             |  58 +-
+ src/test/fuzz/util.h                               |  14 +-
+ src/test/fuzz/utxo_snapshot.cpp                    |   4 +-
+ src/test/fuzz/validation_load_mempool.cpp          |  15 +-
+ src/test/miniscript_tests.cpp                      |  17 +-
+ src/test/net_tests.cpp                             |  25 +-
+ src/test/sock_tests.cpp                            |   2 +-
+ src/test/txindex_tests.cpp                         |   5 +-
+ src/test/util/chainstate.h                         |   6 +-
+ src/test/util/net.cpp                              |  62 ++
+ src/test/util/net.h                                |  11 +-
+ src/test/util/setup_common.cpp                     |  44 +-
+ src/test/util/wallet.cpp                           |   7 +-
+ src/test/validation_chainstate_tests.cpp           |   4 +-
+ src/test/validation_chainstatemanager_tests.cpp    |  10 +-
+ src/torcontrol.cpp                                 |   2 +-
+ src/txdb.h                                         |   1 +
+ src/txmempool.cpp                                  |   9 +-
+ src/txmempool.h                                    |  17 +-
+ src/univalue/include/univalue.h                    |  45 +-
+ src/univalue/lib/univalue.cpp                      |  37 +-
+ src/univalue/lib/univalue_get.cpp                  |  19 +-
+ src/univalue/sources.mk                            |   9 +-
+ src/univalue/test/.gitignore                       |   1 -
+ src/univalue/test/no_nul.cpp                       |   8 -
+ src/univalue/test/object.cpp                       |  74 +--
+ src/univalue/test/unitester.cpp                    |   8 +
+ src/util/asmap.cpp                                 |   7 +-
+ src/util/bip32.cpp                                 |   7 +-
+ src/util/bip32.h                                   |   1 +
+ src/util/bytevectorhash.cpp                        |   2 +
+ src/util/bytevectorhash.h                          |   3 +-
+ src/util/designator.h                              |  21 -
+ src/util/error.cpp                                 |   4 +-
+ src/util/hasher.cpp                                |   4 +-
+ src/util/hasher.h                                  |   6 +
+ src/util/message.cpp                               |  18 +-
+ src/util/message.h                                 |   3 +-
+ src/util/moneystr.cpp                              |   1 +
+ src/util/readwritefile.cpp                         |   3 +-
+ src/util/result.h                                  |  49 ++
+ src/util/serfloat.h                                |   2 +-
+ src/util/sock.cpp                                  |   2 +-
+ src/util/sock.h                                    |   2 +-
+ src/util/spanparsing.cpp                           |   3 +-
+ src/util/strencodings.cpp                          |   9 +-
+ src/util/strencodings.h                            |   5 +-
+ src/util/string.cpp                                |   2 +
+ src/util/syserror.cpp                              |   1 +
+ src/util/system.h                                  |   2 +-
+ src/util/thread.cpp                                |   1 +
+ src/util/time.cpp                                  |  13 +-
+ src/util/time.h                                    |   5 +-
+ src/util/translation.h                             |   2 +
+ src/util/url.cpp                                   |   3 +-
+ src/util/vector.h                                  |   1 +
+ src/validation.cpp                                 | 177 +-----
+ src/validation.h                                   |  18 +-
+ src/wallet/bdb.cpp                                 |   1 +
+ src/wallet/feebumper.cpp                           |  13 +-
+ src/wallet/interfaces.cpp                          |  52 +-
+ src/wallet/receive.cpp                             |  74 +--
+ src/wallet/receive.h                               |   6 +-
+ src/wallet/rpc/addresses.cpp                       |  51 +-
+ src/wallet/rpc/backup.cpp                          |  20 +-
+ src/wallet/rpc/coins.cpp                           |   6 +-
+ src/wallet/rpc/spend.cpp                           |  14 +-
+ src/wallet/rpc/transactions.cpp                    |  81 +--
+ src/wallet/scriptpubkeyman.cpp                     |  35 +-
+ src/wallet/scriptpubkeyman.h                       |   7 +-
+ src/wallet/spend.cpp                               | 138 ++---
+ src/wallet/spend.h                                 |  26 +-
+ src/wallet/test/coinselector_tests.cpp             |  29 +-
+ src/wallet/test/fuzz/notifications.cpp             |  29 +-
+ src/wallet/test/spend_tests.cpp                    |  15 +-
+ src/wallet/test/util.cpp                           |   2 +-
+ src/wallet/test/wallet_tests.cpp                   |  55 +-
+ src/wallet/wallet.cpp                              | 167 +++--
+ src/wallet/wallet.h                                |  46 +-
+ test/functional/feature_addrman.py                 |   2 +-
+ test/functional/feature_dbcrash.py                 |   8 +-
+ test/functional/feature_minchainwork.py            |   2 +-
+ test/functional/feature_rbf.py                     | 427 ++++++-------
+ test/functional/feature_taproot.py                 |  10 +-
+ test/functional/mempool_accept.py                  |   6 +-
+ test/functional/mempool_persist.py                 |  26 +-
+ test/functional/mempool_updatefromblock.py         |  19 +-
+ test/functional/mining_prioritisetransaction.py    |   4 +-
+ test/functional/p2p_invalid_tx.py                  |  68 ++-
+ test/functional/p2p_segwit.py                      |   8 +-
+ test/functional/rpc_blockchain.py                  |   6 +-
+ test/functional/rpc_fundrawtransaction.py          |   2 +-
+ test/functional/rpc_getblockfrompeer.py            |   9 +-
+ test/functional/rpc_help.py                        |   2 +-
+ test/functional/rpc_packages.py                    |   4 +-
+ test/functional/rpc_psbt.py                        |  61 +-
+ test/functional/rpc_rawtransaction.py              |  18 +-
+ test/functional/rpc_signrawtransactionwithkey.py   | 140 +++++
+ test/functional/test_framework/messages.py         |  16 +-
+ test/functional/test_framework/psbt.py             | 131 ++++
+ test/functional/test_framework/util.py             |  13 +-
+ test/functional/test_framework/wallet.py           |  24 +-
+ test/functional/test_runner.py                     |   6 +-
+ test/functional/wallet_balance.py                  |  20 +
+ test/functional/wallet_basic.py                    |   4 +-
+ test/functional/wallet_bumpfee.py                  |   8 +-
+ test/functional/wallet_coinbase_category.py        |   1 +
+ test/functional/wallet_hd.py                       |   4 +-
+ test/functional/wallet_import_rescan.py            |  57 +-
+ test/functional/wallet_importdescriptors.py        |   4 +-
+ test/functional/wallet_listreceivedby.py           |   5 +
+ test/functional/wallet_listsinceblock.py           |   4 +-
+ test/functional/wallet_miniscript.py               |  93 +++
+ test/functional/wallet_multiwallet.py              |   2 +-
+ ...n.py => wallet_signrawtransactionwithwallet.py} | 100 +--
+ test/lint/lint-circular-dependencies.py            |   4 +
+ 260 files changed, 4864 insertions(+), 3056 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/gcc-10-remap-guix-store.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch
+ create mode 100644 depends/patches/qt/fast_fixed_dtoa_no_optimize.patch
+ create mode 100644 doc/release-notes-24148.md
+ create mode 100644 doc/release-notes/release-notes-471.md
+ rename src/{ => compat}/compat.h (71%)
+ create mode 100644 src/kernel/chain.cpp
+ create mode 100644 src/kernel/chain.h
+ create mode 100644 src/kernel/mempool_persist.cpp
+ create mode 100644 src/kernel/mempool_persist.h
+ create mode 100644 src/node/connection_types.cpp
+ create mode 100644 src/node/connection_types.h
+ create mode 100644 src/node/eviction.cpp
+ create mode 100644 src/node/eviction.h
+ create mode 100644 src/node/mempool_persist_args.cpp
+ create mode 100644 src/node/mempool_persist_args.h
+ create mode 100644 src/test/fuzz/mempool_utils.h
+ create mode 100644 src/test/fuzz/txorphan.cpp
+ delete mode 100644 src/univalue/test/no_nul.cpp
+ delete mode 100644 src/util/designator.h
+ create mode 100644 src/util/result.h
+ create mode 100755 test/functional/rpc_signrawtransactionwithkey.py
+ create mode 100644 test/functional/test_framework/psbt.py
+ create mode 100755 test/functional/wallet_miniscript.py
+ rename test/functional/{rpc_signrawtransaction.py => wallet_signrawtransactionwithwallet.py} (71%)

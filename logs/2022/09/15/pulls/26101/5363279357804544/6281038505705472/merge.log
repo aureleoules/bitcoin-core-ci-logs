@@ -1,0 +1,49 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 58c08d754 script: no need to pass down implied script version
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ configure.ac                              |  10 +
+ doc/build-osx.md                          |   8 -
+ src/Makefile.am                           |  16 +-
+ src/Makefile.bench.include                |   2 +-
+ src/Makefile.qt.include                   |   2 +-
+ src/Makefile.qttest.include               |   2 +-
+ src/Makefile.test.include                 |   7 +-
+ src/Makefile.test_fuzz.include            |   2 +-
+ src/Makefile.test_util.include            |   2 +-
+ src/fs.cpp                                |   2 +-
+ src/qt/bitcoingui.cpp                     |   2 +-
+ src/qt/bitcoinstrings.cpp                 |  48 +-
+ src/qt/forms/intro.ui                     |   2 +-
+ src/qt/locale/bitcoin_en.ts               | 164 ++++++-
+ src/qt/locale/bitcoin_en.xlf              | 724 +++++++++++++++++-------------
+ src/sync.h                                |   2 +-
+ src/wallet/rpc/spend.cpp                  |   8 +-
+ src/wallet/test/walletload_tests.cpp      |  54 +++
+ src/wallet/wallet.cpp                     |   8 +-
+ src/wallet/walletdb.cpp                   |  27 +-
+ src/wallet/walletdb.h                     |   3 +-
+ test/functional/rpc_fundrawtransaction.py | 116 +++++
+ test/functional/wallet_sendall.py         |  15 +
+ 23 files changed, 846 insertions(+), 380 deletions(-)
+ create mode 100644 src/wallet/test/walletload_tests.cpp
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

@@ -1,0 +1,84 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 23 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/spend.cpp
+Merge made by the 'ort' strategy.
+ Makefile.am                                        |    2 +
+ SECURITY.md                                        |    1 -
+ configure.ac                                       |    2 +
+ contrib/guix/INSTALL.md                            |    4 +-
+ contrib/guix/README.md                             |    2 +-
+ depends/hosts/default.mk                           |    3 +-
+ depends/packages/qt.mk                             |   31 +-
+ depends/patches/qt/guix_cross_lib_path.patch       |    2 +-
+ doc/release-notes-25504.md                         |    6 +
+ share/setup.nsi.in                                 |    4 +-
+ src/Makefile.bench.include                         |    1 +
+ src/bench/coin_selection.cpp                       |    2 +-
+ src/bench/descriptors.cpp                          |   30 +
+ src/crc32c/CMakeLists.txt                          |    7 +-
+ src/net.cpp                                        |    5 +-
+ src/net_processing.cpp                             |   39 +-
+ src/outputtype.cpp                                 |   10 +-
+ src/outputtype.h                                   |    2 +
+ src/qt/locale/bitcoin_en.ts                        |   17 +-
+ src/qt/locale/bitcoin_en.xlf                       | 1856 ++++++++++----------
+ src/qt/overviewpage.cpp                            |   23 +-
+ src/qt/overviewpage.h                              |    1 -
+ src/qt/sendcoinsdialog.cpp                         |   12 +-
+ src/qt/sendcoinsdialog.h                           |    2 +-
+ src/qt/test/wallettests.cpp                        |   28 +-
+ src/qt/walletcontroller.cpp                        |    4 +
+ src/qt/walletmodel.cpp                             |   20 +-
+ src/qt/walletmodel.h                               |    7 +
+ src/rpc/client.cpp                                 |    1 +
+ src/test/util_tests.cpp                            |   16 +
+ src/util/string.cpp                                |    9 +-
+ src/util/string.h                                  |    2 +-
+ src/wallet/external_signer_scriptpubkeyman.cpp     |    3 +-
+ src/wallet/receive.cpp                             |    6 +-
+ src/wallet/receive.h                               |    3 +-
+ src/wallet/rpc/coins.cpp                           |    6 +-
+ src/wallet/rpc/spend.cpp                           |   24 +-
+ src/wallet/rpc/transactions.cpp                    |   23 +-
+ src/wallet/rpc/util.cpp                            |    9 +
+ src/wallet/rpc/util.h                              |    4 +
+ src/wallet/scriptpubkeyman.cpp                     |    5 +
+ src/wallet/spend.cpp                               |  167 +-
+ src/wallet/spend.h                                 |   22 +-
+ src/wallet/test/availablecoins_tests.cpp           |   13 +-
+ src/wallet/test/coinselector_tests.cpp             |  112 +-
+ src/wallet/test/wallet_tests.cpp                   |    4 +-
+ src/wallet/wallet.cpp                              |   13 +
+ src/wallet/wallet.h                                |    3 +
+ test/functional/mocks/invalid_signer.py            |    2 +-
+ test/functional/mocks/multi_signers.py             |   30 +
+ test/functional/mocks/signer.py                    |    2 +-
+ test/functional/p2p_initial_headers_sync.py        |  105 ++
+ test/functional/rpc_signer.py                      |    5 +-
+ test/functional/test_runner.py                     |    1 +
+ .../functional/wallet_avoid_mixing_output_types.py |    1 +
+ test/functional/wallet_basic.py                    |   33 +
+ test/functional/wallet_listsinceblock.py           |   63 +
+ test/functional/wallet_signer.py                   |   15 +
+ test/lint/lint-includes.py                         |    3 +-
+ 59 files changed, 1620 insertions(+), 1208 deletions(-)
+ create mode 100644 doc/release-notes-25504.md
+ create mode 100644 src/bench/descriptors.cpp
+ create mode 100755 test/functional/mocks/multi_signers.py
+ create mode 100755 test/functional/p2p_initial_headers_sync.py

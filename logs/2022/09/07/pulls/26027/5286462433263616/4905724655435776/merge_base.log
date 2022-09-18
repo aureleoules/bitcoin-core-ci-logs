@@ -1,0 +1,26 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-06 19:15:34.335 xcodebuild[700:5698] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-06 19:15:34.335 xcodebuild[700:5698] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ contrib/guix/manifest.scm                          | 29 ++++---
+ src/chainparams.cpp                                | 40 +++++-----
+ src/wallet/rpc/backup.cpp                          |  8 +-
+ src/wallet/rpc/spend.cpp                           | 12 ++-
+ src/wallet/transaction.h                           |  7 ++
+ src/wallet/wallet.cpp                              | 90 +++++++++++-----------
+ src/wallet/wallet.h                                |  3 +-
+ test/functional/mempool_expiry.py                  |  2 +-
+ .../p2p_headers_sync_with_minchainwork.py          |  4 +-
+ test/functional/p2p_leak.py                        |  5 +-
+ test/functional/rpc_blockchain.py                  | 10 +++
+ test/functional/test_framework/messages.py         |  1 +
+ test/functional/wallet_resendwallettransactions.py | 64 ++++++++++++---
+ 13 files changed, 172 insertions(+), 103 deletions(-)

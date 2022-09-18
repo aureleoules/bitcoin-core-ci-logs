@@ -1,0 +1,43 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call cd .. 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>call git clone --quiet https://github.com/microsoft/vcpkg.git 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>call cd vcpkg 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>call git -c advice.detachedHead=false checkout 2022.06.16.1 
+HEAD is now at cef0b3ec7 Update vcpkg-tool to 2022-06-17. (#25341)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>call .\bootstrap-vcpkg -disableMetrics 
+Downloading https://github.com/microsoft/vcpkg-tool/releases/download/2022-06-17/vcpkg.exe -> C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\vcpkg.exe...While calling Windows API function WinHttpReadData got error 0x00002EFE:
+The connection with the server was terminated abnormally
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\scripts\bootstrap.ps1 
+: Downloading vcpkg.exe failed. Please check your internet connection, or 
+consider downloading a recent vcpkg.exe from 
+https://github.com/microsoft/vcpkg-tool with a browser.
+At line:1 char:4
++ & {& 'C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\script ...
++    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorExcep 
+   tion
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorExceptio 
+   n,bootstrap.ps1
+ 
+ScriptHalted
+At C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\scripts\bootstrap.p
+s1:60 char:5
++     throw
++     ~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ScriptHalted
+ 

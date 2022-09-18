@@ -1,0 +1,137 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 16 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/Makefile.test.include
+Auto-merging src/wallet/interfaces.cpp
+Auto-merging src/wallet/rpc/addresses.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging src/wallet/spend.cpp
+Auto-merging src/wallet/spend.h
+Auto-merging src/wallet/test/coinselector_tests.cpp
+Auto-merging src/wallet/test/wallet_tests.cpp
+Auto-merging src/wallet/wallet.h
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                        |  20 +-
+ REVIEWERS                                          | 123 ----------
+ build_msvc/README.md                               |   2 +-
+ ci/test/00_setup_env_native_asan.sh                |  11 +-
+ ci/test/00_setup_env_native_tidy.sh                |   2 +-
+ ci/test/04_install.sh                              |   8 +
+ ci/test/06_script_b.sh                             |   5 +-
+ contrib/guix/manifest.scm                          |  20 +-
+ depends/packages/expat.mk                          |   9 +-
+ depends/packages/libxcb.mk                         |   3 +-
+ depends/packages/qt.mk                             |  16 +-
+ depends/patches/libxcb/remove_pthread_stubs.patch  |  12 +
+ depends/patches/qt/dont_hardcode_x86_64.patch      |   4 +-
+ depends/patches/qt/fix_android_jni_static.patch    |   2 +-
+ depends/patches/qt/fix_limits_header.patch         |  33 ---
+ depends/patches/qt/guix_cross_lib_path.patch       |  17 ++
+ doc/dependencies.md                                |   2 +-
+ doc/release-notes-25610.md                         |  12 +
+ src/.clang-tidy                                    |   2 +
+ src/Makefile.test.include                          |   2 +
+ src/addrman.cpp                                    | 149 ++++++------
+ src/addrman.h                                      |  25 +-
+ src/addrman_impl.h                                 |  42 ++--
+ src/bench/addrman.cpp                              |   2 +-
+ src/bench/coin_selection.cpp                       |   6 +-
+ src/blockfilter.cpp                                |   2 +-
+ src/chain.cpp                                      |   7 +
+ src/chain.h                                        |  24 +-
+ src/coins.cpp                                      |   6 +-
+ src/external_signer.cpp                            |   2 +-
+ src/leveldb/util/env_posix.cc                      |   2 +-
+ src/net.cpp                                        |  29 ++-
+ src/net_processing.cpp                             |  22 +-
+ src/node/blockstorage.cpp                          |   6 +-
+ src/node/interfaces.cpp                            |  52 ++--
+ src/primitives/transaction.cpp                     |   7 +-
+ src/primitives/transaction.h                       |  14 +-
+ src/protocol.h                                     |  11 +-
+ src/psbt.h                                         |   3 +
+ src/qt/bitcoingui.cpp                              |   8 +-
+ src/random.h                                       |  17 +-
+ src/rpc/blockchain.cpp                             |  25 +-
+ src/rpc/mining.cpp                                 |   4 +-
+ src/rpc/net.cpp                                    |  24 +-
+ src/rpc/node.cpp                                   |   6 +-
+ src/rpc/rawtransaction.cpp                         |  38 +--
+ src/rpc/rawtransaction_util.cpp                    |   7 +-
+ src/rpc/rawtransaction_util.h                      |   3 +-
+ src/script/script.h                                |   2 +-
+ src/serialize.h                                    |  23 ++
+ src/test/addrman_tests.cpp                         |  26 +-
+ src/test/fuzz/addrman.cpp                          |  18 +-
+ src/test/fuzz/chain.cpp                            |   3 +-
+ src/test/fuzz/load_external_block_file.cpp         |  11 +-
+ src/test/fuzz/parse_univalue.cpp                   |   2 +-
+ src/test/fuzz/tx_pool.cpp                          |  10 +-
+ src/test/fuzz/txorphan.cpp                         |   6 +-
+ src/test/fuzz/util.cpp                             |   5 +
+ src/test/fuzz/util.h                               |   5 +-
+ src/test/netbase_tests.cpp                         |  18 +-
+ src/test/random_tests.cpp                          |  10 +
+ src/test/rbf_tests.cpp                             | 230 ++++++++++++++++++
+ src/test/script_tests.cpp                          |  24 +-
+ src/test/system_tests.cpp                          |   5 -
+ src/threadinterrupt.cpp                            |  12 +-
+ src/threadinterrupt.h                              |   5 +-
+ src/timedata.h                                     |   8 +-
+ src/txdb.cpp                                       |   2 +-
+ src/txorphanage.cpp                                |   4 +-
+ src/txorphanage.h                                  |   2 +-
+ src/univalue/include/univalue.h                    |  40 ++--
+ src/util/system.cpp                                |   2 +-
+ src/util/time.h                                    |   1 +
+ src/validation.cpp                                 |  24 +-
+ src/validation.h                                   |  32 ++-
+ src/wallet/interfaces.cpp                          |   2 +
+ src/wallet/rpc/addresses.cpp                       |  28 +--
+ src/wallet/rpc/backup.cpp                          |  40 ++--
+ src/wallet/rpc/coins.cpp                           |  18 +-
+ src/wallet/rpc/encrypt.cpp                         |  14 +-
+ src/wallet/rpc/signmessage.cpp                     |   2 +-
+ src/wallet/rpc/spend.cpp                           |  22 +-
+ src/wallet/rpc/transactions.cpp                    |  18 +-
+ src/wallet/rpc/wallet.cpp                          |  14 +-
+ src/wallet/spend.cpp                               | 164 ++++++++++---
+ src/wallet/spend.h                                 |  69 ++++--
+ src/wallet/test/availablecoins_tests.cpp           | 105 ++++++++
+ src/wallet/test/coinselector_tests.cpp             | 264 ++++++++++-----------
+ src/wallet/test/wallet_tests.cpp                   |   6 +-
+ src/wallet/wallet.h                                |   2 +-
+ test/functional/feature_taproot.py                 |   6 +
+ test/functional/interface_usdt_net.py              |   2 +-
+ test/functional/interface_usdt_utxocache.py        |  40 ++--
+ test/functional/interface_usdt_validation.py       |   2 +-
+ test/functional/p2p_permissions.py                 |   3 +-
+ test/functional/rpc_psbt.py                        |  12 +-
+ test/functional/test_framework/psbt.py             |   8 +-
+ test/functional/test_runner.py                     |   1 +
+ test/functional/wallet_address_types.py            |  28 +--
+ .../functional/wallet_avoid_mixing_output_types.py | 176 ++++++++++++++
+ test/functional/wallet_listtransactions.py         |   6 +-
+ 101 files changed, 1549 insertions(+), 881 deletions(-)
+ create mode 100644 depends/patches/libxcb/remove_pthread_stubs.patch
+ delete mode 100644 depends/patches/qt/fix_limits_header.patch
+ create mode 100644 depends/patches/qt/guix_cross_lib_path.patch
+ create mode 100644 doc/release-notes-25610.md
+ create mode 100644 src/test/rbf_tests.cpp
+ create mode 100644 src/wallet/test/availablecoins_tests.cpp
+ create mode 100755 test/functional/wallet_avoid_mixing_output_types.py

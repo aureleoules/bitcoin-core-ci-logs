@@ -1,0 +1,108 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-fuzz --with-sanitizers=fuzzer,address,undefined,integer CC='clang -ftrivial-auto-var-init=pattern' CXX='clang++ -ftrivial-auto-var-init=pattern'
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping procps, it is already installed and upgrade is not set.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils
+  bzip2 clang-14 cpp cpp-11 dpkg-dev file g++ g++-11 gcc gcc-11 gcc-11-base
+  lib32gcc-s1 lib32stdc++6 libasan6 libatomic1 libbinutils libboost1.74-dev
+  libc-dev-bin libc6-dev libc6-i386 libcc1-0 libclang-common-14-dev
+  libclang-cpp14 libclang1-14 libcrypt-dev libctf-nobfd0 libctf0 libcurl4
+  libdpkg-perl libevent-2.1-7 libevent-core-2.1-7 libevent-extra-2.1-7
+  libevent-openssl-2.1-7 libevent-pthreads-2.1-7 libgc1 libgcc-11-dev
+  libglib2.0-0 libgomp1 libhiredis0.14 libicu70 libisl23 libitm1 libllvm14
+  liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec3 libmpfr6 libnsl-dev
+  libobjc-11-dev libobjc4 libpfm4 libpopt0 libpython3-stdlib
+  libpython3.10-minimal libpython3.10-stdlib libquadmath0 libreadline8
+  libsigsegv2 libsqlite3-0 libstdc++-11-dev libtirpc-dev libtsan0 libubsan1
+  libxml2 linux-libc-dev llvm-14 llvm-14-linker-tools llvm-14-runtime
+  llvm-runtime lto-disabled-list m4 make media-types ncal python3-minimal
+  python3.10 python3.10-minimal readline-common rpcsvc-proto xz-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  calendar whois vacation mailutils bzip2-doc distcc | icecc clang-14-doc
+  cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib
+  gcc-11-doc gcc-multilib manpages-dev flex gdb gcc-doc gcc-11-multilib
+  libboost-doc libboost1.74-doc libboost-atomic1.74-dev
+  libboost-chrono1.74-dev libboost-container1.74-dev libboost-context1.74-dev
+  libboost-contract1.74-dev libboost-coroutine1.74-dev
+  libboost-date-time1.74-dev libboost-exception1.74-dev libboost-fiber1.74-dev
+  libboost-filesystem1.74-dev libboost-graph1.74-dev
+  libboost-graph-parallel1.74-dev libboost-iostreams1.74-dev
+  libboost-locale1.74-dev libboost-log1.74-dev libboost-math1.74-dev
+  libboost-mpi1.74-dev libboost-mpi-python1.74-dev libboost-numpy1.74-dev
+  libboost-program-options1.74-dev libboost-python1.74-dev
+  libboost-random1.74-dev libboost-regex1.74-dev
+  libboost-serialization1.74-dev libboost-stacktrace1.74-dev
+  libboost-system1.74-dev libboost-test1.74-dev libboost-thread1.74-dev
+  libboost-timer1.74-dev libboost-type-erasure1.74-dev libboost-wave1.74-dev
+  libboost1.74-tools-dev libmpfrc++-dev libntl-dev libboost-nowide1.74-dev
+  glibc-doc gnupg bzr sqlite3-doc libstdc++-11-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk llvm-14-doc m4-doc make-doc python3-doc
+  python3-tk python3-venv python3.10-venv python3.10-doc binfmt-support
+  readline-doc openssh-server
+Recommended packages:
+  llvm-14-dev fakeroot gnupg libalgorithm-merge-perl manpages manpages-dev
+  libc-devtools libfile-fcntllock-perl liblocale-gettext-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libltdl-dev binfmt-support
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binutils binutils-common
+  binutils-x86-64-linux-gnu bison bsdextrautils bsdmainutils build-essential
+  bzip2 ccache clang clang-14 cpp cpp-11 curl dpkg-dev file g++ g++-11 gcc
+  gcc-11 gcc-11-base lib32gcc-s1 lib32stdc++6 libasan6 libatomic1 libbinutils
+  libboost-dev libboost1.74-dev libc-dev-bin libc6-dev libc6-i386 libcc1-0
+  libclang-common-14-dev libclang-cpp14 libclang1-14 libcrypt-dev
+  libctf-nobfd0 libctf0 libcurl4 libdpkg-perl libevent-2.1-7
+  libevent-core-2.1-7 libevent-dev libevent-extra-2.1-7 libevent-openssl-2.1-7
+  libevent-pthreads-2.1-7 libgc1 libgcc-11-dev libglib2.0-0 libgomp1
+  libhiredis0.14 libicu70 libisl23 libitm1 libllvm14 liblsan0 libmagic-mgc
+  libmagic1 libmpc3 libmpdec3 libmpfr6 libnsl-dev libobjc-11-dev libobjc4
+  libpfm4 libpopt0 libpython3-stdlib libpython3.10-minimal
+  libpython3.10-stdlib libquadmath0 libreadline8 libsigsegv2 libsqlite3-0
+  libsqlite3-dev libstdc++-11-dev libtirpc-dev libtool libtsan0 libubsan1
+  libxml2 linux-libc-dev llvm llvm-14 llvm-14-linker-tools llvm-14-runtime
+  llvm-runtime lto-disabled-list m4 make media-types ncal pkg-config python3
+  python3-minimal python3.10 python3.10-minimal readline-common rpcsvc-proto
+  rsync xz-utils
+0 upgraded, 103 newly installed, 0 to remove and 9 not upgraded.
+Need to get 166 MB of archives.
+After this operation, 797 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.4-3ubuntu0.1 [809 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.4-3ubuntu0.1 [2258 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-minimal amd64 3.10.4-0ubuntu2 [24.4 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 readline-common all 8.1.2-1 [53.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 libreadline8 amd64 8.1.2-1 [153 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsqlite3-0 amd64 3.37.2-2 [643 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.4-3ubuntu0.1 [1830 kB]

@@ -1,0 +1,85 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-07 17:22:35.245 xcodebuild[700:5666] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-07 17:22:35.245 xcodebuild[700:5666] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/rpc/mempool.cpp
+Auto-merging src/init.cpp
+Removing contrib/guix/patches/elfsteem-value-error-python-39.patch
+Auto-merging ci/test/06_script_b.sh
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_a.sh                             |   7 +-
+ ci/test/06_script_b.sh                             |   1 +
+ contrib/builder-keys/keys.txt                      |   1 +
+ contrib/guix/libexec/build.sh                      |   1 +
+ contrib/guix/manifest.scm                          |  16 +-
+ .../patches/elfsteem-value-error-python-39.patch   |  13 -
+ contrib/guix/patches/gcc-10-remap-guix-store.patch |  25 ++
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |  25 ++
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |  25 ++
+ contrib/signet/miner                               |  12 +-
+ contrib/verify-commits/trusted-keys                |   1 +
+ doc/build-unix.md                                  |  23 -
+ src/Makefile.am                                    |   7 +-
+ src/Makefile.test.include                          |   1 +
+ src/bench/gcs_filter.cpp                           |  79 +++-
+ src/blockfilter.cpp                                |   8 +-
+ src/blockfilter.h                                  |   6 +-
+ src/index/blockfilterindex.cpp                     |  13 +-
+ src/index/blockfilterindex.h                       |   2 +-
+ src/init.cpp                                       |   2 +-
+ src/minisketch/README.md                           |   4 +-
+ src/minisketch/include/minisketch.h                |   3 +-
+ src/net.cpp                                        | 231 +---------
+ src/net.h                                          | 123 +-----
+ src/net_processing.cpp                             | 463 +++++++++++++--------
+ src/node/connection_types.cpp                      |  26 ++
+ src/node/connection_types.h                        |  82 ++++
+ src/node/eviction.cpp                              | 240 +++++++++++
+ src/node/eviction.h                                |  69 +++
+ src/rpc/blockchain.cpp                             |   6 +-
+ src/rpc/client.cpp                                 |   1 +
+ src/rpc/mempool.cpp                                | 146 +++++++
+ src/test/fuzz/node_eviction.cpp                    |   2 +
+ src/test/fuzz/rpc.cpp                              |   1 +
+ src/test/fuzz/txorphan.cpp                         | 143 +++++++
+ src/test/util/net.cpp                              |   3 +
+ src/test/util/net.h                                |   1 +
+ src/util/error.cpp                                 |   2 +
+ src/util/error.h                                   |   1 +
+ src/wallet/bdb.cpp                                 |   6 -
+ src/wallet/spend.cpp                               |  14 +-
+ src/wallet/walletdb.cpp                            |  10 +-
+ test/functional/feature_dbcrash.py                 |   8 +-
+ test/functional/feature_maxuploadtarget.py         |   2 +-
+ test/functional/feature_minchainwork.py            |   2 +-
+ test/functional/feature_nulldummy.py               |  65 ++-
+ test/functional/feature_rbf.py                     | 388 +++++++++--------
+ test/functional/mempool_limit.py                   |   2 +-
+ test/functional/mempool_updatefromblock.py         |  19 +-
+ test/functional/mining_prioritisetransaction.py    |   2 +-
+ test/functional/p2p_invalid_tx.py                  |  68 ++-
+ test/functional/p2p_segwit.py                      |   4 +
+ test/functional/p2p_timeouts.py                    |   5 +
+ test/functional/rpc_packages.py                    | 133 +++++-
+ test/functional/test_framework/blocktools.py       |  24 --
+ test/functional/test_framework/util.py             |  19 +-
+ test/functional/test_framework/wallet.py           |  24 +-
+ test/functional/test_runner.py                     |   5 +-
+ test/functional/wallet_basic.py                    |   2 +-
+ 59 files changed, 1691 insertions(+), 926 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/gcc-10-remap-guix-store.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch
+ create mode 100644 src/node/connection_types.cpp
+ create mode 100644 src/node/connection_types.h
+ create mode 100644 src/node/eviction.cpp
+ create mode 100644 src/node/eviction.h
+ create mode 100644 src/test/fuzz/txorphan.cpp

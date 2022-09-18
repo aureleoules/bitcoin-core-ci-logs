@@ -1,0 +1,55 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 80 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/init.cpp
+Removing contrib/guix/patches/elfsteem-value-error-python-39.patch
+Merge made by the 'recursive' strategy.
+ contrib/guix/libexec/build.sh                      |   1 +
+ contrib/guix/manifest.scm                          |  11 +-
+ .../patches/elfsteem-value-error-python-39.patch   |  13 --
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |  25 ++++
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |  25 ++++
+ src/init.cpp                                       |   2 +-
+ src/minisketch/README.md                           |   4 +-
+ src/minisketch/include/minisketch.h                |   3 +-
+ src/rpc/blockchain.cpp                             |   6 +-
+ src/rpc/client.cpp                                 |   1 +
+ src/rpc/mempool.cpp                                | 146 +++++++++++++++++++++
+ src/test/fuzz/rpc.cpp                              |   1 +
+ src/util/error.cpp                                 |   2 +
+ src/util/error.h                                   |   1 +
+ src/wallet/bdb.cpp                                 |   6 -
+ src/wallet/spend.cpp                               |   3 +-
+ src/wallet/walletdb.cpp                            |  10 +-
+ test/functional/feature_maxuploadtarget.py         |   2 +-
+ test/functional/feature_nulldummy.py               |  65 +++++----
+ test/functional/mempool_limit.py                   |   2 +-
+ test/functional/mining_prioritisetransaction.py    |   2 +-
+ test/functional/p2p_timeouts.py                    |   5 +
+ test/functional/rpc_packages.py                    | 133 ++++++++++++++++++-
+ test/functional/test_framework/blocktools.py       |  24 ----
+ test/functional/test_framework/util.py             |  19 +--
+ test/functional/test_runner.py                     |   5 +-
+ 26 files changed, 411 insertions(+), 106 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch

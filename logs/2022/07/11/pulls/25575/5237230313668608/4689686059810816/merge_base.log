@@ -1,0 +1,37 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:5 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 95 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ doc/release-notes/release-notes-471.md             |   4 +
+ src/qt/bitcoingui.cpp                              |  33 ++++-
+ src/qt/bitcoingui.h                                |   1 +
+ src/qt/walletcontroller.cpp                        |  43 +++++++
+ src/qt/walletcontroller.h                          |  20 +++
+ src/wallet/test/coinselector_tests.cpp             |  18 ++-
+ test/functional/rpc_signrawtransactionwithkey.py   | 140 +++++++++++++++++++++
+ test/functional/test_framework/util.py             |   5 +-
+ test/functional/test_runner.py                     |   5 +-
+ ...n.py => wallet_signrawtransactionwithwallet.py} | 100 +--------------
+ 10 files changed, 264 insertions(+), 105 deletions(-)
+ create mode 100644 doc/release-notes/release-notes-471.md
+ create mode 100755 test/functional/rpc_signrawtransactionwithkey.py
+ rename test/functional/{rpc_signrawtransaction.py => wallet_signrawtransactionwithwallet.py} (71%)

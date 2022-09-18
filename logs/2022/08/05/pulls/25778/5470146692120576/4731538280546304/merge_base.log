@@ -1,0 +1,50 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'ort' strategy.
+ ci/test/06_script_b.sh                    |  1 +
+ src/Makefile.am                           |  3 +++
+ src/bitcoin-chainstate.cpp                |  6 ++++--
+ src/bitcoin-cli.cpp                       |  2 +-
+ src/chain.cpp                             |  8 +++-----
+ src/chain.h                               |  2 +-
+ src/cuckoocache.h                         | 23 +++++++++++++++------
+ src/init.cpp                              | 15 +++++++++++---
+ src/init/common.cpp                       |  2 +-
+ src/kernel/validation_cache_sizes.h       | 20 ++++++++++++++++++
+ src/node/validation_cache_args.cpp        | 34 +++++++++++++++++++++++++++++++
+ src/node/validation_cache_args.h          | 17 ++++++++++++++++
+ src/qt/guiutil.cpp                        |  2 +-
+ src/rpc/request.cpp                       |  6 +++---
+ src/script/sigcache.cpp                   | 18 ++++++++--------
+ src/script/sigcache.h                     | 11 +++++-----
+ src/test/fuzz/script_sigcache.cpp         | 11 ++++++----
+ src/test/miner_tests.cpp                  |  6 +++---
+ src/test/skiplist_tests.cpp               |  6 +++---
+ src/test/txvalidationcache_tests.cpp      |  5 -----
+ src/test/util/setup_common.cpp            | 13 ++++++++++--
+ src/util/system.cpp                       | 16 +++++++--------
+ src/util/system.h                         |  2 +-
+ src/validation.cpp                        | 26 +++++++++++++----------
+ src/validation.h                          |  2 +-
+ test/functional/mempool_package_limits.py |  4 ++--
+ test/functional/test_framework/wallet.py  | 13 +++++++-----
+ 27 files changed, 192 insertions(+), 82 deletions(-)
+ create mode 100644 src/kernel/validation_cache_sizes.h
+ create mode 100644 src/node/validation_cache_args.cpp
+ create mode 100644 src/node/validation_cache_args.h

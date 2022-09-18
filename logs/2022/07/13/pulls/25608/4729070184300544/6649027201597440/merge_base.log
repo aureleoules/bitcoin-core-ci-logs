@@ -1,0 +1,87 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Get:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease [114 kB]
+Hit:3 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Get:4 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease [114 kB]
+Get:5 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease [108 kB]
+Get:6 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease [114 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease [108 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease [114 kB]
+Get:9 http://mirror.hetzner.de/ubuntu/packages focal-updates/main amd64 Packages [1,977 kB]
+Get:10 http://mirror.hetzner.de/ubuntu/packages focal-updates/main i386 Packages [693 kB]
+Get:11 http://mirror.hetzner.de/ubuntu/packages focal-updates/main Translation-en [356 kB]
+Get:12 http://mirror.hetzner.de/ubuntu/packages focal-updates/universe i386 Packages [677 kB]
+Get:13 http://mirror.hetzner.de/ubuntu/packages focal-updates/universe amd64 Packages [924 kB]
+Get:14 http://mirror.hetzner.de/ubuntu/packages focal-security/main i386 Packages [468 kB]
+Get:15 http://mirror.hetzner.de/ubuntu/packages focal-security/main amd64 Packages [1,616 kB]
+Get:16 http://mirror.hetzner.de/ubuntu/packages focal-security/main Translation-en [275 kB]
+Get:17 http://mirror.hetzner.de/ubuntu/packages focal-security/restricted amd64 Packages [1,079 kB]
+Get:18 http://mirror.hetzner.de/ubuntu/packages focal-security/restricted Translation-en [153 kB]
+Get:19 http://mirror.hetzner.de/ubuntu/packages focal-security/universe i386 Packages [555 kB]
+Get:20 http://mirror.hetzner.de/ubuntu/packages focal-security/universe amd64 Packages [710 kB]
+Get:21 https://mirror.hetzner.com/ubuntu/packages focal-updates/main i386 Packages [693 kB]
+Get:22 https://mirror.hetzner.com/ubuntu/packages focal-updates/main amd64 Packages [1,977 kB]
+Get:23 https://mirror.hetzner.com/ubuntu/packages focal-updates/main Translation-en [356 kB]
+Get:24 https://mirror.hetzner.com/ubuntu/packages focal-updates/universe amd64 Packages [924 kB]
+Get:25 https://mirror.hetzner.com/ubuntu/packages focal-updates/universe i386 Packages [677 kB]
+Get:26 https://mirror.hetzner.com/ubuntu/security focal-security/main amd64 Packages [1,616 kB]
+Get:27 https://mirror.hetzner.com/ubuntu/security focal-security/main i386 Packages [468 kB]
+Get:28 https://mirror.hetzner.com/ubuntu/security focal-security/main Translation-en [275 kB]
+Get:29 https://mirror.hetzner.com/ubuntu/security focal-security/restricted amd64 Packages [1,079 kB]
+Get:30 https://mirror.hetzner.com/ubuntu/security focal-security/restricted Translation-en [153 kB]
+Get:31 https://mirror.hetzner.com/ubuntu/security focal-security/universe amd64 Packages [710 kB]
+Get:32 https://mirror.hetzner.com/ubuntu/security focal-security/universe i386 Packages [555 kB]
+Fetched 19.6 MB in 3s (6,012 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  git-daemon-run | git-daemon-sysvinit git-doc git-el git-email git-gui gitk
+  gitweb git-cvs git-mediawiki git-svn
+The following packages will be upgraded:
+  git
+1 upgraded, 0 newly installed, 0 to remove and 95 not upgraded.
+Need to get 4,557 kB of archives.
+After this operation, 28.7 kB of additional disk space will be used.
+Get:1 https://mirror.hetzner.com/ubuntu/packages focal-updates/main amd64 git amd64 1:2.25.1-1ubuntu3.5 [4,557 kB]
+dpkg-preconfigure: unable to re-open stdin: No such file or directory
+Fetched 4,557 kB in 0s (13.4 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 33367 files and directories currently installed.)
+Preparing to unpack .../git_1%3a2.25.1-1ubuntu3.5_amd64.deb ...
+Unpacking git (1:2.25.1-1ubuntu3.5) over (1:2.25.1-1ubuntu3.4) ...
+Setting up git (1:2.25.1-1ubuntu3.5) ...
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Removing src/util/designator.h
+Auto-merging src/Makefile.am
+Merge made by the 'recursive' strategy.
+ build_msvc/README.md                       |   4 +-
+ build_msvc/bitcoin_config.h.in             |   4 +-
+ build_msvc/common.init.vcxproj.in          |   4 +-
+ build_msvc/msvc-autogen.py                 |   2 +-
+ src/Makefile.am                            |   1 -
+ src/init.cpp                               |   5 +-
+ src/net.cpp                                |  29 ++-
+ src/rpc/blockchain.cpp                     |  44 ++--
+ src/rpc/rawtransaction.cpp                 | 384 +++++++++++++++--------------
+ src/test/util/setup_common.cpp             |   5 +-
+ src/univalue/include/univalue.h            |  10 +
+ src/util/designator.h                      |  21 --
+ src/wallet/rpc/transactions.cpp            |  12 +-
+ test/functional/feature_rbf.py             |  10 +-
+ test/functional/mempool_accept.py          |   6 +-
+ test/functional/p2p_segwit.py              |   4 +-
+ test/functional/rpc_packages.py            |   4 +-
+ test/functional/rpc_psbt.py                |   4 +-
+ test/functional/rpc_rawtransaction.py      |   4 +-
+ test/functional/test_framework/messages.py |   2 +-
+ test/functional/wallet_bumpfee.py          |   8 +-
+ test/functional/wallet_listsinceblock.py   |   4 +-
+ 22 files changed, 285 insertions(+), 286 deletions(-)
+ delete mode 100644 src/util/designator.h

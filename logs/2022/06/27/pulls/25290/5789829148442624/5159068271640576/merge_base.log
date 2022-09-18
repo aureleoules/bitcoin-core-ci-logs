@@ -1,0 +1,105 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-06-27 13:16:47.292 xcodebuild[700:5792] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-06-27 13:16:47.292 xcodebuild[700:5792] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/util/system.cpp
+Auto-merging src/txmempool.h
+Auto-merging src/txmempool.cpp
+Auto-merging src/rpc/mempool.cpp
+Auto-merging src/net_processing.cpp
+Auto-merging src/Makefile.am
+Merge made by the 'recursive' strategy.
+ .cirrus.yml                                        |   38 +-
+ build_msvc/README.md                               |   16 +-
+ build_msvc/msvc-autogen.py                         |    4 +-
+ ...c_host.sh => 00_setup_env_mac_native_x86_64.sh} |    0
+ configure.ac                                       |   20 +-
+ contrib/guix/libexec/build.sh                      |    4 -
+ contrib/guix/manifest.scm                          |   19 +-
+ .../guix/patches/lief-fix-ppc64-nx-default.patch   |   29 +
+ depends/Makefile                                   |    4 +-
+ depends/gen_id                                     |    7 +-
+ depends/packages/libxkbcommon.mk                   |    5 +
+ depends/packages/qt.mk                             |    2 +-
+ depends/packages/sqlite.mk                         |    6 +-
+ doc/README.md                                      |    2 +-
+ doc/build-unix.md                                  |   15 +-
+ doc/{ => design}/assumeutxo.md                     |    0
+ doc/design/libraries.md                            |  104 ++
+ doc/{ => design}/multiprocess.md                   |    0
+ src/Makefile.am                                    |    2 -
+ src/Makefile.leveldb.include                       |    1 -
+ src/Makefile.test.include                          |    4 +-
+ src/chain.h                                        |    2 +-
+ src/coins.h                                        |    1 -
+ src/compat.h                                       |    3 -
+ src/dbwrapper.cpp                                  |    2 +-
+ src/dbwrapper.h                                    |   21 -
+ src/fs.cpp                                         |    3 -
+ src/i2p.cpp                                        |    2 +-
+ src/net.cpp                                        |    2 +-
+ src/net_processing.cpp                             |   79 +-
+ src/net_processing.h                               |    8 +-
+ src/qt/bitcoin.cpp                                 |   23 +-
+ src/qt/forms/sendcoinsentry.ui                     | 1437 +++-----------------
+ src/qt/guiutil.cpp                                 |   33 +-
+ src/qt/guiutil.h                                   |    8 +
+ src/qt/intro.cpp                                   |    2 +-
+ src/qt/sendcoinsentry.cpp                          |   31 +-
+ src/qt/sendcoinsentry.h                            |    6 +-
+ src/qt/test/optiontests.cpp                        |   10 +
+ src/qt/test/optiontests.h                          |    1 +
+ src/qt/utilitydialog.cpp                           |    8 +-
+ src/random.cpp                                     |    2 +-
+ src/rpc/mempool.cpp                                |    6 +-
+ src/rpc/server.cpp                                 |   12 +-
+ src/support/lockedpool.cpp                         |    3 -
+ src/test/denialofservice_tests.cpp                 |   10 +-
+ src/test/fuzz/util.cpp                             |    9 +-
+ src/test/fuzz/util.h                               |    2 -
+ src/test/net_tests.cpp                             |    7 +-
+ src/test/sock_tests.cpp                            |   18 -
+ src/test/util/net.h                                |    7 +-
+ src/txdb.cpp                                       |    6 -
+ src/txmempool.cpp                                  |   23 +-
+ src/txmempool.h                                    |    9 +-
+ src/util/sock.cpp                                  |   45 +-
+ src/util/sock.h                                    |   21 +-
+ src/util/system.cpp                                |    3 -
+ src/util/time.h                                    |    7 +-
+ src/wallet/coincontrol.h                           |    7 +-
+ src/wallet/feebumper.cpp                           |    2 +-
+ src/wallet/rpc/spend.cpp                           |   10 +-
+ src/wallet/spend.cpp                               |   46 +-
+ src/wallet/test/coinselector_tests.cpp             |    4 +-
+ src/wallet/wallet.cpp                              |   15 +-
+ src/wallet/wallet.h                                |    2 +-
+ test/functional/feature_dbcrash.py                 |    8 +-
+ test/functional/feature_fee_estimation.py          |    4 +-
+ test/functional/feature_rbf.py                     |    7 +-
+ test/functional/feature_signet.py                  |    8 +
+ test/functional/mempool_reorg.py                   |    6 +-
+ test/functional/mempool_unbroadcast.py             |    2 +-
+ test/functional/mining_prioritisetransaction.py    |    2 +-
+ test/functional/p2p_permissions.py                 |    1 +
+ test/functional/p2p_segwit.py                      |    2 +-
+ test/functional/rpc_mempool_info.py                |    2 -
+ test/functional/rpc_rawtransaction.py              |    2 +-
+ test/functional/test_framework/test_framework.py   |   12 +-
+ test/functional/test_framework/util.py             |    5 +-
+ test/functional/test_framework/wallet.py           |  123 +-
+ test/functional/wallet_importdescriptors.py        |    2 +-
+ test/sanitizer_suppressions/ubsan                  |    4 +-
+ 81 files changed, 741 insertions(+), 1689 deletions(-)
+ rename ci/test/{00_setup_env_mac_host.sh => 00_setup_env_mac_native_x86_64.sh} (100%)
+ create mode 100644 contrib/guix/patches/lief-fix-ppc64-nx-default.patch
+ rename doc/{ => design}/assumeutxo.md (100%)
+ create mode 100644 doc/design/libraries.md
+ rename doc/{ => design}/multiprocess.md (100%)

@@ -1,0 +1,44 @@
+2022-06-21T01:23:05.811545Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet 62a740855c02314de26556373d3166053252bbb346f8e62f6c02cf3fab544fb8  new
+2022-06-21T01:23:05.812667Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet 427be984c4313070a62f1f5a31c0df4b86265969ec6946d495685599647077ac  new
+2022-06-21T01:23:05.813801Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet 742a2fd50c27573b80927915e4d6df89c1890ab2da8d9cd4636798844ae2f713  new
+2022-06-21T01:23:05.815520Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet 38c6de0e5dcef28daa255419ca97c8c905320cea5d1d83dad33806e26eb71c5e  new
+2022-06-21T01:23:05.817121Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet aab0e9ad945c0e3e034586c36a376583ed4fafa64764a8711b38fff4bfb312f7  new
+2022-06-21T01:23:05.818204Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet 6e01a3611fafb5f2ea76c4864a2f7be3dc9e1e93f9f89837f8e59d5f0d15397e  new
+2022-06-21T01:23:05.821341Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet fc0409b7dd259593a9250e5a9d6a7fae9f13ce2958c05de49e2fee70f4f35136  new
+2022-06-21T01:23:05.822484Z (mocktime: 2020-08-31T15:34:12Z) [test] [wallet/wallet.h:795] [WalletLogPrintf] [default wallet] AddToWallet b74211888614b3385f2f8910cabd6817a9c8f74d9aaf175b2030af8e1==29045==WARNING: MemorySanitizer: use-of-uninitialized-value
+    #0 0x19e76c3 in wallet::CreateTransaction(wallet::CWallet&, std::__1::vector<wallet::CRecipient, std::__1::allocator<wallet::CRecipient> > const&, std::__1::optional<unsigned int>, bilingual_str&, wallet::CCoinControl const&, FeeCalculation&, bool) src/wallet/spend.cpp:1023:5
+    #1 0x16be687 in wallet::wallet_tests::ListCoinsTestingSetup::AddTx(wallet::CRecipient) src/wallet/test/wallet_tests.cpp:528:59
+    #2 0x169d6a0 in wallet::wallet_tests::ListCoinsTest::test_method() src/wallet/test/wallet_tests.cpp:573:5
+    #3 0x169b9c2 in wallet::wallet_tests::ListCoinsTest_invoker() src/wallet/test/wallet_tests.cpp:551:1
+    #4 0x80fa93 in boost::detail::function::void_function_invoker0<void (*)(), void>::invoke(boost::detail::function::function_buffer&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/function/function_template.hpp:117:11
+    #5 0x606c95 in boost::function0<void>::operator()() const /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/function/function_template.hpp:763:14
+    #6 0x6f22a7 in boost::detail::forward::operator()() /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:1388:32
+    #7 0x6f1da6 in boost::detail::function::function_obj_invoker0<boost::detail::forward, int>::invoke(boost::detail::function::function_buffer&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/function/function_template.hpp:137:18
+    #8 0x6e7afd in boost::function0<int>::operator()() const /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/function/function_template.hpp:763:14
+    #9 0x5b1ef3 in int boost::detail::do_invoke<boost::shared_ptr<boost::detail::translator_holder_base>, boost::function<int ()> >(boost::shared_ptr<boost::detail::translator_holder_base> const&, boost::function<int ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:301:30
+    #10 0x539a9a in boost::execution_monitor::catch_signals(boost::function<int ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:903:16
+    #11 0x539e16 in boost::execution_monitor::execute(boost::function<int ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:1301:16
+    #12 0x52fbb8 in boost::execution_monitor::vexecute(boost::function<void ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:1397:5
+    #13 0x534643 in boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::function<void ()> const&, unsigned long) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/unit_test_monitor.ipp:49:9
+    #14 0x5ae498 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:815:44
+    #15 0x5acb75 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:784:58
+    #16 0x5acb75 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:784:58
+    #17 0x532c27 in boost::unit_test::framework::run(unsigned long, bool) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:1721:29
+    #18 0x559867 in boost::unit_test::unit_test_main(boost::unit_test::test_suite* (*)(int, char**), int, char**) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/unit_test_main.ipp:250:9
+    #19 0x55a17e in main /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/unit_test_main.ipp:306:12
+    #20 0x7f86ddb9c082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+    #21 0x49ac9d in _start (/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/test/test_bitcoin+0x49ac9d)
+
+  Uninitialized value was created by an allocation of 'txr_ungrouped' in the stack frame of function '_ZN6wallet17CreateTransactionERNS_7CWalletERKNSt3__16vectorINS_10CRecipientENS2_9allocatorIS4_EEEENS2_8optionalIjEER13bilingual_strRKNS_12CCoinControlER14FeeCalculationb'
+    #0 0x19e62c0 in wallet::CreateTransaction(wallet::CWallet&, std::__1::vector<wallet::CRecipient, std::__1::allocator<wallet::CRecipient> > const&, std::__1::optional<unsigned int>, bilingual_str&, wallet::CCoinControl const&, FeeCalculation&, bool) src/wallet/spend.cpp:1009
+
+SUMMARY: MemorySanitizer: use-of-uninitialized-value src/wallet/spend.cpp:1023:5 in wallet::CreateTransaction(wallet::CWallet&, std::__1::vector<wallet::CRecipient, std::__1::allocator<wallet::CRecipient> > const&, std::__1::optional<unsigned int>, bilingual_str&, wallet::CCoinControl const&, FeeCalculation&, bool)
+Exiting
+make[3]: *** [Makefile:20864: wallet/test/wallet_tests.cpp.test] Error 1
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: *** [Makefile:18967: check-am] Error 2
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[1]: *** [Makefile:18624: check-recursive] Error 1
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make: *** [Makefile:815: check-recursive] Error 1
+

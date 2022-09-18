@@ -1,0 +1,38 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at bac92f9c0 tests: Test that PSBT_OUT_TAP_TREE is included correctly
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ src/bench/coin_selection.cpp                       |   2 +-
+ src/outputtype.cpp                                 |  10 +-
+ src/outputtype.h                                   |   2 +
+ src/wallet/rpc/coins.cpp                           |   2 +-
+ src/wallet/rpc/spend.cpp                           |   2 +-
+ src/wallet/scriptpubkeyman.cpp                     |   5 +
+ src/wallet/spend.cpp                               | 167 +++++++++++----------
+ src/wallet/spend.h                                 |  22 ++-
+ src/wallet/test/availablecoins_tests.cpp           |  13 +-
+ src/wallet/test/coinselector_tests.cpp             | 112 +++++++-------
+ src/wallet/test/wallet_tests.cpp                   |   4 +-
+ src/wallet/wallet.cpp                              |   1 +
+ .../functional/wallet_avoid_mixing_output_types.py |   1 +
+ 13 files changed, 180 insertions(+), 163 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

@@ -1,0 +1,34 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 16 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'ort' strategy.
+ ci/test/06_script_b.sh                            |  3 ++-
+ contrib/guix/manifest.scm                         | 20 +++++++++++---
+ depends/packages/libxcb.mk                        |  3 ++-
+ depends/patches/libxcb/remove_pthread_stubs.patch | 12 +++++++++
+ src/net_processing.cpp                            |  5 +---
+ src/node/blockstorage.cpp                         |  6 ++++-
+ src/script/script.h                               |  2 +-
+ src/test/fuzz/load_external_block_file.cpp        | 11 ++++++--
+ src/test/fuzz/txorphan.cpp                        |  4 +--
+ src/txorphanage.cpp                               |  4 +--
+ src/txorphanage.h                                 |  2 +-
+ src/validation.cpp                                | 23 +++++++++++-----
+ src/validation.h                                  | 32 +++++++++++++++++++++--
+ 13 files changed, 99 insertions(+), 28 deletions(-)
+ create mode 100644 depends/patches/libxcb/remove_pthread_stubs.patch

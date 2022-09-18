@@ -1,0 +1,33 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 15 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/wallet.cpp
+Merge made by the 'ort' strategy.
+ .tx/config                                    |    2 +-
+ doc/descriptors.md                            |    3 +-
+ src/qt/bitcoinstrings.cpp                     |   42 +-
+ src/qt/locale/bitcoin_en.ts                   |  537 ++--
+ src/qt/locale/bitcoin_en.xlf                  | 3498 +++++++++++++------------
+ src/script/descriptor.cpp                     |   35 +
+ src/script/sign.cpp                           |    5 +
+ src/validation.h                              |    2 +-
+ src/wallet/wallet.cpp                         |    4 +-
+ test/functional/data/rpc_decodescript.json    |    2 +-
+ test/functional/rpc_signmessagewithprivkey.py |   22 +-
+ test/functional/wallet_taproot.py             |   17 +-
+ 12 files changed, 2282 insertions(+), 1887 deletions(-)

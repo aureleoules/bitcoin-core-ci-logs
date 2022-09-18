@@ -1,0 +1,31 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [474 kB]
+Get:6 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main Translation-en [115 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 c-n-f Metadata [7,052 B]
+Get:8 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 Packages [195 kB]
+Get:9 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe Translation-en [65.6 kB]
+Get:10 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 c-n-f Metadata [4,332 B]
+Get:11 https://mirror.hetzner.com/ubuntu/security jammy-security/main amd64 Packages [229 kB]
+Get:12 https://mirror.hetzner.com/ubuntu/security jammy-security/main Translation-en [56.5 kB]
+Get:13 https://mirror.hetzner.com/ubuntu/security jammy-security/main amd64 c-n-f Metadata [3,564 B]
+Get:14 https://mirror.hetzner.com/ubuntu/security jammy-security/universe amd64 Packages [95.3 kB]
+Get:15 https://mirror.hetzner.com/ubuntu/security jammy-security/universe amd64 c-n-f Metadata [2,200 B]
+Fetched 1,571 kB in 1s (1,799 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Already up to date.

@@ -1,0 +1,69 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 3b03b1a6d Update wallet loading functions to use util::Result
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/rpc/addresses.cpp
+Auto-merging src/wallet/rpc/backup.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging src/wallet/rpc/wallet.cpp
+Auto-merging src/wallet/test/wallet_tests.cpp
+Merge made by the 'ort' strategy.
+ ci/test/06_script_b.sh                  |  2 ++
+ src/.clang-tidy                         |  2 ++
+ src/blockfilter.cpp                     |  2 +-
+ src/chain.cpp                           |  7 ++++++
+ src/chain.h                             | 24 +++++---------------
+ src/external_signer.cpp                 |  2 +-
+ src/net.cpp                             | 10 ++++-----
+ src/primitives/transaction.cpp          |  7 +++++-
+ src/primitives/transaction.h            | 14 +++++++++---
+ src/psbt.h                              |  3 +++
+ src/qt/bitcoingui.cpp                   |  8 +++++--
+ src/random.h                            | 17 +++++++++-----
+ src/rpc/blockchain.cpp                  | 25 +++++++++++----------
+ src/rpc/mining.cpp                      |  4 ++--
+ src/rpc/net.cpp                         | 20 ++++++++---------
+ src/rpc/node.cpp                        |  6 ++---
+ src/rpc/rawtransaction.cpp              | 32 +++++++++++++-------------
+ src/test/fuzz/chain.cpp                 |  3 +--
+ src/test/fuzz/parse_univalue.cpp        |  2 +-
+ src/test/fuzz/tx_pool.cpp               | 10 ++-------
+ src/test/fuzz/txorphan.cpp              |  2 +-
+ src/test/random_tests.cpp               | 10 +++++++++
+ src/test/script_tests.cpp               | 24 ++++++++++----------
+ src/threadinterrupt.cpp                 | 12 +---------
+ src/threadinterrupt.h                   |  5 ++---
+ src/txdb.cpp                            |  2 +-
+ src/univalue/include/univalue.h         | 40 ++++++++++++++++-----------------
+ src/util/system.cpp                     |  2 +-
+ src/validation.cpp                      |  1 -
+ src/wallet/rpc/addresses.cpp            | 28 +++++++++++------------
+ src/wallet/rpc/backup.cpp               | 40 ++++++++++++++++-----------------
+ src/wallet/rpc/coins.cpp                | 16 ++++++-------
+ src/wallet/rpc/encrypt.cpp              | 14 ++++++------
+ src/wallet/rpc/signmessage.cpp          |  2 +-
+ src/wallet/rpc/spend.cpp                | 20 ++++++++---------
+ src/wallet/rpc/transactions.cpp         | 18 +++++++--------
+ src/wallet/rpc/wallet.cpp               | 14 ++++++------
+ src/wallet/test/wallet_tests.cpp        |  2 +-
+ test/functional/wallet_address_types.py | 28 +++++++----------------
+ 39 files changed, 241 insertions(+), 239 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

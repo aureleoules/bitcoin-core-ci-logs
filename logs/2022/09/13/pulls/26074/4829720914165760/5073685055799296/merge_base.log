@@ -1,0 +1,31 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 29 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/rpc/util.cpp
+Merge made by the 'ort' strategy.
+ contrib/guix/libexec/build.sh            |  1 -
+ contrib/guix/manifest.scm                |  2 +-
+ src/init.cpp                             | 16 +++++++++++++---
+ src/rpc/util.cpp                         |  3 ++-
+ test/functional/feature_proxy.py         | 21 ++++++++++++++-------
+ test/functional/mempool_accept.py        |  2 +-
+ test/functional/rpc_estimatefee.py       |  8 ++++----
+ test/functional/rpc_getblockfrompeer.py  |  4 ++--
+ test/functional/rpc_getdescriptorinfo.py |  2 +-
+ test/functional/rpc_rawtransaction.py    |  6 +++---
+ 10 files changed, 41 insertions(+), 24 deletions(-)

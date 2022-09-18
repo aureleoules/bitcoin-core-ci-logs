@@ -1,0 +1,38 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at d31b0549a Merge branch 'argument-collision-warning' of https://github.com/amovfx/bitcoin into argument-collision-warning
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ contrib/guix/manifest.scm                          | 29 ++++---
+ src/chainparams.cpp                                | 40 +++++-----
+ src/wallet/rpc/backup.cpp                          |  8 +-
+ src/wallet/rpc/spend.cpp                           | 12 ++-
+ src/wallet/transaction.h                           |  7 ++
+ src/wallet/wallet.cpp                              | 90 +++++++++++-----------
+ src/wallet/wallet.h                                |  3 +-
+ test/functional/mempool_expiry.py                  |  2 +-
+ .../p2p_headers_sync_with_minchainwork.py          |  4 +-
+ test/functional/p2p_leak.py                        |  5 +-
+ test/functional/rpc_blockchain.py                  | 10 +++
+ test/functional/test_framework/messages.py         |  1 +
+ test/functional/wallet_resendwallettransactions.py | 64 ++++++++++++---
+ 13 files changed, 172 insertions(+), 103 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

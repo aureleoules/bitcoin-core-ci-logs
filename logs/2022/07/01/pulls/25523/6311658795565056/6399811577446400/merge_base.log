@@ -1,0 +1,22 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-01 05:28:25.703 xcodebuild[698:5517] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-01 05:28:25.704 xcodebuild[698:5517] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Removing contrib/guix/patches/elfsteem-value-error-python-39.patch
+Merge made by the 'recursive' strategy.
+ contrib/guix/libexec/build.sh                      |  1 +
+ contrib/guix/manifest.scm                          | 11 +++++-----
+ .../patches/elfsteem-value-error-python-39.patch   | 13 -----------
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  | 25 ++++++++++++++++++++++
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  | 25 ++++++++++++++++++++++
+ 5 files changed, 57 insertions(+), 18 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch

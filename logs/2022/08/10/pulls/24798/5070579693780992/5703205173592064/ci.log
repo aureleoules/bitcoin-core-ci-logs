@@ -1,0 +1,2211 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-debug CC='clang -m32' CXX='clang++ -m32' LDFLAGS='--rtlib=compiler-rt -lgcc_s'
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping procps, it is already installed and upgrade is not set.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils
+  bzip2 clang-14 cmake-data cpp cpp-11 dh-elpa-helper dpkg-dev emacsen-common
+  file g++ g++-11 g++-11-multilib gcc gcc-11 gcc-11-base gcc-11-multilib
+  gcc-multilib lib32asan6 lib32atomic1 lib32gcc-11-dev lib32gcc-s1 lib32gomp1
+  lib32itm1 lib32quadmath0 lib32stdc++-11-dev lib32stdc++6 lib32ubsan1
+  libarchive13 libasan6 libatomic1 libbinutils libc-dev-bin libc6-dev
+  libc6-dev-i386 libc6-dev-x32 libc6-i386 libc6-x32 libcc1-0
+  libclang-common-14-dev libclang-cpp14 libclang1-14 libcrypt-dev
+  libctf-nobfd0 libctf0 libcurl4 libdpkg-perl libgc1 libgcc-11-dev
+  libglib2.0-0 libgomp1 libhiredis0.14 libicu70 libisl23 libitm1 libjsoncpp25
+  libllvm14 liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec3 libmpfr6
+  libnsl-dev libobjc-11-dev libobjc4 libpfm4 libpopt0 libpython3-stdlib
+  libpython3.10-minimal libpython3.10-stdlib libquadmath0 libreadline8
+  librhash0 libsigsegv2 libsqlite3-0 libstdc++-11-dev libtirpc-dev libtsan0
+  libubsan1 libuv1 libx32asan6 libx32atomic1 libx32gcc-11-dev libx32gcc-s1
+  libx32gomp1 libx32itm1 libx32quadmath0 libx32stdc++-11-dev libx32stdc++6
+  libx32ubsan1 libxml2 linux-libc-dev llvm-14 llvm-14-linker-tools
+  llvm-14-runtime llvm-runtime lto-disabled-list m4 make media-types ncal
+  python3-distutils python3-lib2to3 python3-minimal python3-pkg-resources
+  python3-setuptools python3-wheel python3.10 python3.10-minimal
+  readline-common rpcsvc-proto xz-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  calendar whois vacation mailutils bzip2-doc distcc | icecc clang-14-doc
+  cmake-doc ninja-build cmake-format cpp-doc gcc-11-locales debian-keyring
+  gcc-11-doc lib32stdc++6-11-dbg libx32stdc++6-11-dbg manpages-dev flex gdb
+  gcc-doc lrzip glibc-doc gnupg bzr libstdc++-11-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk llvm-14-doc m4-doc make-doc python3-doc
+  python3-tk python3-venv python-setuptools-doc python3.10-venv python3.10-doc
+  binfmt-support readline-doc openssh-server
+Recommended packages:
+  llvm-14-dev fakeroot gnupg libalgorithm-merge-perl manpages manpages-dev
+  libc-devtools libfile-fcntllock-perl liblocale-gettext-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libltdl-dev binfmt-support python3-dev
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binutils binutils-common
+  binutils-x86-64-linux-gnu bison bsdextrautils bsdmainutils build-essential
+  bzip2 ccache clang clang-14 cmake cmake-data cpp cpp-11 curl dh-elpa-helper
+  dpkg-dev emacsen-common file g++ g++-11 g++-11-multilib g++-multilib gcc
+  gcc-11 gcc-11-base gcc-11-multilib gcc-multilib lib32asan6 lib32atomic1
+  lib32gcc-11-dev lib32gcc-s1 lib32gomp1 lib32itm1 lib32quadmath0
+  lib32stdc++-11-dev lib32stdc++6 lib32ubsan1 libarchive13 libasan6 libatomic1
+  libbinutils libc-dev-bin libc6-dev libc6-dev-i386 libc6-dev-x32 libc6-i386
+  libc6-x32 libcc1-0 libclang-common-14-dev libclang-cpp14 libclang1-14
+  libcrypt-dev libctf-nobfd0 libctf0 libcurl4 libdpkg-perl libgc1
+  libgcc-11-dev libglib2.0-0 libgomp1 libhiredis0.14 libicu70 libisl23 libitm1
+  libjsoncpp25 libllvm14 liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec3
+  libmpfr6 libnsl-dev libobjc-11-dev libobjc4 libpfm4 libpopt0
+  libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libquadmath0
+  libreadline8 librhash0 libsigsegv2 libsqlite3-0 libstdc++-11-dev
+  libtirpc-dev libtool libtsan0 libubsan1 libuv1 libx32asan6 libx32atomic1
+  libx32gcc-11-dev libx32gcc-s1 libx32gomp1 libx32itm1 libx32quadmath0
+  libx32stdc++-11-dev libx32stdc++6 libx32ubsan1 libxml2 linux-libc-dev llvm
+  llvm-14 llvm-14-linker-tools llvm-14-runtime llvm-runtime lto-disabled-list
+  m4 make media-types ncal pkg-config python3 python3-distutils
+  python3-lib2to3 python3-minimal python3-pip python3-pkg-resources
+  python3-setuptools python3-wheel python3.10 python3.10-minimal
+  readline-common rpcsvc-proto rsync xz-utils
+0 upgraded, 133 newly installed, 0 to remove and 1 not upgraded.
+Need to get 185 MB of archives.
+After this operation, 783 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.4-3ubuntu0.1 [809 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.4-3ubuntu0.1 [2258 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-minimal amd64 3.10.4-0ubuntu2 [24.4 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 readline-common all 8.1.2-1 [53.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 libreadline8 amd64 8.1.2-1 [153 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsqlite3-0 amd64 3.37.2-2 [643 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.4-3ubuntu0.1 [1830 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.4-3ubuntu0.1 [488 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpython3-stdlib amd64 3.10.4-0ubuntu2 [6990 B]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3 amd64 3.10.4-0ubuntu2 [22.8 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpopt0 amd64 1.18-3build1 [28.2 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy/main amd64 rsync amd64 3.2.3-8ubuntu3 [404 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy/main amd64 libglib2.0-0 amd64 2.72.1-1 [1460 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu70 amd64 70.1-2 [10.6 MB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxml2 amd64 2.9.13+dfsg-1ubuntu0.1 [763 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-pkg-resources all 59.6.0-1.2 [132 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 bsdextrautils amd64 2.37.2-4ubuntu3 [71.1 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmagic-mgc amd64 1:5.41-3 [257 kB]
+Get:21 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmagic1 amd64 1:5.41-3 [87.2 kB]
+Get:22 http://archive.ubuntu.com/ubuntu jammy/main amd64 file amd64 1:5.41-3 [21.5 kB]
+Get:23 http://archive.ubuntu.com/ubuntu jammy/main amd64 libuv1 amd64 1.43.0-1 [93.1 kB]
+Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 xz-utils amd64 5.2.5-2ubuntu1 [84.8 kB]
+Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsigsegv2 amd64 2.13-1ubuntu3 [14.6 kB]
+Get:26 http://archive.ubuntu.com/ubuntu jammy/main amd64 m4 amd64 1.4.18-5ubuntu2 [199 kB]
+Get:27 http://archive.ubuntu.com/ubuntu jammy/main amd64 autoconf all 2.71-2 [338 kB]
+Get:28 http://archive.ubuntu.com/ubuntu jammy/main amd64 autotools-dev all 20220109.1 [44.9 kB]
+Get:29 http://archive.ubuntu.com/ubuntu jammy/main amd64 automake all 1:1.16.5-1.3 [558 kB]
+Get:30 http://archive.ubuntu.com/ubuntu jammy/main amd64 binutils-common amd64 2.38-3ubuntu1 [221 kB]
+Get:31 http://archive.ubuntu.com/ubuntu jammy/main amd64 libbinutils amd64 2.38-3ubuntu1 [662 kB]
+Get:32 http://archive.ubuntu.com/ubuntu jammy/main amd64 libctf-nobfd0 amd64 2.38-3ubuntu1 [106 kB]
+Get:33 http://archive.ubuntu.com/ubuntu jammy/main amd64 libctf0 amd64 2.38-3ubuntu1 [103 kB]
+Get:34 http://archive.ubuntu.com/ubuntu jammy/main amd64 binutils-x86-64-linux-gnu amd64 2.38-3ubuntu1 [2328 kB]
+Get:35 http://archive.ubuntu.com/ubuntu jammy/main amd64 binutils amd64 2.38-3ubuntu1 [3186 B]
+Get:36 http://archive.ubuntu.com/ubuntu jammy/main amd64 bison amd64 2:3.8.2+dfsg-1build1 [748 kB]
+Get:37 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ncal amd64 12.1.7+nmu3ubuntu2 [20.2 kB]
+Get:38 http://archive.ubuntu.com/ubuntu jammy/universe amd64 bsdmainutils all 12.1.7+nmu3ubuntu2 [3170 B]
+Get:39 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc-dev-bin amd64 2.35-0ubuntu3.1 [20.4 kB]
+Get:40 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-46.49 [1298 kB]
+Get:41 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcrypt-dev amd64 1:4.4.27-1 [112 kB]
+Get:42 http://archive.ubuntu.com/ubuntu jammy/main amd64 rpcsvc-proto amd64 1.4.2-0ubuntu6 [68.5 kB]
+Get:43 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libtirpc-dev amd64 1.3.2-2ubuntu0.1 [192 kB]
+Get:44 http://archive.ubuntu.com/ubuntu jammy/main amd64 libnsl-dev amd64 1.3.0-2build2 [71.3 kB]
+Get:45 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-dev amd64 2.35-0ubuntu3.1 [2099 kB]
+Get:46 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc-11-base amd64 11.2.0-19ubuntu1 [20.8 kB]
+Get:47 http://archive.ubuntu.com/ubuntu jammy/main amd64 libisl23 amd64 0.24-2build1 [727 kB]
+Get:48 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpfr6 amd64 4.1.0-3build3 [1425 kB]
+Get:49 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpc3 amd64 1.2.1-2build1 [46.9 kB]
+Get:50 http://archive.ubuntu.com/ubuntu jammy/main amd64 cpp-11 amd64 11.2.0-19ubuntu1 [9966 kB]
+Get:51 http://archive.ubuntu.com/ubuntu jammy/main amd64 cpp amd64 4:11.2.0-1ubuntu1 [27.7 kB]
+Get:52 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcc1-0 amd64 12-20220319-1ubuntu1 [47.2 kB]
+Get:53 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgomp1 amd64 12-20220319-1ubuntu1 [126 kB]
+Get:54 http://archive.ubuntu.com/ubuntu jammy/main amd64 libitm1 amd64 12-20220319-1ubuntu1 [30.2 kB]
+Get:55 http://archive.ubuntu.com/ubuntu jammy/main amd64 libatomic1 amd64 12-20220319-1ubuntu1 [10.4 kB]
+Get:56 http://archive.ubuntu.com/ubuntu jammy/main amd64 libasan6 amd64 11.2.0-19ubuntu1 [2283 kB]
+Get:57 http://archive.ubuntu.com/ubuntu jammy/main amd64 liblsan0 amd64 12-20220319-1ubuntu1 [1069 kB]
+Get:58 http://archive.ubuntu.com/ubuntu jammy/main amd64 libtsan0 amd64 11.2.0-19ubuntu1 [2261 kB]
+Get:59 http://archive.ubuntu.com/ubuntu jammy/main amd64 libubsan1 amd64 12-20220319-1ubuntu1 [976 kB]
+Get:60 http://archive.ubuntu.com/ubuntu jammy/main amd64 libquadmath0 amd64 12-20220319-1ubuntu1 [154 kB]
+Get:61 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgcc-11-dev amd64 11.2.0-19ubuntu1 [2526 kB]
+Get:62 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc-11 amd64 11.2.0-19ubuntu1 [20.1 MB]
+Get:63 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc amd64 4:11.2.0-1ubuntu1 [5112 B]
+Get:64 http://archive.ubuntu.com/ubuntu jammy/main amd64 libstdc++-11-dev amd64 11.2.0-19ubuntu1 [2083 kB]
+Get:65 http://archive.ubuntu.com/ubuntu jammy/main amd64 g++-11 amd64 11.2.0-19ubuntu1 [11.4 MB]
+Get:66 http://archive.ubuntu.com/ubuntu jammy/main amd64 g++ amd64 4:11.2.0-1ubuntu1 [1412 B]
+Get:67 http://archive.ubuntu.com/ubuntu jammy/main amd64 make amd64 4.3-4.1build1 [180 kB]
+Get:68 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libdpkg-perl all 1.21.1ubuntu2.1 [237 kB]
+Get:69 http://archive.ubuntu.com/ubuntu jammy/main amd64 bzip2 amd64 1.0.8-5build1 [34.8 kB]
+Get:70 http://archive.ubuntu.com/ubuntu jammy/main amd64 lto-disabled-list all 24 [12.5 kB]
+Get:71 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 dpkg-dev all 1.21.1ubuntu2.1 [922 kB]
+Get:72 http://archive.ubuntu.com/ubuntu jammy/main amd64 build-essential amd64 12.9ubuntu3 [4744 B]
+Get:73 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libhiredis0.14 amd64 0.14.1-2 [32.8 kB]
+Get:74 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ccache amd64 4.5.1-1 [495 kB]
+Get:75 http://archive.ubuntu.com/ubuntu jammy/main amd64 libllvm14 amd64 1:14.0.0-1ubuntu1 [24.0 MB]
+Get:76 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libclang-cpp14 amd64 1:14.0.0-1ubuntu1 [12.1 MB]
+Get:77 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgc1 amd64 1:8.0.6-1.1build1 [96.8 kB]
+Get:78 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libobjc4 amd64 12-20220319-1ubuntu1 [48.6 kB]
+Get:79 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libobjc-11-dev amd64 11.2.0-19ubuntu1 [196 kB]
+Get:80 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-i386 amd64 2.35-0ubuntu3.1 [2837 kB]
+Get:81 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32gcc-s1 amd64 12-20220319-1ubuntu1 [64.5 kB]
+Get:82 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32stdc++6 amd64 12-20220319-1ubuntu1 [738 kB]
+Get:83 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libclang-common-14-dev amd64 1:14.0.0-1ubuntu1 [5976 kB]
+Get:84 http://archive.ubuntu.com/ubuntu jammy/universe amd64 llvm-14-linker-tools amd64 1:14.0.0-1ubuntu1 [1353 kB]
+Get:85 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libclang1-14 amd64 1:14.0.0-1ubuntu1 [6796 kB]
+Get:86 http://archive.ubuntu.com/ubuntu jammy/universe amd64 clang-14 amd64 1:14.0.0-1ubuntu1 [81.2 kB]
+Get:87 http://archive.ubuntu.com/ubuntu jammy/universe amd64 clang amd64 1:14.0-55~exp2 [3558 B]
+Get:88 http://archive.ubuntu.com/ubuntu jammy/main amd64 libarchive13 amd64 3.6.0-1ubuntu1 [368 kB]
+Get:89 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.3 [290 kB]
+Get:90 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjsoncpp25 amd64 1.9.5-3 [80.0 kB]
+Get:91 http://archive.ubuntu.com/ubuntu jammy/main amd64 librhash0 amd64 1.4.2-1ubuntu1 [125 kB]
+Get:92 http://archive.ubuntu.com/ubuntu jammy/main amd64 dh-elpa-helper all 2.0.9ubuntu1 [7610 B]
+Get:93 http://archive.ubuntu.com/ubuntu jammy/main amd64 emacsen-common all 3.0.4 [14.9 kB]
+Get:94 http://archive.ubuntu.com/ubuntu jammy/main amd64 cmake-data all 3.22.1-1ubuntu1 [1912 kB]
+Get:95 http://archive.ubuntu.com/ubuntu jammy/main amd64 cmake amd64 3.22.1-1ubuntu1 [5012 kB]
+Get:96 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.3 [194 kB]
+Get:97 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-dev-i386 amd64 2.35-0ubuntu3.1 [1444 kB]
+Get:98 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-x32 amd64 2.35-0ubuntu3.1 [2978 kB]
+Get:99 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-dev-x32 amd64 2.35-0ubuntu3.1 [1632 kB]
+Get:100 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32gcc-s1 amd64 12-20220319-1ubuntu1 [54.4 kB]
+Get:101 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32gomp1 amd64 12-20220319-1ubuntu1 [133 kB]
+Get:102 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32gomp1 amd64 12-20220319-1ubuntu1 [127 kB]
+Get:103 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32itm1 amd64 12-20220319-1ubuntu1 [32.1 kB]
+Get:104 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32itm1 amd64 12-20220319-1ubuntu1 [30.2 kB]
+Get:105 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32atomic1 amd64 12-20220319-1ubuntu1 [8502 B]
+Get:106 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32atomic1 amd64 12-20220319-1ubuntu1 [10.2 kB]
+Get:107 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32asan6 amd64 11.2.0-19ubuntu1 [2154 kB]
+Get:108 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32asan6 amd64 11.2.0-19ubuntu1 [2128 kB]
+Get:109 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32ubsan1 amd64 12-20220319-1ubuntu1 [959 kB]
+Get:110 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32stdc++6 amd64 12-20220319-1ubuntu1 [680 kB]
+Get:111 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32ubsan1 amd64 12-20220319-1ubuntu1 [964 kB]
+Get:112 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32quadmath0 amd64 12-20220319-1ubuntu1 [245 kB]
+Get:113 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32quadmath0 amd64 12-20220319-1ubuntu1 [156 kB]
+Get:114 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32gcc-11-dev amd64 11.2.0-19ubuntu1 [2338 kB]
+Get:115 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32gcc-11-dev amd64 11.2.0-19ubuntu1 [2110 kB]
+Get:116 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc-11-multilib amd64 11.2.0-19ubuntu1 [872 B]
+Get:117 http://archive.ubuntu.com/ubuntu jammy/main amd64 lib32stdc++-11-dev amd64 11.2.0-19ubuntu1 [989 kB]
+Get:118 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx32stdc++-11-dev amd64 11.2.0-19ubuntu1 [906 kB]
+Get:119 http://archive.ubuntu.com/ubuntu jammy/main amd64 g++-11-multilib amd64 11.2.0-19ubuntu1 [882 B]
+Get:120 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc-multilib amd64 4:11.2.0-1ubuntu1 [1382 B]
+Get:121 http://archive.ubuntu.com/ubuntu jammy/main amd64 g++-multilib amd64 4:11.2.0-1ubuntu1 [854 B]
+Get:122 http://archive.ubuntu.com/ubuntu jammy/main amd64 libtool all 2.4.6-15build2 [164 kB]
+Get:123 http://archive.ubuntu.com/ubuntu jammy/universe amd64 llvm-14-runtime amd64 1:14.0.0-1ubuntu1 [484 kB]
+Get:124 http://archive.ubuntu.com/ubuntu jammy/universe amd64 llvm-runtime amd64 1:14.0-55~exp2 [3204 B]
+Get:125 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpfm4 amd64 4.11.1+git32-gd0b85fb-1 [278 kB]
+Get:126 http://archive.ubuntu.com/ubuntu jammy/universe amd64 llvm-14 amd64 1:14.0.0-1ubuntu1 [12.7 MB]
+Get:127 http://archive.ubuntu.com/ubuntu jammy/universe amd64 llvm amd64 1:14.0-55~exp2 [3758 B]
+Get:128 http://archive.ubuntu.com/ubuntu jammy/main amd64 pkg-config amd64 0.29.2-1ubuntu3 [48.2 kB]
+Get:129 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-lib2to3 all 3.10.4-0ubuntu1 [76.2 kB]
+Get:130 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-distutils all 3.10.4-0ubuntu1 [138 kB]
+Get:131 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-setuptools all 59.6.0-1.2 [339 kB]
+Get:132 http://archive.ubuntu.com/ubuntu jammy/universe amd64 python3-wheel all 0.37.1-2 [31.9 kB]
+Get:133 http://archive.ubuntu.com/ubuntu jammy/universe amd64 python3-pip all 22.0.2+dfsg-1 [1306 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 185 MB in 3s (54.8 MB/s)
+Selecting previously unselected package libpython3.10-minimal:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8352 files and directories currently installed.)
+Preparing to unpack .../libpython3.10-minimal_3.10.4-3ubuntu0.1_amd64.deb ...
+Unpacking libpython3.10-minimal:amd64 (3.10.4-3ubuntu0.1) ...
+Selecting previously unselected package python3.10-minimal.
+Preparing to unpack .../python3.10-minimal_3.10.4-3ubuntu0.1_amd64.deb ...
+Unpacking python3.10-minimal (3.10.4-3ubuntu0.1) ...
+Setting up libpython3.10-minimal:amd64 (3.10.4-3ubuntu0.1) ...
+Setting up python3.10-minimal (3.10.4-3ubuntu0.1) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8646 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.10.4-0ubuntu2_amd64.deb ...
+Unpacking python3-minimal (3.10.4-0ubuntu2) ...
+Selecting previously unselected package media-types.
+Preparing to unpack .../1-media-types_7.0.0_all.deb ...
+Unpacking media-types (7.0.0) ...
+Selecting previously unselected package libmpdec3:amd64.
+Preparing to unpack .../2-libmpdec3_2.5.1-2build2_amd64.deb ...
+Unpacking libmpdec3:amd64 (2.5.1-2build2) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../3-readline-common_8.1.2-1_all.deb ...
+Unpacking readline-common (8.1.2-1) ...
+Selecting previously unselected package libreadline8:amd64.
+Preparing to unpack .../4-libreadline8_8.1.2-1_amd64.deb ...
+Unpacking libreadline8:amd64 (8.1.2-1) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../5-libsqlite3-0_3.37.2-2_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.37.2-2) ...
+Selecting previously unselected package libpython3.10-stdlib:amd64.
+Preparing to unpack .../6-libpython3.10-stdlib_3.10.4-3ubuntu0.1_amd64.deb ...
+Unpacking libpython3.10-stdlib:amd64 (3.10.4-3ubuntu0.1) ...
+Selecting previously unselected package python3.10.
+Preparing to unpack .../7-python3.10_3.10.4-3ubuntu0.1_amd64.deb ...
+Unpacking python3.10 (3.10.4-3ubuntu0.1) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../8-libpython3-stdlib_3.10.4-0ubuntu2_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.10.4-0ubuntu2) ...
+Setting up python3-minimal (3.10.4-0ubuntu2) ...
+Selecting previously unselected package python3.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 9075 files and directories currently installed.)
+Preparing to unpack .../000-python3_3.10.4-0ubuntu2_amd64.deb ...
+Unpacking python3 (3.10.4-0ubuntu2) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../001-libpopt0_1.18-3build1_amd64.deb ...
+Unpacking libpopt0:amd64 (1.18-3build1) ...
+Selecting previously unselected package rsync.
+Preparing to unpack .../002-rsync_3.2.3-8ubuntu3_amd64.deb ...
+Unpacking rsync (3.2.3-8ubuntu3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../003-libglib2.0-0_2.72.1-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.72.1-1) ...
+Selecting previously unselected package libicu70:amd64.
+Preparing to unpack .../004-libicu70_70.1-2_amd64.deb ...
+Unpacking libicu70:amd64 (70.1-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../005-libxml2_2.9.13+dfsg-1ubuntu0.1_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.13+dfsg-1ubuntu0.1) ...
+Selecting previously unselected package python3-pkg-resources.
+Preparing to unpack .../006-python3-pkg-resources_59.6.0-1.2_all.deb ...
+Unpacking python3-pkg-resources (59.6.0-1.2) ...
+Selecting previously unselected package bsdextrautils.
+Preparing to unpack .../007-bsdextrautils_2.37.2-4ubuntu3_amd64.deb ...
+Unpacking bsdextrautils (2.37.2-4ubuntu3) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../008-libmagic-mgc_1%3a5.41-3_amd64.deb ...
+Unpacking libmagic-mgc (1:5.41-3) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../009-libmagic1_1%3a5.41-3_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.41-3) ...
+Selecting previously unselected package file.
+Preparing to unpack .../010-file_1%3a5.41-3_amd64.deb ...
+Unpacking file (1:5.41-3) ...
+Selecting previously unselected package libuv1:amd64.
+Preparing to unpack .../011-libuv1_1.43.0-1_amd64.deb ...
+Unpacking libuv1:amd64 (1.43.0-1) ...
+Selecting previously unselected package xz-utils.
+Preparing to unpack .../012-xz-utils_5.2.5-2ubuntu1_amd64.deb ...
+Unpacking xz-utils (5.2.5-2ubuntu1) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../013-libsigsegv2_2.13-1ubuntu3_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.13-1ubuntu3) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../014-m4_1.4.18-5ubuntu2_amd64.deb ...
+Unpacking m4 (1.4.18-5ubuntu2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../015-autoconf_2.71-2_all.deb ...
+Unpacking autoconf (2.71-2) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../016-autotools-dev_20220109.1_all.deb ...
+Unpacking autotools-dev (20220109.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../017-automake_1%3a1.16.5-1.3_all.deb ...
+Unpacking automake (1:1.16.5-1.3) ...
+Selecting previously unselected package binutils-common:amd64.
+Preparing to unpack .../018-binutils-common_2.38-3ubuntu1_amd64.deb ...
+Unpacking binutils-common:amd64 (2.38-3ubuntu1) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../019-libbinutils_2.38-3ubuntu1_amd64.deb ...
+Unpacking libbinutils:amd64 (2.38-3ubuntu1) ...
+Selecting previously unselected package libctf-nobfd0:amd64.
+Preparing to unpack .../020-libctf-nobfd0_2.38-3ubuntu1_amd64.deb ...
+Unpacking libctf-nobfd0:amd64 (2.38-3ubuntu1) ...
+Selecting previously unselected package libctf0:amd64.
+Preparing to unpack .../021-libctf0_2.38-3ubuntu1_amd64.deb ...
+Unpacking libctf0:amd64 (2.38-3ubuntu1) ...
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../022-binutils-x86-64-linux-gnu_2.38-3ubuntu1_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.38-3ubuntu1) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../023-binutils_2.38-3ubuntu1_amd64.deb ...
+Unpacking binutils (2.38-3ubuntu1) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../024-bison_2%3a3.8.2+dfsg-1build1_amd64.deb ...
+Unpacking bison (2:3.8.2+dfsg-1build1) ...
+Selecting previously unselected package ncal.
+Preparing to unpack .../025-ncal_12.1.7+nmu3ubuntu2_amd64.deb ...
+Unpacking ncal (12.1.7+nmu3ubuntu2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../026-bsdmainutils_12.1.7+nmu3ubuntu2_all.deb ...
+Unpacking bsdmainutils (12.1.7+nmu3ubuntu2) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../027-libc-dev-bin_2.35-0ubuntu3.1_amd64.deb ...
+Unpacking libc-dev-bin (2.35-0ubuntu3.1) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../028-linux-libc-dev_5.15.0-46.49_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (5.15.0-46.49) ...
+Selecting previously unselected package libcrypt-dev:amd64.
+Preparing to unpack .../029-libcrypt-dev_1%3a4.4.27-1_amd64.deb ...
+Unpacking libcrypt-dev:amd64 (1:4.4.27-1) ...
+Selecting previously unselected package rpcsvc-proto.
+Preparing to unpack .../030-rpcsvc-proto_1.4.2-0ubuntu6_amd64.deb ...
+Unpacking rpcsvc-proto (1.4.2-0ubuntu6) ...
+Selecting previously unselected package libtirpc-dev:amd64.
+Preparing to unpack .../031-libtirpc-dev_1.3.2-2ubuntu0.1_amd64.deb ...
+Unpacking libtirpc-dev:amd64 (1.3.2-2ubuntu0.1) ...
+Selecting previously unselected package libnsl-dev:amd64.
+Preparing to unpack .../032-libnsl-dev_1.3.0-2build2_amd64.deb ...
+Unpacking libnsl-dev:amd64 (1.3.0-2build2) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../033-libc6-dev_2.35-0ubuntu3.1_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.35-0ubuntu3.1) ...
+Selecting previously unselected package gcc-11-base:amd64.
+Preparing to unpack .../034-gcc-11-base_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking gcc-11-base:amd64 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package libisl23:amd64.
+Preparing to unpack .../035-libisl23_0.24-2build1_amd64.deb ...
+Unpacking libisl23:amd64 (0.24-2build1) ...
+Selecting previously unselected package libmpfr6:amd64.
+Preparing to unpack .../036-libmpfr6_4.1.0-3build3_amd64.deb ...
+Unpacking libmpfr6:amd64 (4.1.0-3build3) ...
+Selecting previously unselected package libmpc3:amd64.
+Preparing to unpack .../037-libmpc3_1.2.1-2build1_amd64.deb ...
+Unpacking libmpc3:amd64 (1.2.1-2build1) ...
+Selecting previously unselected package cpp-11.
+Preparing to unpack .../038-cpp-11_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking cpp-11 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../039-cpp_4%3a11.2.0-1ubuntu1_amd64.deb ...
+Unpacking cpp (4:11.2.0-1ubuntu1) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../040-libcc1-0_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libcc1-0:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../041-libgomp1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libgomp1:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../042-libitm1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libitm1:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libatomic1:amd64.
+Preparing to unpack .../043-libatomic1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libatomic1:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libasan6:amd64.
+Preparing to unpack .../044-libasan6_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libasan6:amd64 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../045-liblsan0_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking liblsan0:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../046-libtsan0_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libtsan0:amd64 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package libubsan1:amd64.
+Preparing to unpack .../047-libubsan1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libubsan1:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../048-libquadmath0_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libquadmath0:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libgcc-11-dev:amd64.
+Preparing to unpack .../049-libgcc-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libgcc-11-dev:amd64 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package gcc-11.
+Preparing to unpack .../050-gcc-11_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking gcc-11 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../051-gcc_4%3a11.2.0-1ubuntu1_amd64.deb ...
+Unpacking gcc (4:11.2.0-1ubuntu1) ...
+Selecting previously unselected package libstdc++-11-dev:amd64.
+Preparing to unpack .../052-libstdc++-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libstdc++-11-dev:amd64 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package g++-11.
+Preparing to unpack .../053-g++-11_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking g++-11 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../054-g++_4%3a11.2.0-1ubuntu1_amd64.deb ...
+Unpacking g++ (4:11.2.0-1ubuntu1) ...
+Selecting previously unselected package make.
+Preparing to unpack .../055-make_4.3-4.1build1_amd64.deb ...
+Unpacking make (4.3-4.1build1) ...
+Selecting previously unselected package libdpkg-perl.
+Preparing to unpack .../056-libdpkg-perl_1.21.1ubuntu2.1_all.deb ...
+Unpacking libdpkg-perl (1.21.1ubuntu2.1) ...
+Selecting previously unselected package bzip2.
+Preparing to unpack .../057-bzip2_1.0.8-5build1_amd64.deb ...
+Unpacking bzip2 (1.0.8-5build1) ...
+Selecting previously unselected package lto-disabled-list.
+Preparing to unpack .../058-lto-disabled-list_24_all.deb ...
+Unpacking lto-disabled-list (24) ...
+Selecting previously unselected package dpkg-dev.
+Preparing to unpack .../059-dpkg-dev_1.21.1ubuntu2.1_all.deb ...
+Unpacking dpkg-dev (1.21.1ubuntu2.1) ...
+Selecting previously unselected package build-essential.
+Preparing to unpack .../060-build-essential_12.9ubuntu3_amd64.deb ...
+Unpacking build-essential (12.9ubuntu3) ...
+Selecting previously unselected package libhiredis0.14:amd64.
+Preparing to unpack .../061-libhiredis0.14_0.14.1-2_amd64.deb ...
+Unpacking libhiredis0.14:amd64 (0.14.1-2) ...
+Selecting previously unselected package ccache.
+Preparing to unpack .../062-ccache_4.5.1-1_amd64.deb ...
+Unpacking ccache (4.5.1-1) ...
+Selecting previously unselected package libllvm14:amd64.
+Preparing to unpack .../063-libllvm14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libllvm14:amd64 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libclang-cpp14.
+Preparing to unpack .../064-libclang-cpp14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libclang-cpp14 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libgc1:amd64.
+Preparing to unpack .../065-libgc1_1%3a8.0.6-1.1build1_amd64.deb ...
+Unpacking libgc1:amd64 (1:8.0.6-1.1build1) ...
+Selecting previously unselected package libobjc4:amd64.
+Preparing to unpack .../066-libobjc4_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libobjc4:amd64 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libobjc-11-dev:amd64.
+Preparing to unpack .../067-libobjc-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libobjc-11-dev:amd64 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package libc6-i386.
+Preparing to unpack .../068-libc6-i386_2.35-0ubuntu3.1_amd64.deb ...
+Unpacking libc6-i386 (2.35-0ubuntu3.1) ...
+Selecting previously unselected package lib32gcc-s1.
+Preparing to unpack .../069-lib32gcc-s1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32gcc-s1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32stdc++6.
+Preparing to unpack .../070-lib32stdc++6_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32stdc++6 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libclang-common-14-dev.
+Preparing to unpack .../071-libclang-common-14-dev_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libclang-common-14-dev (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package llvm-14-linker-tools.
+Preparing to unpack .../072-llvm-14-linker-tools_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking llvm-14-linker-tools (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package libclang1-14.
+Preparing to unpack .../073-libclang1-14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking libclang1-14 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package clang-14.
+Preparing to unpack .../074-clang-14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking clang-14 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package clang.
+Preparing to unpack .../075-clang_1%3a14.0-55~exp2_amd64.deb ...
+Unpacking clang (1:14.0-55~exp2) ...
+Selecting previously unselected package libarchive13:amd64.
+Preparing to unpack .../076-libarchive13_3.6.0-1ubuntu1_amd64.deb ...
+Unpacking libarchive13:amd64 (3.6.0-1ubuntu1) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../077-libcurl4_7.81.0-1ubuntu1.3_amd64.deb ...
+Unpacking libcurl4:amd64 (7.81.0-1ubuntu1.3) ...
+Selecting previously unselected package libjsoncpp25:amd64.
+Preparing to unpack .../078-libjsoncpp25_1.9.5-3_amd64.deb ...
+Unpacking libjsoncpp25:amd64 (1.9.5-3) ...
+Selecting previously unselected package librhash0:amd64.
+Preparing to unpack .../079-librhash0_1.4.2-1ubuntu1_amd64.deb ...
+Unpacking librhash0:amd64 (1.4.2-1ubuntu1) ...
+Selecting previously unselected package dh-elpa-helper.
+Preparing to unpack .../080-dh-elpa-helper_2.0.9ubuntu1_all.deb ...
+Unpacking dh-elpa-helper (2.0.9ubuntu1) ...
+Selecting previously unselected package emacsen-common.
+Preparing to unpack .../081-emacsen-common_3.0.4_all.deb ...
+Unpacking emacsen-common (3.0.4) ...
+Selecting previously unselected package cmake-data.
+Preparing to unpack .../082-cmake-data_3.22.1-1ubuntu1_all.deb ...
+Unpacking cmake-data (3.22.1-1ubuntu1) ...
+Selecting previously unselected package cmake.
+Preparing to unpack .../083-cmake_3.22.1-1ubuntu1_amd64.deb ...
+Unpacking cmake (3.22.1-1ubuntu1) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../084-curl_7.81.0-1ubuntu1.3_amd64.deb ...
+Unpacking curl (7.81.0-1ubuntu1.3) ...
+Selecting previously unselected package libc6-dev-i386.
+Preparing to unpack .../085-libc6-dev-i386_2.35-0ubuntu3.1_amd64.deb ...
+Unpacking libc6-dev-i386 (2.35-0ubuntu3.1) ...
+Selecting previously unselected package libc6-x32.
+Preparing to unpack .../086-libc6-x32_2.35-0ubuntu3.1_amd64.deb ...
+Unpacking libc6-x32 (2.35-0ubuntu3.1) ...
+Selecting previously unselected package libc6-dev-x32.
+Preparing to unpack .../087-libc6-dev-x32_2.35-0ubuntu3.1_amd64.deb ...
+Unpacking libc6-dev-x32 (2.35-0ubuntu3.1) ...
+Selecting previously unselected package libx32gcc-s1.
+Preparing to unpack .../088-libx32gcc-s1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32gcc-s1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32gomp1.
+Preparing to unpack .../089-lib32gomp1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32gomp1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libx32gomp1.
+Preparing to unpack .../090-libx32gomp1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32gomp1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32itm1.
+Preparing to unpack .../091-lib32itm1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32itm1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libx32itm1.
+Preparing to unpack .../092-libx32itm1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32itm1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32atomic1.
+Preparing to unpack .../093-lib32atomic1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32atomic1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libx32atomic1.
+Preparing to unpack .../094-libx32atomic1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32atomic1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32asan6.
+Preparing to unpack .../095-lib32asan6_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking lib32asan6 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package libx32asan6.
+Preparing to unpack .../096-libx32asan6_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libx32asan6 (11.2.0-19ubuntu1) ...
+Selecting previously unselected package lib32ubsan1.
+Preparing to unpack .../097-lib32ubsan1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32ubsan1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libx32stdc++6.
+Preparing to unpack .../098-libx32stdc++6_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32stdc++6 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libx32ubsan1.
+Preparing to unpack .../099-libx32ubsan1_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32ubsan1 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32quadmath0.
+Preparing to unpack .../100-lib32quadmath0_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking lib32quadmath0 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package libx32quadmath0.
+Preparing to unpack .../101-libx32quadmath0_12-20220319-1ubuntu1_amd64.deb ...
+Unpacking libx32quadmath0 (12-20220319-1ubuntu1) ...
+Selecting previously unselected package lib32gcc-11-dev.
+Preparing to unpack .../102-lib32gcc-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking lib32gcc-11-dev (11.2.0-19ubuntu1) ...
+Selecting previously unselected package libx32gcc-11-dev.
+Preparing to unpack .../103-libx32gcc-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libx32gcc-11-dev (11.2.0-19ubuntu1) ...
+Selecting previously unselected package gcc-11-multilib.
+Preparing to unpack .../104-gcc-11-multilib_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking gcc-11-multilib (11.2.0-19ubuntu1) ...
+Selecting previously unselected package lib32stdc++-11-dev.
+Preparing to unpack .../105-lib32stdc++-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking lib32stdc++-11-dev (11.2.0-19ubuntu1) ...
+Selecting previously unselected package libx32stdc++-11-dev.
+Preparing to unpack .../106-libx32stdc++-11-dev_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking libx32stdc++-11-dev (11.2.0-19ubuntu1) ...
+Selecting previously unselected package g++-11-multilib.
+Preparing to unpack .../107-g++-11-multilib_11.2.0-19ubuntu1_amd64.deb ...
+Unpacking g++-11-multilib (11.2.0-19ubuntu1) ...
+Selecting previously unselected package gcc-multilib.
+Preparing to unpack .../108-gcc-multilib_4%3a11.2.0-1ubuntu1_amd64.deb ...
+Unpacking gcc-multilib (4:11.2.0-1ubuntu1) ...
+Selecting previously unselected package g++-multilib.
+Preparing to unpack .../109-g++-multilib_4%3a11.2.0-1ubuntu1_amd64.deb ...
+Unpacking g++-multilib (4:11.2.0-1ubuntu1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../110-libtool_2.4.6-15build2_all.deb ...
+Unpacking libtool (2.4.6-15build2) ...
+Selecting previously unselected package llvm-14-runtime.
+Preparing to unpack .../111-llvm-14-runtime_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking llvm-14-runtime (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package llvm-runtime:amd64.
+Preparing to unpack .../112-llvm-runtime_1%3a14.0-55~exp2_amd64.deb ...
+Unpacking llvm-runtime:amd64 (1:14.0-55~exp2) ...
+Selecting previously unselected package libpfm4:amd64.
+Preparing to unpack .../113-libpfm4_4.11.1+git32-gd0b85fb-1_amd64.deb ...
+Unpacking libpfm4:amd64 (4.11.1+git32-gd0b85fb-1) ...
+Selecting previously unselected package llvm-14.
+Preparing to unpack .../114-llvm-14_1%3a14.0.0-1ubuntu1_amd64.deb ...
+Unpacking llvm-14 (1:14.0.0-1ubuntu1) ...
+Selecting previously unselected package llvm.
+Preparing to unpack .../115-llvm_1%3a14.0-55~exp2_amd64.deb ...
+Unpacking llvm (1:14.0-55~exp2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../116-pkg-config_0.29.2-1ubuntu3_amd64.deb ...
+Unpacking pkg-config (0.29.2-1ubuntu3) ...
+Selecting previously unselected package python3-lib2to3.
+Preparing to unpack .../117-python3-lib2to3_3.10.4-0ubuntu1_all.deb ...
+Unpacking python3-lib2to3 (3.10.4-0ubuntu1) ...
+Selecting previously unselected package python3-distutils.
+Preparing to unpack .../118-python3-distutils_3.10.4-0ubuntu1_all.deb ...
+Unpacking python3-distutils (3.10.4-0ubuntu1) ...
+Selecting previously unselected package python3-setuptools.
+Preparing to unpack .../119-python3-setuptools_59.6.0-1.2_all.deb ...
+Unpacking python3-setuptools (59.6.0-1.2) ...
+Selecting previously unselected package python3-wheel.
+Preparing to unpack .../120-python3-wheel_0.37.1-2_all.deb ...
+Unpacking python3-wheel (0.37.1-2) ...
+Selecting previously unselected package python3-pip.
+Preparing to unpack .../121-python3-pip_22.0.2+dfsg-1_all.deb ...
+Unpacking python3-pip (22.0.2+dfsg-1) ...
+Setting up media-types (7.0.0) ...
+Setting up gcc-11-base:amd64 (11.2.0-19ubuntu1) ...
+Setting up lto-disabled-list (24) ...
+Setting up bsdextrautils (2.37.2-4ubuntu3) ...
+update-alternatives: using /usr/bin/write.ul to provide /usr/bin/write (write) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/write.1.gz because associated file /usr/share/man/man1/write.ul.1.gz (of link group write) doesn't exist
+Setting up libmagic-mgc (1:5.41-3) ...
+Setting up ncal (12.1.7+nmu3ubuntu2) ...
+Setting up libglib2.0-0:amd64 (2.72.1-1) ...
+No schema files found: doing nothing.
+Setting up libsqlite3-0:amd64 (3.37.2-2) ...
+Setting up binutils-common:amd64 (2.38-3ubuntu1) ...
+Setting up libmagic1:amd64 (1:5.41-3) ...
+Setting up linux-libc-dev:amd64 (5.15.0-46.49) ...
+Setting up libctf-nobfd0:amd64 (2.38-3ubuntu1) ...
+Setting up file (1:5.41-3) ...
+Setting up libgomp1:amd64 (12-20220319-1ubuntu1) ...
+Setting up bzip2 (1.0.8-5build1) ...
+Setting up libasan6:amd64 (11.2.0-19ubuntu1) ...
+Setting up libc6-x32 (2.35-0ubuntu3.1) ...
+Setting up autotools-dev (20220109.1) ...
+Setting up libtirpc-dev:amd64 (1.3.2-2ubuntu0.1) ...
+Setting up libuv1:amd64 (1.43.0-1) ...
+Setting up libpfm4:amd64 (4.11.1+git32-gd0b85fb-1) ...
+Setting up rpcsvc-proto (1.4.2-0ubuntu6) ...
+Setting up emacsen-common (3.0.4) ...
+Setting up make (4.3-4.1build1) ...
+Setting up libmpfr6:amd64 (4.1.0-3build3) ...
+Setting up dh-elpa-helper (2.0.9ubuntu1) ...
+Setting up libsigsegv2:amd64 (2.13-1ubuntu3) ...
+Setting up xz-utils (5.2.5-2ubuntu1) ...
+update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+Setting up libquadmath0:amd64 (12-20220319-1ubuntu1) ...
+Setting up bsdmainutils (12.1.7+nmu3ubuntu2) ...
+Setting up libmpc3:amd64 (1.2.1-2build1) ...
+Setting up libatomic1:amd64 (12-20220319-1ubuntu1) ...
+Setting up libjsoncpp25:amd64 (1.9.5-3) ...
+Setting up libx32gomp1 (12-20220319-1ubuntu1) ...
+Setting up libgc1:amd64 (1:8.0.6-1.1build1) ...
+Setting up libdpkg-perl (1.21.1ubuntu2.1) ...
+Setting up libubsan1:amd64 (12-20220319-1ubuntu1) ...
+Setting up libnsl-dev:amd64 (1.3.0-2build2) ...
+Setting up librhash0:amd64 (1.4.2-1ubuntu1) ...
+Setting up libcrypt-dev:amd64 (1:4.4.27-1) ...
+Setting up libmpdec3:amd64 (2.5.1-2build2) ...
+Setting up libc6-i386 (2.35-0ubuntu3.1) ...
+Setting up libcurl4:amd64 (7.81.0-1ubuntu1.3) ...
+Setting up libx32quadmath0 (12-20220319-1ubuntu1) ...
+Setting up cmake-data (3.22.1-1ubuntu1) ...
+Setting up curl (7.81.0-1ubuntu1.3) ...
+Setting up libbinutils:amd64 (2.38-3ubuntu1) ...
+Setting up libisl23:amd64 (0.24-2build1) ...
+Setting up libc-dev-bin (2.35-0ubuntu3.1) ...
+Setting up readline-common (8.1.2-1) ...
+Setting up lib32atomic1 (12-20220319-1ubuntu1) ...
+Setting up libcc1-0:amd64 (12-20220319-1ubuntu1) ...
+Setting up liblsan0:amd64 (12-20220319-1ubuntu1) ...
+Setting up libitm1:amd64 (12-20220319-1ubuntu1) ...
+Setting up libpopt0:amd64 (1.18-3build1) ...
+Setting up libicu70:amd64 (70.1-2) ...
+Setting up libhiredis0.14:amd64 (0.14.1-2) ...
+Setting up libtsan0:amd64 (11.2.0-19ubuntu1) ...
+Setting up libx32atomic1 (12-20220319-1ubuntu1) ...
+Setting up libctf0:amd64 (2.38-3ubuntu1) ...
+Setting up cpp-11 (11.2.0-19ubuntu1) ...
+Setting up lib32itm1 (12-20220319-1ubuntu1) ...
+Setting up libx32gcc-s1 (12-20220319-1ubuntu1) ...
+Setting up libreadline8:amd64 (8.1.2-1) ...
+Setting up ccache (4.5.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Setting up m4 (1.4.18-5ubuntu2) ...
+Setting up libx32itm1 (12-20220319-1ubuntu1) ...
+Setting up libobjc4:amd64 (12-20220319-1ubuntu1) ...
+Setting up libpython3.10-stdlib:amd64 (3.10.4-3ubuntu0.1) ...
+Setting up lib32gomp1 (12-20220319-1ubuntu1) ...
+Setting up libx32asan6 (11.2.0-19ubuntu1) ...
+Setting up lib32gcc-s1 (12-20220319-1ubuntu1) ...
+Setting up lib32stdc++6 (12-20220319-1ubuntu1) ...
+Setting up pkg-config (0.29.2-1ubuntu3) ...
+Setting up autoconf (2.71-2) ...
+Setting up lib32asan6 (11.2.0-19ubuntu1) ...
+Setting up libgcc-11-dev:amd64 (11.2.0-19ubuntu1) ...
+Setting up cpp (4:11.2.0-1ubuntu1) ...
+Setting up lib32quadmath0 (12-20220319-1ubuntu1) ...
+Setting up bison (2:3.8.2+dfsg-1build1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/yacc.1.gz because associated file /usr/share/man/man1/bison.yacc.1.gz (of link group yacc) doesn't exist
+Setting up libc6-dev:amd64 (2.35-0ubuntu3.1) ...
+Setting up libxml2:amd64 (2.9.13+dfsg-1ubuntu0.1) ...
+Setting up rsync (3.2.3-8ubuntu3) ...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libpython3-stdlib:amd64 (3.10.4-0ubuntu2) ...
+Setting up binutils-x86-64-linux-gnu (2.38-3ubuntu1) ...
+Setting up libx32stdc++6 (12-20220319-1ubuntu1) ...
+Setting up automake (1:1.16.5-1.3) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/automake.1.gz because associated file /usr/share/man/man1/automake-1.16.1.gz (of link group automake) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/aclocal.1.gz because associated file /usr/share/man/man1/aclocal-1.16.1.gz (of link group automake) doesn't exist
+Setting up libc6-dev-i386 (2.35-0ubuntu3.1) ...
+Setting up python3.10 (3.10.4-3ubuntu0.1) ...
+Setting up libx32ubsan1 (12-20220319-1ubuntu1) ...
+Setting up libarchive13:amd64 (3.6.0-1ubuntu1) ...
+Setting up libobjc-11-dev:amd64 (11.2.0-19ubuntu1) ...
+Setting up python3 (3.10.4-0ubuntu2) ...
+Setting up binutils (2.38-3ubuntu1) ...
+Setting up lib32ubsan1 (12-20220319-1ubuntu1) ...
+Setting up dpkg-dev (1.21.1ubuntu2.1) ...
+Setting up libc6-dev-x32 (2.35-0ubuntu3.1) ...
+Setting up libx32gcc-11-dev (11.2.0-19ubuntu1) ...
+Setting up libstdc++-11-dev:amd64 (11.2.0-19ubuntu1) ...
+Setting up libllvm14:amd64 (1:14.0.0-1ubuntu1) ...
+Setting up gcc-11 (11.2.0-19ubuntu1) ...
+Setting up cmake (3.22.1-1ubuntu1) ...
+Setting up llvm-14-linker-tools (1:14.0.0-1ubuntu1) ...
+Setting up python3-lib2to3 (3.10.4-0ubuntu1) ...
+Setting up lib32gcc-11-dev (11.2.0-19ubuntu1) ...
+Setting up python3-pkg-resources (59.6.0-1.2) ...
+Setting up python3-distutils (3.10.4-0ubuntu1) ...
+Setting up lib32stdc++-11-dev (11.2.0-19ubuntu1) ...
+Setting up python3-setuptools (59.6.0-1.2) ...
+Setting up libtool (2.4.6-15build2) ...
+Setting up g++-11 (11.2.0-19ubuntu1) ...
+Setting up libclang1-14 (1:14.0.0-1ubuntu1) ...
+Setting up python3-wheel (0.37.1-2) ...
+Setting up gcc (4:11.2.0-1ubuntu1) ...
+Setting up llvm-14-runtime (1:14.0.0-1ubuntu1) ...
+Setting up llvm-runtime:amd64 (1:14.0-55~exp2) ...
+Setting up libclang-common-14-dev (1:14.0.0-1ubuntu1) ...
+Setting up libx32stdc++-11-dev (11.2.0-19ubuntu1) ...
+Setting up libclang-cpp14 (1:14.0.0-1ubuntu1) ...
+Setting up python3-pip (22.0.2+dfsg-1) ...
+Setting up g++ (4:11.2.0-1ubuntu1) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/c++.1.gz because associated file /usr/share/man/man1/g++.1.gz (of link group c++) doesn't exist
+Setting up build-essential (12.9ubuntu3) ...
+Setting up gcc-11-multilib (11.2.0-19ubuntu1) ...
+Setting up gcc-multilib (4:11.2.0-1ubuntu1) ...
+Setting up llvm-14 (1:14.0.0-1ubuntu1) ...
+Setting up clang-14 (1:14.0.0-1ubuntu1) ...
+Setting up g++-11-multilib (11.2.0-19ubuntu1) ...
+Setting up g++-multilib (4:11.2.0-1ubuntu1) ...
+Setting up clang (1:14.0-55~exp2) ...
+Setting up llvm (1:14.0-55~exp2) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+               total        used        free      shared  buff/cache   available
+Mem:           125Gi       7.7Gi        37Gi       106Mi        81Gi       117Gi
+Swap:             0B          0B          0B
+Number of CPUs (nproc): 32
+Byte Order: Little Endian
+Free disk space:
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         488G   78G  411G  16% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            63G     0   63G   0% /sys/fs/cgroup
+/dev/sda1       488G   78G  411G  16% /tmp
+tmpfs           117G     0  117G   0% /dev/shm
+tmpfs            63G     0   63G   0% /proc/acpi
+tmpfs            63G     0   63G   0% /proc/scsi
+tmpfs            63G     0   63G   0% /sys/firmware
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 61 9025k   61 5566k    0     0  8996k      0  0:00:01 --:--:--  0:00:01 8996k100 9025k  100 9025k    0     0  12.3M      0 --:--:-- --:--:-- --:--:-- 36.7M
+make: Entering directory '/tmp/cirrus-ci-build/depends'
+BEGIN ALL
+BEGIN ID SALT
+salt GUIX_ENVIRONMENT=
+END ID SALT
+BEGIN CC
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+Using built-in specs.
+COLLECT_GCC=gcc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-v' '-E' '-o' '/dev/null' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -E -quiet -v -imultiarch x86_64-linux-gnu - -o /dev/null -mtune=generic -march=x86-64 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -dumpbase -
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-E' '-o' '/dev/null' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=gcc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-v' '-E' '-o' '/dev/null' '-mtune=generic' '-march=x86-64'
+ cc1obj -E -quiet -v -imultiarch x86_64-linux-gnu - -o /dev/null -mtune=generic -march=x86-64 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -dumpbase -
+gcc: fatal error: cannot execute ‘cc1obj’: execvp: No such file or directory
+compilation terminated.
+C_STANDARD=c11
+END CC
+BEGIN CXX
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+Using built-in specs.
+COLLECT_GCC=g++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-v' '-E' '-o' '/dev/null' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -E -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE - -o /dev/null -mtune=generic -march=x86-64 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -dumpbase -
+ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/11"
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/11
+ /usr/include/x86_64-linux-gnu/c++/11
+ /usr/include/c++/11/backward
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-E' '-o' '/dev/null' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Using built-in specs.
+COLLECT_GCC=g++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-v' '-E' '-o' '/dev/null' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ cc1objplus -E -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE - -o /dev/null -mtune=generic -march=x86-64 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -dumpbase -
+g++: fatal error: cannot execute ‘cc1objplus’: execvp: No such file or directory
+compilation terminated.
+CXX_STANDARD=c++17
+END CXX
+BEGIN AR
+GNU ar (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+ZERO_AR_DATE=
+END AR
+BEGIN RANLIB
+GNU ranlib (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+END RANLIB
+BEGIN STRIP
+GNU strip (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+END STRIP
+BEGIN LTO
+LTO=
+END LTO
+END ALL
+BEGIN ALL
+BEGIN ID SALT
+salt GUIX_ENVIRONMENT=
+END ID SALT
+BEGIN CC
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+Using built-in specs.
+COLLECT_GCC=gcc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-m32' '-v' '-E' '-o' '/dev/null' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -E -quiet -v -imultilib 32 -imultiarch i386-linux-gnu - -o /dev/null -m32 -mtune=generic -march=i686 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -dumpbase -
+ignoring nonexistent directory "/usr/local/include/i386-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+ignoring nonexistent directory "/usr/include/i386-linux-gnu"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include
+End of search list.
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/32/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib32/:/lib/../lib32/:/usr/lib/../lib32/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-m32' '-v' '-E' '-o' '/dev/null' '-mtune=generic' '-march=i686'
+Using built-in specs.
+COLLECT_GCC=gcc
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-m32' '-v' '-E' '-o' '/dev/null' '-mtune=generic' '-march=i686'
+ cc1obj -E -quiet -v -imultilib 32 -imultiarch i386-linux-gnu - -o /dev/null -m32 -mtune=generic -march=i686 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -dumpbase -
+gcc: fatal error: cannot execute ‘cc1obj’: execvp: No such file or directory
+compilation terminated.
+C_STANDARD=c11
+END CC
+BEGIN CXX
+Using built-in specs.
+COLLECT_GCC=g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+Using built-in specs.
+COLLECT_GCC=g++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-m32' '-v' '-E' '-o' '/dev/null' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -E -quiet -v -imultilib 32 -imultiarch i386-linux-gnu -D_GNU_SOURCE - -o /dev/null -m32 -mtune=generic -march=i686 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -dumpbase -
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../include/i386-linux-gnu/c++/11"
+ignoring nonexistent directory "/usr/local/include/i386-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+ignoring nonexistent directory "/usr/include/i386-linux-gnu"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/include/c++/11
+ /usr/include/x86_64-linux-gnu/c++/11/32
+ /usr/include/c++/11/backward
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include
+End of search list.
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/32/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib32/:/lib/../lib32/:/usr/lib/../lib32/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-m32' '-v' '-E' '-o' '/dev/null' '-shared-libgcc' '-mtune=generic' '-march=i686'
+Using built-in specs.
+COLLECT_GCC=g++
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.2.0-19ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-gBFGDP/gcc-11-11.2.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.2.0 (Ubuntu 11.2.0-19ubuntu1) 
+COLLECT_GCC_OPTIONS='-m32' '-v' '-E' '-o' '/dev/null' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ cc1objplus -E -quiet -v -imultilib 32 -imultiarch i386-linux-gnu -D_GNU_SOURCE - -o /dev/null -m32 -mtune=generic -march=i686 -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -dumpbase -
+g++: fatal error: cannot execute ‘cc1objplus’: execvp: No such file or directory
+compilation terminated.
+CXX_STANDARD=c++17
+END CXX
+BEGIN AR
+GNU ar (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+ZERO_AR_DATE=
+END AR
+BEGIN RANLIB
+GNU ranlib (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+END RANLIB
+BEGIN STRIP
+GNU strip (GNU Binutils for Ubuntu) 2.38
+Copyright (C) 2022 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+END STRIP
+BEGIN LTO
+LTO=
+END LTO
+END ALL
+Fetching capnproto-c++-0.7.0.tar.gz from https://capnproto.org/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 1443k  100 1443k    0     0  6976k      0 --:--:-- --:--:-- --:--:-- 7005k
+/tmp/cirrus-ci-build/depends/work/download/native_capnp-0.7.0/capnproto-cxx-0.7.0.tar.gz.temp: OK
+Extracting native_capnp...
+/tmp/cirrus-ci-build/depends/sources/capnproto-cxx-0.7.0.tar.gz: OK
+Preprocessing native_capnp...
+Configuring native_capnp...
+Building native_capnp...
+Staging native_capnp...
+Postprocessing native_capnp...
+Caching native_capnp...
+Fetching d576d975debdc9090bd2582f83f49c76c0061698.tar.gz from https://github.com/chaincodelabs/libmultiprocess/archive
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 39188    0 39188    0     0  80333      0 --:--:-- --:--:-- --:--:--  167k
+/tmp/cirrus-ci-build/depends/work/download/native_libmultiprocess-d576d975debdc9090bd2582f83f49c76c0061698/d576d975debdc9090bd2582f83f49c76c0061698.tar.gz.temp: OK
+Extracting native_libmultiprocess...
+/tmp/cirrus-ci-build/depends/sources/d576d975debdc9090bd2582f83f49c76c0061698.tar.gz: OK
+Preprocessing native_libmultiprocess...
+Configuring native_libmultiprocess...
+Building native_libmultiprocess...
+Staging native_libmultiprocess...
+Postprocessing native_libmultiprocess...
+Caching native_libmultiprocess...
+Fetching boost_1_77_0.tar.bz2 from https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  5  105M    5 6102k    0     0  4896k      0  0:00:22  0:00:01  0:00:21 4896k 44  105M   44 47.2M    0     0  20.8M      0  0:00:05  0:00:02  0:00:03 40.6M 84  105M   84 88.4M    0     0  27.2M      0  0:00:03  0:00:03 --:--:-- 41.2M100  105M  100  105M    0     0  28.0M      0  0:00:03  0:00:03 --:--:-- 39.5M
+/tmp/cirrus-ci-build/depends/work/download/boost-1.77.0/boost_1_77_0.tar.bz2.temp: OK
+Extracting boost...
+/tmp/cirrus-ci-build/depends/sources/boost_1_77_0.tar.bz2: OK
+Preprocessing boost...
+Configuring boost...
+Building boost...
+Staging boost...
+Postprocessing boost...
+Caching boost...
+Fetching libevent-2.1.12-stable.tar.gz from https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 1075k  100 1075k    0     0  2250k      0 --:--:-- --:--:-- --:--:-- 5570k
+/tmp/cirrus-ci-build/depends/work/download/libevent-2.1.12-stable/libevent-2.1.12-stable.tar.gz.temp: OK
+Extracting libevent...
+/tmp/cirrus-ci-build/depends/sources/libevent-2.1.12-stable.tar.gz: OK
+Preprocessing libevent...
+Configuring libevent...
+Building libevent...
+Staging libevent...
+Postprocessing libevent...
+Caching libevent...
+Fetching freetype-2.11.0.tar.xz from https://download.savannah.gnu.org/releases/freetype
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 2203k  100 2203k    0     0  2231k      0 --:--:-- --:--:-- --:--:-- 2231k
+/tmp/cirrus-ci-build/depends/work/download/freetype-2.11.0/freetype-2.11.0.tar.xz.temp: OK
+Extracting freetype...
+/tmp/cirrus-ci-build/depends/sources/freetype-2.11.0.tar.xz: OK
+Preprocessing freetype...
+Configuring freetype...
+Building freetype...
+Staging freetype...
+Postprocessing freetype...
+Caching freetype...
+Fetching expat-2.4.8.tar.xz from https://github.com/libexpat/libexpat/releases/download/R_2_4_8/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  443k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  443k  100  443k    0     0  1012k      0 --:--:-- --:--:-- --:--:-- 5917k
+/tmp/cirrus-ci-build/depends/work/download/expat-2.4.8/expat-2.4.8.tar.xz.temp: OK
+Extracting expat...
+/tmp/cirrus-ci-build/depends/sources/expat-2.4.8.tar.xz: OK
+Preprocessing expat...
+Configuring expat...
+Building expat...
+Staging expat...
+Postprocessing expat...
+Caching expat...
+Fetching fontconfig-2.12.6.tar.bz2 from https://www.freedesktop.org/software/fontconfig/release/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 26 1586k   26  416k    0     0   758k      0  0:00:02 --:--:--  0:00:02  757k100 1586k  100 1586k    0     0  2631k      0 --:--:-- --:--:-- --:--:-- 2631k
+/tmp/cirrus-ci-build/depends/work/download/fontconfig-2.12.6/fontconfig-2.12.6.tar.bz2.temp: OK
+Extracting fontconfig...
+/tmp/cirrus-ci-build/depends/sources/fontconfig-2.12.6.tar.bz2: OK
+Preprocessing fontconfig...
+Configuring fontconfig...
+Building fontconfig...
+Staging fontconfig...
+Postprocessing fontconfig...
+Caching fontconfig...
+Fetching xcb-proto-1.14.1.tar.xz from https://xorg.freedesktop.org/archive/individual/proto
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  140k  100  140k    0     0   290k      0 --:--:-- --:--:-- --:--:--  289k
+/tmp/cirrus-ci-build/depends/work/download/xcb_proto-1.14.1/xcb-proto-1.14.1.tar.xz.temp: OK
+Extracting xcb_proto...
+/tmp/cirrus-ci-build/depends/sources/xcb-proto-1.14.1.tar.xz: OK
+Preprocessing xcb_proto...
+Configuring xcb_proto...
+Building xcb_proto...
+Staging xcb_proto...
+Postprocessing xcb_proto...
+Caching xcb_proto...
+Fetching xproto-7.0.31.tar.bz2 from https://xorg.freedesktop.org/releases/individual/proto
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  293k  100  293k    0     0   735k      0 --:--:-- --:--:-- --:--:--  736k
+/tmp/cirrus-ci-build/depends/work/download/xproto-7.0.31/xproto-7.0.31.tar.bz2.temp: OK
+Extracting xproto...
+/tmp/cirrus-ci-build/depends/sources/xproto-7.0.31.tar.bz2: OK
+Preprocessing xproto...
+Configuring xproto...
+Building xproto...
+Staging xproto...
+Postprocessing xproto...
+Caching xproto...
+Fetching libXau-1.0.9.tar.bz2 from https://xorg.freedesktop.org/releases/individual/lib/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 10  315k   10 32768    0     0   104k      0  0:00:03 --:--:--  0:00:03  104k100  315k  100  315k    0     0   658k      0 --:--:-- --:--:-- --:--:--  657k
+/tmp/cirrus-ci-build/depends/work/download/libXau-1.0.9/libXau-1.0.9.tar.bz2.temp: OK
+Extracting libXau...
+/tmp/cirrus-ci-build/depends/sources/libXau-1.0.9.tar.bz2: OK
+Preprocessing libXau...
+Configuring libXau...
+Building libXau...
+Staging libXau...
+Postprocessing libXau...
+Caching libXau...
+Fetching libxcb-1.14.tar.xz from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 48  429k   48  208k    0     0   399k      0  0:00:01 --:--:--  0:00:01  399k100  429k  100  429k    0     0   754k      0 --:--:-- --:--:-- --:--:--  754k
+/tmp/cirrus-ci-build/depends/work/download/libxcb-1.14/libxcb-1.14.tar.xz.temp: OK
+Extracting libxcb...
+/tmp/cirrus-ci-build/depends/sources/libxcb-1.14.tar.xz: OK
+Preprocessing libxcb...
+Configuring libxcb...
+Building libxcb...
+Staging libxcb...
+Postprocessing libxcb...
+Caching libxcb...
+Fetching libxkbcommon-0.8.4.tar.xz from https://xkbcommon.org/download/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 65  633k   65  416k    0     0   377k      0  0:00:01  0:00:01 --:--:--  377k100  633k  100  633k    0     0   522k      0  0:00:01  0:00:01 --:--:--  522k
+/tmp/cirrus-ci-build/depends/work/download/libxkbcommon-0.8.4/libxkbcommon-0.8.4.tar.xz.temp: OK
+Extracting libxkbcommon...
+/tmp/cirrus-ci-build/depends/sources/libxkbcommon-0.8.4.tar.xz: OK
+Preprocessing libxkbcommon...
+Configuring libxkbcommon...
+Building libxkbcommon...
+Staging libxkbcommon...
+Postprocessing libxkbcommon...
+Caching libxkbcommon...
+Fetching xcb-util-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  290k  100  290k    0     0   709k      0 --:--:-- --:--:-- --:--:--  708k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util-0.4.0/xcb-util-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util...
+Configuring libxcb_util...
+Building libxcb_util...
+Staging libxcb_util...
+Postprocessing libxcb_util...
+Caching libxcb_util...
+Fetching xcb-util-renderutil-0.3.9.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  286k  100  286k    0     0   699k      0 --:--:-- --:--:-- --:--:--  701k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_render-0.3.9/xcb-util-renderutil-0.3.9.tar.bz2.temp: OK
+Extracting libxcb_util_render...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-renderutil-0.3.9.tar.bz2: OK
+Preprocessing libxcb_util_render...
+Configuring libxcb_util_render...
+Building libxcb_util_render...
+Staging libxcb_util_render...
+Postprocessing libxcb_util_render...
+Caching libxcb_util_render...
+Fetching xcb-util-keysyms-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  283k  100  283k    0     0   683k      0 --:--:-- --:--:-- --:--:--  682k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_keysyms-0.4.0/xcb-util-keysyms-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util_keysyms...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-keysyms-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util_keysyms...
+Configuring libxcb_util_keysyms...
+Building libxcb_util_keysyms...
+Staging libxcb_util_keysyms...
+Postprocessing libxcb_util_keysyms...
+Caching libxcb_util_keysyms...
+Fetching xcb-util-image-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  320k  100  320k    0     0   632k      0 --:--:-- --:--:-- --:--:--  631k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_image-0.4.0/xcb-util-image-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util_image...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-image-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util_image...
+Configuring libxcb_util_image...
+Building libxcb_util_image...
+Staging libxcb_util_image...
+Postprocessing libxcb_util_image...
+Caching libxcb_util_image...
+Fetching xcb-util-wm-0.4.1.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  314k  100  314k    0     0   783k      0 --:--:-- --:--:-- --:--:--  783k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_wm-0.4.1/xcb-util-wm-0.4.1.tar.bz2.temp: OK
+Extracting libxcb_util_wm...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-wm-0.4.1.tar.bz2: OK
+Preprocessing libxcb_util_wm...
+Configuring libxcb_util_wm...
+Building libxcb_util_wm...
+Staging libxcb_util_wm...
+Postprocessing libxcb_util_wm...
+Caching libxcb_util_wm...
+Fetching qtbase-everywhere-src-6.2.4.tar.xz from https://download.qt.io/official_releases/qt/6.2/6.2.4/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   281  100   281    0     0    381      0 --:--:-- --:--:-- --:--:--   381
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 44.3M  100 44.3M    0     0  29.3M      0  0:00:01  0:00:01 --:--:-- 61.9M
+/tmp/cirrus-ci-build/depends/work/download/qt-6.2.4/qtbase-everywhere-src-6.2.4.tar.xz.temp: OK
+Fetching qttranslations-everywhere-src-6.2.4.tar.xz from https://download.qt.io/official_releases/qt/6.2/6.2.4/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   289  100   289    0     0    487      0 --:--:-- --:--:-- --:--:--   487
+100 1412k  100 1412k    0     0  1520k      0 --:--:-- --:--:-- --:--:-- 1520k
+/tmp/cirrus-ci-build/depends/work/download/qt-6.2.4/qttranslations-everywhere-src-6.2.4.tar.xz.temp: OK
+Fetching qttools-everywhere-src-6.2.4.tar.xz from https://download.qt.io/official_releases/qt/6.2/6.2.4/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   282  100   282    0     0    475      0 --:--:-- --:--:-- --:--:--   474
+100 8461k  100 8461k    0     0  8234k      0  0:00:01  0:00:01 --:--:-- 8234k
+/tmp/cirrus-ci-build/depends/work/download/qt-6.2.4/qttools-everywhere-src-6.2.4.tar.xz.temp: OK
+Extracting qt...
+/tmp/cirrus-ci-build/depends/sources/qtbase-everywhere-src-6.2.4.tar.xz: OK
+/tmp/cirrus-ci-build/depends/sources/qttranslations-everywhere-src-6.2.4.tar.xz: OK
+/tmp/cirrus-ci-build/depends/sources/qttools-everywhere-src-6.2.4.tar.xz: OK
+Preprocessing qt...
+Configuring qt...
+patching file qtbase/cmake/PkgConfigLibrary.pc.in
+patching file qtbase/cmake/QtBaseGlobalTargets.cmake
+patching file qtbase/cmake/QtBuild.cmake
+patching file qtbase/cmake/QtFinishPkgConfigFile.cmake
+patching file qtbase/cmake/QtModuleHelpers.cmake
+patching file qtbase/cmake/QtPkgConfigHelpers.cmake
+patching file qtbase/cmake/QtPlatformTargetHelpers.cmake
+patching file qtbase/cmake/QtPublicWalkLibsHelpers.cmake
+patching file qtbase/configure
+patching file qtbase/src/plugins/platforms/android/androidjnimain.cpp
+patching file qtbase/src/plugins/platforms/xcb/qxcbcursor.cpp
+patching file qtbase/src/tools/moc/main.cpp
+patching file qtbase/mkspecs/features/android/default_pre.prf
+patching file qtbase/src/tools/rcc/rcc.cpp
+patching file qtbase/src/3rdparty/double-conversion/double-conversion/fixed-dtoa.h
+patching file qtbase/mkspecs/features/toolchain.prf
+Overriding option 'libjpeg' with 'no' (was: 'undefined')
+opt: libpng val: qt
+Overriding option 'libpng' with 'qt' (was: 'undefined')
+opt: pcre val: qt
+opt: harfbuzz val: qt
+Overriding option 'harfbuzz' with 'qt' (was: 'undefined')
+opt: zlib val: qt
+opt: freetype val: system
+Overriding option 'freetype' with 'system' (was: 'undefined')
+'/usr/bin/cmake' '-DBUILD_WITH_PCH=OFF' '-DBUILD_SHARED_LIBS=OFF' '-DCMAKE_INSTALL_PREFIX=/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu' '-DINSTALL_LIBEXECDIR=/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin' '-DQT_QMAKE_TARGET_MKSPEC=linux-g++-32' '-DQT_BUILD_EXAMPLES=FALSE' '-DQT_BUILD_TESTS=FALSE' '-DCMAKE_BUILD_TYPE=Debug' '-DINPUT_cxx14=yes' '-DINPUT_cxx17=yes' '-DINPUT_cxx20=no' '-DINPUT_cups=no' '-DINPUT_egl=no' '-DINPUT_eglfs=no' '-DINPUT_evdev=no' '-DINPUT_gif=no' '-DINPUT_glib=no' '-DINPUT_icu=no' '-DINPUT_ico=no' '-DINPUT_kms=no' '-DINPUT_linuxfb=no' '-DINPUT_libjpeg=no' '-DINPUT_libproxy=no' '-DINPUT_libudev=no' '-DINPUT_mtdev=no' '-DINPUT_openssl=no' '-DINPUT_openvg=no' '-DINPUT_reduce_relocations=no' '-DINPUT_schannel=no' '-DINPUT_sctp=no' '-DINPUT_securetransport=no' '-DINPUT_system_proxies=no' '-DINPUT_use_gold_linker_alias=no' '-DINPUT_zstd=no' '-DINPUT_pkg_config=yes' '-DINPUT_libpng=qt' '-DINPUT_pcre=qt' '-DINPUT_harfbuzz=qt' '-DINPUT_system_zlib=no' '-DINPUT_colordialog=no' '-DINPUT_concurrent=no' '-DINPUT_dial=no' '-DINPUT_fontcombobox=no' '-DINPUT_http=no' '-DINPUT_image_heuristic_mask=no' '-DINPUT_keysequenceedit=no' '-DINPUT_lcdnumber=no' '-DINPUT_networkdiskcache=no' '-DINPUT_networkproxy=no' '-DINPUT_pdf=no' '-DINPUT_printdialog=no' '-DINPUT_printer=no' '-DINPUT_printpreviewdialog=no' '-DINPUT_printpreviewwidget=no' '-DINPUT_sessionmanager=no' '-DINPUT_socks5=no' '-DINPUT_sql=no' '-DINPUT_syntaxhighlighter=no' '-DINPUT_textbrowser=no' '-DINPUT_textmarkdownwriter=no' '-DINPUT_textodfwriter=no' '-DINPUT_topleveldomain=no' '-DINPUT_udpsocket=no' '-DINPUT_undocommand=no' '-DINPUT_undogroup=no' '-DINPUT_undostack=no' '-DINPUT_undoview=no' '-DINPUT_vnc=no' '-DINPUT_wizard=no' '-DINPUT_release_tools=yes' '-DINPUT_xcb=yes' '-DINPUT_xcb_xlib=no' '-DINPUT_xlib=no' '-DINPUT_freetype=system' '-DINPUT_fontconfig=yes' '-DINPUT_opengl=no' '-DINPUT_vulkan=no' '-DINPUT_dbus=runtime' '-G' 'Unix Makefiles' '/tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60'
+CMake Warning at qtbase/cmake/QtAutoDetect.cmake:65 (message):
+  The officially supported CMake generator for building Qt is Ninja.  You are
+  using: 'Unix Makefiles' instead.  Thus, you might encounter issues.  Use at
+  your own risk.
+Call Stack (most recent call first):
+  qtbase/cmake/QtAutoDetect.cmake:439 (qt_auto_detect_cmake_generator)
+  CMakeLists.txt:11 (include)
+
+
+-- The CXX compiler identification is GNU 11.2.0
+-- The C compiler identification is GNU 11.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/cc
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+Configuring 'qtbase'
+-- CMAKE_BUILD_TYPE was set to: 'Debug'
+-- Check for feature set changes
+-- Building architecture extraction project with the following CMake arguments:
+    -DCMAKE_OBJCOPY=/usr/bin/objcopy
+    -DCMAKE_C_STANDARD=11
+    -DCMAKE_CXX_STANDARD=17
+    -DCMAKE_MODULE_PATH:STRING=/tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60/qtbase/cmake/platforms
+-- Extracting architecture info from /tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60/qtbase/config.tests/arch/architecture_test.
+-- CMAKE_VERSION: "3.22.1"
+-- CMAKE_HOST_SYSTEM: "Linux-5.10.123+"
+-- CMAKE_HOST_SYSTEM_NAME: "Linux"
+-- CMAKE_HOST_SYSTEM_VERSION: "5.10.123+"
+-- CMAKE_HOST_SYSTEM_PROCESSOR: "x86_64"
+-- CMAKE_SYSTEM: "Linux"
+-- CMAKE_SYSTEM_NAME: "Linux"
+-- CMAKE_SYSTEM_VERSION: "5.10.123+"
+-- CMAKE_SYSTEM_PROCESSOR: "x86_64"
+-- CMAKE_CROSSCOMPILING: "FALSE"
+-- CMAKE_C_COMPILER: "/usr/bin/cc" (11.2.0)
+-- CMAKE_CXX_COMPILER: "/usr/bin/c++" (11.2.0)
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR) (Required is at least version "1.0.8")
+-- Could NOT find WrapZLIB (missing: WrapZLIB_FOUND) (Required is at least version "1.0.8")
+-- Could NOT find ZSTD: Found unsuitable version "", but required is at least "1.3" (found ZSTD_LIBRARY-NOTFOUND)
+-- Could NOT find WrapDBus1 (missing: DBus1_LIBRARY DBus1_INCLUDE_DIR WrapDBus1_FOUND) (Required is at least version "1.2")
+-- Checking for module 'libudev'
+--   No package 'libudev' found
+-- Performing Test TEST_use_bfd_linker
+-- Performing Test TEST_use_bfd_linker - Success
+-- Performing Test TEST_use_gold_linker
+-- Performing Test TEST_use_gold_linker - Success
+-- Performing Test TEST_use_lld_linker
+-- Performing Test TEST_use_lld_linker - Failed
+-- Performing Test TEST_use_mold_linker
+-- Performing Test TEST_use_mold_linker - Success
+-- Performing Test machine tuple
+-- Performing Test machine tuple - Success
+-- Performing Test HAVE_cxx14
+-- Performing Test HAVE_cxx14 - Success
+-- Performing Test HAVE_cxx17
+-- Performing Test HAVE_cxx17 - Success
+-- Performing Test HAVE_cxx20
+-- Performing Test HAVE_cxx20 - Success
+-- Performing Test precompiled header support
+-- Performing Test precompiled header support - Success
+-- Performing Test TEST_optimize_debug
+-- Performing Test TEST_optimize_debug - Success
+-- Performing Test TEST_enable_new_dtags
+-- Performing Test TEST_enable_new_dtags - Success
+-- Performing Test TEST_gdb_index
+-- Performing Test TEST_gdb_index - Failed
+-- Performing Test HAVE_reduce_relocations
+-- Performing Test HAVE_reduce_relocations - Success
+-- Performing Test separate debug information support
+-- Performing Test separate debug information support - Success
+-- Performing Test HAVE_signaling_nan
+-- Performing Test HAVE_signaling_nan - Success
+-- Performing SIMD Test SSE2 instructions
+-- Performing SIMD Test SSE2 instructions - Success
+-- Performing SIMD Test SSE3 instructions
+-- Performing SIMD Test SSE3 instructions - Success
+-- Performing SIMD Test SSSE3 instructions
+-- Performing SIMD Test SSSE3 instructions - Success
+-- Performing SIMD Test SSE4.1 instructions
+-- Performing SIMD Test SSE4.1 instructions - Success
+-- Performing SIMD Test SSE4.2 instructions
+-- Performing SIMD Test SSE4.2 instructions - Success
+-- Performing SIMD Test AES new instructions
+-- Performing SIMD Test AES new instructions - Success
+-- Performing SIMD Test F16C instructions
+-- Performing SIMD Test F16C instructions - Success
+-- Performing SIMD Test RDRAND instruction
+-- Performing SIMD Test RDRAND instruction - Success
+-- Performing SIMD Test RDSEED instruction
+-- Performing SIMD Test RDSEED instruction - Success
+-- Performing SIMD Test SHA new instructions
+-- Performing SIMD Test SHA new instructions - Success
+-- Performing SIMD Test AVX instructions
+-- Performing SIMD Test AVX instructions - Success
+-- Performing SIMD Test AVX2 instructions
+-- Performing SIMD Test AVX2 instructions - Success
+-- Performing SIMD Test AVX512 F instructions
+-- Performing SIMD Test AVX512 F instructions - Success
+-- Performing SIMD Test AVX512 ER instructions
+-- Performing SIMD Test AVX512 ER instructions - Success
+-- Performing SIMD Test AVX512 CD instructions
+-- Performing SIMD Test AVX512 CD instructions - Success
+-- Performing SIMD Test AVX512 PF instructions
+-- Performing SIMD Test AVX512 PF instructions - Success
+-- Performing SIMD Test AVX512 DQ instructions
+-- Performing SIMD Test AVX512 DQ instructions - Success
+-- Performing SIMD Test AVX512 BW instructions
+-- Performing SIMD Test AVX512 BW instructions - Success
+-- Performing SIMD Test AVX512 VL instructions
+-- Performing SIMD Test AVX512 VL instructions - Success
+-- Performing SIMD Test AVX512 IFMA instructions
+-- Performing SIMD Test AVX512 IFMA instructions - Success
+-- Performing SIMD Test AVX512 VBMI instructions
+-- Performing SIMD Test AVX512 VBMI instructions - Success
+-- Performing Test HAVE_posix_fallocate
+-- Performing Test HAVE_posix_fallocate - Success
+-- Performing Test HAVE_alloca_stdlib_h
+-- Performing Test HAVE_alloca_stdlib_h - Success
+-- Performing Test HAVE_alloca_h
+-- Performing Test HAVE_alloca_h - Success
+-- Performing Test HAVE_alloca_malloc_h
+-- Performing Test HAVE_alloca_malloc_h - Failed
+-- Performing Test HAVE_stack_protector
+-- Performing Test HAVE_stack_protector - Success
+-- Performing Test HAVE_intelcet
+-- Performing Test HAVE_intelcet - Success
+-- Performing Test HAVE_LD_VERSION_SCRIPT
+-- Performing Test HAVE_LD_VERSION_SCRIPT - Success
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- backtrace facility detected in default set of libraries
+-- Found Backtrace: /usr/include  
+-- Could NOT find double-conversion (missing: double-conversion_DIR)
+-- Could NOT find WrapDoubleConversion (missing: WrapDoubleConversion_FOUND) 
+-- Could NOT find GLIB2 (missing: GLIB2_LIBRARIES GTHREAD2_LIBRARIES GLIB2_INCLUDE_DIRS) 
+-- Found the following ICU libraries:
+--   i18n (required)
+--   uc (required)
+--   data (required)
+-- Failed to find all ICU components (missing: ICU_INCLUDE_DIR ICU_LIBRARY) 
+-- Checking for module 'libsystemd'
+--   No package 'libsystemd' found
+-- Performing Test HAVE_STDATOMIC
+-- Performing Test HAVE_STDATOMIC - Success
+-- Found WrapAtomic: TRUE  
+-- Checking for module 'libb2'
+--   No package 'libb2' found
+-- Performing Test HAVE_GETTIME
+-- Performing Test HAVE_GETTIME - Success
+-- Found WrapRt: TRUE  
+-- Could NOT find LTTngUST (missing: LTTNGUST_LIBRARIES LTTNGUST_INCLUDE_DIRS) 
+-- Could NOT find WrapSystemPCRE2 (missing: PCRE2_LIBRARIES PCRE2_INCLUDE_DIRS __pcre2_found) (Required is at least version "10.20")
+-- Could NOT find Slog2 (missing: Slog2_INCLUDE_DIR Slog2_LIBRARY) 
+-- Performing Test HAVE_atomicfptr
+-- Performing Test HAVE_atomicfptr - Success
+-- Performing Test HAVE_clock_monotonic
+-- Performing Test HAVE_clock_monotonic - Success
+-- Performing Test HAVE_cloexec
+-- Performing Test HAVE_cloexec - Success
+-- Performing Test HAVE_cxx11_future
+-- Performing Test HAVE_cxx11_future - Success
+-- Performing Test HAVE_cxx11_random
+-- Performing Test HAVE_cxx11_random - Success
+-- Performing Test HAVE_cxx17_filesystem
+-- Performing Test HAVE_cxx17_filesystem - Success
+-- Performing Test HAVE_eventfd
+-- Performing Test HAVE_eventfd - Success
+-- Performing Test HAVE_futimens
+-- Performing Test HAVE_futimens - Success
+-- Performing Test HAVE_futimes
+-- Performing Test HAVE_futimes - Success
+-- Performing Test HAVE_getauxval
+-- Performing Test HAVE_getauxval - Success
+-- Performing Test HAVE_getentropy
+-- Performing Test HAVE_getentropy - Success
+-- Performing Test HAVE_glibc
+-- Performing Test HAVE_glibc - Success
+-- Performing Test HAVE_inotify
+-- Performing Test HAVE_inotify - Success
+-- Performing Test HAVE_ipc_sysv
+-- Performing Test HAVE_ipc_sysv - Success
+-- Performing Test HAVE_ipc_posix
+-- Performing Test HAVE_ipc_posix - Success
+-- Performing Test HAVE_linkat
+-- Performing Test HAVE_linkat - Success
+-- Performing Test HAVE_ppoll
+-- Performing Test HAVE_ppoll - Success
+-- Performing Test HAVE_pollts
+-- Performing Test HAVE_pollts - Failed
+-- Performing Test HAVE_poll
+-- Performing Test HAVE_poll - Success
+-- Performing Test HAVE_renameat2
+-- Performing Test HAVE_renameat2 - Failed
+-- Performing Test HAVE_statx
+-- Performing Test HAVE_statx - Success
+-- Performing Test HAVE_syslog
+-- Performing Test HAVE_syslog - Success
+-- Performing Test HAVE_cpp_winrt
+-- Performing Test HAVE_cpp_winrt - Failed
+-- Performing Test HAVE_xlocalescanprint
+-- Performing Test HAVE_xlocalescanprint - Failed
+-- Checking for module 'libproxy-1.0'
+--   No package 'libproxy-1.0' found
+-- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenSSLHeaders (missing: OPENSSL_INCLUDE_DIR) 
+-- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenSSLHeaders (missing: OPENSSL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenSSL (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+-- Could NOT find GSSAPI (missing: GSSAPI_LIBRARIES GSSAPI_INCLUDE_DIRS) 
+-- Performing Test HAVE_getifaddrs
+-- Performing Test HAVE_getifaddrs - Success
+-- Performing Test HAVE_ifr_index
+-- Performing Test HAVE_ifr_index - Failed
+-- Performing Test HAVE_ipv6ifname
+-- Performing Test HAVE_ipv6ifname - Success
+-- Performing Test HAVE_linux_netlink
+-- Performing Test HAVE_linux_netlink - Success
+-- Performing Test HAVE_sctp
+-- Performing Test HAVE_sctp - Failed
+-- Performing Test HAVE_networklistmanager
+-- Performing Test HAVE_networklistmanager - Failed
+-- Checking for module 'atspi-2'
+--   No package 'atspi-2' found
+-- Checking for module 'directfb'
+--   No package 'directfb' found
+-- Could NOT find Libdrm (missing: Libdrm_LIBRARY Libdrm_INCLUDE_DIR) 
+-- Performing Test HAVE_EGL
+-- Performing Test HAVE_EGL - Failed
+-- Could NOT find EGL (missing: EGL_INCLUDE_DIR HAVE_EGL EGL_LIBRARY) 
+-- Found WrapSystemFreetype: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libfreetype.so (found suitable version "2.11.0", minimum required is "2.2.0") 
+-- Found Fontconfig: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libfontconfig.so (found version "2.12.6") 
+-- Could NOT find gbm (missing: gbm_LIBRARY gbm_INCLUDE_DIR) 
+-- Checking for module 'harfbuzz'
+--   No package 'harfbuzz' found
+-- Could NOT find WrapSystemHarfbuzz (missing: HARFBUZZ_LIBRARIES HARFBUZZ_INCLUDE_DIRS) (Required is at least version "2.6.0")
+-- Could NOT find Libinput (missing: Libinput_LIBRARY Libinput_INCLUDE_DIR) 
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Could NOT find md4c (missing: md4c_DIR)
+-- Could NOT find WrapSystemPNG (missing: __png_found) 
+-- Checking for module 'mtdev'
+--   No package 'mtdev' found
+-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenGL (missing: WrapOpenGL_FOUND) 
+-- Could NOT find EGL (missing: EGL_INCLUDE_DIR HAVE_EGL EGL_LIBRARY) 
+-- Performing Test HAVE_GLESv2
+-- Performing Test HAVE_GLESv2 - Failed
+-- Could NOT find GLESv2 (missing: GLESv2_INCLUDE_DIR GLESv2_LIBRARY HAVE_GLESv2 HAVE_GLESv2) 
+-- Checking for module 'tslib'
+--   No package 'tslib' found
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find Wayland_Client (missing: Wayland_Client_LIBRARY Wayland_Client_INCLUDE_DIR) (found version "")
+-- Could NOT find Wayland_Server (missing: Wayland_Server_LIBRARY Wayland_Server_INCLUDE_DIR) (found version "")
+-- Could NOT find Wayland_Cursor (missing: Wayland_Cursor_LIBRARY Wayland_Cursor_INCLUDE_DIR) (found version "")
+-- Could NOT find Wayland_Egl (missing: Wayland_Egl_LIBRARY Wayland_Egl_INCLUDE_DIR Wayland_Client_FOUND) (found version "")
+-- Could NOT find Wayland (missing: Wayland_LIBRARIES) 
+-- Could NOT find X11 (missing: X11_X11_LIB) 
+-- Could NOT find X11 (missing: X11_X11_LIB) 
+-- Found XCB_XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so (found version "1.14") 
+-- Found XCB_RENDER: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so (found version "1.14") 
+-- Found XCB_SHAPE: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so (found version "1.14") 
+-- Found XCB_XFIXES: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so (found version "1.14") 
+-- Found XCB_SHM: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so (found version "1.14") 
+-- Found XCB_ATOM: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Found XCB_AUX: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Could NOT find XCB_COMPOSITE (missing: XCB_COMPOSITE_LIBRARY) (found version "")
+-- Could NOT find XCB_CURSOR (missing: XCB_CURSOR_LIBRARY XCB_CURSOR_INCLUDE_DIR) (found version "")
+-- Could NOT find XCB_DAMAGE (missing: XCB_DAMAGE_LIBRARY) (found version "")
+-- Could NOT find XCB_DPMS (missing: XCB_DPMS_LIBRARY) (found version "")
+-- Could NOT find XCB_DRI2 (missing: XCB_DRI2_LIBRARY) (found version "")
+-- Could NOT find XCB_DRI3 (missing: XCB_DRI3_LIBRARY) (found version "")
+-- Found XCB_EVENT: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Found XCB_EWMH: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so (found version "0.4.1") 
+-- Could NOT find XCB_GLX (missing: XCB_GLX_LIBRARY) (found version "")
+-- Found XCB_ICCCM: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so (found version "0.4.1") 
+-- Found XCB_IMAGE: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so (found version "0.4.0") 
+-- Found XCB_KEYSYMS: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so (found version "0.4.0") 
+-- Could NOT find XCB_PRESENT (missing: XCB_PRESENT_LIBRARY) (found version "")
+-- Found XCB_RANDR: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so (found version "1.14") 
+-- Could NOT find XCB_RECORD (missing: XCB_RECORD_LIBRARY) (found version "")
+-- Found XCB_RENDERUTIL: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so (found version "0.3.9") 
+-- Could NOT find XCB_RES (missing: XCB_RES_LIBRARY) (found version "")
+-- Could NOT find XCB_SCREENSAVER (missing: XCB_SCREENSAVER_LIBRARY) (found version "")
+-- Found XCB_SYNC: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so (found version "1.14") 
+-- Found XCB_UTIL: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Could NOT find XCB_XEVIE (missing: XCB_XEVIE_LIBRARY) (found version "")
+-- Could NOT find XCB_XF86DRI (missing: XCB_XF86DRI_LIBRARY) (found version "")
+-- Found XCB_XINERAMA: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so (found version "1.14") 
+-- Found XCB_XKB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") 
+-- Could NOT find XCB_XPRINT (missing: XCB_XPRINT_LIBRARY) (found version "")
+-- Could NOT find XCB_XTEST (missing: XCB_XTEST_LIBRARY) (found version "")
+-- Could NOT find XCB_XV (missing: XCB_XV_LIBRARY) (found version "")
+-- Could NOT find XCB_XVMC (missing: XCB_XVMC_LIBRARY XCB_XV_FOUND) (found version "")
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found suitable version "1.14", minimum required is "1.11")  
+-- XCB: ICCCM requires XCB
+-- Found XCB_XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so (found version "1.14") 
+-- Found XCB_ICCCM: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so (found version "0.4.1") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so (found suitable version "1.14", minimum required is "0.3.9") found components: ICCCM 
+-- XCB: IMAGE requires XCB;SHM
+-- XCB: IMAGE requires XCB;SHM
+-- Found XCB_SHM: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so (found version "1.14") 
+-- Found XCB_IMAGE: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so (found version "0.4.0") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so (found suitable version "1.14", minimum required is "0.3.9") found components: IMAGE 
+-- XCB: KEYSYMS requires XCB
+-- Found XCB_KEYSYMS: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so (found version "0.4.0") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so (found suitable version "1.14", minimum required is "0.3.9") found components: KEYSYMS 
+-- XCB: RENDERUTIL requires XCB;RENDER
+-- XCB: RENDERUTIL requires XCB;RENDER
+-- Found XCB_RENDER: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so (found version "1.14") 
+-- Found XCB_RENDERUTIL: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so (found version "0.3.9") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so (found suitable version "1.14", minimum required is "0.3.9") found components: RENDERUTIL 
+-- XCB: RANDR requires XCB
+-- Found XCB_RANDR: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so (found version "1.14") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so (found version "1.14") found components: RANDR 
+-- XCB: SHAPE requires XCB
+-- Found XCB_SHAPE: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so (found version "1.14") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so (found version "1.14") found components: SHAPE 
+-- XCB: SHM requires XCB
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so (found version "1.14") found components: SHM 
+-- XCB: SYNC requires XCB
+-- Found XCB_SYNC: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so (found version "1.14") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so (found version "1.14") found components: SYNC 
+-- XCB: XFIXES requires XCB;RENDER;SHAPE
+-- XCB: XFIXES requires XCB;RENDER;SHAPE
+-- XCB: XFIXES requires XCB;RENDER;SHAPE
+-- Found XCB_XFIXES: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so (found version "1.14") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so (found version "1.14") found components: XFIXES 
+-- Could NOT find X11_XCB (missing: X11_XCB_LIBRARY X11_XCB_INCLUDE_DIR) 
+-- XCB: XKB requires XCB
+-- Found XCB_XKB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") 
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: XKB 
+-- XCB: RENDER requires XCB
+-- Found XCB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;//tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: RENDER 
+-- XCB: GLX requires XCB
+-- Could NOT find XCB_GLX (missing: XCB_GLX_LIBRARY) (found version "")
+-- Could NOT find XCB (missing: GLX) (found version "1.14")
+-- XCB: XINPUT requires XCB
+CMake Warning (dev) at qtbase/cmake/3rdparty/extra-cmake-modules/find-modules/FindXCB.cmake:180 (message):
+  XINPUT from XCB was requested: this is EXPERIMENTAL and is likely to
+  unavailable on many systems!
+Call Stack (most recent call first):
+  qtbase/cmake/QtFindPackageHelpers.cmake:130 (find_package)
+  qtbase/src/gui/configure.cmake:119 (qt_find_package)
+  qtbase/cmake/QtFeature.cmake:573 (include)
+  qtbase/src/CMakeLists.txt:12 (qt_feature_evaluate_features)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find XCB_XINPUT (missing: XCB_XINPUT_LIBRARY) (found version "")
+-- Could NOT find XCB (missing: XINPUT) (found suitable version "1.14", minimum required is "1.12")
+-- Found XKB: //tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxkbcommon.so (found suitable version "0.8.4", minimum required is "0.5.0") 
+-- Checking for module 'xkbcommon-x11>=0.4.1'
+--   Found xkbcommon-x11, version 0.8.4
+-- Checking for module 'xrender'
+--   No package 'xrender' found
+-- Performing Test HAVE_evdev
+-- Performing Test HAVE_evdev - Success
+-- Performing Test HAVE_integrityfb
+-- Performing Test HAVE_integrityfb - Failed
+-- Performing Test HAVE_linuxfb
+-- Performing Test HAVE_linuxfb - Success
+-- Performing Test HAVE_xcb_syslibs
+-- Performing Test HAVE_xcb_syslibs - Failed
+-- Performing Test HAVE_directwrite
+-- Performing Test HAVE_directwrite - Failed
+-- Performing Test HAVE_directwrite3
+-- Performing Test HAVE_directwrite3 - Failed
+-- Performing Test HAVE_d2d1
+-- Performing Test HAVE_d2d1 - Failed
+-- Performing Test HAVE_d2d1_1
+-- Performing Test HAVE_d2d1_1 - Failed
+CMake Error at qtbase/cmake/QtBuildInformation.cmake:388 (message):
+  Feature "xcb": Forcing to "ON" breaks its condition:
+
+      QT_FEATURE_thread AND TARGET XCB::XCB AND TEST_xcb_syslibs AND QT_FEATURE_xkbcommon_x11
+
+  Condition values dump:
+
+      QT_FEATURE_thread = "ON"
+      TARGET XCB::XCB found
+      TEST_xcb_syslibs = ""
+      QT_FEATURE_xkbcommon_x11 not evaluated
+
+Call Stack (most recent call first):
+  qtbase/cmake/QtFeature.cmake:281 (qt_configure_add_report_error)
+  qtbase/cmake/QtFeature.cmake:403 (qt_feature_check_and_save_internal_value)
+  qtbase/cmake/QtFeature.cmake:155 (qt_evaluate_feature)
+  qtbase/cmake/QtFeature.cmake:349 (qt_evaluate_config_expression)
+  qtbase/cmake/QtFeature.cmake:606 (qt_evaluate_feature)
+  qtbase/cmake/QtFeature.cmake:575 (qt_feature_module_end)
+  qtbase/src/CMakeLists.txt:12 (qt_feature_evaluate_features)
+
+
+-- Tool 'Qt6::moc' will be built from source.
+-- Tool 'Qt6::rcc' will be built from source.
+-- Tool 'Qt6::tracegen' will be built from source.
+-- Tool 'Qt6::cmake_automoc_parser' will be built from source.
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Using Qt bundled PCRE2.
+-- Found WrapPCRE2: TRUE  
+-- Using source syncqt found at: /tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60/qtbase/libexec/syncqt.pl
+-- Running syncqt for module: 'QtCore' 
+-- Could NOT find double-conversion (missing: double-conversion_DIR)
+-- Could NOT find WrapDoubleConversion (missing: WrapDoubleConversion_FOUND) 
+-- Could NOT find GLIB2 (missing: GLIB2_LIBRARIES GTHREAD2_LIBRARIES GLIB2_INCLUDE_DIRS) 
+-- Found the following ICU libraries:
+--   i18n (required)
+--   uc (required)
+--   data (required)
+-- Failed to find all ICU components (missing: ICU_INCLUDE_DIR ICU_LIBRARY) 
+-- Checking for module 'libsystemd'
+--   No package 'libsystemd' found
+-- Checking for module 'libb2'
+--   No package 'libb2' found
+-- Could NOT find LTTngUST (missing: LTTNGUST_LIBRARIES LTTNGUST_INCLUDE_DIRS) 
+-- Could NOT find WrapSystemPCRE2 (missing: PCRE2_LIBRARIES PCRE2_INCLUDE_DIRS __pcre2_found) (Required is at least version "10.20")
+-- Could NOT find Slog2 (missing: Slog2_INCLUDE_DIR Slog2_LIBRARY) 
+-- xmlstarlet command was not found. freedesktop.org.xml will not be minified.
+-- Running syncqt for module: 'QtZlib' 
+-- Running syncqt for module: 'QtNetwork' 
+-- Checking for module 'libproxy-1.0'
+--   No package 'libproxy-1.0' found
+-- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenSSLHeaders (missing: OPENSSL_INCLUDE_DIR) 
+-- Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system variable OPENSSL_ROOT_DIR (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenSSLHeaders (missing: OPENSSL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenSSL (missing: OPENSSL_CRYPTO_LIBRARY OPENSSL_INCLUDE_DIR) 
+-- Could NOT find GSSAPI (missing: GSSAPI_LIBRARIES GSSAPI_INCLUDE_DIRS) 
+-- Running syncqt for module: 'QtXml' 
+-- Tool 'Qt6::uic' will be built from source.
+-- Tool 'Qt6::qdbuscpp2xml' will be built from source.
+-- Tool 'Qt6::qdbusxml2cpp' will be built from source.
+-- Tool 'Qt6::qlalr' will be built from source.
+-- Tool 'Qt6::qvkgen' will be built from source.
+-- Tool 'Qt6::qtpaths' will be built from source.
+-- Tool 'Qt6::androiddeployqt' will be built from source.
+-- Tool 'Qt6::androidtestrunner' will be built from source.
+-- Running syncqt for module: 'QtDBus' 
+-- Could NOT find X11_XCB (missing: X11_XCB_LIBRARY X11_XCB_INCLUDE_DIR) 
+-- Using Qt bundled Harfbuzz.
+-- Found WrapHarfbuzz: TRUE  
+-- Using Qt bundled PNG.
+-- Found WrapPNG: TRUE  
+-- Using system Freetype.
+-- Found WrapFreetype: TRUE  
+-- Running syncqt for module: 'QtGui' 
+-- Checking for module 'atspi-2'
+--   No package 'atspi-2' found
+-- Checking for module 'directfb'
+--   No package 'directfb' found
+-- Could NOT find Libdrm (missing: Libdrm_LIBRARY Libdrm_INCLUDE_DIR) 
+-- Could NOT find EGL (missing: EGL_INCLUDE_DIR HAVE_EGL EGL_LIBRARY) 
+-- Found Fontconfig: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libfontconfig.so (found version "2.12.6") 
+-- Could NOT find gbm (missing: gbm_LIBRARY gbm_INCLUDE_DIR) 
+-- Checking for module 'harfbuzz'
+--   No package 'harfbuzz' found
+-- Could NOT find WrapSystemHarfbuzz (missing: HARFBUZZ_LIBRARIES HARFBUZZ_INCLUDE_DIRS) (Required is at least version "2.6.0")
+-- Could NOT find Libinput (missing: Libinput_LIBRARY Libinput_INCLUDE_DIR) 
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Could NOT find md4c (missing: md4c_DIR)
+-- Could NOT find WrapSystemPNG (missing: __png_found) 
+-- Checking for module 'mtdev'
+--   No package 'mtdev' found
+-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR) 
+-- Could NOT find WrapOpenGL (missing: WrapOpenGL_FOUND) 
+-- Could NOT find EGL (missing: EGL_INCLUDE_DIR HAVE_EGL EGL_LIBRARY) 
+-- Could NOT find GLESv2 (missing: GLESv2_INCLUDE_DIR GLESv2_LIBRARY HAVE_GLESv2 HAVE_GLESv2) 
+-- Checking for module 'tslib'
+--   No package 'tslib' found
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Could NOT find Wayland_Client (missing: Wayland_Client_LIBRARY Wayland_Client_INCLUDE_DIR) (found version "")
+-- Could NOT find Wayland_Server (missing: Wayland_Server_LIBRARY Wayland_Server_INCLUDE_DIR) (found version "")
+-- Could NOT find Wayland_Cursor (missing: Wayland_Cursor_LIBRARY Wayland_Cursor_INCLUDE_DIR) (found version "")
+-- Could NOT find Wayland_Egl (missing: Wayland_Egl_LIBRARY Wayland_Egl_INCLUDE_DIR Wayland_Client_FOUND) (found version "")
+-- Could NOT find Wayland (missing: Wayland_LIBRARIES) 
+-- Could NOT find X11 (missing: X11_X11_LIB) 
+-- Could NOT find X11 (missing: X11_X11_LIB) 
+-- Found XCB_ATOM: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Found XCB_AUX: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Could NOT find XCB_COMPOSITE (missing: XCB_COMPOSITE_LIBRARY) (found version "")
+-- Could NOT find XCB_CURSOR (missing: XCB_CURSOR_LIBRARY XCB_CURSOR_INCLUDE_DIR) (found version "")
+-- Could NOT find XCB_DAMAGE (missing: XCB_DAMAGE_LIBRARY) (found version "")
+-- Could NOT find XCB_DPMS (missing: XCB_DPMS_LIBRARY) (found version "")
+-- Could NOT find XCB_DRI2 (missing: XCB_DRI2_LIBRARY) (found version "")
+-- Could NOT find XCB_DRI3 (missing: XCB_DRI3_LIBRARY) (found version "")
+-- Found XCB_EVENT: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Found XCB_EWMH: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so (found version "0.4.1") 
+-- Could NOT find XCB_GLX (missing: XCB_GLX_LIBRARY) (found version "")
+-- Could NOT find XCB_PRESENT (missing: XCB_PRESENT_LIBRARY) (found version "")
+-- Could NOT find XCB_RECORD (missing: XCB_RECORD_LIBRARY) (found version "")
+-- Could NOT find XCB_RES (missing: XCB_RES_LIBRARY) (found version "")
+-- Could NOT find XCB_SCREENSAVER (missing: XCB_SCREENSAVER_LIBRARY) (found version "")
+-- Found XCB_UTIL: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a (found version "0.4.0") 
+-- Could NOT find XCB_XEVIE (missing: XCB_XEVIE_LIBRARY) (found version "")
+-- Could NOT find XCB_XF86DRI (missing: XCB_XF86DRI_LIBRARY) (found version "")
+-- Found XCB_XINERAMA: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so (found version "1.14") 
+-- Could NOT find XCB_XPRINT (missing: XCB_XPRINT_LIBRARY) (found version "")
+-- Could NOT find XCB_XTEST (missing: XCB_XTEST_LIBRARY) (found version "")
+-- Could NOT find XCB_XV (missing: XCB_XV_LIBRARY) (found version "")
+-- Could NOT find XCB_XVMC (missing: XCB_XVMC_LIBRARY XCB_XV_FOUND) (found version "")
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found suitable version "1.14", minimum required is "1.11")  
+-- XCB: ICCCM requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found suitable version "1.14", minimum required is "0.3.9") found components: ICCCM 
+-- XCB: IMAGE requires XCB;SHM
+-- XCB: IMAGE requires XCB;SHM
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found suitable version "1.14", minimum required is "0.3.9") found components: IMAGE 
+-- XCB: KEYSYMS requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found suitable version "1.14", minimum required is "0.3.9") found components: KEYSYMS 
+-- XCB: RENDERUTIL requires XCB;RENDER
+-- XCB: RENDERUTIL requires XCB;RENDER
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found suitable version "1.14", minimum required is "0.3.9") found components: RENDERUTIL 
+-- XCB: RANDR requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: RANDR 
+-- XCB: SHAPE requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: SHAPE 
+-- XCB: SHM requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: SHM 
+-- XCB: SYNC requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: SYNC 
+-- XCB: XFIXES requires XCB;RENDER;SHAPE
+-- XCB: XFIXES requires XCB;RENDER;SHAPE
+-- XCB: XFIXES requires XCB;RENDER;SHAPE
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: XFIXES 
+-- Could NOT find X11_XCB (missing: X11_XCB_LIBRARY X11_XCB_INCLUDE_DIR) 
+-- XCB: XKB requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: XKB 
+-- XCB: RENDER requires XCB
+-- Found XCB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shape.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xfixes.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-shm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-util.a;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-ewmh.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-icccm.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-image.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-keysyms.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-randr.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-render-util.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-sync.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xinerama.so;/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxcb-xkb.so (found version "1.14") found components: RENDER 
+-- XCB: GLX requires XCB
+-- Could NOT find XCB_GLX (missing: XCB_GLX_LIBRARY) (found version "")
+-- Could NOT find XCB (missing: GLX) (found version "1.14")
+-- XCB: XINPUT requires XCB
+CMake Warning (dev) at qtbase/cmake/3rdparty/extra-cmake-modules/find-modules/FindXCB.cmake:180 (message):
+  XINPUT from XCB was requested: this is EXPERIMENTAL and is likely to
+  unavailable on many systems!
+Call Stack (most recent call first):
+  qtbase/cmake/QtFindPackageHelpers.cmake:130 (find_package)
+  qtbase/src/gui/configure.cmake:119 (qt_find_package)
+  qtbase/cmake/QtModuleHelpers.cmake:515 (include)
+  qtbase/src/gui/CMakeLists.txt:53 (qt_internal_add_module)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Could NOT find XCB_XINPUT (missing: XCB_XINPUT_LIBRARY) (found version "")
+-- Could NOT find XCB (missing: XINPUT) (found suitable version "1.14", minimum required is "1.12")
+-- Found XKB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxkbcommon.so (found suitable version "0.8.4", minimum required is "0.5.0") 
+-- Checking for module 'xkbcommon-x11>=0.4.1'
+--   Found xkbcommon-x11, version 0.8.4
+-- Checking for module 'xrender'
+--   No package 'xrender' found
+-- Running syncqt for module: 'QtWidgets' 
+-- Checking for module 'gtk+-3.0 >= 3.6'
+--   No package 'gtk+-3.0' found
+-- Running syncqt for module: 'QtDeviceDiscoverySupport' 
+-- Running syncqt for module: 'QtFbSupport' 
+-- Could NOT find Libinput (missing: Libinput_LIBRARY Libinput_INCLUDE_DIR) 
+-- Found XKB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libxkbcommon.so (found version "0.8.4") 
+-- Checking for module 'tslib'
+--   No package 'tslib' found
+-- Checking for module 'mtdev'
+--   No package 'mtdev' found
+-- Running syncqt for module: 'QtInputSupport' 
+-- Running syncqt for module: 'QtTest' 
+-- Running syncqt for module: 'QtPrintSupport' 
+-- Could NOT find Cups (missing: CUPS_LIBRARIES CUPS_INCLUDE_DIR) 
+Package x11 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `x11.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'x11' found
+-- Tool 'Qt6::qmake' will be built from source.
+Generating Plugins files for BundledLibpng;BundledHarfbuzz;BundledPcre2;Core;ZlibPrivate;Network;Xml;DBus;Gui;Widgets;DeviceDiscoverySupportPrivate;FbSupportPrivate;InputSupportPrivate;Test;PrintSupport;XcbQpaPrivate...
+Configuring 'qttranslations'
+-- CMAKE_BUILD_TYPE was set to: 'Debug'
+-- Skipping adding translation custom targets due to missing lupdate or lconvert.
+-- The following packages have been found:
+
+ * QtBuildInternals
+ * Backtrace
+ * Freetype (required version >= 2.2.0)
+ * WrapHarfbuzz
+ * WrapPNG
+ * WrapSystemFreetype (required version >= 2.2.0)
+ * Fontconfig
+ * XKB_COMMON_X11 (required version >= 0.5.0)
+ * WrapFreetype
+ * XKB, XKB API common to servers and clients., <http://xkbcommon.org>
+ * PkgConfig
+ * Qt6BuildInternals (required version >= 6.2.4)
+ * WrapAtomic
+ * WrapBacktrace
+ * WrapPCRE2
+ * WrapRt
+ * Qt6CoreTools (required version >= 6.2.4)
+ * Qt6Core (required version >= 6.2.4)
+ * Threads
+ * Qt6 (required version >= 6.2.4)
+
+-- The following OPTIONAL packages have not been found:
+
+ * WrapZLIB (required version >= 1.0.8)
+ * zstd
+ * ZSTD (required version >= 1.3), ZSTD compression library, <https://github.com/facebook/zstd>
+ * DBus1 (required version >= 1.2)
+ * WrapDBus1 (required version >= 1.2)
+ * Libudev
+ * double-conversion
+ * WrapDoubleConversion
+ * GLIB2, Event loop and utility library, <https://wiki.gnome.org/Projects/GLib>
+ * ICU
+ * Libsystemd
+ * Libb2
+ * LTTngUST
+ * PCRE2 (required version >= 10.20)
+ * WrapSystemPCRE2 (required version >= 10.20)
+ * Slog2
+ * unofficial-brotli
+ * WrapBrotli
+ * Libproxy
+ * OpenSSL
+ * WrapOpenSSLHeaders
+ * WrapOpenSSL
+ * GSSAPI, Generic Security Services Application Program Interface
+ * ATSPI2
+ * DirectFB
+ * Libdrm, Userspace interface to kernel DRM services., <https://wiki.freedesktop.org/dri/>
+ * gbm, Mesa gbm library., <http://www.mesa3d.org>
+ * harfbuzz (required version >= 2.6.0)
+ * WrapSystemHarfbuzz (required version >= 2.6.0)
+ * JPEG
+ * md4c
+ * WrapSystemMd4c
+ * ZLIB
+ * PNG
+ * WrapSystemPNG
+ * OpenGL
+ * WrapOpenGL
+ * EGL, A platform-agnostic mechanism for creating rendering surfaces for use with other graphics libraries, such as OpenGL|ES and OpenVG., <https://www.khronos.org/egl/>
+ * GLESv2
+ * Vulkan
+ * WrapVulkanHeaders
+ * Wayland, C library implementation of the Wayland protocol: a protocol for a compositor to talk to its clients, <http://wayland.freedesktop.org>
+ * X11
+ * X11_XCB, A compatibility library for code that translates Xlib API calls into XCB calls, <http://xorg.freedesktop.org/>
+ * XCB (required version >= 1.12), X protocol C-language Binding, <http://xcb.freedesktop.org>
+ * XRender (required version >= 0.6)
+ * GTK3 (required version >= 3.6)
+ * Libinput, Library to handle input devices in Wayland compositors and to provide a generic X.Org input driver., <http://www.freedesktop.org/wiki/Software/libinput/>
+ * Tslib
+ * Mtdev
+ * Cups
+ * Qt6Linguist (required version >= 6.2.4)
+
+Configure summary:
+
+Building for: linux-g++-32 (x86_64, CPU features: mmx sse sse2)
+Compiler: gcc 11.2.0
+Build options:
+  Mode ................................... debug
+  Optimize debug build ................... yes
+  Fully optimize release builds (-O3) .... no
+  Building shared libraries .............. no
+  Using C standard ....................... C11
+  Using C++ standard ..................... C++17
+  Using ccache ........................... no
+  Using new DTAGS ........................ yes
+  Generating GDB index ................... no
+  Relocatable ............................ no
+  Using precompiled headers .............. no
+  Using LTCG ............................. no
+  Target compiler supports:
+    SSE .................................. SSE2 SSE3 SSSE3 SSE4.1 SSE4.2
+    AVX .................................. AVX AVX2
+    AVX512 ............................... F ER CD PF DQ BW VL IFMA VBMI
+    Other x86 ............................ AES F16C RDRAND SHA
+    Intrinsics without compiler architecture option  yes
+  Sanitizers:
+    Addresses ............................ no
+    Threads .............................. no
+    Memory ............................... no
+    Fuzzer (instrumentation only) ........ no
+    Undefined ............................ no
+  Build parts ............................ libs tools
+Qt modules and options:
+  Qt Concurrent .......................... no
+  Qt D-Bus ............................... yes
+  Qt D-Bus directly linked to libdbus .... no
+  Qt Gui ................................. yes
+  Qt Network ............................. yes
+  Qt PrintSupport ........................ yes
+  Qt Sql ................................. no
+  Qt Testlib ............................. yes
+  Qt Widgets ............................. yes
+  Qt Xml ................................. yes
+Support enabled for:
+  Using pkg-config ....................... yes
+  udev ................................... no
+  Using system zlib ...................... no
+  Zstandard support ...................... no
+  Thread support ......................... yes
+Common build options:
+  Linker can resolve circular dependencies  yes
+Qt Core:
+  backtrace .............................. yes
+  DoubleConversion ....................... yes
+    Using system DoubleConversion ........ no
+  GLib ................................... no
+  ICU .................................... no
+  Using system libb2 ..................... no
+  Built-in copy of the MIME database ..... yes
+  cpp/winrt base ......................... no
+  Tracing backend ........................ <none>
+  Logging backends:
+    journald ............................. no
+    syslog ............................... no
+    slog2 ................................ no
+  PCRE2 .................................. yes
+    Using system PCRE2 ................... no
+  CLONE_PIDFD support in forkfd .......... yes
+Qt Network:
+  getifaddrs() ........................... yes
+  IPv6 ifname ............................ yes
+  libproxy ............................... no
+  Linux AF_NETLINK ....................... yes
+  OpenSSL ................................ no
+    Qt directly linked to OpenSSL ........ no
+  OpenSSL 1.1 ............................ no
+  DTLS ................................... no
+  OCSP-stapling .......................... no
+  SCTP ................................... no
+  Use system proxies ..................... no
+  GSSAPI ................................. no
+  Brotli Decompression Support ........... no
+Qt Gui:
+  Accessibility .......................... yes
+  FreeType ............................... yes
+    Using system FreeType ................ yes
+  HarfBuzz ............................... yes
+    Using system HarfBuzz ................ no
+  Fontconfig ............................. yes
+  Image formats:
+    GIF .................................. no
+    ICO .................................. no
+    JPEG ................................. no
+      Using system libjpeg ............... no
+    PNG .................................. yes
+      Using system libpng ................ no
+  Text formats:
+    HtmlParser ........................... yes
+    CssParser ............................ yes
+    OdfWriter ............................ no
+    MarkdownReader ....................... yes
+      Using system libmd4c ............... no
+    MarkdownWriter ....................... no
+  EGL .................................... no
+  OpenVG ................................. no
+  OpenGL:
+    Desktop OpenGL ....................... no
+    OpenGL ES 2.0 ........................ no
+    OpenGL ES 3.0 ........................ no
+    OpenGL ES 3.1 ........................ no
+    OpenGL ES 3.2 ........................ no
+  Vulkan ................................. no
+  Session Management ..................... no
+Features used by QPA backends:
+  evdev .................................. no
+  libinput ............................... no
+  INTEGRITY HID .......................... no
+  mtdev .................................. no
+  tslib .................................. no
+  xkbcommon .............................. yes
+  X11 specific:
+    XLib ................................. no
+    XCB Xlib ............................. no
+    EGL on X11 ........................... no
+    xkbcommon-x11 ........................ yes
+    xcb-sm ............................... no
+QPA backends:
+  DirectFB ............................... no
+  EGLFS .................................. no
+  EGLFS details:
+    EGLFS OpenWFD ........................ no
+    EGLFS i.Mx6 .......................... no
+    EGLFS i.Mx6 Wayland .................. no
+    EGLFS RCAR ........................... no
+    EGLFS EGLDevice ...................... no
+    EGLFS GBM ............................ no
+    EGLFS VSP2 ........................... no
+    EGLFS Mali ........................... no
+    EGLFS Raspberry Pi ................... no
+    EGLFS X11 ............................ no
+  LinuxFB ................................ no
+  VNC .................................... no
+  VK_KHR_display ......................... no
+  QNX:
+    lgmon ................................ no
+    IMF .................................. no
+  XCB:
+    Using system-provided xcb-xinput ..... no
+    GL integrations:
+      GLX Plugin ......................... no
+        XCB GLX .......................... no
+      EGL-X11 Plugin ..................... no
+  Windows:
+    Direct 2D ............................ no
+    Direct 2D 1.1 ........................ no
+    DirectWrite .......................... no
+    DirectWrite 3 ........................ no
+Qt Widgets:
+  GTK+ ................................... no
+  Styles ................................. Fusion Windows
+Qt Testlib:
+  Tester for item models ................. yes
+Qt PrintSupport:
+  CUPS ................................... no
+Core tools:
+  qmake tool ............................. yes
+
+Note: Using static linking will disable the use of dynamically loaded plugins. Make sure to import all needed static plugins, or compile needed modules into the library.
+Note: Disabling X11 Accessibility Bridge: D-Bus or AT-SPI is missing.
+
+ERROR: Feature "xcb": Forcing to "ON" breaks its condition:
+    QT_FEATURE_thread AND TARGET XCB::XCB AND TEST_xcb_syslibs AND QT_FEATURE_xkbcommon_x11
+Condition values dump:
+    QT_FEATURE_thread = "ON"
+    TARGET XCB::XCB found
+    TEST_xcb_syslibs = ""
+    QT_FEATURE_xkbcommon_x11 not evaluated
+
+
+CMake Error at qtbase/cmake/QtBuildInformation.cmake:80 (message):
+  Check the configuration messages for an error that has occurred.
+Call Stack (most recent call first):
+  qtbase/cmake/QtBuildInformation.cmake:11 (qt_configure_print_summary)
+  CMakeLists.txt:50 (qt_print_feature_summary)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60/CMakeFiles/CMakeOutput.log".
+See also "/tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60/CMakeFiles/CMakeError.log".
+CMake Error at qtbase/cmake/QtProcessConfigureArgs.cmake:957 (message):
+  CMake exited with code 1.
+
+
+make: *** [funcs.mk:289: /tmp/cirrus-ci-build/depends/work/build/i686-pc-linux-gnu/qt/6.2.4-b9057dbed60/./.stamp_configured] Error 1
+make: Leaving directory '/tmp/cirrus-ci-build/depends'
+
+Exit status: 2                

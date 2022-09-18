@@ -1,0 +1,32 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-01 02:30:26.270 xcodebuild[698:5518] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-01 02:30:26.271 xcodebuild[698:5518] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ .cirrus.yml                                  | 14 ++++++--
+ ci/test/00_setup_env_native_asan.sh          | 11 ++++--
+ ci/test/00_setup_env_native_tidy.sh          |  2 +-
+ ci/test/04_install.sh                        |  8 +++++
+ doc/release-notes-25610.md                   | 12 +++++++
+ src/coins.cpp                                |  6 ++--
+ src/node/interfaces.cpp                      | 51 ++++++++--------------------
+ src/rpc/rawtransaction.cpp                   |  6 ++--
+ src/rpc/rawtransaction_util.cpp              |  7 ++--
+ src/rpc/rawtransaction_util.h                |  3 +-
+ src/wallet/interfaces.cpp                    |  2 ++
+ src/wallet/wallet.h                          |  2 +-
+ test/functional/interface_usdt_net.py        |  2 +-
+ test/functional/interface_usdt_utxocache.py  | 40 ++++++++++++----------
+ test/functional/interface_usdt_validation.py |  2 +-
+ test/functional/p2p_permissions.py           |  3 +-
+ test/functional/rpc_psbt.py                  |  2 +-
+ test/functional/wallet_listtransactions.py   |  6 ++--
+ 18 files changed, 99 insertions(+), 80 deletions(-)
+ create mode 100644 doc/release-notes-25610.md

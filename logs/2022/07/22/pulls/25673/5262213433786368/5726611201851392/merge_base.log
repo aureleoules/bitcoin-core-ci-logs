@@ -1,0 +1,45 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.5).
+0 upgraded, 0 newly installed, 0 to remove and 97 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/script/standard.cpp
+Auto-merging src/node/blockstorage.cpp
+Merge made by the 'recursive' strategy.
+ ci/test/00_setup_env_native_fuzz_with_valgrind.sh |  2 +-
+ ci/test/00_setup_env_native_valgrind.sh           |  2 +-
+ contrib/valgrind.supp                             | 21 -------------
+ src/chainparams.cpp                               |  2 +-
+ src/crypto/muhash.cpp                             |  4 +--
+ src/hash.cpp                                      |  4 +--
+ src/hash.h                                        | 36 +++++++++++++++--------
+ src/kernel/coinstats.cpp                          |  8 ++---
+ src/node/blockstorage.cpp                         |  2 +-
+ src/node/chainstate.cpp                           |  2 ++
+ src/node/chainstate.h                             |  4 +--
+ src/pubkey.cpp                                    |  6 ++--
+ src/script/interpreter.cpp                        | 32 ++++++++++----------
+ src/script/interpreter.h                          |  6 ++--
+ src/script/sign.cpp                               |  2 +-
+ src/script/standard.cpp                           |  8 ++---
+ src/test/script_tests.cpp                         |  2 +-
+ src/util/message.cpp                              |  2 +-
+ src/wallet/dump.cpp                               |  4 +--
+ 19 files changed, 71 insertions(+), 78 deletions(-)

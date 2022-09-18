@@ -1,0 +1,68 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 596738478 doc: Release notes and other docs for migration
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/wallet.h
+Merge made by the 'ort' strategy.
+ doc/bitcoin-conf.md                    |   2 +
+ doc/policy/packages.md                 |   2 +-
+ src/Makefile.test.include              |   1 +
+ src/bitcoin-chainstate.cpp             |   2 +-
+ src/chain.h                            |   6 ++
+ src/consensus/params.h                 |   5 ++
+ src/init.cpp                           |   2 +-
+ src/kernel/chainstatemanager_opts.h    |   4 +-
+ src/net_processing.cpp                 |   8 +--
+ src/node/mempool_args.cpp              |   2 +-
+ src/node/miner.cpp                     |   4 +-
+ src/policy/policy.h                    |   2 +-
+ src/policy/rbf.cpp                     |  12 ++--
+ src/policy/rbf.h                       |  30 ++++-----
+ src/primitives/block.h                 |   6 ++
+ src/protocol.cpp                       |   7 +-
+ src/rpc/mempool.cpp                    |   4 +-
+ src/rpc/net.cpp                        |   2 +-
+ src/script/interpreter.h               |   4 +-
+ src/script/sign.cpp                    |   5 +-
+ src/script/sign.h                      |   2 +
+ src/timedata.cpp                       |   4 +-
+ src/timedata.h                         |   2 +-
+ src/txmempool.h                        |   2 +-
+ src/validation.cpp                     |  37 ++++++-----
+ src/validation.h                       |   6 +-
+ src/wallet/coinselection.cpp           |  59 +++++++++++++++--
+ src/wallet/coinselection.h             |  46 +++++++++++--
+ src/wallet/feebumper.cpp               |  98 +++++++++++++++++++++------
+ src/wallet/feebumper.h                 |  66 ++++++++++++++++++-
+ src/wallet/interfaces.cpp              |   2 +-
+ src/wallet/rpc/spend.cpp               |   6 +-
+ src/wallet/rpc/transactions.cpp        |   4 +-
+ src/wallet/spend.cpp                   | 117 +++++++++++++--------------------
+ src/wallet/test/coinselector_tests.cpp |  13 ++--
+ src/wallet/test/feebumper_tests.cpp    |  54 +++++++++++++++
+ src/wallet/test/fuzz/coinselection.cpp |   8 ++-
+ src/wallet/wallet.h                    |   4 +-
+ test/functional/feature_rbf.py         |   4 +-
+ test/functional/wallet_bumpfee.py      |  23 ++++++-
+ test/functional/wallet_encryption.py   |  18 ++---
+ 41 files changed, 479 insertions(+), 206 deletions(-)
+ create mode 100644 src/wallet/test/feebumper_tests.cpp
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

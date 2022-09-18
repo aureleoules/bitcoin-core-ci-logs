@@ -1,0 +1,41 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at fa36a3a0a rpc: Set RPCArg options with designated initializers
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/rpc/blockchain.cpp
+Auto-merging src/rpc/util.cpp
+Merge made by the 'ort' strategy.
+ contrib/guix/libexec/build.sh            |  1 -
+ contrib/guix/manifest.scm                |  2 +-
+ src/index/coinstatsindex.cpp             |  7 ++++---
+ src/index/coinstatsindex.h               | 11 +++++++----
+ src/init.cpp                             | 16 +++++++++++++---
+ src/rpc/blockchain.cpp                   |  4 ++--
+ src/rpc/util.cpp                         |  3 ++-
+ src/test/coinstatsindex_tests.cpp        |  9 +++++----
+ test/functional/feature_proxy.py         | 21 ++++++++++++++-------
+ test/functional/mempool_accept.py        |  2 +-
+ test/functional/rpc_estimatefee.py       |  8 ++++----
+ test/functional/rpc_getblockfrompeer.py  |  4 ++--
+ test/functional/rpc_getdescriptorinfo.py |  2 +-
+ test/functional/rpc_rawtransaction.py    |  6 +++---
+ 14 files changed, 59 insertions(+), 37 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

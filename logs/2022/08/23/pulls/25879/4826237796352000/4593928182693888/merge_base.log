@@ -1,0 +1,58 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-22 23:15:34.006 xcodebuild[700:5751] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-22 23:15:34.006 xcodebuild[700:5751] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ doc/bitcoin-conf.md                    |   2 +
+ doc/policy/packages.md                 |   2 +-
+ src/Makefile.test.include              |   1 +
+ src/bitcoin-chainstate.cpp             |   2 +-
+ src/chain.h                            |   6 ++
+ src/consensus/params.h                 |   5 ++
+ src/init.cpp                           |   2 +-
+ src/kernel/chainstatemanager_opts.h    |   4 +-
+ src/net_processing.cpp                 |   8 +--
+ src/node/mempool_args.cpp              |   2 +-
+ src/node/miner.cpp                     |   4 +-
+ src/outputtype.h                       |   1 -
+ src/policy/policy.h                    |   2 +-
+ src/policy/rbf.cpp                     |  12 ++--
+ src/policy/rbf.h                       |  30 ++++-----
+ src/primitives/block.h                 |   6 ++
+ src/protocol.cpp                       |   7 +-
+ src/rpc/mempool.cpp                    |   4 +-
+ src/rpc/net.cpp                        |   2 +-
+ src/script/interpreter.h               |   4 +-
+ src/script/sign.cpp                    |   5 +-
+ src/script/sign.h                      |   2 +
+ src/timedata.cpp                       |   4 +-
+ src/timedata.h                         |   2 +-
+ src/txmempool.h                        |   2 +-
+ src/validation.cpp                     |  37 ++++++-----
+ src/validation.h                       |   6 +-
+ src/wallet/coinselection.cpp           |  59 +++++++++++++++--
+ src/wallet/coinselection.h             |  46 +++++++++++--
+ src/wallet/feebumper.cpp               |  98 +++++++++++++++++++++------
+ src/wallet/feebumper.h                 |  66 ++++++++++++++++++-
+ src/wallet/interfaces.cpp              |   2 +-
+ src/wallet/rpc/spend.cpp               |   6 +-
+ src/wallet/rpc/transactions.cpp        |   4 +-
+ src/wallet/spend.cpp                   | 117 +++++++++++++--------------------
+ src/wallet/test/coinselector_tests.cpp |  13 ++--
+ src/wallet/test/feebumper_tests.cpp    |  54 +++++++++++++++
+ src/wallet/test/fuzz/coinselection.cpp |   8 ++-
+ src/wallet/wallet.cpp                  |  11 ++--
+ src/wallet/wallet.h                    |   9 +--
+ src/wallet/wallettool.cpp              |   2 +-
+ test/functional/feature_rbf.py         |   4 +-
+ test/functional/wallet_bumpfee.py      |  23 ++++++-
+ test/functional/wallet_encryption.py   |  18 ++---
+ 44 files changed, 490 insertions(+), 214 deletions(-)
+ create mode 100644 src/wallet/test/feebumper_tests.cpp

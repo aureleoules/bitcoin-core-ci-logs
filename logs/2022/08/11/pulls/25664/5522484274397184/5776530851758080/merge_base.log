@@ -1,0 +1,94 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5,652 kB]
+Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8,372 B]
+Get:10 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [501 kB]
+Get:11 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [208 kB]
+Get:12 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:13 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [68.9 kB]
+Get:14 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [4,404 B]
+Get:15 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [7,000 B]
+Get:16 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [2,112 B]
+Get:17 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [420 B]
+Get:18 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [112 B]
+Get:19 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:20 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [5,416 B]
+Get:21 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [8,248 B]
+Get:22 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [236 B]
+Get:23 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:24 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [107 kB]
+Get:25 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [36.9 kB]
+Get:26 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [2,408 B]
+Get:27 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [4,192 B]
+Get:28 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [900 B]
+Get:29 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+Fetched 21.6 MB in 2s (11.6 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+git set to manually installed.
+The following packages were automatically installed and are no longer required:
+  libatasmart4 libblockdev-fs2 libblockdev-loop2 libblockdev-part-err2
+  libblockdev-part2 libblockdev-swap2 libblockdev-utils2 libblockdev2
+  libflashrom1 libftdi1-2 libmbim-glib4 libmbim-proxy libmm-glib0 libnspr4
+  libnss3 libnuma1 libparted-fs-resize0 libqmi-glib5 libqmi-proxy libtcl8.6
+  libudisks2-0 tcl tcl8.6 usb-modeswitch usb-modeswitch-data
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/script/sign.cpp
+Auto-merging src/test/descriptor_tests.cpp
+Auto-merging src/wallet/scriptpubkeyman.cpp
+Merge made by the 'ort' strategy.
+ .tx/config                                    |    2 +-
+ build_msvc/common.init.vcxproj.in             |    2 +-
+ doc/descriptors.md                            |    3 +-
+ src/Makefile.am                               |    9 +
+ src/Makefile.bench.include                    |    9 -
+ src/Makefile.test.include                     |    9 -
+ src/interfaces/wallet.h                       |   38 +-
+ src/key.cpp                                   |    1 +
+ src/key.h                                     |    4 +-
+ src/pubkey.cpp                                |    1 +
+ src/pubkey.h                                  |    4 +-
+ src/qt/bitcoinstrings.cpp                     |   42 +-
+ src/qt/locale/bitcoin_en.ts                   |  537 ++--
+ src/qt/locale/bitcoin_en.xlf                  | 3498 +++++++++++++------------
+ src/qt/walletcontroller.cpp                   |   23 +-
+ src/script/descriptor.cpp                     |   46 +-
+ src/script/sign.cpp                           |    5 +
+ src/test/bip32_tests.cpp                      |   18 +
+ src/test/descriptor_tests.cpp                 |    4 +-
+ src/validation.h                              |    2 +-
+ src/wallet/interfaces.cpp                     |   18 +-
+ src/wallet/scriptpubkeyman.cpp                |   38 +-
+ src/wallet/scriptpubkeyman.h                  |    6 +-
+ src/wallet/spend.cpp                          |   10 +-
+ src/wallet/test/wallet_tests.cpp              |    3 +-
+ src/wallet/wallet.cpp                         |   29 +-
+ src/wallet/wallet.h                           |    2 +-
+ test/functional/README.md                     |    4 +-
+ test/functional/data/rpc_decodescript.json    |    2 +-
+ test/functional/example_test.py               |   11 +-
+ test/functional/feature_segwit.py             |    5 +
+ test/functional/interface_usdt_validation.py  |   11 +-
+ test/functional/mempool_package_onemore.py    |   17 +-
+ test/functional/mempool_packages.py           |   45 +-
+ test/functional/rpc_signmessagewithprivkey.py |   22 +-
+ test/functional/test_framework/messages.py    |    3 +
+ test/functional/wallet_taproot.py             |   17 +-
+ 37 files changed, 2465 insertions(+), 2035 deletions(-)

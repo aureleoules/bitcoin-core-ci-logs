@@ -1,0 +1,141 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at de70698aa test, bumpfee: Check that psbtbumpfee can bump txs with external inputs
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/interfaces.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Merge made by the 'ort' strategy.
+ build-aux/m4/l_atomic.m4                        |   5 +-
+ ci/test/06_script_b.sh                          |   1 +
+ ci/test/wrap-qemu.sh                            |   2 +-
+ ci/test/wrap-wine.sh                            |   2 +-
+ configure.ac                                    |  10 +-
+ contrib/devtools/iwyu/bitcoin.core.imp          |   1 +
+ contrib/guix/manifest.scm                       |   3 +-
+ depends/config.site.in                          |   8 +-
+ depends/hosts/linux.mk                          |   4 +
+ depends/hosts/mingw32.mk                        |   4 +
+ depends/hosts/netbsd.mk                         |   4 +
+ depends/packages/expat.mk                       |   1 +
+ depends/packages/native_ds_store.mk             |   2 +-
+ depends/packages/native_mac_alias.mk            |   2 +-
+ depends/packages/qt.mk                          |   3 +
+ doc/release-notes-24148.md                      |  23 +++
+ src/.clang-tidy                                 |   2 +
+ src/Makefile.am                                 |   5 +
+ src/Makefile.test.include                       |   7 +-
+ src/Makefile.test_fuzz.include                  |   1 +
+ src/bench/wallet_loading.cpp                    |   2 -
+ src/bitcoin-chainstate.cpp                      |   4 +-
+ src/fs.h                                        |   2 +
+ src/init.cpp                                    |  18 +-
+ src/interfaces/chain.h                          |   3 +
+ src/interfaces/wallet.h                         |   2 +-
+ src/kernel/chainstatemanager_opts.h             |   4 +
+ src/kernel/mempool_persist.cpp                  | 189 +++++++++++++++++
+ src/kernel/mempool_persist.h                    |  28 +++
+ src/net.cpp                                     |  43 ++--
+ src/net.h                                       |  52 ++---
+ src/net_processing.cpp                          | 227 +++++++++++---------
+ src/net_processing.h                            |   1 +
+ src/node/blockstorage.cpp                       |   4 +-
+ src/node/blockstorage.h                         |   2 +-
+ src/node/interfaces.cpp                         |   5 +
+ src/node/mempool_persist_args.cpp               |  23 +++
+ src/node/mempool_persist_args.h                 |  25 +++
+ src/qt/bitcoin.cpp                              |   2 -
+ src/qt/bitcoingui.cpp                           |   6 +
+ src/qt/rpcconsole.cpp                           |   2 +-
+ src/qt/test/test_main.cpp                       |   2 -
+ src/qt/walletcontroller.cpp                     |   5 +-
+ src/qt/walletframe.cpp                          |   8 +
+ src/qt/walletmodel.cpp                          |   5 +
+ src/qt/walletmodel.h                            |   1 +
+ src/rpc/blockchain.cpp                          |   6 +-
+ src/rpc/mempool.cpp                             |  16 +-
+ src/rpc/net.cpp                                 |   5 +-
+ src/rpc/output_script.cpp                       |   5 -
+ src/rpc/rawtransaction.cpp                      |   4 +-
+ src/script/descriptor.cpp                       | 262 +++++++++++++++++++++---
+ src/script/miniscript.h                         |  34 ++-
+ src/test/coinstatsindex_tests.cpp               |   3 -
+ src/test/denialofservice_tests.cpp              |  44 ++--
+ src/test/descriptor_tests.cpp                   |  32 ++-
+ src/test/fuzz/mempool_utils.h                   |  19 ++
+ src/test/fuzz/net.cpp                           |   1 -
+ src/test/fuzz/tx_pool.cpp                       |  10 +-
+ src/test/fuzz/txorphan.cpp                      |  16 +-
+ src/test/fuzz/util.cpp                          |   1 +
+ src/test/fuzz/util.h                            |   3 -
+ src/test/fuzz/validation_load_mempool.cpp       |  15 +-
+ src/test/miniscript_tests.cpp                   |  17 +-
+ src/test/net_tests.cpp                          |  23 +--
+ src/test/util/net.cpp                           |   5 +-
+ src/test/util/net.h                             |   1 +
+ src/test/util/setup_common.cpp                  |   4 +-
+ src/test/validation_chainstate_tests.cpp        |   4 +-
+ src/txmempool.cpp                               |   8 +-
+ src/txmempool.h                                 |  16 +-
+ src/univalue/include/univalue.h                 |  43 ++--
+ src/univalue/lib/univalue.cpp                   |  37 ++--
+ src/univalue/lib/univalue_get.cpp               |  19 +-
+ src/univalue/sources.mk                         |   9 +-
+ src/univalue/test/.gitignore                    |   1 -
+ src/univalue/test/no_nul.cpp                    |   8 -
+ src/univalue/test/object.cpp                    |  74 +++----
+ src/univalue/test/unitester.cpp                 |   8 +
+ src/util/result.h                               |  12 +-
+ src/util/time.h                                 |   1 +
+ src/validation.cpp                              | 168 +--------------
+ src/validation.h                                |  14 +-
+ src/wallet/interfaces.cpp                       |   8 +-
+ src/wallet/receive.cpp                          |  16 +-
+ src/wallet/rpc/backup.cpp                       |  20 +-
+ src/wallet/rpc/spend.cpp                        |   2 +-
+ src/wallet/test/wallet_tests.cpp                |   8 +-
+ src/wallet/wallet.cpp                           |  27 ++-
+ test/functional/feature_minchainwork.py         |   2 +-
+ test/functional/mempool_persist.py              |  12 +-
+ test/functional/mining_prioritisetransaction.py |   4 +-
+ test/functional/rpc_blockchain.py               |   6 +-
+ test/functional/rpc_fundrawtransaction.py       |   2 +-
+ test/functional/rpc_help.py                     |   2 +-
+ test/functional/rpc_psbt.py                     |  11 +
+ test/functional/rpc_rawtransaction.py           |  14 +-
+ test/functional/test_runner.py                  |   1 +
+ test/functional/wallet_balance.py               |  20 ++
+ test/functional/wallet_basic.py                 |   2 +-
+ test/functional/wallet_hd.py                    |   4 +-
+ test/functional/wallet_import_rescan.py         |  57 +++++-
+ test/functional/wallet_importdescriptors.py     |   4 +-
+ test/functional/wallet_miniscript.py            |  93 +++++++++
+ test/functional/wallet_multiwallet.py           |   2 +-
+ test/lint/lint-circular-dependencies.py         |   1 +
+ 106 files changed, 1360 insertions(+), 661 deletions(-)
+ create mode 100644 doc/release-notes-24148.md
+ create mode 100644 src/kernel/mempool_persist.cpp
+ create mode 100644 src/kernel/mempool_persist.h
+ create mode 100644 src/node/mempool_persist_args.cpp
+ create mode 100644 src/node/mempool_persist_args.h
+ create mode 100644 src/test/fuzz/mempool_utils.h
+ delete mode 100644 src/univalue/test/no_nul.cpp
+ create mode 100755 test/functional/wallet_miniscript.py
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

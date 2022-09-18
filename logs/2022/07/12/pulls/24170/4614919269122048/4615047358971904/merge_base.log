@@ -1,0 +1,38 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-12 09:09:38.082 xcodebuild[700:5650] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-12 09:09:38.082 xcodebuild[700:5650] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_b.sh      | 12 ++++++++++++
+ src/util/asmap.cpp          |  5 ++++-
+ src/util/bip32.cpp          |  7 +++++--
+ src/util/bip32.h            |  1 +
+ src/util/bytevectorhash.cpp |  2 ++
+ src/util/bytevectorhash.h   |  3 ++-
+ src/util/error.cpp          |  4 +++-
+ src/util/hasher.cpp         |  4 ++--
+ src/util/hasher.h           |  6 ++++++
+ src/util/message.cpp        | 18 +++++++++++-------
+ src/util/message.h          |  3 ++-
+ src/util/moneystr.cpp       |  1 +
+ src/util/readwritefile.cpp  |  3 ++-
+ src/util/serfloat.h         |  2 +-
+ src/util/spanparsing.cpp    |  3 ++-
+ src/util/strencodings.cpp   |  9 +++++----
+ src/util/strencodings.h     |  5 ++++-
+ src/util/string.cpp         |  2 ++
+ src/util/syserror.cpp       |  1 +
+ src/util/thread.cpp         |  1 +
+ src/util/time.cpp           | 11 +++++++----
+ src/util/time.h             |  2 +-
+ src/util/translation.h      |  2 ++
+ src/util/url.cpp            |  3 ++-
+ src/util/vector.h           |  1 +
+ 25 files changed, 82 insertions(+), 29 deletions(-)

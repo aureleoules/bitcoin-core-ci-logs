@@ -1,0 +1,211 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/aarch64-linux-android
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--disable-tests --enable-gui-tests --disable-bench --disable-fuzz-binary --without-utils --without-libs --without-daemon
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/aarch64-linux-android
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping git, it is already installed and upgrade is not set.
+Skipping procps, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  adwaita-icon-theme ant ant-optional antlr autoconf binutils binutils-common
+  binutils-x86-64-linux-gnu bnd ca-certificates-java cpp cpp-9
+  default-jre-headless dpkg-dev file fontconfig fontconfig-config
+  fonts-dejavu-core g++ g++-9 gcc gcc-9 gcc-9-base groovy
+  gtk-update-icon-cache hicolor-icon-theme humanity-icon-theme ivy java-common
+  java-wrappers junit4 libantlr-java libaopalliance-java libapache-pom-java
+  libapparmor1 libasan5 libasm-java libasound2 libasound2-data libasyncns0
+  libatinject-jsr330-api-java libatk-bridge2.0-0 libatk-wrapper-java
+  libatk-wrapper-java-jni libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libbcel-java
+  libbcpg-java libbcprov-java libbinutils libbsf-java libbsh-java libc-dev-bin
+  libc6-dev libcairo-gobject2 libcairo2 libcc1-0 libcdi-api-java
+  libcommons-cli-java libcommons-codec-java libcommons-collections3-java
+  libcommons-compress-java libcommons-io-java libcommons-lang-java
+  libcommons-lang3-java libcommons-logging-java libcommons-parent-java
+  libcrypt-dev libctf-nobfd0 libctf0 libcups2 libcurl4 libdatrie1 libdbus-1-3
+  libdd-plist-java libdom4j-java libdpkg-perl libdrm-amdgpu1 libdrm-common
+  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libel-api-java libelf1
+  libfelix-framework-java libfelix-gogo-runtime-java libfelix-resolver-java
+  libfindbugs-java libflac8 libfontconfig1 libfontenc1 libfreetype6
+  libfribidi0 libgcc-9-dev libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common
+  libgeronimo-annotation-1.3-spec-java libgeronimo-interceptor-3.0-spec-java
+  libgif7 libgl1 libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa libglib2.0-0
+  libglvnd0 libglx-mesa0 libglx0 libgomp1 libgoogle-gson-java
+  libgradle-core-java libgradle-plugins-java libgraphite2-3 libgtk2.0-0
+  libgtk2.0-common libguava-java libguice-java libhamcrest-java libharfbuzz0b
+  libhawtjni-runtime-java libhttpclient-java libhttpcore-java libice6 libicu66
+  libisl22 libitm1 libjansi-java libjansi-native-java libjarjar-java
+  libjatl-java libjavaewah-java libjaxen-java libjbig0 libjcifs-java
+  libjcip-annotations-java libjcommander-java libjformatstring-java
+  libjgit-java libjline2-java libjna-java libjna-jni libjpeg-turbo8 libjpeg8
+  libjs-jquery libjsch-java libjsoup-java libjsp-api-java libjsr305-java
+  libjzlib-java libkryo-java liblcms2-2 libllvm12 liblogback-java liblsan0
+  libmagic-mgc libmagic1 libmaven-parent-java libmaven-resolver-java
+  libmaven-shared-utils-java libmaven3-core-java libminlog-java libmpc3
+  libmpdec2 libmpfr6 libnative-platform-java libnative-platform-jni
+  libnekohtml-java libnspr4 libnss3 libobjenesis-java libogg0
+  libosgi-annotation-java libosgi-compendium-java libosgi-core-java
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+  libpcsclite1 libpixman-1-0 libplexus-cipher-java libplexus-classworlds-java
+  libplexus-component-annotations-java libplexus-container-default-java
+  libplexus-container-default1.5-java libplexus-interpolation-java
+  libplexus-sec-dispatcher-java libplexus-utils2-java libpng16-16
+  libpolyglot-maven-java libpopt0 libpulse0 libpython3-stdlib
+  libpython3.8-minimal libpython3.8-stdlib libqdox-java libquadmath0
+  libreadline8 libreflectasm-java librhino-java librsvg2-2 librsvg2-common
+  libsensors-config libsensors5 libservlet-api-java libservlet3.1-java
+  libsigsegv2 libsimple-http-java libsisu-inject-java libsisu-plexus-java
+  libslf4j-java libsm6 libsndfile1 libstdc++-9-dev libthai-data libthai0
+  libtiff5 libtsan0 libubsan1 libvorbis0a libvorbisenc2 libvulkan1
+  libwagon-file-java libwagon-http-java libwagon-provider-api-java libwebp6
+  libwebsocket-api-java libwrap0 libx11-xcb1 libxaw7 libxbean-reflect-java
+  libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-render0
+  libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcomposite1
+  libxcursor1 libxdamage1 libxerces2-java libxfixes3 libxft2 libxi6
+  libxinerama1 libxkbfile1 libxml-commons-external-java
+  libxml-commons-resolver1.1-java libxml2 libxmu6 libxpm4 libxpp3-java
+  libxrandr2 libxrender1 libxshmfence1 libxstream-java libxt6 libxtst6 libxv1
+  libxxf86dga1 libxxf86vm1 libxz-java libyaml-snake-java linux-libc-dev m4
+  make mime-support openjdk-11-jre-headless openjdk-8-jdk-headless
+  openjdk-8-jre openjdk-8-jre-headless python3-minimal python3.8
+  python3.8-minimal readline-common shared-mime-info testng tzdata ubuntu-mono
+  ucf x11-common x11-utils xz-utils
+Suggested packages:
+  ant-doc javacc junit jython libactivation-java libcommons-net-java
+  libmail-java libjaxp1.3-java libjdepend-java liblog4j1.2-java liboro-java
+  libregexp-java libxalan2-java autoconf-archive gnu-standards autoconf-doc
+  gettext binutils-doc bison-doc wamerican | wordlist whois vacation distcc
+  | icecc cpp-doc gcc-9-locales default-jre debian-keyring g++-multilib
+  g++-9-multilib gcc-9-doc gcc-multilib manpages-dev flex gdb gcc-doc
+  gcc-9-multilib gradle-doc groovy-doc ivy-doc libjsch-agent-proxy-java
+  libaopalliance-java-doc libasound2-plugins alsa-utils
+  libatinject-jsr330-api-java-doc libbcel-java-doc libbcpg-java-doc
+  libbcprov-java-doc bsh rhino glibc-doc libcommons-collections3-java-doc
+  libcommons-io-java-doc libcommons-lang-java-doc libcommons-lang3-java-doc
+  libavalon-framework-java libcommons-logging-java-doc
+  libexcalibur-logkit-java cups-common libdom4j-java-doc libmsv-java
+  libxpp2-java gnupg | gnupg2 bzr libfelix-framework-java-doc
+  libfelix-gogo-runtime-java-doc libgoogle-gson-java-doc gvfs libcglib-java
+  libjavaewah-java-doc libjdom1-java libxom-java libjcifs-java-doc
+  libjcommander-java-doc libjgit-java-doc libjna-java-doc libjsoup-java-doc
+  libjsr305-java-doc liblcms2-utils libjanino-java libjetty9-java
+  libtomcat9-java libmaven-shared-utils-java-doc libnative-platform-java-doc
+  libnekohtml-java-doc libobjenesis-java-doc libosgi-annotation-java-doc
+  libosgi-compendium-java-doc libosgi-core-java-doc pciutils pcscd
+  libplexus-cipher-java-doc libplexus-classworlds-java-doc
+  libplexus-sec-dispatcher-java-doc libplexus-utils2-java-doc
+  libpolyglot-maven-java-doc pulseaudio libqdox-java-doc librsvg2-bin
+  lm-sensors libsimple-http-java-doc libstdc++-9-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libxerces2-java-doc
+  libxml-commons-resolver1.1-java-doc libcglib-nodep-java libjdom2-java
+  libjettison-java libjoda-time-java libkxml2-java libwoodstox-java m4-doc
+  make-doc libnss-mdns fonts-dejavu-extra fonts-ipafont-gothic
+  fonts-ipafont-mincho fonts-wqy-microhei | fonts-wqy-zenhei fonts-indic
+  openjdk-8-demo openjdk-8-source visualvm icedtea-8-plugin fonts-wqy-microhei
+  fonts-wqy-zenhei python3-doc python3-tk python3-venv python3.8-venv
+  python3.8-doc binfmt-support readline-doc openssh-server zip mesa-utils
+Recommended packages:
+  libbindex-java fakeroot gnupg | gnupg2 libalgorithm-merge-perl
+  libgpars-groovy-java alsa-ucm-conf alsa-topology-conf at-spi2-core manpages
+  manpages-dev dbus libfile-fcntllock-perl liblocale-gettext-perl
+  libgdk-pixbuf2.0-bin libglib2.0-data xdg-user-dirs libgail-common
+  libgtk2.0-bin javascript-common libltdl-dev mesa-vulkan-drivers | vulkan-icd
+  libxt-dev fonts-dejavu-extra
+The following NEW packages will be installed:
+  adwaita-icon-theme ant ant-optional antlr autoconf automake autotools-dev
+  binutils binutils-common binutils-x86-64-linux-gnu bison bnd bsdmainutils
+  build-essential ca-certificates-java ccache cpp cpp-9 curl
+  default-jre-headless dpkg-dev file fontconfig fontconfig-config
+  fonts-dejavu-core g++ g++-9 gcc gcc-9 gcc-9-base gradle groovy
+  gtk-update-icon-cache hicolor-icon-theme humanity-icon-theme ivy java-common
+  java-wrappers junit4 libantlr-java libaopalliance-java libapache-pom-java
+  libapparmor1 libasan5 libasm-java libasound2 libasound2-data libasyncns0
+  libatinject-jsr330-api-java libatk-bridge2.0-0 libatk-wrapper-java
+  libatk-wrapper-java-jni libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libbcel-java
+  libbcpg-java libbcprov-java libbinutils libbsf-java libbsh-java libc-dev-bin
+  libc6-dev libcairo-gobject2 libcairo2 libcc1-0 libcdi-api-java
+  libcommons-cli-java libcommons-codec-java libcommons-collections3-java
+  libcommons-compress-java libcommons-io-java libcommons-lang-java
+  libcommons-lang3-java libcommons-logging-java libcommons-parent-java
+  libcrypt-dev libctf-nobfd0 libctf0 libcups2 libcurl4 libdatrie1 libdbus-1-3
+  libdd-plist-java libdom4j-java libdpkg-perl libdrm-amdgpu1 libdrm-common
+  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libdrm2 libel-api-java libelf1
+  libfelix-framework-java libfelix-gogo-runtime-java libfelix-resolver-java
+  libfindbugs-java libflac8 libfontconfig1 libfontenc1 libfreetype6
+  libfribidi0 libgcc-9-dev libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common
+  libgeronimo-annotation-1.3-spec-java libgeronimo-interceptor-3.0-spec-java
+  libgif7 libgl1 libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa libglib2.0-0
+  libglvnd0 libglx-mesa0 libglx0 libgomp1 libgoogle-gson-java
+  libgradle-core-java libgradle-plugins-java libgraphite2-3 libgtk2.0-0
+  libgtk2.0-common libguava-java libguice-java libhamcrest-java libharfbuzz0b
+  libhawtjni-runtime-java libhttpclient-java libhttpcore-java libice6 libicu66
+  libisl22 libitm1 libjansi-java libjansi-native-java libjarjar-java
+  libjatl-java libjavaewah-java libjaxen-java libjbig0 libjcifs-java
+  libjcip-annotations-java libjcommander-java libjformatstring-java
+  libjgit-java libjline2-java libjna-java libjna-jni libjpeg-turbo8 libjpeg8
+  libjs-jquery libjsch-java libjsoup-java libjsp-api-java libjsr305-java
+  libjzlib-java libkryo-java liblcms2-2 libllvm12 liblogback-java liblsan0
+  libmagic-mgc libmagic1 libmaven-parent-java libmaven-resolver-java
+  libmaven-shared-utils-java libmaven3-core-java libminlog-java libmpc3
+  libmpdec2 libmpfr6 libnative-platform-java libnative-platform-jni
+  libnekohtml-java libnspr4 libnss3 libobjenesis-java libogg0
+  libosgi-annotation-java libosgi-compendium-java libosgi-core-java
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+  libpcsclite1 libpixman-1-0 libplexus-cipher-java libplexus-classworlds-java
+  libplexus-component-annotations-java libplexus-container-default-java
+  libplexus-container-default1.5-java libplexus-interpolation-java
+  libplexus-sec-dispatcher-java libplexus-utils2-java libpng16-16
+  libpolyglot-maven-java libpopt0 libpulse0 libpython3-stdlib
+  libpython3.8-minimal libpython3.8-stdlib libqdox-java libquadmath0
+  libreadline8 libreflectasm-java librhino-java librsvg2-2 librsvg2-common
+  libsensors-config libsensors5 libservlet-api-java libservlet3.1-java
+  libsigsegv2 libsimple-http-java libsisu-inject-java libsisu-plexus-java
+  libslf4j-java libsm6 libsndfile1 libstdc++-9-dev libthai-data libthai0
+  libtiff5 libtool libtsan0 libubsan1 libvorbis0a libvorbisenc2 libvulkan1
+  libwagon-file-java libwagon-http-java libwagon-provider-api-java libwebp6
+  libwebsocket-api-java libwrap0 libx11-xcb1 libxaw7 libxbean-reflect-java
+  libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0 libxcb-render0
+  libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcomposite1
+  libxcursor1 libxdamage1 libxerces2-java libxfixes3 libxft2 libxi6
+  libxinerama1 libxkbfile1 libxml-commons-external-java
+  libxml-commons-resolver1.1-java libxml2 libxmu6 libxpm4 libxpp3-java
+  libxrandr2 libxrender1 libxshmfence1 libxstream-java libxt6 libxtst6 libxv1
+  libxxf86dga1 libxxf86vm1 libxz-java libyaml-snake-java linux-libc-dev m4
+  make mime-support openjdk-11-jre-headless openjdk-8-jdk
+  openjdk-8-jdk-headless openjdk-8-jre openjdk-8-jre-headless pkg-config
+  python3 python3-minimal python3.8 python3.8-minimal readline-common rsync
+  shared-mime-info testng tzdata ubuntu-mono ucf unzip x11-common x11-utils
+  xz-utils
+0 upgraded, 305 newly installed, 0 to remove and 8 not upgraded.
+Need to get 256 MB of archives.
+After this operation, 1282 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpython3.8-minimal amd64 3.8.10-0ubuntu1~20.04.5 [717 kB]
+
+Timed out!

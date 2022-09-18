@@ -1,0 +1,22 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-13 04:27:36.490 xcodebuild[700:5633] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-13 04:27:36.490 xcodebuild[700:5633] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/rpc/util.cpp
+Merge made by the 'recursive' strategy.
+ contrib/guix/libexec/build.sh            | 1 -
+ contrib/guix/manifest.scm                | 2 +-
+ src/rpc/util.cpp                         | 3 ++-
+ test/functional/mempool_accept.py        | 2 +-
+ test/functional/rpc_estimatefee.py       | 8 ++++----
+ test/functional/rpc_getblockfrompeer.py  | 4 ++--
+ test/functional/rpc_getdescriptorinfo.py | 2 +-
+ test/functional/rpc_rawtransaction.py    | 6 +++---
+ 8 files changed, 14 insertions(+), 14 deletions(-)

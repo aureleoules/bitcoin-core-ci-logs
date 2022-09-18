@@ -1,0 +1,143 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+CONFIG_SHELL=/bin/dash
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=--enable-zmq --with-gui=qt5 --enable-reduce-exports
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Running on host system without docker wrapper
+Last metadata expiration check: 0:03:10 ago on Thu Jul  7 19:56:36 2022.
+Dependencies resolved.
+================================================================================
+ Package               Architecture    Version            Repository       Size
+================================================================================
+Installing:
+ epel-release          noarch          8-11.el8           extras           24 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 35 k
+Downloading Packages:
+epel-release-8-11.el8.noarch.rpm                 48 kB/s |  24 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            29 kB/s |  24 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : epel-release-8-11.el8.noarch                           1/1 
+  Running scriptlet: epel-release-8-11.el8.noarch                           1/1 
+  Verifying        : epel-release-8-11.el8.noarch                           1/1 
+
+Installed:
+  epel-release-8-11.el8.noarch                                                  
+
+Complete!
+Extra Packages for Enterprise Linux 8 - x86_64  5.0 MB/s |  12 MB     00:02    
+Extra Packages for Enterprise Linux Modular 8 - 812 kB/s | 1.0 MB     00:01    
+Last metadata expiration check: 0:00:01 ago on Thu Jul  7 19:59:56 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Dependencies resolved.
+=======================================================================================
+ Package                  Arch    Version                              Repo        Size
+=======================================================================================
+Installing:
+ bison                    x86_64  3.0.4-10.el8                         appstream  688 k
+ ccache                   x86_64  3.7.7-1.el8                          epel       232 k
+ coreutils                x86_64  8.30-13.el8                          baseos     1.2 M
+ dash                     x86_64  0.5.10.2-4.el8                       epel        99 k
+ gcc-c++                  x86_64  8.5.0-13.el8                         appstream   12 M
+ glibc-devel              i686    2.28-206.el8                         baseos      80 k
+ glibc-devel              x86_64  2.28-206.el8                         baseos      81 k
+ lbzip2                   x86_64  2.5-15.20171011gitb6dc48a.el8        epel        98 k
+ libstdc++-devel          i686    8.5.0-13.el8                         appstream  2.1 M
+ libstdc++-devel          x86_64  8.5.0-13.el8                         appstream  2.0 M
+ libtool                  x86_64  2.4.6-25.el8                         appstream  709 k
+ make                     x86_64  1:4.2.1-11.el8                       baseos     498 k
+ patch                    x86_64  2.7.6-11.el8                         baseos     138 k
+ procps-ng                x86_64  3.3.15-7.el8                         baseos     329 k
+ python3-zmq              x86_64  19.0.0-1.el8                         epel       418 k
+ python36                 x86_64  3.6.8-38.module_el8.5.0+895+a459eca8 appstream   19 k
+ rsync                    x86_64  3.1.3-14.el8.2                       baseos     405 k
+ xz                       x86_64  5.2.4-4.el8                          baseos     153 k
+Upgrading:
+ glibc                    x86_64  2.28-206.el8                         baseos     2.2 M
+ glibc-common             x86_64  2.28-206.el8                         baseos     1.0 M
+ glibc-minimal-langpack   x86_64  2.28-206.el8                         baseos      63 k
+ xz-libs                  x86_64  5.2.4-4.el8                          baseos      94 k
+Installing dependencies:
+ autoconf                 noarch  2.69-29.el8                          appstream  710 k
+ automake                 noarch  1.16.1-7.el8                         appstream  713 k
+ binutils                 x86_64  2.30-117.el8                         baseos     5.8 M
+ coreutils-common         x86_64  8.30-13.el8                          baseos     2.0 M
+ cpp                      x86_64  8.5.0-13.el8                         appstream   10 M
+ gcc                      x86_64  8.5.0-13.el8                         appstream   23 M
+ glibc                    i686    2.28-206.el8                         baseos     2.0 M
+ glibc-headers            i686    2.28-206.el8                         baseos     485 k
+ glibc-headers            x86_64  2.28-206.el8                         baseos     485 k
+ isl                      x86_64  0.16.1-6.el8                         appstream  841 k
+ kernel-headers           x86_64  4.18.0-394.el8                       baseos     9.6 M
+ libgcc                   i686    8.5.0-13.el8                         baseos      88 k
+ libgomp                  x86_64  8.5.0-13.el8                         baseos     207 k
+ libmpc                   x86_64  1.1.0-9.1.el8                        appstream   61 k
+ libpkgconf               x86_64  1.4.2-1.el8                          baseos      35 k
+ libsodium                x86_64  1.0.18-2.el8                         epel       162 k
+ libstdc++                i686    8.5.0-13.el8                         baseos     490 k
+ libunwind                x86_64  1.3.1-3.el8                          epel        75 k
+ libxcrypt                i686    4.1.1-6.el8                          baseos      74 k
+ libxcrypt-devel          i686    4.1.1-6.el8                          baseos      25 k
+ libxcrypt-devel          x86_64  4.1.1-6.el8                          baseos      25 k
+ m4                       x86_64  1.4.18-7.el8                         baseos     223 k
+ openpgm                  x86_64  5.2.122-21.el8                       epel       180 k
+ perl-Data-Dumper         x86_64  2.167-399.el8                        baseos      58 k
+ perl-Thread-Queue        noarch  3.13-1.el8                           appstream   24 k
+ pkgconf                  x86_64  1.4.2-1.el8                          baseos      38 k
+ pkgconf-m4               noarch  1.4.2-1.el8                          baseos      17 k
+ pkgconf-pkg-config       x86_64  1.4.2-1.el8                          baseos      15 k
+ platform-python-pip      noarch  9.0.3-22.el8                         baseos     1.6 M
+ python3-pip              noarch  9.0.3-22.el8                         appstream   20 k
+ python3-setuptools       noarch  39.2.0-6.el8                         baseos     163 k
+ zeromq                   x86_64  4.3.4-2.el8                          epel       479 k
+Installing weak dependencies:
+ glibc-gconv-extra        i686    2.28-206.el8                         appstream  1.6 M
+ glibc-gconv-extra        x86_64  2.28-206.el8                         baseos     1.5 M
+ glibc-langpack-en        x86_64  2.28-206.el8                         baseos     822 k
+Removing dependent packages:
+ coreutils-single         x86_64  8.30-12.el8                          @System    1.3 M
+Enabling module streams:
+ python36                         3.6                                                  
+
+Transaction Summary
+=======================================================================================
+Install  53 Packages
+Upgrade   4 Packages
+Remove    1 Package
+
+Total download size: 89 M
+Downloading Packages:
+(1/57): automake-1.16.1-7.el8.noarch.rpm         23 kB/s | 713 kB     00:30    
+(2/57): bison-3.0.4-10.el8.x86_64.rpm            18 kB/s | 688 kB     00:38    
+(3/57): autoconf-2.69-29.el8.noarch.rpm          16 kB/s | 710 kB     00:43    
+
+Timed out!

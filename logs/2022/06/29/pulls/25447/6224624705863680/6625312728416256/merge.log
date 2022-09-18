@@ -1,0 +1,129 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 2ebb93d76 fuzz: add low-level target for txorphanage
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                        |  12 +-
+ build_msvc/README.md                               |  16 +-
+ build_msvc/libsecp256k1_config.h                   |  17 --
+ build_msvc/msvc-autogen.py                         |   4 +-
+ configure.ac                                       |   5 +
+ contrib/guix/libexec/build.sh                      |   4 -
+ contrib/guix/manifest.scm                          |  33 ++-
+ .../guix/patches/lief-fix-ppc64-nx-default.patch   |  29 +++
+ contrib/macdeploy/README.md                        |   2 +-
+ depends/packages/libxkbcommon.mk                   |   5 +
+ src/Makefile.am                                    |   6 +
+ src/Makefile.leveldb.include                       |   1 -
+ src/bench/wallet_loading.cpp                       |  76 +++++-
+ src/coins.h                                        |   1 -
+ src/consensus/consensus.h                          |   2 -
+ src/dbwrapper.cpp                                  |   2 +-
+ src/dbwrapper.h                                    |  21 --
+ src/init.cpp                                       |  38 +--
+ src/kernel/mempool_limits.h                        |  30 +++
+ src/kernel/mempool_options.h                       |  38 +++
+ src/mempool_args.cpp                               |  37 +++
+ src/mempool_args.h                                 |  22 ++
+ src/net.cpp                                        |  15 +-
+ src/net_processing.cpp                             |  83 +++---
+ src/net_processing.h                               |   8 +-
+ src/node/interfaces.cpp                            |  19 +-
+ src/policy/fees.cpp                                |  16 +-
+ src/policy/fees.h                                  |   4 +-
+ src/policy/fees_args.cpp                           |  12 +
+ src/policy/fees_args.h                             |  15 ++
+ src/policy/packages.h                              |   4 +-
+ src/policy/policy.h                                |   9 +-
+ src/psbt.cpp                                       |  69 ++++-
+ src/psbt.h                                         | 288 ++++++++++++++++++++-
+ src/pubkey.h                                       |   3 +
+ src/qt/bitcoin.cpp                                 |  23 +-
+ src/qt/bitcoingui.cpp                              |   1 +
+ src/qt/optionsdialog.cpp                           |  15 +-
+ src/qt/optionsdialog.h                             |   3 +
+ src/rpc/blockchain.cpp                             |   4 +-
+ src/rpc/fees.cpp                                   |   2 +-
+ src/rpc/mempool.cpp                                |  11 +-
+ src/rpc/net.cpp                                    |   6 +-
+ src/rpc/rawtransaction.cpp                         | 169 +++++++++++-
+ src/rpc/server.cpp                                 |  12 +-
+ src/script/descriptor.cpp                          |   2 +-
+ src/script/sign.cpp                                |  26 +-
+ src/script/sign.h                                  |   2 +
+ src/script/signingprovider.cpp                     |  21 +-
+ src/script/signingprovider.h                       |   5 +-
+ src/script/standard.cpp                            |  17 ++
+ src/script/standard.h                              |   2 +
+ src/test/denialofservice_tests.cpp                 |  10 +-
+ src/test/fuzz/policy_estimator.cpp                 |   8 +-
+ src/test/fuzz/policy_estimator_io.cpp              |   8 +-
+ src/test/fuzz/rbf.cpp                              |  21 +-
+ src/test/fuzz/tx_pool.cpp                          |  20 +-
+ src/test/fuzz/util.cpp                             |  53 ++++
+ src/test/fuzz/util.h                               |   6 +
+ src/test/fuzz/validation_load_mempool.cpp          |   4 +-
+ src/test/mempool_tests.cpp                         |   8 +-
+ src/test/miner_tests.cpp                           |   4 +-
+ src/test/util/net.h                                |  10 +
+ src/test/util/setup_common.cpp                     |  26 +-
+ src/test/util/setup_common.h                       |   3 +
+ src/txdb.cpp                                       |   6 -
+ src/txmempool.cpp                                  |  40 +--
+ src/txmempool.h                                    |  46 ++--
+ src/util/sock.cpp                                  |  15 ++
+ src/util/sock.h                                    |  19 ++
+ src/util/system.cpp                                |  59 ++++-
+ src/util/system.h                                  |   8 +
+ src/util/time.h                                    |  12 +-
+ src/validation.cpp                                 |  46 ++--
+ src/validation.h                                   |   2 -
+ src/wallet/coinselection.cpp                       |   3 -
+ src/wallet/scriptpubkeyman.cpp                     |  13 +
+ src/wallet/spend.cpp                               |   3 +-
+ src/wallet/test/coinselector_tests.cpp             |   7 +-
+ src/wallet/wallet.cpp                              |  29 +++
+ src/wallet/walletdb.cpp                            |  31 ++-
+ src/wallet/walletdb.h                              |   1 +
+ test/functional/data/rpc_psbt.json                 |  21 +-
+ test/functional/feature_dbcrash.py                 |   8 +-
+ test/functional/feature_fee_estimation.py          |   3 +-
+ test/functional/feature_rbf.py                     |   6 +-
+ test/functional/interface_usdt_utxocache.py        |   3 +-
+ test/functional/mempool_expiry.py                  |   8 +-
+ test/functional/mempool_reorg.py                   |   6 +-
+ test/functional/p2p_permissions.py                 |   1 +
+ test/functional/rpc_mempool_info.py                |   2 -
+ test/functional/rpc_psbt.py                        |  43 ++-
+ test/functional/test_framework/key.py              |   4 +
+ test/functional/test_framework/wallet.py           |  68 +++--
+ test/functional/wallet_importdescriptors.py        |   2 +-
+ test/functional/wallet_taproot.py                  |  25 +-
+ test/sanitizer_suppressions/ubsan                  |   4 +-
+ 97 files changed, 1575 insertions(+), 417 deletions(-)
+ create mode 100644 contrib/guix/patches/lief-fix-ppc64-nx-default.patch
+ create mode 100644 src/kernel/mempool_limits.h
+ create mode 100644 src/kernel/mempool_options.h
+ create mode 100644 src/mempool_args.cpp
+ create mode 100644 src/mempool_args.h
+ create mode 100644 src/policy/fees_args.cpp
+ create mode 100644 src/policy/fees_args.h
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

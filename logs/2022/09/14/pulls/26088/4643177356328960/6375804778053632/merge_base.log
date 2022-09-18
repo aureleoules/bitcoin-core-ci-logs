@@ -1,0 +1,33 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 29 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'ort' strategy.
+ configure.ac                         | 10 +++++++
+ src/Makefile.am                      | 16 +++++------
+ src/Makefile.bench.include           |  2 +-
+ src/Makefile.qt.include              |  2 +-
+ src/Makefile.qttest.include          |  2 +-
+ src/Makefile.test.include            |  7 +++--
+ src/Makefile.test_fuzz.include       |  2 +-
+ src/Makefile.test_util.include       |  2 +-
+ src/wallet/test/walletload_tests.cpp | 54 ++++++++++++++++++++++++++++++++++++
+ src/wallet/wallet.cpp                |  8 ++++--
+ src/wallet/walletdb.cpp              | 27 ++++++++++++++----
+ src/wallet/walletdb.h                |  3 +-
+ 12 files changed, 110 insertions(+), 25 deletions(-)
+ create mode 100644 src/wallet/test/walletload_tests.cpp

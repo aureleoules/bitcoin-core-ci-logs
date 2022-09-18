@@ -1,0 +1,57 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 9d3918d47 refactor: Replace std::optional<bilingual_str> with util::Result
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/init.cpp
+Auto-merging src/node/chainstate.cpp
+Auto-merging src/test/util/setup_common.cpp
+Merge made by the 'ort' strategy.
+ doc/developer-notes.md                      |   6 +-
+ doc/managing-wallets.md                     |  27 +-
+ doc/release-notes-19602.md                  |   9 +
+ src/init.cpp                                |  11 +-
+ src/init/common.cpp                         |  28 +-
+ src/init/common.h                           |   1 +
+ src/logging.cpp                             |  83 ++++-
+ src/logging.h                               |  55 ++-
+ src/node/chainstate.cpp                     |  15 +
+ src/script/descriptor.cpp                   |   4 +-
+ src/test/i2p_tests.cpp                      |   4 +
+ src/test/logging_tests.cpp                  | 125 ++++++-
+ src/test/util/setup_common.cpp              |   1 +
+ src/wallet/rpc/backup.cpp                   |  51 ++-
+ src/wallet/rpc/wallet.cpp                   |  54 +++
+ src/wallet/scriptpubkeyman.cpp              | 323 ++++++++++++++++-
+ src/wallet/scriptpubkeyman.h                |  14 +-
+ src/wallet/test/ismine_tests.cpp            |  37 ++
+ src/wallet/wallet.cpp                       | 519 ++++++++++++++++++++++++++--
+ src/wallet/wallet.h                         |  27 +-
+ src/wallet/walletdb.cpp                     |  40 +++
+ src/wallet/walletdb.h                       |   6 +
+ src/wallet/walletutil.h                     |  14 +
+ test/functional/test_framework/test_node.py |   2 +
+ test/functional/test_runner.py              |   1 +
+ test/functional/tool_wallet.py              |  10 +-
+ test/functional/wallet_migration.py         | 407 ++++++++++++++++++++++
+ 27 files changed, 1781 insertions(+), 93 deletions(-)
+ create mode 100644 doc/release-notes-19602.md
+ create mode 100755 test/functional/wallet_migration.py
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

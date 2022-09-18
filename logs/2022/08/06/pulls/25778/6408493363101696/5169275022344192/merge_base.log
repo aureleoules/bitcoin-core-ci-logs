@@ -1,0 +1,91 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-05 18:44:32.498 xcodebuild[699:5591] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-05 18:44:32.499 xcodebuild[699:5591] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/00_setup_env_native_qt5.sh                 |   2 +-
+ ci/test/05_before_script.sh                        |   4 +-
+ ci/test/06_script_b.sh                             |   1 +
+ contrib/guix/manifest.scm                          |   8 +-
+ .../patches/nsis-disable-installer-reloc.patch     |  30 +++++
+ src/Makefile.am                                    |   3 +
+ src/Makefile.test.include                          |   1 +
+ src/addrman.cpp                                    |  10 +-
+ src/addrman.h                                      |   7 +-
+ src/addrman_impl.h                                 |   4 +-
+ src/bench/addrman.cpp                              |   2 +-
+ src/bench/wallet_loading.cpp                       |   5 +-
+ src/bitcoin-chainstate.cpp                         |   6 +-
+ src/bitcoin-cli.cpp                                |   2 +-
+ src/chain.cpp                                      |   8 +-
+ src/chain.h                                        |   2 +-
+ src/cuckoocache.h                                  |  23 +++-
+ src/init.cpp                                       |  15 ++-
+ src/init/common.cpp                                |   2 +-
+ src/interfaces/wallet.h                            |  10 +-
+ src/kernel/validation_cache_sizes.h                |  20 ++++
+ src/net.cpp                                        |   6 +-
+ src/net_processing.cpp                             |   6 +-
+ src/node/validation_cache_args.cpp                 |  34 ++++++
+ src/node/validation_cache_args.h                   |  17 +++
+ src/qt/addresstablemodel.cpp                       |   2 +-
+ src/qt/guiutil.cpp                                 |   2 +-
+ src/qt/walletcontroller.cpp                        |   4 +-
+ src/qt/walletmodel.cpp                             |   4 +-
+ src/rest.cpp                                       |  41 +++----
+ src/rpc/client.cpp                                 |   2 +
+ src/rpc/net.cpp                                    |   3 +-
+ src/rpc/request.cpp                                |   6 +-
+ src/script/sigcache.cpp                            |  18 +--
+ src/script/sigcache.h                              |  11 +-
+ src/test/addrman_tests.cpp                         |  18 +--
+ src/test/fuzz/script_sigcache.cpp                  |  11 +-
+ src/test/miner_tests.cpp                           |   6 +-
+ src/test/result_tests.cpp                          |  96 +++++++++++++++
+ src/test/skiplist_tests.cpp                        |   6 +-
+ src/test/txvalidationcache_tests.cpp               |   5 -
+ src/test/util/setup_common.cpp                     |  13 ++-
+ src/test/util/wallet.cpp                           |   6 +-
+ src/timedata.h                                     |   1 -
+ src/util/result.h                                  |  87 +++++++++-----
+ src/util/system.cpp                                |  16 +--
+ src/util/system.h                                  |   2 +-
+ src/validation.cpp                                 |  26 +++--
+ src/validation.h                                   |   2 +-
+ src/wallet/feebumper.cpp                           |   6 +-
+ src/wallet/interfaces.cpp                          |  23 ++--
+ src/wallet/rpc/addresses.cpp                       |   8 +-
+ src/wallet/rpc/spend.cpp                           |   6 +-
+ src/wallet/rpc/wallet.cpp                          | 112 ++++++++++++++++++
+ src/wallet/scriptpubkeyman.cpp                     |  37 +++---
+ src/wallet/scriptpubkeyman.h                       |   8 +-
+ src/wallet/spend.cpp                               |  56 ++++-----
+ src/wallet/spend.h                                 |   2 +-
+ src/wallet/test/availablecoins_tests.cpp           |  18 +--
+ src/wallet/test/coinselector_tests.cpp             |   4 +-
+ src/wallet/test/fuzz/notifications.cpp             |   5 +-
+ src/wallet/test/spend_tests.cpp                    |   2 +-
+ src/wallet/test/wallet_tests.cpp                   |  12 +-
+ src/wallet/wallet.cpp                              |  56 +++++----
+ src/wallet/wallet.h                                |  12 +-
+ test/README.md                                     |   6 +-
+ test/functional/mempool_package_limits.py          |   4 +-
+ test/functional/test_framework/util.py             |   4 +
+ test/functional/test_framework/wallet.py           |  13 ++-
+ test/functional/test_runner.py                     |   2 +
+ test/functional/wallet_simulaterawtx.py            | 129 +++++++++++++++++++++
+ test/get_previous_releases.py                      | 113 +++++++++---------
+ 72 files changed, 894 insertions(+), 360 deletions(-)
+ create mode 100644 contrib/guix/patches/nsis-disable-installer-reloc.patch
+ create mode 100644 src/kernel/validation_cache_sizes.h
+ create mode 100644 src/node/validation_cache_args.cpp
+ create mode 100644 src/node/validation_cache_args.h
+ create mode 100644 src/test/result_tests.cpp
+ create mode 100755 test/functional/wallet_simulaterawtx.py

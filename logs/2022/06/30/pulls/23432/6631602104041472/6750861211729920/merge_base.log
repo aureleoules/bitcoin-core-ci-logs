@@ -1,0 +1,95 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 95 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Removing contrib/guix/patches/elfsteem-value-error-python-39.patch
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_a.sh                             |   7 +-
+ ci/test/06_script_b.sh                             |   1 +
+ contrib/builder-keys/keys.txt                      |   1 +
+ contrib/guix/libexec/build.sh                      |   1 +
+ contrib/guix/manifest.scm                          |  16 +-
+ .../patches/elfsteem-value-error-python-39.patch   |  13 -
+ contrib/guix/patches/gcc-10-remap-guix-store.patch |  25 ++
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |  25 ++
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |  25 ++
+ contrib/signet/miner                               |  12 +-
+ contrib/verify-commits/trusted-keys                |   2 +-
+ doc/build-netbsd.md                                | 122 +++---
+ doc/build-unix.md                                  |  23 -
+ doc/policy/mempool-replacements.md                 |   5 +
+ doc/release-notes.md                               |   4 +
+ src/Makefile.am                                    |   7 +-
+ src/Makefile.test.include                          |   1 +
+ src/bench/coin_selection.cpp                       |   3 +-
+ src/bench/gcs_filter.cpp                           |  79 +++-
+ src/blockfilter.cpp                                |   8 +-
+ src/blockfilter.h                                  |   6 +-
+ src/index/blockfilterindex.cpp                     |  13 +-
+ src/index/blockfilterindex.h                       |   2 +-
+ src/init.cpp                                       |   1 +
+ src/interfaces/wallet.h                            |   2 +-
+ src/kernel/mempool_options.h                       |   3 +
+ src/mempool_args.cpp                               |   2 +
+ src/net.cpp                                        | 231 +---------
+ src/net.h                                          | 123 +-----
+ src/net_processing.cpp                             | 463 +++++++++++++--------
+ src/node/connection_types.cpp                      |  26 ++
+ src/node/connection_types.h                        |  82 ++++
+ src/node/eviction.cpp                              | 240 +++++++++++
+ src/node/eviction.h                                |  69 +++
+ src/rpc/blockchain.cpp                             |   6 +-
+ src/rpc/mempool.cpp                                |   2 +
+ src/test/fuzz/node_eviction.cpp                    |   2 +
+ src/test/fuzz/txorphan.cpp                         | 143 +++++++
+ src/test/util/net.cpp                              |   3 +
+ src/test/util/net.h                                |   1 +
+ src/txmempool.cpp                                  |   1 +
+ src/txmempool.h                                    |   1 +
+ src/validation.cpp                                 |   5 +-
+ src/wallet/interfaces.cpp                          |  20 +-
+ src/wallet/rpc/addresses.cpp                       |  33 +-
+ src/wallet/rpc/coins.cpp                           |   6 +-
+ src/wallet/rpc/transactions.cpp                    |  67 ++-
+ src/wallet/spend.cpp                               |  35 +-
+ src/wallet/spend.h                                 |  17 +-
+ src/wallet/test/coinselector_tests.cpp             |   3 +-
+ src/wallet/wallet.cpp                              |  56 ++-
+ src/wallet/wallet.h                                |  27 +-
+ test/functional/feature_dbcrash.py                 |   8 +-
+ test/functional/feature_minchainwork.py            |   2 +-
+ test/functional/feature_rbf.py                     | 419 ++++++++++---------
+ test/functional/mempool_updatefromblock.py         |  19 +-
+ test/functional/p2p_invalid_tx.py                  |  68 ++-
+ test/functional/p2p_segwit.py                      |   4 +
+ test/functional/test_framework/wallet.py           |  24 +-
+ test/functional/wallet_basic.py                    |   2 +-
+ test/functional/wallet_listreceivedby.py           |   5 +
+ 61 files changed, 1604 insertions(+), 1018 deletions(-)
+ delete mode 100644 contrib/guix/patches/elfsteem-value-error-python-39.patch
+ create mode 100644 contrib/guix/patches/gcc-10-remap-guix-store.patch
+ create mode 100644 contrib/guix/patches/glibc-2.24-guix-prefix.patch
+ create mode 100644 contrib/guix/patches/glibc-2.27-guix-prefix.patch
+ create mode 100644 src/node/connection_types.cpp
+ create mode 100644 src/node/connection_types.h
+ create mode 100644 src/node/eviction.cpp
+ create mode 100644 src/node/eviction.h
+ create mode 100644 src/test/fuzz/txorphan.cpp

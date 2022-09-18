@@ -1,0 +1,63 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at e04037c26 test: add unit test for AvailableCoins
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/Makefile.test.include
+Merge made by the 'ort' strategy.
+ configure.ac                                    |   8 +-
+ contrib/guix/manifest.scm                       |   2 +-
+ doc/README.md                                   |   2 +-
+ doc/{ => design}/assumeutxo.md                  |   0
+ doc/design/libraries.md                         | 104 ++++++++++++++++++++++++
+ doc/{ => design}/multiprocess.md                |   0
+ src/Makefile.am                                 |   2 -
+ src/Makefile.test.include                       |   4 +-
+ src/chain.h                                     |   2 +-
+ src/i2p.cpp                                     |   2 +-
+ src/net.cpp                                     |   2 +-
+ src/qt/guiutil.cpp                              |  30 +++----
+ src/qt/guiutil.h                                |   8 ++
+ src/qt/test/optiontests.cpp                     |  10 +++
+ src/qt/test/optiontests.h                       |   1 +
+ src/qt/utilitydialog.cpp                        |   8 +-
+ src/random.cpp                                  |   2 +-
+ src/test/fuzz/util.cpp                          |   9 +-
+ src/test/fuzz/util.h                            |   2 -
+ src/test/net_tests.cpp                          |   7 +-
+ src/test/sock_tests.cpp                         |  18 ----
+ src/test/util/net.h                             |   7 +-
+ src/util/sock.cpp                               |  45 ++++------
+ src/util/sock.h                                 |  21 ++---
+ src/wallet/wallet.cpp                           |  15 ++--
+ src/wallet/wallet.h                             |   2 +-
+ test/functional/feature_fee_estimation.py       |   1 -
+ test/functional/feature_rbf.py                  |   1 -
+ test/functional/mempool_unbroadcast.py          |   2 +-
+ test/functional/mining_prioritisetransaction.py |   2 +-
+ test/functional/p2p_segwit.py                   |   2 +-
+ test/functional/rpc_rawtransaction.py           |   2 +-
+ test/functional/test_framework/util.py          |   5 +-
+ test/functional/test_framework/wallet.py        |  27 +++---
+ 34 files changed, 214 insertions(+), 141 deletions(-)
+ rename doc/{ => design}/assumeutxo.md (100%)
+ create mode 100644 doc/design/libraries.md
+ rename doc/{ => design}/multiprocess.md (100%)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

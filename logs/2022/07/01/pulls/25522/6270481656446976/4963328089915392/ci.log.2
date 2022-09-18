@@ -1,0 +1,671 @@
+[0;36m test  2022-07-01T10:09:01.445000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=4ed1c279c7a2dde572eeef3c5dd46bae6248da17fbff5066e32698f1895bce84 hashMerkleRoot=2334ce1f941e119420eed9744f567ac8b0dd2555acc22a90fc49e36877ec3ecb nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000003 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016c nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:01.445323Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.445412Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 777d380df936a53a826b17efd503a312c4f31ecccad074024dae632607a27a3a from  peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.445434Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.446167Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (312 bytes) peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.446197Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 777d380df936a53a826b17efd503a312c4f31ecccad074024dae632607a27a3a peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.447059Z [msghand] [validation.cpp:2591] [DisconnectTip] [bench] - Disconnect block: 0.09ms [0m
+[0;34m node0 2022-07-01T10:09:01.447100Z [msghand] [validation.cpp:2509] [UpdateTipLog] UpdateTip: new best=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3 height=106 version=0x00000004 log2_work=7.741467 tx=112 date='2022-07-01T10:10:42Z' progress=1.000000 cache=0.0MiB(112txo) [0m
+[0;34m node0 2022-07-01T10:09:01.447127Z [msghand] [validationinterface.cpp:239] [BlockDisconnected] [validation] Enqueuing BlockDisconnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:01.447227Z [scheduler] [validationinterface.cpp:239] [operator()] [validation] BlockDisconnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:01.447266Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.07ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.447370Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.01ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.447388Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.00s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.447407Z [msghand] [util/system.h:50] [error] ERROR: ConnectBlock: Consensus::CheckTxInputs: 78532a8c9b8be30a754386ab55330f0b966383f66b58d4f0a0ed20220cb74004, bad-txns-inputs-missingorspent, CheckTxInputs: inputs missing/spent [0m
+[0;34m node0 2022-07-01T10:09:01.447423Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=4ed1c279c7a2dde572eeef3c5dd46bae6248da17fbff5066e32698f1895bce84 state=bad-txns-inputs-missingorspent, CheckTxInputs: inputs missing/spent [0m
+[0;34m node0 2022-07-01T10:09:01.447456Z [msghand] [net_processing.cpp:1470] [Misbehaving] [net] Misbehaving: peer=17 (0 -> 100) DISCOURAGE THRESHOLD EXCEEDED [0m
+[0;34m node0 2022-07-01T10:09:01.447475Z [msghand] [validation.cpp:1603] [InvalidChainFound] InvalidChainFound: invalid block=4ed1c279c7a2dde572eeef3c5dd46bae6248da17fbff5066e32698f1895bce84  height=107  log2_work=7.754888  date=2022-07-01T10:10:43Z [0m
+[0;34m node0 2022-07-01T10:09:01.447557Z [msghand] [validation.cpp:1608] [InvalidChainFound] InvalidChainFound:  current best=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3  height=106  log2_work=7.741467  date=2022-07-01T10:10:42Z [0m
+[0;34m node0 2022-07-01T10:09:01.447575Z [msghand] [util/system.h:50] [error] ERROR: ConnectTip: ConnectBlock 4ed1c279c7a2dde572eeef3c5dd46bae6248da17fbff5066e32698f1895bce84 failed, bad-txns-inputs-missingorspent, CheckTxInputs: inputs missing/spent [0m
+[0;34m node0 2022-07-01T10:09:01.447591Z [msghand] [validation.cpp:1603] [InvalidChainFound] InvalidChainFound: invalid block=777d380df936a53a826b17efd503a312c4f31ecccad074024dae632607a27a3a  height=108  log2_work=7.768184  date=2022-07-01T10:10:44Z [0m
+[0;34m node0 2022-07-01T10:09:01.447605Z [msghand] [validation.cpp:1608] [InvalidChainFound] InvalidChainFound:  current best=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3  height=106  log2_work=7.741467  date=2022-07-01T10:10:42Z [0m
+[0;34m node0 2022-07-01T10:09:01.447747Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:01.447893Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.11ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.447967Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.05ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.447982Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.00s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448071Z [msghand] [validation.cpp:2233] [ConnectBlock] [bench]       - Connect 2 transactions: 0.09ms (0.043ms/tx, 0.085ms/txin) [0.00s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448211Z [msghand] [validation.cpp:2246] [ConnectBlock] [bench]     - Verify 1 txins: 0.23ms (0.228ms/txin) [0.01s (0.09ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448224Z [msghand] [validation.cpp:2256] [ConnectBlock] [bench]     - Write undo data: 0.01ms [0.05s (0.37ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448235Z [msghand] [validation.cpp:2268] [ConnectBlock] [bench]     - Index writing: 0.01ms [0.01s (0.05ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448248Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 state=Valid [0m
+[0;34m node0 2022-07-01T10:09:01.448262Z [msghand] [validation.cpp:2718] [ConnectTip] [bench]   - Connect total: 0.37ms [0.09s (0.70ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448273Z [msghand] [validation.cpp:2723] [ConnectTip] [bench]   - Flush: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448286Z [msghand] [validation.cpp:2729] [ConnectTip] [bench]   - Writing chainstate: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448325Z [msghand] [validation.cpp:2509] [UpdateTipLog] UpdateTip: new best=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 height=107 version=0x00000004 log2_work=7.754888 tx=114 date='2022-07-01T10:10:43Z' progress=1.000000 cache=0.0MiB(112txo) [0m
+[0;34m node0 2022-07-01T10:09:01.448342Z [msghand] [validation.cpp:2740] [ConnectTip] [bench]   - Connect postprocess: 0.06ms [0.04s (0.29ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448353Z [msghand] [validation.cpp:2741] [ConnectTip] [bench] - Connect block: 0.56ms [0.14s (1.09ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.448365Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:01.448392Z [msghand] [validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:01.448463Z [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:01.448581Z [msghand] [net_processing.cpp:4209] [MaybeDiscourageAndDisconnect] [net] Warning: disconnecting but not discouraging local peer 17! [0m
+[0;36m test  2022-07-01T10:09:01.497000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:01.497159Z [net] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.497218Z [net] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=17 [0m
+[0;34m node0 2022-07-01T10:09:01.547140Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:01.547208Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:01.548000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:01.548010Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:01.548079Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_version(nVersion=70016 nServices=9 nTime=Fri Jul  1 03:09:01 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=16808) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x4002D393D5DAE938 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_version(nVersion=70016 nServices=1033 nTime=Fri Jul  1 03:09:01 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x33EE30572025DADE strSubVer=/Satoshi:23.99.0(testnode0)/ nStartingHeight=107 relay=1) [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_getaddr() [0m
+[0;36m test  2022-07-01T10:09:01.549000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;34m node0 2022-07-01T10:09:01.549003Z [net] [net.cpp:2959] [CNode] [net] Added connection peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549035Z [net] [net.cpp:1257] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:49407 accepted [0m
+[0;34m node0 2022-07-01T10:09:01.549472Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: version (111 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549498Z [msghand] [net.cpp:2975] [PushMessage] [net] sending version (114 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549527Z [msghand] [net_processing.cpp:1243] [PushNodeVersion] [net] send version message: version 70016, blocks=107, txrelay=1, peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549539Z [msghand] [net.cpp:2975] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549554Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549583Z [msghand] [net.cpp:2975] [PushMessage] [net] sending verack (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.549645Z [msghand] [net_processing.cpp:2859] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:16808, txrelay=1, peer=18 [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendaddrv2() [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendheaders() [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendcmpct(announce=False, version=2) [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_ping(nonce=5ab769e9e241fa62) [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_pong(nonce=5ab769e9e241fa62) [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getheaders(locator=CBlockLocator(vHave=[56842075037306511026530340726626359824524293831768913579155561982031962510839, 22685488613866935591032073362513864999115831412190057719524376992974856706531, 56554016531309409206809901901587899403309642567651820458402043478790992722123, 16462658763983006493129138582058926248991367193233935831512272874983526262622, 31300799512187793011683458947203003133596928618986597305906063066613374354001, 3201962089319025670023058768453832168099600324829670554193840... (msg truncated) [0m
+[0;36m test  2022-07-01T10:09:01.550000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_feefilter(feerate=000003e8) [0m
+[0;34m node0 2022-07-01T10:09:01.550118Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550140Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: verack (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550152Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendheaders (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550186Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendcmpct (9 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550215Z [msghand] [net.cpp:2975] [PushMessage] [net] sending ping (8 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550252Z [msghand] [net_processing.cpp:4771] [SendMessages] [net] initial getheaders (107) to peer=18 (startheight:-1) [0m
+[0;34m node0 2022-07-01T10:09:01.550272Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getheaders (613 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550314Z [msghand] [net.cpp:2975] [PushMessage] [net] sending feefilter (8 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550359Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: getaddr (0 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.550958Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: pong (8 bytes) peer=18 [0m
+[0;36m test  2022-07-01T10:09:01.605000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:01.605875Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.605903Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=18 [0m
+[0;36m test  2022-07-01T10:09:01.606000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:01.664952Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;36m test  2022-07-01T10:09:01.665000Z TestFramework (INFO): Reject a block spending an immature coinbase. [0m
+[0;34m node0 2022-07-01T10:09:01.665040Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:01.669000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=150fbbab502e23755a9228dbc90e81674e0a2d9d7eaf94195d10324c2df91b52 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000002)]) [0m
+[0;36m test  2022-07-01T10:09:01.670000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28)]) [0m
+[0;36m test  2022-07-01T10:09:01.670000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=150fbbab502e23755a9228dbc90e81674e0a2d9d7eaf94195d10324c2df91b52 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000002 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016c nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:01.670159Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.670251Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28 from  peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.670269Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.670923Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (312 bytes) peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.670957Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28 peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.671026Z [msghand] [validationinterface.cpp:257] [NewPoWValidBlock] [validation] NewPoWValidBlock: block hash=3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28 [0m
+[0;34m node0 2022-07-01T10:09:01.671349Z [msghand] [validation.cpp:2699] [ConnectTip] [bench]   - Using cached block [0m
+[0;34m node0 2022-07-01T10:09:01.671377Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.03ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.671398Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.671416Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:01.671435Z [msghand] [util/system.h:50] [error] ERROR: ConnectBlock: Consensus::CheckTxInputs: 86ab38cf739b1eee93aeb801bd7b67849cb49c2be61d979b0da2d2355b0ebead, bad-txns-premature-spend-of-coinbase, tried to spend coinbase at depth 99 [0m
+[0;34m node0 2022-07-01T10:09:01.671452Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28 state=bad-txns-premature-spend-of-coinbase, tried to spend coinbase at depth 99 [0m
+[0;34m node0 2022-07-01T10:09:01.671466Z [msghand] [net_processing.cpp:1470] [Misbehaving] [net] Misbehaving: peer=18 (0 -> 100) DISCOURAGE THRESHOLD EXCEEDED [0m
+[0;34m node0 2022-07-01T10:09:01.671483Z [msghand] [validation.cpp:1603] [InvalidChainFound] InvalidChainFound: invalid block=3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28  height=108  log2_work=7.768184  date=2022-07-01T10:10:44Z [0m
+[0;34m node0 2022-07-01T10:09:01.671496Z [msghand] [validation.cpp:1608] [InvalidChainFound] InvalidChainFound:  current best=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7  height=107  log2_work=7.754888  date=2022-07-01T10:10:43Z [0m
+[0;34m node0 2022-07-01T10:09:01.671509Z [msghand] [util/system.h:50] [error] ERROR: ConnectTip: ConnectBlock 3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28 failed, bad-txns-premature-spend-of-coinbase, tried to spend coinbase at depth 99 [0m
+[0;34m node0 2022-07-01T10:09:01.671523Z [msghand] [validation.cpp:1603] [InvalidChainFound] InvalidChainFound: invalid block=3be01dadeff1c3e6b8a8e673bcc1093f69f5f08da19fe96616e31892d6d11f28  height=108  log2_work=7.768184  date=2022-07-01T10:10:44Z [0m
+[0;34m node0 2022-07-01T10:09:01.671537Z [msghand] [validation.cpp:1608] [InvalidChainFound] InvalidChainFound:  current best=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7  height=107  log2_work=7.754888  date=2022-07-01T10:10:43Z [0m
+[0;34m node0 2022-07-01T10:09:01.671548Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:01.671567Z [msghand] [net_processing.cpp:4209] [MaybeDiscourageAndDisconnect] [net] Warning: disconnecting but not discouraging local peer 18! [0m
+[0;36m test  2022-07-01T10:09:01.735000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:01.735283Z [net] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.735376Z [net] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=18 [0m
+[0;34m node0 2022-07-01T10:09:01.771245Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:01.771338Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-07-01T10:09:01.772482Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:01.772555Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:01.773000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:01.773000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:01.773000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_version(nVersion=70016 nServices=9 nTime=Fri Jul  1 03:09:01 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=16808) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x584BD28003C6B801 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) [0m
+[0;34m node0 2022-07-01T10:09:01.773585Z [net] [net.cpp:2959] [CNode] [net] Added connection peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.773620Z [net] [net.cpp:1257] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:49408 accepted [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_version(nVersion=70016 nServices=1033 nTime=Fri Jul  1 03:09:01 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x49642956B8FA44E9 strSubVer=/Satoshi:23.99.0(testnode0)/ nStartingHeight=107 relay=1) [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_getaddr() [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendaddrv2() [0m
+[0;36m test  2022-07-01T10:09:01.774000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_verack() [0m
+[0;34m node0 2022-07-01T10:09:01.774143Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: version (111 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774171Z [msghand] [net.cpp:2975] [PushMessage] [net] sending version (114 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774217Z [msghand] [net_processing.cpp:1243] [PushNodeVersion] [net] send version message: version 70016, blocks=107, txrelay=1, peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774232Z [msghand] [net.cpp:2975] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774264Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774295Z [msghand] [net.cpp:2975] [PushMessage] [net] sending verack (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774359Z [msghand] [net_processing.cpp:2859] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:16808, txrelay=1, peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774902Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774927Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: verack (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774939Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendheaders (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.774980Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendcmpct (9 bytes) peer=19 [0m
+[0;36m test  2022-07-01T10:09:01.775000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendheaders() [0m
+[0;36m test  2022-07-01T10:09:01.775000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendcmpct(announce=False, version=2) [0m
+[0;36m test  2022-07-01T10:09:01.775000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_ping(nonce=362002053e2d63f3) [0m
+[0;36m test  2022-07-01T10:09:01.775000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_pong(nonce=362002053e2d63f3) [0m
+[0;36m test  2022-07-01T10:09:01.775000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getheaders(locator=CBlockLocator(vHave=[56842075037306511026530340726626359824524293831768913579155561982031962510839, 22685488613866935591032073362513864999115831412190057719524376992974856706531, 56554016531309409206809901901587899403309642567651820458402043478790992722123, 16462658763983006493129138582058926248991367193233935831512272874983526262622, 31300799512187793011683458947203003133596928618986597305906063066613374354001, 3201962089319025670023058768453832168099600324829670554193840... (msg truncated) [0m
+[0;36m test  2022-07-01T10:09:01.775000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_feefilter(feerate=000003e8) [0m
+[0;34m node0 2022-07-01T10:09:01.775010Z [msghand] [net.cpp:2975] [PushMessage] [net] sending ping (8 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.775032Z [msghand] [net_processing.cpp:4771] [SendMessages] [net] initial getheaders (107) to peer=19 (startheight:-1) [0m
+[0;34m node0 2022-07-01T10:09:01.775050Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getheaders (613 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.775080Z [msghand] [net.cpp:2975] [PushMessage] [net] sending feefilter (8 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.775123Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: getaddr (0 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.775791Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: pong (8 bytes) peer=19 [0m
+[0;36m test  2022-07-01T10:09:01.823000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:01.823947Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.823973Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=19 [0m
+[0;36m test  2022-07-01T10:09:01.824000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:01.874112Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:01.874400Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:01.878000Z TestFramework (INFO): Reject a block spending an immature coinbase (on a forked chain) [0m
+[0;36m test  2022-07-01T10:09:01.882000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3 hashMerkleRoot=005bebb9e0a3fe72507832825701fdf1a61a47d89eff735e48d693d46b96f727 nTime=Fri Jul  1 03:10:43 2022 nBits=207fffff nNonce=00000000)]) [0m
+[0;34m node0 2022-07-01T10:09:01.884662Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.884747Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278 from  peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.884765Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=19 [0m
+[0;36m test  2022-07-01T10:09:01.885000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278)]) [0m
+[0;36m test  2022-07-01T10:09:01.885000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3 hashMerkleRoot=005bebb9e0a3fe72507832825701fdf1a61a47d89eff735e48d693d46b96f727 nTime=Fri Jul  1 03:10:43 2022 nBits=207fffff nNonce=00000000 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016b nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:01.885539Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (312 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.885570Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278 peer=19 [0m
+[0;36m test  2022-07-01T10:09:01.946000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000002) [0m
+[0;36m test  2022-07-01T10:09:01.946000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000002) [0m
+[0;34m node0 2022-07-01T10:09:01.946754Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:01.946780Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:02.008133Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.008276Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.014000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278 hashMerkleRoot=1c78348938019de70835a392a1e775cd78af9ca7a1291069fae92562a610c456 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000000)]) [0m
+[0;34m node0 2022-07-01T10:09:02.014838Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:02.014936Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 5dfb87ae32ec23b31e9fa5641c977e667056de100ca93a6d4cbb0197a3452ca6 from  peer=19 [0m
+[0;34m node0 2022-07-01T10:09:02.014951Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=19 [0m
+[0;36m test  2022-07-01T10:09:02.015000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=5dfb87ae32ec23b31e9fa5641c977e667056de100ca93a6d4cbb0197a3452ca6)]) [0m
+[0;36m test  2022-07-01T10:09:02.015000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278 hashMerkleRoot=1c78348938019de70835a392a1e775cd78af9ca7a1291069fae92562a610c456 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000000 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016c nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:02.015629Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (312 bytes) peer=19 [0m
+[0;34m node0 2022-07-01T10:09:02.015660Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 5dfb87ae32ec23b31e9fa5641c977e667056de100ca93a6d4cbb0197a3452ca6 peer=19 [0m
+[0;34m node0 2022-07-01T10:09:02.016370Z [msghand] [validation.cpp:2591] [DisconnectTip] [bench] - Disconnect block: 0.07ms [0m
+[0;34m node0 2022-07-01T10:09:02.016407Z [msghand] [validation.cpp:2509] [UpdateTipLog] UpdateTip: new best=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3 height=106 version=0x00000004 log2_work=7.741467 tx=112 date='2022-07-01T10:10:42Z' progress=1.000000 cache=0.0MiB(112txo) [0m
+[0;34m node0 2022-07-01T10:09:02.016423Z [msghand] [validationinterface.cpp:239] [BlockDisconnected] [validation] Enqueuing BlockDisconnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:02.016484Z [scheduler] [validationinterface.cpp:239] [operator()] [validation] BlockDisconnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:02.016570Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.04ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.016610Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.016630Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.016649Z [msghand] [util/system.h:50] [error] ERROR: ConnectBlock: Consensus::CheckTxInputs: 4a15b1fc9dc8c8e377b196bdfddb8d11dd592937bbebc0d06e3319889c8606b1, bad-txns-premature-spend-of-coinbase, tried to spend coinbase at depth 99 [0m
+[0;34m node0 2022-07-01T10:09:02.016664Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278 state=bad-txns-premature-spend-of-coinbase, tried to spend coinbase at depth 99 [0m
+[0;34m node0 2022-07-01T10:09:02.016679Z [msghand] [net_processing.cpp:1470] [Misbehaving] [net] Misbehaving: peer=19 (0 -> 100) DISCOURAGE THRESHOLD EXCEEDED [0m
+[0;34m node0 2022-07-01T10:09:02.016696Z [msghand] [validation.cpp:1603] [InvalidChainFound] InvalidChainFound: invalid block=74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278  height=107  log2_work=7.754888  date=2022-07-01T10:10:43Z [0m
+[0;34m node0 2022-07-01T10:09:02.016709Z [msghand] [validation.cpp:1608] [InvalidChainFound] InvalidChainFound:  current best=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3  height=106  log2_work=7.741467  date=2022-07-01T10:10:42Z [0m
+[0;34m node0 2022-07-01T10:09:02.016723Z [msghand] [util/system.h:50] [error] ERROR: ConnectTip: ConnectBlock 74bf857ab4cdd23bbb1ab47f627dda6636cbf7da4ccf143a2e9ca71676fc1278 failed, bad-txns-premature-spend-of-coinbase, tried to spend coinbase at depth 99 [0m
+[0;34m node0 2022-07-01T10:09:02.016737Z [msghand] [validation.cpp:1603] [InvalidChainFound] InvalidChainFound: invalid block=5dfb87ae32ec23b31e9fa5641c977e667056de100ca93a6d4cbb0197a3452ca6  height=108  log2_work=7.768184  date=2022-07-01T10:10:44Z [0m
+[0;34m node0 2022-07-01T10:09:02.016751Z [msghand] [validation.cpp:1608] [InvalidChainFound] InvalidChainFound:  current best=32278812faa2d37648f9cb458ee62577cd6e0412c352c2d7ca83b9d5ea36d9e3  height=106  log2_work=7.741467  date=2022-07-01T10:10:42Z [0m
+[0;34m node0 2022-07-01T10:09:02.016828Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:02.016955Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.10ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017022Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.05ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017038Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017122Z [msghand] [validation.cpp:2233] [ConnectBlock] [bench]       - Connect 2 transactions: 0.08ms (0.040ms/tx, 0.079ms/txin) [0.00s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017253Z [msghand] [validation.cpp:2246] [ConnectBlock] [bench]     - Verify 1 txins: 0.21ms (0.214ms/txin) [0.01s (0.09ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017265Z [msghand] [validation.cpp:2256] [ConnectBlock] [bench]     - Write undo data: 0.01ms [0.05s (0.36ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017275Z [msghand] [validation.cpp:2268] [ConnectBlock] [bench]     - Index writing: 0.01ms [0.01s (0.05ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017287Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 state=Valid [0m
+[0;34m node0 2022-07-01T10:09:02.017298Z [msghand] [validation.cpp:2718] [ConnectTip] [bench]   - Connect total: 0.35ms [0.09s (0.69ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017308Z [msghand] [validation.cpp:2723] [ConnectTip] [bench]   - Flush: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017319Z [msghand] [validation.cpp:2729] [ConnectTip] [bench]   - Writing chainstate: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017338Z [msghand] [validation.cpp:2509] [UpdateTipLog] UpdateTip: new best=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 height=107 version=0x00000004 log2_work=7.754888 tx=114 date='2022-07-01T10:10:43Z' progress=1.000000 cache=0.0MiB(112txo) [0m
+[0;34m node0 2022-07-01T10:09:02.017349Z [msghand] [validation.cpp:2740] [ConnectTip] [bench]   - Connect postprocess: 0.03ms [0.04s (0.28ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017358Z [msghand] [validation.cpp:2741] [ConnectTip] [bench] - Connect block: 0.50ms [0.14s (1.07ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.017368Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:02.017385Z [msghand] [validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:02.017456Z [msghand] [net_processing.cpp:4209] [MaybeDiscourageAndDisconnect] [net] Warning: disconnecting but not discouraging local peer 19! [0m
+[0;34m node0 2022-07-01T10:09:02.017480Z [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 block height=107 [0m
+[0;34m node0 2022-07-01T10:09:02.068936Z [net] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=19 [0m
+[0;36m test  2022-07-01T10:09:02.069000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:02.069032Z [net] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=19 [0m
+[0;34m node0 2022-07-01T10:09:02.120757Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.120834Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-07-01T10:09:02.121799Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.121874Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.122000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:02.122968Z [net] [net.cpp:2959] [CNode] [net] Added connection peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_version(nVersion=70016 nServices=9 nTime=Fri Jul  1 03:09:02 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=16808) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x5635FADFD86D96F8 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_version(nVersion=70016 nServices=1033 nTime=Fri Jul  1 03:09:02 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xD151BB5EE9CA50FC strSubVer=/Satoshi:23.99.0(testnode0)/ nStartingHeight=107 relay=1) [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_getaddr() [0m
+[0;36m test  2022-07-01T10:09:02.123000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;34m node0 2022-07-01T10:09:02.123006Z [net] [net.cpp:1257] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:49417 accepted [0m
+[0;34m node0 2022-07-01T10:09:02.123426Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: version (111 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.123454Z [msghand] [net.cpp:2975] [PushMessage] [net] sending version (114 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.123501Z [msghand] [net_processing.cpp:1243] [PushNodeVersion] [net] send version message: version 70016, blocks=107, txrelay=1, peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.123516Z [msghand] [net.cpp:2975] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.123534Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.123554Z [msghand] [net.cpp:2975] [PushMessage] [net] sending verack (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.123634Z [msghand] [net_processing.cpp:2859] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:16808, txrelay=1, peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.124000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendaddrv2() [0m
+[0;36m test  2022-07-01T10:09:02.124000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:02.124000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendheaders() [0m
+[0;36m test  2022-07-01T10:09:02.124000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendcmpct(announce=False, version=2) [0m
+[0;36m test  2022-07-01T10:09:02.124000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_ping(nonce=755f32d51d57dbc6) [0m
+[0;36m test  2022-07-01T10:09:02.124000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_pong(nonce=755f32d51d57dbc6) [0m
+[0;34m node0 2022-07-01T10:09:02.124187Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124213Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: verack (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124225Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendheaders (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124264Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendcmpct (9 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124294Z [msghand] [net.cpp:2975] [PushMessage] [net] sending ping (8 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124316Z [msghand] [net_processing.cpp:4771] [SendMessages] [net] initial getheaders (107) to peer=20 (startheight:-1) [0m
+[0;34m node0 2022-07-01T10:09:02.124335Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getheaders (613 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124420Z [msghand] [net.cpp:2975] [PushMessage] [net] sending feefilter (8 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124463Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: getaddr (0 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.124984Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: pong (8 bytes) peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.125000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getheaders(locator=CBlockLocator(vHave=[56842075037306511026530340726626359824524293831768913579155561982031962510839, 22685488613866935591032073362513864999115831412190057719524376992974856706531, 56554016531309409206809901901587899403309642567651820458402043478790992722123, 16462658763983006493129138582058926248991367193233935831512272874983526262622, 31300799512187793011683458947203003133596928618986597305906063066613374354001, 3201962089319025670023058768453832168099600324829670554193840... (msg truncated) [0m
+[0;36m test  2022-07-01T10:09:02.125000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_feefilter(feerate=000003e8) [0m
+[0;36m test  2022-07-01T10:09:02.180000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000001) [0m
+[0;36m test  2022-07-01T10:09:02.180000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:02.180687Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.180718Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.232530Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.232624Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.233000Z TestFramework (INFO): Accept a block of weight MAX_BLOCK_WEIGHT [0m
+[0;36m test  2022-07-01T10:09:02.246000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=7be61b68edbe5bd21bf85729152466045a628936eb434703af812853c9506292 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000001)]) [0m
+[0;34m node0 2022-07-01T10:09:02.246882Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.246970Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c from  peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.246984Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.247000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c)]) [0m
+[0;36m test  2022-07-01T10:09:02.253000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=7be61b68edbe5bd21bf85729152466045a628936eb434703af812853c9506292 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000001 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016c nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:02.257324Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (1000000 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.260358Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.260443Z [msghand] [validationinterface.cpp:257] [NewPoWValidBlock] [validation] NewPoWValidBlock: block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c [0m
+[0;36m test  2022-07-01T10:09:02.296000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000002) [0m
+[0;34m node0 2022-07-01T10:09:02.302704Z [msghand] [validation.cpp:2699] [ConnectTip] [bench]   - Using cached block [0m
+[0;34m node0 2022-07-01T10:09:02.302731Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.03ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.302751Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.302770Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303213Z [msghand] [validation.cpp:2233] [ConnectBlock] [bench]       - Connect 3 transactions: 0.44ms (0.146ms/tx, 0.219ms/txin) [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303234Z [msghand] [validation.cpp:2246] [ConnectBlock] [bench]     - Verify 2 txins: 0.46ms (0.232ms/txin) [0.01s (0.09ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303395Z [msghand] [validation.cpp:2256] [ConnectBlock] [bench]     - Write undo data: 0.16ms [0.05s (0.36ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303410Z [msghand] [validation.cpp:2268] [ConnectBlock] [bench]     - Index writing: 0.02ms [0.01s (0.05ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303424Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c state=Valid [0m
+[0;34m node0 2022-07-01T10:09:02.303439Z [msghand] [validation.cpp:2718] [ConnectTip] [bench]   - Connect total: 0.71ms [0.09s (0.69ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303450Z [msghand] [validation.cpp:2723] [ConnectTip] [bench]   - Flush: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303462Z [msghand] [validation.cpp:2729] [ConnectTip] [bench]   - Writing chainstate: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303520Z [msghand] [policy/fees.cpp:667] [processBlock] [estimatefee] Blockpolicy estimates updated by 0 of 0 block txs, since last block 0 of 0 tracked, mempool map size 0, max target 0 from current [0m
+[0;34m node0 2022-07-01T10:09:02.303543Z [msghand] [validation.cpp:2509] [UpdateTipLog] UpdateTip: new best=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c height=108 version=0x00000004 log2_work=7.768184 tx=117 date='2022-07-01T10:10:44Z' progress=1.000000 cache=0.0MiB(113txo) [0m
+[0;34m node0 2022-07-01T10:09:02.303555Z [msghand] [validation.cpp:2740] [ConnectTip] [bench]   - Connect postprocess: 0.09ms [0.04s (0.28ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303566Z [msghand] [validation.cpp:2741] [ConnectTip] [bench] - Connect block: 0.86ms [0.14s (1.07ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:02.303577Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:02.303597Z [msghand] [validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c block height=108 [0m
+[0;34m node0 2022-07-01T10:09:02.303630Z [msghand] [validationinterface.cpp:202] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c fork block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 (in IBD=false) [0m
+[0;34m node0 2022-07-01T10:09:02.303662Z [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c block height=108 [0m
+[0;34m node0 2022-07-01T10:09:02.303805Z [scheduler] [validationinterface.cpp:202] [operator()] [validation] UpdatedBlockTip: new block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c fork block hash=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 (in IBD=false) [0m
+[0;34m node0 2022-07-01T10:09:02.303913Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.303932Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.304000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000002) [0m
+[0;34m node0 2022-07-01T10:09:02.355542Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.355635Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.356000Z TestFramework (DEBUG): saving spendable output CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016c nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c9c08ddb4d907269ce335662ecbbfda528b8b3ef1698ddc24ac)] wit=CTxWitness() nLockTime=0) [0m
+[0;36m test  2022-07-01T10:09:02.356000Z TestFramework (INFO): Reject a block of weight MAX_BLOCK_WEIGHT + 4 [0m
+[0;36m test  2022-07-01T10:09:02.370000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=8cd2799c6481f67f84bb85d1f22e6fbc062aeef999b47049b155c9d13a639e62 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000001)]) [0m
+[0;34m node0 2022-07-01T10:09:02.370899Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.371000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4)]) [0m
+[0;34m node0 2022-07-01T10:09:02.371034Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4 from  peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.371058Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.376000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=8cd2799c6481f67f84bb85d1f22e6fbc062aeef999b47049b155c9d13a639e62 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000001 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016c nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:02.381034Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (1000001 bytes) peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.384637Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4 peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.384674Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4 state=bad-blk-length, size limits failed [0m
+[0;34m node0 2022-07-01T10:09:02.384690Z [msghand] [net_processing.cpp:1470] [Misbehaving] [net] Misbehaving: peer=20 (0 -> 100) DISCOURAGE THRESHOLD EXCEEDED [0m
+[0;34m node0 2022-07-01T10:09:02.384702Z [msghand] [util/system.h:50] [error] ERROR: ProcessNewBlock: AcceptBlock FAILED (bad-blk-length, size limits failed) [0m
+[0;34m node0 2022-07-01T10:09:02.384781Z [msghand] [net_processing.cpp:4209] [MaybeDiscourageAndDisconnect] [net] Warning: disconnecting but not discouraging local peer 20! [0m
+[0;34m node0 2022-07-01T10:09:02.439904Z [net] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=20 [0m
+[0;34m node0 2022-07-01T10:09:02.439965Z [net] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=20 [0m
+[0;36m test  2022-07-01T10:09:02.440000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:02.473870Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.473957Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-07-01T10:09:02.474981Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;36m test  2022-07-01T10:09:02.475000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:02.475067Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.476000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:02.476000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_version(nVersion=70016 nServices=9 nTime=Fri Jul  1 03:09:02 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=16808) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x91DA835DF4D152A1 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) [0m
+[0;36m test  2022-07-01T10:09:02.476000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_version(nVersion=70016 nServices=1033 nTime=Fri Jul  1 03:09:02 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xEF9E93595E818E88 strSubVer=/Satoshi:23.99.0(testnode0)/ nStartingHeight=108 relay=1) [0m
+[0;34m node0 2022-07-01T10:09:02.476132Z [net] [net.cpp:2959] [CNode] [net] Added connection peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476164Z [net] [net.cpp:1257] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:49421 accepted [0m
+[0;34m node0 2022-07-01T10:09:02.476736Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: version (111 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476761Z [msghand] [net.cpp:2975] [PushMessage] [net] sending version (114 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476808Z [msghand] [net_processing.cpp:1243] [PushNodeVersion] [net] send version message: version 70016, blocks=108, txrelay=1, peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476824Z [msghand] [net.cpp:2975] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476854Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476893Z [msghand] [net.cpp:2975] [PushMessage] [net] sending verack (0 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.476955Z [msghand] [net_processing.cpp:2859] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:16808, txrelay=1, peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_getaddr() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendaddrv2() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendheaders() [0m
+[0;36m test  2022-07-01T10:09:02.477000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendcmpct(announce=False, version=2) [0m
+[0;34m node0 2022-07-01T10:09:02.477485Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477513Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: verack (0 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477556Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendheaders (0 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477604Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendcmpct (9 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477637Z [msghand] [net.cpp:2975] [PushMessage] [net] sending ping (8 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477659Z [msghand] [net_processing.cpp:4771] [SendMessages] [net] initial getheaders (107) to peer=21 (startheight:-1) [0m
+[0;34m node0 2022-07-01T10:09:02.477679Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getheaders (613 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477722Z [msghand] [net.cpp:2975] [PushMessage] [net] sending feefilter (8 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.477770Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: getaddr (0 bytes) peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.478000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_ping(nonce=caeb6b2d59db21bb) [0m
+[0;36m test  2022-07-01T10:09:02.478000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_pong(nonce=caeb6b2d59db21bb) [0m
+[0;36m test  2022-07-01T10:09:02.478000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getheaders(locator=CBlockLocator(vHave=[56842075037306511026530340726626359824524293831768913579155561982031962510839, 22685488613866935591032073362513864999115831412190057719524376992974856706531, 56554016531309409206809901901587899403309642567651820458402043478790992722123, 16462658763983006493129138582058926248991367193233935831512272874983526262622, 31300799512187793011683458947203003133596928618986597305906063066613374354001, 3201962089319025670023058768453832168099600324829670554193840... (msg truncated) [0m
+[0;36m test  2022-07-01T10:09:02.478000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_feefilter(feerate=000003e8) [0m
+[0;34m node0 2022-07-01T10:09:02.478372Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: pong (8 bytes) peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.525000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000001) [0m
+[0;36m test  2022-07-01T10:09:02.526000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:02.526528Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.526558Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.578150Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.578234Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.583000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4 hashMerkleRoot=6d5dcee36539f194da4265c785e6d33ad99a4ce687ad46ef04206d9c0c2fe58e nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000000)]) [0m
+[0;36m test  2022-07-01T10:09:02.583000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4), CInv(type=WitnessBlock hash=52c5bd3f58c850ce42d7303fa0cc03dfd960c8ef52d1f5901cc0bd665338a439)]) [0m
+[0;36m test  2022-07-01T10:09:02.583000Z TestFramework.p2p (DEBUG): getdata message type 0x40000002 received. [0m
+[0;34m node0 2022-07-01T10:09:02.583563Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.583648Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4 from  peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.583662Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 52c5bd3f58c850ce42d7303fa0cc03dfd960c8ef52d1f5901cc0bd665338a439 from  peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.583696Z [msghand] [net_processing.cpp:2333] [ProcessHeadersMessage] [net] Downloading blocks toward 52c5bd3f58c850ce42d7303fa0cc03dfd960c8ef52d1f5901cc0bd665338a439 (109) via headers direct fetch [0m
+[0;34m node0 2022-07-01T10:09:02.583708Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (73 bytes) peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.584000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=143bcfc377986539a6e240105140291928c1acdd2dc6c10b781f92b65bfc6bf4 hashMerkleRoot=6d5dcee36539f194da4265c785e6d33ad99a4ce687ad46ef04206d9c0c2fe58e nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000000 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016d nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:02.584318Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (311 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.584347Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 52c5bd3f58c850ce42d7303fa0cc03dfd960c8ef52d1f5901cc0bd665338a439 peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.633000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000002) [0m
+[0;36m test  2022-07-01T10:09:02.633000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000002) [0m
+[0;34m node0 2022-07-01T10:09:02.633812Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.633839Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.684000Z TestFramework (INFO): Reject a block with coinbase input script size out of range [0m
+[0;34m node0 2022-07-01T10:09:02.684181Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.684249Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.689000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=a93a9fb51e0a1959971f43d8e2269f06ba2ac92c3b0dd399bc113f04e6339c42 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000002)]) [0m
+[0;36m test  2022-07-01T10:09:02.689000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7)]) [0m
+[0;34m node0 2022-07-01T10:09:02.689544Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.689642Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7 from  peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.689657Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.690000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=a93a9fb51e0a1959971f43d8e2269f06ba2ac92c3b0dd399bc113f04e6339c42 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000002 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=00 nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c9c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:02.690364Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (310 bytes) peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.690398Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7 peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.690425Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7 state=bad-cb-length, Transaction check failed (tx hash ef0921d79a4987179e55de9b0e1c0aba3399bbc2621f4f7590204c3b6482e0cc) [0m
+[0;34m node0 2022-07-01T10:09:02.690440Z [msghand] [net_processing.cpp:1470] [Misbehaving] [net] Misbehaving: peer=21 (0 -> 100) DISCOURAGE THRESHOLD EXCEEDED [0m
+[0;34m node0 2022-07-01T10:09:02.690454Z [msghand] [util/system.h:50] [error] ERROR: ProcessNewBlock: AcceptBlock FAILED (bad-cb-length, Transaction check failed (tx hash ef0921d79a4987179e55de9b0e1c0aba3399bbc2621f4f7590204c3b6482e0cc) ) [0m
+[0;34m node0 2022-07-01T10:09:02.690468Z [msghand] [net_processing.cpp:4209] [MaybeDiscourageAndDisconnect] [net] Warning: disconnecting but not discouraging local peer 21! [0m
+[0;34m node0 2022-07-01T10:09:02.744646Z [net] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=21 [0m
+[0;34m node0 2022-07-01T10:09:02.744765Z [net] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=21 [0m
+[0;36m test  2022-07-01T10:09:02.745000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:02.795266Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.795340Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-07-01T10:09:02.796516Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.796592Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.797000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:02.797000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:02.797000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_version(nVersion=70016 nServices=9 nTime=Fri Jul  1 03:09:02 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=16808) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x800B47E242F88A8E strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) [0m
+[0;34m node0 2022-07-01T10:09:02.797635Z [net] [net.cpp:2959] [CNode] [net] Added connection peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.797676Z [net] [net.cpp:1257] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:49423 accepted [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_version(nVersion=70016 nServices=1033 nTime=Fri Jul  1 03:09:02 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x607A6A72CFB3054B strSubVer=/Satoshi:23.99.0(testnode0)/ nStartingHeight=108 relay=1) [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_getaddr() [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendaddrv2() [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:02.798000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendheaders() [0m
+[0;34m node0 2022-07-01T10:09:02.798195Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: version (111 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798224Z [msghand] [net.cpp:2975] [PushMessage] [net] sending version (114 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798286Z [msghand] [net_processing.cpp:1243] [PushNodeVersion] [net] send version message: version 70016, blocks=108, txrelay=1, peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798319Z [msghand] [net.cpp:2975] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798360Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798383Z [msghand] [net.cpp:2975] [PushMessage] [net] sending verack (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798455Z [msghand] [net_processing.cpp:2859] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:16808, txrelay=1, peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798833Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798856Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: verack (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798868Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendheaders (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798905Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendcmpct (9 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798937Z [msghand] [net.cpp:2975] [PushMessage] [net] sending ping (8 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.798976Z [msghand] [net_processing.cpp:4771] [SendMessages] [net] initial getheaders (108) to peer=22 (startheight:-1) [0m
+[0;34m node0 2022-07-01T10:09:02.798996Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getheaders (613 bytes) peer=22 [0m
+[0;36m test  2022-07-01T10:09:02.799000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendcmpct(announce=False, version=2) [0m
+[0;36m test  2022-07-01T10:09:02.799000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_ping(nonce=71a1cbc2ae1318ea) [0m
+[0;36m test  2022-07-01T10:09:02.799000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_pong(nonce=71a1cbc2ae1318ea) [0m
+[0;36m test  2022-07-01T10:09:02.799000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getheaders(locator=CBlockLocator(vHave=[9151934879765492728356415457737018501698796158178562624393978106626810080244, 56842075037306511026530340726626359824524293831768913579155561982031962510839, 22685488613866935591032073362513864999115831412190057719524376992974856706531, 56554016531309409206809901901587899403309642567651820458402043478790992722123, 16462658763983006493129138582058926248991367193233935831512272874983526262622, 31300799512187793011683458947203003133596928618986597305906063... (msg truncated) [0m
+[0;36m test  2022-07-01T10:09:02.799000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_feefilter(feerate=000003e8) [0m
+[0;34m node0 2022-07-01T10:09:02.799024Z [msghand] [net.cpp:2975] [PushMessage] [net] sending feefilter (8 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.799065Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: getaddr (0 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.799621Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: pong (8 bytes) peer=22 [0m
+[0;36m test  2022-07-01T10:09:02.852000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000001) [0m
+[0;36m test  2022-07-01T10:09:02.853000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:02.853359Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.853387Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.906432Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:02.906501Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:02.911000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7 hashMerkleRoot=38bbe265ea1fb335fc3280d326900ade071f480bbca252a700428690a1f30ff0 nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000002)]) [0m
+[0;36m test  2022-07-01T10:09:02.911000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7), CInv(type=WitnessBlock hash=53c2ad0c19214f55af1413aad3ff8120b893c4f20d9f56644e6ff843d11f48c4)]) [0m
+[0;36m test  2022-07-01T10:09:02.911000Z TestFramework.p2p (DEBUG): getdata message type 0x40000002 received. [0m
+[0;36m test  2022-07-01T10:09:02.911000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7 hashMerkleRoot=38bbe265ea1fb335fc3280d326900ade071f480bbca252a700428690a1f30ff0 nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000002 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016d nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:02.911428Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.911511Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 0ba0363c040f30b9cb13d8c1423cc6bb3f9fab644f38b356884873f59cd5dfb7 from  peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.911524Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 53c2ad0c19214f55af1413aad3ff8120b893c4f20d9f56644e6ff843d11f48c4 from  peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.911535Z [msghand] [net_processing.cpp:2333] [ProcessHeadersMessage] [net] Downloading blocks toward 53c2ad0c19214f55af1413aad3ff8120b893c4f20d9f56644e6ff843d11f48c4 (109) via headers direct fetch [0m
+[0;34m node0 2022-07-01T10:09:02.911546Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (73 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.912179Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (312 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.912210Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 53c2ad0c19214f55af1413aad3ff8120b893c4f20d9f56644e6ff843d11f48c4 peer=22 [0m
+[0;36m test  2022-07-01T10:09:02.961000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000002) [0m
+[0;36m test  2022-07-01T10:09:02.962000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000002) [0m
+[0;34m node0 2022-07-01T10:09:02.962083Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:02.962112Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:03.014537Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.014615Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:03.019000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=ec36ab37fac8b844a6f936023b06e37f43c37cf73adb5abd285c0016deba47c0 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000000)]) [0m
+[0;36m test  2022-07-01T10:09:03.019000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a)]) [0m
+[0;34m node0 2022-07-01T10:09:03.019578Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:03.019686Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a from  peer=22 [0m
+[0;34m node0 2022-07-01T10:09:03.019707Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=22 [0m
+[0;36m test  2022-07-01T10:09:03.020000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=7dab796f764e50755fa11cbbda77422b94bde36c07649382a40e41c607b315f7 hashMerkleRoot=ec36ab37fac8b844a6f936023b06e37f43c37cf73adb5abd285c0016deba47c0 nTime=Fri Jul  1 03:10:44 2022 nBits=207fffff nNonce=00000000 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:03.020320Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (410 bytes) peer=22 [0m
+[0;34m node0 2022-07-01T10:09:03.020357Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a peer=22 [0m
+[0;34m node0 2022-07-01T10:09:03.020398Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a state=bad-cb-length, Transaction check failed (tx hash 51274a9b919929f6b5c69f4e4b30de74c3632f33e65edf041616dcd43648f20f) [0m
+[0;34m node0 2022-07-01T10:09:03.020448Z [msghand] [net_processing.cpp:1470] [Misbehaving] [net] Misbehaving: peer=22 (0 -> 100) DISCOURAGE THRESHOLD EXCEEDED [0m
+[0;34m node0 2022-07-01T10:09:03.020483Z [msghand] [util/system.h:50] [error] ERROR: ProcessNewBlock: AcceptBlock FAILED (bad-cb-length, Transaction check failed (tx hash 51274a9b919929f6b5c69f4e4b30de74c3632f33e65edf041616dcd43648f20f) ) [0m
+[0;34m node0 2022-07-01T10:09:03.020502Z [msghand] [net_processing.cpp:4209] [MaybeDiscourageAndDisconnect] [net] Warning: disconnecting but not discouraging local peer 22! [0m
+[0;34m node0 2022-07-01T10:09:03.070685Z [net] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=22 [0m
+[0;34m node0 2022-07-01T10:09:03.070742Z [net] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=22 [0m
+[0;36m test  2022-07-01T10:09:03.071000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:16808 [0m
+[0;34m node0 2022-07-01T10:09:03.078394Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.078465Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-07-01T10:09:03.079486Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.079562Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:03.080000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:03.080000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:16808 [0m
+[0;36m test  2022-07-01T10:09:03.080000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_version(nVersion=70016 nServices=9 nTime=Fri Jul  1 03:09:03 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=16808) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x38EE99AC8B363B68 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) [0m
+[0;34m node0 2022-07-01T10:09:03.080595Z [net] [net.cpp:2959] [CNode] [net] Added connection peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.080628Z [net] [net.cpp:1257] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:49426 accepted [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_version(nVersion=70016 nServices=1033 nTime=Fri Jul  1 03:09:03 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x9CFD5E74CA112498 strSubVer=/Satoshi:23.99.0(testnode0)/ nStartingHeight=108 relay=1) [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_verack() [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_getaddr() [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_wtxidrelay() [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendaddrv2() [0m
+[0;36m test  2022-07-01T10:09:03.081000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_verack() [0m
+[0;34m node0 2022-07-01T10:09:03.081090Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: version (111 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.081116Z [msghand] [net.cpp:2975] [PushMessage] [net] sending version (114 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.081161Z [msghand] [net_processing.cpp:1243] [PushNodeVersion] [net] send version message: version 70016, blocks=108, txrelay=1, peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.081178Z [msghand] [net.cpp:2975] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.081195Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.081225Z [msghand] [net.cpp:2975] [PushMessage] [net] sending verack (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.081287Z [msghand] [net_processing.cpp:2859] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:16808, txrelay=1, peer=23 [0m
+[0;36m test  2022-07-01T10:09:03.082000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendheaders() [0m
+[0;36m test  2022-07-01T10:09:03.082000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_sendcmpct(announce=False, version=2) [0m
+[0;36m test  2022-07-01T10:09:03.082000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_ping(nonce=1ca345c88b28c1fd) [0m
+[0;36m test  2022-07-01T10:09:03.082000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_pong(nonce=1ca345c88b28c1fd) [0m
+[0;36m test  2022-07-01T10:09:03.082000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getheaders(locator=CBlockLocator(vHave=[9151934879765492728356415457737018501698796158178562624393978106626810080244, 56842075037306511026530340726626359824524293831768913579155561982031962510839, 22685488613866935591032073362513864999115831412190057719524376992974856706531, 56554016531309409206809901901587899403309642567651820458402043478790992722123, 16462658763983006493129138582058926248991367193233935831512272874983526262622, 31300799512187793011683458947203003133596928618986597305906063... (msg truncated) [0m
+[0;36m test  2022-07-01T10:09:03.082000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_feefilter(feerate=000003e8) [0m
+[0;34m node0 2022-07-01T10:09:03.082086Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082118Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: verack (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082129Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendheaders (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082168Z [msghand] [net.cpp:2975] [PushMessage] [net] sending sendcmpct (9 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082208Z [msghand] [net.cpp:2975] [PushMessage] [net] sending ping (8 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082262Z [msghand] [net_processing.cpp:4771] [SendMessages] [net] initial getheaders (108) to peer=23 (startheight:-1) [0m
+[0;34m node0 2022-07-01T10:09:03.082285Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getheaders (613 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082344Z [msghand] [net.cpp:2975] [PushMessage] [net] sending feefilter (8 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082408Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: getaddr (0 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.082993Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: pong (8 bytes) peer=23 [0m
+[0;36m test  2022-07-01T10:09:03.132000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:03.132851Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.132875Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=23 [0m
+[0;36m test  2022-07-01T10:09:03.133000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000001) [0m
+[0;34m node0 2022-07-01T10:09:03.183239Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.183314Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:03.188000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a hashMerkleRoot=b7cbee725abef8b3f1d26a9efe846cd968ba8f138482bc307cdfc35f17036ebc nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000000)]) [0m
+[0;36m test  2022-07-01T10:09:03.188000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a), CInv(type=WitnessBlock hash=1280828869553727308fc21b8c420c8f63478b8c43f613b7f42ab015dabfc846)]) [0m
+[0;34m node0 2022-07-01T10:09:03.188615Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.188714Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a from  peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.188729Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 1280828869553727308fc21b8c420c8f63478b8c43f613b7f42ab015dabfc846 from  peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.188742Z [msghand] [net_processing.cpp:2333] [ProcessHeadersMessage] [net] Downloading blocks toward 1280828869553727308fc21b8c420c8f63478b8c43f613b7f42ab015dabfc846 (109) via headers direct fetch [0m
+[0;34m node0 2022-07-01T10:09:03.188754Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (73 bytes) peer=23 [0m
+[0;36m test  2022-07-01T10:09:03.189000Z TestFramework.p2p (DEBUG): getdata message type 0x40000002 received. [0m
+[0;36m test  2022-07-01T10:09:03.189000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=447ee534834aedf954772e61308a2cbd0bea2b0733d75eafa7ef3136929fc71a hashMerkleRoot=b7cbee725abef8b3f1d26a9efe846cd968ba8f138482bc307cdfc35f17036ebc nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000000 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016d nSequence=4294967295)] vout=[CTxOut(nValue=99.99999999 scriptPubKey=2103225df8ee51ef126c... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:03.189431Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (312 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.189463Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 1280828869553727308fc21b8c420c8f63478b8c43f613b7f42ab015dabfc846 peer=23 [0m
+[0;36m test  2022-07-01T10:09:03.238000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000002) [0m
+[0;36m test  2022-07-01T10:09:03.239000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000002) [0m
+[0;34m node0 2022-07-01T10:09:03.239044Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.239069Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.289889Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.289959Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:03.290000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_headers(headers=[CBlockHeader(nVersion=4 hashPrevBlock=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c hashMerkleRoot=21871b17e8c3ffb404cd2d185bedeb3136e53b2d8c5feeb2ae93797ecfef5560 nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000001)]) [0m
+[0;36m test  2022-07-01T10:09:03.291000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_getdata(inv=[CInv(type=WitnessBlock hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1)]) [0m
+[0;36m test  2022-07-01T10:09:03.291000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_block(block=CBlock(nVersion=4 hashPrevBlock=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c hashMerkleRoot=21871b17e8c3ffb404cd2d185bedeb3136e53b2d8c5feeb2ae93797ecfef5560 nTime=Fri Jul  1 03:10:45 2022 nBits=207fffff nNonce=00000001 vtx=[CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016d00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000... (msg truncated) [0m
+[0;34m node0 2022-07-01T10:09:03.291218Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: headers (82 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.291305Z [msghand] [net_processing.cpp:2329] [ProcessHeadersMessage] [net] Requesting block 57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 from  peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.291319Z [msghand] [net.cpp:2975] [PushMessage] [net] sending getdata (37 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.291879Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: block (276 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.291906Z [msghand] [net_processing.cpp:3903] [ProcessMessage] [net] received block 57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.291968Z [msghand] [validationinterface.cpp:257] [NewPoWValidBlock] [validation] NewPoWValidBlock: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 [0m
+[0;34m node0 2022-07-01T10:09:03.292232Z [msghand] [validation.cpp:2699] [ConnectTip] [bench]   - Using cached block [0m
+[0;34m node0 2022-07-01T10:09:03.292251Z [msghand] [validation.cpp:2706] [ConnectTip] [bench]   - Load block from disk: 0.02ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292269Z [msghand] [validation.cpp:2049] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292284Z [msghand] [validation.cpp:2148] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292298Z [msghand] [validation.cpp:2233] [ConnectBlock] [bench]       - Connect 1 transactions: 0.01ms (0.012ms/tx, 0.000ms/txin) [0.01s (0.04ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292310Z [msghand] [validation.cpp:2246] [ConnectBlock] [bench]     - Verify 0 txins: 0.03ms (0.000ms/txin) [0.01s (0.09ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292501Z [msghand] [validation.cpp:2256] [ConnectBlock] [bench]     - Write undo data: 0.19ms [0.05s (0.36ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292517Z [msghand] [validation.cpp:2268] [ConnectBlock] [bench]     - Index writing: 0.02ms [0.01s (0.05ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292530Z [msghand] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 state=Valid [0m
+[0;34m node0 2022-07-01T10:09:03.292542Z [msghand] [validation.cpp:2718] [ConnectTip] [bench]   - Connect total: 0.29ms [0.09s (0.68ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292554Z [msghand] [validation.cpp:2723] [ConnectTip] [bench]   - Flush: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292564Z [msghand] [validation.cpp:2729] [ConnectTip] [bench]   - Writing chainstate: 0.01ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292625Z [msghand] [policy/fees.cpp:667] [processBlock] [estimatefee] Blockpolicy estimates updated by 0 of 0 block txs, since last block 0 of 0 tracked, mempool map size 0, max target 0 from current [0m
+[0;34m node0 2022-07-01T10:09:03.292647Z [msghand] [validation.cpp:2509] [UpdateTipLog] UpdateTip: new best=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 height=109 version=0x00000004 log2_work=7.781360 tx=118 date='2022-07-01T10:10:45Z' progress=1.000000 cache=0.0MiB(114txo) [0m
+[0;34m node0 2022-07-01T10:09:03.292658Z [msghand] [validation.cpp:2740] [ConnectTip] [bench]   - Connect postprocess: 0.09ms [0.04s (0.28ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292669Z [msghand] [validation.cpp:2741] [ConnectTip] [bench] - Connect block: 0.43ms [0.14s (1.06ms/blk)] [0m
+[0;34m node0 2022-07-01T10:09:03.292680Z [msghand] [txmempool.cpp:729] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-07-01T10:09:03.292698Z [msghand] [validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 block height=109 [0m
+[0;34m node0 2022-07-01T10:09:03.292730Z [msghand] [validationinterface.cpp:202] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 fork block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c (in IBD=false) [0m
+[0;34m node0 2022-07-01T10:09:03.292794Z [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 block height=109 [0m
+[0;34m node0 2022-07-01T10:09:03.292827Z [scheduler] [validationinterface.cpp:202] [operator()] [validation] UpdatedBlockTip: new block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 fork block hash=0f793f50c902dc9bb6471afa00695bb0d3478a5f550bd5dcf947c2f83b914c1c (in IBD=false) [0m
+[0;36m test  2022-07-01T10:09:03.341000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:16808: msg_ping(nonce=00000003) [0m
+[0;36m test  2022-07-01T10:09:03.342000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:16808: msg_pong(nonce=00000003) [0m
+[0;34m node0 2022-07-01T10:09:03.342258Z [msghand] [net_processing.cpp:2649] [ProcessMessage] [net] received: ping (8 bytes) peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.342282Z [msghand] [net.cpp:2975] [PushMessage] [net] sending pong (8 bytes) peer=23 [0m
+[0;36m test  2022-07-01T10:09:03.393000Z TestFramework (DEBUG): saving spendable output CTransaction(nVersion=2 vin=[CTxIn(prevout=COutPoint(hash=0000000000000000000000000000000000000000000000000000000000000000 n=4294967295) scriptSig=016d0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 nSequence=4294967295)] vout=[CTxOut(nValue=50.00000000 scriptPubKey=2103225df8ee51ef126c9c08ddb4d907269ce335662ecbbfda528b8b3ef1698ddc24ac)] wit=CTxWitness() nLockTime=0) [0m
+[0;36m test  2022-07-01T10:09:03.393000Z TestFramework (INFO): Accept a block with the max number of OP_CHECKMULTISIG sigops [0m
+[0;34m node0 2022-07-01T10:09:03.393225Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.393306Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;36m test  2022-07-01T10:09:03.399000Z TestFramework (ERROR): Unexpected exception caught during testing [0m
+[0;36m                                   Traceback (most recent call last):[0m
+[0;36m                                     File "/private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-apple-darwin/test/functional/test_framework/test_framework.py", line 133, in main[0m
+[0;36m                                       self.run_test()[0m
+[0;36m                                     File "/private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-apple-darwin/test/functional/feature_block.py", line 404, in run_test[0m
+[0;36m                                       assert_equal(get_legacy_sigopcount_block(b31), MAX_BLOCK_SIGOPS)[0m
+[0;36m                                     File "/private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-apple-darwin/test/functional/test_framework/blocktools.py", line 168, in get_legacy_sigopcount_block[0m
+[0;36m                                       count += get_legacy_sigopcount_tx(tx, accurate)[0m
+[0;36m                                     File "/private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-apple-darwin/test/functional/test_framework/blocktools.py", line 174, in get_legacy_sigopcount_tx[0m
+[0;36m                                       count += i.scriptPubKey.GetSigOpCount(accurate)[0m
+[0;36m                                   AttributeError: 'bytearray' object has no attribute 'GetSigOpCount'[0m
+[0;36m test  2022-07-01T10:09:03.402000Z TestFramework (DEBUG): Closing down network thread [0m
+[0;36m test  2022-07-01T10:09:03.452000Z TestFramework (INFO): Stopping nodes [0m
+[0;36m test  2022-07-01T10:09:03.453000Z TestFramework.node0 (DEBUG): Stopping node [0m
+[0;34m node0 2022-07-01T10:09:03.453457Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49322 [0m
+[0;34m node0 2022-07-01T10:09:03.453531Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;34m node0 2022-07-01T10:09:03.453622Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-07-01T10:09:03.453683Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-07-01T10:09:03.453697Z [init] [rpc/server.cpp:301] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-07-01T10:09:03.453897Z [init] [init.cpp:209] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-07-01T10:09:03.453961Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-07-01T10:09:03.453992Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-07-01T10:09:03.454041Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-07-01T10:09:03.454079Z [shutoff] [rpc/server.cpp:313] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-07-01T10:09:03.454123Z [addcon] [util/thread.cpp:19] [TraceThread] addcon thread exit [0m
+[0;34m node0 2022-07-01T10:09:03.454262Z [shutoff] [init.cpp:375] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-07-01T10:09:03.454278Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-07-01T10:09:03.454288Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-07-01T10:09:03.454372Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-07-01T10:09:03.454404Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-07-01T10:09:03.454482Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-07-01T10:09:03.498800Z [net] [util/thread.cpp:19] [TraceThread] net thread exit [0m
+[0;34m node0 2022-07-01T10:09:03.560276Z [msghand] [util/thread.cpp:19] [TraceThread] msghand thread exit [0m
+[0;34m node0 2022-07-01T10:09:03.568529Z [shutoff] [net.cpp:1728] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  8ms [0m
+[0;34m node0 2022-07-01T10:09:03.568549Z [shutoff] [net.cpp:568] [CloseSocketDisconnect] [net] disconnecting peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.568597Z [shutoff] [net_processing.cpp:1374] [FinalizeNode] [net] Cleared nodestate for peer=23 [0m
+[0;34m node0 2022-07-01T10:09:03.568730Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-07-01T10:09:03.570040Z [shutoff] [validation.cpp:4767] [DumpMempool] Writing 0 unbroadcast transactions to disk. [0m
+[0;34m node0 2022-07-01T10:09:03.573770Z [shutoff] [validation.cpp:4777] [DumpMempool] Dumped mempool: 2e-06s to copy, 0.003813s to dump [0m
+[0;34m node0 2022-07-01T10:09:03.573789Z [shutoff] [policy/fees.cpp:1010] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 1e-06s [0m
+[0;34m node0 2022-07-01T10:09:03.576764Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-07-01T10:09:03.583480Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (6.69ms) [0m
+[0;34m node0 2022-07-01T10:09:03.583557Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;34m node0 2022-07-01T10:09:03.587870Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (4.29ms) [0m
+[0;34m node0 2022-07-01T10:09:03.587903Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (114 coins, 22kB) started [0m
+[0;34m node0 2022-07-01T10:09:03.588002Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.01 MiB [0m
+[0;34m node0 2022-07-01T10:09:03.588101Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 114 changed transaction outputs (out of 114) to coin database... [0m
+[0;34m node0 2022-07-01T10:09:03.588116Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (114 coins, 22kB) completed (0.20ms) [0m
+[0;34m node0 2022-07-01T10:09:03.588132Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 [0m
+[0;34m node0 2022-07-01T10:09:03.588147Z [shutoff] [validationinterface.cpp:247] [operator()] [validation] ChainStateFlushed: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 [0m
+[0;34m node0 2022-07-01T10:09:03.588170Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-07-01T10:09:03.593114Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (4.80ms) [0m
+[0;34m node0 2022-07-01T10:09:03.593141Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;34m node0 2022-07-01T10:09:03.596070Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (2.91ms) [0m
+[0;34m node0 2022-07-01T10:09:03.596098Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 1kB) started [0m
+[0;34m node0 2022-07-01T10:09:03.596136Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;34m node0 2022-07-01T10:09:03.596177Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;34m node0 2022-07-01T10:09:03.596192Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 1kB) completed (0.08ms) [0m
+[0;34m node0 2022-07-01T10:09:03.596208Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=57699883e594d4b4e01e03e527da7fd560ceab9f62673d2a840c353b0d46a6d1 [0m
+[0;34m node0 2022-07-01T10:09:03.596883Z [shutoff] [init.cpp:326] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-07-01T10:09:03.621000Z TestFramework.node0 (DEBUG): Node stopped [0m
+[0;36m test  2022-07-01T10:09:03.621000Z TestFramework (WARNING): Not cleaning up dir /private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/test_runner/test_runner_₿_🏃_20220701_030852/feature_block_234 [0m
+[0;36m test  2022-07-01T10:09:03.621000Z TestFramework (ERROR): Test failed. Test logging available at /private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/test_runner/test_runner_₿_🏃_20220701_030852/feature_block_234/test_framework.log [0m
+[0;36m test  2022-07-01T10:09:03.621000Z TestFramework (ERROR): [0m
+[0;36m test  2022-07-01T10:09:03.621000Z TestFramework (ERROR): Hint: Call /private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-apple-darwin/test/functional/combine_logs.py '/private/var/folders/xx/vl5f934s6k927z1vyyl9cxth0000gn/T/cirrus-ci-build/ci/scratch/test_runner/test_runner_₿_🏃_20220701_030852/feature_block_234' to consolidate all logs [0m
+[0;36m test  2022-07-01T10:09:03.622000Z TestFramework (ERROR): [0m
+[0;36m test  2022-07-01T10:09:03.622000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log. [0m
+[0;36m test  2022-07-01T10:09:03.622000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues [0m
+[0;36m test  2022-07-01T10:09:03.622000Z TestFramework (ERROR): [0m
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.980s
+
+OK
+
+
+[1mTEST                                               | STATUS    | DURATION
+
+[0m[0;32mfeature_segwit.py --descriptors                    | ✓ Passed  | 6 s
+[0m[0;32mp2p_compactblocks.py                               | ✓ Passed  | 7 s
+[0m[0;32mp2p_compactblocks_blocksonly.py                    | ✓ Passed  | 2 s
+[0m[0;32mp2p_timeouts.py                                    | ✓ Passed  | 1 s
+[0m[0;32mwallet_hd.py --descriptors                         | ✓ Passed  | 6 s
+[0m[0;32mwallet_labels.py --descriptors                     | ✓ Passed  | 1 s
+[0m[0mfeature_segwit.py --legacy-wallet                  | ○ Skipped | 0 s
+[0m[0mrpc_fundrawtransaction.py --legacy-wallet          | ○ Skipped | 0 s
+[0m[0mwallet_backup.py --legacy-wallet                   | ○ Skipped | 0 s
+[0m[0mwallet_basic.py --legacy-wallet                    | ○ Skipped | 0 s
+[0m[0mwallet_dump.py --legacy-wallet                     | ○ Skipped | 0 s
+[0m[0mwallet_hd.py --legacy-wallet                       | ○ Skipped | 0 s
+[0m[0mwallet_labels.py --legacy-wallet                   | ○ Skipped | 0 s
+[0m[0;31mfeature_block.py                                   | ✖ Failed  | 9 s
+[0m[0;31m[1m
+ALL                                                | ✖ Failed  | 32 s (accumulated) 
+[0m[0mRuntime: 9 s
+
+                                                                                                                                                                                                                              

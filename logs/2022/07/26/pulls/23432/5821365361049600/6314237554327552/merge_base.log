@@ -1,0 +1,70 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-26 12:55:58.393 xcodebuild[701:5952] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-26 12:55:58.394 xcodebuild[701:5952] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/00_setup_env_native_fuzz_with_valgrind.sh |  2 +-
+ ci/test/00_setup_env_native_valgrind.sh           |  2 +-
+ ci/test/06_script_b.sh                            |  2 ++
+ contrib/valgrind.supp                             | 21 ------------
+ src/.clang-tidy                                   |  2 ++
+ src/blockfilter.cpp                               |  2 +-
+ src/chain.cpp                                     |  7 ++++
+ src/chain.h                                       | 24 +++-----------
+ src/chainparams.cpp                               |  2 +-
+ src/crypto/muhash.cpp                             |  4 +--
+ src/external_signer.cpp                           |  2 +-
+ src/hash.cpp                                      |  4 +--
+ src/hash.h                                        | 36 +++++++++++++-------
+ src/kernel/coinstats.cpp                          |  8 ++---
+ src/net.cpp                                       | 10 +++---
+ src/node/blockstorage.cpp                         |  2 +-
+ src/node/chainstate.cpp                           |  2 ++
+ src/node/chainstate.h                             |  4 +--
+ src/primitives/transaction.cpp                    |  7 +++-
+ src/primitives/transaction.h                      | 14 ++++++--
+ src/psbt.h                                        |  3 ++
+ src/pubkey.cpp                                    |  6 ++--
+ src/qt/bitcoingui.cpp                             |  8 +++--
+ src/random.h                                      | 17 +++++++---
+ src/rpc/blockchain.cpp                            | 25 +++++++-------
+ src/rpc/mining.cpp                                |  4 +--
+ src/rpc/net.cpp                                   | 20 ++++++------
+ src/rpc/node.cpp                                  |  6 ++--
+ src/rpc/rawtransaction.cpp                        | 32 +++++++++---------
+ src/script/interpreter.cpp                        | 32 +++++++++---------
+ src/script/interpreter.h                          |  6 ++--
+ src/script/sign.cpp                               |  2 +-
+ src/script/standard.cpp                           |  8 ++---
+ src/test/fuzz/chain.cpp                           |  3 +-
+ src/test/fuzz/parse_univalue.cpp                  |  2 +-
+ src/test/fuzz/tx_pool.cpp                         | 10 ++----
+ src/test/fuzz/txorphan.cpp                        |  2 +-
+ src/test/random_tests.cpp                         | 10 ++++++
+ src/test/script_tests.cpp                         | 26 +++++++--------
+ src/threadinterrupt.cpp                           | 12 +------
+ src/threadinterrupt.h                             |  5 ++-
+ src/txdb.cpp                                      |  2 +-
+ src/univalue/include/univalue.h                   | 40 +++++++++++------------
+ src/util/message.cpp                              |  2 +-
+ src/util/system.cpp                               |  2 +-
+ src/validation.cpp                                |  1 -
+ src/wallet/dump.cpp                               |  4 +--
+ src/wallet/rpc/addresses.cpp                      | 28 ++++++++--------
+ src/wallet/rpc/backup.cpp                         | 40 +++++++++++------------
+ src/wallet/rpc/coins.cpp                          | 16 ++++-----
+ src/wallet/rpc/encrypt.cpp                        | 14 ++++----
+ src/wallet/rpc/signmessage.cpp                    |  2 +-
+ src/wallet/rpc/spend.cpp                          | 20 ++++++------
+ src/wallet/rpc/transactions.cpp                   | 18 +++++-----
+ src/wallet/rpc/wallet.cpp                         | 14 ++++----
+ src/wallet/test/wallet_tests.cpp                  |  2 +-
+ test/functional/wallet_address_types.py           | 28 +++++-----------
+ 57 files changed, 312 insertions(+), 317 deletions(-)

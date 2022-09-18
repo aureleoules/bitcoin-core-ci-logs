@@ -1,0 +1,32 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-22 15:08:33.630 xcodebuild[700:5657] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-22 15:08:33.631 xcodebuild[700:5657] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/00_setup_env_native_fuzz_with_valgrind.sh |  2 +-
+ ci/test/00_setup_env_native_valgrind.sh           |  2 +-
+ contrib/valgrind.supp                             | 21 -------------
+ src/chainparams.cpp                               |  2 +-
+ src/crypto/muhash.cpp                             |  4 +--
+ src/hash.cpp                                      |  4 +--
+ src/hash.h                                        | 36 +++++++++++++++--------
+ src/kernel/coinstats.cpp                          |  8 ++---
+ src/node/blockstorage.cpp                         |  2 +-
+ src/node/chainstate.cpp                           |  2 ++
+ src/node/chainstate.h                             |  4 +--
+ src/pubkey.cpp                                    |  6 ++--
+ src/script/interpreter.cpp                        | 32 ++++++++++----------
+ src/script/interpreter.h                          |  6 ++--
+ src/script/sign.cpp                               |  2 +-
+ src/script/standard.cpp                           |  8 ++---
+ src/test/script_tests.cpp                         |  2 +-
+ src/util/message.cpp                              |  2 +-
+ src/wallet/dump.cpp                               |  4 +--
+ 19 files changed, 71 insertions(+), 78 deletions(-)

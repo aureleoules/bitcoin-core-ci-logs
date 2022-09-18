@@ -1,0 +1,25 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-26 10:55:15.734 xcodebuild[705:6122] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-26 10:55:15.735 xcodebuild[705:6122] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_b.sh    |  1 +
+ src/.clang-tidy           |  2 ++
+ src/blockfilter.cpp       |  2 +-
+ src/external_signer.cpp   |  2 +-
+ src/net.cpp               | 10 +++++-----
+ src/random.h              | 17 ++++++++++++-----
+ src/test/random_tests.cpp | 10 ++++++++++
+ src/threadinterrupt.cpp   | 12 +-----------
+ src/threadinterrupt.h     |  5 ++---
+ src/util/system.cpp       |  2 +-
+ src/wallet/rpc/backup.cpp |  2 +-
+ src/wallet/rpc/wallet.cpp |  2 +-
+ 12 files changed, 38 insertions(+), 29 deletions(-)

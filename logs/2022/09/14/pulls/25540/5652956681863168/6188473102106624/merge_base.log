@@ -1,0 +1,592 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5,652 kB]
+Get:6 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:10 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8,372 B]
+Get:11 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [554 kB]
+Get:12 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [131 kB]
+Get:13 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [8,320 B]
+Get:14 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [310 kB]
+Get:15 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [48.0 kB]
+Get:16 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [274 kB]
+Get:17 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [88.7 kB]
+Get:18 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [4,404 B]
+Get:19 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [7,000 B]
+Get:20 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [2,264 B]
+Get:21 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [420 B]
+Get:22 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [3,008 B]
+Get:23 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [1,432 B]
+Get:24 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [272 B]
+Get:25 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:26 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [6,752 B]
+Get:27 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [9,216 B]
+Get:28 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [352 B]
+Get:29 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:30 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [299 kB]
+Get:31 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [70.7 kB]
+Get:32 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [274 kB]
+Get:33 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [42.3 kB]
+Get:34 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [139 kB]
+Get:35 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [46.2 kB]
+Get:36 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [2,408 B]
+Get:37 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [4,192 B]
+Get:38 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [900 B]
+Get:39 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+Fetched 23.0 MB in 2s (9,611 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+git set to manually installed.
+The following packages were automatically installed and are no longer required:
+  libatasmart4 libblockdev-fs2 libblockdev-loop2 libblockdev-part-err2
+  libblockdev-part2 libblockdev-swap2 libblockdev-utils2 libblockdev2
+  libflashrom1 libftdi1-2 libmbim-glib4 libmbim-proxy libmm-glib0 libnspr4
+  libnss3 libnuma1 libparted-fs-resize0 libqmi-glib5 libqmi-proxy libtcl8.6
+  libudisks2-0 tcl tcl8.6 usb-modeswitch usb-modeswitch-data
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/test/miniscript_tests.cpp
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                        |   26 +-
+ .tx/config                                         |    2 +-
+ Makefile.am                                        |    2 +
+ REVIEWERS                                          |  123 -
+ SECURITY.md                                        |    2 +-
+ build-aux/m4/ax_boost_base.m4                      |   14 +-
+ build-aux/m4/l_atomic.m4                           |    5 +-
+ build_msvc/README.md                               |    2 +-
+ build_msvc/common.init.vcxproj.in                  |    2 +-
+ ci/test/00_setup_env_native_asan.sh                |   11 +-
+ ci/test/00_setup_env_native_fuzz_with_valgrind.sh  |    2 +-
+ ci/test/00_setup_env_native_qt5.sh                 |    2 +-
+ ci/test/00_setup_env_native_tidy.sh                |    2 +-
+ ci/test/00_setup_env_native_valgrind.sh            |    2 +-
+ ci/test/04_install.sh                              |    8 +
+ ci/test/05_before_script.sh                        |    4 +-
+ ci/test/06_script_b.sh                             |   11 +-
+ ci/test/wrap-qemu.sh                               |    2 +-
+ ci/test/wrap-wine.sh                               |    2 +-
+ configure.ac                                       |   55 +-
+ contrib/devtools/iwyu/bitcoin.core.imp             |    1 +
+ contrib/guix/INSTALL.md                            |    4 +-
+ contrib/guix/README.md                             |    2 +-
+ contrib/guix/libexec/build.sh                      |    3 +-
+ contrib/guix/manifest.scm                          |   60 +-
+ contrib/guix/patches/glibc-2.24-guix-prefix.patch  |    2 +-
+ contrib/guix/patches/glibc-2.27-guix-prefix.patch  |    2 +-
+ .../patches/nsis-disable-installer-reloc.patch     |   30 +
+ contrib/message-capture/message-capture-parser.py  |    3 +-
+ contrib/seeds/makeseeds.py                         |    7 +-
+ contrib/seeds/nodes_main.txt                       | 1502 +++++----
+ contrib/seeds/nodes_main_manual.txt                |   77 +-
+ contrib/seeds/nodes_test.txt                       |   99 +-
+ contrib/signet/miner                               |  101 +-
+ contrib/valgrind.supp                              |   21 -
+ depends/config.site.in                             |   15 +-
+ depends/hosts/darwin.mk                            |    3 +
+ depends/hosts/default.mk                           |    3 +-
+ depends/hosts/linux.mk                             |    4 +
+ depends/hosts/mingw32.mk                           |    4 +
+ depends/hosts/netbsd.mk                            |    4 +
+ depends/packages/bdb.mk                            |    2 +-
+ depends/packages/expat.mk                          |    8 +-
+ depends/packages/libxcb.mk                         |    3 +-
+ depends/packages/native_cctools.mk                 |   14 +-
+ depends/packages/native_clang.mk                   |    3 +
+ depends/packages/native_ds_store.mk                |    2 +-
+ depends/packages/native_libtapi.mk                 |    4 +-
+ depends/packages/native_mac_alias.mk               |    2 +-
+ depends/packages/qt.mk                             |   52 +-
+ depends/patches/libxcb/remove_pthread_stubs.patch  |   12 +
+ depends/patches/qt/dont_hardcode_x86_64.patch      |    4 +-
+ .../patches/qt/fast_fixed_dtoa_no_optimize.patch   |   20 +
+ depends/patches/qt/fix_android_jni_static.patch    |    2 +-
+ depends/patches/qt/fix_limits_header.patch         |   33 -
+ depends/patches/qt/guix_cross_lib_path.patch       |   17 +
+ doc/bitcoin-conf.md                                |    2 +
+ doc/build-osx.md                                   |    8 -
+ doc/dependencies.md                                |    2 +-
+ doc/descriptors.md                                 |   10 +-
+ doc/design/assumeutxo.md                           |    4 +-
+ doc/developer-notes.md                             |   10 +-
+ doc/i2p.md                                         |   26 +-
+ doc/managing-wallets.md                            |   27 +-
+ doc/policy/README.md                               |    2 +-
+ doc/policy/mempool-replacements.md                 |    2 +-
+ doc/policy/packages.md                             |    4 +-
+ doc/release-notes-19602.md                         |    9 +
+ doc/release-notes-24148.md                         |   23 +
+ doc/release-notes-25355.md                         |    8 +
+ doc/release-notes-25504.md                         |    6 +
+ doc/release-notes-25610.md                         |   12 +
+ share/setup.nsi.in                                 |    9 +-
+ src/.clang-tidy                                    |   15 +
+ src/Makefile.am                                    |   57 +-
+ src/Makefile.bench.include                         |   12 +-
+ src/Makefile.qt.include                            |    2 +-
+ src/Makefile.qttest.include                        |    2 +-
+ src/Makefile.test.include                          |   31 +-
+ src/Makefile.test_fuzz.include                     |    3 +-
+ src/Makefile.test_util.include                     |    2 +-
+ src/addrman.cpp                                    |  151 +-
+ src/addrman.h                                      |   26 +-
+ src/addrman_impl.h                                 |   42 +-
+ src/bench/addrman.cpp                              |    2 +-
+ src/bench/checkblock.cpp                           |    1 +
+ src/bench/coin_selection.cpp                       |    6 +-
+ src/bench/descriptors.cpp                          |   30 +
+ src/bench/wallet_loading.cpp                       |    7 +-
+ src/bitcoin-chainstate.cpp                         |   52 +-
+ src/bitcoin-cli.cpp                                |    6 +-
+ src/bitcoin-tx.cpp                                 |    4 +-
+ src/bitcoin-util.cpp                               |    2 +-
+ src/bitcoin-wallet.cpp                             |    2 +-
+ src/bitcoind.cpp                                   |    2 +-
+ src/blockfilter.cpp                                |   20 +-
+ src/blockfilter.h                                  |   11 +-
+ src/chain.cpp                                      |   62 +-
+ src/chain.h                                        |   42 +-
+ src/chainparams.cpp                                |   42 +-
+ src/chainparamsseeds.h                             | 1174 ++++---
+ src/coins.cpp                                      |    8 +-
+ src/{ => compat}/compat.h                          |   46 +-
+ src/consensus/params.h                             |    5 +
+ src/consensus/validation.h                         |    1 +
+ src/core_read.cpp                                  |    2 +-
+ src/crc32c/CMakeLists.txt                          |    7 +-
+ src/crypto/muhash.cpp                              |    4 +-
+ src/cuckoocache.h                                  |   23 +-
+ src/dbwrapper.cpp                                  |   19 +-
+ src/dbwrapper.h                                    |   16 +-
+ src/external_signer.cpp                            |    4 +-
+ src/fs.h                                           |    6 +
+ src/hash.cpp                                       |    6 +-
+ src/hash.h                                         |   36 +-
+ src/headerssync.cpp                                |  317 ++
+ src/headerssync.h                                  |  277 ++
+ src/httpserver.cpp                                 |    8 +-
+ src/i2p.cpp                                        |   65 +-
+ src/i2p.h                                          |   21 +-
+ src/index/base.cpp                                 |   68 +-
+ src/index/base.h                                   |   32 +-
+ src/index/blockfilterindex.cpp                     |   50 +-
+ src/index/blockfilterindex.h                       |   17 +-
+ src/index/coinstatsindex.cpp                       |   74 +-
+ src/index/coinstatsindex.h                         |   21 +-
+ src/index/txindex.cpp                              |   17 +-
+ src/index/txindex.h                                |    4 +-
+ src/init.cpp                                       |  302 +-
+ src/init/common.cpp                                |   30 +-
+ src/init/common.h                                  |    1 +
+ src/interfaces/chain.h                             |   34 +-
+ src/interfaces/node.h                              |    2 +-
+ src/interfaces/wallet.h                            |   44 +-
+ src/kernel/chain.cpp                               |   26 +
+ src/kernel/chain.h                                 |   19 +
+ src/kernel/chainstatemanager_opts.h                |    4 +-
+ src/kernel/checks.cpp                              |   11 +-
+ src/kernel/checks.h                                |   10 +-
+ src/kernel/coinstats.cpp                           |   24 +-
+ src/kernel/coinstats.h                             |    6 +-
+ src/kernel/mempool_options.h                       |   19 +
+ src/kernel/mempool_persist.cpp                     |  189 ++
+ src/kernel/mempool_persist.h                       |   28 +
+ src/kernel/validation_cache_sizes.h                |   20 +
+ src/key.cpp                                        |    1 +
+ src/key.h                                          |    4 +-
+ src/leveldb/util/env_posix.cc                      |    2 +-
+ src/logging.cpp                                    |   85 +-
+ src/logging.h                                      |   55 +-
+ src/mapport.cpp                                    |    2 +-
+ src/mempool_args.cpp                               |   39 -
+ src/net.cpp                                        |  188 +-
+ src/net.h                                          |  106 +-
+ src/net_processing.cpp                             |  760 ++++-
+ src/net_processing.h                               |    2 +
+ src/netaddress.h                                   |    2 +-
+ src/netbase.cpp                                    |    8 +-
+ src/netbase.h                                      |    2 +-
+ src/node/blockstorage.cpp                          |   16 +-
+ src/node/blockstorage.h                            |    8 +-
+ src/node/chainstate.cpp                            |  139 +-
+ src/node/chainstate.h                              |   85 +-
+ src/node/interface_ui.cpp                          |    2 +-
+ src/node/interface_ui.h                            |    2 +-
+ src/node/interfaces.cpp                            |  114 +-
+ src/node/mempool_args.cpp                          |  100 +
+ src/{ => node}/mempool_args.h                      |   13 +-
+ src/node/mempool_persist_args.cpp                  |   23 +
+ src/node/mempool_persist_args.h                    |   25 +
+ src/node/miner.cpp                                 |    8 +-
+ src/node/miner.h                                   |    6 +-
+ src/node/psbt.cpp                                  |    2 +-
+ src/node/utxo_snapshot.h                           |    2 +-
+ src/node/validation_cache_args.cpp                 |   34 +
+ src/node/validation_cache_args.h                   |   17 +
+ src/outputtype.cpp                                 |   12 +-
+ src/outputtype.h                                   |    1 +
+ src/policy/fees.cpp                                |   16 +-
+ src/policy/fees.h                                  |    6 +-
+ src/policy/policy.cpp                              |   13 +-
+ src/policy/policy.h                                |   10 +-
+ src/policy/rbf.cpp                                 |   12 +-
+ src/policy/rbf.h                                   |   30 +-
+ src/policy/settings.cpp                            |    5 -
+ src/policy/settings.h                              |   29 -
+ src/pow.cpp                                        |   51 +
+ src/pow.h                                          |   14 +
+ src/primitives/block.h                             |    8 +-
+ src/primitives/transaction.cpp                     |    7 +-
+ src/primitives/transaction.h                       |   14 +-
+ src/protocol.cpp                                   |    7 +-
+ src/protocol.h                                     |   11 +-
+ src/psbt.h                                         |   12 +
+ src/pubkey.cpp                                     |    7 +-
+ src/pubkey.h                                       |    4 +-
+ src/qt/addresstablemodel.cpp                       |    2 +-
+ src/qt/bitcoin.cpp                                 |    4 +-
+ src/qt/bitcoingui.cpp                              |   40 +-
+ src/qt/bitcoingui.h                                |    5 +-
+ src/qt/bitcoinstrings.cpp                          |   43 +-
+ src/qt/clientmodel.cpp                             |   18 +-
+ src/qt/clientmodel.h                               |   10 +-
+ src/qt/forms/intro.ui                              |    2 +-
+ src/qt/guiutil.cpp                                 |    2 +-
+ src/qt/locale/bitcoin_en.ts                        |  575 ++--
+ src/qt/locale/bitcoin_en.xlf                       | 3546 ++++++++++----------
+ src/qt/main.cpp                                    |    2 +-
+ src/qt/modaloverlay.cpp                            |   12 +-
+ src/qt/modaloverlay.h                              |    3 +-
+ src/qt/optionsdialog.cpp                           |    1 +
+ src/qt/overviewpage.cpp                            |   23 +-
+ src/qt/overviewpage.h                              |    1 -
+ src/qt/rpcconsole.cpp                              |   12 +-
+ src/qt/rpcconsole.h                                |    4 +-
+ src/qt/sendcoinsdialog.cpp                         |   14 +-
+ src/qt/sendcoinsdialog.h                           |    6 +-
+ src/qt/splashscreen.cpp                            |    2 +-
+ src/qt/test/test_main.cpp                          |    2 -
+ src/qt/test/wallettests.cpp                        |   32 +-
+ src/qt/walletcontroller.cpp                        |   27 +-
+ src/qt/walletframe.cpp                             |    8 +
+ src/qt/walletmodel.cpp                             |   29 +-
+ src/qt/walletmodel.h                               |    8 +
+ src/random.cpp                                     |    2 +-
+ src/random.h                                       |   17 +-
+ src/randomenv.cpp                                  |    2 +-
+ src/rest.cpp                                       |   55 +-
+ src/rpc/blockchain.cpp                             |   52 +-
+ src/rpc/blockchain.h                               |    6 +-
+ src/rpc/client.cpp                                 |    3 +
+ src/rpc/fees.cpp                                   |    5 +-
+ src/rpc/mempool.cpp                                |   31 +-
+ src/rpc/mining.cpp                                 |   30 +-
+ src/rpc/net.cpp                                    |   43 +-
+ src/rpc/node.cpp                                   |    6 +-
+ src/rpc/output_script.cpp                          |    5 -
+ src/rpc/rawtransaction.cpp                         |   42 +-
+ src/rpc/rawtransaction_util.cpp                    |   11 +-
+ src/rpc/rawtransaction_util.h                      |    3 +-
+ src/rpc/request.cpp                                |    6 +-
+ src/rpc/txoutproof.cpp                             |    2 +-
+ src/rpc/util.cpp                                   |    5 +-
+ src/script/descriptor.cpp                          |   62 +-
+ src/script/interpreter.cpp                         |   32 +-
+ src/script/interpreter.h                           |   10 +-
+ src/script/script.h                                |    2 +-
+ src/script/sigcache.cpp                            |   18 +-
+ src/script/sigcache.h                              |   11 +-
+ src/script/sign.cpp                                |   31 +-
+ src/script/sign.h                                  |    8 +-
+ src/script/signingprovider.cpp                     |   22 +-
+ src/script/signingprovider.h                       |    5 +-
+ src/script/standard.cpp                            |   11 +-
+ src/script/standard.h                              |   11 +-
+ src/serialize.h                                    |   23 +
+ src/streams.h                                      |   69 +-
+ src/sync.h                                         |    2 +-
+ src/test/addrman_tests.cpp                         |   26 +-
+ src/test/base58_tests.cpp                          |    4 +-
+ src/test/bip32_tests.cpp                           |   18 +
+ src/test/blockfilter_index_tests.cpp               |   19 +-
+ src/test/blockfilter_tests.cpp                     |    2 +-
+ src/test/coinstatsindex_tests.cpp                  |   29 +-
+ src/test/denialofservice_tests.cpp                 |   43 +-
+ src/test/descriptor_tests.cpp                      |  125 +-
+ src/test/flatfile_tests.cpp                        |   12 +-
+ src/test/fuzz/addrman.cpp                          |   18 +-
+ src/test/fuzz/autofile.cpp                         |    4 +-
+ src/test/fuzz/bitdeque.cpp                         |  542 +++
+ src/test/fuzz/chain.cpp                            |    3 +-
+ src/test/fuzz/integer.cpp                          |    3 -
+ src/test/fuzz/key.cpp                              |    6 +-
+ src/test/fuzz/load_external_block_file.cpp         |   11 +-
+ src/test/fuzz/mempool_utils.h                      |   19 +
+ src/test/fuzz/net.cpp                              |    1 -
+ src/test/fuzz/parse_univalue.cpp                   |    2 +-
+ src/test/fuzz/policy_estimator.cpp                 |    2 +-
+ src/test/fuzz/policy_estimator_io.cpp              |    2 +-
+ src/test/fuzz/pow.cpp                              |   37 +
+ src/test/fuzz/rbf.cpp                              |    2 +-
+ src/test/fuzz/script.cpp                           |    3 +-
+ src/test/fuzz/script_sigcache.cpp                  |   11 +-
+ src/test/fuzz/transaction.cpp                      |    5 +-
+ src/test/fuzz/tx_pool.cpp                          |   35 +-
+ src/test/fuzz/txorphan.cpp                         |   23 +-
+ src/test/fuzz/util.cpp                             |    7 +-
+ src/test/fuzz/util.h                               |   24 +-
+ src/test/fuzz/utxo_snapshot.cpp                    |    6 +-
+ src/test/fuzz/validation_load_mempool.cpp          |   17 +-
+ src/test/headers_sync_chainwork_tests.cpp          |  146 +
+ src/test/i2p_tests.cpp                             |    6 +-
+ src/test/interfaces_tests.cpp                      |    6 +-
+ src/test/key_io_tests.cpp                          |    6 +-
+ src/test/logging_tests.cpp                         |  125 +-
+ src/test/miner_tests.cpp                           |   18 +-
+ src/test/miniscript_tests.cpp                      |    2 +
+ src/test/multisig_tests.cpp                        |   22 +-
+ src/test/net_tests.cpp                             |   27 +-
+ src/test/netbase_tests.cpp                         |   18 +-
+ src/test/pow_tests.cpp                             |   27 +-
+ src/test/random_tests.cpp                          |   10 +
+ src/test/rbf_tests.cpp                             |  230 ++
+ src/test/result_tests.cpp                          |   96 +
+ src/test/rpc_tests.cpp                             |    4 +-
+ src/test/script_p2sh_tests.cpp                     |   14 +-
+ src/test/script_tests.cpp                          |   28 +-
+ src/test/sighash_tests.cpp                         |    2 +-
+ src/test/skiplist_tests.cpp                        |    8 +-
+ src/test/sock_tests.cpp                            |    2 +-
+ src/test/system_tests.cpp                          |    5 -
+ src/test/transaction_tests.cpp                     |   30 +-
+ src/test/txindex_tests.cpp                         |    5 +-
+ src/test/txvalidationcache_tests.cpp               |    5 -
+ src/test/util/chainstate.h                         |   13 +-
+ src/test/util/mining.cpp                           |    2 +-
+ src/test/util/net.cpp                              |    7 +-
+ src/test/util/net.h                                |    4 +-
+ src/test/util/setup_common.cpp                     |   60 +-
+ src/test/util/setup_common.h                       |    4 +-
+ src/test/util/validation.h                         |    2 +-
+ src/test/util/wallet.cpp                           |    6 +-
+ src/test/util_tests.cpp                            |   35 +-
+ src/test/validation_block_tests.cpp                |   17 +-
+ src/test/validation_chainstate_tests.cpp           |   21 +-
+ src/test/validation_chainstatemanager_tests.cpp    |   48 +-
+ src/test/validation_flush_tests.cpp                |   13 +-
+ src/threadinterrupt.cpp                            |   12 +-
+ src/threadinterrupt.h                              |    6 +-
+ src/timedata.cpp                                   |    4 +-
+ src/timedata.h                                     |    9 +-
+ src/torcontrol.cpp                                 |    2 +-
+ src/txdb.cpp                                       |    2 +-
+ src/txdb.h                                         |    1 +
+ src/txmempool.cpp                                  |   70 +-
+ src/txmempool.h                                    |   36 +-
+ src/txorphanage.cpp                                |    4 +-
+ src/txorphanage.h                                  |    2 +-
+ src/univalue/include/univalue.h                    |  105 +-
+ src/univalue/lib/univalue.cpp                      |   84 +-
+ src/univalue/lib/univalue_get.cpp                  |   19 +-
+ src/univalue/sources.mk                            |    9 +-
+ src/univalue/test/.gitignore                       |    1 -
+ src/univalue/test/no_nul.cpp                       |    8 -
+ src/univalue/test/object.cpp                       |  119 +-
+ src/univalue/test/unitester.cpp                    |    8 +
+ src/util/asmap.cpp                                 |    2 +-
+ src/util/bip32.cpp                                 |    2 -
+ src/util/bitdeque.h                                |  469 +++
+ src/util/message.cpp                               |    3 +-
+ src/util/result.h                                  |   87 +-
+ src/util/sock.cpp                                  |    2 +-
+ src/util/sock.h                                    |    2 +-
+ src/util/strencodings.cpp                          |    1 -
+ src/util/string.cpp                                |    8 +-
+ src/util/string.h                                  |   39 +-
+ src/util/system.cpp                                |   18 +-
+ src/util/system.h                                  |    4 +-
+ src/util/time.cpp                                  |    2 +-
+ src/util/time.h                                    |    4 +-
+ src/validation.cpp                                 |  472 ++-
+ src/validation.h                                   |  167 +-
+ src/wallet/bdb.cpp                                 |    3 +-
+ src/wallet/coinselection.cpp                       |   59 +-
+ src/wallet/coinselection.h                         |   48 +-
+ src/wallet/dump.cpp                                |    4 +-
+ src/wallet/external_signer_scriptpubkeyman.cpp     |    3 +-
+ src/wallet/feebumper.cpp                           |  104 +-
+ src/wallet/feebumper.h                             |   66 +-
+ src/wallet/fees.cpp                                |    2 +-
+ src/wallet/interfaces.cpp                          |   41 +-
+ src/wallet/load.cpp                                |    2 +-
+ src/wallet/receive.cpp                             |   82 +-
+ src/wallet/receive.h                               |    9 +-
+ src/wallet/rpc/addresses.cpp                       |   38 +-
+ src/wallet/rpc/backup.cpp                          |  119 +-
+ src/wallet/rpc/coins.cpp                           |   22 +-
+ src/wallet/rpc/encrypt.cpp                         |   14 +-
+ src/wallet/rpc/signmessage.cpp                     |    2 +-
+ src/wallet/rpc/spend.cpp                           |   74 +-
+ src/wallet/rpc/transactions.cpp                    |   43 +-
+ src/wallet/rpc/util.cpp                            |   18 +-
+ src/wallet/rpc/util.h                              |    4 +
+ src/wallet/rpc/wallet.cpp                          |  180 +-
+ src/wallet/scriptpubkeyman.cpp                     |  410 ++-
+ src/wallet/scriptpubkeyman.h                       |   28 +-
+ src/wallet/spend.cpp                               |  362 +-
+ src/wallet/spend.h                                 |   67 +-
+ src/wallet/test/availablecoins_tests.cpp           |  107 +
+ src/wallet/test/coinselector_tests.cpp             |  281 +-
+ src/wallet/test/feebumper_tests.cpp                |   54 +
+ src/wallet/test/fuzz/coinselection.cpp             |    8 +-
+ src/wallet/test/fuzz/notifications.cpp             |   23 +-
+ src/wallet/test/ismine_tests.cpp                   |   37 +
+ src/wallet/test/spend_tests.cpp                    |    4 +-
+ src/wallet/test/wallet_tests.cpp                   |  151 +-
+ src/wallet/test/walletload_tests.cpp               |   54 +
+ src/wallet/transaction.h                           |    7 +
+ src/wallet/wallet.cpp                              |  803 ++++-
+ src/wallet/wallet.h                                |   68 +-
+ src/wallet/walletdb.cpp                            |   73 +-
+ src/wallet/walletdb.h                              |    9 +-
+ src/wallet/wallettool.cpp                          |    2 +-
+ src/wallet/walletutil.h                            |   14 +
+ test/README.md                                     |    6 +-
+ test/functional/README.md                          |    4 +-
+ test/functional/data/rpc_decodescript.json         |    2 +-
+ test/functional/data/rpc_psbt.json                 |    6 +
+ test/functional/example_test.py                    |   11 +-
+ test/functional/feature_addrman.py                 |    2 +-
+ test/functional/feature_block.py                   |    2 +-
+ test/functional/feature_config_args.py             |    3 +-
+ test/functional/feature_proxy.py                   |   21 +-
+ test/functional/feature_rbf.py                     |    4 +-
+ test/functional/feature_segwit.py                  |    5 +
+ test/functional/feature_taproot.py                 |   16 +-
+ test/functional/interface_usdt_net.py              |    2 +-
+ test/functional/interface_usdt_utxocache.py        |   40 +-
+ test/functional/interface_usdt_validation.py       |   13 +-
+ test/functional/mempool_accept.py                  |    2 +-
+ test/functional/mempool_datacarrier.py             |   71 +
+ test/functional/mempool_expiry.py                  |    2 +-
+ test/functional/mempool_package_limits.py          |  316 +-
+ test/functional/mempool_package_onemore.py         |   17 +-
+ test/functional/mempool_packages.py                |   45 +-
+ test/functional/mempool_persist.py                 |   12 +-
+ test/functional/mining_prioritisetransaction.py    |    4 +-
+ test/functional/mocks/invalid_signer.py            |    2 +-
+ test/functional/mocks/multi_signers.py             |   30 +
+ test/functional/mocks/signer.py                    |    2 +-
+ test/functional/p2p_compactblocks.py               |   24 +
+ test/functional/p2p_dos_header_tree.py             |    3 +-
+ .../p2p_headers_sync_with_minchainwork.py          |  164 +
+ test/functional/p2p_i2p_sessions.py                |   36 +
+ test/functional/p2p_initial_headers_sync.py        |  105 +
+ test/functional/p2p_leak.py                        |    5 +-
+ test/functional/p2p_permissions.py                 |    3 +-
+ test/functional/p2p_segwit.py                      |    6 +-
+ test/functional/p2p_unrequested_blocks.py          |   14 +-
+ test/functional/rpc_blockchain.py                  |   27 +-
+ test/functional/rpc_estimatefee.py                 |    8 +-
+ test/functional/rpc_fundrawtransaction.py          |   31 +-
+ test/functional/rpc_getblockfrompeer.py            |    4 +-
+ test/functional/rpc_getdescriptorinfo.py           |    2 +-
+ test/functional/rpc_help.py                        |    2 +-
+ test/functional/rpc_invalidateblock.py             |    5 +
+ test/functional/rpc_psbt.py                        |   73 +-
+ test/functional/rpc_rawtransaction.py              |   20 +-
+ test/functional/rpc_signer.py                      |    5 +-
+ test/functional/rpc_signmessagewithprivkey.py      |   22 +-
+ test/functional/test_framework/messages.py         |   21 +
+ test/functional/test_framework/psbt.py             |  131 +
+ test/functional/test_framework/test_node.py        |    2 +
+ test/functional/test_framework/util.py             |   12 +
+ test/functional/test_framework/wallet.py           |   58 +-
+ test/functional/test_runner.py                     |   16 +-
+ test/functional/tool_wallet.py                     |   10 +-
+ test/functional/wallet_abandonconflict.py          |    3 +
+ test/functional/wallet_address_types.py            |   28 +-
+ .../functional/wallet_avoid_mixing_output_types.py |  177 +
+ test/functional/wallet_balance.py                  |   24 +-
+ test/functional/wallet_basic.py                    |   48 +-
+ test/functional/wallet_bumpfee.py                  |   26 +-
+ test/functional/wallet_encryption.py               |   18 +-
+ test/functional/wallet_groups.py                   |    7 +-
+ test/functional/wallet_hd.py                       |    8 +-
+ test/functional/wallet_import_rescan.py            |   57 +-
+ test/functional/wallet_importdescriptors.py        |    7 +-
+ test/functional/wallet_listreceivedby.py           |    2 +
+ test/functional/wallet_listsinceblock.py           |   66 +
+ test/functional/wallet_listtransactions.py         |    6 +-
+ test/functional/wallet_migration.py                |  407 +++
+ test/functional/wallet_multiwallet.py              |    2 +-
+ test/functional/wallet_resendwallettransactions.py |   70 +-
+ test/functional/wallet_signer.py                   |   15 +
+ test/functional/wallet_simulaterawtx.py            |  129 +
+ test/functional/wallet_taproot.py                  |   17 +-
+ test/functional/wallet_transactiontime_rescan.py   |    7 +
+ test/get_previous_releases.py                      |  113 +-
+ test/lint/lint-circular-dependencies.py            |    4 +
+ test/lint/lint-includes.py                         |    3 +-
+ test/sanitizer_suppressions/tsan                   |    2 +-
+ 482 files changed, 15885 insertions(+), 7723 deletions(-)
+ create mode 100644 contrib/guix/patches/nsis-disable-installer-reloc.patch
+ create mode 100644 depends/patches/libxcb/remove_pthread_stubs.patch
+ create mode 100644 depends/patches/qt/fast_fixed_dtoa_no_optimize.patch
+ delete mode 100644 depends/patches/qt/fix_limits_header.patch
+ create mode 100644 depends/patches/qt/guix_cross_lib_path.patch
+ create mode 100644 doc/release-notes-19602.md
+ create mode 100644 doc/release-notes-24148.md
+ create mode 100644 doc/release-notes-25355.md
+ create mode 100644 doc/release-notes-25504.md
+ create mode 100644 doc/release-notes-25610.md
+ create mode 100644 src/bench/descriptors.cpp
+ rename src/{ => compat}/compat.h (71%)
+ create mode 100644 src/headerssync.cpp
+ create mode 100644 src/headerssync.h
+ create mode 100644 src/kernel/chain.cpp
+ create mode 100644 src/kernel/chain.h
+ create mode 100644 src/kernel/mempool_persist.cpp
+ create mode 100644 src/kernel/mempool_persist.h
+ create mode 100644 src/kernel/validation_cache_sizes.h
+ delete mode 100644 src/mempool_args.cpp
+ create mode 100644 src/node/mempool_args.cpp
+ rename src/{ => node}/mempool_args.h (57%)
+ create mode 100644 src/node/mempool_persist_args.cpp
+ create mode 100644 src/node/mempool_persist_args.h
+ create mode 100644 src/node/validation_cache_args.cpp
+ create mode 100644 src/node/validation_cache_args.h
+ create mode 100644 src/test/fuzz/bitdeque.cpp
+ create mode 100644 src/test/fuzz/mempool_utils.h
+ create mode 100644 src/test/headers_sync_chainwork_tests.cpp
+ create mode 100644 src/test/rbf_tests.cpp
+ create mode 100644 src/test/result_tests.cpp
+ delete mode 100644 src/univalue/test/no_nul.cpp
+ create mode 100644 src/util/bitdeque.h
+ create mode 100644 src/wallet/test/availablecoins_tests.cpp
+ create mode 100644 src/wallet/test/feebumper_tests.cpp
+ create mode 100644 src/wallet/test/walletload_tests.cpp
+ create mode 100755 test/functional/mempool_datacarrier.py
+ create mode 100755 test/functional/mocks/multi_signers.py
+ create mode 100755 test/functional/p2p_headers_sync_with_minchainwork.py
+ create mode 100755 test/functional/p2p_i2p_sessions.py
+ create mode 100755 test/functional/p2p_initial_headers_sync.py
+ create mode 100644 test/functional/test_framework/psbt.py
+ create mode 100755 test/functional/wallet_avoid_mixing_output_types.py
+ create mode 100755 test/functional/wallet_migration.py
+ create mode 100755 test/functional/wallet_simulaterawtx.py

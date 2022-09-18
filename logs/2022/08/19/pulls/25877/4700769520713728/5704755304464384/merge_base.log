@@ -1,0 +1,54 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-19 09:42:27.331 xcodebuild[694:5475] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-19 09:42:27.332 xcodebuild[694:5475] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/script/descriptor.cpp
+Merge made by the 'recursive' strategy.
+ build_msvc/common.init.vcxproj.in         |  2 +-
+ configure.ac                              | 12 ++++++------
+ src/.clang-tidy                           |  4 ++++
+ src/bitcoin-cli.cpp                       |  2 +-
+ src/bitcoin-tx.cpp                        |  2 +-
+ src/blockfilter.cpp                       |  4 ++--
+ src/coins.cpp                             |  2 +-
+ src/core_read.cpp                         |  2 +-
+ src/external_signer.cpp                   |  2 +-
+ src/fs.h                                  |  4 ++++
+ src/init.cpp                              |  2 +-
+ src/logging.cpp                           |  2 +-
+ src/netbase.cpp                           |  6 +++---
+ src/node/blockstorage.cpp                 |  2 +-
+ src/outputtype.h                          |  1 -
+ src/qt/splashscreen.cpp                   |  2 +-
+ src/rpc/mining.cpp                        |  2 +-
+ src/rpc/rawtransaction_util.cpp           |  4 ++--
+ src/rpc/util.cpp                          |  2 +-
+ src/script/descriptor.cpp                 |  6 +++++-
+ src/script/signingprovider.cpp            | 22 ++++++++--------------
+ src/script/signingprovider.h              |  5 +++--
+ src/test/base58_tests.cpp                 |  4 ++--
+ src/test/blockfilter_tests.cpp            |  2 +-
+ src/test/descriptor_tests.cpp             | 27 ++++++++++++++++++++++++++-
+ src/test/key_io_tests.cpp                 |  6 +++---
+ src/test/script_tests.cpp                 |  2 +-
+ src/test/sighash_tests.cpp                |  2 +-
+ src/test/transaction_tests.cpp            |  8 ++++----
+ src/test/validation_block_tests.cpp       |  2 +-
+ src/wallet/bdb.cpp                        |  2 +-
+ src/wallet/receive.cpp                    |  2 +-
+ src/wallet/rpc/spend.cpp                  |  4 ++--
+ src/wallet/scriptpubkeyman.cpp            | 12 ++++++------
+ src/wallet/spend.cpp                      | 16 ++++++++++++----
+ src/wallet/wallet.cpp                     | 26 +++++++++++++++++++++-----
+ src/wallet/wallet.h                       |  6 ++++--
+ src/wallet/walletdb.cpp                   |  6 +++---
+ src/wallet/wallettool.cpp                 |  2 +-
+ test/functional/rpc_fundrawtransaction.py | 25 ++++++++++++++++++-------
+ 40 files changed, 157 insertions(+), 89 deletions(-)

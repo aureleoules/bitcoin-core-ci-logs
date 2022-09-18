@@ -1,0 +1,32 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-24 16:45:35.434 xcodebuild[696:5605] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-24 16:45:35.435 xcodebuild[696:5605] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/test/util_tests.cpp
+Merge made by the 'recursive' strategy.
+ contrib/seeds/makeseeds.py                       |    7 +-
+ contrib/seeds/nodes_main.txt                     | 1502 ++++++++++++----------
+ contrib/seeds/nodes_main_manual.txt              |   77 +-
+ src/blockfilter.cpp                              |   16 +-
+ src/chainparamsseeds.h                           | 1078 +++++++++-------
+ src/test/descriptor_tests.cpp                    |   95 +-
+ src/test/util_tests.cpp                          |   12 +-
+ src/util/string.h                                |   36 +-
+ test/functional/wallet_abandonconflict.py        |    3 +
+ test/functional/wallet_balance.py                |    3 +
+ test/functional/wallet_basic.py                  |    2 +-
+ test/functional/wallet_bumpfee.py                |    1 +
+ test/functional/wallet_groups.py                 |    4 +
+ test/functional/wallet_hd.py                     |    4 +
+ test/functional/wallet_importdescriptors.py      |    3 +
+ test/functional/wallet_listreceivedby.py         |    2 +
+ test/functional/wallet_listsinceblock.py         |    2 +
+ test/functional/wallet_transactiontime_rescan.py |    7 +
+ 18 files changed, 1619 insertions(+), 1235 deletions(-)

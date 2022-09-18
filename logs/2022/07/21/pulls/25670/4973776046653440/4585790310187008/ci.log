@@ -1,0 +1,279 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-w64-mingw32
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-reduce-exports --disable-external-signer --disable-gui-tests
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-w64-mingw32
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:5 http://archive.ubuntu.com/ubuntu jammy/restricted i386 Packages [36.7 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main i386 Packages [1324 kB]
+Get:7 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [99.0 kB]
+Get:8 http://security.ubuntu.com/ubuntu jammy-security/restricted i386 Packages [26.6 kB]
+Get:9 http://security.ubuntu.com/ubuntu jammy-security/multiverse i386 Packages [991 B]
+Get:10 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [51.4 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/multiverse i386 Packages [134 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy/universe i386 Packages [9385 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [106 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [27.0 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [214 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse i386 Packages [1421 B]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [4047 B]
+Fetched 11.5 MB in 8s (1467 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping procps, it is already installed and upgrade is not set.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binfmt-support binutils binutils-common binutils-mingw-w64-x86-64
+  binutils-x86-64-linux-gnu bsdextrautils bzip2 cpp cpp-11 dpkg-dev
+  fontconfig-config fonts-dejavu-core g++ g++-11 gcc gcc-11 gcc-11-base
+  gcc-12-base:i386 gcc-mingw-w64-base gcc-mingw-w64-x86-64-posix
+  gcc-mingw-w64-x86-64-posix-runtime iso-codes libapparmor1 libapparmor1:i386
+  libasan6 libasound2 libasound2:i386 libasound2-data libasyncns0
+  libasyncns0:i386 libatomic1 libbinutils libblkid1:i386 libbrotli1:i386
+  libbsd0:i386 libbz2-1.0:i386 libc-dev-bin libc6:i386 libc6-dev libcap2:i386
+  libcap2-bin libcc1-0 libcom-err2 libcom-err2:i386 libcrypt-dev
+  libcrypt1:i386 libctf-nobfd0 libctf0 libcurl4 libcurl4:i386 libdb5.3:i386
+  libdbus-1-3 libdbus-1-3:i386 libdecor-0-0 libdecor-0-0:i386 libdeflate0
+  libdeflate0:i386 libdpkg-perl libdrm-common libdrm2 libdrm2:i386 libdw1
+  libdw1:i386 libelf1 libelf1:i386 libexif12 libexif12:i386 libexpat1:i386
+  libfaudio0 libfaudio0:i386 libffi8:i386 libflac8 libflac8:i386
+  libfontconfig1 libfontconfig1:i386 libfreetype6 libfreetype6:i386 libgbm1
+  libgbm1:i386 libgcc-11-dev libgcc-s1:i386 libgcrypt20:i386 libgd3
+  libgd3:i386 libglib2.0-0 libglib2.0-0:i386 libgmp10:i386 libgnutls30:i386
+  libgomp1 libgpg-error0:i386 libgphoto2-6 libgphoto2-6:i386 libgphoto2-port12
+  libgphoto2-port12:i386 libgssapi-krb5-2:i386 libgstreamer-plugins-base1.0-0
+  libgstreamer-plugins-base1.0-0:i386 libgstreamer1.0-0 libgstreamer1.0-0:i386
+  libhiredis0.14 libhogweed6:i386 libicu70 libicu70:i386 libidn2-0:i386
+  libisl23 libitm1 libjbig0 libjbig0:i386 libjpeg-turbo8 libjpeg-turbo8:i386
+  libjpeg8 libjpeg8:i386 libk5crypto3:i386 libkeyutils1:i386 libkrb5-3:i386
+  libkrb5support0:i386 liblcms2-2 liblcms2-2:i386 libldap-2.5-0:i386 liblsan0
+  libltdl7 libltdl7:i386 liblz4-1:i386 liblzma5:i386 libmagic-mgc libmagic1
+  libmd0:i386 libmount1:i386 libmpc3 libmpdec3 libmpfr6 libmpg123-0
+  libmpg123-0:i386 libnettle8:i386 libnghttp2-14:i386 libnsl-dev libogg0
+  libogg0:i386 libopenal-data libopenal1 libopenal1:i386 libopus0
+  libopus0:i386 liborc-0.4-0 liborc-0.4-0:i386 libp11-kit0:i386 libpcap0.8
+  libpcap0.8:i386 libpcre2-8-0:i386 libpcre3:i386 libpipeline1 libpng16-16
+  libpng16-16:i386 libpopt0 libpsl5:i386 libpulse0 libpulse0:i386
+  libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libquadmath0
+  libreadline8 librtmp1:i386 libsasl2-2:i386 libsasl2-modules-db:i386
+  libsdl2-2.0-0 libsdl2-2.0-0:i386 libselinux1:i386 libsigsegv2 libsndfile1
+  libsndfile1:i386 libsndio7.0 libsndio7.0:i386 libsqlite3-0 libssh-4:i386
+  libssl3 libssl3:i386 libstb0 libstb0:i386 libstdc++-11-dev libstdc++6:i386
+  libsystemd0 libsystemd0:i386 libtasn1-6:i386 libtiff5 libtiff5:i386
+  libtirpc-dev libtsan0 libubsan1 libudev1 libudev1:i386 libunistring2:i386
+  libunwind8 libunwind8:i386 libusb-1.0-0 libusb-1.0-0:i386 libuuid1:i386
+  libvkd3d1 libvkd3d1:i386 libvorbis0a libvorbis0a:i386 libvorbisenc2
+  libvorbisenc2:i386 libvulkan1 libvulkan1:i386 libwayland-client0
+  libwayland-client0:i386 libwayland-cursor0 libwayland-cursor0:i386
+  libwayland-egl1 libwayland-egl1:i386 libwayland-server0
+  libwayland-server0:i386 libwebp7 libwebp7:i386 libwine libwine:i386
+  libx11-6:i386 libx11-xcb1 libx11-xcb1:i386 libxau6:i386 libxcb1:i386
+  libxcursor1 libxcursor1:i386 libxdmcp6:i386 libxext6:i386 libxfixes3
+  libxfixes3:i386 libxi6 libxi6:i386 libxinerama1 libxinerama1:i386
+  libxkbcommon0 libxkbcommon0:i386 libxml2 libxml2:i386 libxpm4 libxpm4:i386
+  libxrandr2 libxrandr2:i386 libxrender1 libxrender1:i386 libxss1 libxss1:i386
+  libxxf86vm1 libxxf86vm1:i386 libz-mingw-w64 libzstd1:i386 linux-libc-dev
+  lto-disabled-list m4 make media-types mingw-w64-common mingw-w64-x86-64-dev
+  ncal nsis-common ocl-icd-libopencl1 ocl-icd-libopencl1:i386 python3-minimal
+  python3.10 python3.10-minimal readline-common rpcsvc-proto ucf wine
+  x11-common xkb-data xz-utils zlib1g:i386
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  calendar whois vacation mailutils bzip2-doc distcc | icecc cpp-doc
+  gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-11-doc
+  gcc-10-locales gcc-multilib manpages-dev flex gdb gcc-doc gcc-11-multilib
+  isoquery libasound2-plugins libasound2-plugins:i386 alsa-utils
+  glibc-doc:i386 locales:i386 glibc-doc gnupg bzr rng-tools:i386 libgd-tools
+  libgd-tools:i386 gnutls-bin:i386 gphoto2 gphoto2:i386 krb5-doc:i386
+  krb5-user:i386 libvisual-0.4-plugins libvisual-0.4-plugins:i386
+  gstreamer1.0-tools gstreamer1.0-tools:i386 liblcms2-utils
+  liblcms2-utils:i386 cryptsetup-bin:i386 libportaudio2 libportaudio2:i386
+  opus-tools opus-tools:i386 pulseaudio pulseaudio:i386 xdg-utils
+  xdg-utils:i386 sndiod sndiod:i386 libstdc++-11-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk cups-bsd gstreamer1.0-libav
+  gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly ttf-mscorefonts-installer
+  cups-bsd:i386 gstreamer1.0-libav:i386 gstreamer1.0-plugins-bad:i386
+  gstreamer1.0-plugins-ugly:i386 ttf-mscorefonts-installer:i386 m4-doc
+  make-doc mingw-w64 nsis-doc nsis-pluginapi opencl-icd opencl-icd:i386
+  python3-doc python3-tk python3-venv python3.10-venv python3.10-doc
+  readline-doc openssh-server q4wine winbind winetricks playonlinux dosbox
+  exe-thumbnailer | kio-extras wine32-preloader:i386 wine64-preloader
+Recommended packages:
+  fakeroot gnupg libalgorithm-merge-perl alsa-ucm-conf alsa-topology-conf
+  manpages manpages-dev libc-devtools libnss-nis:i386 libnss-nisplus:i386
+  libpam-cap dbus dbus:i386 libdecor-0-plugin-1-cairo | libdecor-0-plugin-1
+  libdecor-0-plugin-1-cairo:i386 | libdecor-0-plugin-1:i386
+  libfile-fcntllock-perl liblocale-gettext-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libglib2.0-data:i386 shared-mime-info:i386
+  xdg-user-dirs:i386 libgpg-error-l10n:i386 libgphoto2-l10n
+  libgphoto2-l10n:i386 gstreamer1.0-plugins-base
+  gstreamer1.0-plugins-base:i386 krb5-locales:i386 libsasl2-modules:i386
+  libltdl-dev uuid-runtime:i386 mesa-vulkan-drivers | vulkan-icd
+  mesa-vulkan-drivers:i386 | vulkan-icd:i386 libcapi20-3 libcups2 libgl1
+  libgsm1 libodbc2 libosmesa6 libv4l-0 libvkd3d-shader1 libxcomposite1
+  libxslt1.1 libgl1-mesa-dri libasound2-plugins fonts-liberation fonts-wine
+  gstreamer1.0-plugins-good libcapi20-3:i386 libcups2:i386 libgl1:i386
+  libgsm1:i386 libodbc2:i386 libosmesa6:i386 libv4l-0:i386
+  libvkd3d-shader1:i386 libxcomposite1:i386 libxslt1.1:i386
+  libgl1-mesa-dri:i386 libasound2-plugins:i386 fonts-liberation:i386
+  fonts-wine:i386 gstreamer1.0-plugins-good:i386
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binfmt-support binutils binutils-common
+  binutils-mingw-w64-x86-64 binutils-x86-64-linux-gnu bison bsdextrautils
+  bsdmainutils build-essential bzip2 ccache cpp cpp-11 curl dpkg-dev file
+  fontconfig-config fonts-dejavu-core g++ g++-11 g++-mingw-w64-x86-64-posix
+  gcc gcc-11 gcc-11-base gcc-12-base:i386 gcc-mingw-w64-base
+  gcc-mingw-w64-x86-64-posix gcc-mingw-w64-x86-64-posix-runtime iso-codes
+  libapparmor1 libapparmor1:i386 libasan6 libasound2 libasound2:i386
+  libasound2-data libasyncns0 libasyncns0:i386 libatomic1 libbinutils
+  libblkid1:i386 libbrotli1:i386 libbsd0:i386 libbz2-1.0:i386 libc-dev-bin
+  libc6:i386 libc6-dev libcap2:i386 libcap2-bin libcc1-0 libcom-err2:i386
+  libcrypt-dev libcrypt1:i386 libctf-nobfd0 libctf0 libcurl4 libcurl4:i386
+  libdb5.3:i386 libdbus-1-3 libdbus-1-3:i386 libdecor-0-0 libdecor-0-0:i386
+  libdeflate0 libdeflate0:i386 libdpkg-perl libdrm-common libdrm2 libdrm2:i386
+  libdw1 libdw1:i386 libelf1 libelf1:i386 libexif12 libexif12:i386
+  libexpat1:i386 libfaudio0 libfaudio0:i386 libffi8:i386 libflac8
+  libflac8:i386 libfontconfig1 libfontconfig1:i386 libfreetype6
+  libfreetype6:i386 libgbm1 libgbm1:i386 libgcc-11-dev libgcc-s1:i386
+  libgcrypt20:i386 libgd3 libgd3:i386 libglib2.0-0 libglib2.0-0:i386
+  libgmp10:i386 libgnutls30:i386 libgomp1 libgpg-error0:i386 libgphoto2-6
+  libgphoto2-6:i386 libgphoto2-port12 libgphoto2-port12:i386
+  libgssapi-krb5-2:i386 libgstreamer-plugins-base1.0-0
+  libgstreamer-plugins-base1.0-0:i386 libgstreamer1.0-0 libgstreamer1.0-0:i386
+  libhiredis0.14 libhogweed6:i386 libicu70 libicu70:i386 libidn2-0:i386
+  libisl23 libitm1 libjbig0 libjbig0:i386 libjpeg-turbo8 libjpeg-turbo8:i386
+  libjpeg8 libjpeg8:i386 libk5crypto3:i386 libkeyutils1:i386 libkrb5-3:i386
+  libkrb5support0:i386 liblcms2-2 liblcms2-2:i386 libldap-2.5-0:i386 liblsan0
+  libltdl7 libltdl7:i386 liblz4-1:i386 liblzma5:i386 libmagic-mgc libmagic1
+  libmd0:i386 libmount1:i386 libmpc3 libmpdec3 libmpfr6 libmpg123-0
+  libmpg123-0:i386 libnettle8:i386 libnghttp2-14:i386 libnsl-dev libogg0
+  libogg0:i386 libopenal-data libopenal1 libopenal1:i386 libopus0
+  libopus0:i386 liborc-0.4-0 liborc-0.4-0:i386 libp11-kit0:i386 libpcap0.8
+  libpcap0.8:i386 libpcre2-8-0:i386 libpcre3:i386 libpipeline1 libpng16-16
+  libpng16-16:i386 libpopt0 libpsl5:i386 libpulse0 libpulse0:i386
+  libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libquadmath0
+  libreadline8 librtmp1:i386 libsasl2-2:i386 libsasl2-modules-db:i386
+  libsdl2-2.0-0 libsdl2-2.0-0:i386 libselinux1:i386 libsigsegv2 libsndfile1
+  libsndfile1:i386 libsndio7.0 libsndio7.0:i386 libsqlite3-0 libssh-4:i386
+  libssl3:i386 libstb0 libstb0:i386 libstdc++-11-dev libstdc++6:i386
+  libsystemd0:i386 libtasn1-6:i386 libtiff5 libtiff5:i386 libtirpc-dev libtool
+  libtsan0 libubsan1 libudev1:i386 libunistring2:i386 libunwind8
+  libunwind8:i386 libusb-1.0-0 libusb-1.0-0:i386 libuuid1:i386 libvkd3d1
+  libvkd3d1:i386 libvorbis0a libvorbis0a:i386 libvorbisenc2 libvorbisenc2:i386
+  libvulkan1 libvulkan1:i386 libwayland-client0 libwayland-client0:i386
+  libwayland-cursor0 libwayland-cursor0:i386 libwayland-egl1
+  libwayland-egl1:i386 libwayland-server0 libwayland-server0:i386 libwebp7
+  libwebp7:i386 libwine libwine:i386 libx11-6:i386 libx11-xcb1
+  libx11-xcb1:i386 libxau6:i386 libxcb1:i386 libxcursor1 libxcursor1:i386
+  libxdmcp6:i386 libxext6:i386 libxfixes3 libxfixes3:i386 libxi6 libxi6:i386
+  libxinerama1 libxinerama1:i386 libxkbcommon0 libxkbcommon0:i386 libxml2
+  libxml2:i386 libxpm4 libxpm4:i386 libxrandr2 libxrandr2:i386 libxrender1
+  libxrender1:i386 libxss1 libxss1:i386 libxxf86vm1 libxxf86vm1:i386
+  libz-mingw-w64 libzstd1:i386 linux-libc-dev lto-disabled-list m4 make
+  media-types mingw-w64-common mingw-w64-x86-64-dev ncal nsis nsis-common
+  ocl-icd-libopencl1 ocl-icd-libopencl1:i386 pkg-config python3
+  python3-minimal python3.10 python3.10-minimal readline-common rpcsvc-proto
+  rsync ucf wine wine-binfmt wine32:i386 wine64 x11-common xkb-data xz-utils
+  zlib1g:i386
+The following packages will be upgraded:
+  libcom-err2 libssl3 libsystemd0 libudev1
+4 upgraded, 284 newly installed, 0 to remove and 5 not upgraded.
+Need to get 375 MB of archives.
+After this operation, 1934 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsystemd0 amd64 249.11-0ubuntu3.4 [316 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy/main i386 gcc-12-base i386 12-20220319-1ubuntu1 [18.9 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main i386 libgcc-s1 i386 12-20220319-1ubuntu1 [64.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main i386 libcrypt1 i386 1:4.4.27-1 [97.2 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main i386 libc6 i386 2.35-0ubuntu3 [3013 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main i386 libcap2 i386 1:2.44-1build3 [19.0 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/main i386 libgpg-error0 i386 1.43-3 [78.0 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/main i386 libgcrypt20 i386 1.9.4-3ubuntu3 [493 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/main i386 liblz4-1 i386 1.9.3-2build2 [62.8 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy/main i386 liblzma5 i386 5.2.5-2ubuntu1 [105 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/main i386 libzstd1 i386 1.4.8+dfsg-3build1 [317 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libsystemd0 i386 249.11-0ubuntu3.4 [339 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libssl3 amd64 3.0.2-0ubuntu1.6 [1900 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.4-3ubuntu0.1 [809 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.4-3ubuntu0.1 [2258 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3-minimal amd64 3.10.4-0ubuntu2 [24.4 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 readline-common all 8.1.2-1 [53.5 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy/main amd64 libreadline8 amd64 8.1.2-1 [153 kB]
+Get:21 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsqlite3-0 amd64 3.37.2-2 [643 kB]
+Get:22 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.4-3ubuntu0.1 [1830 kB]
+Get:23 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.4-3ubuntu0.1 [488 kB]
+Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpython3-stdlib amd64 3.10.4-0ubuntu2 [6990 B]
+Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 python3 amd64 3.10.4-0ubuntu2 [22.8 kB]
+Get:26 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpopt0 amd64 1.18-3build1 [28.2 kB]
+Get:27 http://archive.ubuntu.com/ubuntu jammy/main amd64 rsync amd64 3.2.3-8ubuntu3 [404 kB]
+Get:28 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcom-err2 amd64 1.46.5-2ubuntu1.1 [9158 B]
+Get:29 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libudev1 amd64 249.11-0ubuntu3.4 [75.9 kB]
+Get:30 http://archive.ubuntu.com/ubuntu jammy/main i386 libblkid1 i386 2.37.2-4ubuntu3 [166 kB]
+Get:31 http://archive.ubuntu.com/ubuntu jammy/main i386 libbz2-1.0 i386 1.0.8-5build1 [34.5 kB]
+Get:32 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libcom-err2 i386 1.46.5-2ubuntu1.1 [9614 B]
+Get:33 http://archive.ubuntu.com/ubuntu jammy/main i386 libdb5.3 i386 5.3.28+dfsg1-0.8ubuntu3 [796 kB]
+Get:34 http://archive.ubuntu.com/ubuntu jammy/main i386 libgmp10 i386 2:6.2.1+dfsg-3ubuntu1 [264 kB]
+Get:35 http://archive.ubuntu.com/ubuntu jammy/main i386 libkrb5support0 i386 1.19.2-2 [37.0 kB]
+Get:36 http://archive.ubuntu.com/ubuntu jammy/main i386 libk5crypto3 i386 1.19.2-2 [91.1 kB]
+Get:37 http://archive.ubuntu.com/ubuntu jammy/main i386 libkeyutils1 i386 1.6.1-2ubuntu3 [10.7 kB]
+Get:38 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libssl3 i386 3.0.2-0ubuntu1.6 [1941 kB]
+Get:39 http://archive.ubuntu.com/ubuntu jammy/main i386 libkrb5-3 i386 1.19.2-2 [403 kB]
+Get:40 http://archive.ubuntu.com/ubuntu jammy/main i386 libgssapi-krb5-2 i386 1.19.2-2 [154 kB]
+Get:41 http://archive.ubuntu.com/ubuntu jammy/main i386 libpcre2-8-0 i386 10.39-3build1 [221 kB]
+Get:42 http://archive.ubuntu.com/ubuntu jammy/main i386 libselinux1 i386 3.3-1build2 [80.2 kB]
+Get:43 http://archive.ubuntu.com/ubuntu jammy/main i386 libmount1 i386 2.37.2-4ubuntu3 [179 kB]
+Get:44 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libpcre3 i386 2:8.39-13ubuntu0.22.04.1 [245 kB]
+Get:45 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libudev1 i386 249.11-0ubuntu3.4 [79.9 kB]
+Get:46 http://archive.ubuntu.com/ubuntu jammy/main i386 libuuid1 i386 2.37.2-4ubuntu3 [25.8 kB]
+Get:47 http://archive.ubuntu.com/ubuntu jammy/main i386 zlib1g i386 1:1.2.11.dfsg-2ubuntu9 [60.5 kB]
+Get:48 http://archive.ubuntu.com/ubuntu jammy/main amd64 iso-codes all 4.9.0-1 [3459 kB]
+Get:49 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libapparmor1 i386 3.0.4-2ubuntu2.1 [40.6 kB]
+Get:50 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libapparmor1 amd64 3.0.4-2ubuntu2.1 [38.7 kB]
+Get:51 http://archive.ubuntu.com/ubuntu jammy/main i386 libmd0 i386 1.0.4-1build1 [23.8 kB]
+Get:52 http://archive.ubuntu.com/ubuntu jammy/main i386 libbsd0 i386 0.11.5-1 [48.3 kB]
+Get:53 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcap2-bin amd64 1:2.44-1build3 [26.0 kB]
+Get:54 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdbus-1-3 amd64 1.12.20-2ubuntu4 [188 kB]
+Get:55 http://archive.ubuntu.com/ubuntu jammy/main i386 libdbus-1-3 i386 1.12.20-2ubuntu4 [206 kB]
+Get:56 http://archive.ubuntu.com/ubuntu jammy/main i386 libelf1 i386 0.186-1build1 [55.1 kB]
+Get:57 http://archive.ubuntu.com/ubuntu jammy/main amd64 libelf1 amd64 0.186-1build1 [51.0 kB]
+Get:58 http://archive.ubuntu.com/ubuntu jammy/main i386 libexpat1 i386 2.4.7-1 [92.2 kB]
+Get:59 http://archive.ubuntu.com/ubuntu jammy/main i386 libffi8 i386 3.4.2-4 [20.7 kB]
+Get:60 http://archive.ubuntu.com/ubuntu jammy/main amd64 libglib2.0-0 amd64 2.72.1-1 [1460 kB]
+Get:61 http://archive.ubuntu.com/ubuntu jammy/main i386 libglib2.0-0 i386 2.72.1-1 [1565 kB]
+Get:62 http://archive.ubuntu.com/ubuntu jammy/main i386 libnettle8 i386 3.7.3-1build2 [175 kB]
+Get:63 http://archive.ubuntu.com/ubuntu jammy/main i386 libhogweed6 i386 3.7.3-1build2 [202 kB]
+Get:64 http://archive.ubuntu.com/ubuntu jammy/main i386 libunistring2 i386 1.0-1 [554 kB]
+Get:65 http://archive.ubuntu.com/ubuntu jammy/main i386 libidn2-0 i386 2.3.2-2build1 [71.1 kB]
+Get:66 http://archive.ubuntu.com/ubuntu jammy/main i386 libp11-kit0 i386 0.24.0-6build1 [241 kB]
+Get:67 http://archive.ubuntu.com/ubuntu jammy/main i386 libtasn1-6 i386 4.18.0-4build1 [43.8 kB]
+Get:68 http://archive.ubuntu.com/ubuntu jammy/main i386 libgnutls30 i386 3.7.3-4ubuntu1 [989 kB]
+Get:69 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu70 amd64 70.1-2 [10.6 MB]
+Get:70 http://archive.ubuntu.com/ubuntu jammy/main i386 libstdc++6 i386 12-20220319-1ubuntu1 [757 kB]
+Get:71 http://archive.ubuntu.com/ubuntu jammy/main i386 libicu70 i386 70.1-2 [10.8 MB]
+
+Timed out!

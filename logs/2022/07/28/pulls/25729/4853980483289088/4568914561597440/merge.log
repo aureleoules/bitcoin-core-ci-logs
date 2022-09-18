@@ -1,0 +1,191 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 3af7ce412 wallet: Check max tx weight in coin selector
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/rpc/coins.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging src/wallet/test/wallet_tests.cpp
+Merge made by the 'ort' strategy.
+ ci/test/00_setup_env_native_fuzz_with_valgrind.sh  |   2 +-
+ ci/test/00_setup_env_native_valgrind.sh            |   2 +-
+ ci/test/06_script_b.sh                             |   6 +-
+ configure.ac                                       |   3 +
+ contrib/guix/manifest.scm                          |   3 +-
+ contrib/signet/miner                               | 101 ++-----------
+ contrib/valgrind.supp                              |  21 ---
+ depends/packages/expat.mk                          |   9 +-
+ depends/packages/qt.mk                             |   3 +
+ .../patches/qt/fast_fixed_dtoa_no_optimize.patch   |  20 +++
+ src/.clang-tidy                                    |   2 +
+ src/Makefile.am                                    |   5 +-
+ src/addrman.cpp                                    | 149 +++++++++----------
+ src/addrman.h                                      |  25 ++--
+ src/addrman_impl.h                                 |  42 +++---
+ src/bench/addrman.cpp                              |   2 +-
+ src/bench/checkblock.cpp                           |   1 +
+ src/bitcoin-chainstate.cpp                         |  29 ++--
+ src/bitcoin-cli.cpp                                |   2 +-
+ src/bitcoin-tx.cpp                                 |   2 +-
+ src/bitcoin-util.cpp                               |   2 +-
+ src/bitcoin-wallet.cpp                             |   2 +-
+ src/bitcoind.cpp                                   |   2 +-
+ src/blockfilter.cpp                                |   2 +-
+ src/chain.cpp                                      |   7 +
+ src/chain.h                                        |  24 +---
+ src/chainparams.cpp                                |   2 +-
+ src/{ => compat}/compat.h                          |  46 +++---
+ src/crypto/muhash.cpp                              |   4 +-
+ src/dbwrapper.cpp                                  |  19 ++-
+ src/dbwrapper.h                                    |  16 ++-
+ src/external_signer.cpp                            |   2 +-
+ src/hash.cpp                                       |   4 +-
+ src/hash.h                                         |  36 +++--
+ src/httpserver.cpp                                 |   2 +-
+ src/i2p.cpp                                        |   2 +-
+ src/i2p.h                                          |   2 +-
+ src/index/base.cpp                                 |  68 ++++++---
+ src/index/base.h                                   |  28 +++-
+ src/index/blockfilterindex.cpp                     |  50 +++----
+ src/index/blockfilterindex.h                       |  12 +-
+ src/index/coinstatsindex.cpp                       |  69 ++++-----
+ src/index/coinstatsindex.h                         |  10 +-
+ src/index/txindex.cpp                              |  17 ++-
+ src/index/txindex.h                                |   4 +-
+ src/init.cpp                                       | 157 ++++++---------------
+ src/interfaces/chain.h                             |  31 +++-
+ src/kernel/chain.cpp                               |  26 ++++
+ src/kernel/chain.h                                 |  19 +++
+ src/kernel/checks.cpp                              |  11 +-
+ src/kernel/checks.h                                |  10 +-
+ src/kernel/coinstats.cpp                           |  24 +++-
+ src/kernel/coinstats.h                             |   6 +-
+ src/mapport.cpp                                    |   2 +-
+ src/net.cpp                                        |  33 +++--
+ src/net.h                                          |   2 +-
+ src/net_processing.cpp                             |  17 +--
+ src/netaddress.h                                   |   2 +-
+ src/netbase.cpp                                    |   2 +-
+ src/netbase.h                                      |   2 +-
+ src/node/blockstorage.cpp                          |   2 +-
+ src/node/chainstate.cpp                            | 114 ++++++++-------
+ src/node/chainstate.h                              |  85 ++++-------
+ src/node/interfaces.cpp                            |  46 +++---
+ src/policy/fees.cpp                                |  16 +--
+ src/policy/fees.h                                  |   6 +-
+ src/primitives/transaction.cpp                     |   7 +-
+ src/primitives/transaction.h                       |  14 +-
+ src/protocol.h                                     |  11 +-
+ src/psbt.h                                         |   9 ++
+ src/pubkey.cpp                                     |   6 +-
+ src/qt/bitcoingui.cpp                              |   8 +-
+ src/qt/main.cpp                                    |   2 +-
+ src/qt/optionsdialog.cpp                           |   1 +
+ src/random.cpp                                     |   2 +-
+ src/random.h                                       |  17 ++-
+ src/randomenv.cpp                                  |   2 +-
+ src/rpc/blockchain.cpp                             |  30 ++--
+ src/rpc/blockchain.h                               |   2 +-
+ src/rpc/fees.cpp                                   |   2 -
+ src/rpc/mempool.cpp                                |   1 +
+ src/rpc/mining.cpp                                 |   4 +-
+ src/rpc/net.cpp                                    |  24 ++--
+ src/rpc/node.cpp                                   |   6 +-
+ src/rpc/rawtransaction.cpp                         |  32 ++---
+ src/script/interpreter.cpp                         |  32 ++---
+ src/script/interpreter.h                           |   6 +-
+ src/script/sign.cpp                                |   2 +-
+ src/script/standard.cpp                            |   8 +-
+ src/serialize.h                                    |  23 +++
+ src/streams.h                                      |  69 +++++----
+ src/test/addrman_tests.cpp                         |  26 ++--
+ src/test/blockfilter_index_tests.cpp               |  11 +-
+ src/test/coinstatsindex_tests.cpp                  |  13 +-
+ src/test/flatfile_tests.cpp                        |  12 +-
+ src/test/fuzz/addrman.cpp                          |  18 +--
+ src/test/fuzz/autofile.cpp                         |   4 +-
+ src/test/fuzz/chain.cpp                            |   3 +-
+ src/test/fuzz/parse_univalue.cpp                   |   2 +-
+ src/test/fuzz/policy_estimator.cpp                 |   2 +-
+ src/test/fuzz/policy_estimator_io.cpp              |   2 +-
+ src/test/fuzz/tx_pool.cpp                          |  10 +-
+ src/test/fuzz/txorphan.cpp                         |   2 +-
+ src/test/fuzz/util.cpp                             |   5 +
+ src/test/fuzz/util.h                               |  14 +-
+ src/test/fuzz/utxo_snapshot.cpp                    |   4 +-
+ src/test/net_tests.cpp                             |   2 +-
+ src/test/netbase_tests.cpp                         |  18 +--
+ src/test/random_tests.cpp                          |  10 ++
+ src/test/script_tests.cpp                          |  26 ++--
+ src/test/sock_tests.cpp                            |   2 +-
+ src/test/system_tests.cpp                          |   5 -
+ src/test/txindex_tests.cpp                         |   5 +-
+ src/test/util/chainstate.h                         |   6 +-
+ src/test/util/net.h                                |   2 +-
+ src/test/util/setup_common.cpp                     |  35 ++---
+ src/test/validation_chainstatemanager_tests.cpp    |  10 +-
+ src/threadinterrupt.cpp                            |  12 +-
+ src/threadinterrupt.h                              |   5 +-
+ src/timedata.h                                     |   8 +-
+ src/torcontrol.cpp                                 |   2 +-
+ src/txdb.cpp                                       |   2 +-
+ src/txdb.h                                         |   1 +
+ src/univalue/include/univalue.h                    |  40 +++---
+ src/util/asmap.cpp                                 |   2 +-
+ src/util/message.cpp                               |   2 +-
+ src/util/sock.cpp                                  |   2 +-
+ src/util/sock.h                                    |   2 +-
+ src/util/system.cpp                                |   2 +-
+ src/util/system.h                                  |   2 +-
+ src/util/time.cpp                                  |   2 +-
+ src/util/time.h                                    |   3 +-
+ src/validation.cpp                                 |   5 +-
+ src/validation.h                                   |   4 +-
+ src/wallet/bdb.cpp                                 |   1 +
+ src/wallet/dump.cpp                                |   4 +-
+ src/wallet/receive.cpp                             |  58 +++-----
+ src/wallet/receive.h                               |   6 +-
+ src/wallet/rpc/addresses.cpp                       |  28 ++--
+ src/wallet/rpc/backup.cpp                          |  40 +++---
+ src/wallet/rpc/coins.cpp                           |  16 +--
+ src/wallet/rpc/encrypt.cpp                         |  14 +-
+ src/wallet/rpc/signmessage.cpp                     |   2 +-
+ src/wallet/rpc/spend.cpp                           |  20 +--
+ src/wallet/rpc/transactions.cpp                    |  18 +--
+ src/wallet/rpc/wallet.cpp                          |  14 +-
+ src/wallet/test/fuzz/notifications.cpp             |  18 ++-
+ src/wallet/test/wallet_tests.cpp                   |   6 +-
+ src/wallet/wallet.cpp                              |  23 +--
+ src/wallet/wallet.h                                |   4 +-
+ test/functional/feature_addrman.py                 |   2 +-
+ test/functional/feature_taproot.py                 |  10 +-
+ test/functional/rpc_psbt.py                        |  46 ++++++
+ test/functional/test_framework/messages.py         |  14 ++
+ test/functional/test_framework/psbt.py             | 131 +++++++++++++++++
+ test/functional/test_framework/util.py             |   8 ++
+ test/functional/wallet_address_types.py            |  28 ++--
+ test/lint/lint-circular-dependencies.py            |   3 +
+ 158 files changed, 1455 insertions(+), 1198 deletions(-)
+ create mode 100644 depends/patches/qt/fast_fixed_dtoa_no_optimize.patch
+ rename src/{ => compat}/compat.h (71%)
+ create mode 100644 src/kernel/chain.cpp
+ create mode 100644 src/kernel/chain.h
+ create mode 100644 test/functional/test_framework/psbt.py
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

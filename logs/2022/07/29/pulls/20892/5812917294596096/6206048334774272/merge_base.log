@@ -1,0 +1,116 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 7 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging test/functional/rpc_psbt.py
+Auto-merging test/functional/test_runner.py
+Auto-merging test/functional/wallet_address_types.py
+Merge made by the 'ort' strategy.
+ ci/test/00_setup_env_native_fuzz_with_valgrind.sh  |   2 +-
+ ci/test/00_setup_env_native_valgrind.sh            |   2 +-
+ ci/test/06_script_b.sh                             |   2 +
+ contrib/valgrind.supp                              |  21 --
+ depends/packages/expat.mk                          |   9 +-
+ depends/packages/qt.mk                             |   1 +
+ src/.clang-tidy                                    |   2 +
+ src/Makefile.test.include                          |   2 +
+ src/addrman.cpp                                    | 149 ++++++------
+ src/addrman.h                                      |  25 +-
+ src/addrman_impl.h                                 |  42 ++--
+ src/bench/addrman.cpp                              |   2 +-
+ src/bench/coin_selection.cpp                       |   6 +-
+ src/blockfilter.cpp                                |   2 +-
+ src/chain.cpp                                      |   7 +
+ src/chain.h                                        |  24 +-
+ src/chainparams.cpp                                |   2 +-
+ src/crypto/muhash.cpp                              |   4 +-
+ src/external_signer.cpp                            |   2 +-
+ src/hash.cpp                                       |   4 +-
+ src/hash.h                                         |  36 ++-
+ src/kernel/coinstats.cpp                           |   8 +-
+ src/net.cpp                                        |  29 ++-
+ src/net_processing.cpp                             |  22 +-
+ src/node/blockstorage.cpp                          |   8 +-
+ src/node/chainstate.cpp                            |   2 +
+ src/node/chainstate.h                              |   4 +-
+ src/node/interfaces.cpp                            |   1 -
+ src/primitives/transaction.cpp                     |   7 +-
+ src/primitives/transaction.h                       |  14 +-
+ src/protocol.h                                     |  11 +-
+ src/psbt.h                                         |   3 +
+ src/pubkey.cpp                                     |   6 +-
+ src/qt/bitcoingui.cpp                              |   8 +-
+ src/random.h                                       |  17 +-
+ src/rpc/blockchain.cpp                             |  25 +-
+ src/rpc/mining.cpp                                 |   4 +-
+ src/rpc/net.cpp                                    |  24 +-
+ src/rpc/node.cpp                                   |   6 +-
+ src/rpc/rawtransaction.cpp                         |  32 +--
+ src/script/interpreter.cpp                         |  32 +--
+ src/script/interpreter.h                           |   6 +-
+ src/script/sign.cpp                                |   2 +-
+ src/script/standard.cpp                            |   8 +-
+ src/serialize.h                                    |  23 ++
+ src/test/addrman_tests.cpp                         |  26 +-
+ src/test/fuzz/addrman.cpp                          |  18 +-
+ src/test/fuzz/chain.cpp                            |   3 +-
+ src/test/fuzz/load_external_block_file.cpp         |  11 +-
+ src/test/fuzz/parse_univalue.cpp                   |   2 +-
+ src/test/fuzz/tx_pool.cpp                          |  10 +-
+ src/test/fuzz/txorphan.cpp                         |   6 +-
+ src/test/fuzz/util.cpp                             |   5 +
+ src/test/fuzz/util.h                               |   5 +-
+ src/test/netbase_tests.cpp                         |  18 +-
+ src/test/random_tests.cpp                          |  10 +
+ src/test/rbf_tests.cpp                             | 230 ++++++++++++++++++
+ src/test/script_tests.cpp                          |  26 +-
+ src/test/system_tests.cpp                          |   5 -
+ src/threadinterrupt.cpp                            |  12 +-
+ src/threadinterrupt.h                              |   5 +-
+ src/timedata.h                                     |   8 +-
+ src/txdb.cpp                                       |   2 +-
+ src/txorphanage.cpp                                |   4 +-
+ src/txorphanage.h                                  |   2 +-
+ src/univalue/include/univalue.h                    |  40 ++--
+ src/util/message.cpp                               |   2 +-
+ src/util/system.cpp                                |   2 +-
+ src/util/time.h                                    |   1 +
+ src/validation.cpp                                 |  24 +-
+ src/validation.h                                   |  32 ++-
+ src/wallet/dump.cpp                                |   4 +-
+ src/wallet/rpc/addresses.cpp                       |  28 +--
+ src/wallet/rpc/backup.cpp                          |  40 ++--
+ src/wallet/rpc/coins.cpp                           |  18 +-
+ src/wallet/rpc/encrypt.cpp                         |  14 +-
+ src/wallet/rpc/signmessage.cpp                     |   2 +-
+ src/wallet/rpc/spend.cpp                           |  22 +-
+ src/wallet/rpc/transactions.cpp                    |  18 +-
+ src/wallet/rpc/wallet.cpp                          |  14 +-
+ src/wallet/spend.cpp                               | 164 ++++++++++---
+ src/wallet/spend.h                                 |  69 ++++--
+ src/wallet/test/availablecoins_tests.cpp           | 105 ++++++++
+ src/wallet/test/coinselector_tests.cpp             | 264 ++++++++++-----------
+ src/wallet/test/wallet_tests.cpp                   |   6 +-
+ test/functional/rpc_psbt.py                        |  10 +
+ test/functional/test_framework/psbt.py             |   8 +-
+ test/functional/test_runner.py                     |   1 +
+ test/functional/wallet_address_types.py            |  28 +--
+ .../functional/wallet_avoid_mixing_output_types.py | 176 ++++++++++++++
+ 90 files changed, 1448 insertions(+), 700 deletions(-)
+ create mode 100644 src/test/rbf_tests.cpp
+ create mode 100644 src/wallet/test/availablecoins_tests.cpp
+ create mode 100755 test/functional/wallet_avoid_mixing_output_types.py

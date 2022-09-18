@@ -1,0 +1,50 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-01 14:21:40.040 xcodebuild[700:5648] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-01 14:21:40.041 xcodebuild[700:5648] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/walletdb.cpp
+Auto-merging src/wallet/wallet.h
+Auto-merging src/wallet/wallet.cpp
+Auto-merging src/wallet/rpc/wallet.cpp
+Auto-merging src/wallet/rpc/backup.cpp
+Auto-merging src/test/util/setup_common.cpp
+Auto-merging src/node/chainstate.cpp
+Auto-merging src/init.cpp
+Merge made by the 'recursive' strategy.
+ doc/developer-notes.md                      |   6 +-
+ doc/managing-wallets.md                     |  27 +-
+ doc/release-notes-19602.md                  |   9 +
+ src/init.cpp                                |  11 +-
+ src/init/common.cpp                         |  28 +-
+ src/init/common.h                           |   1 +
+ src/logging.cpp                             |  83 ++++-
+ src/logging.h                               |  55 ++-
+ src/node/chainstate.cpp                     |  15 +
+ src/script/descriptor.cpp                   |   4 +-
+ src/test/i2p_tests.cpp                      |   4 +
+ src/test/logging_tests.cpp                  | 125 ++++++-
+ src/test/util/setup_common.cpp              |   1 +
+ src/wallet/rpc/backup.cpp                   |  51 ++-
+ src/wallet/rpc/wallet.cpp                   |  54 +++
+ src/wallet/scriptpubkeyman.cpp              | 323 ++++++++++++++++-
+ src/wallet/scriptpubkeyman.h                |  14 +-
+ src/wallet/test/ismine_tests.cpp            |  37 ++
+ src/wallet/wallet.cpp                       | 519 ++++++++++++++++++++++++++--
+ src/wallet/wallet.h                         |  27 +-
+ src/wallet/walletdb.cpp                     |  40 +++
+ src/wallet/walletdb.h                       |   6 +
+ src/wallet/walletutil.h                     |  14 +
+ test/functional/test_framework/test_node.py |   2 +
+ test/functional/test_runner.py              |   1 +
+ test/functional/tool_wallet.py              |  10 +-
+ test/functional/wallet_migration.py         | 407 ++++++++++++++++++++++
+ 27 files changed, 1781 insertions(+), 93 deletions(-)
+ create mode 100644 doc/release-notes-19602.md
+ create mode 100755 test/functional/wallet_migration.py

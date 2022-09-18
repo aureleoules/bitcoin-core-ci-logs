@@ -1,0 +1,61 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 337179720 doc: update logging in fuzzing.md Honggfuzz code
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/i2p.cpp
+Auto-merging src/i2p.h
+Auto-merging src/net.cpp
+Auto-merging src/netbase.cpp
+Auto-merging src/torcontrol.cpp
+Merge made by the 'ort' strategy.
+ src/Makefile.am           |  2 +-
+ src/bitcoin-cli.cpp       |  2 +-
+ src/bitcoin-tx.cpp        |  2 +-
+ src/bitcoin-util.cpp      |  2 +-
+ src/bitcoin-wallet.cpp    |  2 +-
+ src/bitcoind.cpp          |  2 +-
+ src/{ => compat}/compat.h | 46 +++++++++++++++++++++++++++-------------------
+ src/httpserver.cpp        |  2 +-
+ src/i2p.cpp               |  2 +-
+ src/i2p.h                 |  2 +-
+ src/mapport.cpp           |  2 +-
+ src/net.cpp               |  2 +-
+ src/net.h                 |  2 +-
+ src/netaddress.h          |  2 +-
+ src/netbase.cpp           |  2 +-
+ src/netbase.h             |  2 +-
+ src/qt/main.cpp           |  2 +-
+ src/random.cpp            |  2 +-
+ src/randomenv.cpp         |  2 +-
+ src/test/fuzz/util.h      |  2 +-
+ src/test/net_tests.cpp    |  2 +-
+ src/test/sock_tests.cpp   |  2 +-
+ src/test/util/net.h       |  2 +-
+ src/torcontrol.cpp        |  2 +-
+ src/util/sock.cpp         |  2 +-
+ src/util/sock.h           |  2 +-
+ src/util/system.h         |  2 +-
+ src/util/time.cpp         |  2 +-
+ src/util/time.h           |  2 +-
+ src/wallet/bdb.cpp        |  1 +
+ 30 files changed, 56 insertions(+), 47 deletions(-)
+ rename src/{ => compat}/compat.h (71%)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

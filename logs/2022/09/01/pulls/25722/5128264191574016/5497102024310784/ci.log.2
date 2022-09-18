@@ -1,0 +1,42 @@
+2022-09-01T16:50:02.858015Z (mocktime: 2020-08-31T15:34:11Z) [test] [validation.cpp:2751] [ConnectTip] [bench]   - Connect postprocess: 0.37ms [0.04s (0.19ms/blk)]
+2022-09-01T16:50:02.858040Z (mocktime: 2020-08-31T15:34:11Z) [test] [validation.cpp:2752] [ConnectTip] [bench] - Connect block: 0.92ms [0.09s (0.47ms/blk)]
+2022-09-01T16:50:02.858071Z (mocktime: 2020-08-31T15:34:11Z) [test] [txmempool.cpp:736] [check] [mempool] Checking mempool with 0 transactions and 0 inputs
+2022-09-01T16:50:02.858176Z (mocktime: 2020-08-31T15:34:11Z) [test] [validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=571d80a9967ae599cec0448b0b0ba1cfb606f584d8069bd7166b86854ba7a191 block height=100
+2022-09-01T16:50:02.858253Z (mocktime: 2020-08-31T15:34:11Z) [test] [validationinterface.cpp:202] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=571d80a9967ae599cec0448b0b0ba1cfb606f584d8069bd7166b86854ba7a191 fork block hash=68aef0c7c1c2cc15ca20a558ea1d6e66aecc1d6398bddea75e4c031cb79cc07e (in IBD=false)
+2022-09-01T16:50:02.858328Z (mocktime: 2020-08-31T15:34:11Z) [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=571d80a9967ae599cec0448b0b0ba1cfb606f584d8069bd7166b86854ba7a191 block height=100
+2022-09-01T16:50:02.858407Z (mocktime: 2020-08-31T15:34:11Z) [scheduler] [validationinterface.cpp:202] [operator()] [validation] UpdatedBlockTip: new block hash=571d80a9967ae599cec0448b0b0ba1cfb606f584d8069bd7166b86854ba7a191 fork block hash=68aef0c7c1c2cc15ca20a558ea1d6e66aecc1d6398bddea75e4c031cb79cc07e (in IBD=false)
+2022-09-01wallet/wallet.cpp:2759:47: runtime error: member call on null pointer of type 'wallet::WalletDatabase'
+    #0 0x562f6bfe4155 in wallet::CWallet::Create(wallet::WalletContext&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::unique_ptr<wallet::WalletDatabase, std::default_delete<wallet::WalletDatabase> >, unsigned long) src/./src/wallet/wallet.cpp:2759:47
+    #1 0x562f6bd06520 in wallet::wallet_tests::TestLoadWallet(wallet::WalletContext&) src/./src/wallet/test/wallet_tests.cpp:51:19
+    #2 0x562f6bd02118 in wallet::wallet_tests::CreateWallet::test_method() src/./src/wallet/test/wallet_tests.cpp:731:19
+    #3 0x562f6bd00f5c in wallet::wallet_tests::CreateWallet_invoker() src/./src/wallet/test/wallet_tests.cpp:724:1
+    #4 0x562f6ae8021f in boost::detail::function::void_function_invoker0<void (*)(), void>::invoke(boost::detail::function::function_buffer&) /usr/include/boost/function/function_template.hpp:117:11
+    #5 0x562f6ad23b6c in boost::function0<void>::operator()() const /usr/include/boost/function/function_template.hpp:763:14
+    #6 0x562f6adad118 in boost::detail::forward::operator()() /usr/include/boost/test/impl/execution_monitor.ipp:1388:32
+    #7 0x562f6adad118 in boost::detail::function::function_obj_invoker0<boost::detail::forward, int>::invoke(boost::detail::function::function_buffer&) /usr/include/boost/function/function_template.hpp:137:18
+    #8 0x562f6ada5fbc in boost::function0<int>::operator()() const /usr/include/boost/function/function_template.hpp:763:14
+    #9 0x562f6acec9f0 in int boost::detail::do_invoke<boost::shared_ptr<boost::detail::translator_holder_base>, boost::function<int ()> >(boost::shared_ptr<boost::detail::translator_holder_base> const&, boost::function<int ()> const&) /usr/include/boost/test/impl/execution_monitor.ipp:301:30
+    #10 0x562f6ac89ee3 in boost::execution_monitor::catch_signals(boost::function<int ()> const&) /usr/include/boost/test/impl/execution_monitor.ipp:903:16
+    #11 0x562f6ac8a445 in boost::execution_monitor::execute(boost::function<int ()> const&) /usr/include/boost/test/impl/execution_monitor.ipp:1301:16
+    #12 0x562f6ac7c6d0 in boost::execution_monitor::vexecute(boost::function<void ()> const&) /usr/include/boost/test/impl/execution_monitor.ipp:1397:5
+    #13 0x562f6ac82a3f in boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::function<void ()> const&, unsigned long) /usr/include/boost/test/impl/unit_test_monitor.ipp:49:9
+    #14 0x562f6aceb03a in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /usr/include/boost/test/impl/framework.ipp:815:44
+    #15 0x562f6acea308 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /usr/include/boost/test/impl/framework.ipp:784:58
+    #16 0x562f6acea308 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /usr/include/boost/test/impl/framework.ipp:784:58
+    #17 0x562f6ac80f72 in boost::unit_test::framework::run(unsigned long, bool) /usr/include/boost/test/impl/framework.ipp:1721:29
+    #18 0x562f6acac66c in boost::unit_test::unit_test_main(boost::unit_test::test_suite* (*)(int, char**), int, char**) /usr/include/boost/test/impl/unit_test_main.ipp:250:9
+    #19 0x562f6acad5ed in main /usr/include/boost/test/impl/unit_test_main.ipp:306:12
+    #20 0x7f88a1268d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f) (BuildId: 69389d485a9793dbe873f0ea2c93e02efaa9aa3d)
+    #21 0x7f88a1268e3f in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29e3f) (BuildId: 69389d485a9793dbe873f0ea2c93e02efaa9aa3d)
+    #22 0x562f6aba0414 in _start (/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src/test/test_bitcoin+0x1337414) (BuildId: a6c3ba7e370e833f2ada8248dbb366d9f8e4411e)
+
+SUMMARY: UndefinedBehaviorSanitizer: null-pointer-use wallet/wallet.cpp:2759:47 in 
+make[3]: *** [Makefile:21239: wallet/test/wallet_tests.cpp.test] Error 1
+make[3]: *** Waiting for unfinished jobs....
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: *** [Makefile:19293: check-am] Error 2
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[1]: *** [Makefile:18959: check-recursive] Error 1
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make: *** [Makefile:824: check-recursive] Error 1
+

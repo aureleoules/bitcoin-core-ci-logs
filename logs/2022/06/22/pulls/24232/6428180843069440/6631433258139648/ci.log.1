@@ -1,0 +1,1392 @@
+...............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               244/244 - [1mfeature_init.py[0m failed, Duration: 2404 s
+
+[1mstdout:
+[0m2022-06-22T16:07:20.718000Z TestFramework (INFO): Initializing test directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42
+2022-06-22T16:07:21.625000Z TestFramework (INFO): Starting node and will exit after line b'Validating signatures for all blocks'
+2022-06-22T16:07:22.207000Z TestFramework (INFO): Starting node and will exit after line b'scheduler thread start'
+2022-06-22T16:07:22.674000Z TestFramework (INFO): Starting node and will exit after line b'Starting HTTP server'
+2022-06-22T16:07:23.091000Z TestFramework (INFO): Starting node and will exit after line b'Loading P2P addresses'
+2022-06-22T16:07:23.433000Z TestFramework (INFO): Starting node and will exit after line b'Loading banlist'
+2022-06-22T16:07:23.719000Z TestFramework (INFO): Starting node and will exit after line b'Loading block index'
+2022-06-22T16:07:24.045000Z TestFramework (INFO): Starting node and will exit after line b'Switching active chainstate'
+2022-06-22T16:47:24.046000Z TestFramework (ERROR): Unexpected exception caught during testing
+Traceback (most recent call last):
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 133, in main
+    self.run_test()
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/feature_init.py", line 79, in run_test
+    node.start(extra_args=['-txindex=1', '-blockfilterindex=1', '-coinstatsindex=1'])
+  File "/usr/lib/python3.7/contextlib.py", line 119, in __exit__
+    next(self.gen)
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_node.py", line 451, in wait_for_debug_log
+    print_log = " - " + "\n - ".join(log.splitlines())
+TypeError: sequence item 0: expected str instance, bytes found
+2022-06-22T16:47:24.102000Z TestFramework (INFO): Stopping nodes
+
+
+[1mstderr:
+[0mTraceback (most recent call last):
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/feature_init.py", line 129, in <module>
+    InitStressTest().main()
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 156, in main
+    exit_code = self.shutdown()
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 311, in shutdown
+    self.stop_nodes()
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 567, in stop_nodes
+    node.stop_node(wait=wait, wait_until_stopped=False)
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_node.py", line 336, in stop_node
+    self.stop(wait=wait)
+  File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_node.py", line 184, in __getattr__
+    assert self.rpc_connected and self.rpc is not None, self._node_msg("Error: no RPC connection")
+AssertionError: [node 0] Error: no RPC connection
+
+
+[1mCombine the logs and print the last 4000 lines ...[0m
+
+============
+[1mCombined log for /tmp/cirrus-build/ci/scratch/test_runner//test_runner_₿_🏃_20220622_155422/feature_init_42:[0m
+============
+
+[0;36m test  2022-06-22T16:07:20.711000Z TestFramework (DEBUG): PRNG seed is: 5366206305010798080 [0m
+[0;36m test  2022-06-22T16:07:20.711000Z TestFramework (DEBUG): Setting up network thread [0m
+[0;36m test  2022-06-22T16:07:20.718000Z TestFramework (INFO): Initializing test directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42 [0m
+[0;36m test  2022-06-22T16:07:20.718000Z TestFramework (DEBUG): Copy cache directory /tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/cache/node0 to node 0 [0m
+[0;36m test  2022-06-22T16:07:20.938000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:21.063565Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:21.063607Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:21.063730Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:21.063737Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:21.064006Z [init] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "init" [0m
+[0;34m node0 2022-06-22T16:07:21.064015Z [init] [init.cpp:1074] [AppInitParameterInteraction] Experimental syscall sandbox enabled (-sandbox=log-and-abort): bitcoind will terminate if an unexpected (not allowlisted) syscall is invoked. [0m
+[0;34m node0 2022-06-22T16:07:21.064032Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:21.064039Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:21.064043Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:21.080468Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:21.080477Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:21.080495Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:21.080507Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:21.080518Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:21.080525Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080532Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080538Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080546Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:21.080552Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080559Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:21.080566Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080575Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080582Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:21.080589Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:21.080597Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080605Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:21.080614Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:21.080622Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:21.080630Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080638Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:21.080646Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:21.080655Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:21.080669Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:21.080676Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:21.080684Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:21.080691Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:21.080699Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:21.080706Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:21.080713Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: sandbox="log-and-abort" [0m
+[0;34m node0 2022-06-22T16:07:21.080721Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:21.080729Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:21.147942Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:21.244565Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:21.244605Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:21.246123Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:21.246350Z [scheduler] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "scheduler" [0m
+[0;34m node0 2022-06-22T16:07:21.247068Z [scriptch.1] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "scriptch.1" [0m
+[0;34m node0 2022-06-22T16:07:21.258399Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:21.258489Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:21.258576Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:21.258592Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:21.258603Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:21.258676Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:21.258691Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:21.258699Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:21.258722Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:21.258732Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:21.258888Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:21.258909Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:21.258919Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:21.258929Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:21.258939Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:21.259097Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:21.259119Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:21.259237Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:21.259263Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:21.259728Z [init] [addrdb.cpp:198] [LoadAddrman] Creating peers.dat because the file was not found ("/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/peers.dat") [0m
+[0;34m node0 2022-06-22T16:07:21.263052Z [scriptch.0] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "scriptch.0" [0m
+[0;34m node0 2022-06-22T16:07:21.265490Z [httpworker.3] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "httpworker.3" [0m
+[0;34m node0 2022-06-22T16:07:21.265605Z [httpworker.2] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "httpworker.2" [0m
+[0;34m node0 2022-06-22T16:07:21.265782Z [httpworker.1] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "httpworker.1" [0m
+[0;34m node0 2022-06-22T16:07:21.265949Z [httpworker.0] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "httpworker.0" [0m
+[0;34m node0 2022-06-22T16:07:21.285341Z [http] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "http" [0m
+[0;34m node0 2022-06-22T16:07:21.285365Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:21.285780Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:21.285854Z [init] [banman.cpp:41] [LoadBanlist] Recreating the banlist database [0m
+[0;34m node0 2022-06-22T16:07:21.285982Z [init] [banman.cpp:67] [DumpBanlist] [net] Flushed 0 banned node addresses/subnets to disk  0ms [0m
+[0;34m node0 2022-06-22T16:07:21.286018Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:21.286035Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:21.286892Z [init] [policy/fees.cpp:554] [CBlockPolicyEstimator] Failed to read fee estimates from /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/fee_estimates.dat. Continue anyway. [0m
+[0;34m node0 2022-06-22T16:07:21.286996Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:21.287017Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:21.287033Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:21.287048Z [init] [init.cpp:1425] [AppInitMain] * Using 440.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:21.287101Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading block index… [0m
+[0;34m node0 2022-06-22T16:07:21.287251Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index [0m
+[0;34m node0 2022-06-22T16:07:21.297050Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:21.297145Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:21.304227Z [init] [node/blockstorage.cpp:330] [LoadBlockIndexDB] LoadBlockIndexDB: last block file = 0 [0m
+[0;34m node0 2022-06-22T16:07:21.304273Z [init] [node/blockstorage.cpp:334] [LoadBlockIndexDB] LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=200, size=52530, heights=0...199, time=2011-02-02...2011-02-02) [0m
+[0;34m node0 2022-06-22T16:07:21.304291Z [init] [node/blockstorage.cpp:345] [LoadBlockIndexDB] Checking all blk files are present... [0m
+[0;34m node0 2022-06-22T16:07:21.313511Z [init] [node/chainstate.cpp:51] [CompleteChainstateInitialization] Initializing chainstate Chainstate [ibd] @ height -1 (null) [0m
+[0;34m node0 2022-06-22T16:07:21.313579Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate [0m
+[0;34m node0 2022-06-22T16:07:21.318440Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:21.318523Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate: 361f1753b47b5bcd [0m
+[0;34m node0 2022-06-22T16:07:21.318723Z [init] [validation.cpp:3933] [LoadChainTip] Loaded best chain: hashBestChain=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c height=199 date=2011-02-02T23:17:17Z progress=1.000000 [0m
+[0;34m node0 2022-06-22T16:07:21.318745Z [init] [validation.cpp:5416] [MaybeRebalanceCaches] [snapshot] allocating all cache to the IBD chainstate [0m
+[0;34m node0 2022-06-22T16:07:21.318814Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate [0m
+[0;34m node0 2022-06-22T16:07:21.321859Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:21.321939Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate: 361f1753b47b5bcd [0m
+[0;34m node0 2022-06-22T16:07:21.321965Z [init] [validation.cpp:4661] [ResizeCoinsCaches] [Chainstate [ibd] @ height 199 (39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c)] resized coinsdb cache to 8.0 MiB [0m
+[0;34m node0 2022-06-22T16:07:21.321981Z [init] [validation.cpp:4663] [ResizeCoinsCaches] [Chainstate [ibd] @ height 199 (39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c)] resized coinstip cache to 440.0 MiB [0m
+[0;34m node0 2022-06-22T16:07:21.322024Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying blocks… [0m
+[0;34m node0 2022-06-22T16:07:21.322063Z [init] [validation.cpp:3964] [VerifyDB] Verifying last 6 blocks at level 3 [0m
+[0;34m node0 2022-06-22T16:07:21.322085Z [init] [validation.cpp:3971] [VerifyDB] [0%]...[16%]...[33%]...[50%]...[66%]...[83%]...[99%]...[DONE]. [0m
+[0;34m node0 2022-06-22T16:07:21.323920Z [init] [validation.cpp:4058] [VerifyDB] No coin database inconsistencies in last 6 blocks (6 transactions) [0m
+[0;34m node0 2022-06-22T16:07:21.323940Z [init] [init.cpp:1540] [AppInitMain]  block index              36ms [0m
+[0;34m node0 2022-06-22T16:07:21.358085Z [init] [init.cpp:1693] [AppInitMain] block tree size = 200 [0m
+[0;34m node0 2022-06-22T16:07:21.358121Z [init] [init.cpp:1705] [AppInitMain] nBestHeight = 199 [0m
+[0;34m node0 2022-06-22T16:07:21.358282Z [init] [net.cpp:2336] [BindListenPort] Bound to 127.0.0.1:11504 [0m
+[0;34m node0 2022-06-22T16:07:21.358322Z [init] [net.cpp:2333] [BindListenPort] [net:error] Unable to bind to 127.0.0.1:18445 on this computer. Bitcoin Core is probably already running. [0m
+[0;34m node0 2022-06-22T16:07:21.358363Z [init] [noui.cpp:56] [noui_InitMessage] init message: Starting network threads… [0m
+[0;34m node0 2022-06-22T16:07:21.358426Z [init] [net.cpp:2545] [Start] DNS seeding disabled [0m
+[0;34m node0 2022-06-22T16:07:21.358536Z [init] [noui.cpp:56] [noui_InitMessage] init message: Done loading [0m
+[0;34m node0 2022-06-22T16:07:21.361213Z [loadblk] [util/thread.cpp:17] [TraceThread] loadblk thread start [0m
+[0;34m node0 2022-06-22T16:07:21.361511Z [loadblk] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "loadblk" [0m
+[0;34m node0 2022-06-22T16:07:21.361751Z [loadblk] [validation.cpp:4687] [LoadMempool] Failed to open mempool file from disk. Continuing anyway. [0m
+[0;34m node0 2022-06-22T16:07:21.361766Z [loadblk] [util/thread.cpp:19] [TraceThread] loadblk thread exit [0m
+[0;34m node0 2022-06-22T16:07:21.365168Z [net] [util/thread.cpp:17] [TraceThread] net thread start [0m
+[0;34m node0 2022-06-22T16:07:21.365456Z [addcon] [util/thread.cpp:17] [TraceThread] addcon thread start [0m
+[0;34m node0 2022-06-22T16:07:21.365698Z [addcon] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "addcon" [0m
+[0;34m node0 2022-06-22T16:07:21.365766Z [msghand] [util/thread.cpp:17] [TraceThread] msghand thread start [0m
+[0;34m node0 2022-06-22T16:07:21.365921Z [msghand] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "msghand" [0m
+[0;34m node0 2022-06-22T16:07:21.365992Z [net] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "net" [0m
+[0;34m node0 2022-06-22T16:07:21.369174Z [init] [util/syscall_sandbox.cpp:925] [SetSyscallSandboxPolicy] [util] Syscall filter installed for thread "init" [0m
+[0;34m node0 2022-06-22T16:07:21.444681Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.444762Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockcount user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.445969Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;36m test  2022-06-22T16:07:21.446000Z TestFramework.node0 (DEBUG): RPC successfully started [0m
+[0;34m node0 2022-06-22T16:07:21.446026Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getmempoolinfo user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.449721Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.449803Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockchaininfo user=__cookie__ [0m
+[0;36m test  2022-06-22T16:07:21.450000Z TestFramework (DEBUG): Generate a block with current time [0m
+[0;36m test  2022-06-22T16:07:21.450000Z TestFramework.node0 (DEBUG): TestNode.generate() dispatches `generate` call to `generatetoaddress` [0m
+[0;34m node0 2022-06-22T16:07:21.450878Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.450938Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=generatetoaddress user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.451260Z [httpworker.0] [node/miner.cpp:163] [CreateNewBlock] CreateNewBlock(): block weight: 904 txs: 0 fees: 0 sigops 400 [0m
+[0;34m node0 2022-06-22T16:07:21.451316Z [httpworker.0] [validation.cpp:2059] [ConnectBlock] [bench]     - Sanity checks: 0.01ms [0.00s (0.01ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.451362Z [httpworker.0] [validation.cpp:2158] [ConnectBlock] [bench]     - Fork checks: 0.05ms [0.00s (0.05ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.451380Z [httpworker.0] [validation.cpp:2243] [ConnectBlock] [bench]       - Connect 1 transactions: 0.02ms (0.017ms/tx, 0.000ms/txin) [0.00s (0.02ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.451396Z [httpworker.0] [validation.cpp:2256] [ConnectBlock] [bench]     - Verify 0 txins: 0.04ms (0.000ms/txin) [0.00s (0.04ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.451408Z [httpworker.0] [node/miner.cpp:178] [CreateNewBlock] [bench] CreateNewBlock() packages: 0.02ms (0 packages, 0 updated descendants), validity: 0.17ms (total 0.20ms) [0m
+[0;34m node0 2022-06-22T16:07:21.452319Z [httpworker.0] [validation.cpp:2709] [ConnectTip] [bench]   - Using cached block [0m
+[0;34m node0 2022-06-22T16:07:21.452331Z [httpworker.0] [validation.cpp:2716] [ConnectTip] [bench]   - Load block from disk: 0.01ms [0.00s (0.01ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452345Z [httpworker.0] [validation.cpp:2059] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.00ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452364Z [httpworker.0] [validation.cpp:2158] [ConnectBlock] [bench]     - Fork checks: 0.02ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452379Z [httpworker.0] [validation.cpp:2243] [ConnectBlock] [bench]       - Connect 1 transactions: 0.01ms (0.014ms/tx, 0.000ms/txin) [0.00s (0.02ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452398Z [httpworker.0] [validation.cpp:2256] [ConnectBlock] [bench]     - Verify 0 txins: 0.03ms (0.000ms/txin) [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452465Z [httpworker.0] [validation.cpp:2266] [ConnectBlock] [bench]     - Write undo data: 0.07ms [0.00s (0.03ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452474Z [httpworker.0] [validation.cpp:2278] [ConnectBlock] [bench]     - Index writing: 0.01ms [0.00s (0.01ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452485Z [httpworker.0] [validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 state=Valid [0m
+[0;34m node0 2022-06-22T16:07:21.452509Z [httpworker.0] [validation.cpp:2728] [ConnectTip] [bench]   - Connect total: 0.18ms [0.00s (0.09ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452520Z [httpworker.0] [validation.cpp:2733] [ConnectTip] [bench]   - Flush: 0.01ms [0.00s (0.01ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452533Z [httpworker.0] [validation.cpp:2739] [ConnectTip] [bench]   - Writing chainstate: 0.01ms [0.00s (0.01ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452775Z [httpworker.0] [policy/fees.cpp:670] [processBlock] [estimatefee] Blockpolicy estimates updated by 0 of 0 block txs, since last block 0 of 0 tracked, mempool map size 0, max target 0 from current [0m
+[0;34m node0 2022-06-22T16:07:21.452811Z [httpworker.0] [validation.cpp:1557] [IsInitialBlockDownload] Leaving InitialBlockDownload (latching to false) [0m
+[0;34m node0 2022-06-22T16:07:21.452849Z [httpworker.0] [validation.cpp:2519] [UpdateTipLog] UpdateTip: new best=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 height=200 version=0x30000000 log2_work=8.651052 tx=201 date='2022-06-22T16:07:21Z' progress=1.000000 cache=0.0MiB(1txo) [0m
+[0;34m node0 2022-06-22T16:07:21.452858Z [httpworker.0] [validation.cpp:2750] [ConnectTip] [bench]   - Connect postprocess: 0.33ms [0.00s (0.16ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452865Z [httpworker.0] [validation.cpp:2751] [ConnectTip] [bench] - Connect block: 0.54ms [0.00s (0.27ms/blk)] [0m
+[0;34m node0 2022-06-22T16:07:21.452881Z [httpworker.0] [txmempool.cpp:721] [check] [mempool] Checking mempool with 0 transactions and 0 inputs [0m
+[0;34m node0 2022-06-22T16:07:21.452902Z [httpworker.0] [validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 block height=200 [0m
+[0;34m node0 2022-06-22T16:07:21.452939Z [httpworker.0] [validationinterface.cpp:202] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 fork block hash=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c (in IBD=false) [0m
+[0;34m node0 2022-06-22T16:07:21.453054Z [scheduler] [validationinterface.cpp:229] [operator()] [validation] BlockConnected: block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 block height=200 [0m
+[0;34m node0 2022-06-22T16:07:21.453176Z [scheduler] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs_main, net_processing.cpp:1647 started [0m
+[0;34m node0 2022-06-22T16:07:21.453424Z [scheduler] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs_main, net_processing.cpp:1647 completed (225μs) [0m
+[0;34m node0 2022-06-22T16:07:21.453508Z [scheduler] [validationinterface.cpp:202] [operator()] [validation] UpdatedBlockTip: new block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 fork block hash=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c (in IBD=false) [0m
+[0;34m node0 2022-06-22T16:07:21.453962Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.454019Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblock user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.454700Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.454758Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=submitblock user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.455250Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.455295Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockchaininfo user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.455864Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.455907Z [httpworker.0] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.458868Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.458911Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getrawmempool user=__cookie__ [0m
+[0;36m test  2022-06-22T16:07:21.465000Z TestFramework.node0 (DEBUG): Stopping node [0m
+[0;34m node0 2022-06-22T16:07:21.465184Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.465230Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=syncwithvalidationinterfacequeue user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.465946Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:46082 [0m
+[0;34m node0 2022-06-22T16:07:21.465989Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;34m node0 2022-06-22T16:07:21.466078Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:21.466222Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:21.466249Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:21.466284Z [net] [util/thread.cpp:19] [TraceThread] net thread exit [0m
+[0;34m node0 2022-06-22T16:07:21.466366Z [addcon] [util/thread.cpp:19] [TraceThread] addcon thread exit [0m
+[0;34m node0 2022-06-22T16:07:21.466412Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:21.466444Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:21.466459Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:21.466475Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:21.466500Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:21.466720Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:21.466741Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:21.466753Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:21.466820Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:21.466868Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:21.467010Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:21.553692Z [msghand] [util/thread.cpp:19] [TraceThread] msghand thread exit [0m
+[0;34m node0 2022-06-22T16:07:21.555958Z [shutoff] [net.cpp:1728] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  2ms [0m
+[0;34m node0 2022-06-22T16:07:21.556057Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:21.556746Z [shutoff] [validation.cpp:4808] [DumpMempool] Writing 0 unbroadcast transactions to disk. [0m
+[0;34m node0 2022-06-22T16:07:21.558378Z [shutoff] [validation.cpp:4818] [DumpMempool] Dumped mempool: 1.2e-05s to copy, 0.001694s to dump [0m
+[0;34m node0 2022-06-22T16:07:21.558412Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 4e-06s [0m
+[0;34m node0 2022-06-22T16:07:21.561675Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-06-22T16:07:21.581924Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (20.22ms) [0m
+[0;34m node0 2022-06-22T16:07:21.581955Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;34m node0 2022-06-22T16:07:21.585189Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.21ms) [0m
+[0;34m node0 2022-06-22T16:07:21.585243Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (1 coins, 0kB) started [0m
+[0;34m node0 2022-06-22T16:07:21.585332Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;34m node0 2022-06-22T16:07:21.585368Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 1 changed transaction outputs (out of 1) to coin database... [0m
+[0;34m node0 2022-06-22T16:07:21.585386Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (1 coins, 0kB) completed (0.12ms) [0m
+[0;34m node0 2022-06-22T16:07:21.585406Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 [0m
+[0;34m node0 2022-06-22T16:07:21.585434Z [shutoff] [validationinterface.cpp:247] [operator()] [validation] ChainStateFlushed: block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 [0m
+[0;34m node0 2022-06-22T16:07:21.585473Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-06-22T16:07:21.590760Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.27ms) [0m
+[0;34m node0 2022-06-22T16:07:21.590797Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;34m node0 2022-06-22T16:07:21.591512Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (0.69ms) [0m
+[0;34m node0 2022-06-22T16:07:21.591545Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;34m node0 2022-06-22T16:07:21.591594Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;34m node0 2022-06-22T16:07:21.591617Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;34m node0 2022-06-22T16:07:21.591633Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.07ms) [0m
+[0;34m node0 2022-06-22T16:07:21.591649Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 [0m
+[0;34m node0 2022-06-22T16:07:21.592243Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:21.625000Z TestFramework.node0 (DEBUG): Node stopped [0m
+[0;36m test  2022-06-22T16:07:21.625000Z TestFramework (INFO): Starting node and will exit after line b'Validating signatures for all blocks' [0m
+[0;36m test  2022-06-22T16:07:21.651000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:21.784038Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:21.784092Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:21.784329Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:21.784342Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:21.784444Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:21.784456Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:21.784464Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:21.801535Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:21.801553Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:21.801587Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:21.801615Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801635Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:21.801648Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801661Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801673Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801687Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:21.801699Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801712Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801725Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801742Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801755Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:21.801768Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:21.801782Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801804Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801819Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:21.801835Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801850Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801864Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801879Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:21.801893Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801906Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:21.801920Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:21.801935Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:21.801950Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:21.801963Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:21.801977Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:21.801991Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:21.802005Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:21.802017Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:21.802032Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:21.802047Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;36m test  2022-06-22T16:07:21.804000Z TestFramework (DEBUG): Terminating node after terminate line was found [0m
+[0;34m node0 2022-06-22T16:07:21.918273Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:22.029302Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:22.029400Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:22.041397Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:22.079518Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:22.079617Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:22.079699Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:22.079714Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:22.079725Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:22.079810Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.079829Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:22.079841Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:22.079869Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:22.079884Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:22.080054Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:22.080090Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:22.080112Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:22.080152Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.080175Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:22.092242Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:22.092434Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:22.092460Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:22.092576Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:22.092593Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:22.092982Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:22.093257Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (0.24ms) [0m
+[0;34m node0 2022-06-22T16:07:22.093300Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  1ms [0m
+[0;34m node0 2022-06-22T16:07:22.115012Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:22.115165Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:22.115277Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:22.115316Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:22.133910Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:22.134135Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;34m node0 2022-06-22T16:07:22.134818Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:22.135050Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:22.135073Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:22.135090Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:22.135105Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:22.135117Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:22.135131Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:22.135146Z [init] [init.cpp:1568] [AppInitMain] Shutdown requested. Exiting. [0m
+[0;34m node0 2022-06-22T16:07:22.135160Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.135247Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:22.135263Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:22.135282Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:22.135297Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:22.135310Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:22.135324Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:22.135340Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:22.135458Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:22.135475Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.135496Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:22.151323Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:22.151414Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:22.151477Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.151562Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:22.152032Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 3e-06s [0m
+[0;34m node0 2022-06-22T16:07:22.192441Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:22.207000Z TestFramework (INFO): Starting node and will exit after line b'scheduler thread start' [0m
+[0;36m test  2022-06-22T16:07:22.229000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:22.365838Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:22.365901Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:22.366143Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:22.366157Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:22.366257Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:22.366269Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:22.366276Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:22.373499Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:22.373515Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:22.373684Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:22.373719Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:22.373741Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:22.373754Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373766Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373779Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373792Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:22.373804Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373817Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:22.373830Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373846Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373859Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:22.373872Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:22.373886Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373901Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:22.373916Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:22.373932Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:22.373954Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373968Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:22.373984Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:22.373997Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:22.374009Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:22.374024Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:22.374038Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:22.374053Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:22.374066Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:22.374080Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:22.374094Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:22.374108Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:22.374120Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:22.374134Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:22.374149Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:22.455310Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:22.591273Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:22.591320Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:22.599123Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;36m test  2022-06-22T16:07:22.601000Z TestFramework (DEBUG): Terminating node after terminate line was found [0m
+[0;34m node0 2022-06-22T16:07:22.621661Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:22.621757Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:22.621837Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:22.621851Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:22.621862Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:22.621941Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.621959Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:22.621971Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:22.621998Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:22.622013Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:22.622184Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:22.622214Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:22.622228Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:22.622243Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.622264Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:22.622446Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:22.622468Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:22.622578Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:22.622594Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:22.622914Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:22.628484Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (5.54ms) [0m
+[0;34m node0 2022-06-22T16:07:22.628524Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  6ms [0m
+[0;34m node0 2022-06-22T16:07:22.632376Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:22.632428Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:22.632470Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:22.632517Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:22.632538Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:22.641132Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:22.641353Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;34m node0 2022-06-22T16:07:22.642029Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:22.642240Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:22.642258Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:22.642274Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:22.642289Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:22.642301Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:22.642315Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:22.642330Z [init] [init.cpp:1568] [AppInitMain] Shutdown requested. Exiting. [0m
+[0;34m node0 2022-06-22T16:07:22.642344Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.647153Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:22.647361Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:22.647384Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:22.647400Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:22.647417Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:22.647433Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:22.647449Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:22.647566Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:22.647583Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.647594Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:22.647655Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:22.647707Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:22.647847Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:22.647931Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:22.648258Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 2e-06s [0m
+[0;34m node0 2022-06-22T16:07:22.661986Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:22.674000Z TestFramework (INFO): Starting node and will exit after line b'Starting HTTP server' [0m
+[0;36m test  2022-06-22T16:07:22.693000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:22.819777Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:22.819835Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:22.820038Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:22.820049Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:22.820134Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:22.820144Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:22.820150Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:22.825446Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:22.825460Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:22.825489Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:22.825507Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:22.825524Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:22.825535Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825546Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825557Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825568Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:22.825578Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825589Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:22.825600Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825614Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825625Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:22.825636Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:22.825648Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:22.825661Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:22.825674Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:22.825686Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:22.825698Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:22.829036Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:22.829065Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:22.829087Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:22.829117Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:22.829131Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:22.829144Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:22.829156Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:22.829168Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:22.829179Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:22.829191Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:22.829203Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:22.829213Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:22.829225Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:22.829238Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:22.936100Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.031432Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.031562Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:23.037174Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:23.060310Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:23.060411Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:23.060493Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:23.060509Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:23.060521Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:23.060609Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.060630Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:23.060643Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:23.060671Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.060686Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:23.060878Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:23.060909Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:23.060923Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:23.060939Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.060953Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:23.061188Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:23.061227Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:23.061338Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:23.061356Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:23.061682Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:23.061915Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (0.21ms) [0m
+[0;34m node0 2022-06-22T16:07:23.061935Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  0ms [0m
+[0;36m test  2022-06-22T16:07:23.063000Z TestFramework (DEBUG): Terminating node after terminate line was found [0m
+[0;34m node0 2022-06-22T16:07:23.066367Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:23.066456Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:23.066499Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:23.066520Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:23.068372Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.068582Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.073258Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:23.078618Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.078842Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:23.078862Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:23.078879Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:23.078894Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:23.078906Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:23.078920Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:23.078935Z [init] [init.cpp:1568] [AppInitMain] Shutdown requested. Exiting. [0m
+[0;34m node0 2022-06-22T16:07:23.078948Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.079101Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.079117Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:23.079137Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:23.079150Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.079163Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:23.079176Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:23.079223Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:23.079318Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:23.079335Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.079346Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:23.079470Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:23.079532Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:23.079582Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.079633Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:23.079937Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 4e-06s [0m
+[0;34m node0 2022-06-22T16:07:23.084008Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:23.091000Z TestFramework (INFO): Starting node and will exit after line b'Loading P2P addresses' [0m
+[0;36m test  2022-06-22T16:07:23.116000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:23.234965Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:23.235005Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:23.235127Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:23.235134Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:23.235203Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:23.235211Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:23.235215Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:23.237163Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:23.237172Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:23.237190Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:23.237201Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237210Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:23.237217Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237224Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237231Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237238Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:23.237245Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237252Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237259Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237268Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237275Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:23.237282Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:23.237290Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237298Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237306Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:23.237315Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237323Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237331Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237339Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:23.237347Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237353Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237361Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:23.237373Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:23.237381Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:23.237388Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:23.237396Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:23.237403Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:23.237411Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:23.237417Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.237425Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:23.237433Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:23.294289Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.360732Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.360764Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:23.379827Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:23.384916Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:23.384974Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:23.385025Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:23.385033Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:23.385039Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:23.385087Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;36m test  2022-06-22T16:07:23.398000Z TestFramework (DEBUG): Terminating node after terminate line was found [0m
+[0;34m node0 2022-06-22T16:07:23.398187Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:23.398209Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:23.398236Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.398251Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:23.398393Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:23.398421Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:23.398429Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:23.398437Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.398445Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:23.398615Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:23.398632Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:23.398699Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:23.398710Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:23.398940Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:23.399089Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (0.13ms) [0m
+[0;34m node0 2022-06-22T16:07:23.399101Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  1ms [0m
+[0;34m node0 2022-06-22T16:07:23.401518Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:23.402778Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:23.402837Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:23.402866Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:23.402880Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:23.404107Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.404225Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.404600Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.404716Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:23.404726Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:23.404735Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:23.404744Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:23.404751Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:23.404758Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:23.404767Z [init] [init.cpp:1568] [AppInitMain] Shutdown requested. Exiting. [0m
+[0;34m node0 2022-06-22T16:07:23.404776Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.409168Z [httpworker.1] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs, httpserver.cpp:103 started [0m
+[0;34m node0 2022-06-22T16:07:23.413359Z [httpworker.0] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs, httpserver.cpp:103 started [0m
+[0;34m node0 2022-06-22T16:07:23.417219Z [httpworker.1] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs, httpserver.cpp:103 completed (8033μs) [0m
+[0;34m node0 2022-06-22T16:07:23.417270Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.417281Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:23.417300Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:23.417308Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.417316Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:23.417325Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:23.417335Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:23.417418Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:23.417428Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.417434Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:23.419266Z [httpworker.0] [logging/timer.h:57] [Log] [lock] Enter: lock contention cs, httpserver.cpp:103 completed (5880μs) [0m
+[0;34m node0 2022-06-22T16:07:23.419377Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:23.419439Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:23.419585Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.419637Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:23.419813Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 2e-06s [0m
+[0;34m node0 2022-06-22T16:07:23.422143Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:23.433000Z TestFramework (INFO): Starting node and will exit after line b'Loading banlist' [0m
+[0;36m test  2022-06-22T16:07:23.449000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:23.563112Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:23.563149Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:23.563282Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:23.563290Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:23.563363Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:23.563372Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:23.563376Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:23.569916Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:23.569928Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:23.569945Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:23.569957Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:23.569966Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:23.569973Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:23.569980Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:23.569987Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:23.569994Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:23.570001Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:23.570008Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570014Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:23.570024Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:23.570031Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:23.570038Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:23.570047Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:23.570055Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570063Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:23.570072Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570080Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:23.570088Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570097Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:23.570105Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570115Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570124Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:23.570132Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:23.570141Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:23.570150Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:23.570159Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:23.570168Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:23.570175Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:23.570182Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.570190Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:23.570198Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:23.603838Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.658989Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.659019Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:23.672513Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:23.672575Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:23.672632Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:23.672640Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:23.672646Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:23.672698Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.672709Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:23.672715Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:23.672732Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.672740Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:23.672862Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:23.672880Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:23.672887Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:23.672896Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.672903Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:23.673025Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:23.673038Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:23.673133Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:23.678577Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:23.678599Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:23.678794Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:23.678916Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (0.11ms) [0m
+[0;34m node0 2022-06-22T16:07:23.678927Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  0ms [0m
+[0;34m node0 2022-06-22T16:07:23.680041Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:23.680751Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:23.680797Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:23.680823Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:23.680832Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:23.681908Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.682025Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.682412Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:23.682527Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:23.682538Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:23.682547Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:23.682555Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:23.682561Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:23.682569Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:23.682599Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading block index… [0m
+[0;34m node0 2022-06-22T16:07:23.682654Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index [0m
+[0;36m test  2022-06-22T16:07:23.689000Z TestFramework (DEBUG): Terminating node after terminate line was found [0m
+[0;34m node0 2022-06-22T16:07:23.708302Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:23.708335Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:23.708347Z [init] [init.cpp:1568] [AppInitMain] Shutdown requested. Exiting. [0m
+[0;34m node0 2022-06-22T16:07:23.708356Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.708470Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.708480Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:23.708494Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:23.708501Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:23.708508Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:23.708516Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:23.708524Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:23.708576Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:23.708585Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.708591Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:23.708978Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:23.713845Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:23.714190Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:23.714225Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:23.714391Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 1e-06s [0m
+[0;34m node0 2022-06-22T16:07:23.716784Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:23.719000Z TestFramework (INFO): Starting node and will exit after line b'Loading block index' [0m
+[0;36m test  2022-06-22T16:07:23.724000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:23.839902Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:23.849149Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:23.849298Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:23.849305Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:23.849378Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:23.849385Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:23.849389Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:23.853392Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:23.853404Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:23.853422Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:23.853433Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853441Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:23.853448Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853454Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853461Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853523Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:23.853531Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853538Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853545Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853554Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853561Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:23.853568Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:23.853575Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853584Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853592Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:23.853600Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853608Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853615Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853628Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:23.853636Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853643Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853651Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:23.853658Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:23.853666Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:23.853674Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:23.853681Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:23.853688Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:23.853696Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:23.853702Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:23.853710Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:23.853719Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:23.917984Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.968467Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:23.968511Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:23.989179Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:24.006187Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:24.013294Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:24.013353Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:24.013363Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:24.013369Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:24.013421Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.013431Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:24.013438Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:24.013456Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:24.013476Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:24.013578Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:24.013597Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:24.013606Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:24.013615Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.013622Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:24.013752Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:24.013771Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:24.013831Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:24.013842Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:24.014029Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:24.014153Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (0.11ms) [0m
+[0;34m node0 2022-06-22T16:07:24.014166Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  1ms [0m
+[0;34m node0 2022-06-22T16:07:24.016161Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:24.016226Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:24.016252Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:24.016268Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:24.021401Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:24.021566Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:24.021687Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;36m test  2022-06-22T16:07:24.022000Z TestFramework (DEBUG): Terminating node after terminate line was found [0m
+[0;34m node0 2022-06-22T16:07:24.022054Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:24.022174Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:24.022187Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:24.022201Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:24.022213Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:24.022222Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:24.022232Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:24.022265Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading block index… [0m
+[0;34m node0 2022-06-22T16:07:24.022323Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index [0m
+[0;34m node0 2022-06-22T16:07:24.034679Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.034713Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:24.034726Z [init] [init.cpp:1568] [AppInitMain] Shutdown requested. Exiting. [0m
+[0;34m node0 2022-06-22T16:07:24.034736Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.034755Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:24.034763Z [init] [rpc/server.cpp:297] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-06-22T16:07:24.034777Z [init] [init.cpp:206] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-06-22T16:07:24.034785Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:24.034792Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:24.034800Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:24.034809Z [shutoff] [rpc/server.cpp:309] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-06-22T16:07:24.034860Z [shutoff] [init.cpp:372] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-06-22T16:07:24.034874Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.034880Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-06-22T16:07:24.041174Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-06-22T16:07:24.041196Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-06-22T16:07:24.041248Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.041294Z [scheduler] [util/thread.cpp:19] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-06-22T16:07:24.041497Z [shutoff] [policy/fees.cpp:1014] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 1e-06s [0m
+[0;34m node0 2022-06-22T16:07:24.043737Z [shutoff] [init.cpp:323] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-06-22T16:07:24.045000Z TestFramework (INFO): Starting node and will exit after line b'Switching active chainstate' [0m
+[0;36m test  2022-06-22T16:07:24.052000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up [0m
+[0;34m node0 2022-06-22T16:07:24.188311Z [init] [init/common.cpp:127] [LogPackageVersion] Bitcoin Core version v23.99.0-c490ff40ee1f (debug build) [0m
+[0;34m node0 2022-06-22T16:07:24.188347Z [init] [init.cpp:650] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 [0m
+[0;34m node0 2022-06-22T16:07:24.188490Z [init] [init.cpp:915] [AppInitParameterInteraction] Validating signatures for all blocks. [0m
+[0;34m node0 2022-06-22T16:07:24.188498Z [init] [init.cpp:926] [AppInitParameterInteraction] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:24.188556Z [init] [kernel/context.cpp:21] [Context] Using the 'x86_shani(1way,2way)' SHA256 implementation [0m
+[0;34m node0 2022-06-22T16:07:24.188565Z [init] [random.cpp:100] [ReportHardwareRand] Using RdSeed as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:24.188569Z [init] [random.cpp:103] [ReportHardwareRand] Using RdRand as an additional entropy source [0m
+[0;34m node0 2022-06-22T16:07:24.193716Z [init] [init/common.cpp:98] [StartLogging] Default data directory /root/.bitcoin [0m
+[0;34m node0 2022-06-22T16:07:24.193731Z [init] [init/common.cpp:99] [StartLogging] Using data directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:24.193754Z [init] [init/common.cpp:104] [StartLogging] Config file: /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/bitcoin.conf [0m
+[0;34m node0 2022-06-22T16:07:24.193777Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: regtest="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193787Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" [0m
+[0;34m node0 2022-06-22T16:07:24.193795Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] connect="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193802Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] discover="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193810Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193818Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" [0m
+[0;34m node0 2022-06-22T16:07:24.193825Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193833Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] keypool="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193839Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] listenonion="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193851Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] natpmp="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193859Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" [0m
+[0;34m node0 2022-06-22T16:07:24.193866Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] port="11504" [0m
+[0;34m node0 2022-06-22T16:07:24.193874Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193883Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193892Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] rpcport="16504" [0m
+[0;34m node0 2022-06-22T16:07:24.193906Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] server="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193914Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193922Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193931Z [init] [util/system.cpp:1085] [logArgsPrefix] Config file arg: [regtest] upnp="0" [0m
+[0;34m node0 2022-06-22T16:07:24.193939Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: blockfilterindex="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193945Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: coinstatsindex="1" [0m
+[0;34m node0 2022-06-22T16:07:24.193954Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: datadir="/tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0" [0m
+[0;34m node0 2022-06-22T16:07:24.193963Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debug="" [0m
+[0;34m node0 2022-06-22T16:07:24.193971Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="libevent" [0m
+[0;34m node0 2022-06-22T16:07:24.193978Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: debugexclude="leveldb" [0m
+[0;34m node0 2022-06-22T16:07:24.193986Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logsourcelocations="" [0m
+[0;34m node0 2022-06-22T16:07:24.193993Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logthreadnames="" [0m
+[0;34m node0 2022-06-22T16:07:24.194001Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: logtimemicros="" [0m
+[0;34m node0 2022-06-22T16:07:24.194008Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: txindex="1" [0m
+[0;34m node0 2022-06-22T16:07:24.194016Z [init] [util/system.cpp:1085] [logArgsPrefix] Command-line arg: uacomment="testnode0" [0m
+[0;34m node0 2022-06-22T16:07:24.194025Z [init] [init.cpp:1159] [AppInitMain] Using at most 125 automatic connections (1048576 file descriptors available) [0m
+[0;34m node0 2022-06-22T16:07:24.251143Z [init] [script/sigcache.cpp:102] [InitSignatureCache] Using 16 MiB out of 32/2 requested for signature cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:24.326784Z [init] [validation.cpp:1673] [InitScriptExecutionCache] Using 16 MiB out of 32/2 requested for script execution cache, able to store 524288 elements [0m
+[0;34m node0 2022-06-22T16:07:24.326827Z [init] [init.cpp:1186] [AppInitMain] Script verification uses 2 additional threads [0m
+[0;34m node0 2022-06-22T16:07:24.345228Z [scheduler] [util/thread.cpp:17] [TraceThread] scheduler thread start [0m
+[0;34m node0 2022-06-22T16:07:24.362345Z [init] [httpserver.cpp:184] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 [0m
+[0;34m node0 2022-06-22T16:07:24.362415Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address ::1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:24.362479Z [init] [httpserver.cpp:362] [libevent_log_cb] [libevent:warning] getaddrinfo: address family for nodename not supported [0m
+[0;34m node0 2022-06-22T16:07:24.362486Z [init] [httpserver.cpp:330] [HTTPBindAddresses] Binding RPC on address ::1 port 16504 failed. [0m
+[0;34m node0 2022-06-22T16:07:24.362493Z [init] [httpserver.cpp:321] [HTTPBindAddresses] [http] Binding RPC on address 127.0.0.1 port 16504 [0m
+[0;34m node0 2022-06-22T16:07:24.362553Z [init] [httpserver.cpp:401] [InitHTTPServer] [http] Initialized HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.362563Z [init] [httpserver.cpp:403] [InitHTTPServer] [http] creating work queue of depth 16 [0m
+[0;34m node0 2022-06-22T16:07:24.362569Z [init] [rpc/server.cpp:287] [StartRPC] [rpc] Starting RPC [0m
+[0;34m node0 2022-06-22T16:07:24.362587Z [init] [httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server [0m
+[0;34m node0 2022-06-22T16:07:24.362596Z [init] [httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. [0m
+[0;34m node0 2022-06-22T16:07:24.362724Z [init] [rpc/request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/.cookie [0m
+[0;34m node0 2022-06-22T16:07:24.362742Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-06-22T16:07:24.362750Z [init] [httpserver.cpp:676] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) [0m
+[0;34m node0 2022-06-22T16:07:24.362763Z [init] [httpserver.cpp:425] [StartHTTPServer] [http] Starting HTTP server [0m
+[0;34m node0 2022-06-22T16:07:24.362772Z [init] [httpserver.cpp:427] [StartHTTPServer] [http] starting 4 worker threads [0m
+[0;34m node0 2022-06-22T16:07:24.362910Z [init] [wallet/load.cpp:51] [VerifyWallets] Using wallet directory /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest [0m
+[0;34m node0 2022-06-22T16:07:24.362925Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… [0m
+[0;34m node0 2022-06-22T16:07:24.362989Z [init] [init.cpp:1272] [AppInitMain] Using /16 prefix for IP bucketing [0m
+[0;34m node0 2022-06-22T16:07:24.363000Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… [0m
+[0;34m node0 2022-06-22T16:07:24.363228Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started [0m
+[0;34m node0 2022-06-22T16:07:24.363469Z [init] [logging/timer.h:57] [Log] [addrman] CheckAddrman: completed (0.22ms) [0m
+[0;34m node0 2022-06-22T16:07:24.363489Z [init] [addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  0ms [0m
+[0;34m node0 2022-06-22T16:07:24.373451Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading banlist… [0m
+[0;34m node0 2022-06-22T16:07:24.373513Z [init] [banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms [0m
+[0;34m node0 2022-06-22T16:07:24.373540Z [init] [net.cpp:1756] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false [0m
+[0;34m node0 2022-06-22T16:07:24.373549Z [init] [net.cpp:2403] [SetNetworkActive] SetNetworkActive: true [0m
+[0;34m node0 2022-06-22T16:07:24.373875Z [http] [httpserver.cpp:287] [ThreadHTTP] [http] Entering http event loop [0m
+[0;34m node0 2022-06-22T16:07:24.374894Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks [0m
+[0;34m node0 2022-06-22T16:07:24.375013Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks [0m
+[0;34m node0 2022-06-22T16:07:24.377311Z [init] [policy/fees.cpp:458] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks [0m
+[0;34m node0 2022-06-22T16:07:24.377448Z [init] [init.cpp:1415] [AppInitMain] Cache configuration: [0m
+[0;34m node0 2022-06-22T16:07:24.377464Z [init] [init.cpp:1416] [AppInitMain] * Using 2.0 MiB for block index database [0m
+[0;34m node0 2022-06-22T16:07:24.377475Z [init] [init.cpp:1418] [AppInitMain] * Using 56.0 MiB for transaction index database [0m
+[0;34m node0 2022-06-22T16:07:24.377485Z [init] [init.cpp:1422] [AppInitMain] * Using 49.0 MiB for basic block filter index database [0m
+[0;34m node0 2022-06-22T16:07:24.377492Z [init] [init.cpp:1424] [AppInitMain] * Using 8.0 MiB for chain state database [0m
+[0;34m node0 2022-06-22T16:07:24.377500Z [init] [init.cpp:1425] [AppInitMain] * Using 335.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) [0m
+[0;34m node0 2022-06-22T16:07:24.377541Z [init] [noui.cpp:56] [noui_InitMessage] init message: Loading block index… [0m
+[0;34m node0 2022-06-22T16:07:24.377607Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index [0m
+[0;34m node0 2022-06-22T16:07:24.384232Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.384264Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/blocks/index: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:24.385316Z [init] [node/blockstorage.cpp:330] [LoadBlockIndexDB] LoadBlockIndexDB: last block file = 0 [0m
+[0;34m node0 2022-06-22T16:07:24.385338Z [init] [node/blockstorage.cpp:334] [LoadBlockIndexDB] LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=201, size=52791, heights=0...200, time=2011-02-02...2022-06-22) [0m
+[0;34m node0 2022-06-22T16:07:24.385348Z [init] [node/blockstorage.cpp:345] [LoadBlockIndexDB] Checking all blk files are present... [0m
+[0;34m node0 2022-06-22T16:07:24.385990Z [init] [node/chainstate.cpp:51] [CompleteChainstateInitialization] Initializing chainstate Chainstate [ibd] @ height -1 (null) [0m
+[0;34m node0 2022-06-22T16:07:24.386012Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate [0m
+[0;34m node0 2022-06-22T16:07:24.397476Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.397535Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate: 361f1753b47b5bcd [0m
+[0;34m node0 2022-06-22T16:07:24.397672Z [init] [validation.cpp:3933] [LoadChainTip] Loaded best chain: hashBestChain=43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560 height=200 date=2022-06-22T16:07:21Z progress=1.000000 [0m
+[0;34m node0 2022-06-22T16:07:24.397686Z [init] [validation.cpp:5416] [MaybeRebalanceCaches] [snapshot] allocating all cache to the IBD chainstate [0m
+[0;34m node0 2022-06-22T16:07:24.397737Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate [0m
+[0;34m node0 2022-06-22T16:07:24.400343Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.400389Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/chainstate: 361f1753b47b5bcd [0m
+[0;34m node0 2022-06-22T16:07:24.400401Z [init] [validation.cpp:4661] [ResizeCoinsCaches] [Chainstate [ibd] @ height 200 (43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560)] resized coinsdb cache to 8.0 MiB [0m
+[0;34m node0 2022-06-22T16:07:24.400410Z [init] [validation.cpp:4663] [ResizeCoinsCaches] [Chainstate [ibd] @ height 200 (43443cc0ed7bea8c3bddea74685b01c5096af8c93051ef91dc30ee2752463560)] resized coinstip cache to 335.0 MiB [0m
+[0;34m node0 2022-06-22T16:07:24.400435Z [init] [noui.cpp:56] [noui_InitMessage] init message: Verifying blocks… [0m
+[0;34m node0 2022-06-22T16:07:24.400456Z [init] [validation.cpp:3964] [VerifyDB] Verifying last 6 blocks at level 3 [0m
+[0;34m node0 2022-06-22T16:07:24.400468Z [init] [validation.cpp:3971] [VerifyDB] [0%]...[16%]...[33%]...[50%]...[66%]...[83%]...[99%]...[DONE]. [0m
+[0;34m node0 2022-06-22T16:07:24.401164Z [init] [validation.cpp:4058] [VerifyDB] No coin database inconsistencies in last 6 blocks (6 transactions) [0m
+[0;34m node0 2022-06-22T16:07:24.401175Z [init] [init.cpp:1540] [AppInitMain]  block index              24ms [0m
+[0;34m node0 2022-06-22T16:07:24.407790Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/indexes/txindex [0m
+[0;34m node0 2022-06-22T16:07:24.446982Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.447013Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/indexes/txindex: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:24.447235Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/indexes/blockfilter/basic/db [0m
+[0;34m node0 2022-06-22T16:07:24.450577Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.450601Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/indexes/blockfilter/basic/db: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:24.450771Z [init] [dbwrapper.cpp:137] [CDBWrapper] Opening LevelDB in /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/indexes/coinstats/db [0m
+[0;34m node0 2022-06-22T16:07:24.453851Z [init] [dbwrapper.cpp:145] [CDBWrapper] Opened LevelDB successfully [0m
+[0;34m node0 2022-06-22T16:07:24.453877Z [init] [dbwrapper.cpp:170] [CDBWrapper] Using obfuscation key for /tmp/cirrus-build/ci/scratch/test_runner/test_runner_₿_🏃_20220622_155422/feature_init_42/node0/regtest/indexes/coinstats/db: 0000000000000000 [0m
+[0;34m node0 2022-06-22T16:07:24.453986Z [init] [init.cpp:1693] [AppInitMain] block tree size = 201 [0m
+[0;34m node0 2022-06-22T16:07:24.453995Z [init] [init.cpp:1705] [AppInitMain] nBestHeight = 200 [0m
+[0;34m node0 2022-06-22T16:07:24.454080Z [init] [net.cpp:2336] [BindListenPort] Bound to 127.0.0.1:11504 [0m
+[0;34m node0 2022-06-22T16:07:24.454101Z [init] [net.cpp:2333] [BindListenPort] [net:error] Unable to bind to 127.0.0.1:18445 on this computer. Bitcoin Core is probably already running. [0m
+[0;34m node0 2022-06-22T16:07:24.454123Z [init] [noui.cpp:56] [noui_InitMessage] init message: Starting network threads… [0m
+[0;34m node0 2022-06-22T16:07:24.454161Z [init] [net.cpp:2545] [Start] DNS seeding disabled [0m
+[0;34m node0 2022-06-22T16:07:24.454228Z [init] [noui.cpp:56] [noui_InitMessage] init message: Done loading [0m
+[0;34m node0 2022-06-22T16:07:24.461194Z [basic block filter index] [util/thread.cpp:17] [TraceThread] basic block filter index thread start [0m
+[0;34m node0 2022-06-22T16:07:24.461245Z [basic block filter index] [index/base.cpp:166] [ThreadSync] Syncing basic block filter index with block chain from height 0 [0m
+[0;34m node0 2022-06-22T16:07:24.461420Z [coinstatsindex] [util/thread.cpp:17] [TraceThread] coinstatsindex thread start [0m
+[0;34m node0 2022-06-22T16:07:24.465199Z [coinstatsindex] [index/base.cpp:166] [ThreadSync] Syncing coinstatsindex with block chain from height 0 [0m
+[0;34m node0 2022-06-22T16:07:24.465288Z [coinstatsindex] [util/system.h:50] [error] ERROR: Commit: Failed to commit latest coinstatsindex state [0m
+[0;34m node0 2022-06-22T16:07:24.469141Z [loadblk] [util/thread.cpp:17] [TraceThread] loadblk thread start [0m
+[0;34m node0 2022-06-22T16:07:24.469418Z [loadblk] [validation.cpp:4761] [LoadMempool] Imported mempool transactions from disk: 0 succeeded, 0 failed, 0 expired, 0 already there, 0 waiting for initial broadcast [0m
+[0;34m node0 2022-06-22T16:07:24.469444Z [loadblk] [util/thread.cpp:19] [TraceThread] loadblk thread exit [0m
+[0;34m node0 2022-06-22T16:07:24.469499Z [net] [util/thread.cpp:17] [TraceThread] net thread start [0m
+[0;34m node0 2022-06-22T16:07:24.469539Z [addcon] [util/thread.cpp:17] [TraceThread] addcon thread start [0m
+[0;34m node0 2022-06-22T16:07:24.469576Z [msghand] [util/thread.cpp:17] [TraceThread] msghand thread start [0m
+[0;34m node0 2022-06-22T16:07:24.469618Z [txindex] [util/thread.cpp:17] [TraceThread] txindex thread start [0m
+[0;34m node0 2022-06-22T16:07:24.469652Z [txindex] [index/base.cpp:166] [ThreadSync] Syncing txindex with block chain from height 0 [0m
+[0;34m node0 2022-06-22T16:07:24.469664Z [txindex] [util/system.h:50] [error] ERROR: Commit: Failed to commit latest txindex state [0m
+[0;34m node0 2022-06-22T16:07:24.473149Z [basic block filter index] [util/system.h:50] [error] ERROR: Commit: Failed to commit latest basic block filter index state [0m
+[0;34m node0 2022-06-22T16:07:24.473349Z [basic block filter index] [flatfile.cpp:69] [Allocate] [validation] Pre-allocating up to position 0x100000 in fltr00000.dat [0m
+[0;34m node0 2022-06-22T16:07:24.491868Z [txindex] [index/base.cpp:192] [ThreadSync] txindex is enabled at height 200 [0m
+[0;34m node0 2022-06-22T16:07:24.491881Z [txindex] [util/thread.cpp:19] [TraceThread] txindex thread exit [0m
+[0;34m node0 2022-06-22T16:07:24.619577Z [basic block filter index] [index/base.cpp:192] [ThreadSync] basic block filter index is enabled at height 200 [0m
+[0;34m node0 2022-06-22T16:07:24.619600Z [basic block filter index] [util/thread.cpp:19] [TraceThread] basic block filter index thread exit [0m
+[0;34m node0 2022-06-22T16:07:33.310164Z [coinstatsindex] [index/base.cpp:192] [ThreadSync] coinstatsindex is enabled at height 200 [0m
+[0;34m node0 2022-06-22T16:07:33.310191Z [coinstatsindex] [util/thread.cpp:19] [TraceThread] coinstatsindex thread exit [0m
+[0;34m node0 2022-06-22T16:08:09.454730Z [scheduler] [net.cpp:1761] [StartExtraBlockRelayPeers] [net] enabling extra block-relay-only peers [0m
+[0;34m node0 2022-06-22T16:08:24.327581Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15462 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:09:24.338978Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15459 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:10:24.349784Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15425 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:11:24.360769Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15424 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:12:24.371726Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15413 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:13:24.382950Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:14:19.077886Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:14:19.077963Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:14:24.394615Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15417 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:15:16.462291Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:15:16.462380Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (4μs) [0m
+[0;34m node0 2022-06-22T16:15:16.562770Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1307 started [0m
+[0;34m node0 2022-06-22T16:15:16.562837Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1307 completed (3μs) [0m
+[0;34m node0 2022-06-22T16:15:24.405901Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15413 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:16:11.650108Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:16:11.650181Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:16:24.416930Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15414 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:17:24.428510Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:18:24.439517Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15416 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:19:24.450735Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15421 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:20:24.462600Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:21:24.473981Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:22:24.456820Z [scheduler] [net.cpp:1728] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  2ms [0m
+[0;34m node0 2022-06-22T16:22:24.485231Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15416 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:23:24.496251Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15414 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:24:24.507217Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:24:38.735763Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:24:38.735839Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (7μs) [0m
+[0;34m node0 2022-06-22T16:25:24.518338Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15417 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:26:24.529376Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15416 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:26:36.555711Z [addcon] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:2098 started [0m
+[0;34m node0 2022-06-22T16:26:36.555784Z [addcon] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:2098 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:26:36.706120Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1358 started [0m
+[0;34m node0 2022-06-22T16:26:36.706180Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1358 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:27:24.540568Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15417 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:28:24.552162Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:28:34.077913Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:28:34.078006Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:28:34.178195Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1307 started [0m
+[0;34m node0 2022-06-22T16:28:34.178263Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1307 completed (3μs) [0m
+[0;34m node0 2022-06-22T16:29:24.563526Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:30:24.574333Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:31:24.585411Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15416 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:31:45.855212Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1358 started [0m
+[0;34m node0 2022-06-22T16:31:45.855284Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1358 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:32:24.596571Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15417 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:33:24.608093Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:34:24.619584Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15417 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:35:24.630701Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15421 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:36:24.642335Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:37:24.460129Z [scheduler] [net.cpp:1728] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  4ms [0m
+[0;34m node0 2022-06-22T16:37:24.653649Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:37:38.169837Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1307 started [0m
+[0;34m node0 2022-06-22T16:37:38.169917Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1307 completed (3μs) [0m
+[0;34m node0 2022-06-22T16:38:24.664889Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:39:12.605224Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:39:12.605294Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:39:24.676494Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15421 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:40:24.687749Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:41:24.699443Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:42:24.710909Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15416 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:43:02.461008Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:43:02.461146Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (42μs) [0m
+[0;34m node0 2022-06-22T16:43:24.722309Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15421 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:44:24.733697Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15422 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:45:24.745406Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15418 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:46:04.241893Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:46:04.241982Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:46:04.342276Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1358 started [0m
+[0;34m node0 2022-06-22T16:46:04.342339Z [net] [logging/timer.h:57] [Log] [lock] Enter: lock contention m_nodes_mutex, net.cpp:1358 completed (2μs) [0m
+[0;34m node0 2022-06-22T16:46:24.756958Z [scheduler] [random.cpp:519] [SeedPeriodic] [rand] Feeding 15417 bytes of dynamic environment data into RNG [0m
+[0;34m node0 2022-06-22T16:46:33.185046Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 started [0m
+[0;34m node0 2022-06-22T16:46:33.185163Z [msghand] [logging/timer.h:57] [Log] [lock] Enter: lock contention connman.m_nodes_mutex, ./net.h:1206 completed (4μs) [0m
+[0;36m test  2022-06-22T16:47:24.046000Z TestFramework (ERROR): Unexpected exception caught during testing [0m
+[0;36m                                   Traceback (most recent call last):[0m
+[0;36m                                     File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 133, in main[0m
+[0;36m                                       self.run_test()[0m
+[0;36m                                     File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/feature_init.py", line 79, in run_test[0m
+[0;36m                                       node.start(extra_args=['-txindex=1', '-blockfilterindex=1', '-coinstatsindex=1'])[0m
+[0;36m                                     File "/usr/lib/python3.7/contextlib.py", line 119, in __exit__[0m
+[0;36m                                       next(self.gen)[0m
+[0;36m                                     File "/tmp/cirrus-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_node.py", line 451, in wait_for_debug_log[0m
+[0;36m                                       print_log = " - " + "\n - ".join(log.splitlines())[0m
+[0;36m                                   TypeError: sequence item 0: expected str instance, bytes found[0m
+[0;36m test  2022-06-22T16:47:24.051000Z TestFramework (DEBUG): Closing down network thread [0m
+[0;36m test  2022-06-22T16:47:24.102000Z TestFramework (INFO): Stopping nodes [0m
+[0;36m test  2022-06-22T16:47:24.102000Z TestFramework.node0 (DEBUG): Stopping node [0m
+
+
+[1mTEST                                               | STATUS    | DURATION
+
+[0m[0;32mexample_test.py                                    | ✓ Passed  | 3 s
+[0m[0;32mfeature_abortnode.py                               | ✓ Passed  | 33 s
+[0m[0;32mfeature_addrman.py                                 | ✓ Passed  | 6 s
+[0m[0;32mfeature_anchors.py                                 | ✓ Passed  | 3 s
+[0m[0;32mfeature_asmap.py                                   | ✓ Passed  | 8 s
+[0m[0;32mfeature_assumevalid.py                             | ✓ Passed  | 159 s
+[0m[0;32mfeature_backwards_compatibility.py --descriptors   | ✓ Passed  | 19 s
+[0m[0;32mfeature_backwards_compatibility.py --legacy-wallet | ✓ Passed  | 16 s
+[0m[0;32mfeature_bind_extra.py                              | ✓ Passed  | 2 s
+[0m[0;32mfeature_bip68_sequence.py                          | ✓ Passed  | 69 s
+[0m[0;32mfeature_block.py                                   | ✓ Passed  | 370 s
+[0m[0;32mfeature_blocksdir.py                               | ✓ Passed  | 2 s
+[0m[0;32mfeature_cltv.py                                    | ✓ Passed  | 2 s
+[0m[0;32mfeature_coinstatsindex.py                          | ✓ Passed  | 16 s
+[0m[0;32mfeature_config_args.py                             | ✓ Passed  | 19 s
+[0m[0;32mfeature_csv_activation.py                          | ✓ Passed  | 37 s
+[0m[0;32mfeature_dersig.py                                  | ✓ Passed  | 3 s
+[0m[0;32mfeature_dirsymlinks.py                             | ✓ Passed  | 2 s
+[0m[0;32mfeature_fee_estimation.py                          | ✓ Passed  | 435 s
+[0m[0;32mfeature_filelock.py                                | ✓ Passed  | 4 s
+[0m[0;32mfeature_help.py                                    | ✓ Passed  | 1 s
+[0m[0;32mfeature_includeconf.py                             | ✓ Passed  | 3 s
+[0m[0;32mfeature_index_prune.py                             | ✓ Passed  | 617 s
+[0m[0;32mfeature_loadblock.py                               | ✓ Passed  | 2 s
+[0m[0;32mfeature_logging.py                                 | ✓ Passed  | 6 s
+[0m[0;32mfeature_maxtipage.py                               | ✓ Passed  | 14 s
+[0m[0;32mfeature_maxuploadtarget.py                         | ✓ Passed  | 107 s
+[0m[0;32mfeature_minchainwork.py                            | ✓ Passed  | 11 s
+[0m[0;32mfeature_notifications.py                           | ✓ Passed  | 16 s
+[0m[0;32mfeature_nulldummy.py --descriptors                 | ✓ Passed  | 4 s
+[0m[0;32mfeature_nulldummy.py --legacy-wallet               | ✓ Passed  | 2 s
+[0m[0;32mfeature_presegwit_node_upgrade.py                  | ✓ Passed  | 3 s
+[0m[0;32mfeature_proxy.py                                   | ✓ Passed  | 6 s
+[0m[0;32mfeature_pruning.py                                 | ✓ Passed  | 906 s
+[0m[0;32mfeature_rbf.py --descriptors                       | ✓ Passed  | 15 s
+[0m[0;32mfeature_rbf.py --legacy-wallet                     | ✓ Passed  | 14 s
+[0m[0;32mfeature_reindex.py                                 | ✓ Passed  | 7 s
+[0m[0;32mfeature_segwit.py --descriptors                    | ✓ Passed  | 19 s
+[0m[0;32mfeature_segwit.py --legacy-wallet                  | ✓ Passed  | 27 s
+[0m[0;32mfeature_settings.py                                | ✓ Passed  | 4 s
+[0m[0;32mfeature_shutdown.py                                | ✓ Passed  | 2 s
+[0m[0;32mfeature_signet.py                                  | ✓ Passed  | 2 s
+[0m[0;32mfeature_startupnotify.py                           | ✓ Passed  | 2 s
+[0m[0;32mfeature_syscall_sandbox.py                         | ✓ Passed  | 1 s
+[0m[0;32mfeature_taproot.py                                 | ✓ Passed  | 599 s
+[0m[0;32mfeature_txindex_compatibility.py                   | ✓ Passed  | 6 s
+[0m[0;32mfeature_uacomment.py                               | ✓ Passed  | 5 s
+[0m[0;32mfeature_unsupported_utxo_db.py                     | ✓ Passed  | 4 s
+[0m[0;32mfeature_utxo_set_hash.py                           | ✓ Passed  | 3 s
+[0m[0;32mfeature_versionbits_warning.py                     | ✓ Passed  | 11 s
+[0m[0;32minterface_bitcoin_cli.py --descriptors             | ✓ Passed  | 25 s
+[0m[0;32minterface_bitcoin_cli.py --legacy-wallet           | ✓ Passed  | 16 s
+[0m[0;32minterface_http.py                                  | ✓ Passed  | 2 s
+[0m[0;32minterface_rest.py                                  | ✓ Passed  | 5 s
+[0m[0;32minterface_rpc.py                                   | ✓ Passed  | 4 s
+[0m[0;32minterface_zmq.py                                   | ✓ Passed  | 19 s
+[0m[0;32mmempool_accept.py                                  | ✓ Passed  | 16 s
+[0m[0;32mmempool_accept_wtxid.py                            | ✓ Passed  | 10 s
+[0m[0;32mmempool_compatibility.py                           | ✓ Passed  | 6 s
+[0m[0;32mmempool_expiry.py                                  | ✓ Passed  | 3 s
+[0m[0;32mmempool_limit.py                                   | ✓ Passed  | 10 s
+[0m[0;32mmempool_package_limits.py                          | ✓ Passed  | 9 s
+[0m[0;32mmempool_package_onemore.py                         | ✓ Passed  | 2 s
+[0m[0;32mmempool_packages.py                                | ✓ Passed  | 16 s
+[0m[0;32mmempool_persist.py                                 | ✓ Passed  | 32 s
+[0m[0;32mmempool_reorg.py                                   | ✓ Passed  | 5 s
+[0m[0;32mmempool_resurrect.py                               | ✓ Passed  | 3 s
+[0m[0;32mmempool_spend_coinbase.py                          | ✓ Passed  | 2 s
+[0m[0;32mmempool_unbroadcast.py                             | ✓ Passed  | 12 s
+[0m[0;32mmempool_updatefromblock.py                         | ✓ Passed  | 82 s
+[0m[0;32mmining_basic.py                                    | ✓ Passed  | 8 s
+[0m[0;32mmining_getblocktemplate_longpoll.py                | ✓ Passed  | 70 s
+[0m[0;32mmining_prioritisetransaction.py                    | ✓ Passed  | 12 s
+[0m[0;32mp2p_add_connections.py                             | ✓ Passed  | 8 s
+[0m[0;32mp2p_addr_relay.py                                  | ✓ Passed  | 19 s
+[0m[0;32mp2p_addrfetch.py                                   | ✓ Passed  | 2 s
+[0m[0;32mp2p_addrv2_relay.py                                | ✓ Passed  | 2 s
+[0m[0;32mp2p_block_sync.py                                  | ✓ Passed  | 2 s
+[0m[0;32mp2p_blockfilters.py                                | ✓ Passed  | 101 s
+[0m[0;32mp2p_blocksonly.py                                  | ✓ Passed  | 7 s
+[0m[0;32mp2p_compactblocks.py                               | ✓ Passed  | 11 s
+[0m[0;32mp2p_compactblocks_blocksonly.py                    | ✓ Passed  | 4 s
+[0m[0;32mp2p_compactblocks_hb.py                            | ✓ Passed  | 15 s
+[0m[0;32mp2p_disconnect_ban.py                              | ✓ Passed  | 4 s
+[0m[0;32mp2p_dns_seeds.py                                   | ✓ Passed  | 34 s
+[0m[0;32mp2p_dos_header_tree.py                             | ✓ Passed  | 3 s
+[0m[0;32mp2p_eviction.py                                    | ✓ Passed  | 6 s
+[0m[0;32mp2p_feefilter.py                                   | ✓ Passed  | 15 s
+[0m[0;32mp2p_filter.py                                      | ✓ Passed  | 4 s
+[0m[0;32mp2p_fingerprint.py                                 | ✓ Passed  | 2 s
+[0m[0;32mp2p_getaddr_caching.py                             | ✓ Passed  | 27 s
+[0m[0;32mp2p_getdata.py                                     | ✓ Passed  | 1 s
+[0m[0;32mp2p_i2p_ports.py                                   | ✓ Passed  | 81 s
+[0m[0;32mp2p_ibd_txrelay.py                                 | ✓ Passed  | 2 s
+[0m[0;32mp2p_invalid_block.py                               | ✓ Passed  | 3 s
+[0m[0;32mp2p_invalid_locator.py                             | ✓ Passed  | 3 s
+[0m[0;32mp2p_invalid_messages.py                            | ✓ Passed  | 34 s
+[0m[0;32mp2p_invalid_tx.py                                  | ✓ Passed  | 8 s
+[0m[0;32mp2p_leak.py                                        | ✓ Passed  | 6 s
+[0m[0;32mp2p_leak_tx.py                                     | ✓ Passed  | 3 s
+[0m[0;32mp2p_message_capture.py                             | ✓ Passed  | 2 s
+[0m[0;32mp2p_nobloomfilter_messages.py                      | ✓ Passed  | 2 s
+[0m[0;32mp2p_node_network_limited.py                        | ✓ Passed  | 211 s
+[0m[0;32mp2p_permissions.py                                 | ✓ Passed  | 19 s
+[0m[0;32mp2p_ping.py                                        | ✓ Passed  | 2 s
+[0m[0;32mp2p_segwit.py                                      | ✓ Passed  | 235 s
+[0m[0;32mp2p_sendheaders.py                                 | ✓ Passed  | 20 s
+[0m[0;32mp2p_timeouts.py                                    | ✓ Passed  | 2 s
+[0m[0;32mp2p_tx_download.py                                 | ✓ Passed  | 40 s
+[0m[0;32mp2p_unrequested_blocks.py                          | ✓ Passed  | 11 s
+[0m[0;32mrpc_bind.py --ipv4                                 | ✓ Passed  | 3 s
+[0m[0;32mrpc_bind.py --nonloopback                          | ✓ Passed  | 32 s
+[0m[0;32mrpc_blockchain.py                                  | ✓ Passed  | 19 s
+[0m[0;32mrpc_createmultisig.py                              | ✓ Passed  | 16 s
+[0m[0;32mrpc_decodescript.py                                | ✓ Passed  | 2 s
+[0m[0;32mrpc_deprecated.py                                  | ✓ Passed  | 1 s
+[0m[0;32mrpc_deriveaddresses.py                             | ✓ Passed  | 1 s
+[0m[0;32mrpc_deriveaddresses.py --usecli                    | ✓ Passed  | 2 s
+[0m[0;32mrpc_dumptxoutset.py                                | ✓ Passed  | 2 s
+[0m[0;32mrpc_estimatefee.py                                 | ✓ Passed  | 1 s
+[0m[0;32mrpc_fundrawtransaction.py --descriptors            | ✓ Passed  | 354 s
+[0m[0;32mrpc_fundrawtransaction.py --legacy-wallet          | ✓ Passed  | 49 s
+[0m[0;32mrpc_generate.py                                    | ✓ Passed  | 1 s
+[0m[0;32mrpc_getblockfilter.py                              | ✓ Passed  | 2 s
+[0m[0;32mrpc_getblockfrompeer.py                            | ✓ Passed  | 3 s
+[0m[0;32mrpc_getblockstats.py                               | ✓ Passed  | 2 s
+[0m[0;32mrpc_getchaintips.py                                | ✓ Passed  | 6 s
+[0m[0;32mrpc_getdescriptorinfo.py                           | ✓ Passed  | 1 s
+[0m[0;32mrpc_help.py                                        | ✓ Passed  | 2 s
+[0m[0;32mrpc_invalid_address_message.py                     | ✓ Passed  | 2 s
+[0m[0;32mrpc_invalidateblock.py                             | ✓ Passed  | 1 s
+[0m[0;32mrpc_mempool_info.py                                | ✓ Passed  | 2 s
+[0m[0;32mrpc_misc.py                                        | ✓ Passed  | 18 s
+[0m[0;32mrpc_named_arguments.py                             | ✓ Passed  | 2 s
+[0m[0;32mrpc_net.py                                         | ✓ Passed  | 38 s
+[0m[0;32mrpc_packages.py                                    | ✓ Passed  | 3 s
+[0m[0;32mrpc_preciousblock.py                               | ✓ Passed  | 3 s
+[0m[0;32mrpc_psbt.py --descriptors                          | ✓ Passed  | 100 s
+[0m[0;32mrpc_psbt.py --legacy-wallet                        | ✓ Passed  | 72 s
+[0m[0;32mrpc_rawtransaction.py --legacy-wallet              | ✓ Passed  | 13 s
+[0m[0;32mrpc_scantxoutset.py                                | ✓ Passed  | 38 s
+[0m[0;32mrpc_setban.py                                      | ✓ Passed  | 5 s
+[0m[0;32mrpc_signer.py                                      | ✓ Passed  | 3 s
+[0m[0;32mrpc_signmessagewithprivkey.py                      | ✓ Passed  | 2 s
+[0m[0;32mrpc_signrawtransaction.py --descriptors            | ✓ Passed  | 17 s
+[0m[0;32mrpc_signrawtransaction.py --legacy-wallet          | ✓ Passed  | 10 s
+[0m[0;32mrpc_txoutproof.py                                  | ✓ Passed  | 10 s
+[0m[0;32mrpc_uptime.py                                      | ✓ Passed  | 1 s
+[0m[0;32mrpc_users.py                                       | ✓ Passed  | 10 s
+[0m[0;32mrpc_whitelist.py                                   | ✓ Passed  | 2 s
+[0m[0;32mtool_signet_miner.py --descriptors                 | ✓ Passed  | 11 s
+[0m[0;32mtool_signet_miner.py --legacy-wallet               | ✓ Passed  | 25 s
+[0m[0;32mtool_wallet.py --descriptors                       | ✓ Passed  | 28 s
+[0m[0;32mtool_wallet.py --legacy-wallet                     | ✓ Passed  | 18 s
+[0m[0;32mwallet_abandonconflict.py --descriptors            | ✓ Passed  | 24 s
+[0m[0;32mwallet_abandonconflict.py --legacy-wallet          | ✓ Passed  | 14 s
+[0m[0;32mwallet_address_types.py --descriptors              | ✓ Passed  | 47 s
+[0m[0;32mwallet_address_types.py --legacy-wallet            | ✓ Passed  | 45 s
+[0m[0;32mwallet_avoidreuse.py --descriptors                 | ✓ Passed  | 263 s
+[0m[0;32mwallet_avoidreuse.py --legacy-wallet               | ✓ Passed  | 210 s
+[0m[0;32mwallet_backup.py --descriptors                     | ✓ Passed  | 57 s
+[0m[0;32mwallet_backup.py --legacy-wallet                   | ✓ Passed  | 54 s
+[0m[0;32mwallet_balance.py --descriptors                    | ✓ Passed  | 16 s
+[0m[0;32mwallet_balance.py --legacy-wallet                  | ✓ Passed  | 13 s
+[0m[0;32mwallet_basic.py --descriptors                      | ✓ Passed  | 72 s
+[0m[0;32mwallet_basic.py --legacy-wallet                    | ✓ Passed  | 60 s
+[0m[0;32mwallet_bumpfee.py --descriptors                    | ✓ Passed  | 105 s
+[0m[0;32mwallet_bumpfee.py --legacy-wallet                  | ✓ Passed  | 76 s
+[0m[0;32mwallet_coinbase_category.py --descriptors          | ✓ Passed  | 6 s
+[0m[0;32mwallet_coinbase_category.py --legacy-wallet        | ✓ Passed  | 4 s
+[0m[0;32mwallet_create_tx.py --descriptors                  | ✓ Passed  | 36 s
+[0m[0;32mwallet_create_tx.py --legacy-wallet                | ✓ Passed  | 11 s
+[0m[0;32mwallet_createwallet.py --descriptors               | ✓ Passed  | 16 s
+[0m[0;32mwallet_createwallet.py --legacy-wallet             | ✓ Passed  | 6 s
+[0m[0;32mwallet_createwallet.py --usecli                    | ✓ Passed  | 10 s
+[0m[0;32mwallet_crosschain.py                               | ✓ Passed  | 3 s
+[0m[0;32mwallet_descriptor.py --descriptors                 | ✓ Passed  | 78 s
+[0m[0;32mwallet_disable.py                                  | ✓ Passed  | 2 s
+[0m[0;32mwallet_dump.py --legacy-wallet                     | ✓ Passed  | 20 s
+[0m[0;32mwallet_encryption.py --descriptors                 | ✓ Passed  | 7 s
+[0m[0;32mwallet_encryption.py --legacy-wallet               | ✓ Passed  | 6 s
+[0m[0;32mwallet_fallbackfee.py --descriptors                | ✓ Passed  | 4 s
+[0m[0;32mwallet_fallbackfee.py --legacy-wallet              | ✓ Passed  | 2 s
+[0m[0;32mwallet_groups.py --descriptors                     | ✓ Passed  | 359 s
+[0m[0;32mwallet_groups.py --legacy-wallet                   | ✓ Passed  | 113 s
+[0m[0;32mwallet_hd.py --descriptors                         | ✓ Passed  | 22 s
+[0m[0;32mwallet_hd.py --legacy-wallet                       | ✓ Passed  | 22 s
+[0m[0;32mwallet_implicitsegwit.py --legacy-wallet           | ✓ Passed  | 10 s
+[0m[0;32mwallet_import_rescan.py --legacy-wallet            | ✓ Passed  | 146 s
+[0m[0;32mwallet_import_with_label.py --legacy-wallet        | ✓ Passed  | 1 s
+[0m[0;32mwallet_importdescriptors.py --descriptors          | ✓ Passed  | 63 s
+[0m[0;32mwallet_importmulti.py --legacy-wallet              | ✓ Passed  | 21 s
+[0m[0;32mwallet_importprunedfunds.py --descriptors          | ✓ Passed  | 8 s
+[0m[0;32mwallet_importprunedfunds.py --legacy-wallet        | ✓ Passed  | 5 s
+[0m[0;32mwallet_inactive_hdchains.py                        | ✓ Passed  | 7 s
+[0m[0;32mwallet_keypool.py --descriptors                    | ✓ Passed  | 20 s
+[0m[0;32mwallet_keypool.py --legacy-wallet                  | ✓ Passed  | 6 s
+[0m[0;32mwallet_keypool_topup.py --descriptors              | ✓ Passed  | 50 s
+[0m[0;32mwallet_keypool_topup.py --legacy-wallet            | ✓ Passed  | 18 s
+[0m[0;32mwallet_labels.py --descriptors                     | ✓ Passed  | 14 s
+[0m[0;32mwallet_labels.py --legacy-wallet                   | ✓ Passed  | 7 s
+[0m[0;32mwallet_listdescriptors.py --descriptors            | ✓ Passed  | 2 s
+[0m[0;32mwallet_listreceivedby.py --descriptors             | ✓ Passed  | 38 s
+[0m[0;32mwallet_listreceivedby.py --legacy-wallet           | ✓ Passed  | 14 s
+[0m[0;32mwallet_listsinceblock.py --descriptors             | ✓ Passed  | 19 s
+[0m[0;32mwallet_listsinceblock.py --legacy-wallet           | ✓ Passed  | 13 s
+[0m[0;32mwallet_listtransactions.py --descriptors           | ✓ Passed  | 39 s
+[0m[0;32mwallet_listtransactions.py --legacy-wallet         | ✓ Passed  | 27 s
+[0m[0;32mwallet_multisig_descriptor_psbt.py                 | ✓ Passed  | 41 s
+[0m[0;32mwallet_multiwallet.py --descriptors                | ✓ Passed  | 102 s
+[0m[0;32mwallet_multiwallet.py --legacy-wallet              | ✓ Passed  | 29 s
+[0m[0;32mwallet_multiwallet.py --usecli                     | ✓ Passed  | 36 s
+[0m[0;32mwallet_orphanedreward.py                           | ✓ Passed  | 13 s
+[0m[0;32mwallet_reorgsrestore.py                            | ✓ Passed  | 10 s
+[0m[0;32mwallet_resendwallettransactions.py --descriptors   | ✓ Passed  | 11 s
+[0m[0;32mwallet_resendwallettransactions.py --legacy-wallet | ✓ Passed  | 4 s
+[0m[0;32mwallet_send.py --descriptors                       | ✓ Passed  | 38 s
+[0m[0;32mwallet_send.py --legacy-wallet                     | ✓ Passed  | 17 s
+[0m[0;32mwallet_sendall.py --descriptors                    | ✓ Passed  | 19 s
+[0m[0;32mwallet_sendall.py --legacy-wallet                  | ✓ Passed  | 7 s
+[0m[0;32mwallet_signer.py --descriptors                     | ✓ Passed  | 12 s
+[0m[0;32mwallet_signmessagewithaddress.py                   | ✓ Passed  | 2 s
+[0m[0;32mwallet_startup.py                                  | ✓ Passed  | 4 s
+[0m[0;32mwallet_taproot.py                                  | ✓ Passed  | 292 s
+[0m[0;32mwallet_timelock.py                                 | ✓ Passed  | 2 s
+[0m[0;32mwallet_transactiontime_rescan.py --descriptors     | ✓ Passed  | 37 s
+[0m[0;32mwallet_transactiontime_rescan.py --legacy-wallet   | ✓ Passed  | 20 s
+[0m[0;32mwallet_txn_clone.py                                | ✓ Passed  | 5 s
+[0m[0;32mwallet_txn_clone.py --mineblock                    | ✓ Passed  | 6 s
+[0m[0;32mwallet_txn_clone.py --segwit                       | ✓ Passed  | 5 s
+[0m[0;32mwallet_txn_doublespend.py --descriptors            | ✓ Passed  | 11 s
+[0m[0;32mwallet_txn_doublespend.py --legacy-wallet          | ✓ Passed  | 4 s
+[0m[0;32mwallet_txn_doublespend.py --mineblock              | ✓ Passed  | 5 s
+[0m[0;32mwallet_upgradewallet.py --legacy-wallet            | ✓ Passed  | 12 s
+[0m[0;32mwallet_watchonly.py --legacy-wallet                | ✓ Passed  | 5 s
+[0m[0;32mwallet_watchonly.py --usecli --legacy-wallet       | ✓ Passed  | 7 s
+[0m[0mfeature_bind_port_discover.py                      | ○ Skipped | 1 s
+[0m[0mfeature_bind_port_externalip.py                    | ○ Skipped | 0 s
+[0m[0minterface_usdt_coinselection.py                    | ○ Skipped | 1 s
+[0m[0minterface_usdt_net.py                              | ○ Skipped | 1 s
+[0m[0minterface_usdt_utxocache.py                        | ○ Skipped | 1 s
+[0m[0minterface_usdt_validation.py                       | ○ Skipped | 1 s
+[0m[0mrpc_bind.py --ipv6                                 | ○ Skipped | 1 s
+[0m[0;31mfeature_init.py                                    | ✖ Failed  | 2404 s
+[0m[0;31m[1m
+ALL                                                | ✖ Failed  | 11357 s (accumulated) 
+[0m[0mRuntime: 3179 s
+
+All RPC commands covered.
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.198s
+
+OK
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

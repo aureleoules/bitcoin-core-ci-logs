@@ -1,0 +1,20 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-06-27 00:44:35.076 xcodebuild[698:5607] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-06-27 00:44:35.076 xcodebuild[698:5607] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ contrib/guix/libexec/build.sh                      |  4 ---
+ contrib/guix/manifest.scm                          | 10 +++++---
+ .../guix/patches/lief-fix-ppc64-nx-default.patch   | 29 ++++++++++++++++++++++
+ src/txmempool.cpp                                  | 23 ++++++++++-------
+ src/txmempool.h                                    |  9 +++----
+ test/sanitizer_suppressions/ubsan                  |  4 +--
+ 6 files changed, 56 insertions(+), 23 deletions(-)
+ create mode 100644 contrib/guix/patches/lief-fix-ppc64-nx-default.patch

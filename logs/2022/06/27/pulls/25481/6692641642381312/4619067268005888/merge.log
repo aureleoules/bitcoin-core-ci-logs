@@ -1,0 +1,48 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at ae074640f wallet: use CCoinControl to estimate signature size
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                        | 14 +++++------
+ build_msvc/README.md                               | 16 ++++++------
+ build_msvc/msvc-autogen.py                         |  4 +--
+ contrib/guix/libexec/build.sh                      |  4 ---
+ contrib/guix/manifest.scm                          | 17 ++++++++++---
+ .../guix/patches/lief-fix-ppc64-nx-default.patch   | 29 ++++++++++++++++++++++
+ src/Makefile.leveldb.include                       |  1 -
+ src/coins.h                                        |  1 -
+ src/dbwrapper.cpp                                  |  2 +-
+ src/dbwrapper.h                                    | 21 ----------------
+ src/net_processing.cpp                             |  1 +
+ src/qt/bitcoin.cpp                                 | 23 ++++++++++++++---
+ src/rpc/mempool.cpp                                |  6 +++--
+ src/rpc/server.cpp                                 | 12 ++++++---
+ src/txdb.cpp                                       |  6 -----
+ src/txmempool.cpp                                  | 23 ++++++++++-------
+ src/txmempool.h                                    |  9 +++----
+ src/util/time.h                                    |  7 +++++-
+ test/functional/feature_rbf.py                     |  1 +
+ test/functional/p2p_permissions.py                 |  1 +
+ test/functional/wallet_importdescriptors.py        |  2 +-
+ test/sanitizer_suppressions/ubsan                  |  4 +--
+ 22 files changed, 122 insertions(+), 82 deletions(-)
+ create mode 100644 contrib/guix/patches/lief-fix-ppc64-nx-default.patch
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

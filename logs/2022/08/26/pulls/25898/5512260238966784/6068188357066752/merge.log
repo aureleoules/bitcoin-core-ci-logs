@@ -1,0 +1,86 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 7566cd63c fs: drop old WSL1 hack.
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ .cirrus.yml                                      |    6 +-
+ contrib/seeds/makeseeds.py                       |    7 +-
+ contrib/seeds/nodes_main.txt                     | 1502 ++++++++++++----------
+ contrib/seeds/nodes_main_manual.txt              |   77 +-
+ doc/bitcoin-conf.md                              |    2 +
+ doc/descriptors.md                               |    7 +-
+ doc/policy/packages.md                           |    2 +-
+ src/Makefile.test.include                        |    1 +
+ src/bitcoin-chainstate.cpp                       |    2 +-
+ src/blockfilter.cpp                              |   16 +-
+ src/chain.h                                      |    6 +
+ src/chainparamsseeds.h                           | 1078 +++++++++-------
+ src/consensus/params.h                           |    5 +
+ src/init.cpp                                     |    2 +-
+ src/kernel/chainstatemanager_opts.h              |    4 +-
+ src/net_processing.cpp                           |    8 +-
+ src/node/mempool_args.cpp                        |    2 +-
+ src/node/miner.cpp                               |    4 +-
+ src/policy/policy.h                              |    2 +-
+ src/policy/rbf.cpp                               |   12 +-
+ src/policy/rbf.h                                 |   30 +-
+ src/primitives/block.h                           |    6 +
+ src/protocol.cpp                                 |    7 +-
+ src/rpc/mempool.cpp                              |    4 +-
+ src/rpc/net.cpp                                  |    2 +-
+ src/script/interpreter.h                         |    4 +-
+ src/script/sign.cpp                              |    5 +-
+ src/script/sign.h                                |    2 +
+ src/test/descriptor_tests.cpp                    |   95 +-
+ src/test/util_tests.cpp                          |   12 +-
+ src/timedata.cpp                                 |    4 +-
+ src/timedata.h                                   |    2 +-
+ src/txmempool.h                                  |    2 +-
+ src/util/string.h                                |   36 +-
+ src/validation.cpp                               |   39 +-
+ src/validation.h                                 |   20 +-
+ src/wallet/coinselection.cpp                     |   59 +-
+ src/wallet/coinselection.h                       |   46 +-
+ src/wallet/feebumper.cpp                         |   98 +-
+ src/wallet/feebumper.h                           |   66 +-
+ src/wallet/interfaces.cpp                        |    2 +-
+ src/wallet/rpc/backup.cpp                        |    8 +-
+ src/wallet/rpc/spend.cpp                         |    6 +-
+ src/wallet/rpc/transactions.cpp                  |    4 +-
+ src/wallet/spend.cpp                             |  117 +-
+ src/wallet/test/coinselector_tests.cpp           |   13 +-
+ src/wallet/test/feebumper_tests.cpp              |   54 +
+ src/wallet/test/fuzz/coinselection.cpp           |    8 +-
+ src/wallet/wallet.h                              |    4 +-
+ test/functional/feature_rbf.py                   |    4 +-
+ test/functional/wallet_abandonconflict.py        |    3 +
+ test/functional/wallet_balance.py                |    3 +
+ test/functional/wallet_basic.py                  |    2 +-
+ test/functional/wallet_bumpfee.py                |   24 +-
+ test/functional/wallet_groups.py                 |    4 +
+ test/functional/wallet_hd.py                     |    4 +
+ test/functional/wallet_importdescriptors.py      |    3 +
+ test/functional/wallet_listreceivedby.py         |    2 +
+ test/functional/wallet_listsinceblock.py         |    2 +
+ test/functional/wallet_transactiontime_rescan.py |    7 +
+ 60 files changed, 2110 insertions(+), 1448 deletions(-)
+ create mode 100644 src/wallet/test/feebumper_tests.cpp
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

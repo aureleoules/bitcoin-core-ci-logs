@@ -1,0 +1,52 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 6530d1950 test: add unit test for AvailableCoins
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging src/wallet/spend.cpp
+Auto-merging src/wallet/spend.h
+Auto-merging src/wallet/test/coinselector_tests.cpp
+Auto-merging src/wallet/test/wallet_tests.cpp
+Merge made by the 'ort' strategy.
+ src/Makefile.am                        |   1 +
+ src/bench/wallet_loading.cpp           |   7 +--
+ src/interfaces/wallet.h                |   8 +--
+ src/qt/addresstablemodel.cpp           |  14 ++---
+ src/qt/walletmodel.cpp                 |   6 +-
+ src/test/util/wallet.cpp               |   7 +--
+ src/util/result.h                      |  43 ++++++++++++++
+ src/wallet/feebumper.cpp               |  13 ++---
+ src/wallet/interfaces.cpp              |  24 ++++----
+ src/wallet/rpc/addresses.cpp           |  18 +++---
+ src/wallet/rpc/spend.cpp               |  12 ++--
+ src/wallet/scriptpubkeyman.cpp         |  35 ++++++-----
+ src/wallet/scriptpubkeyman.h           |   7 ++-
+ src/wallet/spend.cpp                   | 103 ++++++++++++++-------------------
+ src/wallet/spend.h                     |   9 ++-
+ src/wallet/test/coinselector_tests.cpp |   8 +--
+ src/wallet/test/fuzz/notifications.cpp |  11 ++--
+ src/wallet/test/spend_tests.cpp        |  15 +++--
+ src/wallet/test/wallet_tests.cpp       |  18 ++----
+ src/wallet/wallet.cpp                  |  29 +++++-----
+ src/wallet/wallet.h                    |   6 +-
+ 21 files changed, 201 insertions(+), 193 deletions(-)
+ create mode 100644 src/util/result.h
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

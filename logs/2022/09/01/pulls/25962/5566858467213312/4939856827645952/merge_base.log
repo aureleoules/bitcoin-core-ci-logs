@@ -1,0 +1,45 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-01 02:17:25.973 xcodebuild[700:5610] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-01 02:17:25.973 xcodebuild[700:5610] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_b.sh                             |  1 +
+ src/.clang-tidy                                    |  5 ++++
+ src/blockfilter.h                                  | 11 ++++----
+ src/chain.cpp                                      |  2 +-
+ src/hash.cpp                                       |  2 +-
+ src/headerssync.cpp                                | 24 ++++++++--------
+ src/index/blockfilterindex.h                       |  5 ++--
+ src/init.cpp                                       |  9 +++---
+ src/logging.cpp                                    |  3 --
+ src/logging.h                                      |  1 -
+ src/net_processing.cpp                             |  7 +++++
+ src/node/mempool_args.cpp                          |  1 +
+ src/primitives/block.h                             |  2 +-
+ src/rpc/blockchain.cpp                             |  2 +-
+ src/script/descriptor.cpp                          |  6 ++--
+ src/test/fuzz/txorphan.cpp                         |  1 -
+ src/threadinterrupt.h                              |  1 +
+ src/univalue/include/univalue.h                    |  8 +++---
+ src/univalue/lib/univalue.cpp                      | 20 +++++++-------
+ src/util/bip32.cpp                                 |  2 --
+ src/util/message.cpp                               |  1 -
+ src/util/strencodings.cpp                          |  1 -
+ src/util/string.cpp                                |  3 +-
+ src/util/string.h                                  |  1 -
+ src/validation.cpp                                 |  2 +-
+ src/wallet/spend.cpp                               |  2 +-
+ .../p2p_headers_sync_with_minchainwork.py          | 32 ++++++++++++++++++----
+ test/functional/rpc_fundrawtransaction.py          |  4 +--
+ test/functional/wallet_balance.py                  |  1 -
+ test/functional/wallet_basic.py                    | 10 ++-----
+ test/functional/wallet_bumpfee.py                  |  2 +-
+ test/functional/wallet_groups.py                   |  2 +-
+ 32 files changed, 97 insertions(+), 77 deletions(-)

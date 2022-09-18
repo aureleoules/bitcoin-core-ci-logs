@@ -1,0 +1,1360 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+CONFIG_SHELL=/bin/dash
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=--enable-zmq --with-gui=qt5 --enable-reduce-exports
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Running on host system without docker wrapper
+Last metadata expiration check: 0:00:58 ago on Wed Jul  6 15:00:56 2022.
+Dependencies resolved.
+================================================================================
+ Package               Architecture    Version            Repository       Size
+================================================================================
+Installing:
+ epel-release          noarch          8-11.el8           extras           24 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 35 k
+Downloading Packages:
+epel-release-8-11.el8.noarch.rpm                220 kB/s |  24 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            58 kB/s |  24 kB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : epel-release-8-11.el8.noarch                           1/1 
+  Running scriptlet: epel-release-8-11.el8.noarch                           1/1 
+  Verifying        : epel-release-8-11.el8.noarch                           1/1 
+
+Installed:
+  epel-release-8-11.el8.noarch                                                  
+
+Complete!
+Extra Packages for Enterprise Linux 8 - x86_64  4.1 MB/s |  12 MB     00:02    
+Extra Packages for Enterprise Linux Modular 8 - 573 kB/s | 1.0 MB     00:01    
+Last metadata expiration check: 0:00:01 ago on Wed Jul  6 15:02:03 2022.
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Dependencies resolved.
+=======================================================================================
+ Package                  Arch    Version                              Repo        Size
+=======================================================================================
+Installing:
+ bison                    x86_64  3.0.4-10.el8                         appstream  688 k
+ ccache                   x86_64  3.7.7-1.el8                          epel       232 k
+ coreutils                x86_64  8.30-13.el8                          baseos     1.2 M
+ dash                     x86_64  0.5.10.2-4.el8                       epel        99 k
+ gcc-c++                  x86_64  8.5.0-13.el8                         appstream   12 M
+ glibc-devel              i686    2.28-206.el8                         baseos      80 k
+ glibc-devel              x86_64  2.28-206.el8                         baseos      81 k
+ lbzip2                   x86_64  2.5-15.20171011gitb6dc48a.el8        epel        98 k
+ libstdc++-devel          i686    8.5.0-13.el8                         appstream  2.1 M
+ libstdc++-devel          x86_64  8.5.0-13.el8                         appstream  2.0 M
+ libtool                  x86_64  2.4.6-25.el8                         appstream  709 k
+ make                     x86_64  1:4.2.1-11.el8                       baseos     498 k
+ patch                    x86_64  2.7.6-11.el8                         baseos     138 k
+ procps-ng                x86_64  3.3.15-7.el8                         baseos     329 k
+ python3-zmq              x86_64  19.0.0-1.el8                         epel       418 k
+ python36                 x86_64  3.6.8-38.module_el8.5.0+895+a459eca8 appstream   19 k
+ rsync                    x86_64  3.1.3-14.el8                         baseos     405 k
+ xz                       x86_64  5.2.4-3.el8                          baseos     153 k
+Upgrading:
+ glibc                    x86_64  2.28-206.el8                         baseos     2.2 M
+ glibc-common             x86_64  2.28-206.el8                         baseos     1.0 M
+ glibc-minimal-langpack   x86_64  2.28-206.el8                         baseos      63 k
+Installing dependencies:
+ autoconf                 noarch  2.69-29.el8                          appstream  710 k
+ automake                 noarch  1.16.1-7.el8                         appstream  713 k
+ binutils                 x86_64  2.30-117.el8                         baseos     5.8 M
+ coreutils-common         x86_64  8.30-13.el8                          baseos     2.0 M
+ cpp                      x86_64  8.5.0-13.el8                         appstream   10 M
+ gcc                      x86_64  8.5.0-13.el8                         appstream   23 M
+ glibc                    i686    2.28-206.el8                         baseos     2.0 M
+ glibc-headers            i686    2.28-206.el8                         baseos     485 k
+ glibc-headers            x86_64  2.28-206.el8                         baseos     485 k
+ isl                      x86_64  0.16.1-6.el8                         appstream  841 k
+ kernel-headers           x86_64  4.18.0-394.el8                       baseos     9.6 M
+ libgcc                   i686    8.5.0-13.el8                         baseos      88 k
+ libgomp                  x86_64  8.5.0-13.el8                         baseos     207 k
+ libmpc                   x86_64  1.1.0-9.1.el8                        appstream   61 k
+ libpkgconf               x86_64  1.4.2-1.el8                          baseos      35 k
+ libsodium                x86_64  1.0.18-2.el8                         epel       162 k
+ libstdc++                i686    8.5.0-13.el8                         baseos     490 k
+ libunwind                x86_64  1.3.1-3.el8                          epel        75 k
+ libxcrypt                i686    4.1.1-6.el8                          baseos      74 k
+ libxcrypt-devel          i686    4.1.1-6.el8                          baseos      25 k
+ libxcrypt-devel          x86_64  4.1.1-6.el8                          baseos      25 k
+ m4                       x86_64  1.4.18-7.el8                         baseos     223 k
+ openpgm                  x86_64  5.2.122-21.el8                       epel       180 k
+ perl-Data-Dumper         x86_64  2.167-399.el8                        baseos      58 k
+ perl-Thread-Queue        noarch  3.13-1.el8                           appstream   24 k
+ pkgconf                  x86_64  1.4.2-1.el8                          baseos      38 k
+ pkgconf-m4               noarch  1.4.2-1.el8                          baseos      17 k
+ pkgconf-pkg-config       x86_64  1.4.2-1.el8                          baseos      15 k
+ platform-python-pip      noarch  9.0.3-22.el8                         baseos     1.6 M
+ python3-pip              noarch  9.0.3-22.el8                         appstream   20 k
+ python3-setuptools       noarch  39.2.0-6.el8                         baseos     163 k
+ zeromq                   x86_64  4.3.4-2.el8                          epel       479 k
+Installing weak dependencies:
+ glibc-gconv-extra        i686    2.28-206.el8                         appstream  1.6 M
+ glibc-gconv-extra        x86_64  2.28-206.el8                         baseos     1.5 M
+ glibc-langpack-en        x86_64  2.28-206.el8                         baseos     822 k
+Removing dependent packages:
+ coreutils-single         x86_64  8.30-12.el8                          @System    1.3 M
+Enabling module streams:
+ python36                         3.6                                                  
+
+Transaction Summary
+=======================================================================================
+Install  53 Packages
+Upgrade   3 Packages
+Remove    1 Package
+
+Total download size: 89 M
+Downloading Packages:
+(1/56): automake-1.16.1-7.el8.noarch.rpm        1.0 MB/s | 713 kB     00:00    
+(2/56): autoconf-2.69-29.el8.noarch.rpm         985 kB/s | 710 kB     00:00    
+(3/56): cpp-8.5.0-13.el8.x86_64.rpm              14 MB/s |  10 MB     00:00    
+(4/56): bison-3.0.4-10.el8.x86_64.rpm           434 kB/s | 688 kB     00:01    
+(5/56): glibc-gconv-extra-2.28-206.el8.i686.rpm 5.2 MB/s | 1.6 MB     00:00    
+(6/56): isl-0.16.1-6.el8.x86_64.rpm             5.6 MB/s | 841 kB     00:00    
+(7/56): libmpc-1.1.0-9.1.el8.x86_64.rpm         919 kB/s |  61 kB     00:00    
+(8/56): gcc-c++-8.5.0-13.el8.x86_64.rpm          13 MB/s |  12 MB     00:00    
+(9/56): libstdc++-devel-8.5.0-13.el8.i686.rpm   6.8 MB/s | 2.1 MB     00:00    
+(10/56): gcc-8.5.0-13.el8.x86_64.rpm             14 MB/s |  23 MB     00:01    
+(11/56): perl-Thread-Queue-3.13-1.el8.noarch.rp 346 kB/s |  24 kB     00:00    
+(12/56): libtool-2.4.6-25.el8.x86_64.rpm        5.1 MB/s | 709 kB     00:00    
+(13/56): python3-pip-9.0.3-22.el8.noarch.rpm    280 kB/s |  20 kB     00:00    
+(14/56): libstdc++-devel-8.5.0-13.el8.x86_64.rp  10 MB/s | 2.0 MB     00:00    
+(15/56): python36-3.6.8-38.module_el8.5.0+895+a 305 kB/s |  19 kB     00:00    
+(16/56): coreutils-8.30-13.el8.x86_64.rpm       791 kB/s | 1.2 MB     00:01    
+(17/56): coreutils-common-8.30-13.el8.x86_64.rp 1.0 MB/s | 2.0 MB     00:01    
+(18/56): glibc-devel-2.28-206.el8.i686.rpm      162 kB/s |  80 kB     00:00    
+(19/56): binutils-2.30-117.el8.x86_64.rpm       2.1 MB/s | 5.8 MB     00:02    
+(20/56): glibc-devel-2.28-206.el8.x86_64.rpm    116 kB/s |  81 kB     00:00    
+(21/56): glibc-2.28-206.el8.i686.rpm            961 kB/s | 2.0 MB     00:02    
+(22/56): glibc-gconv-extra-2.28-206.el8.x86_64. 778 kB/s | 1.5 MB     00:02    
+(23/56): glibc-headers-2.28-206.el8.x86_64.rpm  379 kB/s | 485 kB     00:01    
+(24/56): glibc-headers-2.28-206.el8.i686.rpm    212 kB/s | 485 kB     00:02    
+(25/56): libgcc-8.5.0-13.el8.i686.rpm           167 kB/s |  88 kB     00:00    
+(26/56): glibc-langpack-en-2.28-206.el8.x86_64. 538 kB/s | 822 kB     00:01    
+(27/56): libpkgconf-1.4.2-1.el8.x86_64.rpm       99 kB/s |  35 kB     00:00    
+(28/56): libgomp-8.5.0-13.el8.x86_64.rpm        235 kB/s | 207 kB     00:00    
+(29/56): libxcrypt-4.1.1-6.el8.i686.rpm         172 kB/s |  74 kB     00:00    
+(30/56): libxcrypt-devel-4.1.1-6.el8.i686.rpm    70 kB/s |  25 kB     00:00    
+(31/56): libstdc++-8.5.0-13.el8.i686.rpm        393 kB/s | 490 kB     00:01    
+(32/56): libxcrypt-devel-4.1.1-6.el8.x86_64.rpm  53 kB/s |  25 kB     00:00    
+(33/56): kernel-headers-4.18.0-394.el8.x86_64.r 2.5 MB/s | 9.6 MB     00:03    
+(34/56): m4-1.4.18-7.el8.x86_64.rpm             213 kB/s | 223 kB     00:01    
+(35/56): perl-Data-Dumper-2.167-399.el8.x86_64. 141 kB/s |  58 kB     00:00    
+(36/56): make-4.2.1-11.el8.x86_64.rpm           420 kB/s | 498 kB     00:01    
+(37/56): patch-2.7.6-11.el8.x86_64.rpm          205 kB/s | 138 kB     00:00    
+(38/56): pkgconf-m4-1.4.2-1.el8.noarch.rpm       68 kB/s |  17 kB     00:00    
+(39/56): pkgconf-1.4.2-1.el8.x86_64.rpm         114 kB/s |  38 kB     00:00    
+(40/56): pkgconf-pkg-config-1.4.2-1.el8.x86_64.  55 kB/s |  15 kB     00:00    
+(41/56): python3-setuptools-39.2.0-6.el8.noarch 237 kB/s | 163 kB     00:00    
+(42/56): procps-ng-3.3.15-7.el8.x86_64.rpm      358 kB/s | 329 kB     00:00    
+(43/56): xz-5.2.4-3.el8.x86_64.rpm              236 kB/s | 153 kB     00:00    
+(44/56): ccache-3.7.7-1.el8.x86_64.rpm          1.5 MB/s | 232 kB     00:00    
+(45/56): platform-python-pip-9.0.3-22.el8.noarc 912 kB/s | 1.6 MB     00:01    
+(46/56): dash-0.5.10.2-4.el8.x86_64.rpm         4.5 MB/s |  99 kB     00:00    
+(47/56): libsodium-1.0.18-2.el8.x86_64.rpm      6.6 MB/s | 162 kB     00:00    
+(48/56): libunwind-1.3.1-3.el8.x86_64.rpm       3.2 MB/s |  75 kB     00:00    
+(49/56): openpgm-5.2.122-21.el8.x86_64.rpm      8.1 MB/s | 180 kB     00:00    
+(50/56): lbzip2-2.5-15.20171011gitb6dc48a.el8.x 1.1 MB/s |  98 kB     00:00    
+(51/56): python3-zmq-19.0.0-1.el8.x86_64.rpm     10 MB/s | 418 kB     00:00    
+(52/56): zeromq-4.3.4-2.el8.x86_64.rpm          8.3 MB/s | 479 kB     00:00    
+(53/56): rsync-3.1.3-14.el8.x86_64.rpm          376 kB/s | 405 kB     00:01    
+(54/56): glibc-minimal-langpack-2.28-206.el8.x8 149 kB/s |  63 kB     00:00    
+(55/56): glibc-common-2.28-206.el8.x86_64.rpm   680 kB/s | 1.0 MB     00:01    
+(56/56): glibc-2.28-206.el8.x86_64.rpm          1.1 MB/s | 2.2 MB     00:01    
+--------------------------------------------------------------------------------
+Total                                           5.4 MB/s |  89 MB     00:16     
+Extra Packages for Enterprise Linux 8 - x86_64  1.6 MB/s | 1.6 kB     00:00    
+Importing GPG key 0x2F86D6A1:
+ Userid     : "Fedora EPEL (8) <epel@fedoraproject.org>"
+ Fingerprint: 94E2 79EB 8D8F 25B2 1810 ADF1 21EA 45AB 2F86 D6A1
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : kernel-headers-4.18.0-394.el8.x86_64                  1/60 
+  Installing       : glibc-langpack-en-2.28-206.el8.x86_64                 2/60 
+  Upgrading        : glibc-common-2.28-206.el8.x86_64                      3/60 
+  Running scriptlet: glibc-2.28-206.el8.x86_64                             4/60 
+  Upgrading        : glibc-2.28-206.el8.x86_64                             4/60 
+  Running scriptlet: glibc-2.28-206.el8.x86_64                             4/60 
+  Installing       : glibc-gconv-extra-2.28-206.el8.x86_64                 5/60 
+  Running scriptlet: glibc-gconv-extra-2.28-206.el8.x86_64                 5/60 
+  Installing       : libmpc-1.1.0-9.1.el8.x86_64                           6/60 
+  Running scriptlet: glibc-headers-2.28-206.el8.i686                       7/60 
+  Installing       : glibc-headers-2.28-206.el8.i686                       7/60 
+  Installing       : m4-1.4.18-7.el8.x86_64                                8/60 
+  Running scriptlet: m4-1.4.18-7.el8.x86_64                                8/60 
+  Installing       : cpp-8.5.0-13.el8.x86_64                               9/60 
+  Running scriptlet: cpp-8.5.0-13.el8.x86_64                               9/60 
+  Installing       : isl-0.16.1-6.el8.x86_64                              10/60 
+  Running scriptlet: isl-0.16.1-6.el8.x86_64                              10/60 
+  Running scriptlet: glibc-headers-2.28-206.el8.x86_64                    11/60 
+  Installing       : glibc-headers-2.28-206.el8.x86_64                    11/60 
+  Installing       : libgomp-8.5.0-13.el8.x86_64                          12/60 
+  Running scriptlet: libgomp-8.5.0-13.el8.x86_64                          12/60 
+  Installing       : libpkgconf-1.4.2-1.el8.x86_64                        13/60 
+  Installing       : pkgconf-1.4.2-1.el8.x86_64                           14/60 
+  Installing       : perl-Data-Dumper-2.167-399.el8.x86_64                15/60 
+  Installing       : autoconf-2.69-29.el8.noarch                          16/60 
+  Running scriptlet: autoconf-2.69-29.el8.noarch                          16/60 
+  Installing       : libsodium-1.0.18-2.el8.x86_64                        17/60 
+  Installing       : libunwind-1.3.1-3.el8.x86_64                         18/60 
+  Installing       : openpgm-5.2.122-21.el8.x86_64                        19/60 
+  Installing       : zeromq-4.3.4-2.el8.x86_64                            20/60 
+  Installing       : python3-setuptools-39.2.0-6.el8.noarch               21/60 
+  Installing       : platform-python-pip-9.0.3-22.el8.noarch              22/60 
+  Installing       : python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   23/60 
+  Running scriptlet: python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   23/60 
+  Installing       : python3-pip-9.0.3-22.el8.noarch                      24/60 
+  Installing       : pkgconf-m4-1.4.2-1.el8.noarch                        25/60 
+  Installing       : pkgconf-pkg-config-1.4.2-1.el8.x86_64                26/60 
+  Installing       : libxcrypt-devel-4.1.1-6.el8.x86_64                   27/60 
+  Installing       : glibc-devel-2.28-206.el8.x86_64                      28/60 
+  Running scriptlet: glibc-devel-2.28-206.el8.x86_64                      28/60 
+  Installing       : coreutils-common-8.30-13.el8.x86_64                  29/60 
+  Running scriptlet: coreutils-common-8.30-13.el8.x86_64                  29/60 
+  Installing       : coreutils-8.30-13.el8.x86_64                         30/60 
+  Installing       : binutils-2.30-117.el8.x86_64                         31/60 
+  Running scriptlet: binutils-2.30-117.el8.x86_64                         31/60 
+  Installing       : perl-Thread-Queue-3.13-1.el8.noarch                  32/60 
+  Installing       : automake-1.16.1-7.el8.noarch                         33/60 
+  Running scriptlet: ccache-3.7.7-1.el8.x86_64                            34/60 
+  Installing       : ccache-3.7.7-1.el8.x86_64                            34/60 
+  Installing       : python3-zmq-19.0.0-1.el8.x86_64                      35/60 
+  Installing       : bison-3.0.4-10.el8.x86_64                            36/60 
+  Running scriptlet: bison-3.0.4-10.el8.x86_64                            36/60 
+  Installing       : make-1:4.2.1-11.el8.x86_64                           37/60 
+  Running scriptlet: make-1:4.2.1-11.el8.x86_64                           37/60 
+  Installing       : patch-2.7.6-11.el8.x86_64                            38/60 
+  Installing       : procps-ng-3.3.15-7.el8.x86_64                        39/60 
+  Installing       : rsync-3.1.3-14.el8.x86_64                            40/60 
+  Installing       : xz-5.2.4-3.el8.x86_64                                41/60 
+  Installing       : dash-0.5.10.2-4.el8.x86_64                           42/60 
+  Running scriptlet: dash-0.5.10.2-4.el8.x86_64                           42/60 
+  Installing       : lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64          43/60 
+  Upgrading        : glibc-minimal-langpack-2.28-206.el8.x86_64           44/60 
+  Installing       : libstdc++-devel-8.5.0-13.el8.x86_64                  45/60 
+  Running scriptlet: glibc-2.28-206.el8.i686                              46/60 
+  Installing       : glibc-2.28-206.el8.i686                              46/60 
+  Running scriptlet: glibc-2.28-206.el8.i686                              46/60 
+  Installing       : glibc-gconv-extra-2.28-206.el8.i686                  47/60 
+  Running scriptlet: glibc-gconv-extra-2.28-206.el8.i686                  47/60 
+  Installing       : libgcc-8.5.0-13.el8.i686                             48/60 
+  Running scriptlet: libgcc-8.5.0-13.el8.i686                             48/60 
+  Installing       : libstdc++-8.5.0-13.el8.i686                          49/60 
+  Running scriptlet: libstdc++-8.5.0-13.el8.i686                          49/60 
+  Installing       : libstdc++-devel-8.5.0-13.el8.i686                    50/60 
+  Installing       : libxcrypt-4.1.1-6.el8.i686                           51/60 
+  Installing       : glibc-devel-2.28-206.el8.i686                        52/60 
+  Running scriptlet: glibc-devel-2.28-206.el8.i686                        52/60 
+  Installing       : libxcrypt-devel-4.1.1-6.el8.i686                     53/60 
+  Installing       : gcc-8.5.0-13.el8.x86_64                              54/60 
+  Running scriptlet: gcc-8.5.0-13.el8.x86_64                              54/60 
+  Installing       : gcc-c++-8.5.0-13.el8.x86_64                          55/60 
+  Running scriptlet: gcc-c++-8.5.0-13.el8.x86_64                          55/60 
+  Installing       : libtool-2.4.6-25.el8.x86_64                          56/60 
+  Running scriptlet: libtool-2.4.6-25.el8.x86_64                          56/60 
+  Erasing          : coreutils-single-8.30-12.el8.x86_64                  57/60 
+  Cleanup          : glibc-2.28-203.el8.x86_64                            58/60 
+  Cleanup          : glibc-minimal-langpack-2.28-203.el8.x86_64           59/60 
+  Cleanup          : glibc-common-2.28-203.el8.x86_64                     60/60 
+  Running scriptlet: glibc-common-2.28-203.el8.x86_64                     60/60 
+  Running scriptlet: glibc-common-2.28-206.el8.x86_64                     60/60 
+  Verifying        : autoconf-2.69-29.el8.noarch                           1/60 
+  Verifying        : automake-1.16.1-7.el8.noarch                          2/60 
+  Verifying        : bison-3.0.4-10.el8.x86_64                             3/60 
+  Verifying        : cpp-8.5.0-13.el8.x86_64                               4/60 
+  Verifying        : gcc-8.5.0-13.el8.x86_64                               5/60 
+  Verifying        : gcc-c++-8.5.0-13.el8.x86_64                           6/60 
+  Verifying        : glibc-gconv-extra-2.28-206.el8.i686                   7/60 
+  Verifying        : isl-0.16.1-6.el8.x86_64                               8/60 
+  Verifying        : libmpc-1.1.0-9.1.el8.x86_64                           9/60 
+  Verifying        : libstdc++-devel-8.5.0-13.el8.i686                    10/60 
+  Verifying        : libstdc++-devel-8.5.0-13.el8.x86_64                  11/60 
+  Verifying        : libtool-2.4.6-25.el8.x86_64                          12/60 
+  Verifying        : perl-Thread-Queue-3.13-1.el8.noarch                  13/60 
+  Verifying        : python3-pip-9.0.3-22.el8.noarch                      14/60 
+  Verifying        : python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   15/60 
+  Verifying        : binutils-2.30-117.el8.x86_64                         16/60 
+  Verifying        : coreutils-8.30-13.el8.x86_64                         17/60 
+  Verifying        : coreutils-common-8.30-13.el8.x86_64                  18/60 
+  Verifying        : glibc-2.28-206.el8.i686                              19/60 
+  Verifying        : glibc-devel-2.28-206.el8.i686                        20/60 
+  Verifying        : glibc-devel-2.28-206.el8.x86_64                      21/60 
+  Verifying        : glibc-gconv-extra-2.28-206.el8.x86_64                22/60 
+  Verifying        : glibc-headers-2.28-206.el8.i686                      23/60 
+  Verifying        : glibc-headers-2.28-206.el8.x86_64                    24/60 
+  Verifying        : glibc-langpack-en-2.28-206.el8.x86_64                25/60 
+  Verifying        : kernel-headers-4.18.0-394.el8.x86_64                 26/60 
+  Verifying        : libgcc-8.5.0-13.el8.i686                             27/60 
+  Verifying        : libgomp-8.5.0-13.el8.x86_64                          28/60 
+  Verifying        : libpkgconf-1.4.2-1.el8.x86_64                        29/60 
+  Verifying        : libstdc++-8.5.0-13.el8.i686                          30/60 
+  Verifying        : libxcrypt-4.1.1-6.el8.i686                           31/60 
+  Verifying        : libxcrypt-devel-4.1.1-6.el8.i686                     32/60 
+  Verifying        : libxcrypt-devel-4.1.1-6.el8.x86_64                   33/60 
+  Verifying        : m4-1.4.18-7.el8.x86_64                               34/60 
+  Verifying        : make-1:4.2.1-11.el8.x86_64                           35/60 
+  Verifying        : patch-2.7.6-11.el8.x86_64                            36/60 
+  Verifying        : perl-Data-Dumper-2.167-399.el8.x86_64                37/60 
+  Verifying        : pkgconf-1.4.2-1.el8.x86_64                           38/60 
+  Verifying        : pkgconf-m4-1.4.2-1.el8.noarch                        39/60 
+  Verifying        : pkgconf-pkg-config-1.4.2-1.el8.x86_64                40/60 
+  Verifying        : platform-python-pip-9.0.3-22.el8.noarch              41/60 
+  Verifying        : procps-ng-3.3.15-7.el8.x86_64                        42/60 
+  Verifying        : python3-setuptools-39.2.0-6.el8.noarch               43/60 
+  Verifying        : rsync-3.1.3-14.el8.x86_64                            44/60 
+  Verifying        : xz-5.2.4-3.el8.x86_64                                45/60 
+  Verifying        : ccache-3.7.7-1.el8.x86_64                            46/60 
+  Verifying        : dash-0.5.10.2-4.el8.x86_64                           47/60 
+  Verifying        : lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64          48/60 
+  Verifying        : libsodium-1.0.18-2.el8.x86_64                        49/60 
+  Verifying        : libunwind-1.3.1-3.el8.x86_64                         50/60 
+  Verifying        : openpgm-5.2.122-21.el8.x86_64                        51/60 
+  Verifying        : python3-zmq-19.0.0-1.el8.x86_64                      52/60 
+  Verifying        : zeromq-4.3.4-2.el8.x86_64                            53/60 
+  Verifying        : glibc-2.28-206.el8.x86_64                            54/60 
+  Verifying        : glibc-2.28-203.el8.x86_64                            55/60 
+  Verifying        : glibc-common-2.28-206.el8.x86_64                     56/60 
+  Verifying        : glibc-common-2.28-203.el8.x86_64                     57/60 
+  Verifying        : glibc-minimal-langpack-2.28-206.el8.x86_64           58/60 
+  Verifying        : glibc-minimal-langpack-2.28-203.el8.x86_64           59/60 
+  Verifying        : coreutils-single-8.30-12.el8.x86_64                  60/60 
+
+Upgraded:
+  glibc-2.28-206.el8.x86_64                   glibc-common-2.28-206.el8.x86_64 
+  glibc-minimal-langpack-2.28-206.el8.x86_64 
+Installed:
+  autoconf-2.69-29.el8.noarch                                                   
+  automake-1.16.1-7.el8.noarch                                                  
+  binutils-2.30-117.el8.x86_64                                                  
+  bison-3.0.4-10.el8.x86_64                                                     
+  ccache-3.7.7-1.el8.x86_64                                                     
+  coreutils-8.30-13.el8.x86_64                                                  
+  coreutils-common-8.30-13.el8.x86_64                                           
+  cpp-8.5.0-13.el8.x86_64                                                       
+  dash-0.5.10.2-4.el8.x86_64                                                    
+  gcc-8.5.0-13.el8.x86_64                                                       
+  gcc-c++-8.5.0-13.el8.x86_64                                                   
+  glibc-2.28-206.el8.i686                                                       
+  glibc-devel-2.28-206.el8.i686                                                 
+  glibc-devel-2.28-206.el8.x86_64                                               
+  glibc-gconv-extra-2.28-206.el8.i686                                           
+  glibc-gconv-extra-2.28-206.el8.x86_64                                         
+  glibc-headers-2.28-206.el8.i686                                               
+  glibc-headers-2.28-206.el8.x86_64                                             
+  glibc-langpack-en-2.28-206.el8.x86_64                                         
+  isl-0.16.1-6.el8.x86_64                                                       
+  kernel-headers-4.18.0-394.el8.x86_64                                          
+  lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64                                   
+  libgcc-8.5.0-13.el8.i686                                                      
+  libgomp-8.5.0-13.el8.x86_64                                                   
+  libmpc-1.1.0-9.1.el8.x86_64                                                   
+  libpkgconf-1.4.2-1.el8.x86_64                                                 
+  libsodium-1.0.18-2.el8.x86_64                                                 
+  libstdc++-8.5.0-13.el8.i686                                                   
+  libstdc++-devel-8.5.0-13.el8.i686                                             
+  libstdc++-devel-8.5.0-13.el8.x86_64                                           
+  libtool-2.4.6-25.el8.x86_64                                                   
+  libunwind-1.3.1-3.el8.x86_64                                                  
+  libxcrypt-4.1.1-6.el8.i686                                                    
+  libxcrypt-devel-4.1.1-6.el8.i686                                              
+  libxcrypt-devel-4.1.1-6.el8.x86_64                                            
+  m4-1.4.18-7.el8.x86_64                                                        
+  make-1:4.2.1-11.el8.x86_64                                                    
+  openpgm-5.2.122-21.el8.x86_64                                                 
+  patch-2.7.6-11.el8.x86_64                                                     
+  perl-Data-Dumper-2.167-399.el8.x86_64                                         
+  perl-Thread-Queue-3.13-1.el8.noarch                                           
+  pkgconf-1.4.2-1.el8.x86_64                                                    
+  pkgconf-m4-1.4.2-1.el8.noarch                                                 
+  pkgconf-pkg-config-1.4.2-1.el8.x86_64                                         
+  platform-python-pip-9.0.3-22.el8.noarch                                       
+  procps-ng-3.3.15-7.el8.x86_64                                                 
+  python3-pip-9.0.3-22.el8.noarch                                               
+  python3-setuptools-39.2.0-6.el8.noarch                                        
+  python3-zmq-19.0.0-1.el8.x86_64                                               
+  python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_64                          
+  rsync-3.1.3-14.el8.x86_64                                                     
+  xz-5.2.4-3.el8.x86_64                                                         
+  zeromq-4.3.4-2.el8.x86_64                                                     
+Removed:
+  coreutils-single-8.30-12.el8.x86_64                                           
+
+Complete!
+              total        used        free      shared  buff/cache   available
+Mem:          125Gi       7.9Gi        84Gi       5.0Mi        33Gi       116Gi
+Swap:            0B          0B          0B
+Number of CPUs (nproc): 32
+Byte Order: Little Endian
+Free disk space:
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         489G   35G  454G   8% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            63G     0   63G   0% /sys/fs/cgroup
+/dev/sda1       489G   35G  454G   8% /tmp
+tmpfs           117G     0  117G   0% /dev/shm
+tmpfs            63G     0   63G   0% /proc/acpi
+tmpfs            63G     0   63G   0% /proc/scsi
+tmpfs            63G     0   63G   0% /sys/firmware
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 9025k  100 9025k    0     0  15.8M      0 --:--:-- --:--:-- --:--:-- 15.8M
+make: Entering directory '/tmp/cirrus-ci-build/depends'
+Fetching boost_1_77_0.tar.bz2 from https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+  0  105M    0 50204    0     0  20243      0  1:30:51  0:00:02  1:30:49 20243 24  105M   24 26.2M    0     0  7755k      0  0:00:13  0:00:03  0:00:10 26.5M 68  105M   68 72.4M    0     0  16.2M      0  0:00:06  0:00:04  0:00:02 36.5M100  105M  100  105M    0     0  19.6M      0  0:00:05  0:00:05 --:--:-- 36.4M
+/tmp/cirrus-ci-build/depends/work/download/boost-1.77.0/boost_1_77_0.tar.bz2.temp: OK
+Extracting boost...
+/tmp/cirrus-ci-build/depends/sources/boost_1_77_0.tar.bz2: OK
+Preprocessing boost...
+Configuring boost...
+Building boost...
+Staging boost...
+Postprocessing boost...
+Caching boost...
+Fetching libevent-2.1.12-stable.tar.gz from https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 1075k  100 1075k    0     0  1725k      0 --:--:-- --:--:-- --:--:-- 1725k
+/tmp/cirrus-ci-build/depends/work/download/libevent-2.1.12-stable/libevent-2.1.12-stable.tar.gz.temp: OK
+Extracting libevent...
+/tmp/cirrus-ci-build/depends/sources/libevent-2.1.12-stable.tar.gz: OK
+Preprocessing libevent...
+Configuring libevent...
+Building libevent...
+Staging libevent...
+Postprocessing libevent...
+Caching libevent...
+Fetching freetype-2.11.0.tar.xz from https://download.savannah.gnu.org/releases/freetype
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 2203k  100 2203k    0     0  2278k      0 --:--:-- --:--:-- --:--:-- 2278k
+/tmp/cirrus-ci-build/depends/work/download/freetype-2.11.0/freetype-2.11.0.tar.xz.temp: OK
+Extracting freetype...
+/tmp/cirrus-ci-build/depends/sources/freetype-2.11.0.tar.xz: OK
+Preprocessing freetype...
+Configuring freetype...
+Building freetype...
+Staging freetype...
+Postprocessing freetype...
+Caching freetype...
+Fetching expat-2.4.1.tar.xz from https://github.com/libexpat/libexpat/releases/download/R_2_4_1/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  434k  100  434k    0     0  2012k      0 --:--:-- --:--:-- --:--:-- 2012k
+/tmp/cirrus-ci-build/depends/work/download/expat-2.4.1/expat-2.4.1.tar.xz.temp: OK
+Extracting expat...
+/tmp/cirrus-ci-build/depends/sources/expat-2.4.1.tar.xz: OK
+Preprocessing expat...
+Configuring expat...
+Building expat...
+Staging expat...
+Postprocessing expat...
+Caching expat...
+Fetching fontconfig-2.12.6.tar.bz2 from https://www.freedesktop.org/software/fontconfig/release/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 20 1586k   20  320k    0     0   666k      0  0:00:02 --:--:--  0:00:02  665k100 1586k  100 1586k    0     0  2735k      0 --:--:-- --:--:-- --:--:-- 2730k
+/tmp/cirrus-ci-build/depends/work/download/fontconfig-2.12.6/fontconfig-2.12.6.tar.bz2.temp: OK
+Extracting fontconfig...
+/tmp/cirrus-ci-build/depends/sources/fontconfig-2.12.6.tar.bz2: OK
+Preprocessing fontconfig...
+Configuring fontconfig...
+Building fontconfig...
+Staging fontconfig...
+Postprocessing fontconfig...
+Caching fontconfig...
+Fetching xcb-proto-1.14.1.tar.xz from https://xorg.freedesktop.org/archive/individual/proto
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  140k  100  140k    0     0   350k      0 --:--:-- --:--:-- --:--:--  350k
+/tmp/cirrus-ci-build/depends/work/download/xcb_proto-1.14.1/xcb-proto-1.14.1.tar.xz.temp: OK
+Extracting xcb_proto...
+/tmp/cirrus-ci-build/depends/sources/xcb-proto-1.14.1.tar.xz: OK
+Preprocessing xcb_proto...
+Configuring xcb_proto...
+Building xcb_proto...
+Staging xcb_proto...
+Postprocessing xcb_proto...
+Caching xcb_proto...
+Fetching xproto-7.0.31.tar.bz2 from https://xorg.freedesktop.org/releases/individual/proto
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  293k  100  293k    0     0   744k      0 --:--:-- --:--:-- --:--:--  744k
+/tmp/cirrus-ci-build/depends/work/download/xproto-7.0.31/xproto-7.0.31.tar.bz2.temp: OK
+Extracting xproto...
+/tmp/cirrus-ci-build/depends/sources/xproto-7.0.31.tar.bz2: OK
+Preprocessing xproto...
+Configuring xproto...
+Building xproto...
+Staging xproto...
+Postprocessing xproto...
+Caching xproto...
+Fetching libXau-1.0.9.tar.bz2 from https://xorg.freedesktop.org/releases/individual/lib/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  315k  100  315k    0     0   910k      0 --:--:-- --:--:-- --:--:--  908k
+/tmp/cirrus-ci-build/depends/work/download/libXau-1.0.9/libXau-1.0.9.tar.bz2.temp: OK
+Extracting libXau...
+/tmp/cirrus-ci-build/depends/sources/libXau-1.0.9.tar.bz2: OK
+Preprocessing libXau...
+Configuring libXau...
+Building libXau...
+Staging libXau...
+Postprocessing libXau...
+Caching libXau...
+Fetching libxcb-1.14.tar.xz from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  429k  100  429k    0     0   815k      0 --:--:-- --:--:-- --:--:--  814k
+/tmp/cirrus-ci-build/depends/work/download/libxcb-1.14/libxcb-1.14.tar.xz.temp: OK
+Extracting libxcb...
+/tmp/cirrus-ci-build/depends/sources/libxcb-1.14.tar.xz: OK
+Preprocessing libxcb...
+Configuring libxcb...
+Building libxcb...
+Staging libxcb...
+Postprocessing libxcb...
+Caching libxcb...
+Fetching libxkbcommon-0.8.4.tar.xz from https://xkbcommon.org/download/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 58  633k   58  367k    0     0   362k      0  0:00:01  0:00:01 --:--:--  362k100  633k  100  633k    0     0   565k      0  0:00:01  0:00:01 --:--:--  564k
+/tmp/cirrus-ci-build/depends/work/download/libxkbcommon-0.8.4/libxkbcommon-0.8.4.tar.xz.temp: OK
+Extracting libxkbcommon...
+/tmp/cirrus-ci-build/depends/sources/libxkbcommon-0.8.4.tar.xz: OK
+Preprocessing libxkbcommon...
+Configuring libxkbcommon...
+Building libxkbcommon...
+Staging libxkbcommon...
+Postprocessing libxkbcommon...
+Caching libxkbcommon...
+Fetching xcb-util-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  290k  100  290k    0     0   646k      0 --:--:-- --:--:-- --:--:--  645k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util-0.4.0/xcb-util-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util...
+Configuring libxcb_util...
+Building libxcb_util...
+Staging libxcb_util...
+Postprocessing libxcb_util...
+Caching libxcb_util...
+Fetching xcb-util-renderutil-0.3.9.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  286k  100  286k    0     0   836k      0 --:--:-- --:--:-- --:--:--  836k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_render-0.3.9/xcb-util-renderutil-0.3.9.tar.bz2.temp: OK
+Extracting libxcb_util_render...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-renderutil-0.3.9.tar.bz2: OK
+Preprocessing libxcb_util_render...
+Configuring libxcb_util_render...
+Building libxcb_util_render...
+Staging libxcb_util_render...
+Postprocessing libxcb_util_render...
+Caching libxcb_util_render...
+Fetching xcb-util-keysyms-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  283k    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  283k  100  283k    0     0   752k      0 --:--:-- --:--:-- --:--:--  750k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_keysyms-0.4.0/xcb-util-keysyms-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util_keysyms...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-keysyms-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util_keysyms...
+Configuring libxcb_util_keysyms...
+Building libxcb_util_keysyms...
+Staging libxcb_util_keysyms...
+Postprocessing libxcb_util_keysyms...
+Caching libxcb_util_keysyms...
+Fetching xcb-util-image-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  320k  100  320k    0     0   654k      0 --:--:-- --:--:-- --:--:--  654k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_image-0.4.0/xcb-util-image-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util_image...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-image-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util_image...
+Configuring libxcb_util_image...
+Building libxcb_util_image...
+Staging libxcb_util_image...
+Postprocessing libxcb_util_image...
+Caching libxcb_util_image...
+Fetching xcb-util-wm-0.4.1.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  5  314k    5 16384    0     0  79533      0  0:00:04 --:--:--  0:00:04 79149100  314k  100  314k    0     0   911k      0 --:--:-- --:--:-- --:--:--  908k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_wm-0.4.1/xcb-util-wm-0.4.1.tar.bz2.temp: OK
+Extracting libxcb_util_wm...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-wm-0.4.1.tar.bz2: OK
+Preprocessing libxcb_util_wm...
+Configuring libxcb_util_wm...
+Building libxcb_util_wm...
+Staging libxcb_util_wm...
+Postprocessing libxcb_util_wm...
+Caching libxcb_util_wm...
+Fetching qtbase-everywhere-opensource-src-5.15.3.tar.xz from https://download.qt.io/official_releases/qt/5.15/5.15.3/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   295  100   295    0     0    430      0 --:--:-- --:--:-- --:--:--   429100   295  100   295    0     0    430      0 --:--:-- --:--:-- --:--:--   429
+100 47.8M  100 47.8M    0     0  31.6M      0  0:00:01  0:00:01 --:--:-- 31.6M
+/tmp/cirrus-ci-build/depends/work/download/qt-5.15.3/qtbase-everywhere-opensource-src-5.15.3.tar.xz.temp: OK
+Fetching qttranslations-everywhere-opensource-src-5.15.3.tar.xz from https://download.qt.io/official_releases/qt/5.15/5.15.3/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   303  100   303    0     0    524      0 --:--:-- --:--:-- --:--:--   524
+100 1579k  100 1579k    0     0  1784k      0 --:--:-- --:--:-- --:--:-- 1784k
+/tmp/cirrus-ci-build/depends/work/download/qt-5.15.3/qttranslations-everywhere-opensource-src-5.15.3.tar.xz.temp: OK
+Fetching qttools-everywhere-opensource-src-5.15.3.tar.xz from https://download.qt.io/official_releases/qt/5.15/5.15.3/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   296  100   296    0     0    526      0 --:--:-- --:--:-- --:--:--   525
+100 8688k  100 8688k    0     0  9302k      0 --:--:-- --:--:-- --:--:-- 9302k
+/tmp/cirrus-ci-build/depends/work/download/qt-5.15.3/qttools-everywhere-opensource-src-5.15.3.tar.xz.temp: OK
+Extracting qt...
+/tmp/cirrus-ci-build/depends/sources/qtbase-everywhere-opensource-src-5.15.3.tar.xz: OK
+/tmp/cirrus-ci-build/depends/sources/qttranslations-everywhere-opensource-src-5.15.3.tar.xz: OK
+/tmp/cirrus-ci-build/depends/sources/qttools-everywhere-opensource-src-5.15.3.tar.xz: OK
+Preprocessing qt...
+Configuring qt...
+Building qt...
+Staging qt...
+Postprocessing qt...
+Caching qt...
+Fetching qrencode-3.4.4.tar.bz2 from https://fukuchi.org/works/qrencode/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  360k  100  360k    0     0   912k      0 --:--:-- --:--:-- --:--:--  912k
+/tmp/cirrus-ci-build/depends/work/download/qrencode-3.4.4/qrencode-3.4.4.tar.bz2.temp: OK
+Extracting qrencode...
+/tmp/cirrus-ci-build/depends/sources/qrencode-3.4.4.tar.bz2: OK
+Preprocessing qrencode...
+Configuring qrencode...
+Building qrencode...
+Staging qrencode...
+Postprocessing qrencode...
+Caching qrencode...
+Fetching db-4.8.30.NC.tar.gz from https://download.oracle.com/berkeley-db
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  9 21.7M    9 2130k    0     0  9342k      0  0:00:02 --:--:--  0:00:02 9301k100 21.7M  100 21.7M    0     0  64.6M      0 --:--:-- --:--:-- --:--:-- 64.4M
+/tmp/cirrus-ci-build/depends/work/download/bdb-4.8.30/db-4.8.30.NC.tar.gz.temp: OK
+Extracting bdb...
+/tmp/cirrus-ci-build/depends/sources/db-4.8.30.NC.tar.gz: OK
+Preprocessing bdb...
+Configuring bdb...
+Building bdb...
+Staging bdb...
+Postprocessing bdb...
+Caching bdb...
+Fetching sqlite-autoconf-3380500.tar.gz from https://sqlite.org/2022/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 2962k  100 2962k    0     0  6716k      0 --:--:-- --:--:-- --:--:-- 6701k
+/tmp/cirrus-ci-build/depends/work/download/sqlite-3380500/sqlite-autoconf-3380500.tar.gz.temp: OK
+Extracting sqlite...
+/tmp/cirrus-ci-build/depends/sources/sqlite-autoconf-3380500.tar.gz: OK
+Preprocessing sqlite...
+Configuring sqlite...
+Building sqlite...
+Staging sqlite...
+Postprocessing sqlite...
+Caching sqlite...
+Fetching miniupnpc-2.2.2.tar.gz from https://miniupnp.tuxfamily.org/files/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   97k  100   97k    0     0  81572      0  0:00:01  0:00:01 --:--:-- 81572
+/tmp/cirrus-ci-build/depends/work/download/miniupnpc-2.2.2/miniupnpc-2.2.2.tar.gz.temp: OK
+Extracting miniupnpc...
+/tmp/cirrus-ci-build/depends/sources/miniupnpc-2.2.2.tar.gz: OK
+Preprocessing miniupnpc...
+Configuring miniupnpc...
+Building miniupnpc...
+Staging miniupnpc...
+Postprocessing miniupnpc...
+Caching miniupnpc...
+Fetching 4536032ae32268a45c073a4d5e91bbab4534773a.tar.gz from https://github.com/miniupnp/libnatpmp/archive
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 26730    0 26730    0     0  71854      0 --:--:-- --:--:-- --:--:-- 71854
+/tmp/cirrus-ci-build/depends/work/download/libnatpmp-4536032ae32268a45c073a4d5e91bbab4534773a/4536032ae32268a45c073a4d5e91bbab4534773a.tar.gz.temp: OK
+Extracting libnatpmp...
+/tmp/cirrus-ci-build/depends/sources/4536032ae32268a45c073a4d5e91bbab4534773a.tar.gz: OK
+Preprocessing libnatpmp...
+Configuring libnatpmp...
+Building libnatpmp...
+Staging libnatpmp...
+Postprocessing libnatpmp...
+Caching libnatpmp...
+Fetching systemtap-4.7.tar.gz from https://sourceware.org/systemtap/ftp/releases/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 5479k  100 5479k    0     0  7828k      0 --:--:-- --:--:-- --:--:-- 7817k
+/tmp/cirrus-ci-build/depends/work/download/systemtap-4.7/systemtap-4.7.tar.gz.temp: OK
+Extracting systemtap...
+/tmp/cirrus-ci-build/depends/sources/systemtap-4.7.tar.gz: OK
+Preprocessing systemtap...
+Configuring systemtap...
+Building systemtap...
+Staging systemtap...
+Postprocessing systemtap...
+Caching systemtap...
+Fetching zeromq-4.3.4.tar.gz from https://github.com/zeromq/libzmq/releases/download/v4.3.4/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 2428k  100 2428k    0     0  3597k      0 --:--:-- --:--:-- --:--:-- 3597k
+/tmp/cirrus-ci-build/depends/work/download/zeromq-4.3.4/zeromq-4.3.4.tar.gz.temp: OK
+Extracting zeromq...
+/tmp/cirrus-ci-build/depends/sources/zeromq-4.3.4.tar.gz: OK
+Preprocessing zeromq...
+Configuring zeromq...
+Building zeromq...
+Staging zeromq...
+Postprocessing zeromq...
+Caching zeromq...
+copying packages: boost libevent qt expat libxcb xcb_proto libXau xproto freetype fontconfig libxkbcommon libxcb_util libxcb_util_render libxcb_util_keysyms libxcb_util_image libxcb_util_wm qrencode bdb sqlite miniupnpc libnatpmp systemtap zeromq
+to: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu
+make: Leaving directory '/tmp/cirrus-ci-build/depends'
+Statistics zeroed
+Set cache size limit to 200.0 MB
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:40: installing 'build-aux/ar-lib'
+configure.ac:35: installing 'build-aux/compile'
+configure.ac:24: installing 'build-aux/config.guess'
+configure.ac:24: installing 'build-aux/config.sub'
+configure.ac:30: installing 'build-aux/install-sh'
+configure.ac:30: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:108: installing 'build-aux/compile'
+configure.ac:40: installing 'build-aux/config.guess'
+configure.ac:40: installing 'build-aux/config.sub'
+configure.ac:47: installing 'build-aux/install-sh'
+configure.ac:47: installing 'build-aux/missing'
+src/Makefile.bench.include:97: warning: %.raw.h was already defined in condition TRUE, which includes condition ENABLE_BENCH ...
+src/Makefile.am:1072:   'src/Makefile.bench.include' included from here
+src/Makefile.test.include:420: ... '%.raw.h' previously defined here
+src/Makefile.am:1069:   'src/Makefile.test.include' included from here
+src/Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+configure: loading site script /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/config.site
+configure: creating cache config.cache
+checking for i686-pc-linux-gnu-pkg-config... /usr/bin/pkg-config --static
+checking pkg-config is at least version 0.9.0... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i686-pc-linux-gnu-strip... strip
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking whether make supports nested variables... (cached) yes
+checking whether the C++ compiler works... yes
+checking for C++ compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ -m32 accepts -g... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of g++ -m32... none
+checking whether g++ -m32 supports C++17 features with -std=c++17... yes
+checking whether std::atomic can be used without link library... yes
+checking whether std::filesystem can be used without link library... no
+checking whether std::filesystem needs -lstdc++fs... yes
+checking for i686-pc-linux-gnu-g++... g++ -m32 -std=c++17
+checking whether we are using the GNU Objective C++ compiler... no
+checking whether g++ -m32 -std=c++17 accepts -g... no
+checking dependency style of g++ -m32 -std=c++17... none
+checking how to print strings... printf
+checking for i686-pc-linux-gnu-gcc... gcc -m32
+checking whether we are using the GNU C compiler... yes
+checking whether gcc -m32 accepts -g... yes
+checking for gcc -m32 option to accept ISO C89... none needed
+checking whether gcc -m32 understands -c and -o together... yes
+checking dependency style of gcc -m32... none
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc -m32... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... nm
+checking the name lister (nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for i686-pc-linux-gnu-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for i686-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for i686-pc-linux-gnu-ar... ar
+checking for archiver @FILE support... @
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for i686-pc-linux-gnu-ranlib... ranlib
+checking command to parse nm output from gcc -m32 object... ok
+checking for sysroot... no
+checking for a working dd... /tmp/cirrus-ci-build/configure: 10163: /tmp/cirrus-ci-build/configure: cmp: not found
+/tmp/cirrus-ci-build/configure: 10163: /tmp/cirrus-ci-build/configure: cmp: not found
+
+checking how to truncate binary pipes... /usr/bin/sed -e 4q
+checking for i686-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -m32 -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc -m32 supports -fno-rtti -fno-exceptions... /tmp/cirrus-ci-build/configure: 12403: /tmp/cirrus-ci-build/configure: diff: not found
+no
+checking for gcc -m32 option to produce PIC... -fPIC -DPIC
+checking if gcc -m32 PIC flag -fPIC -DPIC works... yes
+checking if gcc -m32 static flag -static works... no
+checking if gcc -m32 supports -c -o file.o... yes
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking whether the gcc -m32 linker (/usr/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -m32 -std=c++17 -E
+checking for ld used by g++ -m32 -std=c++17... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking whether the g++ -m32 -std=c++17 linker (/usr/bin/ld) supports shared libraries... yes
+checking for g++ -m32 -std=c++17 option to produce PIC... -fPIC -DPIC
+checking if g++ -m32 -std=c++17 PIC flag -fPIC -DPIC works... yes
+checking if g++ -m32 -std=c++17 static flag -static works... no
+checking if g++ -m32 -std=c++17 supports -c -o file.o... yes
+checking if g++ -m32 -std=c++17 supports -c -o file.o... (cached) yes
+checking whether the g++ -m32 -std=c++17 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for i686-pc-linux-gnu-ar... no
+checking for ar... (cached) ar
+checking for i686-pc-linux-gnu-gcov... no
+checking for gcov... /usr/bin/gcov
+checking for i686-pc-linux-gnu-llvm-cov... no
+checking for llvm-cov... no
+checking for lcov... no
+checking for python3.6... /usr/bin/python3.6
+checking for genhtml... no
+checking for git... /usr/bin/git
+checking for ccache... /usr/bin/ccache
+checking for xgettext... no
+checking for hexdump... /usr/bin/hexdump
+checking for i686-pc-linux-gnu-objcopy... no
+checking for objcopy... /usr/bin/objcopy
+checking for doxygen... no
+checking whether C++ compiler accepts -Werror... yes
+checking whether the linker accepts -Wl,--fatal-warnings... yes
+checking whether C++ compiler accepts -Werror=return-type... yes
+checking whether C++ compiler accepts -fno-extended-identifiers... yes
+checking whether C++ compiler accepts -msse4.2... yes
+checking whether C++ compiler accepts -msse4.1... yes
+checking whether C++ compiler accepts -mavx -mavx2... yes
+checking whether C++ compiler accepts -msse4 -msha... yes
+checking whether C++ compiler accepts -mpclmul... no
+checking for SSE4.2 intrinsics... no
+checking for SSE4.1 intrinsics... yes
+checking for AVX2 intrinsics... yes
+checking for x86 SHA-NI intrinsics... yes
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... no
+checking whether C++ compiler accepts -march=armv8-a+crc+crypto... (cached) no
+checking for ARMv8 CRC32 intrinsics... no
+checking for ARMv8 SHA-NI intrinsics... no
+checking whether byte ordering is bigendian... no
+checking whether gcc -m32 is Clang... no
+checking whether pthreads work with "-pthread" and "-lpthread"... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking whether more special flags are required for pthreads... no
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking for library containing clock_gettime... none required
+checking whether C++ compiler accepts -fPIC... yes
+checking whether C++ compiler accepts -fstack-reuse=none... yes
+checking whether C++ compiler accepts -Wstack-protector... yes
+checking whether C++ compiler accepts -fstack-protector-all... yes
+checking whether C++ compiler accepts -fcf-protection=full... yes
+checking whether C++ compiler accepts -fstack-clash-protection... yes
+checking whether C++ preprocessor accepts -D_FORTIFY_SOURCE=2... yes
+checking whether C++ preprocessor accepts -U_FORTIFY_SOURCE... yes
+checking whether the linker accepts -Wl,--enable-reloc-section... no
+checking whether the linker accepts -Wl,--dynamicbase... no
+checking whether the linker accepts -Wl,--nxcompat... no
+checking whether the linker accepts -Wl,--high-entropy-va... no
+checking whether the linker accepts -Wl,-z,relro... yes
+checking whether the linker accepts -Wl,-z,now... yes
+checking whether the linker accepts -Wl,-z,separate-code... yes
+checking whether the linker accepts -fPIE -pie... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking byteswap.h usability... yes
+checking byteswap.h presence... yes
+checking for byteswap.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/sysctl.h usability... yes
+checking sys/sysctl.h presence... yes
+checking for sys/sysctl.h... yes
+checking vm/vm_param.h usability... no
+checking vm/vm_param.h presence... no
+checking for vm/vm_param.h... no
+checking sys/vmmeter.h usability... no
+checking sys/vmmeter.h presence... no
+checking for sys/vmmeter.h... no
+checking sys/resources.h usability... no
+checking sys/resources.h presence... no
+checking for sys/resources.h... no
+checking whether getifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether freeifaddrs is declared... yes
+checking whether ifaddrs funcs can be used without link library... yes
+checking whether fork is declared... yes
+checking whether setsid is declared... yes
+checking whether pipe2 is declared... yes
+checking for timingsafe_bcmp... no
+checking whether le16toh is declared... yes
+checking whether le32toh is declared... yes
+checking whether le64toh is declared... yes
+checking whether htole16 is declared... yes
+checking whether htole32 is declared... yes
+checking whether htole64 is declared... yes
+checking whether be16toh is declared... yes
+checking whether be32toh is declared... yes
+checking whether be64toh is declared... yes
+checking whether htobe16 is declared... yes
+checking whether htobe32 is declared... yes
+checking whether htobe64 is declared... yes
+checking whether bswap_16 is declared... yes
+checking whether bswap_32 is declared... yes
+checking whether bswap_64 is declared... yes
+checking for __builtin_clzl... yes
+checking for __builtin_clzll... yes
+checking for getmemoryinfo... yes
+checking for mallopt M_ARENA_MAX... yes
+checking for posix_fallocate... yes
+checking for default visibility attribute... yes
+checking for dllexport attribute... no
+checking for thread_local support... yes
+checking for gmtime_r... yes
+checking for Linux getrandom syscall... yes
+checking for getentropy via random.h... yes
+checking for sysctl... no
+checking for sysctl KERN_ARND... no
+checking for if type char equals int8_t... no
+checking for fdatasync... yes
+checking for F_FULLFSYNC... no
+checking for O_CLOEXEC... yes
+checking for __builtin_prefetch... yes
+checking for _mm_prefetch... yes
+checking for strong getauxval support in the system headers... yes
+checking for std::system... yes
+checking for ::_wsystem... no
+checking for QT_CORE... yes
+checking for QT_GUI... yes
+checking for QT_WIDGETS... yes
+checking for QT_NETWORK... yes
+checking for QT_TEST... yes
+checking for QT_DBUS... yes
+checking for static Qt... yes
+checking for QT_ACCESSIBILITY... yes
+checking for QT_DEVICEDISCOVERY... yes
+checking for QT_EDID... yes
+checking for QT_EVENTDISPATCHER... yes
+checking for QT_FB... yes
+checking for QT_FONTDATABASE... yes
+checking for QT_THEME... yes
+checking for QT_INPUT... yes
+checking for QT_SERVICE... yes
+checking for QT_XCBQPA... yes
+checking for QT_XKBCOMMON... yes
+checking for QMinimalIntegrationPlugin (-lqminimal)... yes
+checking for QXcbIntegrationPlugin (-lqxcb)... yes
+checking whether -fPIE can be used with this Qt config... yes
+checking for moc-qt5... no
+checking for moc5... no
+checking for moc... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/moc
+checking for uic-qt5... no
+checking for uic5... no
+checking for uic... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/uic
+checking for rcc-qt5... no
+checking for rcc5... no
+checking for rcc... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/rcc
+checking for lrelease-qt5... no
+checking for lrelease5... no
+checking for lrelease... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lrelease
+checking for lupdate-qt5... no
+checking for lupdate5... no
+checking for lupdate... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lupdate
+checking for lconvert-qt5... no
+checking for lconvert5... no
+checking for lconvert... /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/native/bin/lconvert
+checking whether to build Bitcoin Core GUI... yes (Qt5)
+checking whether main function is needed for fuzz binary... checking whether the linker accepts ... no
+yes
+checking for __builtin_mul_overflow... yes
+checking for Berkeley DB C++ headers... default
+checking for main in -ldb_cxx-4.8... yes
+checking for SQLITE... yes
+checking whether to build wallet with support for sqlite... yes
+checking whether Userspace, Statically Defined Tracing tracepoints are supported... checking sys/sdt.h usability... yes
+checking sys/sdt.h presence... yes
+checking for sys/sdt.h... yes
+checking miniupnpc/miniupnpc.h usability... yes
+checking miniupnpc/miniupnpc.h presence... yes
+checking for miniupnpc/miniupnpc.h... yes
+checking for upnpDiscover in -lminiupnpc... yes
+checking miniupnpc/upnpcommands.h usability... yes
+checking miniupnpc/upnpcommands.h presence... yes
+checking for miniupnpc/upnpcommands.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking miniupnpc/upnperrors.h usability... yes
+checking miniupnpc/upnperrors.h presence... yes
+checking for miniupnpc/upnperrors.h... yes
+checking for upnpDiscover in -lminiupnpc... (cached) yes
+checking whether miniUPnPc API version is supported... yes
+checking natpmp.h usability... yes
+checking natpmp.h presence... yes
+checking for natpmp.h... yes
+checking for initnatpmp in -lnatpmp... yes
+checking for boostlib >= 1.64.0 (106400) includes in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include"... yes
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/i386-linux-gnu"... no
+checking for boostlib >= 1.64.0 (106400) lib path in "/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib"... yes
+checking for boostlib >= 1.64.0 (106400)... yes
+checking whether Boost.Process can be used... yes
+checking for seccomp-bpf (Linux x86-64)... no
+checking whether C++ compiler accepts -fvisibility=hidden... yes
+checking whether the linker accepts -Wl,--exclude-libs,ALL... yes
+checking for EVENT... yes
+checking for EVENT_PTHREADS... yes
+checking if evhttp_connection_get_peer expects const char**... no
+checking for QR... yes
+checking for ZMQ... yes
+checking for LIBMULTIPROCESS... no
+checking whether to build bitcoind... yes
+checking whether to build bitcoin-cli... yes
+checking whether to build bitcoin-tx... yes
+checking whether to build bitcoin-wallet... yes
+checking whether to build bitcoin-util... yes
+checking whether to build experimental bitcoin-chainstate... no
+checking whether to build libraries... yes
+checking if ccache should be used... yes
+checking whether C compiler accepts -fdebug-prefix-map=A=B... yes
+checking whether C preprocessor accepts -fmacro-prefix-map=A=B... yes
+checking if wallet should be enabled... yes
+checking whether to build with support for UPnP... yes
+checking whether to build with UPnP enabled by default... no
+checking whether to build with support for NAT-PMP... yes
+checking whether to build with NAT-PMP enabled by default... no
+checking whether to build GUI with support for D-Bus... yes
+checking whether to build GUI with support for QR codes... yes
+configure: WARNING: xgettext is required to update qt translations
+checking whether to build test_bitcoin-qt... yes
+checking whether to build test_bitcoin... yes
+checking whether to reduce exports... yes
+configure: updating cache config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating libbitcoinconsensus.pc
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/man/Makefile
+config.status: creating share/setup.nsi
+config.status: creating share/qt/Info.plist
+config.status: creating test/config.ini
+config.status: creating contrib/devtools/split-debug.sh
+config.status: creating src/config/bitcoin-config.h
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/security-check.py to contrib/devtools/security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/symbol-check.py to contrib/devtools/symbol-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-security-check.py to contrib/devtools/test-security-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/test-symbol-check.py to contrib/devtools/test-symbol-check.py
+config.status: linking /tmp/cirrus-ci-build/contrib/devtools/iwyu/bitcoin.core.imp to contrib/devtools/iwyu/bitcoin.core.imp
+config.status: linking /tmp/cirrus-ci-build/contrib/filter-lcov.py to contrib/filter-lcov.py
+config.status: linking /tmp/cirrus-ci-build/contrib/macdeploy/background.tiff to contrib/macdeploy/background.tiff
+config.status: linking /tmp/cirrus-ci-build/src/.bear-tidy-config to src/.bear-tidy-config
+config.status: linking /tmp/cirrus-ci-build/src/.clang-tidy to src/.clang-tidy
+config.status: linking /tmp/cirrus-ci-build/test/functional/test_runner.py to test/functional/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/fuzz/test_runner.py to test/fuzz/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/test_runner.py to test/util/test_runner.py
+config.status: linking /tmp/cirrus-ci-build/test/util/rpcauth-test.py to test/util/rpcauth-test.py
+config.status: executing depfiles commands
+config.status: executing libtool commands
+=== configuring in src/secp256k1 (/tmp/cirrus-ci-build/ci/scratch/build/src/secp256k1)
+configure: running /bin/dash /tmp/cirrus-ci-build/src/secp256k1/configure --disable-option-checking '--prefix=/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu'  '--enable-suppress-external-warnings' '--disable-dependency-tracking' '--enable-werror' '--enable-external-signer' '--bindir=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin' '--libdir=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib' '--enable-zmq' '--with-gui=qt5' '--enable-reduce-exports' '--disable-shared' '--with-pic' '--enable-benchmark=no' '--enable-module-recovery' '--enable-module-schnorrsig' --cache-file=../../config.cache --srcdir=/tmp/cirrus-ci-build/src/secp256k1
+configure: loading site script /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/share/config.site
+configure: loading cache ../../config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) i686-pc-linux-gnu
+checking for a BSD-compatible install... (cached) /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for a thread-safe mkdir -p... (cached) /usr/bin/mkdir -p
+checking for gawk... (cached) gawk
+checking whether make sets $(MAKE)... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports nested variables... (cached) yes
+checking for i686-pc-linux-gnu-gcc... (cached) gcc -m32
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc -m32 accepts -g... (cached) yes
+checking for gcc -m32 option to accept ISO C89... (cached) none needed
+checking whether gcc -m32 understands -c and -o together... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc -m32... (cached) none
+checking dependency style of gcc -m32... none
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking the archiver (ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by gcc -m32... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) nm
+checking the name lister (nm) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking how to convert x86_64-pc-linux-gnu file names to i686-pc-linux-gnu format... (cached) func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... (cached) func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... (cached) -r
+checking for i686-pc-linux-gnu-objdump... no
+checking for objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for i686-pc-linux-gnu-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... (cached) printf %s\n
+checking for i686-pc-linux-gnu-ar... (cached) ar
+checking for archiver @FILE support... (cached) @
+checking for i686-pc-linux-gnu-strip... (cached) strip
+checking for i686-pc-linux-gnu-ranlib... (cached) ranlib
+checking command to parse nm output from gcc -m32 object... (cached) ok
+checking for sysroot... no
+checking for a working dd... /tmp/cirrus-ci-build/src/secp256k1/configure: 6619: /tmp/cirrus-ci-build/src/secp256k1/configure: cmp: not found
+/tmp/cirrus-ci-build/src/secp256k1/configure: 6619: /tmp/cirrus-ci-build/src/secp256k1/configure: cmp: not found
+
+checking how to truncate binary pipes... (cached) /usr/bin/sed -e 4q
+checking for i686-pc-linux-gnu-mt... no
+checking for mt... no
+checking if : is a manifest tool... (cached) no
+checking how to run the C preprocessor... (cached) gcc -m32 -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if gcc -m32 supports -fno-rtti -fno-exceptions... (cached) no
+checking for gcc -m32 option to produce PIC... (cached) -fPIC -DPIC
+checking if gcc -m32 PIC flag -fPIC -DPIC works... (cached) yes
+checking if gcc -m32 static flag -static works... (cached) no
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking if gcc -m32 supports -c -o file.o... (cached) yes
+checking whether the gcc -m32 linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking if gcc -m32 supports -Werror=unknown-warning-option... no
+checking if gcc -m32 supports -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef... yes
+checking if gcc -m32 supports -Wno-overlength-strings... yes
+checking if gcc -m32 supports -Wall... yes
+checking if gcc -m32 supports -Wno-unused-function... yes
+checking if gcc -m32 supports -Wextra... yes
+checking if gcc -m32 supports -Wcast-align... yes
+checking if gcc -m32 supports -Wcast-align=strict... yes
+checking if gcc -m32 supports -Wconditional-uninitialized... no
+checking if gcc -m32 supports -fvisibility=hidden... yes
+checking for x86_64 assembly availability... no
+configure: updating cache ../../config.cache
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: creating src/libsecp256k1-config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = yes
+  with coverage           = no
+  with examples           = no
+  module ecdh             = no
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = no
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = gcc -m32
+  CPPFLAGS                =  -I/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/ 
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wcast-align=strict -fvisibility=hidden 
+  CFLAGS                  = -pipe -std=c11 -O2 
+  LDFLAGS                 = -L/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib 
+
+Options used to compile and link:
+  external signer = yes
+  multiprocess    = no
+  with experimental syscall sandbox support = no
+  with libs       = yes
+  with wallet     = yes
+    with sqlite   = yes
+    with bdb      = yes
+  with gui / qt   = yes
+    with qr       = yes
+  with zmq        = yes
+  with test       = yes
+  with fuzz binary = yes
+  with bench      = yes
+  with upnp       = yes
+  with natpmp     = yes
+  use asm         = yes
+  USDT tracing    = yes
+  sanitizers      = 
+  debug enabled   = no
+  gprof enabled   = no
+  werror          = yes
+  LTO             = no
+
+  target os       = linux-gnu
+  build os        = linux-gnu
+
+  CC              = /usr/bin/ccache gcc -m32
+  CFLAGS          = -pthread -pipe -std=c11 -O2 
+  CPPFLAGS        =  -fmacro-prefix-map=$(abs_top_srcdir)=.  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -DHAVE_BUILD_INFO -D_FILE_OFFSET_BITS=64 -DPROVIDE_FUZZ_MAIN_FUNCTION -I/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/ 
+  CXX             = /usr/bin/ccache g++ -m32 -std=c++17
+  CXXFLAGS        =   -fdebug-prefix-map=$(abs_top_srcdir)=.  -fstack-reuse=none -Wstack-protector -fstack-protector-all -fcf-protection=full -fstack-clash-protection   -Werror   -fno-extended-identifiers -fvisibility=hidden -pipe -std=c++17 -O2 
+  LDFLAGS         =  -lpthread  -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code -pie   -L/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib 
+  ARFLAGS         = cr
+
+make  distdir-am
+make[1]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build'
+if test -d "bitcoin-i686-pc-linux-gnu"; then find "bitcoin-i686-pc-linux-gnu" -type d ! -perm -200 -exec chmod u+w {} ';' && rm -rf "bitcoin-i686-pc-linux-gnu" || { sleep 5 && rm -rf "bitcoin-i686-pc-linux-gnu"; }; else :; fi
+test -d "bitcoin-i686-pc-linux-gnu" || mkdir "bitcoin-i686-pc-linux-gnu"
+ (cd src && make  top_distdir=../bitcoin-i686-pc-linux-gnu distdir=../bitcoin-i686-pc-linux-gnu/src \
+     am__remove_distdir=: am__skip_length_check=: am__skip_mode_fix=: distdir)
+make[2]: Entering directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+  GEN      util/probes.h
+/bin/dash: 1: dtrace: not found
+make[2]: *** [Makefile:20844: util/probes.h] Error 127
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/src'
+make[1]: *** [Makefile:920: distdir-am] Error 1
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build'
+make: *** [Makefile:914: distdir] Error 2
+
+Exit status: 2

@@ -1,0 +1,87 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Get:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease [114 kB]
+Hit:3 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Get:4 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease [114 kB]
+Get:5 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease [108 kB]
+Get:6 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease [114 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease [108 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease [114 kB]
+Fetched 672 kB in 1s (555 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.5).
+0 upgraded, 0 newly installed, 0 to remove and 97 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/validation.h
+Auto-merging src/validation.cpp
+Auto-merging src/node/interfaces.cpp
+Merge made by the 'recursive' strategy.
+ contrib/signet/miner                            | 101 ++----------------
+ src/Makefile.am                                 |   2 +-
+ src/bitcoin-cli.cpp                             |   2 +-
+ src/bitcoin-tx.cpp                              |   2 +-
+ src/bitcoin-util.cpp                            |   2 +-
+ src/bitcoin-wallet.cpp                          |   2 +-
+ src/bitcoind.cpp                                |   2 +-
+ src/{ => compat}/compat.h                       |  46 +++++----
+ src/httpserver.cpp                              |   2 +-
+ src/i2p.cpp                                     |   2 +-
+ src/i2p.h                                       |   2 +-
+ src/index/blockfilterindex.cpp                  |   8 +-
+ src/mapport.cpp                                 |   2 +-
+ src/net.cpp                                     |   4 +-
+ src/net.h                                       |   2 +-
+ src/netaddress.h                                |   2 +-
+ src/netbase.cpp                                 |   2 +-
+ src/netbase.h                                   |   2 +-
+ src/node/interfaces.cpp                         |  38 +++----
+ src/policy/fees.cpp                             |  16 +--
+ src/policy/fees.h                               |   6 +-
+ src/qt/main.cpp                                 |   2 +-
+ src/random.cpp                                  |   2 +-
+ src/randomenv.cpp                               |   2 +-
+ src/rpc/blockchain.cpp                          |   4 +-
+ src/rpc/blockchain.h                            |   2 +-
+ src/streams.h                                   |  69 ++++++++-----
+ src/test/flatfile_tests.cpp                     |  12 +--
+ src/test/fuzz/autofile.cpp                      |   4 +-
+ src/test/fuzz/policy_estimator.cpp              |   2 +-
+ src/test/fuzz/policy_estimator_io.cpp           |   2 +-
+ src/test/fuzz/util.h                            |   9 +-
+ src/test/fuzz/utxo_snapshot.cpp                 |   4 +-
+ src/test/net_tests.cpp                          |   2 +-
+ src/test/sock_tests.cpp                         |   2 +-
+ src/test/util/chainstate.h                      |   6 +-
+ src/test/util/net.h                             |   2 +-
+ src/test/validation_chainstatemanager_tests.cpp |  10 +-
+ src/torcontrol.cpp                              |   2 +-
+ src/util/asmap.cpp                              |   2 +-
+ src/util/sock.cpp                               |   2 +-
+ src/util/sock.h                                 |   2 +-
+ src/util/system.h                               |   2 +-
+ src/util/time.cpp                               |   2 +-
+ src/util/time.h                                 |   2 +-
+ src/validation.cpp                              |   4 +-
+ src/validation.h                                |   4 +-
+ src/wallet/bdb.cpp                              |   1 +
+ src/wallet/receive.cpp                          |  58 +++--------
+ src/wallet/receive.h                            |   6 +-
+ src/wallet/test/wallet_tests.cpp                |   4 +-
+ test/functional/feature_addrman.py              |   2 +-
+ test/functional/feature_taproot.py              |  10 +-
+ test/functional/rpc_psbt.py                     |  46 +++++++++
+ test/functional/test_framework/messages.py      |  14 +++
+ test/functional/test_framework/psbt.py          | 131 ++++++++++++++++++++++++
+ test/functional/test_framework/util.py          |   8 ++
+ 57 files changed, 396 insertions(+), 289 deletions(-)
+ rename src/{ => compat}/compat.h (71%)
+ create mode 100644 test/functional/test_framework/psbt.py

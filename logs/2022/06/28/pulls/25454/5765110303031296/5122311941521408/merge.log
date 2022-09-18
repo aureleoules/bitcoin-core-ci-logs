@@ -1,0 +1,51 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at fa24d3721 Replace GetTime() with NodeClock in MaybeSendGetHeaders()
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ contrib/macdeploy/README.md                 |   2 +-
+ src/net.cpp                                 |  15 +-
+ src/psbt.cpp                                |  69 ++++++-
+ src/psbt.h                                  | 288 +++++++++++++++++++++++++++-
+ src/pubkey.h                                |   3 +
+ src/rpc/blockchain.cpp                      |   4 +-
+ src/rpc/rawtransaction.cpp                  | 169 +++++++++++++++-
+ src/script/descriptor.cpp                   |   2 +-
+ src/script/sign.cpp                         |  26 ++-
+ src/script/sign.h                           |   2 +
+ src/script/signingprovider.cpp              |  21 +-
+ src/script/signingprovider.h                |   5 +-
+ src/script/standard.cpp                     |  17 ++
+ src/script/standard.h                       |   2 +
+ src/test/fuzz/util.cpp                      |  53 +++++
+ src/test/fuzz/util.h                        |   6 +
+ src/test/util/net.h                         |  10 +
+ src/util/sock.cpp                           |  15 ++
+ src/util/sock.h                             |  19 ++
+ src/wallet/scriptpubkeyman.cpp              |  13 ++
+ src/wallet/wallet.cpp                       |  29 +++
+ test/functional/data/rpc_psbt.json          |  21 +-
+ test/functional/interface_usdt_utxocache.py |   3 +-
+ test/functional/rpc_psbt.py                 |  43 ++++-
+ test/functional/test_framework/key.py       |   4 +
+ test/functional/wallet_taproot.py           |  25 ++-
+ 26 files changed, 822 insertions(+), 44 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

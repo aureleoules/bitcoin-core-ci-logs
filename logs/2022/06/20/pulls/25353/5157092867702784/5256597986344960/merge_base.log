@@ -1,0 +1,50 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/Makefile.am
+Merge made by the 'recursive' strategy.
+ contrib/devtools/symbol-check.py                   |   5 +-
+ contrib/devtools/test-symbol-check.py              |   2 +-
+ contrib/seeds/.gitignore                           |   1 +
+ contrib/seeds/README.md                            |  18 +-
+ contrib/seeds/asmap.py                             | 815 +++++++++++++++++++++
+ contrib/seeds/makeseeds.py                         |  69 +-
+ depends/Makefile                                   |   3 +
+ depends/README.md                                  |   2 +
+ depends/hosts/android.mk                           |   3 +
+ depends/hosts/darwin.mk                            |   6 +-
+ depends/hosts/freebsd.mk                           |   6 +-
+ depends/hosts/linux.mk                             |   6 +-
+ depends/hosts/mingw32.mk                           |   6 +-
+ depends/hosts/netbsd.mk                            |   4 +-
+ depends/hosts/openbsd.mk                           |   5 +-
+ depends/packages/bdb.mk                            |   1 -
+ depends/packages/systemtap.mk                      |   4 +-
+ depends/packages/zeromq.mk                         |   1 -
+ depends/patches/qt/mac-qmake.conf                  |   2 +-
+ ...e_SDT_ASM_SECTION_AUTOGROUP_SUPPORT_check.patch |  22 +-
+ src/Makefile.am                                    |   1 -
+ src/node/blockstorage.h                            |   2 +-
+ src/psbt.h                                         |   2 +-
+ src/wallet/interfaces.cpp                          |   6 +-
+ src/wallet/receive.cpp                             |  17 +-
+ src/wallet/rpc/coins.cpp                           |   8 +-
+ src/wallet/rpc/spend.cpp                           |   6 +-
+ src/wallet/spend.cpp                               |  90 ++-
+ src/wallet/spend.h                                 |  19 +-
+ src/wallet/test/wallet_tests.cpp                   |   8 +-
+ src/wallet/wallet.cpp                              |  62 +-
+ src/wallet/wallet.h                                |   8 +-
+ test/functional/rpc_createmultisig.py              |   6 +-
+ test/functional/test_framework/address.py          |   7 +-
+ test/functional/test_framework/script_util.py      |   5 +
+ test/functional/test_framework/wallet.py           |  17 +-
+ test/functional/wallet_taproot.py                  |   8 +-
+ 37 files changed, 1037 insertions(+), 216 deletions(-)
+ create mode 100644 contrib/seeds/asmap.py

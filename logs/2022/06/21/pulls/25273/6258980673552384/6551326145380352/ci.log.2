@@ -1,0 +1,28 @@
+    #7 0x6f1da6 in boost::detail::function::function_obj_invoker0<boost::detail::forward, int>::invoke(boost::detail::function::function_buffer&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/function/function_template.hpp:137:18
+    #8 0x6e7afd in boost::function0<int>::operator()() const /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/function/function_template.hpp:763:14
+    #9 0x5b1ef3 in int boost::detail::do_invoke<boost::shared_ptr<boost::detail::translator_holder_base>, boost::function<int ()> >(boost::shared_ptr<boost::detail::translator_holder_base> const&, boost::function<int ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:301:30
+    #10 0x539a9a in boost::execution_monitor::catch_signals(boost::function<int ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:903:16
+    #11 0x539e16 in boost::execution_monitor::execute(boost::function<int ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:1301:16
+    #12 0x52fbb8 in boost::execution_monitor::vexecute(boost::function<void ()> const&) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/execution_monitor.ipp:1397:5
+    #13 0x534643 in boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::function<void ()> const&, unsigned long) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/unit_test_monitor.ipp:49:9
+    #14 0x5ae498 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:815:44
+    #15 0x5acb75 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:784:58
+    #16 0x5acb75 in boost::unit_test::framework::state::execute_test_tree(unsigned long, unsigned long, boost::unit_test::framework::state::random_generator_helper const*) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:784:58
+    #17 0x532c27 in boost::unit_test::framework::run(unsigned long, bool) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/framework.ipp:1721:29
+    #18 0x559867 in boost::unit_test::unit_test_main(boost::unit_test::test_suite* (*)(int, char**), int, char**) /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/unit_test_main.ipp:250:9
+    #19 0x55a17e in main /tmp/cirrus-ci-build/depends/x86_64-pc-linux-gnu/include/boost/test/impl/unit_test_main.ipp:306:12
+
+  Uninitialized value was created by an allocation of 'txr' in the stack frame of function '_ZZN6wallet11spend_tests11SubtractFee11test_methodEvENK3$_0clEl'
+    #0 0x1675770 in wallet::spend_tests::SubtractFee::test_method()::$_0::operator()(long) const src/wallet/test/spend_tests.cpp:28
+
+SUMMARY: MemorySanitizer: use-of-uninitialized-value src/wallet/spend.cpp:1035:9 in wallet::CreateTransaction(wallet::CWallet&, std::__1::vector<wallet::CRecipient, std::__1::allocator<wallet::CRecipient> > const&, std::__1::optional<unsigned int>, bilingual_str&, wallet::CCoinControl const&, FeeCalculation&, bool)
+Exiting
+make[3]: *** [Makefile:20864: wallet/test/spend_tests.cpp.test] Error 1
+make[3]: *** Waiting for unfinished jobs....
+make[3]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[2]: *** [Makefile:18967: check-am] Error 2
+make[2]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make[1]: *** [Makefile:18624: check-recursive] Error 1
+make[1]: Leaving directory '/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/src'
+make: *** [Makefile:815: check-recursive] Error 1
+

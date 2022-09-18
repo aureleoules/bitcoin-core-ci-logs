@@ -1,0 +1,49 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-20 07:55:50.123 xcodebuild[697:5753] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-20 07:55:50.123 xcodebuild[697:5753] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/torcontrol.cpp
+Auto-merging src/netbase.cpp
+Auto-merging src/net.cpp
+Auto-merging src/i2p.h
+Auto-merging src/i2p.cpp
+Merge made by the 'recursive' strategy.
+ src/Makefile.am           |  2 +-
+ src/bitcoin-cli.cpp       |  2 +-
+ src/bitcoin-tx.cpp        |  2 +-
+ src/bitcoin-util.cpp      |  2 +-
+ src/bitcoin-wallet.cpp    |  2 +-
+ src/bitcoind.cpp          |  2 +-
+ src/{ => compat}/compat.h | 46 +++++++++++++++++++++++++++-------------------
+ src/httpserver.cpp        |  2 +-
+ src/i2p.cpp               |  2 +-
+ src/i2p.h                 |  2 +-
+ src/mapport.cpp           |  2 +-
+ src/net.cpp               |  2 +-
+ src/net.h                 |  2 +-
+ src/netaddress.h          |  2 +-
+ src/netbase.cpp           |  2 +-
+ src/netbase.h             |  2 +-
+ src/qt/main.cpp           |  2 +-
+ src/random.cpp            |  2 +-
+ src/randomenv.cpp         |  2 +-
+ src/test/fuzz/util.h      |  2 +-
+ src/test/net_tests.cpp    |  2 +-
+ src/test/sock_tests.cpp   |  2 +-
+ src/test/util/net.h       |  2 +-
+ src/torcontrol.cpp        |  2 +-
+ src/util/sock.cpp         |  2 +-
+ src/util/sock.h           |  2 +-
+ src/util/system.h         |  2 +-
+ src/util/time.cpp         |  2 +-
+ src/util/time.h           |  2 +-
+ src/wallet/bdb.cpp        |  1 +
+ 30 files changed, 56 insertions(+), 47 deletions(-)
+ rename src/{ => compat}/compat.h (71%)

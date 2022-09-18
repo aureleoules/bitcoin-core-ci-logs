@@ -1,0 +1,37 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:5 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 79 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ configure.ac                             |    7 +-
+ depends/Makefile                         |    4 +-
+ depends/gen_id                           |    7 +-
+ src/compat.h                             |    3 -
+ src/fs.cpp                               |    3 -
+ src/qt/forms/sendcoinsentry.ui           | 1437 ++++--------------------------
+ src/qt/guiutil.cpp                       |    3 -
+ src/qt/intro.cpp                         |    2 +-
+ src/qt/sendcoinsentry.cpp                |   31 +-
+ src/qt/sendcoinsentry.h                  |    6 +-
+ src/support/lockedpool.cpp               |    3 -
+ src/util/system.cpp                      |    3 -
+ test/functional/test_framework/wallet.py |   28 +-
+ 13 files changed, 230 insertions(+), 1307 deletions(-)

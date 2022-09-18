@@ -1,0 +1,20 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-08-02 10:50:32.407 xcodebuild[696:5574] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-08-02 10:50:32.407 xcodebuild[696:5574] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ configure.ac                    | 10 +++++++++
+ depends/config.site.in          |  7 ++-----
+ depends/packages/bdb.mk         |  2 +-
+ src/test/rpc_tests.cpp          |  4 ++--
+ src/univalue/include/univalue.h | 20 +++++++++---------
+ src/univalue/lib/univalue.cpp   | 33 ++++++++++++------------------
+ src/univalue/test/object.cpp    | 45 ++++++++++++++++++++---------------------
+ 7 files changed, 60 insertions(+), 61 deletions(-)

@@ -1,0 +1,27 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-31 06:28:33.744 xcodebuild[696:5552] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-31 06:28:33.745 xcodebuild[696:5552] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ ci/test/06_script_b.sh                            |  3 ++-
+ contrib/guix/manifest.scm                         | 20 +++++++++++---
+ depends/packages/libxcb.mk                        |  3 ++-
+ depends/patches/libxcb/remove_pthread_stubs.patch | 12 +++++++++
+ src/net_processing.cpp                            |  5 +---
+ src/node/blockstorage.cpp                         |  6 ++++-
+ src/script/script.h                               |  2 +-
+ src/test/fuzz/load_external_block_file.cpp        | 11 ++++++--
+ src/test/fuzz/txorphan.cpp                        |  4 +--
+ src/txorphanage.cpp                               |  4 +--
+ src/txorphanage.h                                 |  2 +-
+ src/validation.cpp                                | 23 +++++++++++-----
+ src/validation.h                                  | 32 +++++++++++++++++++++--
+ 13 files changed, 99 insertions(+), 28 deletions(-)
+ create mode 100644 depends/patches/libxcb/remove_pthread_stubs.patch

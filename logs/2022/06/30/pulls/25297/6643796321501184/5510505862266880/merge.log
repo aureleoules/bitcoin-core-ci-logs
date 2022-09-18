@@ -1,0 +1,73 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 78572cbc2 walletdb: add db txn capability to on-demand WalletBatch
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/spend.cpp
+Merge made by the 'ort' strategy.
+ build_msvc/libsecp256k1_config.h          | 17 ---------
+ contrib/guix/manifest.scm                 | 16 +--------
+ src/Makefile.am                           |  6 ++++
+ src/init.cpp                              | 40 ++++++++++++---------
+ src/kernel/mempool_limits.h               | 30 ++++++++++++++++
+ src/kernel/mempool_options.h              | 38 ++++++++++++++++++++
+ src/mempool_args.cpp                      | 37 +++++++++++++++++++
+ src/mempool_args.h                        | 22 ++++++++++++
+ src/minisketch/README.md                  |  4 +--
+ src/minisketch/include/minisketch.h       |  3 +-
+ src/net_processing.cpp                    |  2 +-
+ src/node/interfaces.cpp                   | 19 +++++-----
+ src/policy/fees.cpp                       | 16 ++++-----
+ src/policy/fees.h                         |  4 ++-
+ src/policy/fees_args.cpp                  | 12 +++++++
+ src/policy/fees_args.h                    | 15 ++++++++
+ src/policy/packages.h                     |  4 +--
+ src/policy/policy.h                       |  6 ++--
+ src/qt/bitcoingui.cpp                     |  1 +
+ src/qt/optionsdialog.cpp                  | 15 +++++---
+ src/qt/optionsdialog.h                    |  3 ++
+ src/rpc/fees.cpp                          |  2 +-
+ src/rpc/mempool.cpp                       |  5 ++-
+ src/test/fuzz/policy_estimator.cpp        |  8 ++++-
+ src/test/fuzz/policy_estimator_io.cpp     |  8 ++++-
+ src/test/fuzz/rbf.cpp                     | 21 +++++++++--
+ src/test/fuzz/tx_pool.cpp                 | 20 +++++++++--
+ src/test/fuzz/validation_load_mempool.cpp |  4 ++-
+ src/test/mempool_tests.cpp                |  8 ++++-
+ src/test/util/setup_common.cpp            | 26 +++++++++++---
+ src/test/util/setup_common.h              |  3 ++
+ src/txmempool.cpp                         | 17 +++++----
+ src/txmempool.h                           | 37 ++++++++++---------
+ src/util/system.cpp                       | 59 ++++++++++++++++++++++++-------
+ src/util/system.h                         |  8 +++++
+ src/validation.cpp                        | 36 ++++++++-----------
+ src/validation.h                          |  2 --
+ src/wallet/coinselection.cpp              |  3 --
+ src/wallet/spend.cpp                      |  3 +-
+ src/wallet/test/coinselector_tests.cpp    |  7 ++--
+ test/functional/mempool_expiry.py         |  8 ++---
+ 41 files changed, 424 insertions(+), 171 deletions(-)
+ create mode 100644 src/kernel/mempool_limits.h
+ create mode 100644 src/kernel/mempool_options.h
+ create mode 100644 src/mempool_args.cpp
+ create mode 100644 src/mempool_args.h
+ create mode 100644 src/policy/fees_args.cpp
+ create mode 100644 src/policy/fees_args.h
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

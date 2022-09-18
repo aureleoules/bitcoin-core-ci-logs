@@ -1,0 +1,27 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-25 15:22:27.596 xcodebuild[698:5586] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-25 15:22:27.597 xcodebuild[698:5586] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging src/wallet/rpc/wallet.cpp
+Merge made by the 'recursive' strategy.
+ src/chain.cpp                           |  7 ++++++
+ src/chain.h                             | 24 +++++---------------
+ src/psbt.h                              |  3 +++
+ src/qt/bitcoingui.cpp                   |  8 +++++--
+ src/rpc/blockchain.cpp                  | 11 ++++-----
+ src/rpc/net.cpp                         |  8 +++----
+ src/rpc/rawtransaction.cpp              | 32 +++++++++++++-------------
+ src/test/fuzz/chain.cpp                 |  3 +--
+ src/txdb.cpp                            |  2 +-
+ src/univalue/include/univalue.h         | 40 ++++++++++++++++-----------------
+ src/validation.cpp                      |  1 -
+ src/wallet/rpc/wallet.cpp               |  2 +-
+ test/functional/wallet_address_types.py | 28 +++++++----------------
+ 13 files changed, 77 insertions(+), 92 deletions(-)

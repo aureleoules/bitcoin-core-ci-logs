@@ -1,0 +1,47 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://mirror.hetzner.de/ubuntu/packages focal InRelease
+Hit:2 http://mirror.hetzner.de/ubuntu/packages focal-updates InRelease
+Hit:3 http://mirror.hetzner.de/ubuntu/packages focal-backports InRelease
+Hit:4 http://mirror.hetzner.de/ubuntu/packages focal-security InRelease
+Hit:5 https://mirror.hetzner.com/ubuntu/packages focal InRelease
+Hit:6 https://mirror.hetzner.com/ubuntu/packages focal-updates InRelease
+Hit:7 https://mirror.hetzner.com/ubuntu/packages focal-backports InRelease
+Hit:8 https://mirror.hetzner.com/ubuntu/security focal-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+0 upgraded, 0 newly installed, 0 to remove and 80 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ .cirrus.yml                                        | 14 +++++------
+ build_msvc/README.md                               | 16 ++++++------
+ build_msvc/msvc-autogen.py                         |  4 +--
+ contrib/guix/libexec/build.sh                      |  4 ---
+ contrib/guix/manifest.scm                          | 17 ++++++++++---
+ .../guix/patches/lief-fix-ppc64-nx-default.patch   | 29 ++++++++++++++++++++++
+ src/Makefile.leveldb.include                       |  1 -
+ src/coins.h                                        |  1 -
+ src/dbwrapper.cpp                                  |  2 +-
+ src/dbwrapper.h                                    | 21 ----------------
+ src/net_processing.cpp                             |  1 +
+ src/qt/bitcoin.cpp                                 | 23 ++++++++++++++---
+ src/rpc/mempool.cpp                                |  6 +++--
+ src/rpc/server.cpp                                 | 12 ++++++---
+ src/txdb.cpp                                       |  6 -----
+ src/txmempool.cpp                                  | 23 ++++++++++-------
+ src/txmempool.h                                    |  9 +++----
+ src/util/time.h                                    |  7 +++++-
+ test/functional/feature_rbf.py                     |  1 +
+ test/functional/p2p_permissions.py                 |  1 +
+ test/functional/wallet_importdescriptors.py        |  2 +-
+ test/sanitizer_suppressions/ubsan                  |  4 +--
+ 22 files changed, 122 insertions(+), 82 deletions(-)
+ create mode 100644 contrib/guix/patches/lief-fix-ppc64-nx-default.patch

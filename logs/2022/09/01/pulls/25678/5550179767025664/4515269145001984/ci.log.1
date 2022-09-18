@@ -1,0 +1,330 @@
+[0;34m node0 2022-09-01T18:55:54.812022Z [msghand] [net_processing.cpp:3847] [ProcessMessage] [net] getheaders 1 to end from peer=0 [0m
+[0;34m node0 2022-09-01T18:55:54.812052Z [msghand] [net.cpp:2770] [PushMessage] [net] sending headers (1135 bytes) peer=0 [0m
+[0;32m node1 2022-09-01T18:55:54.812140Z [msghand] [net_processing.cpp:3138] [ProcessMessage] [net] received: headers (1135 bytes) peer=0 [0m
+[0;32m node1 2022-09-01T18:55:54.812163Z [msghand] [net_processing.cpp:2564] [TryLowWorkHeadersSync] [net] Ignoring low-work chain (height=14) from peer=0 [0m
+[0;34m node0 2022-09-01T18:55:54.813008Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57308 [0m
+[0;34m node0 2022-09-01T18:55:54.813063Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ [0m
+[0;34m node0 2022-09-01T18:55:54.866758Z [msghand] [net_processing.cpp:3138] [ProcessMessage] [net] received: getheaders (453 bytes) peer=2 [0m
+[0;34m node0 2022-09-01T18:55:54.866789Z [msghand] [net_processing.cpp:3847] [ProcessMessage] [net] getheaders 14 to end from peer=2 [0m
+[0;34m node0 2022-09-01T18:55:54.866800Z [msghand] [net.cpp:2770] [PushMessage] [net] sending headers (82 bytes) peer=2 [0m
+[0;33m node3 2022-09-01T18:55:54.866839Z [msghand] [net_processing.cpp:3632] [ProcessMessage] [net] getheaders (13) 5c2cd1fb2e12c262b78c50ce7a45cdda3092ef3cb92bcff66171cff33c77f2ba to peer=0 [0m
+[0;33m node3 2022-09-01T18:55:54.866886Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:37576 [0m
+[0;33m node3 2022-09-01T18:55:54.866941Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=getchaintips user=__cookie__ [0m
+[0;36m test  2022-09-01T18:55:54.868000Z TestFramework (ERROR): Assertion failed [0m
+[0;36m                                   Traceback (most recent call last):[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/test_framework/test_framework.py", line 133, in main[0m
+[0;36m                                       self.run_test()[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/p2p_headers_sync_with_minchainwork.py", line 155, in run_test[0m
+[0;36m                                       self.test_chains_sync_when_long_enough()[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/p2p_headers_sync_with_minchainwork.py", line 68, in test_chains_sync_when_long_enough[0m
+[0;36m                                       check_node3_chaintips(2, self.nodes[0].getbestblockhash(), NODE1_BLOCKS_REQUIRED-1)[0m
+[0;36m                                     File "/tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/p2p_headers_sync_with_minchainwork.py", line 66, in check_node3_chaintips[0m
+[0;36m                                       } in node3_chaintips[0m
+[0;36m                                   AssertionError[0m
+[0;33m node3 2022-09-01T18:55:54.871829Z [msghand] [net_processing.cpp:3138] [ProcessMessage] [net] received: headers (82 bytes) peer=0 [0m
+[0;33m node3 2022-09-01T18:55:54.872138Z [msghand] [validation.cpp:3708] [ProcessNewBlockHeaders] Synchronizing blockheaders, height: 14 (~100.00%) [0m
+[0;36m test  2022-09-01T18:55:54.873000Z TestFramework (DEBUG): Closing down network thread [0m
+[0;36m test  2022-09-01T18:55:54.933000Z TestFramework (INFO): Stopping nodes [0m
+[0;36m test  2022-09-01T18:55:54.934000Z TestFramework.node0 (DEBUG): Stopping node [0m
+[0;34m node0 2022-09-01T18:55:54.934557Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57308 [0m
+[0;34m node0 2022-09-01T18:55:54.938525Z [httpworker.1] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;34m node0 2022-09-01T18:55:54.938621Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;36m test  2022-09-01T18:55:54.939000Z TestFramework.node1 (DEBUG): Stopping node [0m
+[0;34m node0 2022-09-01T18:55:54.939979Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;34m node0 2022-09-01T18:55:54.939997Z [init] [rpc/server.cpp:301] [operator()] [rpc] Interrupting RPC [0m
+[0;34m node0 2022-09-01T18:55:54.940045Z [init] [init.cpp:216] [Shutdown] Shutdown: In progress... [0m
+[0;34m node0 2022-09-01T18:55:54.940055Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;34m node0 2022-09-01T18:55:54.940063Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;34m node0 2022-09-01T18:55:54.940071Z [shutoff] [rpc/server.cpp:313] [operator()] [rpc] Stopping RPC [0m
+[0;34m node0 2022-09-01T18:55:54.940143Z [shutoff] [init.cpp:382] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;34m node0 2022-09-01T18:55:54.940151Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;34m node0 2022-09-01T18:55:54.940157Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;34m node0 2022-09-01T18:55:54.940179Z [addcon] [util/thread.cpp:20] [TraceThread] addcon thread exit [0m
+[0;32m node1 2022-09-01T18:55:54.940776Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:60524 [0m
+[0;32m node1 2022-09-01T18:55:54.940865Z [httpworker.3] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;36m test  2022-09-01T18:55:54.941000Z TestFramework.node2 (DEBUG): Stopping node [0m
+[0;34m node0 2022-09-01T18:55:54.941016Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;34m node0 2022-09-01T18:55:54.941040Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;34m node0 2022-09-01T18:55:54.941182Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;32m node1 2022-09-01T18:55:54.944731Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;32m node1 2022-09-01T18:55:54.944851Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;32m node1 2022-09-01T18:55:54.944866Z [init] [rpc/server.cpp:301] [operator()] [rpc] Interrupting RPC [0m
+[0;32m node1 2022-09-01T18:55:54.944906Z [init] [init.cpp:216] [Shutdown] Shutdown: In progress... [0m
+[0;32m node1 2022-09-01T18:55:54.944916Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;32m node1 2022-09-01T18:55:54.944924Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;32m node1 2022-09-01T18:55:54.944932Z [shutoff] [rpc/server.cpp:313] [operator()] [rpc] Stopping RPC [0m
+[0;32m node1 2022-09-01T18:55:54.945001Z [shutoff] [init.cpp:382] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;32m node1 2022-09-01T18:55:54.945010Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;32m node1 2022-09-01T18:55:54.945016Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;32m node1 2022-09-01T18:55:54.945416Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;32m node1 2022-09-01T18:55:54.945439Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;32m node1 2022-09-01T18:55:54.945573Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;31m node2 2022-09-01T18:55:54.945935Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:49230 [0m
+[0;31m node2 2022-09-01T18:55:54.946205Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;31m node2 2022-09-01T18:55:54.946293Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;36m test  2022-09-01T18:55:54.947000Z TestFramework.node3 (DEBUG): Stopping node [0m
+[0;33m node3 2022-09-01T18:55:54.947565Z [http] [httpserver.cpp:241] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:37576 [0m
+[0;33m node3 2022-09-01T18:55:54.947615Z [httpworker.2] [rpc/request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ [0m
+[0;33m node3 2022-09-01T18:55:54.947684Z [init] [httpserver.cpp:437] [InterruptHTTPServer] [http] Interrupting HTTP server [0m
+[0;32m node1 2022-09-01T18:55:54.948719Z [addcon] [util/thread.cpp:20] [TraceThread] addcon thread exit [0m
+[0;33m node3 2022-09-01T18:55:54.948745Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;31m node2 2022-09-01T18:55:54.950534Z [init] [httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server [0m
+[0;33m node3 2022-09-01T18:55:54.962147Z [init] [rpc/server.cpp:301] [operator()] [rpc] Interrupting RPC [0m
+[0;33m node3 2022-09-01T18:55:54.962218Z [init] [init.cpp:216] [Shutdown] Shutdown: In progress... [0m
+[0;33m node3 2022-09-01T18:55:54.962229Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;33m node3 2022-09-01T18:55:54.962238Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;33m node3 2022-09-01T18:55:54.962247Z [shutoff] [rpc/server.cpp:313] [operator()] [rpc] Stopping RPC [0m
+[0;33m node3 2022-09-01T18:55:54.962330Z [shutoff] [init.cpp:382] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;33m node3 2022-09-01T18:55:54.962337Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;33m node3 2022-09-01T18:55:54.962343Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;33m node3 2022-09-01T18:55:54.962393Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;33m node3 2022-09-01T18:55:54.962714Z [addcon] [util/thread.cpp:20] [TraceThread] addcon thread exit [0m
+[0;32m node1 2022-09-01T18:55:54.965733Z [net] [util/thread.cpp:20] [TraceThread] net thread exit [0m
+[0;31m node2 2022-09-01T18:55:54.965784Z [init] [rpc/server.cpp:301] [operator()] [rpc] Interrupting RPC [0m
+[0;31m node2 2022-09-01T18:55:54.965834Z [init] [init.cpp:216] [Shutdown] Shutdown: In progress... [0m
+[0;31m node2 2022-09-01T18:55:54.965846Z [shutoff] [httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server [0m
+[0;31m node2 2022-09-01T18:55:54.965855Z [shutoff] [httpserver.cpp:689] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) [0m
+[0;31m node2 2022-09-01T18:55:54.965875Z [shutoff] [rpc/server.cpp:313] [operator()] [rpc] Stopping RPC [0m
+[0;31m node2 2022-09-01T18:55:54.965963Z [shutoff] [init.cpp:382] [OnRPCStopped] [rpc] RPC stopped. [0m
+[0;31m node2 2022-09-01T18:55:54.965971Z [shutoff] [httpserver.cpp:449] [StopHTTPServer] [http] Stopping HTTP server [0m
+[0;31m node2 2022-09-01T18:55:54.965977Z [shutoff] [httpserver.cpp:451] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit [0m
+[0;31m node2 2022-09-01T18:55:54.966014Z [shutoff] [httpserver.cpp:464] [StopHTTPServer] [http] Waiting for HTTP event thread to exit [0m
+[0;31m node2 2022-09-01T18:55:54.966045Z [addcon] [util/thread.cpp:20] [TraceThread] addcon thread exit [0m
+[0;33m node3 2022-09-01T18:55:54.966208Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;33m node3 2022-09-01T18:55:54.966373Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;31m node2 2022-09-01T18:55:54.966413Z [http] [httpserver.cpp:290] [ThreadHTTP] [http] Exited http event loop [0m
+[0;31m node2 2022-09-01T18:55:54.966567Z [shutoff] [httpserver.cpp:476] [StopHTTPServer] [http] Stopped HTTP server [0m
+[0;34m node0 2022-09-01T18:55:54.975511Z [net] [util/thread.cpp:20] [TraceThread] net thread exit [0m
+[0;33m node3 2022-09-01T18:55:54.975570Z [msghand] [util/thread.cpp:20] [TraceThread] msghand thread exit [0m
+[0;34m node0 2022-09-01T18:55:54.976028Z [msghand] [util/thread.cpp:20] [TraceThread] msghand thread exit [0m
+[0;34m node0 2022-09-01T18:55:54.984273Z [shutoff] [net.cpp:1509] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  8ms [0m
+[0;34m node0 2022-09-01T18:55:54.984294Z [shutoff] [net.cpp:573] [CloseSocketDisconnect] [net] disconnecting peer=0 [0m
+[0;34m node0 2022-09-01T18:55:54.984401Z [shutoff] [net_processing.cpp:1527] [FinalizeNode] [net] Cleared nodestate for peer=0 [0m
+[0;34m node0 2022-09-01T18:55:54.984417Z [shutoff] [net.cpp:573] [CloseSocketDisconnect] [net] disconnecting peer=1 [0m
+[0;34m node0 2022-09-01T18:55:54.984484Z [shutoff] [net_processing.cpp:1527] [FinalizeNode] [net] Cleared nodestate for peer=1 [0m
+[0;34m node0 2022-09-01T18:55:54.984501Z [shutoff] [net.cpp:573] [CloseSocketDisconnect] [net] disconnecting peer=2 [0m
+[0;34m node0 2022-09-01T18:55:54.984565Z [shutoff] [net_processing.cpp:1527] [FinalizeNode] [net] Cleared nodestate for peer=2 [0m
+[0;31m node2 2022-09-01T18:55:54.984627Z [net] [util/thread.cpp:20] [TraceThread] net thread exit [0m
+[0;34m node0 2022-09-01T18:55:54.984815Z [scheduler] [util/thread.cpp:20] [TraceThread] scheduler thread exit [0m
+[0;33m node3 2022-09-01T18:55:54.988719Z [net] [util/thread.cpp:20] [TraceThread] net thread exit [0m
+[0;33m node3 2022-09-01T18:55:54.993527Z [shutoff] [net.cpp:1509] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  5ms [0m
+[0;33m node3 2022-09-01T18:55:54.993552Z [shutoff] [net.cpp:573] [CloseSocketDisconnect] [net] disconnecting peer=0 [0m
+[0;33m node3 2022-09-01T18:55:54.993730Z [shutoff] [net_processing.cpp:1527] [FinalizeNode] [net] Cleared nodestate for peer=0 [0m
+[0;33m node3 2022-09-01T18:55:54.993785Z [scheduler] [util/thread.cpp:20] [TraceThread] scheduler thread exit [0m
+[0;34m node0 2022-09-01T18:55:54.997038Z [shutoff] [kernel/mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. [0m
+[0;33m node3 2022-09-01T18:55:54.999248Z [shutoff] [kernel/mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. [0m
+[0;31m node2 2022-09-01T18:55:55.004634Z [msghand] [util/thread.cpp:20] [TraceThread] msghand thread exit [0m
+[0;33m node3 2022-09-01T18:55:55.004792Z [shutoff] [kernel/mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 4.99e-06s to copy, 0.00560844s to dump [0m
+[0;33m node3 2022-09-01T18:55:55.004813Z [shutoff] [policy/fees.cpp:1010] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 0s [0m
+[0;34m node0 2022-09-01T18:55:55.005769Z [shutoff] [kernel/mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 4.39e-06s to copy, 0.0157017s to dump [0m
+[0;34m node0 2022-09-01T18:55:55.005791Z [shutoff] [policy/fees.cpp:1010] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 0s [0m
+[0;33m node3 2022-09-01T18:55:55.005921Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-09-01T18:55:55.007034Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;31m node2 2022-09-01T18:55:55.010342Z [shutoff] [net.cpp:1509] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  6ms [0m
+[0;31m node2 2022-09-01T18:55:55.010360Z [shutoff] [net.cpp:573] [CloseSocketDisconnect] [net] disconnecting peer=0 [0m
+[0;31m node2 2022-09-01T18:55:55.010517Z [shutoff] [net_processing.cpp:1527] [FinalizeNode] [net] Cleared nodestate for peer=0 [0m
+[0;31m node2 2022-09-01T18:55:55.010588Z [scheduler] [util/thread.cpp:20] [TraceThread] scheduler thread exit [0m
+[0;32m node1 2022-09-01T18:55:55.021385Z [msghand] [util/thread.cpp:20] [TraceThread] msghand thread exit [0m
+[0;31m node2 2022-09-01T18:55:55.025617Z [shutoff] [kernel/mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. [0m
+[0;31m node2 2022-09-01T18:55:55.029481Z [shutoff] [kernel/mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 4.58e-06s to copy, 0.00834752s to dump [0m
+[0;31m node2 2022-09-01T18:55:55.029507Z [shutoff] [policy/fees.cpp:1010] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 0s [0m
+[0;31m node2 2022-09-01T18:55:55.031326Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-09-01T18:55:55.031444Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (24.38ms) [0m
+[0;34m node0 2022-09-01T18:55:55.031463Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;33m node3 2022-09-01T18:55:55.034702Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (28.72ms) [0m
+[0;34m node0 2022-09-01T18:55:55.034723Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.23ms) [0m
+[0;31m node2 2022-09-01T18:55:55.040443Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (9.08ms) [0m
+[0;31m node2 2022-09-01T18:55:55.040471Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;31m node2 2022-09-01T18:55:55.042442Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (1.94ms) [0m
+[0;31m node2 2022-09-01T18:55:55.042471Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;31m node2 2022-09-01T18:55:55.042506Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;31m node2 2022-09-01T18:55:55.042526Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;31m node2 2022-09-01T18:55:55.042535Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.06ms) [0m
+[0;31m node2 2022-09-01T18:55:55.042544Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;31m node2 2022-09-01T18:55:55.042555Z [shutoff] [validationinterface.cpp:247] [operator()] [validation] ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;31m node2 2022-09-01T18:55:55.042581Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;31m node2 2022-09-01T18:55:55.047628Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.02ms) [0m
+[0;31m node2 2022-09-01T18:55:55.047691Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;31m node2 2022-09-01T18:55:55.049966Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (2.25ms) [0m
+[0;31m node2 2022-09-01T18:55:55.049993Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;31m node2 2022-09-01T18:55:55.050024Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;31m node2 2022-09-01T18:55:55.050043Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;31m node2 2022-09-01T18:55:55.050051Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.05ms) [0m
+[0;31m node2 2022-09-01T18:55:55.050060Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;31m node2 2022-09-01T18:55:55.050254Z [shutoff] [init.cpp:333] [Shutdown] Shutdown: done [0m
+[0;33m node3 2022-09-01T18:55:55.090797Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;34m node0 2022-09-01T18:55:55.110741Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (14 coins, 2kB) started [0m
+[0;34m node0 2022-09-01T18:55:55.110826Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;34m node0 2022-09-01T18:55:55.110853Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 14 changed transaction outputs (out of 14) to coin database... [0m
+[0;34m node0 2022-09-01T18:55:55.110868Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (14 coins, 2kB) completed (0.10ms) [0m
+[0;34m node0 2022-09-01T18:55:55.110880Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=5c2cd1fb2e12c262b78c50ce7a45cdda3092ef3cb92bcff66171cff33c77f2ba [0m
+[0;34m node0 2022-09-01T18:55:55.110892Z [shutoff] [validationinterface.cpp:247] [operator()] [validation] ChainStateFlushed: block hash=5c2cd1fb2e12c262b78c50ce7a45cdda3092ef3cb92bcff66171cff33c77f2ba [0m
+[0;34m node0 2022-09-01T18:55:55.110908Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;32m node1 2022-09-01T18:55:55.111688Z [shutoff] [net.cpp:1509] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  66ms [0m
+[0;32m node1 2022-09-01T18:55:55.111707Z [shutoff] [net.cpp:573] [CloseSocketDisconnect] [net] disconnecting peer=0 [0m
+[0;32m node1 2022-09-01T18:55:55.111874Z [shutoff] [net_processing.cpp:1527] [FinalizeNode] [net] Cleared nodestate for peer=0 [0m
+[0;32m node1 2022-09-01T18:55:55.111925Z [scheduler] [util/thread.cpp:20] [TraceThread] scheduler thread exit [0m
+[0;32m node1 2022-09-01T18:55:55.119245Z [shutoff] [kernel/mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. [0m
+[0;33m node3 2022-09-01T18:55:55.120796Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (29.96ms) [0m
+[0;34m node0 2022-09-01T18:55:55.123729Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (12.80ms) [0m
+[0;34m node0 2022-09-01T18:55:55.123756Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;32m node1 2022-09-01T18:55:55.123820Z [shutoff] [kernel/mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 5.44e-06s to copy, 0.00464188s to dump [0m
+[0;32m node1 2022-09-01T18:55:55.123842Z [shutoff] [policy/fees.cpp:1010] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 0s [0m
+[0;32m node1 2022-09-01T18:55:55.124922Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;34m node0 2022-09-01T18:55:55.130754Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (6.97ms) [0m
+[0;34m node0 2022-09-01T18:55:55.130787Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;34m node0 2022-09-01T18:55:55.130830Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;34m node0 2022-09-01T18:55:55.130851Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;34m node0 2022-09-01T18:55:55.130860Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.06ms) [0m
+[0;34m node0 2022-09-01T18:55:55.130871Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=5c2cd1fb2e12c262b78c50ce7a45cdda3092ef3cb92bcff66171cff33c77f2ba [0m
+[0;34m node0 2022-09-01T18:55:55.131074Z [shutoff] [init.cpp:333] [Shutdown] Shutdown: done [0m
+[0;32m node1 2022-09-01T18:55:55.138434Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (13.49ms) [0m
+[0;32m node1 2022-09-01T18:55:55.138457Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;32m node1 2022-09-01T18:55:55.142438Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.96ms) [0m
+[0;32m node1 2022-09-01T18:55:55.143776Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;32m node1 2022-09-01T18:55:55.143837Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;32m node1 2022-09-01T18:55:55.143891Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;32m node1 2022-09-01T18:55:55.143901Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.09ms) [0m
+[0;32m node1 2022-09-01T18:55:55.143910Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;32m node1 2022-09-01T18:55:55.143920Z [shutoff] [validationinterface.cpp:247] [operator()] [validation] ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;32m node1 2022-09-01T18:55:55.143945Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;32m node1 2022-09-01T18:55:55.149788Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.82ms) [0m
+[0;36m test  2022-09-01T18:55:55.156000Z TestFramework.node0 (DEBUG): Node stopped [0m
+[0;33m node3 2022-09-01T18:55:55.156167Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;33m node3 2022-09-01T18:55:55.156215Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;33m node3 2022-09-01T18:55:55.156235Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;33m node3 2022-09-01T18:55:55.156244Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.06ms) [0m
+[0;33m node3 2022-09-01T18:55:55.156253Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;33m node3 2022-09-01T18:55:55.156262Z [shutoff] [validationinterface.cpp:247] [operator()] [validation] ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;33m node3 2022-09-01T18:55:55.156276Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started [0m
+[0;32m node1 2022-09-01T18:55:55.163277Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;32m node1 2022-09-01T18:55:55.174951Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (6.54ms) [0m
+[0;32m node1 2022-09-01T18:55:55.174992Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;32m node1 2022-09-01T18:55:55.175039Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;32m node1 2022-09-01T18:55:55.175062Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;32m node1 2022-09-01T18:55:55.175071Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.07ms) [0m
+[0;32m node1 2022-09-01T18:55:55.175081Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;32m node1 2022-09-01T18:55:55.175279Z [shutoff] [init.cpp:333] [Shutdown] Shutdown: done [0m
+[0;33m node3 2022-09-01T18:55:55.191888Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (35.58ms) [0m
+[0;33m node3 2022-09-01T18:55:55.191911Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started [0m
+[0;33m node3 2022-09-01T18:55:55.195415Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.48ms) [0m
+[0;33m node3 2022-09-01T18:55:55.195447Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started [0m
+[0;33m node3 2022-09-01T18:55:55.195489Z [shutoff] [txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB [0m
+[0;33m node3 2022-09-01T18:55:55.195507Z [shutoff] [txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... [0m
+[0;33m node3 2022-09-01T18:55:55.195516Z [shutoff] [logging/timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.06ms) [0m
+[0;33m node3 2022-09-01T18:55:55.195525Z [shutoff] [validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 [0m
+[0;33m node3 2022-09-01T18:55:55.195742Z [shutoff] [init.cpp:333] [Shutdown] Shutdown: done [0m
+[0;36m test  2022-09-01T18:55:55.206000Z TestFramework.node1 (DEBUG): Node stopped [0m
+[0;36m test  2022-09-01T18:55:55.207000Z TestFramework.node2 (DEBUG): Node stopped [0m
+[0;36m test  2022-09-01T18:55:55.258000Z TestFramework.node3 (DEBUG): Node stopped [0m
+[0;36m test  2022-09-01T18:55:55.258000Z TestFramework (WARNING): Not cleaning up dir /tmp/cirrus-ci-build/ci/scratch/test_runner/test_runner_₿_🏃_20220901_185445/p2p_headers_sync_with_minchainwork_155 [0m
+[0;36m test  2022-09-01T18:55:55.258000Z TestFramework (ERROR): Test failed. Test logging available at /tmp/cirrus-ci-build/ci/scratch/test_runner/test_runner_₿_🏃_20220901_185445/p2p_headers_sync_with_minchainwork_155/test_framework.log [0m
+[0;36m test  2022-09-01T18:55:55.259000Z TestFramework (ERROR): [0m
+[0;36m test  2022-09-01T18:55:55.259000Z TestFramework (ERROR): Hint: Call /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/combine_logs.py '/tmp/cirrus-ci-build/ci/scratch/test_runner/test_runner_₿_🏃_20220901_185445/p2p_headers_sync_with_minchainwork_155' to consolidate all logs [0m
+[0;36m test  2022-09-01T18:55:55.259000Z TestFramework (ERROR): [0m
+[0;36m test  2022-09-01T18:55:55.259000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log. [0m
+[0;36m test  2022-09-01T18:55:55.259000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues [0m
+[0;36m test  2022-09-01T18:55:55.259000Z TestFramework (ERROR): [0m
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.704s
+
+OK
+
+
+[1mTEST                                                   | STATUS    | DURATION
+
+[0m[0;32mfeature_abortnode.py                                   | ✓ Passed  | 32 s
+[0m[0;32mfeature_bind_extra.py                                  | ✓ Passed  | 2 s
+[0m[0;32mfeature_csv_activation.py                              | ✓ Passed  | 15 s
+[0m[0;32mfeature_maxuploadtarget.py                             | ✓ Passed  | 63 s
+[0m[0;32mfeature_reindex.py                                     | ✓ Passed  | 5 s
+[0m[0;32mfeature_syscall_sandbox.py                             | ✓ Passed  | 2 s
+[0m[0;32minterface_bitcoin_cli.py --descriptors                 | ✓ Passed  | 8 s
+[0m[0;32minterface_bitcoin_cli.py --legacy-wallet               | ✓ Passed  | 8 s
+[0m[0;32minterface_http.py                                      | ✓ Passed  | 1 s
+[0m[0;32minterface_rest.py                                      | ✓ Passed  | 6 s
+[0m[0;32minterface_rpc.py                                       | ✓ Passed  | 2 s
+[0m[0;32minterface_zmq.py                                       | ✓ Passed  | 25 s
+[0m[0;32mmempool_limit.py                                       | ✓ Passed  | 2 s
+[0m[0;32mmempool_reorg.py                                       | ✓ Passed  | 3 s
+[0m[0;32mmempool_resurrect.py                                   | ✓ Passed  | 1 s
+[0m[0;32mmempool_spend_coinbase.py                              | ✓ Passed  | 1 s
+[0m[0;32mmempool_updatefromblock.py                             | ✓ Passed  | 47 s
+[0m[0;32mmining_getblocktemplate_longpoll.py                    | ✓ Passed  | 67 s
+[0m[0;32mp2p_block_sync.py                                      | ✓ Passed  | 2 s
+[0m[0;32mp2p_compactblocks.py                                   | ✓ Passed  | 6 s
+[0m[0;32mp2p_compactblocks_blocksonly.py                        | ✓ Passed  | 2 s
+[0m[0;32mp2p_dns_seeds.py                                       | ✓ Passed  | 28 s
+[0m[0;32mp2p_feefilter.py                                       | ✓ Passed  | 16 s
+[0m[0;32mp2p_sendheaders.py                                     | ✓ Passed  | 14 s
+[0m[0;32mp2p_timeouts.py                                        | ✓ Passed  | 1 s
+[0m[0;32mp2p_tx_download.py                                     | ✓ Passed  | 33 s
+[0m[0;32mrpc_getchaintips.py                                    | ✓ Passed  | 3 s
+[0m[0;32mrpc_invalid_address_message.py                         | ✓ Passed  | 1 s
+[0m[0;32mrpc_misc.py                                            | ✓ Passed  | 4 s
+[0m[0;32mrpc_packages.py                                        | ✓ Passed  | 22 s
+[0m[0;32mrpc_signer.py                                          | ✓ Passed  | 1 s
+[0m[0;32mrpc_txoutproof.py                                      | ✓ Passed  | 1 s
+[0m[0;32mrpc_whitelist.py                                       | ✓ Passed  | 2 s
+[0m[0mfeature_bip68_sequence.py                              | ○ Skipped | 0 s
+[0m[0mfeature_segwit.py --descriptors                        | ○ Skipped | 1 s
+[0m[0mfeature_segwit.py --legacy-wallet                      | ○ Skipped | 0 s
+[0m[0mfeature_taproot.py                                     | ○ Skipped | 0 s
+[0m[0minterface_usdt_coinselection.py                        | ○ Skipped | 0 s
+[0m[0minterface_usdt_net.py                                  | ○ Skipped | 0 s
+[0m[0minterface_usdt_utxocache.py                            | ○ Skipped | 1 s
+[0m[0minterface_usdt_validation.py                           | ○ Skipped | 0 s
+[0m[0mrpc_fundrawtransaction.py --descriptors                | ○ Skipped | 1 s
+[0m[0mrpc_fundrawtransaction.py --legacy-wallet              | ○ Skipped | 0 s
+[0m[0mrpc_psbt.py --descriptors                              | ○ Skipped | 1 s
+[0m[0mrpc_psbt.py --legacy-wallet                            | ○ Skipped | 1 s
+[0m[0mtool_signet_miner.py --descriptors                     | ○ Skipped | 1 s
+[0m[0mtool_signet_miner.py --legacy-wallet                   | ○ Skipped | 0 s
+[0m[0mtool_wallet.py --descriptors                           | ○ Skipped | 1 s
+[0m[0mtool_wallet.py --legacy-wallet                         | ○ Skipped | 1 s
+[0m[0mwallet_abandonconflict.py --descriptors                | ○ Skipped | 0 s
+[0m[0mwallet_abandonconflict.py --legacy-wallet              | ○ Skipped | 1 s
+[0m[0mwallet_address_types.py --descriptors                  | ○ Skipped | 0 s
+[0m[0mwallet_address_types.py --legacy-wallet                | ○ Skipped | 0 s
+[0m[0mwallet_avoid_mixing_output_types.py --descriptors      | ○ Skipped | 1 s
+[0m[0mwallet_avoidreuse.py --descriptors                     | ○ Skipped | 1 s
+[0m[0mwallet_avoidreuse.py --legacy-wallet                   | ○ Skipped | 0 s
+[0m[0mwallet_backup.py --descriptors                         | ○ Skipped | 1 s
+[0m[0mwallet_backup.py --legacy-wallet                       | ○ Skipped | 0 s
+[0m[0mwallet_basic.py --descriptors                          | ○ Skipped | 0 s
+[0m[0mwallet_basic.py --legacy-wallet                        | ○ Skipped | 1 s
+[0m[0mwallet_createwallet.py --descriptors                   | ○ Skipped | 0 s
+[0m[0mwallet_createwallet.py --legacy-wallet                 | ○ Skipped | 0 s
+[0m[0mwallet_createwallet.py --usecli                        | ○ Skipped | 1 s
+[0m[0mwallet_dump.py --legacy-wallet                         | ○ Skipped | 0 s
+[0m[0mwallet_groups.py --legacy-wallet                       | ○ Skipped | 0 s
+[0m[0mwallet_hd.py --descriptors                             | ○ Skipped | 1 s
+[0m[0mwallet_hd.py --legacy-wallet                           | ○ Skipped | 0 s
+[0m[0mwallet_importmulti.py --legacy-wallet                  | ○ Skipped | 0 s
+[0m[0mwallet_keypool_topup.py --descriptors                  | ○ Skipped | 0 s
+[0m[0mwallet_keypool_topup.py --legacy-wallet                | ○ Skipped | 0 s
+[0m[0mwallet_labels.py --descriptors                         | ○ Skipped | 0 s
+[0m[0mwallet_labels.py --legacy-wallet                       | ○ Skipped | 2 s
+[0m[0mwallet_listreceivedby.py --descriptors                 | ○ Skipped | 0 s
+[0m[0mwallet_listreceivedby.py --legacy-wallet               | ○ Skipped | 1 s
+[0m[0mwallet_listtransactions.py --descriptors               | ○ Skipped | 0 s
+[0m[0mwallet_listtransactions.py --legacy-wallet             | ○ Skipped | 1 s
+[0m[0mwallet_multiwallet.py --descriptors                    | ○ Skipped | 0 s
+[0m[0mwallet_multiwallet.py --legacy-wallet                  | ○ Skipped | 0 s
+[0m[0mwallet_multiwallet.py --usecli                         | ○ Skipped | 0 s
+[0m[0mwallet_reorgsrestore.py                                | ○ Skipped | 1 s
+[0m[0mwallet_signer.py --descriptors                         | ○ Skipped | 0 s
+[0m[0mwallet_signrawtransactionwithwallet.py --descriptors   | ○ Skipped | 1 s
+[0m[0mwallet_signrawtransactionwithwallet.py --legacy-wallet | ○ Skipped | 0 s
+[0m[0mwallet_txn_clone.py                                    | ○ Skipped | 0 s
+[0m[0mwallet_txn_clone.py --segwit                           | ○ Skipped | 1 s
+[0m[0mwallet_txn_doublespend.py --mineblock                  | ○ Skipped | 1 s
+[0m[0mwallet_watchonly.py --legacy-wallet                    | ○ Skipped | 1 s
+[0m[0mwallet_watchonly.py --usecli --legacy-wallet           | ○ Skipped | 0 s
+[0m[0;31mp2p_headers_sync_with_minchainwork.py                  | ✖ Failed  | 2 s
+[0m[0;31m[1m
+ALL                                                    | ✖ Failed  | 452 s (accumulated) 
+[0m[0mRuntime: 69 s
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                

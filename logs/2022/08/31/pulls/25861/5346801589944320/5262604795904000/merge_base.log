@@ -1,0 +1,36 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [538 kB]
+Get:6 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 Packages [228 kB]
+Fetched 1,090 kB in 1s (1,697 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 29 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'ort' strategy.
+ src/blockfilter.h                                  | 11 ++++----
+ src/chain.cpp                                      |  2 +-
+ src/hash.cpp                                       |  2 +-
+ src/headerssync.cpp                                | 24 ++++++++--------
+ src/index/blockfilterindex.h                       |  5 ++--
+ src/init.cpp                                       |  9 +++---
+ src/logging.cpp                                    |  3 --
+ src/logging.h                                      |  1 -
+ src/net_processing.cpp                             |  7 +++++
+ src/primitives/block.h                             |  2 +-
+ src/validation.cpp                                 |  2 +-
+ .../p2p_headers_sync_with_minchainwork.py          | 32 ++++++++++++++++++----
+ test/functional/wallet_balance.py                  |  1 -
+ 13 files changed, 63 insertions(+), 38 deletions(-)

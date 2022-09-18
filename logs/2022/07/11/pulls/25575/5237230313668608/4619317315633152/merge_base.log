@@ -1,0 +1,26 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-07-11 16:07:33.481 xcodebuild[700:5638] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-07-11 16:07:33.481 xcodebuild[700:5638] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ doc/release-notes/release-notes-471.md             |   4 +
+ src/qt/bitcoingui.cpp                              |  33 ++++-
+ src/qt/bitcoingui.h                                |   1 +
+ src/qt/walletcontroller.cpp                        |  43 +++++++
+ src/qt/walletcontroller.h                          |  20 +++
+ src/wallet/test/coinselector_tests.cpp             |  18 ++-
+ test/functional/rpc_signrawtransactionwithkey.py   | 140 +++++++++++++++++++++
+ test/functional/test_framework/util.py             |   5 +-
+ test/functional/test_runner.py                     |   5 +-
+ ...n.py => wallet_signrawtransactionwithwallet.py} | 100 +--------------
+ 10 files changed, 264 insertions(+), 105 deletions(-)
+ create mode 100644 doc/release-notes/release-notes-471.md
+ create mode 100755 test/functional/rpc_signrawtransactionwithkey.py
+ rename test/functional/{rpc_signrawtransaction.py => wallet_signrawtransactionwithwallet.py} (71%)
