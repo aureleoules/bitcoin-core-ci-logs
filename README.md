@@ -11,11 +11,15 @@ Use the GitHub search to search the logs. For example, to search for the string 
 The GitHub search doesn't always work well, so it may be preferable to use the next method.
 
 ### Local search
-To search the logs locally, you can use the `grep` command. For example, to search for the string `not(400 == 200)`:
 ```bash
-git clone git@github.com:aureleoules/bitcoin-core-ci-logs.git
-cd bitcoin-core-ci-logs
-grep -ra "not(400 == 200)" logs
+$ git clone git@github.com:aureleoules/bitcoin-core-ci-logs.git
+$ cd bitcoin-core-ci-logs
+$ ./search.sh 'test/functional/wallet_reorgsrestore.py", line '
+Found match: 2022-08-23 - https://cirrus-ci.com/task/6493884275490816
+Log: File /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-i686-pc-linux-gnu/test/functional/wallet_reorgsrestore.py, line 40, in run_test
+
+Found match: 2022-08-24 - https://cirrus-ci.com/task/6737091563356160
+Log: File /tmp/cirrus-ci-build/ci/scratch/build/bitcoin-x86_64-pc-linux-gnu/test/functional/wallet_reorgsrestore.py, line 40, in run_test
 ```
 
 The repository is approximately 4.7GB.
