@@ -117,7 +117,8 @@ async function main() {
 
     let lastBuildTimestamp = 1655567045000; // approximate date of first available build logs
     if (existsSync('.last_build_timestamp')) {
-        lastBuildTimestamp = await fs.readFile('.last_build_timestamp', 'utf8');
+        lastBuildTimestamp = parseInt(await fs.readFile('.last_build_timestamp', 'utf8')) - 24 * 60 * 60 * 1000;
+        // Rescan last day to make sure we didn't miss any builds that were running when the script was last run
     }
 
     let builds = await fetchBuilds(lastBuildTimestamp);
