@@ -1,0 +1,54 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 6f1f14d29 fixup! walletdb: Refactor descriptor wallet records loading
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/wallet.cpp
+Merge made by the 'ort' strategy.
+ ci/lint/04_install.sh                           |  2 +-
+ contrib/devtools/gen-manpages.py                |  2 +-
+ src/bench/nanobench.h                           |  2 +-
+ src/bitcoin-wallet.cpp                          | 19 ++++---
+ src/bitcoind.cpp                                |  2 +-
+ src/net.cpp                                     |  9 ++--
+ src/net.h                                       |  9 ++--
+ src/net_processing.cpp                          | 71 ++++++++++++++-----------
+ src/net_processing.h                            |  2 +-
+ src/test/denialofservice_tests.cpp              | 48 ++++++-----------
+ src/test/fuzz/process_message.cpp               |  7 ++-
+ src/test/fuzz/process_messages.cpp              |  7 ++-
+ src/test/fuzz/util.h                            |  2 +-
+ src/test/net_tests.cpp                          |  7 ++-
+ src/test/util/net.cpp                           | 10 +---
+ src/test/util/net.h                             |  5 +-
+ src/test/validation_chainstatemanager_tests.cpp |  2 +-
+ src/wallet/rpc/backup.cpp                       | 13 ++++-
+ src/wallet/rpc/spend.cpp                        |  2 +-
+ src/wallet/test/fuzz/coinselection.cpp          |  2 +-
+ src/wallet/wallet.cpp                           |  6 +--
+ src/wallet/wallet.h                             |  2 +-
+ test/README.md                                  |  4 +-
+ test/functional/feature_taproot.py              |  4 +-
+ test/functional/wallet_bumpfee.py               | 15 +++++-
+ test/functional/wallet_importmulti.py           | 19 +++++++
+ test/lint/lint-locale-dependence.py             |  2 +-
+ test/lint/spelling.ignore-words.txt             | 10 ++--
+ 28 files changed, 160 insertions(+), 125 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

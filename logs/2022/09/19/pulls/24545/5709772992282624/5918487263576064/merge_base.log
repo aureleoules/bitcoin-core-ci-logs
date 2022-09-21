@@ -1,0 +1,36 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 32 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging configure.ac
+Auto-merging src/Makefile.am
+Auto-merging src/Makefile.bench.include
+Auto-merging src/Makefile.test.include
+Auto-merging src/init.cpp
+Auto-merging src/net.cpp
+Auto-merging src/net.h
+Auto-merging src/net_processing.cpp
+CONFLICT (content): Merge conflict in src/net_processing.cpp
+Auto-merging src/test/fuzz/process_message.cpp
+Auto-merging src/test/fuzz/process_messages.cpp
+Auto-merging src/test/fuzz/util.h
+Auto-merging src/test/net_tests.cpp
+Auto-merging src/test/util/net.cpp
+Auto-merging src/test/util/net.h
+Auto-merging test/functional/test_framework/messages.py
+Auto-merging test/functional/test_runner.py
+Automatic merge failed; fix conflicts and then commit the result.
