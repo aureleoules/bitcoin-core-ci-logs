@@ -1,0 +1,110 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at e68d38079 rpc: remove unneeded RPCTypeCheckArgument checks
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                24.x       -> FETCH_HEAD
+Auto-merging src/rpc/server.cpp
+Auto-merging src/wallet/rpc/spend.cpp
+Auto-merging test/functional/rpc_fundrawtransaction.py
+Merge made by the 'ort' strategy.
+ configure.ac                                       |   8 +-
+ contrib/devtools/symbol-check.py                   |   6 -
+ contrib/guix/manifest.scm                          |   2 -
+ depends/packages/libevent.mk                       |   3 +-
+ depends/packages/qt.mk                             |   1 +
+ doc/README.md                                      |   1 -
+ doc/bips.md                                        |   2 +-
+ doc/man/bitcoin-cli.1                              | 182 ++++-
+ doc/man/bitcoin-qt.1                               | 819 ++++++++++++++++++++-
+ doc/man/bitcoin-tx.1                               | 146 +++-
+ doc/man/bitcoin-util.1                             |  66 +-
+ doc/man/bitcoin-wallet.1                           | 122 ++-
+ doc/man/bitcoind.1                                 | 797 +++++++++++++++++++-
+ doc/release-notes-15936.md                         |  15 -
+ doc/release-notes-19602.md                         |   9 -
+ doc/release-notes-24098.md                         |  22 -
+ doc/release-notes-24118.md                         |  10 -
+ doc/release-notes-24148.md                         |  23 -
+ doc/release-notes-24198.md                         |   6 -
+ doc/release-notes-24494.md                         |   2 -
+ doc/release-notes-25355.md                         |   8 -
+ doc/release-notes-25504.md                         |   6 -
+ doc/release-notes-25610.md                         |  12 -
+ doc/release-notes.md                               | 124 ----
+ doc/release-notes/release-notes-24408.md           |   5 -
+ doc/release-notes/release-notes-471.md             |   4 -
+ share/examples/bitcoin.conf                        | 686 ++++++++++++++++-
+ src/Makefile.am                                    |   4 +-
+ src/Makefile.test_fuzz.include                     |   2 +-
+ src/Makefile.test_util.include                     |   2 +-
+ src/addrdb.cpp                                     |   4 +-
+ src/banman.cpp                                     |   8 +-
+ src/bitcoin-tx.cpp                                 |   1 -
+ src/fs.cpp                                         |   2 +-
+ src/i2p.cpp                                        |   3 +-
+ src/index/base.cpp                                 |   7 +-
+ src/index/base.h                                   |   7 +-
+ src/index/blockfilterindex.cpp                     |   4 +-
+ src/index/blockfilterindex.h                       |   3 -
+ src/index/coinstatsindex.cpp                       |   2 +-
+ src/index/coinstatsindex.h                         |   3 -
+ src/index/txindex.cpp                              |   2 +-
+ src/index/txindex.h                                |   2 -
+ src/init.cpp                                       |   7 +-
+ src/net.cpp                                        |   4 +-
+ src/qt/bitcoinstrings.cpp                          |  48 +-
+ src/qt/guiutil.cpp                                 |   2 +-
+ src/qt/locale/bitcoin_en.ts                        | 164 ++++-
+ src/qt/locale/bitcoin_en.xlf                       | 724 ++++++++++--------
+ src/rpc/server.cpp                                 |   2 -
+ src/script/miniscript.h                            | 282 ++++---
+ src/test/miniscript_tests.cpp                      |   3 +
+ src/uint256.h                                      |  11 +-
+ src/util/system.cpp                                |  10 +-
+ src/util/system.h                                  |   2 +-
+ src/util/thread.cpp                                |   6 +-
+ src/util/thread.h                                  |   3 +-
+ src/validation.cpp                                 |   4 +-
+ src/wallet/bdb.cpp                                 |   8 +-
+ src/wallet/interfaces.cpp                          |  24 +-
+ src/wallet/rpc/spend.cpp                           |  13 +-
+ src/wallet/wallet.cpp                              |  48 +-
+ src/wallet/wallet.h                                |   2 +-
+ src/zmq/zmqnotificationinterface.cpp               |   2 +-
+ src/zmq/zmqpublishnotifier.cpp                     |   1 -
+ test/functional/rpc_fundrawtransaction.py          | 116 +++
+ test/functional/test_runner.py                     |   3 +-
+ test/functional/wallet_resendwallettransactions.py |   6 +-
+ test/functional/wallet_sendall.py                  |  32 +
+ 69 files changed, 3862 insertions(+), 808 deletions(-)
+ delete mode 100644 doc/release-notes-15936.md
+ delete mode 100644 doc/release-notes-19602.md
+ delete mode 100644 doc/release-notes-24098.md
+ delete mode 100644 doc/release-notes-24118.md
+ delete mode 100644 doc/release-notes-24148.md
+ delete mode 100644 doc/release-notes-24198.md
+ delete mode 100644 doc/release-notes-24494.md
+ delete mode 100644 doc/release-notes-25355.md
+ delete mode 100644 doc/release-notes-25504.md
+ delete mode 100644 doc/release-notes-25610.md
+ delete mode 100644 doc/release-notes.md
+ delete mode 100644 doc/release-notes/release-notes-24408.md
+ delete mode 100644 doc/release-notes/release-notes-471.md
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 

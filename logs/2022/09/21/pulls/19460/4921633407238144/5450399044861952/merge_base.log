@@ -1,0 +1,40 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-21 04:01:36.920 xcodebuild[702:5730] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-21 04:01:36.920 xcodebuild[702:5730] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging test/functional/wallet_multiwallet.py
+Auto-merging src/net.h
+Auto-merging src/init.cpp
+Auto-merging doc/dependencies.md
+Merge made by the 'recursive' strategy.
+ depends/packages/boost.mk                       |  4 ++--
+ doc/dependencies.md                             |  2 +-
+ src/Makefile.bench.include                      |  9 +++++----
+ src/init.cpp                                    | 10 ++++++++++
+ src/net.h                                       |  1 +
+ src/rpc/fees.cpp                                |  2 --
+ src/rpc/mempool.cpp                             |  3 +--
+ src/rpc/net.cpp                                 |  3 ++-
+ src/rpc/server.cpp                              |  9 ++++-----
+ src/univalue/include/univalue.h                 |  5 +++++
+ src/univalue/lib/univalue.cpp                   |  2 +-
+ src/wallet/rpc/coins.cpp                        | 10 +---------
+ src/wallet/rpc/spend.cpp                        |  2 --
+ test/functional/feature_proxy.py                | 10 ++++++++++
+ test/functional/interface_rest.py               |  4 ++++
+ test/functional/mining_prioritisetransaction.py |  4 ++--
+ test/functional/rpc_blockchain.py               |  6 +++---
+ test/functional/rpc_fundrawtransaction.py       |  2 +-
+ test/functional/rpc_help.py                     |  2 +-
+ test/functional/rpc_rawtransaction.py           | 14 +++++++-------
+ test/functional/wallet_basic.py                 |  2 +-
+ test/functional/wallet_hd.py                    |  4 ++--
+ test/functional/wallet_multiwallet.py           |  2 +-
+ 23 files changed, 65 insertions(+), 47 deletions(-)
