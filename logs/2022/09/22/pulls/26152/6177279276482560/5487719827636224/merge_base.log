@@ -1,0 +1,33 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 http://de.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [598 kB]
+Get:6 http://de.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [141 kB]
+Get:7 http://de.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [352 B]
+Fetched 1,064 kB in 0s (2,696 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 22 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Merge made by the 'ort' strategy.
+ build_msvc/bitcoin_config.h.in | 3 ---
+ configure.ac                   | 2 +-
+ src/bitcoin-tx.cpp             | 2 +-
+ src/httpserver.cpp             | 2 +-
+ src/ipc/interfaces.cpp         | 2 +-
+ src/qt/utilitydialog.cpp       | 2 +-
+ src/streams.h                  | 2 +-
+ src/test/fuzz/bitdeque.cpp     | 7 +++----
+ src/test/fuzz/pow.cpp          | 2 +-
+ 9 files changed, 10 insertions(+), 14 deletions(-)

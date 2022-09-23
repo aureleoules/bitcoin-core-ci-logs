@@ -1,0 +1,64 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at 2a3549a38 wallet: Test for descriptor wallet sethdseed and createwalletdescriptor
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Auto-merging src/wallet/wallet.cpp
+Auto-merging src/wallet/wallet.h
+Merge made by the 'ort' strategy.
+ build_msvc/bitcoin_config.h.in                  |  6 -----
+ configure.ac                                    |  2 +-
+ depends/packages/boost.mk                       |  4 ++--
+ depends/packages/libnatpmp.mk                   |  4 ++--
+ doc/dependencies.md                             |  4 ++--
+ src/Makefile.bench.include                      |  9 +++----
+ src/bitcoin-tx.cpp                              |  2 +-
+ src/httpserver.cpp                              |  2 +-
+ src/init.cpp                                    | 10 ++++++++
+ src/ipc/interfaces.cpp                          |  2 +-
+ src/net.h                                       |  1 +
+ src/qt/utilitydialog.cpp                        |  2 +-
+ src/rpc/fees.cpp                                |  2 --
+ src/rpc/mempool.cpp                             |  3 +--
+ src/rpc/net.cpp                                 |  3 ++-
+ src/rpc/server.cpp                              |  9 ++++---
+ src/script/miniscript.h                         |  2 +-
+ src/streams.h                                   |  2 +-
+ src/test/fuzz/bitdeque.cpp                      |  7 +++---
+ src/test/fuzz/pow.cpp                           |  2 +-
+ src/univalue/include/univalue.h                 |  5 ++++
+ src/univalue/lib/univalue.cpp                   |  2 +-
+ src/wallet/rpc/coins.cpp                        | 10 +-------
+ src/wallet/rpc/spend.cpp                        |  2 --
+ src/wallet/spend.cpp                            | 32 ++++++++++---------------
+ src/wallet/wallet.cpp                           |  6 ++---
+ src/wallet/wallet.h                             |  2 +-
+ test/functional/feature_proxy.py                | 10 ++++++++
+ test/functional/interface_rest.py               |  4 ++++
+ test/functional/mining_prioritisetransaction.py |  4 ++--
+ test/functional/rpc_blockchain.py               |  6 ++---
+ test/functional/rpc_fundrawtransaction.py       |  2 +-
+ test/functional/rpc_help.py                     |  2 +-
+ test/functional/rpc_rawtransaction.py           | 14 +++++------
+ test/functional/wallet_basic.py                 |  2 +-
+ test/functional/wallet_hd.py                    |  4 ++--
+ test/functional/wallet_multiwallet.py           |  2 +-
+ 37 files changed, 95 insertions(+), 92 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
