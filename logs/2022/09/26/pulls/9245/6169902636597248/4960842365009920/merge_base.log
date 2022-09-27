@@ -1,0 +1,107 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 http://de.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [8,632 B]
+Get:6 http://de.archive.ubuntu.com/ubuntu jammy-security/main amd64 Packages [340 kB]
+Get:7 http://de.archive.ubuntu.com/ubuntu jammy-security/main Translation-en [78.8 kB]
+Fetched 752 kB in 0s (1,708 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 21 not upgraded.
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+git merge FETCH_HEAD
+Auto-merging configure.ac
+Auto-merging src/net_processing.cpp
+Merge made by the 'ort' strategy.
+ build_msvc/bitcoin_config.h.in                  | 46 ----------------
+ ci/lint/04_install.sh                           |  2 +-
+ configure.ac                                    |  4 +-
+ contrib/devtools/gen-manpages.py                |  2 +-
+ depends/packages/boost.mk                       |  4 +-
+ depends/packages/libnatpmp.mk                   |  4 +-
+ doc/bips.md                                     |  1 +
+ doc/dependencies.md                             |  4 +-
+ src/Makefile.bench.include                      |  9 ++--
+ src/bench/nanobench.h                           |  2 +-
+ src/bitcoin-tx.cpp                              |  2 +-
+ src/bitcoin-wallet.cpp                          | 19 ++++---
+ src/bitcoind.cpp                                |  2 +-
+ src/consensus/consensus.h                       |  2 +-
+ src/crypto/chacha20.h                           |  2 +-
+ src/crypto/hkdf_sha256_32.h                     |  2 +-
+ src/crypto/hmac_sha256.h                        |  2 +-
+ src/crypto/hmac_sha512.h                        |  2 +-
+ src/crypto/poly1305.h                           |  2 +-
+ src/crypto/ripemd160.h                          |  2 +-
+ src/crypto/sha1.h                               |  2 +-
+ src/crypto/sha256.h                             |  2 +-
+ src/crypto/sha256_sse4.cpp                      |  2 +-
+ src/crypto/sha3.h                               |  2 +-
+ src/crypto/sha512.h                             |  2 +-
+ src/httpserver.cpp                              |  4 +-
+ src/init.cpp                                    | 13 ++++-
+ src/ipc/interfaces.cpp                          |  4 +-
+ src/ipc/process.cpp                             |  2 +-
+ src/memusage.h                                  |  3 +-
+ src/net.cpp                                     |  9 ++--
+ src/net.h                                       | 10 ++--
+ src/net_processing.cpp                          | 71 ++++++++++++++-----------
+ src/net_processing.h                            |  2 +-
+ src/prevector.h                                 |  2 +-
+ src/qt/utilitydialog.cpp                        |  2 +-
+ src/random.cpp                                  |  2 +-
+ src/rpc/fees.cpp                                |  2 -
+ src/rpc/mempool.cpp                             |  3 +-
+ src/rpc/net.cpp                                 |  3 +-
+ src/rpc/server.cpp                              |  9 ++--
+ src/script/miniscript.h                         |  4 +-
+ src/streams.h                                   |  2 +-
+ src/support/cleanse.h                           |  2 +-
+ src/test/blockchain_tests.cpp                   |  4 +-
+ src/test/denialofservice_tests.cpp              | 48 ++++++-----------
+ src/test/fuzz/bitdeque.cpp                      |  7 ++-
+ src/test/fuzz/pow.cpp                           |  2 +-
+ src/test/fuzz/process_message.cpp               |  7 ++-
+ src/test/fuzz/process_messages.cpp              |  7 ++-
+ src/test/fuzz/util.h                            |  2 +-
+ src/test/net_tests.cpp                          |  7 ++-
+ src/test/raii_event_tests.cpp                   |  2 +-
+ src/test/util/net.cpp                           | 10 +---
+ src/test/util/net.h                             |  5 +-
+ src/test/validation_chainstatemanager_tests.cpp |  2 +-
+ src/univalue/include/univalue.h                 |  5 ++
+ src/univalue/lib/univalue.cpp                   |  2 +-
+ src/wallet/rpc/backup.cpp                       | 13 ++++-
+ src/wallet/rpc/coins.cpp                        | 10 +---
+ src/wallet/rpc/spend.cpp                        |  4 +-
+ src/wallet/spend.cpp                            | 32 +++++------
+ src/wallet/test/fuzz/coinselection.cpp          |  2 +-
+ src/wallet/wallet.cpp                           |  7 +--
+ src/wallet/wallet.h                             |  2 +-
+ test/README.md                                  |  4 +-
+ test/functional/feature_proxy.py                | 10 ++++
+ test/functional/feature_taproot.py              |  4 +-
+ test/functional/interface_rest.py               |  4 ++
+ test/functional/mining_prioritisetransaction.py |  4 +-
+ test/functional/rpc_blockchain.py               |  6 +--
+ test/functional/rpc_fundrawtransaction.py       |  2 +-
+ test/functional/rpc_help.py                     |  2 +-
+ test/functional/rpc_rawtransaction.py           | 14 ++---
+ test/functional/wallet_basic.py                 |  2 +-
+ test/functional/wallet_bumpfee.py               | 15 +++++-
+ test/functional/wallet_hd.py                    |  4 +-
+ test/functional/wallet_importmulti.py           | 19 +++++++
+ test/functional/wallet_multiwallet.py           |  2 +-
+ test/lint/lint-locale-dependence.py             |  2 +-
+ test/lint/spelling.ignore-words.txt             | 10 ++--
+ 81 files changed, 279 insertions(+), 279 deletions(-)

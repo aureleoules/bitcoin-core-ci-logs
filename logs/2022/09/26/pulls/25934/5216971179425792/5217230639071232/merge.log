@@ -1,0 +1,50 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.email "ci@ci.ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config --global user.name "ci" 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git config core.filemode false 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call git reset --hard 
+HEAD is now at cd444f4a9 refactor, wallet: use optional for `label` in `ListTransactions`
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call PowerShell -NoLogo -Command if ($env:CIRRUS_PR -ne $null) { git fetch $env:CIRRUS_REPO_CLONE_URL $env:CIRRUS_BASE_BRANCH; git merge FETCH_HEAD; } 
+From https://github.com/bitcoin/bitcoin
+ * branch                master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ build_msvc/bitcoin_config.h.in | 40 ----------------------------------------
+ configure.ac                   |  2 +-
+ src/consensus/consensus.h      |  2 +-
+ src/crypto/chacha20.h          |  2 +-
+ src/crypto/hkdf_sha256_32.h    |  2 +-
+ src/crypto/hmac_sha256.h       |  2 +-
+ src/crypto/hmac_sha512.h       |  2 +-
+ src/crypto/poly1305.h          |  2 +-
+ src/crypto/ripemd160.h         |  2 +-
+ src/crypto/sha1.h              |  2 +-
+ src/crypto/sha256.h            |  2 +-
+ src/crypto/sha256_sse4.cpp     |  2 +-
+ src/crypto/sha3.h              |  2 +-
+ src/crypto/sha512.h            |  2 +-
+ src/httpserver.cpp             |  2 +-
+ src/ipc/interfaces.cpp         |  2 +-
+ src/ipc/process.cpp            |  2 +-
+ src/memusage.h                 |  3 +--
+ src/prevector.h                |  2 +-
+ src/random.cpp                 |  2 +-
+ src/script/miniscript.h        |  2 +-
+ src/support/cleanse.h          |  2 +-
+ src/test/blockchain_tests.cpp  |  4 ++--
+ src/test/raii_event_tests.cpp  |  2 +-
+ src/wallet/wallet.cpp          |  1 +
+ 25 files changed, 25 insertions(+), 65 deletions(-)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
