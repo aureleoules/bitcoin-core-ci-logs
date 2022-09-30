@@ -1,0 +1,13 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-29 13:40:39.330 xcodebuild[696:5554] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-29 13:40:39.330 xcodebuild[696:5554] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/25375/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 7e248317d rpc: add minconf and maxconf options to sendall
+HEAD is now at cc7e18e10 Merge 7e248317d6c53be9581049733541ed21655e88b8 into 437b608df289c97fd88f1dd79bdc8359e1b1c5b1
