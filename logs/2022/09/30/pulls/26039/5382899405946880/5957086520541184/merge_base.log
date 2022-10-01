@@ -1,0 +1,13 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-30 02:42:27.325 xcodebuild[697:5534] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-30 02:42:27.326 xcodebuild[697:5534] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26039/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was faf97cbfe rpc: Return RPC_TYPE_ERROR, not RPC_MISC_ERROR on type mismatch
+HEAD is now at 7734b1b9e Merge faf97cbfe5af69f34cbb836230edc2b0dec434ba into 33eef562a321ce772a9a88073a78a85894cb3fe8

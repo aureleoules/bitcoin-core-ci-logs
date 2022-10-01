@@ -1,0 +1,13 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-09-30 08:33:38.113 xcodebuild[698:5570] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-09-30 08:33:38.113 xcodebuild[698:5570] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26199/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 24608c2cc doc: Improve documentation for SetupAddressRelay
+HEAD is now at 4e7d594d3 Merge 24608c2cc576f548ae43099dd1cc36d5f05399d7 into f59e91511a3aa8b2770eeec7034ddc1a9dec918b
