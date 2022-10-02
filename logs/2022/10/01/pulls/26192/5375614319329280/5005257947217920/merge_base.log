@@ -1,0 +1,13 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-10-01 14:58:25.511 xcodebuild[694:5430] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-10-01 14:58:25.512 xcodebuild[694:5430] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26192/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was a65b30826 rpc: Improve error when wallet is already loaded
+HEAD is now at ad8e67b11 Merge a65b30826c039739ba981cdc838939e5a9080d15 into f59e91511a3aa8b2770eeec7034ddc1a9dec918b

@@ -1,0 +1,13 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-10-01 15:56:38.633 xcodebuild[696:5611] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-10-01 15:56:38.634 xcodebuild[696:5611] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26203/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 0af938b13 test: Check external coin effective value is used in CoinSelection
+HEAD is now at 5a36ca815 Merge 0af938b136faa0ab7e09b38af014fac56d829186 into f59e91511a3aa8b2770eeec7034ddc1a9dec918b
