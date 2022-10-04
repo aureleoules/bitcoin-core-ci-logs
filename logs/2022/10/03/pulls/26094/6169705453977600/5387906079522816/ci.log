@@ -1,0 +1,464 @@
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+
+  asm                     = x86_64
+  ecmult window size      = 15
+  ecmult gen prec. bits   = 4
+
+  valgrind                = no
+  CC                      = gcc
+  CPPFLAGS                =  
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wconditional-uninitialized -fvisibility=hidden 
+  CFLAGS                  = -g -O2
+  LDFLAGS                 = 
+
+Options used to compile and link:
+  external signer = yes
+  multiprocess    = no
+  with experimental syscall sandbox support = no
+  with libs       = yes
+  with wallet     = yes
+    with sqlite   = yes
+    with bdb      = no
+  with gui / qt   = yes
+    with qr       = yes
+  with zmq        = yes
+  with test       = yes
+  with fuzz binary = yes
+  with bench      = yes
+  with upnp       = yes
+  with natpmp     = yes
+  use asm         = yes
+  USDT tracing    = no
+  sanitizers      = 
+  debug enabled   = no
+  gprof enabled   = no
+  werror          = yes
+  LTO             = no
+
+  target os       = darwin21.4.0
+  build os        = darwin21.4.0
+
+  CC              = /usr/local/bin/ccache gcc
+  CFLAGS          = -pthread -g -O2
+  CPPFLAGS        =  -fmacro-prefix-map=$(abs_top_srcdir)=.  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2  -DHAVE_BUILD_INFO -Xclang -internal-isystem/usr/local/include -DMAC_OSX -DOBJC_OLD_DISPATCH_PROTOTYPES=0 -DPROVIDE_FUZZ_MAIN_FUNCTION 
+  CXX             = /usr/local/bin/ccache g++ -std=c++17
+  CXXFLAGS        =   -fdebug-prefix-map=$(abs_top_srcdir)=.  -Wstack-protector -fstack-protector-all -fcf-protection=full  -Wall -Wextra -Wgnu -Wformat -Wformat-security -Wvla -Wshadow-field -Wthread-safety -Wrange-loop-analysis -Wredundant-decls -Wunused-member-function -Wdate-time -Wconditional-uninitialized -Woverloaded-virtual -Wsuggest-override -Wunreachable-code-loop-increment -Wimplicit-fallthrough -Wdocumentation  -Wno-unused-parameter -Wno-self-assign -Werror   -fvisibility=hidden -g -O2
+  LDFLAGS         =  -lpthread  -Wl,-bind_at_load   -Wl,-headerpad_max_install_names -Wl,-dead_strip -Wl,-dead_strip_dylibs 
+  AR              = /usr/bin/ar
+  ARFLAGS         = cr
+
+Making install in src
+  CXX      bitcoind-bitcoind.o
+  CXX      libbitcoin_node_a-addrdb.o
+  CXX      libbitcoin_node_a-addrman.o
+  CXX      libbitcoin_node_a-banman.o
+  CXX      libbitcoin_node_a-blockencodings.o
+  CXX      libbitcoin_node_a-blockfilter.o
+  CXX      libbitcoin_node_a-chain.o
+  CXX      libbitcoin_node_a-dbwrapper.o
+  CXX      libbitcoin_node_a-deploymentstatus.o
+  CXX      libbitcoin_node_a-flatfile.o
+  CXX      libbitcoin_node_a-headerssync.o
+  CXX      libbitcoin_node_a-httprpc.o
+  CXX      libbitcoin_node_a-httpserver.o
+  CXX      libbitcoin_node_a-i2p.o
+  CXX      libbitcoin_node_a-init.o
+  CXX      libbitcoin_node_a-mapport.o
+  CXX      libbitcoin_node_a-net.o
+  CXX      libbitcoin_node_a-net_processing.o
+  CXX      libbitcoin_node_a-netgroup.o
+  CXX      libbitcoin_node_a-noui.o
+  CXX      libbitcoin_node_a-pow.o
+  CXX      libbitcoin_node_a-rest.o
+  CXX      libbitcoin_node_a-shutdown.o
+  CXX      libbitcoin_node_a-signet.o
+  CXX      libbitcoin_node_a-timedata.o
+  CXX      libbitcoin_node_a-torcontrol.o
+  CXX      libbitcoin_node_a-txdb.o
+  CXX      libbitcoin_node_a-txmempool.o
+  CXX      libbitcoin_node_a-txorphanage.o
+  CXX      libbitcoin_node_a-txrequest.o
+  CXX      libbitcoin_node_a-validation.o
+  CXX      libbitcoin_node_a-validationinterface.o
+  CXX      libbitcoin_node_a-versionbits.o
+  CXX      wallet/libbitcoin_wallet_a-scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-spend.o
+  CXX      wallet/libbitcoin_wallet_a-transaction.o
+  CXX      wallet/libbitcoin_wallet_a-wallet.o
+  CXX      wallet/libbitcoin_wallet_a-walletdb.o
+  CXX      wallet/libbitcoin_wallet_a-walletutil.o
+  CXX      wallet/libbitcoin_wallet_a-coinselection.o
+  CXX      wallet/libbitcoin_wallet_a-sqlite.o
+  CXX      libbitcoin_common_a-base58.o
+  CXX      libbitcoin_common_a-bech32.o
+  CXX      libbitcoin_common_a-chainparams.o
+  CXX      libbitcoin_common_a-coins.o
+  CXX      libbitcoin_common_a-compressor.o
+  CXX      libbitcoin_common_a-core_read.o
+  CXX      libbitcoin_common_a-core_write.o
+  CXX      libbitcoin_common_a-deploymentinfo.o
+  CXX      libbitcoin_common_a-external_signer.o
+  CXX      init/libbitcoin_common_a-common.o
+  CXX      libbitcoin_common_a-key.o
+  CXX      libbitcoin_common_a-key_io.o
+  CXX      libbitcoin_common_a-merkleblock.o
+  CXX      libbitcoin_common_a-net_types.o
+  CXX      libbitcoin_common_a-netaddress.o
+  CXX      libbitcoin_common_a-netbase.o
+  CXX      libbitcoin_common_a-net_permissions.o
+  CXX      libbitcoin_common_a-outputtype.o
+  CXX      policy/libbitcoin_common_a-feerate.o
+  CXX      policy/libbitcoin_common_a-policy.o
+  CXX      libbitcoin_common_a-protocol.o
+  CXX      libbitcoin_common_a-psbt.o
+  CXX      rpc/libbitcoin_common_a-rawtransaction_util.o
+  CXX      rpc/libbitcoin_common_a-external_signer.o
+  CXX      rpc/libbitcoin_common_a-util.o
+  CXX      libbitcoin_common_a-scheduler.o
+  CXX      script/libbitcoin_common_a-descriptor.o
+  CXX      script/libbitcoin_common_a-miniscript.o
+  CXX      script/libbitcoin_common_a-sign.o
+  CXX      script/libbitcoin_common_a-signingprovider.o
+  CXX      script/libbitcoin_common_a-standard.o
+  CXX      libbitcoin_common_a-warnings.o
+  CXX      libbitcoin_util_a-chainparamsbase.o
+  CXX      libbitcoin_util_a-fs.o
+  CXX      libbitcoin_util_a-logging.o
+  CXX      libbitcoin_util_a-random.o
+  CXX      libbitcoin_util_a-randomenv.o
+  CXX      rpc/libbitcoin_util_a-request.o
+  CXX      support/libbitcoin_util_a-cleanse.o
+  CXX      libbitcoin_util_a-sync.o
+  CXX      libbitcoin_util_a-threadinterrupt.o
+  CXX      libbitcoin_consensus_a-arith_uint256.o
+  CXX      consensus/libbitcoin_consensus_a-merkle.o
+  CXX      consensus/libbitcoin_consensus_a-tx_check.o
+  CXX      libbitcoin_consensus_a-hash.o
+  CXX      libbitcoin_consensus_a-pubkey.o
+  CXX      script/libbitcoin_consensus_a-bitcoinconsensus.o
+  CXX      script/libbitcoin_consensus_a-interpreter.o
+  CXX      script/libbitcoin_consensus_a-script.o
+  CXX      script/libbitcoin_consensus_a-script_error.o
+  CXX      libbitcoin_consensus_a-uint256.o
+  CXX      util/libbitcoin_consensus_a-strencodings.o
+  CXX      bitcoin_cli-bitcoin-cli.o
+  CC       src/libsecp256k1_la-secp256k1.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult_gen.lo
+  CXX      rpc/libbitcoin_cli_a-client.o
+  CXX      bitcoin_tx-bitcoin-tx.o
+  CXX      bitcoin_wallet-bitcoin-wallet.o
+  CXX      init/bitcoin_wallet-bitcoin-wallet.o
+  CXX      wallet/libbitcoin_wallet_tool_a-wallettool.o
+  CXX      bitcoin_util-bitcoin-util.o
+Generated test/data/bip341_wallet_vectors.json.h
+Generated test/data/base58_encode_decode.json.h
+Generated test/data/blockfilters.json.h
+Generated test/data/script_tests.json.h
+Generated test/data/key_io_valid.json.h
+Generated test/data/key_io_invalid.json.h
+Generated test/data/tx_invalid.json.h
+Generated test/data/sighash.json.h
+Generated test/data/tx_valid.json.h
+Generated test/data/asmap.raw.h
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_1byte.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_2bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_3bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_4bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_5bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_6bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_7bytes.o
+  CXX      minisketch/src/fields/libminisketch_clmul_a-clmul_8bytes.o
+  CXX      bench/bench_bitcoin-descriptors.o
+Generated bench/data/block413567.raw.h
+  CXX      bench/bench_bitcoin-duplicate_inputs.o
+  CXX      bench/bench_bitcoin-examples.o
+  CCLD     libsecp256k1_precomputed.la
+  CXX      bench/bench_bitcoin-gcs_filter.o
+  CCLD     libsecp256k1.la
+  CXX      bench/bench_bitcoin-hashpadding.o
+  CXX      bench/bench_bitcoin-lockedpool.o
+  CXX      bench/bench_bitcoin-logging.o
+  CXX      bench/bench_bitcoin-mempool_eviction.o
+  CXX      bench/bench_bitcoin-mempool_stress.o
+  CXX      bench/bench_bitcoin-merkle_root.o
+  CXX      bench/bench_bitcoin-nanobench.o
+  CXX      bench/bench_bitcoin-peer_eviction.o
+  CXX      bench/bench_bitcoin-poly1305.o
+  CXX      bench/bench_bitcoin-prevector.o
+  CXX      bench/bench_bitcoin-rollingbloom.o
+  CXX      bench/bench_bitcoin-rpc_blockchain.o
+  CXX      bench/bench_bitcoin-rpc_mempool.o
+  CXX      bench/bench_bitcoin-strencodings.o
+  CXX      bench/bench_bitcoin-util_time.o
+  CXX      bench/bench_bitcoin-verify_script.o
+  CXX      bench/bench_bitcoin-coin_selection.o
+  CXX      bench/bench_bitcoin-wallet_balance.o
+  CXX      bench/bench_bitcoin-wallet_loading.o
+  GEN      qt/forms/ui_addressbookpage.h
+  GEN      qt/forms/ui_askpassphrasedialog.h
+  GEN      qt/forms/ui_coincontroldialog.h
+  GEN      qt/forms/ui_createwalletdialog.h
+  GEN      qt/forms/ui_editaddressdialog.h
+  GEN      qt/forms/ui_helpmessagedialog.h
+  GEN      qt/forms/ui_intro.h
+  GEN      qt/forms/ui_modaloverlay.h
+  GEN      qt/forms/ui_openuridialog.h
+  GEN      qt/forms/ui_optionsdialog.h
+  GEN      qt/forms/ui_overviewpage.h
+  GEN      qt/forms/ui_psbtoperationsdialog.h
+  GEN      qt/forms/ui_receivecoinsdialog.h
+  GEN      qt/forms/ui_receiverequestdialog.h
+  GEN      qt/forms/ui_debugwindow.h
+  GEN      qt/forms/ui_sendcoinsdialog.h
+  GEN      qt/forms/ui_sendcoinsentry.h
+  GEN      qt/forms/ui_signverifymessagedialog.h
+  GEN      qt/forms/ui_transactiondescdialog.h
+  GEN      qt/moc_addressbookpage.cpp
+  GEN      qt/moc_addresstablemodel.cpp
+  GEN      qt/moc_askpassphrasedialog.cpp
+  GEN      qt/moc_createwalletdialog.cpp
+  GEN      qt/moc_bantablemodel.cpp
+  GEN      qt/moc_bitcoin.cpp
+  GEN      qt/moc_bitcoinaddressvalidator.cpp
+  GEN      qt/moc_bitcoinamountfield.cpp
+  GEN      qt/moc_bitcoingui.cpp
+  GEN      qt/moc_bitcoinunits.cpp
+  GEN      qt/moc_clientmodel.cpp
+  GEN      qt/moc_coincontroldialog.cpp
+  GEN      qt/moc_coincontroltreewidget.cpp
+  GEN      qt/moc_csvmodelwriter.cpp
+  GEN      qt/moc_editaddressdialog.cpp
+  GEN      qt/moc_guiutil.cpp
+  GEN      qt/moc_initexecutor.cpp
+  GEN      qt/moc_intro.cpp
+  GEN      qt/moc_macdockiconhandler.cpp
+  GEN      qt/moc_macnotificationhandler.cpp
+  GEN      qt/moc_modaloverlay.cpp
+  GEN      qt/moc_notificator.cpp
+  GEN      qt/moc_openuridialog.cpp
+  GEN      qt/moc_optionsdialog.cpp
+  GEN      qt/moc_optionsmodel.cpp
+  GEN      qt/moc_overviewpage.cpp
+  GEN      qt/moc_peertablemodel.cpp
+  GEN      qt/moc_peertablesortproxy.cpp
+  GEN      qt/moc_paymentserver.cpp
+  GEN      qt/moc_psbtoperationsdialog.cpp
+  GEN      qt/moc_qrimagewidget.cpp
+  GEN      qt/moc_qvalidatedlineedit.cpp
+  GEN      qt/moc_qvaluecombobox.cpp
+  GEN      qt/moc_receivecoinsdialog.cpp
+  GEN      qt/moc_receiverequestdialog.cpp
+  GEN      qt/moc_recentrequeststablemodel.cpp
+  GEN      qt/moc_rpcconsole.cpp
+  GEN      qt/moc_sendcoinsdialog.cpp
+  GEN      qt/moc_sendcoinsentry.cpp
+  GEN      qt/moc_signverifymessagedialog.cpp
+  GEN      qt/moc_splashscreen.cpp
+  GEN      qt/moc_trafficgraphwidget.cpp
+  GEN      qt/moc_transactiondesc.cpp
+  GEN      qt/moc_transactiondescdialog.cpp
+  GEN      qt/moc_transactionfilterproxy.cpp
+  GEN      qt/moc_transactionoverviewwidget.cpp
+  GEN      qt/moc_transactiontablemodel.cpp
+  GEN      qt/moc_transactionview.cpp
+  GEN      qt/moc_utilitydialog.cpp
+  GEN      qt/moc_walletcontroller.cpp
+  GEN      qt/moc_walletframe.cpp
+  GEN      qt/moc_walletmodel.cpp
+  GEN      qt/moc_walletview.cpp
+  GEN      qt/qrc_bitcoin.cpp
+  GEN      qt/locale/bitcoin_am.qm
+  GEN      qt/locale/bitcoin_ar.qm
+  GEN      qt/locale/bitcoin_az.qm
+  GEN      qt/locale/bitcoin_bg.qm
+  GEN      qt/locale/bitcoin_be.qm
+  GEN      qt/locale/bitcoin_bn.qm
+  GEN      qt/locale/bitcoin_bs.qm
+  GEN      qt/locale/bitcoin_ca.qm
+  GEN      qt/locale/bitcoin_cs.qm
+  GEN      qt/locale/bitcoin_cy.qm
+  GEN      qt/locale/bitcoin_da.qm
+  GEN      qt/locale/bitcoin_de.qm
+  GEN      qt/locale/bitcoin_el.qm
+  GEN      qt/locale/bitcoin_en.qm
+  GEN      qt/locale/bitcoin_eo.qm
+  GEN      qt/locale/bitcoin_es.qm
+  GEN      qt/locale/bitcoin_es_CL.qm
+  GEN      qt/locale/bitcoin_es_CO.qm
+  GEN      qt/locale/bitcoin_es_DO.qm
+  GEN      qt/locale/bitcoin_es_MX.qm
+  GEN      qt/locale/bitcoin_es_VE.qm
+  GEN      qt/locale/bitcoin_et.qm
+  GEN      qt/locale/bitcoin_eu.qm
+  GEN      qt/locale/bitcoin_fa.qm
+  GEN      qt/locale/bitcoin_fi.qm
+  GEN      qt/locale/bitcoin_fil.qm
+  GEN      qt/locale/bitcoin_fr.qm
+  GEN      qt/locale/bitcoin_ga.qm
+  GEN      qt/locale/bitcoin_gd.qm
+  GEN      qt/locale/bitcoin_gl.qm
+  GEN      qt/locale/bitcoin_gl_ES.qm
+  GEN      qt/locale/bitcoin_gu.qm
+  GEN      qt/locale/bitcoin_he.qm
+  GEN      qt/locale/bitcoin_hr.qm
+  GEN      qt/locale/bitcoin_hu.qm
+  GEN      qt/locale/bitcoin_id.qm
+  GEN      qt/locale/bitcoin_is.qm
+  GEN      qt/locale/bitcoin_it.qm
+  GEN      qt/locale/bitcoin_ja.qm
+  GEN      qt/locale/bitcoin_kk.qm
+  GEN      qt/locale/bitcoin_ka.qm
+  GEN      qt/locale/bitcoin_kl.qm
+  GEN      qt/locale/bitcoin_km.qm
+  GEN      qt/locale/bitcoin_ko.qm
+  GEN      qt/locale/bitcoin_ku_IQ.qm
+  GEN      qt/locale/bitcoin_ky.qm
+  GEN      qt/locale/bitcoin_la.qm
+  GEN      qt/locale/bitcoin_lt.qm
+  GEN      qt/locale/bitcoin_lv.qm
+  GEN      qt/locale/bitcoin_mk.qm
+  GEN      qt/locale/bitcoin_ml.qm
+  GEN      qt/locale/bitcoin_mn.qm
+  GEN      qt/locale/bitcoin_mr_IN.qm
+  GEN      qt/locale/bitcoin_ms.qm
+  GEN      qt/locale/bitcoin_my.qm
+  GEN      qt/locale/bitcoin_nb.qm
+  GEN      qt/locale/bitcoin_nl.qm
+  GEN      qt/locale/bitcoin_ne.qm
+  GEN      qt/locale/bitcoin_no.qm
+  GEN      qt/locale/bitcoin_pam.qm
+  GEN      qt/locale/bitcoin_pl.qm
+  GEN      qt/locale/bitcoin_pt.qm
+  GEN      qt/locale/bitcoin_pt_BR.qm
+  GEN      qt/locale/bitcoin_ro.qm
+  GEN      qt/locale/bitcoin_ru.qm
+  GEN      qt/locale/bitcoin_sc.qm
+  GEN      qt/locale/bitcoin_si.qm
+  GEN      qt/locale/bitcoin_sk.qm
+  GEN      qt/locale/bitcoin_sl.qm
+  GEN      qt/locale/bitcoin_sn.qm
+  GEN      qt/locale/bitcoin_sq.qm
+  GEN      qt/locale/bitcoin_sr.qm
+  GEN      qt/locale/bitcoin_sr@latin.qm
+  GEN      qt/locale/bitcoin_sv.qm
+  GEN      qt/locale/bitcoin_sw.qm
+  GEN      qt/locale/bitcoin_szl.qm
+  GEN      qt/locale/bitcoin_ta.qm
+  GEN      qt/locale/bitcoin_te.qm
+  GEN      qt/locale/bitcoin_th.qm
+  GEN      qt/locale/bitcoin_tr.qm
+  GEN      qt/locale/bitcoin_ug.qm
+  GEN      qt/locale/bitcoin_uk.qm
+  GEN      qt/locale/bitcoin_ur.qm
+  GEN      qt/locale/bitcoin_uz@Cyrl.qm
+  GEN      qt/locale/bitcoin_uz@Latn.qm
+  GEN      qt/locale/bitcoin_vi.qm
+  GEN      qt/locale/bitcoin_yo.qm
+  GEN      qt/locale/bitcoin_zh.qm
+  GEN      qt/locale/bitcoin_zh-Hans.qm
+  GEN      qt/locale/bitcoin_zh_CN.qm
+  GEN      qt/locale/bitcoin_zh_HK.qm
+  GEN      qt/locale/bitcoin_zu.qm
+  GEN      qt/locale/bitcoin_zh_TW.qm
+  CXX      init/qt_test_test_bitcoin_qt-bitcoin-qt.o
+  CXX      wallet/test/qt_test_test_bitcoin_qt-wallet_test_fixture.o
+  GEN      qt/test/moc_apptests.cpp
+  GEN      qt/test/moc_optiontests.cpp
+  GEN      qt/test/moc_rpcnestedtests.cpp
+  GEN      qt/test/moc_uritests.cpp
+  GEN      qt/test/moc_addressbooktests.cpp
+  GEN      qt/test/moc_wallettests.cpp
+  CXX      minisketch/src/test-test.o
+  CXX      support/libbitcoinconsensus_la-cleanse.lo
+  CXX      crypto/libbitcoinconsensus_la-aes.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha_poly_aead.lo
+  CXX      crypto/libbitcoinconsensus_la-chacha20.lo
+  CXX      crypto/libbitcoinconsensus_la-hkdf_sha256_32.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-hmac_sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-poly1305.lo
+  CXX      crypto/libbitcoinconsensus_la-muhash.lo
+  CXX      crypto/libbitcoinconsensus_la-ripemd160.lo
+  CXX      crypto/libbitcoinconsensus_la-sha1.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256.lo
+  CXX      crypto/libbitcoinconsensus_la-sha3.lo
+  CXX      crypto/libbitcoinconsensus_la-sha512.lo
+  CXX      crypto/libbitcoinconsensus_la-siphash.lo
+  CXX      crypto/libbitcoinconsensus_la-sha256_sse4.lo
+  CXX      libbitcoinconsensus_la-arith_uint256.lo
+  CXX      consensus/libbitcoinconsensus_la-merkle.lo
+  CXX      consensus/libbitcoinconsensus_la-tx_check.lo
+  CXX      libbitcoinconsensus_la-hash.lo
+  CXX      primitives/libbitcoinconsensus_la-block.lo
+  CXX      primitives/libbitcoinconsensus_la-transaction.lo
+  CXX      libbitcoinconsensus_la-pubkey.lo
+  CXX      script/libbitcoinconsensus_la-bitcoinconsensus.lo
+  CXX      script/libbitcoinconsensus_la-interpreter.lo
+  CXX      script/libbitcoinconsensus_la-script.lo
+  CXX      script/libbitcoinconsensus_la-script_error.lo
+  CXX      libbitcoinconsensus_la-uint256.lo
+  CXX      util/libbitcoinconsensus_la-strencodings.lo
+  CXX      init/bitcoind-bitcoind.o
+  CXX      consensus/libbitcoin_node_a-tx_verify.o
+  CXX      index/libbitcoin_node_a-base.o
+  CXX      index/libbitcoin_node_a-blockfilterindex.o
+  CXX      index/libbitcoin_node_a-coinstatsindex.o
+  CXX      index/libbitcoin_node_a-txindex.o
+  CXX      kernel/libbitcoin_node_a-chain.o
+  CXX      kernel/libbitcoin_node_a-checks.o
+  CXX      kernel/libbitcoin_node_a-coinstats.o
+  CXX      kernel/libbitcoin_node_a-context.o
+  CXX      kernel/libbitcoin_node_a-mempool_persist.o
+  CXX      node/libbitcoin_node_a-blockstorage.o
+  CXX      node/libbitcoin_node_a-caches.o
+  CXX      node/libbitcoin_node_a-chainstate.o
+  CXX      node/libbitcoin_node_a-coin.o
+  CXX      node/libbitcoin_node_a-connection_types.o
+  CXX      node/libbitcoin_node_a-context.o
+  CXX      node/libbitcoin_node_a-eviction.o
+  CXX      node/libbitcoin_node_a-interface_ui.o
+  CXX      node/libbitcoin_node_a-interfaces.o
+  CXX      node/libbitcoin_node_a-mempool_args.o
+  CXX      node/libbitcoin_node_a-mempool_persist_args.o
+  CXX      node/libbitcoin_node_a-miner.o
+  CXX      node/libbitcoin_node_a-minisketchwrapper.o
+  CXX      node/libbitcoin_node_a-psbt.o
+  CXX      node/libbitcoin_node_a-transaction.o
+  CXX      node/libbitcoin_node_a-validation_cache_args.o
+  CXX      policy/libbitcoin_node_a-fees.o
+  CXX      policy/libbitcoin_node_a-fees_args.o
+  CXX      policy/libbitcoin_node_a-packages.o
+  CXX      policy/libbitcoin_node_a-rbf.o
+  CXX      policy/libbitcoin_node_a-settings.o
+  CXX      rpc/libbitcoin_node_a-blockchain.o
+  CXX      rpc/libbitcoin_node_a-fees.o
+  CXX      rpc/libbitcoin_node_a-mempool.o
+  CXX      rpc/libbitcoin_node_a-mining.o
+  CXX      rpc/libbitcoin_node_a-net.o
+  CXX      rpc/libbitcoin_node_a-node.o
+  CXX      rpc/libbitcoin_node_a-output_script.o
+  CXX      rpc/libbitcoin_node_a-rawtransaction.o
+  CXX      rpc/libbitcoin_node_a-server.o
+  CXX      rpc/libbitcoin_node_a-server_util.o
+  CXX      rpc/libbitcoin_node_a-signmessage.o
+  CXX      rpc/libbitcoin_node_a-txoutproof.o
+  CXX      script/libbitcoin_node_a-sigcache.o
+  CXX      wallet/libbitcoin_node_a-init.o
+  CXX      wallet/libbitcoin_wallet_a-coincontrol.o
+  CXX      wallet/libbitcoin_wallet_a-context.o
+  CXX      wallet/libbitcoin_wallet_a-crypter.o
+  CXX      wallet/libbitcoin_wallet_a-db.o
+  CXX      wallet/libbitcoin_wallet_a-dump.o
+  CXX      wallet/libbitcoin_wallet_a-external_signer_scriptpubkeyman.o
+  CXX      wallet/libbitcoin_wallet_a-feebumper.o
+  CXX      wallet/libbitcoin_wallet_a-fees.o
+  CXX      wallet/libbitcoin_wallet_a-interfaces.o
+  CXX      wallet/libbitcoin_wallet_a-load.o
+  CXX      wallet/libbitcoin_wallet_a-receive.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-addresses.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-backup.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-coins.o
+  CXX      wallet/rpc/libbitcoin_wallet_a-encrypt.o
