@@ -1,0 +1,21 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [611 kB]
+Get:6 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 Packages [425 kB]
+Fetched 1,360 kB in 1s (1,992 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 52 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/24897/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 50b54c45a test: add functional test for Silent Payments
+HEAD is now at 1e5023bb6 Merge 50b54c45a3c3ab768c1b8c634ff941cef7ad39c4 into a23f8c8978dc248519d31014c838fda893782c51
