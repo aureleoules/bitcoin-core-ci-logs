@@ -1,0 +1,30 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-zmq --with-libs=no --with-gui=qt5 --enable-reduce-exports --enable-debug CFLAGS="-g0 -O2 -funsigned-char" CXXFLAGS="-g0 -O2 -funsigned-char" CC=gcc-8 CXX=g++-8
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Creating debian:buster container to run in
+buster: Pulling from library/debian
+Digest: sha256:604db908f7ce93379b1289c0c7ba73b252002087a3fa64fe904b430083ba5f69
+Status: Image is up to date for debian:buster
+docker.io/library/debian:buster
+Restart docker before run to stop and clear all containers started with --rm
+groupmod: GID '0' already exists
+
+Exit status: 4
