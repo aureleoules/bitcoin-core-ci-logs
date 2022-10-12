@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 52 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/25315/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 173237545 Add warning on first startup if free disk space is less than necessary
+HEAD is now at ae636c149 Merge 173237545ca1974403fb694e8f0963187de7a1ad into 9ca39d69dfe03c19662867c3d53a5e6e41277d4a

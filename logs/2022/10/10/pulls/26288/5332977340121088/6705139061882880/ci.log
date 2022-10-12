@@ -1,0 +1,506 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-w64-mingw32
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-reduce-exports --disable-external-signer --disable-gui-tests
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-w64-mingw32
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:5 http://archive.ubuntu.com/ubuntu jammy/multiverse i386 Packages [134 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main i386 Packages [1324 kB]
+Get:7 http://security.ubuntu.com/ubuntu jammy-security/universe i386 Packages [258 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/restricted i386 Packages [36.7 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/universe i386 Packages [9385 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/universe i386 Packages [346 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/restricted i386 Packages [26.9 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse i386 Packages [1731 B]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 Packages [413 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-backports/universe i386 Packages [5529 B]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-backports/main i386 Packages [3141 B]
+Get:16 http://security.ubuntu.com/ubuntu jammy-security/restricted i386 Packages [26.5 kB]
+Get:17 http://security.ubuntu.com/ubuntu jammy-security/main i386 Packages [171 kB]
+Get:18 http://security.ubuntu.com/ubuntu jammy-security/multiverse i386 Packages [981 B]
+Fetched 12.1 MB in 1s (10.7 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping procps, it is already installed and upgrade is not set.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binfmt-support binutils binutils-common binutils-mingw-w64-x86-64
+  binutils-x86-64-linux-gnu bsdextrautils bzip2 cpp cpp-11 dpkg-dev
+  fontconfig-config fonts-dejavu-core g++ g++-11 gcc gcc-11 gcc-11-base
+  gcc-12-base:i386 gcc-mingw-w64-base gcc-mingw-w64-x86-64-posix
+  gcc-mingw-w64-x86-64-posix-runtime iso-codes libapparmor1 libapparmor1:i386
+  libasan6 libasound2 libasound2:i386 libasound2-data libasyncns0
+  libasyncns0:i386 libatomic1 libbinutils libblkid1:i386 libbrotli1:i386
+  libbsd0:i386 libbz2-1.0:i386 libc-dev-bin libc6:i386 libc6-dev libcap2:i386
+  libcap2-bin libcc1-0 libcom-err2:i386 libcrypt-dev libcrypt1:i386
+  libctf-nobfd0 libctf0 libcurl4 libcurl4:i386 libdb5.3:i386 libdbus-1-3
+  libdbus-1-3:i386 libdecor-0-0 libdecor-0-0:i386 libdeflate0 libdeflate0:i386
+  libdpkg-perl libdrm-common libdrm2 libdrm2:i386 libdw1 libdw1:i386 libelf1
+  libelf1:i386 libexif12 libexif12:i386 libexpat1:i386 libfaudio0
+  libfaudio0:i386 libffi8:i386 libflac8 libflac8:i386 libfontconfig1
+  libfontconfig1:i386 libfreetype6 libfreetype6:i386 libgbm1 libgbm1:i386
+  libgcc-11-dev libgcc-s1:i386 libgcrypt20:i386 libgd3 libgd3:i386
+  libglib2.0-0 libglib2.0-0:i386 libgmp10:i386 libgnutls30:i386 libgomp1
+  libgpg-error0:i386 libgphoto2-6 libgphoto2-6:i386 libgphoto2-port12
+  libgphoto2-port12:i386 libgssapi-krb5-2:i386 libgstreamer-plugins-base1.0-0
+  libgstreamer-plugins-base1.0-0:i386 libgstreamer1.0-0 libgstreamer1.0-0:i386
+  libhiredis0.14 libhogweed6:i386 libicu70 libicu70:i386 libidn2-0:i386
+  libisl23 libitm1 libjbig0 libjbig0:i386 libjpeg-turbo8 libjpeg-turbo8:i386
+  libjpeg8 libjpeg8:i386 libk5crypto3:i386 libkeyutils1:i386 libkrb5-3:i386
+  libkrb5support0:i386 liblcms2-2 liblcms2-2:i386 libldap-2.5-0:i386 liblsan0
+  libltdl7 libltdl7:i386 liblz4-1:i386 liblzma5:i386 libmagic-mgc libmagic1
+  libmd0:i386 libmount1:i386 libmpc3 libmpdec3 libmpfr6 libmpg123-0
+  libmpg123-0:i386 libnettle8:i386 libnghttp2-14:i386 libnsl-dev libogg0
+  libogg0:i386 libopenal-data libopenal1 libopenal1:i386 libopus0
+  libopus0:i386 liborc-0.4-0 liborc-0.4-0:i386 libp11-kit0:i386 libpcap0.8
+  libpcap0.8:i386 libpcre2-8-0:i386 libpcre3:i386 libpipeline1 libpng16-16
+  libpng16-16:i386 libpopt0 libpsl5:i386 libpulse0 libpulse0:i386
+  libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libquadmath0
+  libreadline8 librtmp1:i386 libsasl2-2:i386 libsasl2-modules-db:i386
+  libsdl2-2.0-0 libsdl2-2.0-0:i386 libselinux1:i386 libsigsegv2 libsndfile1
+  libsndfile1:i386 libsndio7.0 libsndio7.0:i386 libsqlite3-0 libssh-4:i386
+  libssl3:i386 libstb0 libstb0:i386 libstdc++-11-dev libstdc++6:i386
+  libsystemd0:i386 libtasn1-6:i386 libtiff5 libtiff5:i386 libtirpc-dev
+  libtsan0 libubsan1 libudev1:i386 libunistring2:i386 libunwind8
+  libunwind8:i386 libusb-1.0-0 libusb-1.0-0:i386 libuuid1:i386 libvkd3d1
+  libvkd3d1:i386 libvorbis0a libvorbis0a:i386 libvorbisenc2 libvorbisenc2:i386
+  libvulkan1 libvulkan1:i386 libwayland-client0 libwayland-client0:i386
+  libwayland-cursor0 libwayland-cursor0:i386 libwayland-egl1
+  libwayland-egl1:i386 libwayland-server0 libwayland-server0:i386 libwebp7
+  libwebp7:i386 libwine libwine:i386 libx11-6:i386 libx11-xcb1
+  libx11-xcb1:i386 libxau6:i386 libxcb1:i386 libxcursor1 libxcursor1:i386
+  libxdmcp6:i386 libxext6:i386 libxfixes3 libxfixes3:i386 libxi6 libxi6:i386
+  libxinerama1 libxinerama1:i386 libxkbcommon0 libxkbcommon0:i386 libxml2
+  libxml2:i386 libxpm4 libxpm4:i386 libxrandr2 libxrandr2:i386 libxrender1
+  libxrender1:i386 libxss1 libxss1:i386 libxxf86vm1 libxxf86vm1:i386
+  libz-mingw-w64 libzstd1:i386 linux-libc-dev lto-disabled-list m4 make
+  media-types mingw-w64-common mingw-w64-x86-64-dev ncal nsis-common
+  ocl-icd-libopencl1 ocl-icd-libopencl1:i386 python3-minimal python3.10
+  python3.10-minimal readline-common rpcsvc-proto ucf wine x11-common xkb-data
+  xz-utils zlib1g:i386
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  calendar whois vacation mailutils bzip2-doc distcc | icecc cpp-doc
+  gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-11-doc
+  gcc-10-locales gcc-multilib manpages-dev flex gdb gcc-doc gcc-11-multilib
+  isoquery libasound2-plugins libasound2-plugins:i386 alsa-utils
+  glibc-doc:i386 locales:i386 glibc-doc gnupg bzr rng-tools:i386 libgd-tools
+  libgd-tools:i386 gnutls-bin:i386 gphoto2 gphoto2:i386 krb5-doc:i386
+  krb5-user:i386 libvisual-0.4-plugins libvisual-0.4-plugins:i386
+  gstreamer1.0-tools gstreamer1.0-tools:i386 liblcms2-utils
+  liblcms2-utils:i386 cryptsetup-bin:i386 libportaudio2 libportaudio2:i386
+  opus-tools opus-tools:i386 pulseaudio pulseaudio:i386 xdg-utils
+  xdg-utils:i386 sndiod sndiod:i386 libstdc++-11-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk cups-bsd gstreamer1.0-libav
+  gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly ttf-mscorefonts-installer
+  cups-bsd:i386 gstreamer1.0-libav:i386 gstreamer1.0-plugins-bad:i386
+  gstreamer1.0-plugins-ugly:i386 ttf-mscorefonts-installer:i386 m4-doc
+  make-doc mingw-w64 nsis-doc nsis-pluginapi opencl-icd opencl-icd:i386
+  python3-doc python3-tk python3-venv python3.10-venv python3.10-doc
+  readline-doc openssh-server q4wine winbind winetricks playonlinux dosbox
+  exe-thumbnailer | kio-extras wine32-preloader:i386 wine64-preloader
+Recommended packages:
+  fakeroot gnupg libalgorithm-merge-perl alsa-ucm-conf alsa-topology-conf
+  manpages manpages-dev libc-devtools libnss-nis:i386 libnss-nisplus:i386
+  libpam-cap dbus dbus:i386 libdecor-0-plugin-1-cairo | libdecor-0-plugin-1
+  libdecor-0-plugin-1-cairo:i386 | libdecor-0-plugin-1:i386
+  libfile-fcntllock-perl liblocale-gettext-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libglib2.0-data:i386 shared-mime-info:i386
+  xdg-user-dirs:i386 libgpg-error-l10n:i386 libgphoto2-l10n
+  libgphoto2-l10n:i386 gstreamer1.0-plugins-base
+  gstreamer1.0-plugins-base:i386 krb5-locales:i386 libsasl2-modules:i386
+  libltdl-dev uuid-runtime:i386 mesa-vulkan-drivers | vulkan-icd
+  mesa-vulkan-drivers:i386 | vulkan-icd:i386 libcapi20-3 libcups2 libgl1
+  libgsm1 libodbc2 libosmesa6 libv4l-0 libvkd3d-shader1 libxcomposite1
+  libxslt1.1 libgl1-mesa-dri libasound2-plugins fonts-liberation fonts-wine
+  gstreamer1.0-plugins-good libcapi20-3:i386 libcups2:i386 libgl1:i386
+  libgsm1:i386 libodbc2:i386 libosmesa6:i386 libv4l-0:i386
+  libvkd3d-shader1:i386 libxcomposite1:i386 libxslt1.1:i386
+  libgl1-mesa-dri:i386 libasound2-plugins:i386 fonts-liberation:i386
+  fonts-wine:i386 gstreamer1.0-plugins-good:i386
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binfmt-support binutils binutils-common
+  binutils-mingw-w64-x86-64 binutils-x86-64-linux-gnu bison bsdextrautils
+  bsdmainutils build-essential bzip2 ccache cpp cpp-11 curl dpkg-dev file
+  fontconfig-config fonts-dejavu-core g++ g++-11 g++-mingw-w64-x86-64-posix
+  gcc gcc-11 gcc-11-base gcc-12-base:i386 gcc-mingw-w64-base
+  gcc-mingw-w64-x86-64-posix gcc-mingw-w64-x86-64-posix-runtime iso-codes
+  libapparmor1 libapparmor1:i386 libasan6 libasound2 libasound2:i386
+  libasound2-data libasyncns0 libasyncns0:i386 libatomic1 libbinutils
+  libblkid1:i386 libbrotli1:i386 libbsd0:i386 libbz2-1.0:i386 libc-dev-bin
+  libc6:i386 libc6-dev libcap2:i386 libcap2-bin libcc1-0 libcom-err2:i386
+  libcrypt-dev libcrypt1:i386 libctf-nobfd0 libctf0 libcurl4 libcurl4:i386
+  libdb5.3:i386 libdbus-1-3 libdbus-1-3:i386 libdecor-0-0 libdecor-0-0:i386
+  libdeflate0 libdeflate0:i386 libdpkg-perl libdrm-common libdrm2 libdrm2:i386
+  libdw1 libdw1:i386 libelf1 libelf1:i386 libexif12 libexif12:i386
+  libexpat1:i386 libfaudio0 libfaudio0:i386 libffi8:i386 libflac8
+  libflac8:i386 libfontconfig1 libfontconfig1:i386 libfreetype6
+  libfreetype6:i386 libgbm1 libgbm1:i386 libgcc-11-dev libgcc-s1:i386
+  libgcrypt20:i386 libgd3 libgd3:i386 libglib2.0-0 libglib2.0-0:i386
+  libgmp10:i386 libgnutls30:i386 libgomp1 libgpg-error0:i386 libgphoto2-6
+  libgphoto2-6:i386 libgphoto2-port12 libgphoto2-port12:i386
+  libgssapi-krb5-2:i386 libgstreamer-plugins-base1.0-0
+  libgstreamer-plugins-base1.0-0:i386 libgstreamer1.0-0 libgstreamer1.0-0:i386
+  libhiredis0.14 libhogweed6:i386 libicu70 libicu70:i386 libidn2-0:i386
+  libisl23 libitm1 libjbig0 libjbig0:i386 libjpeg-turbo8 libjpeg-turbo8:i386
+  libjpeg8 libjpeg8:i386 libk5crypto3:i386 libkeyutils1:i386 libkrb5-3:i386
+  libkrb5support0:i386 liblcms2-2 liblcms2-2:i386 libldap-2.5-0:i386 liblsan0
+  libltdl7 libltdl7:i386 liblz4-1:i386 liblzma5:i386 libmagic-mgc libmagic1
+  libmd0:i386 libmount1:i386 libmpc3 libmpdec3 libmpfr6 libmpg123-0
+  libmpg123-0:i386 libnettle8:i386 libnghttp2-14:i386 libnsl-dev libogg0
+  libogg0:i386 libopenal-data libopenal1 libopenal1:i386 libopus0
+  libopus0:i386 liborc-0.4-0 liborc-0.4-0:i386 libp11-kit0:i386 libpcap0.8
+  libpcap0.8:i386 libpcre2-8-0:i386 libpcre3:i386 libpipeline1 libpng16-16
+  libpng16-16:i386 libpopt0 libpsl5:i386 libpulse0 libpulse0:i386
+  libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libquadmath0
+  libreadline8 librtmp1:i386 libsasl2-2:i386 libsasl2-modules-db:i386
+  libsdl2-2.0-0 libsdl2-2.0-0:i386 libselinux1:i386 libsigsegv2 libsndfile1
+  libsndfile1:i386 libsndio7.0 libsndio7.0:i386 libsqlite3-0 libssh-4:i386
+  libssl3:i386 libstb0 libstb0:i386 libstdc++-11-dev libstdc++6:i386
+  libsystemd0:i386 libtasn1-6:i386 libtiff5 libtiff5:i386 libtirpc-dev libtool
+  libtsan0 libubsan1 libudev1:i386 libunistring2:i386 libunwind8
+  libunwind8:i386 libusb-1.0-0 libusb-1.0-0:i386 libuuid1:i386 libvkd3d1
+  libvkd3d1:i386 libvorbis0a libvorbis0a:i386 libvorbisenc2 libvorbisenc2:i386
+  libvulkan1 libvulkan1:i386 libwayland-client0 libwayland-client0:i386
+  libwayland-cursor0 libwayland-cursor0:i386 libwayland-egl1
+  libwayland-egl1:i386 libwayland-server0 libwayland-server0:i386 libwebp7
+  libwebp7:i386 libwine libwine:i386 libx11-6:i386 libx11-xcb1
+  libx11-xcb1:i386 libxau6:i386 libxcb1:i386 libxcursor1 libxcursor1:i386
+  libxdmcp6:i386 libxext6:i386 libxfixes3 libxfixes3:i386 libxi6 libxi6:i386
+  libxinerama1 libxinerama1:i386 libxkbcommon0 libxkbcommon0:i386 libxml2
+  libxml2:i386 libxpm4 libxpm4:i386 libxrandr2 libxrandr2:i386 libxrender1
+  libxrender1:i386 libxss1 libxss1:i386 libxxf86vm1 libxxf86vm1:i386
+  libz-mingw-w64 libzstd1:i386 linux-libc-dev lto-disabled-list m4 make
+  media-types mingw-w64-common mingw-w64-x86-64-dev ncal nsis nsis-common
+  ocl-icd-libopencl1 ocl-icd-libopencl1:i386 pkg-config python3
+  python3-minimal python3.10 python3.10-minimal readline-common rpcsvc-proto
+  rsync ucf wine wine-binfmt wine32:i386 wine64 x11-common xkb-data xz-utils
+  zlib1g:i386
+0 upgraded, 284 newly installed, 0 to remove and 0 not upgraded.
+Need to get 372 MB of archives.
+After this operation, 1934 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 gcc-12-base i386 12.1.0-2ubuntu1~22.04 [19.0 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libgcc-s1 i386 12.1.0-2ubuntu1~22.04 [64.7 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy/main i386 libcrypt1 i386 1:4.4.27-1 [97.2 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libc6 i386 2.35-0ubuntu3.1 [3013 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main i386 libcap2 i386 1:2.44-1build3 [19.0 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main i386 libgpg-error0 i386 1.43-3 [78.0 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/main i386 libgcrypt20 i386 1.9.4-3ubuntu3 [493 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy/main i386 liblz4-1 i386 1.9.3-2build2 [62.8 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy/main i386 liblzma5 i386 5.2.5-2ubuntu1 [105 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy/main i386 libzstd1 i386 1.4.8+dfsg-3build1 [317 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libsystemd0 i386 249.11-0ubuntu3.6 [340 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.6-1~22.04 [810 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.6-1~22.04 [2254 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-minimal amd64 3.10.6-1~22.04 [24.3 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy/main amd64 readline-common all 8.1.2-1 [53.5 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 libreadline8 amd64 8.1.2-1 [153 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsqlite3-0 amd64 3.37.2-2 [643 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.6-1~22.04 [1832 kB]
+Get:21 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.6-1~22.04 [497 kB]
+Get:22 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3-stdlib amd64 3.10.6-1~22.04 [6910 B]
+Get:23 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3 amd64 3.10.6-1~22.04 [22.8 kB]
+Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpopt0 amd64 1.18-3build1 [28.2 kB]
+Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 rsync amd64 3.2.3-8ubuntu3 [404 kB]
+Get:26 http://archive.ubuntu.com/ubuntu jammy/main i386 libblkid1 i386 2.37.2-4ubuntu3 [166 kB]
+Get:27 http://archive.ubuntu.com/ubuntu jammy/main i386 libbz2-1.0 i386 1.0.8-5build1 [34.5 kB]
+Get:28 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libcom-err2 i386 1.46.5-2ubuntu1.1 [9614 B]
+Get:29 http://archive.ubuntu.com/ubuntu jammy/main i386 libdb5.3 i386 5.3.28+dfsg1-0.8ubuntu3 [796 kB]
+Get:30 http://archive.ubuntu.com/ubuntu jammy/main i386 libgmp10 i386 2:6.2.1+dfsg-3ubuntu1 [264 kB]
+Get:31 http://archive.ubuntu.com/ubuntu jammy/main i386 libkrb5support0 i386 1.19.2-2 [37.0 kB]
+Get:32 http://archive.ubuntu.com/ubuntu jammy/main i386 libk5crypto3 i386 1.19.2-2 [91.1 kB]
+Get:33 http://archive.ubuntu.com/ubuntu jammy/main i386 libkeyutils1 i386 1.6.1-2ubuntu3 [10.7 kB]
+Get:34 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libssl3 i386 3.0.2-0ubuntu1.6 [1941 kB]
+Get:35 http://archive.ubuntu.com/ubuntu jammy/main i386 libkrb5-3 i386 1.19.2-2 [403 kB]
+Get:36 http://archive.ubuntu.com/ubuntu jammy/main i386 libgssapi-krb5-2 i386 1.19.2-2 [154 kB]
+Get:37 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libpcre2-8-0 i386 10.39-3ubuntu0.1 [222 kB]
+Get:38 http://archive.ubuntu.com/ubuntu jammy/main i386 libselinux1 i386 3.3-1build2 [80.2 kB]
+Get:39 http://archive.ubuntu.com/ubuntu jammy/main i386 libmount1 i386 2.37.2-4ubuntu3 [179 kB]
+Get:40 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libpcre3 i386 2:8.39-13ubuntu0.22.04.1 [245 kB]
+Get:41 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libudev1 i386 249.11-0ubuntu3.6 [80.8 kB]
+Get:42 http://archive.ubuntu.com/ubuntu jammy/main i386 libuuid1 i386 2.37.2-4ubuntu3 [25.8 kB]
+Get:43 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 zlib1g i386 1:1.2.11.dfsg-2ubuntu9.1 [60.7 kB]
+Get:44 http://archive.ubuntu.com/ubuntu jammy/main amd64 iso-codes all 4.9.0-1 [3459 kB]
+Get:45 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libapparmor1 i386 3.0.4-2ubuntu2.1 [40.6 kB]
+Get:46 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libapparmor1 amd64 3.0.4-2ubuntu2.1 [38.7 kB]
+Get:47 http://archive.ubuntu.com/ubuntu jammy/main i386 libmd0 i386 1.0.4-1build1 [23.8 kB]
+Get:48 http://archive.ubuntu.com/ubuntu jammy/main i386 libbsd0 i386 0.11.5-1 [48.3 kB]
+Get:49 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcap2-bin amd64 1:2.44-1build3 [26.0 kB]
+Get:50 http://archive.ubuntu.com/ubuntu jammy/main i386 libdbus-1-3 i386 1.12.20-2ubuntu4 [206 kB]
+Get:51 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdbus-1-3 amd64 1.12.20-2ubuntu4 [188 kB]
+Get:52 http://archive.ubuntu.com/ubuntu jammy/main i386 libelf1 i386 0.186-1build1 [55.1 kB]
+Get:53 http://archive.ubuntu.com/ubuntu jammy/main amd64 libelf1 amd64 0.186-1build1 [51.0 kB]
+Get:54 http://archive.ubuntu.com/ubuntu jammy/main i386 libexpat1 i386 2.4.7-1 [92.2 kB]
+Get:55 http://archive.ubuntu.com/ubuntu jammy/main i386 libffi8 i386 3.4.2-4 [20.7 kB]
+Get:56 http://archive.ubuntu.com/ubuntu jammy/main amd64 libglib2.0-0 amd64 2.72.1-1 [1460 kB]
+Get:57 http://archive.ubuntu.com/ubuntu jammy/main i386 libglib2.0-0 i386 2.72.1-1 [1565 kB]
+Get:58 http://archive.ubuntu.com/ubuntu jammy/main i386 libnettle8 i386 3.7.3-1build2 [175 kB]
+Get:59 http://archive.ubuntu.com/ubuntu jammy/main i386 libhogweed6 i386 3.7.3-1build2 [202 kB]
+Get:60 http://archive.ubuntu.com/ubuntu jammy/main i386 libunistring2 i386 1.0-1 [554 kB]
+Get:61 http://archive.ubuntu.com/ubuntu jammy/main i386 libidn2-0 i386 2.3.2-2build1 [71.1 kB]
+Get:62 http://archive.ubuntu.com/ubuntu jammy/main i386 libp11-kit0 i386 0.24.0-6build1 [241 kB]
+Get:63 http://archive.ubuntu.com/ubuntu jammy/main i386 libtasn1-6 i386 4.18.0-4build1 [43.8 kB]
+Get:64 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libgnutls30 i386 3.7.3-4ubuntu1.1 [989 kB]
+Get:65 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libstdc++6 i386 12.1.0-2ubuntu1~22.04 [757 kB]
+Get:66 http://archive.ubuntu.com/ubuntu jammy/main i386 libicu70 i386 70.1-2 [10.8 MB]
+Get:67 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu70 amd64 70.1-2 [10.6 MB]
+Get:68 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxml2 amd64 2.9.13+dfsg-1ubuntu0.1 [763 kB]
+Get:69 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libxml2 i386 2.9.13+dfsg-1ubuntu0.1 [726 kB]
+Get:70 http://archive.ubuntu.com/ubuntu jammy/main amd64 ucf all 3.0043 [56.1 kB]
+Get:71 http://archive.ubuntu.com/ubuntu jammy/main amd64 xkb-data all 2.33-1 [394 kB]
+Get:72 http://archive.ubuntu.com/ubuntu jammy/main amd64 bsdextrautils amd64 2.37.2-4ubuntu3 [71.1 kB]
+Get:73 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmagic-mgc amd64 1:5.41-3 [257 kB]
+Get:74 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmagic1 amd64 1:5.41-3 [87.2 kB]
+Get:75 http://archive.ubuntu.com/ubuntu jammy/main amd64 file amd64 1:5.41-3 [21.5 kB]
+Get:76 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdrm-common all 2.4.110-1ubuntu1 [5360 B]
+Get:77 http://archive.ubuntu.com/ubuntu jammy/main i386 libdrm2 i386 2.4.110-1ubuntu1 [41.5 kB]
+Get:78 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdrm2 amd64 2.4.110-1ubuntu1 [37.7 kB]
+Get:79 http://archive.ubuntu.com/ubuntu jammy/main i386 libnghttp2-14 i386 1.43.0-1build3 [90.2 kB]
+Get:80 http://archive.ubuntu.com/ubuntu jammy/main i386 libpcap0.8 i386 1.10.1-4build1 [153 kB]
+Get:81 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpcap0.8 amd64 1.10.1-4build1 [145 kB]
+Get:82 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpipeline1 amd64 1.5.5-1 [23.5 kB]
+Get:83 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpng16-16 amd64 1.6.37-3build5 [191 kB]
+Get:84 http://archive.ubuntu.com/ubuntu jammy/main i386 libpng16-16 i386 1.6.37-3build5 [196 kB]
+Get:85 http://archive.ubuntu.com/ubuntu jammy/main i386 libpsl5 i386 0.21.0-1.2build2 [59.0 kB]
+Get:86 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libusb-1.0-0 amd64 2:1.0.25-1ubuntu2 [52.7 kB]
+Get:87 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libusb-1.0-0 i386 2:1.0.25-1ubuntu2 [57.4 kB]
+Get:88 http://archive.ubuntu.com/ubuntu jammy/main i386 libxau6 i386 1:1.0.9-1build5 [7924 B]
+Get:89 http://archive.ubuntu.com/ubuntu jammy/main i386 libxdmcp6 i386 1:1.1.3-0ubuntu5 [11.4 kB]
+Get:90 http://archive.ubuntu.com/ubuntu jammy/main i386 libxcb1 i386 1.14-3ubuntu3 [55.4 kB]
+Get:91 http://archive.ubuntu.com/ubuntu jammy/main i386 libx11-6 i386 2:1.7.5-1 [692 kB]
+Get:92 http://archive.ubuntu.com/ubuntu jammy/main i386 libxext6 i386 2:1.3.4-1build1 [34.8 kB]
+Get:93 http://archive.ubuntu.com/ubuntu jammy/main amd64 xz-utils amd64 5.2.5-2ubuntu1 [84.8 kB]
+Get:94 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsigsegv2 amd64 2.13-1ubuntu3 [14.6 kB]
+Get:95 http://archive.ubuntu.com/ubuntu jammy/main amd64 m4 amd64 1.4.18-5ubuntu2 [199 kB]
+Get:96 http://archive.ubuntu.com/ubuntu jammy/main amd64 autoconf all 2.71-2 [338 kB]
+Get:97 http://archive.ubuntu.com/ubuntu jammy/main amd64 autotools-dev all 20220109.1 [44.9 kB]
+Get:98 http://archive.ubuntu.com/ubuntu jammy/main amd64 automake all 1:1.16.5-1.3 [558 kB]
+Get:99 http://archive.ubuntu.com/ubuntu jammy/main amd64 binfmt-support amd64 2.2.1-2 [55.8 kB]
+Get:100 http://archive.ubuntu.com/ubuntu jammy/main amd64 binutils-common amd64 2.38-3ubuntu1 [221 kB]
+Get:101 http://archive.ubuntu.com/ubuntu jammy/main amd64 libbinutils amd64 2.38-3ubuntu1 [662 kB]
+Get:102 http://archive.ubuntu.com/ubuntu jammy/main amd64 libctf-nobfd0 amd64 2.38-3ubuntu1 [106 kB]
+Get:103 http://archive.ubuntu.com/ubuntu jammy/main amd64 libctf0 amd64 2.38-3ubuntu1 [103 kB]
+Get:104 http://archive.ubuntu.com/ubuntu jammy/main amd64 binutils-x86-64-linux-gnu amd64 2.38-3ubuntu1 [2328 kB]
+Get:105 http://archive.ubuntu.com/ubuntu jammy/main amd64 binutils amd64 2.38-3ubuntu1 [3186 B]
+Get:106 http://archive.ubuntu.com/ubuntu jammy/main amd64 bison amd64 2:3.8.2+dfsg-1build1 [748 kB]
+Get:107 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ncal amd64 12.1.7+nmu3ubuntu2 [20.2 kB]
+Get:108 http://archive.ubuntu.com/ubuntu jammy/universe amd64 bsdmainutils all 12.1.7+nmu3ubuntu2 [3170 B]
+Get:109 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc-dev-bin amd64 2.35-0ubuntu3.1 [20.4 kB]
+Get:110 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-50.56 [1319 kB]
+Get:111 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcrypt-dev amd64 1:4.4.27-1 [112 kB]
+Get:112 http://archive.ubuntu.com/ubuntu jammy/main amd64 rpcsvc-proto amd64 1.4.2-0ubuntu6 [68.5 kB]
+Get:113 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libtirpc-dev amd64 1.3.2-2ubuntu0.1 [192 kB]
+Get:114 http://archive.ubuntu.com/ubuntu jammy/main amd64 libnsl-dev amd64 1.3.0-2build2 [71.3 kB]
+Get:115 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-dev amd64 2.35-0ubuntu3.1 [2099 kB]
+Get:116 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc-11-base amd64 11.2.0-19ubuntu1 [20.8 kB]
+Get:117 http://archive.ubuntu.com/ubuntu jammy/main amd64 libisl23 amd64 0.24-2build1 [727 kB]
+Get:118 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpfr6 amd64 4.1.0-3build3 [1425 kB]
+Get:119 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpc3 amd64 1.2.1-2build1 [46.9 kB]
+Get:120 http://archive.ubuntu.com/ubuntu jammy/main amd64 cpp-11 amd64 11.2.0-19ubuntu1 [9966 kB]
+Get:121 http://archive.ubuntu.com/ubuntu jammy/main amd64 cpp amd64 4:11.2.0-1ubuntu1 [27.7 kB]
+Get:122 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcc1-0 amd64 12.1.0-2ubuntu1~22.04 [47.4 kB]
+Get:123 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgomp1 amd64 12.1.0-2ubuntu1~22.04 [126 kB]
+Get:124 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libitm1 amd64 12.1.0-2ubuntu1~22.04 [30.2 kB]
+Get:125 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libatomic1 amd64 12.1.0-2ubuntu1~22.04 [10.4 kB]
+Get:126 http://archive.ubuntu.com/ubuntu jammy/main amd64 libasan6 amd64 11.2.0-19ubuntu1 [2283 kB]
+Get:127 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 liblsan0 amd64 12.1.0-2ubuntu1~22.04 [1069 kB]
+Get:128 http://archive.ubuntu.com/ubuntu jammy/main amd64 libtsan0 amd64 11.2.0-19ubuntu1 [2261 kB]
+Get:129 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libubsan1 amd64 12.1.0-2ubuntu1~22.04 [976 kB]
+Get:130 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libquadmath0 amd64 12.1.0-2ubuntu1~22.04 [154 kB]
+Get:131 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgcc-11-dev amd64 11.2.0-19ubuntu1 [2526 kB]
+Get:132 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc-11 amd64 11.2.0-19ubuntu1 [20.1 MB]
+Get:133 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc amd64 4:11.2.0-1ubuntu1 [5112 B]
+Get:134 http://archive.ubuntu.com/ubuntu jammy/main amd64 libstdc++-11-dev amd64 11.2.0-19ubuntu1 [2083 kB]
+Get:135 http://archive.ubuntu.com/ubuntu jammy/main amd64 g++-11 amd64 11.2.0-19ubuntu1 [11.4 MB]
+Get:136 http://archive.ubuntu.com/ubuntu jammy/main amd64 g++ amd64 4:11.2.0-1ubuntu1 [1412 B]
+Get:137 http://archive.ubuntu.com/ubuntu jammy/main amd64 make amd64 4.3-4.1build1 [180 kB]
+Get:138 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libdpkg-perl all 1.21.1ubuntu2.1 [237 kB]
+Get:139 http://archive.ubuntu.com/ubuntu jammy/main amd64 bzip2 amd64 1.0.8-5build1 [34.8 kB]
+Get:140 http://archive.ubuntu.com/ubuntu jammy/main amd64 lto-disabled-list all 24 [12.5 kB]
+Get:141 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 dpkg-dev all 1.21.1ubuntu2.1 [922 kB]
+Get:142 http://archive.ubuntu.com/ubuntu jammy/main amd64 build-essential amd64 12.9ubuntu3 [4744 B]
+Get:143 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libhiredis0.14 amd64 0.14.1-2 [32.8 kB]
+Get:144 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ccache amd64 4.5.1-1 [495 kB]
+Get:145 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcurl4 amd64 7.81.0-1ubuntu1.4 [290 kB]
+Get:146 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 curl amd64 7.81.0-1ubuntu1.4 [194 kB]
+Get:147 http://archive.ubuntu.com/ubuntu jammy/main amd64 fonts-dejavu-core all 2.37-2build1 [1041 kB]
+Get:148 http://archive.ubuntu.com/ubuntu jammy/main amd64 fontconfig-config all 2.13.1-4.2ubuntu5 [29.1 kB]
+Get:149 http://archive.ubuntu.com/ubuntu jammy/universe amd64 binutils-mingw-w64-x86-64 amd64 2.38-3ubuntu1+9build1 [3308 kB]
+Get:150 http://archive.ubuntu.com/ubuntu jammy/universe amd64 mingw-w64-common all 8.0.0-1 [4911 kB]
+Get:151 http://archive.ubuntu.com/ubuntu jammy/universe amd64 mingw-w64-x86-64-dev all 8.0.0-1 [3684 kB]
+Get:152 http://archive.ubuntu.com/ubuntu jammy/universe amd64 gcc-mingw-w64-base amd64 10.3.0-14ubuntu1+24.3 [187 kB]
+Get:153 http://archive.ubuntu.com/ubuntu jammy/universe amd64 gcc-mingw-w64-x86-64-posix-runtime amd64 10.3.0-14ubuntu1+24.3 [12.8 MB]
+Get:154 http://archive.ubuntu.com/ubuntu jammy/universe amd64 gcc-mingw-w64-x86-64-posix amd64 10.3.0-14ubuntu1+24.3 [28.7 MB]
+Get:155 http://archive.ubuntu.com/ubuntu jammy/universe amd64 g++-mingw-w64-x86-64-posix amd64 10.3.0-14ubuntu1+24.3 [11.6 MB]
+Get:156 http://archive.ubuntu.com/ubuntu jammy/main amd64 libasound2-data all 1.2.6.1-1ubuntu1 [19.1 kB]
+Get:157 http://archive.ubuntu.com/ubuntu jammy/main amd64 libasound2 amd64 1.2.6.1-1ubuntu1 [390 kB]
+Get:158 http://archive.ubuntu.com/ubuntu jammy/main i386 libasound2 i386 1.2.6.1-1ubuntu1 [420 kB]
+Get:159 http://archive.ubuntu.com/ubuntu jammy/main amd64 libasyncns0 amd64 0.8-6build2 [12.8 kB]
+Get:160 http://archive.ubuntu.com/ubuntu jammy/main i386 libasyncns0 i386 0.8-6build2 [13.3 kB]
+Get:161 http://archive.ubuntu.com/ubuntu jammy/main i386 libbrotli1 i386 1.0.9-2build6 [321 kB]
+Get:162 http://archive.ubuntu.com/ubuntu jammy/main i386 libsasl2-modules-db i386 2.1.27+dfsg2-3ubuntu1 [22.1 kB]
+Get:163 http://archive.ubuntu.com/ubuntu jammy/main i386 libsasl2-2 i386 2.1.27+dfsg2-3ubuntu1 [62.1 kB]
+Get:164 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libldap-2.5-0 i386 2.5.13+dfsg-0ubuntu0.22.04.1 [198 kB]
+Get:165 http://archive.ubuntu.com/ubuntu jammy/main i386 librtmp1 i386 2.4+20151223.gitfa8646d.1-2build4 [62.8 kB]
+Get:166 http://archive.ubuntu.com/ubuntu jammy/main i386 libssh-4 i386 0.9.6-2build1 [205 kB]
+Get:167 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libcurl4 i386 7.81.0-1ubuntu1.4 [321 kB]
+Get:168 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libwayland-client0 i386 1.20.0-1ubuntu0.1 [28.2 kB]
+Get:169 http://archive.ubuntu.com/ubuntu jammy/main i386 libdecor-0-0 i386 0.1.0-3build1 [15.6 kB]
+Get:170 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libwayland-client0 amd64 1.20.0-1ubuntu0.1 [25.9 kB]
+Get:171 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdecor-0-0 amd64 0.1.0-3build1 [15.1 kB]
+Get:172 http://archive.ubuntu.com/ubuntu jammy/main i386 libdeflate0 i386 1.10-2 [62.8 kB]
+Get:173 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdeflate0 amd64 1.10-2 [70.9 kB]
+Get:174 http://archive.ubuntu.com/ubuntu jammy/main i386 libdw1 i386 0.186-1build1 [281 kB]
+Get:175 http://archive.ubuntu.com/ubuntu jammy/main amd64 libdw1 amd64 0.186-1build1 [250 kB]
+Get:176 http://archive.ubuntu.com/ubuntu jammy/main amd64 libexif12 amd64 0.6.24-1build1 [92.5 kB]
+Get:177 http://archive.ubuntu.com/ubuntu jammy/main i386 libexif12 i386 0.6.24-1build1 [88.1 kB]
+Get:178 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libwayland-server0 amd64 1.20.0-1ubuntu0.1 [34.3 kB]
+Get:179 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgbm1 amd64 22.0.5-0ubuntu0.1 [32.6 kB]
+Get:180 http://archive.ubuntu.com/ubuntu jammy/main amd64 libogg0 amd64 1.3.5-0ubuntu3 [22.9 kB]
+Get:181 http://archive.ubuntu.com/ubuntu jammy/main amd64 libflac8 amd64 1.3.3-2build2 [111 kB]
+Get:182 http://archive.ubuntu.com/ubuntu jammy/main amd64 libopus0 amd64 1.3.1-0.1build2 [203 kB]
+Get:183 http://archive.ubuntu.com/ubuntu jammy/main amd64 libvorbis0a amd64 1.3.7-1build2 [99.2 kB]
+Get:184 http://archive.ubuntu.com/ubuntu jammy/main amd64 libvorbisenc2 amd64 1.3.7-1build2 [82.6 kB]
+Get:185 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsndfile1 amd64 1.0.31-2build1 [196 kB]
+Get:186 http://archive.ubuntu.com/ubuntu jammy/main amd64 libx11-xcb1 amd64 2:1.7.5-1 [7790 B]
+Get:187 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpulse0 amd64 1:15.99.1+dfsg1-1ubuntu1 [297 kB]
+Get:188 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libwayland-cursor0 amd64 1.20.0-1ubuntu0.1 [10.7 kB]
+Get:189 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libwayland-egl1 amd64 1.20.0-1ubuntu0.1 [5582 B]
+Get:190 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxfixes3 amd64 1:6.0.0-1 [11.7 kB]
+Get:191 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxrender1 amd64 1:0.9.10-1build4 [19.7 kB]
+Get:192 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxcursor1 amd64 1:1.2.0-2build4 [20.9 kB]
+Get:193 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxi6 amd64 2:1.8-1build1 [32.6 kB]
+Get:194 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxinerama1 amd64 2:1.1.4-3 [7382 B]
+Get:195 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxkbcommon0 amd64 1.4.0-1 [125 kB]
+Get:196 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxrandr2 amd64 2:1.5.2-1build1 [20.4 kB]
+Get:197 http://archive.ubuntu.com/ubuntu jammy/main amd64 x11-common all 1:7.7+23ubuntu2 [23.4 kB]
+Get:198 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxss1 amd64 1:1.2.3-1build2 [8476 B]
+Get:199 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxxf86vm1 amd64 1:1.1.4-1build3 [10.4 kB]
+Get:200 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsdl2-2.0-0 amd64 2.0.20+dfsg-2ubuntu1.22.04.1 [582 kB]
+Get:201 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libstb0 amd64 0.0~git20210910.af1a5bc+ds-1 [228 kB]
+Get:202 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libfaudio0 amd64 22.02-1 [144 kB]
+Get:203 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libwayland-server0 i386 1.20.0-1ubuntu0.1 [37.4 kB]
+Get:204 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libgbm1 i386 22.0.5-0ubuntu0.1 [34.2 kB]
+Get:205 http://archive.ubuntu.com/ubuntu jammy/main i386 libogg0 i386 1.3.5-0ubuntu3 [23.6 kB]
+Get:206 http://archive.ubuntu.com/ubuntu jammy/main i386 libflac8 i386 1.3.3-2build2 [109 kB]
+Get:207 http://archive.ubuntu.com/ubuntu jammy/main i386 libopus0 i386 1.3.1-0.1build2 [204 kB]
+Get:208 http://archive.ubuntu.com/ubuntu jammy/main i386 libvorbis0a i386 1.3.7-1build2 [97.6 kB]
+Get:209 http://archive.ubuntu.com/ubuntu jammy/main i386 libvorbisenc2 i386 1.3.7-1build2 [76.3 kB]
+Get:210 http://archive.ubuntu.com/ubuntu jammy/main i386 libsndfile1 i386 1.0.31-2build1 [227 kB]
+Get:211 http://archive.ubuntu.com/ubuntu jammy/main i386 libx11-xcb1 i386 2:1.7.5-1 [7818 B]
+Get:212 http://archive.ubuntu.com/ubuntu jammy/main i386 libpulse0 i386 1:15.99.1+dfsg1-1ubuntu1 [296 kB]
+Get:213 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libwayland-cursor0 i386 1.20.0-1ubuntu0.1 [12.3 kB]
+Get:214 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libwayland-egl1 i386 1.20.0-1ubuntu0.1 [5696 B]
+Get:215 http://archive.ubuntu.com/ubuntu jammy/main i386 libxfixes3 i386 1:6.0.0-1 [12.4 kB]
+Get:216 http://archive.ubuntu.com/ubuntu jammy/main i386 libxrender1 i386 1:0.9.10-1build4 [21.0 kB]
+Get:217 http://archive.ubuntu.com/ubuntu jammy/main i386 libxcursor1 i386 1:1.2.0-2build4 [22.8 kB]
+Get:218 http://archive.ubuntu.com/ubuntu jammy/main i386 libxi6 i386 2:1.8-1build1 [35.6 kB]
+Get:219 http://archive.ubuntu.com/ubuntu jammy/main i386 libxinerama1 i386 2:1.1.4-3 [7606 B]
+Get:220 http://archive.ubuntu.com/ubuntu jammy/main i386 libxkbcommon0 i386 1.4.0-1 [128 kB]
+Get:221 http://archive.ubuntu.com/ubuntu jammy/main i386 libxrandr2 i386 2:1.5.2-1build1 [21.9 kB]
+Get:222 http://archive.ubuntu.com/ubuntu jammy/main i386 libxss1 i386 1:1.2.3-1build2 [8838 B]
+Get:223 http://archive.ubuntu.com/ubuntu jammy/main i386 libxxf86vm1 i386 1:1.1.4-1build3 [11.3 kB]
+Get:224 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libsdl2-2.0-0 i386 2.0.20+dfsg-2ubuntu1.22.04.1 [607 kB]
+Get:225 http://archive.ubuntu.com/ubuntu jammy/universe i386 libstb0 i386 0.0~git20210910.af1a5bc+ds-1 [229 kB]
+Get:226 http://archive.ubuntu.com/ubuntu jammy/universe i386 libfaudio0 i386 22.02-1 [152 kB]
+Get:227 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libfreetype6 amd64 2.11.1+dfsg-1ubuntu0.1 [389 kB]
+Get:228 http://archive.ubuntu.com/ubuntu jammy/main amd64 libfontconfig1 amd64 2.13.1-4.2ubuntu5 [131 kB]
+Get:229 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libfreetype6 i386 2.11.1+dfsg-1ubuntu0.1 [403 kB]
+Get:230 http://archive.ubuntu.com/ubuntu jammy/main i386 libfontconfig1 i386 2.13.1-4.2ubuntu5 [140 kB]
+Get:231 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjpeg-turbo8 amd64 2.1.2-0ubuntu1 [134 kB]
+Get:232 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjpeg8 amd64 8c-2ubuntu10 [2264 B]
+Get:233 http://archive.ubuntu.com/ubuntu jammy/main amd64 libjbig0 amd64 2.1-3.1build3 [28.9 kB]
+Get:234 http://archive.ubuntu.com/ubuntu jammy/main amd64 libwebp7 amd64 1.2.2-2 [206 kB]
+Get:235 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libtiff5 amd64 4.3.0-6ubuntu0.1 [183 kB]
+Get:236 http://archive.ubuntu.com/ubuntu jammy/main amd64 libxpm4 amd64 1:3.5.12-1build2 [36.2 kB]
+Get:237 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgd3 amd64 2.3.0-2ubuntu2 [129 kB]
+Get:238 http://archive.ubuntu.com/ubuntu jammy/main i386 libjpeg-turbo8 i386 2.1.2-0ubuntu1 [143 kB]
+Get:239 http://archive.ubuntu.com/ubuntu jammy/main i386 libjpeg8 i386 8c-2ubuntu10 [2264 B]
+Get:240 http://archive.ubuntu.com/ubuntu jammy/main i386 libjbig0 i386 2.1-3.1build3 [29.4 kB]
+Get:241 http://archive.ubuntu.com/ubuntu jammy/main i386 libwebp7 i386 1.2.2-2 [216 kB]
+Get:242 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libtiff5 i386 4.3.0-6ubuntu0.1 [198 kB]
+Get:243 http://archive.ubuntu.com/ubuntu jammy/main i386 libxpm4 i386 1:3.5.12-1build2 [38.4 kB]
+Get:244 http://archive.ubuntu.com/ubuntu jammy/main i386 libgd3 i386 2.3.0-2ubuntu2 [137 kB]
+Get:245 http://archive.ubuntu.com/ubuntu jammy/main i386 libltdl7 i386 2.4.6-15build2 [41.5 kB]
+Get:246 http://archive.ubuntu.com/ubuntu jammy/main i386 libgphoto2-port12 i386 2.5.27-1build2 [59.4 kB]
+Get:247 http://archive.ubuntu.com/ubuntu jammy/main i386 libgphoto2-6 i386 2.5.27-1build2 [764 kB]
+Get:248 http://archive.ubuntu.com/ubuntu jammy/main amd64 libltdl7 amd64 2.4.6-15build2 [39.6 kB]
+Get:249 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgphoto2-port12 amd64 2.5.27-1build2 [57.6 kB]
+Get:250 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgphoto2-6 amd64 2.5.27-1build2 [727 kB]
+Get:251 http://archive.ubuntu.com/ubuntu jammy/main amd64 libunwind8 amd64 1.3.2-2build2 [54.5 kB]
+Get:252 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgstreamer1.0-0 amd64 1.20.3-0ubuntu1 [983 kB]
+Get:253 http://archive.ubuntu.com/ubuntu jammy/main amd64 liborc-0.4-0 amd64 1:0.4.32-2 [228 kB]
+Get:254 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgstreamer-plugins-base1.0-0 amd64 1.20.1-1 [847 kB]
+Get:255 http://archive.ubuntu.com/ubuntu jammy/main i386 libunwind8 i386 1.3.2-2build2 [54.4 kB]
+Get:256 http://archive.ubuntu.com/ubuntu jammy-updates/main i386 libgstreamer1.0-0 i386 1.20.3-0ubuntu1 [1034 kB]
+Get:257 http://archive.ubuntu.com/ubuntu jammy/main i386 liborc-0.4-0 i386 1:0.4.32-2 [234 kB]
+Get:258 http://archive.ubuntu.com/ubuntu jammy/main i386 libgstreamer-plugins-base1.0-0 i386 1.20.1-1 [880 kB]
+Get:259 http://archive.ubuntu.com/ubuntu jammy/main i386 liblcms2-2 i386 2.12~rc1-2build2 [170 kB]
+Get:260 http://archive.ubuntu.com/ubuntu jammy/main amd64 liblcms2-2 amd64 2.12~rc1-2build2 [159 kB]
+Get:261 http://archive.ubuntu.com/ubuntu jammy/main i386 libmpg123-0 i386 1.29.3-1build1 [177 kB]
+Get:262 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpg123-0 amd64 1.29.3-1build1 [172 kB]
+Get:263 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libopenal-data all 1:1.19.1-2build3 [164 kB]
+Get:264 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libsndio7.0 amd64 1.8.1-1.1 [29.3 kB]
+Get:265 http://archive.ubuntu.com/ubuntu jammy/universe i386 libsndio7.0 i386 1.8.1-1.1 [31.9 kB]
+Get:266 http://archive.ubuntu.com/ubuntu jammy/main amd64 libtool all 2.4.6-15build2 [164 kB]
+Get:267 http://archive.ubuntu.com/ubuntu jammy/main amd64 libvulkan1 amd64 1.3.204.1-2 [128 kB]
+Get:268 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libvkd3d1 amd64 1.1-5 [125 kB]
+Get:269 http://archive.ubuntu.com/ubuntu jammy/main i386 libvulkan1 i386 1.3.204.1-2 [137 kB]
+Get:270 http://archive.ubuntu.com/ubuntu jammy/universe i386 libvkd3d1 i386 1.1-5 [130 kB]
+Get:271 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libopenal1 amd64 1:1.19.1-2build3 [535 kB]
+Get:272 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ocl-icd-libopencl1 amd64 2.2.14-3 [39.1 kB]
+Get:273 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libz-mingw-w64 all 1.2.11+dfsg-4 [122 kB]
+Get:274 http://archive.ubuntu.com/ubuntu jammy/universe amd64 libwine amd64 6.0.3~repack-1 [83.8 MB]
+Get:275 http://archive.ubuntu.com/ubuntu jammy/universe i386 libopenal1 i386 1:1.19.1-2build3 [548 kB]
+Get:276 http://archive.ubuntu.com/ubuntu jammy/universe i386 ocl-icd-libopencl1 i386 2.2.14-3 [41.2 kB]
+Get:277 http://archive.ubuntu.com/ubuntu jammy/universe i386 libwine i386 6.0.3~repack-1 [82.1 MB]
+Get:278 http://archive.ubuntu.com/ubuntu jammy/universe amd64 nsis-common all 3.08-2 [971 kB]
+Get:279 http://archive.ubuntu.com/ubuntu jammy/universe amd64 nsis amd64 3.08-2 [309 kB]
+Get:280 http://archive.ubuntu.com/ubuntu jammy/main amd64 pkg-config amd64 0.29.2-1ubuntu3 [48.2 kB]
+Get:281 http://archive.ubuntu.com/ubuntu jammy/universe amd64 wine64 amd64 6.0.3~repack-1 [236 kB]
+Get:282 http://archive.ubuntu.com/ubuntu jammy/universe i386 wine32 i386 6.0.3~repack-1 [229 kB]
+Get:283 http://archive.ubuntu.com/ubuntu jammy/universe amd64 wine all 6.0.3~repack-1 [52.1 kB]
+Get:284 http://archive.ubuntu.com/ubuntu jammy/universe amd64 wine-binfmt all 6.0.3~repack-1 [5526 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 372 MB in 8s (48.9 MB/s)
+Selecting previously unselected package gcc-12-base:i386.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 8352 files and directories currently installed.)
+Preparing to unpack .../0-gcc-12-base_12.1.0-2ubuntu1~22.04_i386.deb ...
+Unpacking gcc-12-base:i386 (12.1.0-2ubuntu1~22.04) ...
+Selecting previously unselected package libgcc-s1:i386.
+Preparing to unpack .../1-libgcc-s1_12.1.0-2ubuntu1~22.04_i386.deb ...
+Unpacking libgcc-s1:i386 (12.1.0-2ubuntu1~22.04) ...
+Selecting previously unselected package libcrypt1:i386.
+Preparing to unpack .../2-libcrypt1_1%3a4.4.27-1_i386.deb ...
+Unpacking libcrypt1:i386 (1:4.4.27-1) ...
+Selecting previously unselected package libc6:i386.
+Preparing to unpack .../3-libc6_2.35-0ubuntu3.1_i386.deb ...
+Unpacking libc6:i386 (2.35-0ubuntu3.1) ...
+
+Timed out!
