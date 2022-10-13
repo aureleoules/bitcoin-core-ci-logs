@@ -1,0 +1,20 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [631 kB]
+Fetched 955 kB in 1s (1,308 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 51 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26297/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was dc869c6a7 ci: Use all available CPUs for functional tests in "Win64 native" task
+HEAD is now at e823f1a1c Merge dc869c6a77c4542d4d9dcefdec577d1876e51061 into 1d277f42236d6074ea84c407ae0863ae943f27e4
