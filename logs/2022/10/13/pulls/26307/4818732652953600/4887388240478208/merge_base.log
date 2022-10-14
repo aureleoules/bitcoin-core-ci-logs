@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.4).
+0 upgraded, 0 newly installed, 0 to remove and 25 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26307/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was ae3626ea5 test: use MiniWallet for rpc_scanblocks.py
+HEAD is now at f77f143f5 Merge ae3626ea52deb22010c0d57d9f992e1e1bc31ba8 into deeb70a165ad2ebdba6e4ada99af62e988960842
