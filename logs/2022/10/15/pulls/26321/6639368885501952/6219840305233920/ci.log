@@ -1,0 +1,414 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-zmq --with-libs=no --with-gui=qt5 --enable-reduce-exports --enable-debug CFLAGS="-g0 -O2 -funsigned-char" CXXFLAGS="-g0 -O2 -funsigned-char" CC=gcc-8 CXX=g++-8
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Creating debian:buster container to run in
+buster: Pulling from library/debian
+Digest: sha256:604db908f7ce93379b1289c0c7ba73b252002087a3fa64fe904b430083ba5f69
+Status: Image is up to date for debian:buster
+docker.io/library/debian:buster
+Restart docker before run to stop and clear all containers started with --rm
+Err:1 http://deb.debian.org/debian buster InRelease
+  Could not connect to deb.debian.org:80 (199.232.138.132), connection timed out
+Err:2 http://deb.debian.org/debian-security buster/updates InRelease
+  Unable to connect to deb.debian.org:http:
+Err:3 http://deb.debian.org/debian buster-updates InRelease
+  Unable to connect to deb.debian.org:http:
+Reading package lists...
+W: Failed to fetch http://deb.debian.org/debian/dists/buster/InRelease  Could not connect to deb.debian.org:80 (199.232.138.132), connection timed out
+W: Failed to fetch http://deb.debian.org/debian-security/dists/buster/updates/InRelease  Unable to connect to deb.debian.org:http:
+W: Failed to fetch http://deb.debian.org/debian/dists/buster-updates/InRelease  Unable to connect to deb.debian.org:http:
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #1: sleeping 0.3 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #2: sleeping 0.6 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #3: sleeping 1.2 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #4: sleeping 2.4 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #5: sleeping 4.8 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #6: sleeping 9.6 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #7: sleeping 19.2 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #8: sleeping 38.4 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #9: sleeping 60 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Before retry #10: sleeping 60 seconds
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package ca-certificates is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+Package bsdmainutils is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Unable to locate package gcc-8
+E: Unable to locate package g++-8
+E: Couldn't find any package by regex 'g++-8'
+E: Unable to locate package python3-zmq
+E: Unable to locate package qtbase5-dev
+E: Unable to locate package qttools5-dev-tools
+E: Unable to locate package libdbus-1-dev
+E: Unable to locate package libharfbuzz-dev
+E: Unable to locate package build-essential
+E: Unable to locate package libtool
+E: Unable to locate package autotools-dev
+E: Unable to locate package automake
+E: Unable to locate package pkg-config
+E: Package 'bsdmainutils' has no installation candidate
+E: Unable to locate package curl
+E: Package 'ca-certificates' has no installation candidate
+E: Unable to locate package ccache
+E: Unable to locate package python3
+E: Unable to locate package rsync
+E: Unable to locate package git
+E: Unable to locate package procps
+E: Unable to locate package bison
+Retries exhausted
+
+Exit status: 100
