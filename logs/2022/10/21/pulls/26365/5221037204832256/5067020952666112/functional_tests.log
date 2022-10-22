@@ -1,0 +1,912 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv4 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv6 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call python test\functional\test_runner.py --nocleanup --ci --quiet --combinedlogslen=4000 --jobs=6 --timeout-factor=8 --extended --exclude feature_dbcrash 
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.034s
+
+OK
+Running Unit Tests for Test Framework Modules
+225/255 - p2p_sendtxrcncl.py failed, Duration: 3 s
+
+stdout:
+2022-10-21T16:44:04.563000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26
+2022-10-21T16:44:05.406000Z TestFramework (INFO): SENDTXRCNCL sent to an inbound
+2022-10-21T16:44:05.578000Z TestFramework (INFO): SENDTXRCNCL should be sent before VERACK
+2022-10-21T16:44:05.703000Z TestFramework (INFO): SENDTXRCNCL on pre-WTXID version should not be sent
+2022-10-21T16:44:05.922000Z TestFramework (INFO): SENDTXRCNCL for fRelay=false should not be sent
+2022-10-21T16:44:05.985000Z TestFramework (INFO): valid SENDTXRCNCL received
+2022-10-21T16:44:05.985000Z TestFramework (INFO): second SENDTXRCNCL triggers a disconnect
+2022-10-21T16:44:06.110000Z TestFramework (INFO): SENDTXRCNCL with initiator=responder=0 triggers a disconnect
+2022-10-21T16:44:06.235000Z TestFramework (INFO): SENDTXRCNCL with initiator=0 and responder=1 from inbound triggers a disconnect
+2022-10-21T16:44:06.360000Z TestFramework (INFO): SENDTXRCNCL with version=0 triggers a disconnect
+2022-10-21T16:44:06.422000Z TestFramework (INFO): sending SENDTXRCNCL after sending VERACK triggers a disconnect
+2022-10-21T16:44:06.422000Z TestFramework (ERROR): Assertion failed
+Traceback (most recent call last):
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 133, in main
+    self.run_test()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\p2p_sendtxrcncl.py", line 138, in run_test
+    peer.send_and_ping(msg_verack())
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 553, in send_and_ping
+    self.sync_with_ping(timeout=timeout)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 570, in sync_with_ping
+    self.wait_until(test_function, timeout=timeout)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 463, in wait_until
+    wait_until_helper(test_function, timeout=timeout, lock=p2p_lock, timeout_factor=self.timeout_factor)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\util.py", line 267, in wait_until_helper
+    if predicate():
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 460, in test_function
+    assert self.is_connected
+AssertionError
+2022-10-21T16:44:06.422000Z TestFramework (INFO): Stopping nodes
+2022-10-21T16:44:06.610000Z TestFramework (WARNING): Not cleaning up dir C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): Test failed. Test logging available at C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26/test_framework.log
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): 
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): Hint: Call C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\combine_logs.py 'C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26' to consolidate all logs
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): 
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log.
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues
+2022-10-21T16:44:06.610000Z TestFramework (ERROR): 
+
+
+stderr:
+
+
+Combine the logs and print the last 4000 lines ...
+
+============
+Combined log for C:\Users\ContainerAdministrator\AppData\Local\Temp/test_runner_₿_🏃_20221021_161335/p2p_sendtxrcncl_26:
+============
+
+ test  2022-10-21T16:44:04.548000Z TestFramework (DEBUG): PRNG seed is: 6481186437543001271 
+ test  2022-10-21T16:44:04.548000Z TestFramework (DEBUG): Setting up network thread 
+ test  2022-10-21T16:44:04.563000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26 
+ test  2022-10-21T16:44:04.563000Z TestFramework (DEBUG): Copy cache directory C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\cache\node0 to node 0 
+ test  2022-10-21T16:44:04.594000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up 
+ node0 2022-10-21T16:44:05.128751Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:149] [LogPackageVersion] Bitcoin Core version v24.99.0-unk (release build) 
+ node0 2022-10-21T16:44:05.128829Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:664] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 
+ node0 2022-10-21T16:44:05.130957Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\context.cpp:21] [Context] Using the 'standard' SHA256 implementation 
+ node0 2022-10-21T16:44:05.150800Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:120] [StartLogging] Default data directory C:\Users\ContainerAdministrator\AppData\Roaming\Bitcoin 
+ node0 2022-10-21T16:44:05.151866Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:121] [StartLogging] Using data directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest 
+ node0 2022-10-21T16:44:05.152041Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:126] [StartLogging] Config file: C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\bitcoin.conf 
+ node0 2022-10-21T16:44:05.152130Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: regtest="1" 
+ node0 2022-10-21T16:44:05.152198Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" 
+ node0 2022-10-21T16:44:05.152255Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] connect="0" 
+ node0 2022-10-21T16:44:05.152314Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] discover="0" 
+ node0 2022-10-21T16:44:05.152367Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" 
+ node0 2022-10-21T16:44:05.152428Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" 
+ node0 2022-10-21T16:44:05.152482Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" 
+ node0 2022-10-21T16:44:05.152535Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] keypool="1" 
+ node0 2022-10-21T16:44:05.152602Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] listenonion="0" 
+ node0 2022-10-21T16:44:05.152669Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] natpmp="0" 
+ node0 2022-10-21T16:44:05.152723Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" 
+ node0 2022-10-21T16:44:05.152783Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] port="14312" 
+ node0 2022-10-21T16:44:05.152838Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" 
+ node0 2022-10-21T16:44:05.152897Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" 
+ node0 2022-10-21T16:44:05.152960Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcport="19312" 
+ node0 2022-10-21T16:44:05.153030Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] server="1" 
+ node0 2022-10-21T16:44:05.153141Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" 
+ node0 2022-10-21T16:44:05.153206Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" 
+ node0 2022-10-21T16:44:05.153265Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] upnp="0" 
+ node0 2022-10-21T16:44:05.153335Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: datadir="C:\\Users\\ContainerAdministrator\\AppData\\Local\\Temp\\test_runner_₿_🏃_20221021_161335\\p2p_sendtxrcncl_26\\node0" 
+ node0 2022-10-21T16:44:05.153396Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debug="" 
+ node0 2022-10-21T16:44:05.153459Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="libevent" 
+ node0 2022-10-21T16:44:05.153514Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="leveldb" 
+ node0 2022-10-21T16:44:05.153575Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: loglevel="trace" 
+ node0 2022-10-21T16:44:05.153637Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logsourcelocations="" 
+ node0 2022-10-21T16:44:05.153694Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logthreadnames="" 
+ node0 2022-10-21T16:44:05.153748Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logtimemicros="" 
+ node0 2022-10-21T16:44:05.153807Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: txreconciliation="" 
+ node0 2022-10-21T16:44:05.153863Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: uacomment="testnode0" 
+ node0 2022-10-21T16:44:05.153919Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1115] [AppInitMain] Using at most 125 automatic connections (2048 file descriptors available) 
+ node0 2022-10-21T16:44:05.183361Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\script\sigcache.cpp:103] [InitSignatureCache] Using 16 MiB out of 16 MiB requested for signature cache, able to store 524288 elements 
+ node0 2022-10-21T16:44:05.213397Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:1670] [InitScriptExecutionCache] Using 16 MiB out of 16 MiB requested for script execution cache, able to store 524288 elements 
+ node0 2022-10-21T16:44:05.213513Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1147] [AppInitMain] Script verification uses 5 additional threads 
+ node0 2022-10-21T16:44:05.250165Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] scheduler thread start 
+ node0 2022-10-21T16:44:05.251421Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:185] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 
+ node0 2022-10-21T16:44:05.253772Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:323] [HTTPBindAddresses] Binding RPC on address ::1 port 19312 
+ node0 2022-10-21T16:44:05.254663Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:323] [HTTPBindAddresses] Binding RPC on address 127.0.0.1 port 19312 
+ node0 2022-10-21T16:44:05.254902Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:403] [InitHTTPServer] [http] Initialized HTTP server 
+ node0 2022-10-21T16:44:05.254977Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:405] [InitHTTPServer] [http] creating work queue of depth 16 
+ node0 2022-10-21T16:44:05.255026Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:289] [StartRPC] [rpc] Starting RPC 
+ node0 2022-10-21T16:44:05.255137Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server 
+ node0 2022-10-21T16:44:05.255223Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. 
+ node0 2022-10-21T16:44:05.260404Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\.cookie 
+ node0 2022-10-21T16:44:05.260521Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:678] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) 
+ node0 2022-10-21T16:44:05.260593Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:678] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-10-21T16:44:05.260653Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:427] [StartHTTPServer] [http] Starting HTTP server 
+ node0 2022-10-21T16:44:05.260711Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:429] [StartHTTPServer] [http] starting 4 worker threads 
+ node0 2022-10-21T16:44:05.261168Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\wallet\load.cpp:51] [VerifyWallets] Using wallet directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest 
+ node0 2022-10-21T16:44:05.261250Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Verifying wallet(s)… 
+ node0 2022-10-21T16:44:05.261815Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1233] [AppInitMain] Using /16 prefix for IP bucketing 
+ node0 2022-10-21T16:44:05.261897Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… 
+ node0 2022-10-21T16:44:05.263555Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\addrdb.cpp:198] [LoadAddrman] Creating peers.dat because the file was not found ("C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\peers.dat") 
+ node0 2022-10-21T16:44:05.267288Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:289] [ThreadHTTP] [http] Entering http event loop 
+ node0 2022-10-21T16:44:05.270206Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading banlist… 
+ node0 2022-10-21T16:44:05.270375Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:41] [LoadBanlist] Recreating the banlist database 
+ node0 2022-10-21T16:44:05.270813Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:67] [DumpBanlist] [net] Flushed 0 banned node addresses/subnets to disk  0ms 
+ node0 2022-10-21T16:44:05.270938Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1534] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false 
+ node0 2022-10-21T16:44:05.271004Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2195] [SetNetworkActive] SetNetworkActive: true 
+ node0 2022-10-21T16:44:05.273023Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:551] [CBlockPolicyEstimator] Failed to read fee estimates from C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\fee_estimates.dat. Continue anyway. 
+ node0 2022-10-21T16:44:05.273370Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1442] [AppInitMain] Cache configuration: 
+ node0 2022-10-21T16:44:05.273451Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1443] [AppInitMain] * Using 2.0 MiB for block index database 
+ node0 2022-10-21T16:44:05.273510Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1451] [AppInitMain] * Using 8.0 MiB for chain state database 
+ node0 2022-10-21T16:44:05.273685Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1469] [AppInitMain] * Using 440.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) 
+ node0 2022-10-21T16:44:05.273907Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading block index… 
+ node0 2022-10-21T16:44:05.273975Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:38] [LoadChainstate] Validating signatures for all blocks. 
+ node0 2022-10-21T16:44:05.274036Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:40] [LoadChainstate] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 
+ node0 2022-10-21T16:44:05.275418Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\blocks\index 
+ node0 2022-10-21T16:44:05.293238Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-10-21T16:44:05.293363Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\blocks\index: 0000000000000000 
+ node0 2022-10-21T16:44:05.298618Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:331] [LoadBlockIndexDB] LoadBlockIndexDB: last block file = 0 
+ node0 2022-10-21T16:44:05.298762Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:335] [LoadBlockIndexDB] LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=200, size=52530, heights=0...199, time=2011-02-02...2011-02-02) 
+ node0 2022-10-21T16:44:05.298824Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:346] [LoadBlockIndexDB] Checking all blk files are present... 
+ node0 2022-10-21T16:44:05.300698Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:116] [LoadChainstate] Initializing chainstate Chainstate [ibd] @ height -1 (null) 
+ node0 2022-10-21T16:44:05.301826Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\chainstate 
+ node0 2022-10-21T16:44:05.319587Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-10-21T16:44:05.319874Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\chainstate: db9aeb10a019169d 
+ node0 2022-10-21T16:44:05.320338Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4015] [LoadChainTip] Loaded best chain: hashBestChain=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c height=199 date=2011-02-02T23:17:17Z progress=1.000000 
+ node0 2022-10-21T16:44:05.320499Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:5220] [MaybeRebalanceCaches] [snapshot] allocating all cache to the IBD chainstate 
+ node0 2022-10-21T16:44:05.321616Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\chainstate 
+ node0 2022-10-21T16:44:05.333121Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-10-21T16:44:05.333399Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26\node0\regtest\chainstate: db9aeb10a019169d 
+ node0 2022-10-21T16:44:05.333487Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4763] [ResizeCoinsCaches] [Chainstate [ibd] @ height 199 (39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c)] resized coinsdb cache to 8.0 MiB 
+ node0 2022-10-21T16:44:05.333567Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4765] [ResizeCoinsCaches] [Chainstate [ibd] @ height 199 (39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c)] resized coinstip cache to 440.0 MiB 
+ node0 2022-10-21T16:44:05.333665Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Verifying blocks… 
+ node0 2022-10-21T16:44:05.333737Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4046] [VerifyDB] Verifying last 6 blocks at level 3 
+ node0 2022-10-21T16:44:05.333808Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4053] [VerifyDB] [0%]...[16%]...[33%]...[50%]...[66%]...[83%]...[99%]...[DONE]. 
+ node0 2022-10-21T16:44:05.355161Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4140] [VerifyDB] No coin database inconsistencies in last 6 blocks (6 transactions) 
+ node0 2022-10-21T16:44:05.355231Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1515] [AppInitMain]  block index              81ms 
+ node0 2022-10-21T16:44:05.356789Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1604] [AppInitMain] Setting NODE_NETWORK on non-prune mode 
+ node0 2022-10-21T16:44:05.357133Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1673] [AppInitMain] block tree size = 200 
+ node0 2022-10-21T16:44:05.357205Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1685] [AppInitMain] nBestHeight = 199 
+ node0 2022-10-21T16:44:05.357563Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2128] [BindListenPort] Bound to 127.0.0.1:14312 
+ node0 2022-10-21T16:44:05.357724Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2128] [BindListenPort] Bound to 127.0.0.1:18445 
+ node0 2022-10-21T16:44:05.357814Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Starting network threads… 
+ node0 2022-10-21T16:44:05.357951Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2334] [Start] DNS seeding disabled 
+ node0 2022-10-21T16:44:05.358142Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Done loading 
+ node0 2022-10-21T16:44:05.358679Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] loadblk thread start 
+ node0 2022-10-21T16:44:05.358787Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] addcon thread start 
+ node0 2022-10-21T16:44:05.359054Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] net thread start 
+ node0 2022-10-21T16:44:05.359158Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] msghand thread start 
+ node0 2022-10-21T16:44:05.359230Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:47] [LoadMempool] Failed to open mempool file from disk. Continuing anyway. 
+ node0 2022-10-21T16:44:05.359300Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] loadblk thread exit 
+ node0 2022-10-21T16:44:05.389645Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11595 
+ node0 2022-10-21T16:44:05.389911Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockcount user=__cookie__ 
+ test  2022-10-21T16:44:05.390000Z TestFramework.node0 (DEBUG): RPC successfully started 
+ test  2022-10-21T16:44:05.390000Z TestFramework (DEBUG): Generate a block with current time 
+ test  2022-10-21T16:44:05.390000Z TestFramework.node0 (DEBUG): TestNode.generate() dispatches `generate` call to `generatetoaddress` 
+ node0 2022-10-21T16:44:05.391560Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11596 
+ node0 2022-10-21T16:44:05.391793Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getmempoolinfo user=__cookie__ 
+ node0 2022-10-21T16:44:05.393703Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11597 
+ node0 2022-10-21T16:44:05.393926Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockchaininfo user=__cookie__ 
+ node0 2022-10-21T16:44:05.396544Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11599 
+ node0 2022-10-21T16:44:05.396735Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=generatetoaddress user=__cookie__ 
+ node0 2022-10-21T16:44:05.397238Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\miner.cpp:163] [CreateNewBlock] CreateNewBlock(): block weight: 904 txs: 0 fees: 0 sigops 400 
+ node0 2022-10-21T16:44:05.397478Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2074] [ConnectBlock] [bench]     - Sanity checks: 0.01ms [0.00s (0.01ms/blk)] 
+ node0 2022-10-21T16:44:05.397608Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2177] [ConnectBlock] [bench]     - Fork checks: 0.15ms [0.00s (0.15ms/blk)] 
+ node0 2022-10-21T16:44:05.397713Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2267] [ConnectBlock] [bench]       - Connect 1 transactions: 0.09ms (0.094ms/tx, 0.000ms/txin) [0.00s (0.09ms/blk)] 
+ node0 2022-10-21T16:44:05.397799Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2285] [ConnectBlock] [bench]     - Verify 0 txins: 0.19ms (0.000ms/txin) [0.00s (0.19ms/blk)] 
+ node0 2022-10-21T16:44:05.397880Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\miner.cpp:181] [CreateNewBlock] [bench] CreateNewBlock() packages: 0.05ms (0 packages, 0 updated descendants), validity: 0.77ms (total 0.82ms) 
+ node0 2022-10-21T16:44:05.400471Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2749] [ConnectTip] [bench]   - Using cached block 
+ node0 2022-10-21T16:44:05.400564Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2760] [ConnectTip] [bench]   - Load block from disk: 0.08ms [0.00s (0.08ms/blk)] 
+ node0 2022-10-21T16:44:05.400662Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2074] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.01ms/blk)] 
+ node0 2022-10-21T16:44:05.400770Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2177] [ConnectBlock] [bench]     - Fork checks: 0.11ms [0.00s (0.13ms/blk)] 
+ node0 2022-10-21T16:44:05.400874Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2267] [ConnectBlock] [bench]       - Connect 1 transactions: 0.09ms (0.092ms/tx, 0.000ms/txin) [0.00s (0.09ms/blk)] 
+ node0 2022-10-21T16:44:05.400957Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2285] [ConnectBlock] [bench]     - Verify 0 txins: 0.18ms (0.000ms/txin) [0.00s (0.18ms/blk)] 
+ node0 2022-10-21T16:44:05.402199Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2299] [ConnectBlock] [bench]     - Write undo data: 1.23ms [0.00s (0.62ms/blk)] 
+ node0 2022-10-21T16:44:05.402279Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2314] [ConnectBlock] [bench]     - Index writing: 0.09ms [0.00s (0.05ms/blk)] 
+ node0 2022-10-21T16:44:05.402358Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:252] [BlockChecked] [validation] BlockChecked: block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 state=Valid 
+ node0 2022-10-21T16:44:05.402462Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2776] [ConnectTip] [bench]   - Connect total: 1.91ms [0.00s (0.95ms/blk)] 
+ node0 2022-10-21T16:44:05.402539Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2785] [ConnectTip] [bench]   - Flush: 0.08ms [0.00s (0.04ms/blk)] 
+ node0 2022-10-21T16:44:05.402611Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2795] [ConnectTip] [bench]   - Writing chainstate: 0.07ms [0.00s (0.04ms/blk)] 
+ node0 2022-10-21T16:44:05.403648Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:667] [processBlock] [estimatefee] Blockpolicy estimates updated by 0 of 0 block txs, since last block 0 of 0 tracked, mempool map size 0, max target 0 from current 
+ node0 2022-10-21T16:44:05.403718Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:1552] [IsInitialBlockDownload] Leaving InitialBlockDownload (latching to false) 
+ node0 2022-10-21T16:44:05.403916Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2555] [UpdateTipLog] UpdateTip: new best=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 height=200 version=0x30000000 log2_work=8.651052 tx=201 date='2022-10-21T16:44:05Z' progress=1.000000 cache=0.0MiB(1txo) 
+ node0 2022-10-21T16:44:05.403983Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2811] [ConnectTip] [bench]   - Connect postprocess: 1.37ms [0.00s (0.69ms/blk)] 
+ node0 2022-10-21T16:44:05.404049Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2815] [ConnectTip] [bench] - Connect block: 3.51ms [0.00s (1.75ms/blk)] 
+ node0 2022-10-21T16:44:05.404127Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txmempool.cpp:694] [check] [mempool] Checking mempool with 0 transactions and 0 inputs 
+ node0 2022-10-21T16:44:05.404235Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:229] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 block height=200 
+ node0 2022-10-21T16:44:05.404315Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:202] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 fork block hash=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c (in IBD=false) 
+ node0 2022-10-21T16:44:05.405143Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:229] [operator ()] [validation] BlockConnected: block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 block height=200 
+ node0 2022-10-21T16:44:05.405309Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:202] [operator ()] [validation] UpdatedBlockTip: new block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 fork block hash=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c (in IBD=false) 
+ test  2022-10-21T16:44:05.406000Z TestFramework (INFO): SENDTXRCNCL sent to an inbound 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xD1F384CBD04610F3 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x4C2249425E514BDE strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_getaddr() 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=5728959078172387657) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendcmpct(announce=False, version=2) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_ping(nonce=caa19a184bb499a2) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_pong(nonce=caa19a184bb499a2) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_getheaders(locator=CBlockLocator(vHave=[25904390216175313194312162455780078753009692101200952252992871177711616225820, 10439194800033568075353954394040901046437382900627609508673849620975391395575, 40446225147528968444488730747006358517695899943732003474923480031726915305221, 32881632053604177249247854545860335098773301364214891775874295669143030708145, 8274383136340278425284592751131987282275833971901249227378370713913292132329, 91375339536865810244115815573593171857986770160039248524702050... (msg truncated) 
+ test  2022-10-21T16:44:05.406000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_feefilter(feerate=000003e8) 
+ node0 2022-10-21T16:44:05.406122Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11600 
+ node0 2022-10-21T16:44:05.406339Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblock user=__cookie__ 
+ node0 2022-10-21T16:44:05.409526Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11601 
+ node0 2022-10-21T16:44:05.409753Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=submitblock user=__cookie__ 
+ node0 2022-10-21T16:44:05.411071Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11602 
+ node0 2022-10-21T16:44:05.411279Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockchaininfo user=__cookie__ 
+ node0 2022-10-21T16:44:05.412890Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11603 
+ node0 2022-10-21T16:44:05.413061Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ 
+ node0 2022-10-21T16:44:05.414179Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11604 
+ node0 2022-10-21T16:44:05.414380Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getrawmempool user=__cookie__ 
+ node0 2022-10-21T16:44:05.415854Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11605 
+ node0 2022-10-21T16:44:05.416063Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=syncwithvalidationinterfacequeue user=__cookie__ 
+ node0 2022-10-21T16:44:05.417866Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=0 
+ node0 2022-10-21T16:44:05.418041Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11606 accepted 
+ node0 2022-10-21T16:44:05.418705Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=0 
+ node0 2022-10-21T16:44:05.418846Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=0 
+ node0 2022-10-21T16:44:05.419029Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=0 
+ node0 2022-10-21T16:44:05.419148Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=0 
+ node0 2022-10-21T16:44:05.419268Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=0 
+ node0 2022-10-21T16:44:05.419816Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=0 
+ node0 2022-10-21T16:44:05.419984Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=0 
+ node0 2022-10-21T16:44:05.420220Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=0 
+ node0 2022-10-21T16:44:05.420406Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=0 
+ node0 2022-10-21T16:44:05.420543Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=0 
+ node0 2022-10-21T16:44:05.420639Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: verack (0 bytes) peer=0 
+ node0 2022-10-21T16:44:05.420711Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendcmpct (9 bytes) peer=0 
+ node0 2022-10-21T16:44:05.420854Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=0 
+ node0 2022-10-21T16:44:05.420953Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending ping (8 bytes) peer=0 
+ node0 2022-10-21T16:44:05.421157Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending getheaders (645 bytes) peer=0 
+ node0 2022-10-21T16:44:05.421312Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:5413] [SendMessages] [net] initial getheaders (199) to peer=0 (startheight:-1) 
+ node0 2022-10-21T16:44:05.421642Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending feefilter (8 bytes) peer=0 
+ node0 2022-10-21T16:44:05.421888Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: getaddr (0 bytes) peer=0 
+ node0 2022-10-21T16:44:05.422087Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\addrman.cpp:812] [GetAddr_] [addrman] GetAddr returned 0 random addresses 
+ node0 2022-10-21T16:44:05.422319Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: pong (8 bytes) peer=0 
+ test  2022-10-21T16:44:05.469000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_ping(nonce=00000001) 
+ test  2022-10-21T16:44:05.469000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_pong(nonce=00000001) 
+ node0 2022-10-21T16:44:05.470251Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: ping (8 bytes) peer=0 
+ node0 2022-10-21T16:44:05.470373Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending pong (8 bytes) peer=0 
+ node0 2022-10-21T16:44:05.577992Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11631 
+ test  2022-10-21T16:44:05.578000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.578000Z TestFramework (INFO): SENDTXRCNCL should be sent before VERACK 
+ test  2022-10-21T16:44:05.578000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.578000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ node0 2022-10-21T16:44:05.578223Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ 
+ node0 2022-10-21T16:44:05.593160Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1326] [SocketHandlerConnected] [net] socket closed for peer=0 
+ node0 2022-10-21T16:44:05.593230Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=0 
+ node0 2022-10-21T16:44:05.593541Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=0 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x279E7B003CFD2EF6 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xCAFC1011C3C6867F strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_getaddr() 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=16650590582027413989) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendcmpct(announce=False, version=2) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_ping(nonce=18c6bc3c3b32c6f9) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_pong(nonce=18c6bc3c3b32c6f9) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_getheaders(locator=CBlockLocator(vHave=[25904390216175313194312162455780078753009692101200952252992871177711616225820, 10439194800033568075353954394040901046437382900627609508673849620975391395575, 40446225147528968444488730747006358517695899943732003474923480031726915305221, 32881632053604177249247854545860335098773301364214891775874295669143030708145, 8274383136340278425284592751131987282275833971901249227378370713913292132329, 91375339536865810244115815573593171857986770160039248524702050... (msg truncated) 
+ test  2022-10-21T16:44:05.594000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_feefilter(feerate=000003e8) 
+ node0 2022-10-21T16:44:05.594148Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=1 
+ node0 2022-10-21T16:44:05.594309Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11633 accepted 
+ node0 2022-10-21T16:44:05.595000Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=1 
+ node0 2022-10-21T16:44:05.595118Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=1 
+ node0 2022-10-21T16:44:05.595262Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=1 
+ node0 2022-10-21T16:44:05.595323Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=1 
+ node0 2022-10-21T16:44:05.595428Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=1 
+ node0 2022-10-21T16:44:05.595937Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=1 
+ node0 2022-10-21T16:44:05.596040Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=1 
+ node0 2022-10-21T16:44:05.596171Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=1 
+ node0 2022-10-21T16:44:05.596313Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=1 
+ node0 2022-10-21T16:44:05.596407Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=1 
+ node0 2022-10-21T16:44:05.596486Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: verack (0 bytes) peer=1 
+ node0 2022-10-21T16:44:05.596552Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendcmpct (9 bytes) peer=1 
+ node0 2022-10-21T16:44:05.596698Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=1 
+ node0 2022-10-21T16:44:05.596795Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending ping (8 bytes) peer=1 
+ node0 2022-10-21T16:44:05.596961Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending getheaders (645 bytes) peer=1 
+ node0 2022-10-21T16:44:05.597115Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:5413] [SendMessages] [net] initial getheaders (199) to peer=1 (startheight:-1) 
+ node0 2022-10-21T16:44:05.597219Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending feefilter (8 bytes) peer=1 
+ node0 2022-10-21T16:44:05.597386Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: getaddr (0 bytes) peer=1 
+ node0 2022-10-21T16:44:05.597644Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: pong (8 bytes) peer=1 
+ test  2022-10-21T16:44:05.641000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_ping(nonce=00000001) 
+ test  2022-10-21T16:44:05.641000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_pong(nonce=00000001) 
+ node0 2022-10-21T16:44:05.651280Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: ping (8 bytes) peer=1 
+ node0 2022-10-21T16:44:05.651373Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending pong (8 bytes) peer=1 
+ test  2022-10-21T16:44:05.703000Z TestFramework (INFO): SENDTXRCNCL on pre-WTXID version should not be sent 
+ test  2022-10-21T16:44:05.703000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.703000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.703000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ node0 2022-10-21T16:44:05.705907Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11639 
+ node0 2022-10-21T16:44:05.706099Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ 
+ node0 2022-10-21T16:44:05.710036Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1326] [SocketHandlerConnected] [net] socket closed for peer=1 
+ node0 2022-10-21T16:44:05.710141Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=1 
+ node0 2022-10-21T16:44:05.710407Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=1 
+ node0 2022-10-21T16:44:05.710745Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=2 
+ node0 2022-10-21T16:44:05.710872Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11640 accepted 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70015 nServices=9 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xB88BA8833F0C66CD strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xE973287FC57C4035 strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_getaddr() 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendcmpct(announce=False, version=2) 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_ping(nonce=da8e0adeda37ab46) 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_pong(nonce=da8e0adeda37ab46) 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_getheaders(locator=CBlockLocator(vHave=[25904390216175313194312162455780078753009692101200952252992871177711616225820, 10439194800033568075353954394040901046437382900627609508673849620975391395575, 40446225147528968444488730747006358517695899943732003474923480031726915305221, 32881632053604177249247854545860335098773301364214891775874295669143030708145, 8274383136340278425284592751131987282275833971901249227378370713913292132329, 91375339536865810244115815573593171857986770160039248524702050... (msg truncated) 
+ test  2022-10-21T16:44:05.860000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_feefilter(feerate=000003e8) 
+ node0 2022-10-21T16:44:05.868216Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=2 
+ node0 2022-10-21T16:44:05.868349Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=2 
+ node0 2022-10-21T16:44:05.868509Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=2 
+ node0 2022-10-21T16:44:05.869001Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=2 
+ node0 2022-10-21T16:44:05.869180Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70015, blocks=-1, us=0.0.0.0:0, txrelay=1, peer=2 
+ node0 2022-10-21T16:44:05.869384Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=2 
+ node0 2022-10-21T16:44:05.869455Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3472] [ProcessMessage] [net] ignoring wtxidrelay due to old common version=70015 from peer=2 
+ node0 2022-10-21T16:44:05.869525Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: verack (0 bytes) peer=2 
+ node0 2022-10-21T16:44:05.869586Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendcmpct (9 bytes) peer=2 
+ node0 2022-10-21T16:44:05.869772Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending ping (8 bytes) peer=2 
+ node0 2022-10-21T16:44:05.869951Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending getheaders (645 bytes) peer=2 
+ node0 2022-10-21T16:44:05.870084Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:5413] [SendMessages] [net] initial getheaders (199) to peer=2 (startheight:-1) 
+ node0 2022-10-21T16:44:05.870183Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending feefilter (8 bytes) peer=2 
+ node0 2022-10-21T16:44:05.870327Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: getaddr (0 bytes) peer=2 
+ node0 2022-10-21T16:44:05.870562Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: pong (8 bytes) peer=2 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.922000Z TestFramework (INFO): SENDTXRCNCL for fRelay=false should not be sent 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x70DE0A9407393F71 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=0) 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x19D8C2D91E8F82A3 strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_getaddr() 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendcmpct(announce=False, version=2) 
+ test  2022-10-21T16:44:05.922000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_ping(nonce=f06bf0198eb3845) 
+ node0 2022-10-21T16:44:05.923306Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1326] [SocketHandlerConnected] [net] socket closed for peer=2 
+ node0 2022-10-21T16:44:05.923382Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=2 
+ node0 2022-10-21T16:44:05.923718Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=2 
+ node0 2022-10-21T16:44:05.924302Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=3 
+ node0 2022-10-21T16:44:05.924439Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11644 accepted 
+ node0 2022-10-21T16:44:05.929684Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=3 
+ node0 2022-10-21T16:44:05.929807Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=3 
+ node0 2022-10-21T16:44:05.929960Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=3 
+ node0 2022-10-21T16:44:05.930020Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=3 
+ node0 2022-10-21T16:44:05.930115Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=3 
+ node0 2022-10-21T16:44:05.930212Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=3 
+ node0 2022-10-21T16:44:05.930467Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=0.0.0.0:0, txrelay=0, peer=3 
+ node0 2022-10-21T16:44:05.937386Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=3 
+ node0 2022-10-21T16:44:05.937478Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: verack (0 bytes) peer=3 
+ node0 2022-10-21T16:44:05.937545Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendcmpct (9 bytes) peer=3 
+ node0 2022-10-21T16:44:05.937718Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending ping (8 bytes) peer=3 
+ node0 2022-10-21T16:44:05.937874Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending getheaders (645 bytes) peer=3 
+ test  2022-10-21T16:44:05.938000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_pong(nonce=f06bf0198eb3845) 
+ test  2022-10-21T16:44:05.938000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_getheaders(locator=CBlockLocator(vHave=[25904390216175313194312162455780078753009692101200952252992871177711616225820, 10439194800033568075353954394040901046437382900627609508673849620975391395575, 40446225147528968444488730747006358517695899943732003474923480031726915305221, 32881632053604177249247854545860335098773301364214891775874295669143030708145, 8274383136340278425284592751131987282275833971901249227378370713913292132329, 91375339536865810244115815573593171857986770160039248524702050... (msg truncated) 
+ test  2022-10-21T16:44:05.938000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_feefilter(feerate=000003e8) 
+ node0 2022-10-21T16:44:05.938012Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:5413] [SendMessages] [net] initial getheaders (199) to peer=3 (startheight:-1) 
+ node0 2022-10-21T16:44:05.938114Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending feefilter (8 bytes) peer=3 
+ node0 2022-10-21T16:44:05.938326Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: getaddr (0 bytes) peer=3 
+ node0 2022-10-21T16:44:05.938667Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: pong (8 bytes) peer=3 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.985000Z TestFramework (INFO): valid SENDTXRCNCL received 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x09D22C7AC03E2F68 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:05 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x20639D98ECAC4B07 strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=14761117463285217644) 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_sendtxrcncl(initiator=1, responder=0, version=1, salt=2) 
+ test  2022-10-21T16:44:05.985000Z TestFramework (INFO): second SENDTXRCNCL triggers a disconnect 
+ test  2022-10-21T16:44:05.985000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_sendtxrcncl(initiator=1, responder=0, version=1, salt=2) 
+ node0 2022-10-21T16:44:05.987641Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1326] [SocketHandlerConnected] [net] socket closed for peer=3 
+ node0 2022-10-21T16:44:05.987718Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=3 
+ node0 2022-10-21T16:44:05.987950Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=3 
+ node0 2022-10-21T16:44:05.988869Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=4 
+ node0 2022-10-21T16:44:05.989021Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11657 accepted 
+ node0 2022-10-21T16:44:05.989541Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=4 
+ node0 2022-10-21T16:44:05.989675Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=4 
+ node0 2022-10-21T16:44:05.989824Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=4 
+ node0 2022-10-21T16:44:05.989887Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=4 
+ node0 2022-10-21T16:44:05.989996Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=4 
+ node0 2022-10-21T16:44:05.990488Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=4 
+ node0 2022-10-21T16:44:05.990587Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=4 
+ node0 2022-10-21T16:44:05.990741Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=4 
+ node0 2022-10-21T16:44:05.990884Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=4 
+ node0 2022-10-21T16:44:05.990977Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=4 
+ node0 2022-10-21T16:44:05.993153Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: sendtxrcncl (14 bytes) peer=4 
+ node0 2022-10-21T16:44:05.993338Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:133] [RegisterPeer] [txreconciliation:debug] Register peer=4 with the following params: we_initiate=0, they_initiate=1. 
+ node0 2022-10-21T16:44:05.993826Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11658 
+ node0 2022-10-21T16:44:05.994041Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getpeerinfo user=__cookie__ 
+ node0 2022-10-21T16:44:05.997702Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: sendtxrcncl (14 bytes) peer=4 
+ node0 2022-10-21T16:44:05.997780Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3521] [ProcessMessage] [net:debug] txreconciliation protocol violation from peer=4 (sendtxrcncl received from already registered peer); disconnecting 
+ test  2022-10-21T16:44:06.047000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ node0 2022-10-21T16:44:06.047779Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=4 
+ node0 2022-10-21T16:44:06.048104Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=4 
+ node0 2022-10-21T16:44:06.048197Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=4 
+ test  2022-10-21T16:44:06.110000Z TestFramework (INFO): SENDTXRCNCL with initiator=responder=0 triggers a disconnect 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x479E113D11D76BE5 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xB0DED627204B06CB strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=5492158866374679247) 
+ test  2022-10-21T16:44:06.110000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ node0 2022-10-21T16:44:06.113979Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=5 
+ node0 2022-10-21T16:44:06.114142Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11660 accepted 
+ node0 2022-10-21T16:44:06.114676Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=5 
+ node0 2022-10-21T16:44:06.114808Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=5 
+ node0 2022-10-21T16:44:06.114979Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=5 
+ node0 2022-10-21T16:44:06.115059Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=5 
+ node0 2022-10-21T16:44:06.115177Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=5 
+ node0 2022-10-21T16:44:06.115811Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=5 
+ node0 2022-10-21T16:44:06.115910Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=5 
+ node0 2022-10-21T16:44:06.116048Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=5 
+ node0 2022-10-21T16:44:06.116193Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=5 
+ node0 2022-10-21T16:44:06.116295Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=5 
+ test  2022-10-21T16:44:06.172000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=0, version=1, salt=2) 
+ node0 2022-10-21T16:44:06.174423Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: sendtxrcncl (14 bytes) peer=5 
+ node0 2022-10-21T16:44:06.174516Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3535] [ProcessMessage] [net:debug] txreconciliation protocol violation from peer=5; disconnecting 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.235000Z TestFramework (INFO): SENDTXRCNCL with initiator=0 and responder=1 from inbound triggers a disconnect 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x6ED6D1AC0F4E7933 strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xD2AF3FF4DD79BA5E strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=7916576537704224957) 
+ test  2022-10-21T16:44:06.235000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ node0 2022-10-21T16:44:06.235178Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=5 
+ node0 2022-10-21T16:44:06.235375Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=5 
+ node0 2022-10-21T16:44:06.235507Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=5 
+ node0 2022-10-21T16:44:06.240126Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=6 
+ node0 2022-10-21T16:44:06.240271Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11673 accepted 
+ node0 2022-10-21T16:44:06.240792Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=6 
+ node0 2022-10-21T16:44:06.240909Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=6 
+ node0 2022-10-21T16:44:06.241062Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=6 
+ node0 2022-10-21T16:44:06.241128Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=6 
+ node0 2022-10-21T16:44:06.241221Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=6 
+ node0 2022-10-21T16:44:06.241432Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=6 
+ node0 2022-10-21T16:44:06.241516Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=6 
+ node0 2022-10-21T16:44:06.241619Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=6 
+ node0 2022-10-21T16:44:06.241746Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=6 
+ node0 2022-10-21T16:44:06.241826Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=6 
+ test  2022-10-21T16:44:06.297000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=2) 
+ node0 2022-10-21T16:44:06.302100Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: sendtxrcncl (14 bytes) peer=6 
+ node0 2022-10-21T16:44:06.302190Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3535] [ProcessMessage] [net:debug] txreconciliation protocol violation from peer=6; disconnecting 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.360000Z TestFramework (INFO): SENDTXRCNCL with version=0 triggers a disconnect 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x73DD3F0A7F47D4EC strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0x2445E79B80C74681 strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=18311361222305348158) 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:06.360000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_sendtxrcncl(initiator=1, responder=0, version=0, salt=2) 
+ node0 2022-10-21T16:44:06.360101Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=6 
+ node0 2022-10-21T16:44:06.360282Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=6 
+ node0 2022-10-21T16:44:06.360367Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=6 
+ node0 2022-10-21T16:44:06.367037Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=7 
+ node0 2022-10-21T16:44:06.367189Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11679 accepted 
+ node0 2022-10-21T16:44:06.367721Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=7 
+ node0 2022-10-21T16:44:06.367846Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=7 
+ node0 2022-10-21T16:44:06.368010Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=7 
+ node0 2022-10-21T16:44:06.368075Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=7 
+ node0 2022-10-21T16:44:06.368181Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=7 
+ node0 2022-10-21T16:44:06.368427Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=7 
+ node0 2022-10-21T16:44:06.368525Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=7 
+ node0 2022-10-21T16:44:06.368648Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=7 
+ node0 2022-10-21T16:44:06.368785Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=7 
+ node0 2022-10-21T16:44:06.368873Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=7 
+ node0 2022-10-21T16:44:06.370927Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: sendtxrcncl (14 bytes) peer=7 
+ node0 2022-10-21T16:44:06.371003Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3535] [ProcessMessage] [net:debug] txreconciliation protocol violation from peer=7; disconnecting 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.422000Z TestFramework (INFO): sending SENDTXRCNCL after sending VERACK triggers a disconnect 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Connecting to Bitcoin Node: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Connected & Listening: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_version(nVersion=70016 nServices=9 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=1 net=IPv4 addr=127.0.0.1 port=14312) addrFrom=CAddress(nServices=1 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xCAD65B5D0BF3635D strSubVer=/python-p2p-tester:0.0.3/ nStartingHeight=-1 relay=1) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_version(nVersion=70016 nServices=1033 nTime=Fri Oct 21 16:44:06 2022 addrTo=CAddress(nServices=0 net=IPv4 addr=0.0.0.0 port=0) addrFrom=CAddress(nServices=1033 net=IPv4 addr=0.0.0.0 port=0) nNonce=0xF1E9029480A1E280 strSubVer=/Satoshi:24.99.0(testnode0)/ nStartingHeight=200 relay=1) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_wtxidrelay() 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendaddrv2() 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendtxrcncl(initiator=0, responder=1, version=1, salt=1319627205637013867) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_verack() 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_ping(nonce=00000001) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_sendcmpct(announce=False, version=2) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_ping(nonce=21ecde228b430def) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Send message to 127.0.0.1:14312: msg_pong(nonce=21ecde228b430def) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_getheaders(locator=CBlockLocator(vHave=[25904390216175313194312162455780078753009692101200952252992871177711616225820, 10439194800033568075353954394040901046437382900627609508673849620975391395575, 40446225147528968444488730747006358517695899943732003474923480031726915305221, 32881632053604177249247854545860335098773301364214891775874295669143030708145, 8274383136340278425284592751131987282275833971901249227378370713913292132329, 91375339536865810244115815573593171857986770160039248524702050... (msg truncated) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Received message from 127.0.0.1:14312: msg_feefilter(feerate=000003e8) 
+ test  2022-10-21T16:44:06.422000Z TestFramework.p2p (DEBUG): Closed connection to: 127.0.0.1:14312 
+ test  2022-10-21T16:44:06.422000Z TestFramework (ERROR): Assertion failed 
+                                   Traceback (most recent call last):
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 133, in main
+                                       self.run_test()
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\p2p_sendtxrcncl.py", line 138, in run_test
+                                       peer.send_and_ping(msg_verack())
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 553, in send_and_ping
+                                       self.sync_with_ping(timeout=timeout)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 570, in sync_with_ping
+                                       self.wait_until(test_function, timeout=timeout)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 463, in wait_until
+                                       wait_until_helper(test_function, timeout=timeout, lock=p2p_lock, timeout_factor=self.timeout_factor)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\util.py", line 267, in wait_until_helper
+                                       if predicate():
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\p2p.py", line 460, in test_function
+                                       assert self.is_connected
+                                   AssertionError
+ test  2022-10-21T16:44:06.422000Z TestFramework (DEBUG): Closing down network thread 
+ test  2022-10-21T16:44:06.422000Z TestFramework (INFO): Stopping nodes 
+ test  2022-10-21T16:44:06.422000Z TestFramework.node0 (DEBUG): Stopping node 
+ node0 2022-10-21T16:44:06.422610Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=7 
+ node0 2022-10-21T16:44:06.422787Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=7 
+ node0 2022-10-21T16:44:06.422866Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=7 
+ node0 2022-10-21T16:44:06.425171Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2762] [CNode] [net] Added connection peer=8 
+ node0 2022-10-21T16:44:06.425312Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1036] [CreateNodeFromAcceptedSocket] [net] connection from 127.0.0.1:11683 accepted 
+ node0 2022-10-21T16:44:06.425814Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: version (111 bytes) peer=8 
+ node0 2022-10-21T16:44:06.425926Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending version (114 bytes) peer=8 
+ node0 2022-10-21T16:44:06.426062Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1392] [PushNodeVersion] [net] send version message: version 70016, blocks=200, txrelay=1, peer=8 
+ node0 2022-10-21T16:44:06.426124Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending wtxidrelay (0 bytes) peer=8 
+ node0 2022-10-21T16:44:06.426215Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendaddrv2 (0 bytes) peer=8 
+ node0 2022-10-21T16:44:06.426437Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:87] [PreRegisterPeer] [txreconciliation:debug] Pre-register peer=8 
+ node0 2022-10-21T16:44:06.426535Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendtxrcncl (14 bytes) peer=8 
+ node0 2022-10-21T16:44:06.426640Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending verack (0 bytes) peer=8 
+ node0 2022-10-21T16:44:06.426763Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3363] [ProcessMessage] [net] receive version message: /python-p2p-tester:0.0.3/: version 70016, blocks=-1, us=127.0.0.1:14312, txrelay=1, peer=8 
+ node0 2022-10-21T16:44:06.426840Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: verack (0 bytes) peer=8 
+ node0 2022-10-21T16:44:06.426899Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending sendcmpct (9 bytes) peer=8 
+ node0 2022-10-21T16:44:06.427036Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\txreconciliation.cpp:145] [ForgetPeer] [txreconciliation:debug] Forget txreconciliation state of peer=8 
+ node0 2022-10-21T16:44:06.427192Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending ping (8 bytes) peer=8 
+ node0 2022-10-21T16:44:06.427331Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending getheaders (645 bytes) peer=8 
+ node0 2022-10-21T16:44:06.427472Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:5413] [SendMessages] [net] initial getheaders (199) to peer=8 (startheight:-1) 
+ node0 2022-10-21T16:44:06.427560Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2775] [PushMessage] [net] sending feefilter (8 bytes) peer=8 
+ node0 2022-10-21T16:44:06.427698Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3146] [ProcessMessage] [net] received: wtxidrelay (0 bytes) peer=8 
+ node0 2022-10-21T16:44:06.427756Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:3460] [ProcessMessage] [net] wtxidrelay received after verack from peer=8; disconnecting 
+ node0 2022-10-21T16:44:06.428343Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:572] [CloseSocketDisconnect] [net] disconnecting peer=8 
+ node0 2022-10-21T16:44:06.428560Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net_processing.cpp:1528] [FinalizeNode] [net] Cleared nodestate for peer=8 
+ node0 2022-10-21T16:44:06.436620Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:242] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:11684 
+ node0 2022-10-21T16:44:06.436814Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ 
+ node0 2022-10-21T16:44:06.439569Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:439] [InterruptHTTPServer] [http] Interrupting HTTP server 
+ node0 2022-10-21T16:44:06.439767Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server 
+ node0 2022-10-21T16:44:06.439864Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:299] [operator ()] [rpc] Interrupting RPC 
+ node0 2022-10-21T16:44:06.439949Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:217] [Shutdown] Shutdown: In progress... 
+ node0 2022-10-21T16:44:06.440002Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server 
+ node0 2022-10-21T16:44:06.440058Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:693] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) 
+ node0 2022-10-21T16:44:06.440123Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:693] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-10-21T16:44:06.440179Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:311] [operator ()] [rpc] Stopping RPC 
+ node0 2022-10-21T16:44:06.440639Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:383] [OnRPCStopped] [rpc] RPC stopped. 
+ node0 2022-10-21T16:44:06.440705Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:451] [StopHTTPServer] [http] Stopping HTTP server 
+ node0 2022-10-21T16:44:06.440763Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:453] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit 
+ node0 2022-10-21T16:44:06.441085Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] addcon thread exit 
+ node0 2022-10-21T16:44:06.441329Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:292] [ThreadHTTP] [http] Exited http event loop 
+ node0 2022-10-21T16:44:06.441429Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:466] [StopHTTPServer] [http] Waiting for HTTP event thread to exit 
+ node0 2022-10-21T16:44:06.441665Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:478] [StopHTTPServer] [http] Stopped HTTP server 
+ node0 2022-10-21T16:44:06.485179Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] net thread exit 
+ node0 2022-10-21T16:44:06.532181Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] msghand thread exit 
+ node0 2022-10-21T16:44:06.538061Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1506] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  5ms 
+ node0 2022-10-21T16:44:06.538280Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] scheduler thread exit 
+ node0 2022-10-21T16:44:06.539669Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. 
+ node0 2022-10-21T16:44:06.544114Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 1.63e-05s to copy, 0.0047394s to dump 
+ node0 2022-10-21T16:44:06.544200Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:1011] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 1.8e-06s 
+ node0 2022-10-21T16:44:06.552145Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-10-21T16:44:06.556868Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (4.63ms) 
+ node0 2022-10-21T16:44:06.556948Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-10-21T16:44:06.560498Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.47ms) 
+ node0 2022-10-21T16:44:06.560596Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (1 coins, 0kB) started 
+ node0 2022-10-21T16:44:06.560864Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-10-21T16:44:06.561028Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 1 changed transaction outputs (out of 1) to coin database... 
+ node0 2022-10-21T16:44:06.561105Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (1 coins, 0kB) completed (0.44ms) 
+ node0 2022-10-21T16:44:06.561180Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 
+ node0 2022-10-21T16:44:06.561267Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:247] [operator ()] [validation] ChainStateFlushed: block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 
+ node0 2022-10-21T16:44:06.561426Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-10-21T16:44:06.566166Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (4.65ms) 
+ node0 2022-10-21T16:44:06.566258Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-10-21T16:44:06.570067Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.73ms) 
+ node0 2022-10-21T16:44:06.570163Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started 
+ node0 2022-10-21T16:44:06.570363Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-10-21T16:44:06.570499Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... 
+ node0 2022-10-21T16:44:06.570585Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.35ms) 
+ node0 2022-10-21T16:44:06.570665Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:247] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=7da5e9e22ae1251f7610798b118a95cd06e1faf526a18ea1f514d264636f3576 
+ node0 2022-10-21T16:44:06.572426Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:334] [Shutdown] Shutdown: done 
+ test  2022-10-21T16:44:06.610000Z TestFramework.node0 (DEBUG): Node stopped 
+ test  2022-10-21T16:44:06.610000Z TestFramework (WARNING): Not cleaning up dir C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): Test failed. Test logging available at C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26/test_framework.log 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): Hint: Call C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\combine_logs.py 'C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221021_161335\p2p_sendtxrcncl_26' to consolidate all logs 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log. 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues 
+ test  2022-10-21T16:44:06.610000Z TestFramework (ERROR): 
+
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, feature_config_args.py, wallet_migration.py, p2p_ibd_txrelay.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, feature_config_args.py, wallet_migration.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, wallet_migration.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py]
+Remaining jobs: [feature_index_prune.py]
+
+TEST                                                   | STATUS    | DURATION
+
+example_test.py                                        | ✓ Passed  | 4 s
+feature_abortnode.py                                   | ✓ Passed  | 3 s
+feature_addrman.py                                     | ✓ Passed  | 13 s
+feature_anchors.py                                     | ✓ Passed  | 12 s
+feature_asmap.py                                       | ✓ Passed  | 13 s
+feature_assumevalid.py                                 | ✓ Passed  | 74 s
+feature_bip68_sequence.py                              | ✓ Passed  | 69 s
+feature_block.py                                       | ✓ Passed  | 461 s
+feature_blocksdir.py                                   | ✓ Passed  | 4 s
+feature_cltv.py                                        | ✓ Passed  | 3 s
+feature_coinstatsindex.py                              | ✓ Passed  | 136 s
+feature_config_args.py                                 | ✓ Passed  | 30 s
+feature_csv_activation.py                              | ✓ Passed  | 41 s
+feature_dersig.py                                      | ✓ Passed  | 3 s
+feature_dirsymlinks.py                                 | ✓ Passed  | 3 s
+feature_discover.py                                    | ✓ Passed  | 6 s
+feature_fee_estimation.py                              | ✓ Passed  | 250 s
+feature_filelock.py                                    | ✓ Passed  | 3 s
+feature_help.py                                        | ✓ Passed  | 2 s
+feature_includeconf.py                                 | ✓ Passed  | 9 s
+feature_index_prune.py                                 | ✓ Passed  | 2128 s
+feature_loadblock.py                                   | ✓ Passed  | 4 s
+feature_logging.py                                     | ✓ Passed  | 21 s
+feature_maxtipage.py                                   | ✓ Passed  | 46 s
+feature_maxuploadtarget.py                             | ✓ Passed  | 189 s
+feature_minchainwork.py                                | ✓ Passed  | 12 s
+feature_notifications.py                               | ✓ Passed  | 21 s
+feature_nulldummy.py                                   | ✓ Passed  | 2 s
+feature_presegwit_node_upgrade.py                      | ✓ Passed  | 3 s
+feature_proxy.py                                       | ✓ Passed  | 9 s
+feature_pruning.py                                     | ✓ Passed  | 2041 s
+feature_rbf.py                                         | ✓ Passed  | 26 s
+feature_reindex.py                                     | ✓ Passed  | 8 s
+feature_segwit.py --descriptors                        | ✓ Passed  | 25 s
+feature_segwit.py --legacy-wallet                      | ✓ Passed  | 62 s
+feature_settings.py                                    | ✓ Passed  | 7 s
+feature_shutdown.py                                    | ✓ Passed  | 3 s
+feature_signet.py                                      | ✓ Passed  | 15 s
+feature_startupnotify.py                               | ✓ Passed  | 2 s
+feature_taproot.py                                     | ✓ Passed  | 362 s
+feature_uacomment.py                                   | ✓ Passed  | 6 s
+feature_utxo_set_hash.py                               | ✓ Passed  | 8 s
+feature_versionbits_warning.py                         | ✓ Passed  | 10 s
+interface_bitcoin_cli.py --descriptors                 | ✓ Passed  | 24 s
+interface_bitcoin_cli.py --legacy-wallet               | ✓ Passed  | 24 s
+interface_http.py                                      | ✓ Passed  | 4 s
+interface_rest.py                                      | ✓ Passed  | 10 s
+interface_rpc.py                                       | ✓ Passed  | 33 s
+interface_zmq.py                                       | ✓ Passed  | 31 s
+mempool_accept.py                                      | ✓ Passed  | 6 s
+mempool_accept_wtxid.py                                | ✓ Passed  | 10 s
+mempool_datacarrier.py                                 | ✓ Passed  | 5 s
+mempool_expiry.py                                      | ✓ Passed  | 5 s
+mempool_limit.py                                       | ✓ Passed  | 23 s
+mempool_package_limits.py                              | ✓ Passed  | 6 s
+mempool_package_onemore.py                             | ✓ Passed  | 2 s
+mempool_packages.py                                    | ✓ Passed  | 26 s
+mempool_persist.py                                     | ✓ Passed  | 31 s
+mempool_reorg.py                                       | ✓ Passed  | 5 s
+mempool_resurrect.py                                   | ✓ Passed  | 3 s
+mempool_spend_coinbase.py                              | ✓ Passed  | 5 s
+mempool_unbroadcast.py                                 | ✓ Passed  | 10 s
+mempool_updatefromblock.py                             | ✓ Passed  | 400 s
+mining_basic.py                                        | ✓ Passed  | 16 s
+mining_getblocktemplate_longpoll.py                    | ✓ Passed  | 71 s
+mining_prioritisetransaction.py                        | ✓ Passed  | 23 s
+p2p_add_connections.py                                 | ✓ Passed  | 8 s
+p2p_addr_relay.py                                      | ✓ Passed  | 45 s
+p2p_addrfetch.py                                       | ✓ Passed  | 3 s
+p2p_addrv2_relay.py                                    | ✓ Passed  | 3 s
+p2p_block_sync.py                                      | ✓ Passed  | 3 s
+p2p_blockfilters.py                                    | ✓ Passed  | 78 s
+p2p_blocksonly.py                                      | ✓ Passed  | 22 s
+p2p_compactblocks.py                                   | ✓ Passed  | 16 s
+p2p_compactblocks_blocksonly.py                        | ✓ Passed  | 11 s
+p2p_compactblocks_hb.py                                | ✓ Passed  | 24 s
+p2p_disconnect_ban.py                                  | ✓ Passed  | 17 s
+p2p_dns_seeds.py                                       | ✓ Passed  | 64 s
+p2p_dos_header_tree.py                                 | ✓ Passed  | 3 s
+p2p_eviction.py                                        | ✓ Passed  | 7 s
+p2p_feefilter.py                                       | ✓ Passed  | 22 s
+p2p_filter.py                                          | ✓ Passed  | 9 s
+p2p_fingerprint.py                                     | ✓ Passed  | 2 s
+p2p_getaddr_caching.py                                 | ✓ Passed  | 29 s
+p2p_getdata.py                                         | ✓ Passed  | 2 s
+p2p_headers_sync_with_minchainwork.py                  | ✓ Passed  | 219 s
+p2p_i2p_ports.py                                       | ✓ Passed  | 19 s
+p2p_i2p_sessions.py                                    | ✓ Passed  | 5 s
+p2p_ibd_txrelay.py                                     | ✓ Passed  | 4 s
+p2p_initial_headers_sync.py                            | ✓ Passed  | 2 s
+p2p_invalid_block.py                                   | ✓ Passed  | 4 s
+p2p_invalid_locator.py                                 | ✓ Passed  | 3 s
+p2p_invalid_messages.py                                | ✓ Passed  | 88 s
+p2p_invalid_tx.py                                      | ✓ Passed  | 14 s
+p2p_leak.py                                            | ✓ Passed  | 7 s
+p2p_leak_tx.py                                         | ✓ Passed  | 3 s
+p2p_message_capture.py                                 | ✓ Passed  | 4 s
+p2p_nobloomfilter_messages.py                          | ✓ Passed  | 5 s
+p2p_node_network_limited.py                            | ✓ Passed  | 52 s
+p2p_permissions.py                                     | ✓ Passed  | 25 s
+p2p_ping.py                                            | ✓ Passed  | 3 s
+p2p_segwit.py                                          | ✓ Passed  | 153 s
+p2p_sendheaders.py                                     | ✓ Passed  | 43 s
+p2p_timeouts.py                                        | ✓ Passed  | 8 s
+p2p_tx_download.py                                     | ✓ Passed  | 104 s
+p2p_unrequested_blocks.py                              | ✓ Passed  | 12 s
+rpc_blockchain.py                                      | ✓ Passed  | 53 s
+rpc_createmultisig.py                                  | ✓ Passed  | 29 s
+rpc_decodescript.py                                    | ✓ Passed  | 5 s
+rpc_deprecated.py                                      | ✓ Passed  | 5 s
+rpc_deriveaddresses.py                                 | ✓ Passed  | 3 s
+rpc_deriveaddresses.py --usecli                        | ✓ Passed  | 2 s
+rpc_dumptxoutset.py                                    | ✓ Passed  | 2 s
+rpc_estimatefee.py                                     | ✓ Passed  | 2 s
+rpc_fundrawtransaction.py --descriptors                | ✓ Passed  | 82 s
+rpc_fundrawtransaction.py --legacy-wallet              | ✓ Passed  | 136 s
+rpc_generate.py                                        | ✓ Passed  | 2 s
+rpc_getblockfilter.py                                  | ✓ Passed  | 10 s
+rpc_getblockfrompeer.py                                | ✓ Passed  | 9 s
+rpc_getblockstats.py                                   | ✓ Passed  | 3 s
+rpc_getchaintips.py                                    | ✓ Passed  | 11 s
+rpc_getdescriptorinfo.py                               | ✓ Passed  | 2 s
+rpc_help.py                                            | ✓ Passed  | 3 s
+rpc_invalid_address_message.py                         | ✓ Passed  | 2 s
+rpc_invalidateblock.py                                 | ✓ Passed  | 8 s
+rpc_mempool_info.py                                    | ✓ Passed  | 2 s
+rpc_misc.py                                            | ✓ Passed  | 123 s
+rpc_named_arguments.py                                 | ✓ Passed  | 1 s
+rpc_net.py                                             | ✓ Passed  | 39 s
+rpc_packages.py                                        | ✓ Passed  | 75 s
+rpc_preciousblock.py                                   | ✓ Passed  | 2 s
+rpc_psbt.py --descriptors                              | ✓ Passed  | 44 s
+rpc_psbt.py --legacy-wallet                            | ✓ Passed  | 71 s
+rpc_rawtransaction.py --legacy-wallet                  | ✓ Passed  | 19 s
+rpc_scanblocks.py                                      | ✓ Passed  | 3 s
+rpc_scantxoutset.py                                    | ✓ Passed  | 62 s
+rpc_setban.py                                          | ✓ Passed  | 12 s
+rpc_signer.py                                          | ✓ Passed  | 19 s
+rpc_signmessagewithprivkey.py                          | ✓ Passed  | 1 s
+rpc_signrawtransactionwithkey.py                       | ✓ Passed  | 4 s
+rpc_txoutproof.py                                      | ✓ Passed  | 13 s
+rpc_uptime.py                                          | ✓ Passed  | 2 s
+rpc_users.py                                           | ✓ Passed  | 10 s
+rpc_whitelist.py                                       | ✓ Passed  | 1 s
+tool_wallet.py --descriptors                           | ✓ Passed  | 61 s
+tool_wallet.py --legacy-wallet                         | ✓ Passed  | 68 s
+wallet_abandonconflict.py --descriptors                | ✓ Passed  | 17 s
+wallet_abandonconflict.py --legacy-wallet              | ✓ Passed  | 23 s
+wallet_address_types.py --descriptors                  | ✓ Passed  | 43 s
+wallet_address_types.py --legacy-wallet                | ✓ Passed  | 68 s
+wallet_avoid_mixing_output_types.py --descriptors      | ✓ Passed  | 26 s
+wallet_avoidreuse.py --descriptors                     | ✓ Passed  | 87 s
+wallet_avoidreuse.py --legacy-wallet                   | ✓ Passed  | 223 s
+wallet_backup.py --descriptors                         | ✓ Passed  | 47 s
+wallet_backup.py --legacy-wallet                       | ✓ Passed  | 81 s
+wallet_balance.py --descriptors                        | ✓ Passed  | 10 s
+wallet_balance.py --legacy-wallet                      | ✓ Passed  | 10 s
+wallet_basic.py --descriptors                          | ✓ Passed  | 77 s
+wallet_basic.py --legacy-wallet                        | ✓ Passed  | 88 s
+wallet_bumpfee.py --descriptors                        | ✓ Passed  | 57 s
+wallet_bumpfee.py --legacy-wallet                      | ✓ Passed  | 55 s
+wallet_coinbase_category.py --descriptors              | ✓ Passed  | 3 s
+wallet_coinbase_category.py --legacy-wallet            | ✓ Passed  | 3 s
+wallet_create_tx.py --descriptors                      | ✓ Passed  | 12 s
+wallet_create_tx.py --legacy-wallet                    | ✓ Passed  | 22 s
+wallet_createwallet.py --descriptors                   | ✓ Passed  | 7 s
+wallet_createwallet.py --legacy-wallet                 | ✓ Passed  | 6 s
+wallet_createwallet.py --usecli                        | ✓ Passed  | 18 s
+wallet_crosschain.py                                   | ✓ Passed  | 4 s
+wallet_descriptor.py --descriptors                     | ✓ Passed  | 24 s
+wallet_disable.py                                      | ✓ Passed  | 5 s
+wallet_dump.py --legacy-wallet                         | ✓ Passed  | 36 s
+wallet_encryption.py --descriptors                     | ✓ Passed  | 7 s
+wallet_encryption.py --legacy-wallet                   | ✓ Passed  | 6 s
+wallet_fallbackfee.py --descriptors                    | ✓ Passed  | 3 s
+wallet_fallbackfee.py --legacy-wallet                  | ✓ Passed  | 3 s
+wallet_groups.py --descriptors                         | ✓ Passed  | 89 s
+wallet_groups.py --legacy-wallet                       | ✓ Passed  | 84 s
+wallet_hd.py --descriptors                             | ✓ Passed  | 16 s
+wallet_hd.py --legacy-wallet                           | ✓ Passed  | 27 s
+wallet_implicitsegwit.py --legacy-wallet               | ✓ Passed  | 13 s
+wallet_import_rescan.py --legacy-wallet                | ✓ Passed  | 393 s
+wallet_import_with_label.py --legacy-wallet            | ✓ Passed  | 3 s
+wallet_importdescriptors.py --descriptors              | ✓ Passed  | 86 s
+wallet_importmulti.py --legacy-wallet                  | ✓ Passed  | 53 s
+wallet_importprunedfunds.py --descriptors              | ✓ Passed  | 4 s
+wallet_importprunedfunds.py --legacy-wallet            | ✓ Passed  | 4 s
+wallet_keypool.py --descriptors                        | ✓ Passed  | 14 s
+wallet_keypool.py --legacy-wallet                      | ✓ Passed  | 12 s
+wallet_keypool_topup.py --descriptors                  | ✓ Passed  | 25 s
+wallet_keypool_topup.py --legacy-wallet                | ✓ Passed  | 35 s
+wallet_labels.py --descriptors                         | ✓ Passed  | 8 s
+wallet_labels.py --legacy-wallet                       | ✓ Passed  | 13 s
+wallet_listdescriptors.py --descriptors                | ✓ Passed  | 4 s
+wallet_listreceivedby.py --descriptors                 | ✓ Passed  | 15 s
+wallet_listreceivedby.py --legacy-wallet               | ✓ Passed  | 20 s
+wallet_listsinceblock.py --descriptors                 | ✓ Passed  | 22 s
+wallet_listsinceblock.py --legacy-wallet               | ✓ Passed  | 14 s
+wallet_listtransactions.py --descriptors               | ✓ Passed  | 36 s
+wallet_listtransactions.py --legacy-wallet             | ✓ Passed  | 41 s
+wallet_migration.py                                    | ✓ Passed  | 20 s
+wallet_miniscript.py                                   | ✓ Passed  | 11 s
+wallet_multisig_descriptor_psbt.py                     | ✓ Passed  | 17 s
+wallet_multiwallet.py --descriptors                    | ✓ Passed  | 62 s
+wallet_multiwallet.py --legacy-wallet                  | ✓ Passed  | 72 s
+wallet_multiwallet.py --usecli                         | ✓ Passed  | 41 s
+wallet_orphanedreward.py                               | ✓ Passed  | 17 s
+wallet_reorgsrestore.py                                | ✓ Passed  | 15 s
+wallet_resendwallettransactions.py --descriptors       | ✓ Passed  | 7 s
+wallet_resendwallettransactions.py --legacy-wallet     | ✓ Passed  | 3 s
+wallet_send.py --descriptors                           | ✓ Passed  | 20 s
+wallet_send.py --legacy-wallet                         | ✓ Passed  | 24 s
+wallet_sendall.py --descriptors                        | ✓ Passed  | 31 s
+wallet_sendall.py --legacy-wallet                      | ✓ Passed  | 77 s
+wallet_signer.py --descriptors                         | ✓ Passed  | 29 s
+wallet_signmessagewithaddress.py                       | ✓ Passed  | 2 s
+wallet_signrawtransactionwithwallet.py --descriptors   | ✓ Passed  | 5 s
+wallet_signrawtransactionwithwallet.py --legacy-wallet | ✓ Passed  | 6 s
+wallet_simulaterawtx.py --descriptors                  | ✓ Passed  | 3 s
+wallet_simulaterawtx.py --legacy-wallet                | ✓ Passed  | 4 s
+wallet_startup.py                                      | ✓ Passed  | 7 s
+wallet_taproot.py                                      | ✓ Passed  | 269 s
+wallet_timelock.py                                     | ✓ Passed  | 3 s
+wallet_transactiontime_rescan.py --descriptors         | ✓ Passed  | 22 s
+wallet_transactiontime_rescan.py --legacy-wallet       | ✓ Passed  | 20 s
+wallet_txn_clone.py                                    | ✓ Passed  | 5 s
+wallet_txn_clone.py --mineblock                        | ✓ Passed  | 8 s
+wallet_txn_clone.py --segwit                           | ✓ Passed  | 6 s
+wallet_txn_doublespend.py --descriptors                | ✓ Passed  | 8 s
+wallet_txn_doublespend.py --legacy-wallet              | ✓ Passed  | 10 s
+wallet_txn_doublespend.py --mineblock                  | ✓ Passed  | 7 s
+wallet_watchonly.py --legacy-wallet                    | ✓ Passed  | 4 s
+wallet_watchonly.py --usecli --legacy-wallet           | ✓ Passed  | 9 s
+feature_backwards_compatibility.py --descriptors       | ○ Skipped | 1 s
+feature_backwards_compatibility.py --legacy-wallet     | ○ Skipped | 1 s
+feature_bind_extra.py                                  | ○ Skipped | 1 s
+feature_bind_port_discover.py                          | ○ Skipped | 0 s
+feature_bind_port_externalip.py                        | ○ Skipped | 0 s
+feature_init.py                                        | ○ Skipped | 1 s
+feature_syscall_sandbox.py                             | ○ Skipped | 0 s
+feature_txindex_compatibility.py                       | ○ Skipped | 1 s
+feature_unsupported_utxo_db.py                         | ○ Skipped | 0 s
+interface_usdt_coinselection.py                        | ○ Skipped | 0 s
+interface_usdt_net.py                                  | ○ Skipped | 0 s
+interface_usdt_utxocache.py                            | ○ Skipped | 1 s
+interface_usdt_validation.py                           | ○ Skipped | 1 s
+mempool_compatibility.py                               | ○ Skipped | 1 s
+rpc_bind.py --ipv4                                     | ○ Skipped | 0 s
+rpc_bind.py --ipv6                                     | ○ Skipped | 1 s
+rpc_bind.py --nonloopback                              | ○ Skipped | 1 s
+tool_signet_miner.py --descriptors                     | ○ Skipped | 1 s
+tool_signet_miner.py --legacy-wallet                   | ○ Skipped | 1 s
+wallet_inactive_hdchains.py                            | ○ Skipped | 0 s
+wallet_upgradewallet.py --legacy-wallet                | ○ Skipped | 0 s
+p2p_sendtxrcncl.py                                     | ✖ Failed  | 3 s
+
+ALL                                                    | ✖ Failed  | 12029 s (accumulated) 
+Runtime: 2128 s
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 1 NEQ 0 exit /b 1 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
