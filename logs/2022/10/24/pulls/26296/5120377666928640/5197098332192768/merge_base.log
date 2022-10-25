@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 29 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26296/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 495eac07b REVERT ME: introduce an initialization bug for clang-tidy to catch
+HEAD is now at 940a894f3 Merge 495eac07b090eaa9628388e23ac3b1821896ffa4 into 3db23fd821e0a08e246a60c198676be42de5bcd6
