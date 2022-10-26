@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26388/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was da1689347 ci: Use `macos-ventura-xcode:14.1` image for "macOS native" task
+HEAD is now at 5339395bc Merge da168934741b776bce07d5503ca2344d300723b3 into bfce05cc341113a1e7c685950b175dee3aaf2354
