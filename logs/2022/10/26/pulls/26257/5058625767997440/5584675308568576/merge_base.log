@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 34 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26257/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was a56ee66ef script: update python linters dependencies
+HEAD is now at e2fee5bac Merge a56ee66efee7885a2a070be8802c3287a5f409e5 into ec92d23fb8922c37f678589d743ca214f966cd75

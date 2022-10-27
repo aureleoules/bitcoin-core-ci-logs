@@ -1,0 +1,23 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 http://de.archive.ubuntu.com/ubuntu jammy-security/main amd64 Packages [460 kB]
+Get:6 http://de.archive.ubuntu.com/ubuntu jammy-security/main Translation-en [100 kB]
+Get:7 http://de.archive.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [372 kB]
+Get:8 http://de.archive.ubuntu.com/ubuntu jammy-security/restricted Translation-en [57.4 kB]
+Fetched 1,313 kB in 1s (2,531 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 34 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26398/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 7c3808d40 Relax MIN_STANDARD_TX_NONWITNESS_SIZE to 64 non-witness bytes exactly
+HEAD is now at 116e1efc3 Merge 7c3808d40c5e2c982d3e437d224c57ec875f0d6c into ec92d23fb8922c37f678589d743ca214f966cd75
