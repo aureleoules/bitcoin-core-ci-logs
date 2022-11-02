@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+2022-11-01 05:20:19.172 xcodebuild[694:5467] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-11-01 05:20:19.173 xcodebuild[694:5467] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                24.x       -> FETCH_HEAD
+git merge FETCH_HEAD
+error: The following untracked working tree files would be overwritten by merge:
+	src/bench/examples.cpp
+	src/test/script_p2sh_tests.cpp
+Please move or remove them before you merge.
+Aborting
+
+Exit status: 128

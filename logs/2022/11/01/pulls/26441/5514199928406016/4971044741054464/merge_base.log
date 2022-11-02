@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26441/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was d14fbaa1e test: add coverage for `addwhitelist` RPC
+HEAD is now at db4f55958 Merge d14fbaa1eca8bd40137e1b9bbdd5005969ca50ef into bf0cb4399061c6827bd5d7428a146010102d7ab1
