@@ -1,0 +1,21 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26441/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was ea08c79aa test: add coverage for `addwhitelist` RPC
+HEAD is now at 70ea57f52 Merge ea08c79aadfec78d486a3f86f565227666fb0425 into 5274f324375fd31cf8507531fbc612765d03092f
