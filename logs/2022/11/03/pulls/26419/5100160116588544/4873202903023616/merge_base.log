@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26419/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was f26105859 log: mempool: log removal reason in validation interface
+HEAD is now at 12b6d2d1c Merge f26105859f040093d32d64bb282065dbba74ac25 into 28653a596ab7e0811ffec3bbb7632e17d54f8e43
