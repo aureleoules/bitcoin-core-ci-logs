@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/24914/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was eca3f60f0 walletdb: Remove loading code where the database is iterated
+HEAD is now at e69d21109 Merge eca3f60f021360c571103e3e8981c8d0198b6039 into ae6bb6e71e3082dd783e78c52b3af649fd5256cc

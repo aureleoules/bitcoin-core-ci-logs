@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26451/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 3e23a9891 Add test to cover new rbf feerate requirement
+HEAD is now at ca661e328 Merge 3e23a989125c49014ba42df8981f0bc004bf752d into 28653a596ab7e0811ffec3bbb7632e17d54f8e43
