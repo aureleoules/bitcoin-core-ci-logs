@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26462/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 3c6ff4936 test: check that loading descriptor wallet with legacy entries throws error
+HEAD is now at ad804eda7 Merge 3c6ff4936918b0d8ddd6341642698fe2fd9156bf into 50422b770a40f5fa964201d1e99fd6b5dc1653ca

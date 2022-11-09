@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26472/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 887d85e43 test: add missing bech32m / BIP86 test-cases to wallet_descriptor.py
+HEAD is now at 999d6bd1c Merge 887d85e43d136dbfc2428f873ced3de50076bbd0 into 50422b770a40f5fa964201d1e99fd6b5dc1653ca

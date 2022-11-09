@@ -1,0 +1,29 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [697 kB]
+Get:6 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main Translation-en [159 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 c-n-f Metadata [10.8 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 Packages [744 kB]
+Get:9 https://mirror.hetzner.com/ubuntu/security jammy-security/main amd64 Packages [462 kB]
+Get:10 https://mirror.hetzner.com/ubuntu/security jammy-security/main Translation-en [102 kB]
+Get:11 https://mirror.hetzner.com/ubuntu/security jammy-security/universe amd64 Packages [603 kB]
+Fetched 3,102 kB in 1s (2,204 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26467/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 6d10ecefc qt: Add a dialog to select the change output when bumping fee
+HEAD is now at 7fd75339c Merge 6d10ecefc5f06d41c181f16c716c7d7ea4de0b3d into 50422b770a40f5fa964201d1e99fd6b5dc1653ca
