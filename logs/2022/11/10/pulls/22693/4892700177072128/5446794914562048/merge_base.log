@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/22693/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was c4f88f414 Bugfix: Wallet: Don't initialise "used" flag for wallet tool "info" command
+HEAD is now at 8039f5bce Merge c4f88f4145386fb8014433164a68b272b6255270 into 9dce30194bc07463d634072251a8bf83e1b10ff9

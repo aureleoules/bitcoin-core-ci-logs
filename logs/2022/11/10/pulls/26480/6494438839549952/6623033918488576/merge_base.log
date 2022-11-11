@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26480/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was fafe79bb2 test: Remove wallet option from non-wallet tests
+HEAD is now at 389fdf0ec Merge fafe79bb295e827f8ae8f912082f8e9e91610291 into 9dce30194bc07463d634072251a8bf83e1b10ff9
