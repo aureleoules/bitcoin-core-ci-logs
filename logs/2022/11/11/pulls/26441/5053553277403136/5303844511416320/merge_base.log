@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26441/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 174d74630 doc: add release notes for `addpermissionflags`
+HEAD is now at f25f2bd14 Merge 174d746309cdbb1268a68b2b04cffd7f8ed10d88 into 7ef730ca84bd71a06f986ae7070e7b2ac8e47582
