@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26497/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 0d2fd4ca2 [fuzz] Make ConsumeNetAddr produce valid onion addresses
+HEAD is now at 8125b2e8f Merge 0d2fd4ca2bbd026632dab7fd4dc0ccfcb64749d0 into 48174c0f287b19931ca110670610bd03a03eb914
