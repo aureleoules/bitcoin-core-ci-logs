@@ -1,0 +1,22 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Fetched 99.8 kB in 2s (42.8 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+The following packages were automatically installed and are no longer required:
+  libflashrom1 libftdi1-2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26507/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 289d2ebae test: remove unused vars in `feature_block`
+HEAD is now at b678164b7 Merge 289d2ebae57e427d11248e6386cc930c9b7e3583 into 48174c0f287b19931ca110670610bd03a03eb914
