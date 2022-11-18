@@ -1,0 +1,42 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call cd .. 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>call git clone --quiet https://github.com/microsoft/vcpkg.git 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp>call cd vcpkg 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>call git -c advice.detachedHead=false checkout 2021.05.12 
+HEAD is now at 5568f110b [vcpkg] Prepare 2021.05.12 release (#17605)
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg>call .\bootstrap-vcpkg -disableMetrics 
+Downloading https://github.com/microsoft/vcpkg-tool/releases/download/2021-05-05-9f849c4c43e50d1b16186ae76681c27b0c1be9d9/vcpkg.exe -> C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\vcpkg.exe
+Download failed, server returned HTTP status: 503
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\scripts\bootstrap.ps1 
+: Downloading vcpkg.exe failed. Please check your internet connection, or 
+consider downloading a recent vcpkg.exe from 
+https://github.com/microsoft/vcpkg-tool with a browser.
+At line:1 char:4
++ & {& 'C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\script ...
++    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorExcep 
+   tion
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorExceptio 
+   n,bootstrap.ps1
+ 
+ScriptHalted
+At C:\Users\ContainerAdministrator\AppData\Local\Temp\vcpkg\scripts\bootstrap.p
+s1:54 char:5
++     throw
++     ~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], RuntimeException
+    + FullyQualifiedErrorId : ScriptHalted
+ 

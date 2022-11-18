@@ -1,0 +1,10 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                23.x       -> FETCH_HEAD
+git merge FETCH_HEAD
+Already up to date.
