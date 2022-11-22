@@ -1,0 +1,25 @@
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 http://de.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [725 kB]
+Get:6 http://de.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [163 kB]
+Get:7 http://de.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [445 kB]
+Get:8 http://de.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [755 kB]
+Get:9 http://de.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [125 kB]
+Fetched 2,538 kB in 1s (4,439 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 34 not upgraded.
+git fetch $CIRRUS_REPO_CLONE_URL $CIRRUS_BASE_BRANCH
+From https://github.com/bitcoin/bitcoin
+ * branch                22.x       -> FETCH_HEAD
+git config --global user.email "ci@ci.ci"
+git config --global user.name "ci"
+git merge FETCH_HEAD
+Already up to date.
