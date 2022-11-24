@@ -1,0 +1,2544 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_SIZE=200M
+LC_ALL=C.UTF-8
+CCACHE_COMPRESS=1
+CONFIG_SHELL=/bin/dash
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_DIR=/tmp/ccache_dir
+DEBIAN_FRONTEND=noninteractive
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BITCOIN_CONFIG=-DWITH_ZMQ=ON -DWITH_GUI=Qt5 -DREDUCE_EXPORTS=ON
+CCACHE_NOHASHDIR=1
+BOOST_TEST_RANDOM=1
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Running on host system without docker wrapper
+Last metadata expiration check: 0:00:15 ago on Wed Nov 23 20:07:46 2022.
+Dependencies resolved.
+================================================================================
+ Package               Architecture    Version            Repository       Size
+================================================================================
+Installing:
+ epel-release          noarch          8-11.el8           extras           24 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 24 k
+Installed size: 35 k
+Downloading Packages:
+epel-release-8-11.el8.noarch.rpm                 20 kB/s |  24 kB     00:01    
+--------------------------------------------------------------------------------
+Total                                            19 kB/s |  24 kB     00:01     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : epel-release-8-11.el8.noarch                           1/1 
+  Running scriptlet: epel-release-8-11.el8.noarch                           1/1 
+  Verifying        : epel-release-8-11.el8.noarch                           1/1 
+
+Installed:
+  epel-release-8-11.el8.noarch                                                  
+
+Complete!
+Extra Packages for Enterprise Linux 8 - x86_64   13 MB/s |  13 MB     00:01    
+Extra Packages for Enterprise Linux Modular 8 - 1.0 MB/s | 733 kB     00:00    
+Package git-2.31.1-2.el8.x86_64 is already installed.
+Package which-2.21-18.el8.x86_64 is already installed.
+Dependencies resolved.
+=======================================================================================
+ Package                  Arch    Version                              Repo        Size
+=======================================================================================
+Installing:
+ bison                    x86_64  3.0.4-10.el8                         appstream  688 k
+ ccache                   x86_64  3.7.7-1.el8                          epel       232 k
+ cmake                    x86_64  3.20.2-4.el8                         appstream   12 M
+ coreutils                x86_64  8.30-14.el8                          baseos     1.2 M
+ dash                     x86_64  0.5.10.2-4.el8                       epel        99 k
+ gcc-c++                  x86_64  8.5.0-17.el8                         appstream   12 M
+ glibc-devel              i686    2.28-216.el8                         baseos      81 k
+ glibc-devel              x86_64  2.28-216.el8                         baseos      82 k
+ lbzip2                   x86_64  2.5-15.20171011gitb6dc48a.el8        epel        98 k
+ libstdc++-devel          i686    8.5.0-17.el8                         appstream  2.1 M
+ libstdc++-devel          x86_64  8.5.0-17.el8                         appstream  2.1 M
+ libtool                  x86_64  2.4.6-25.el8                         appstream  709 k
+ make                     x86_64  1:4.2.1-11.el8                       baseos     498 k
+ patch                    x86_64  2.7.6-11.el8                         baseos     138 k
+ procps-ng                x86_64  3.3.15-9.el8                         baseos     329 k
+ python3-pip              noarch  9.0.3-22.el8                         appstream   20 k
+ python36                 x86_64  3.6.8-38.module_el8.5.0+895+a459eca8 appstream   19 k
+ rsync                    x86_64  3.1.3-19.el8                         baseos     410 k
+ xz                       x86_64  5.2.4-4.el8                          baseos     153 k
+Upgrading:
+ glibc                    x86_64  2.28-216.el8                         baseos     2.2 M
+ glibc-common             x86_64  2.28-216.el8                         baseos     1.0 M
+ glibc-minimal-langpack   x86_64  2.28-216.el8                         baseos      64 k
+ libgcc                   x86_64  8.5.0-17.el8                         baseos      81 k
+ libstdc++                x86_64  8.5.0-17.el8                         baseos     454 k
+Installing dependencies:
+ autoconf                 noarch  2.69-29.el8                          appstream  710 k
+ automake                 noarch  1.16.1-7.el8                         appstream  713 k
+ binutils                 x86_64  2.30-119.el8                         baseos     5.8 M
+ cmake-data               noarch  3.20.2-4.el8                         appstream  1.7 M
+ cmake-filesystem         x86_64  3.20.2-4.el8                         appstream   44 k
+ cmake-rpm-macros         noarch  3.20.2-4.el8                         appstream   44 k
+ coreutils-common         x86_64  8.30-14.el8                          baseos     2.0 M
+ cpp                      x86_64  8.5.0-17.el8                         baseos      10 M
+ gcc                      x86_64  8.5.0-17.el8                         baseos      23 M
+ glibc                    i686    2.28-216.el8                         baseos     2.0 M
+ glibc-headers            i686    2.28-216.el8                         baseos     487 k
+ glibc-headers            x86_64  2.28-216.el8                         baseos     487 k
+ isl                      x86_64  0.16.1-6.el8                         appstream  841 k
+ kernel-headers           x86_64  4.18.0-408.el8                       baseos     9.8 M
+ libgcc                   i686    8.5.0-17.el8                         baseos      88 k
+ libgomp                  x86_64  8.5.0-17.el8                         baseos     207 k
+ libmpc                   x86_64  1.1.0-9.1.el8                        appstream   61 k
+ libpkgconf               x86_64  1.4.2-1.el8                          baseos      35 k
+ libstdc++                i686    8.5.0-17.el8                         baseos     491 k
+ libuv                    x86_64  1:1.41.1-1.el8_4                     appstream  156 k
+ libxcrypt                i686    4.1.1-6.el8                          baseos      74 k
+ libxcrypt-devel          i686    4.1.1-6.el8                          baseos      25 k
+ libxcrypt-devel          x86_64  4.1.1-6.el8                          baseos      25 k
+ m4                       x86_64  1.4.18-7.el8                         baseos     223 k
+ perl-Data-Dumper         x86_64  2.167-399.el8                        baseos      58 k
+ perl-Thread-Queue        noarch  3.13-1.el8                           appstream   24 k
+ pkgconf                  x86_64  1.4.2-1.el8                          baseos      38 k
+ pkgconf-m4               noarch  1.4.2-1.el8                          baseos      17 k
+ pkgconf-pkg-config       x86_64  1.4.2-1.el8                          baseos      15 k
+ platform-python-pip      noarch  9.0.3-22.el8                         baseos     1.6 M
+ python3-setuptools       noarch  39.2.0-6.el8                         baseos     163 k
+ vim-filesystem           noarch  2:8.0.1763-19.el8.4                  appstream   50 k
+Installing weak dependencies:
+ glibc-gconv-extra        i686    2.28-216.el8                         baseos     1.6 M
+ glibc-gconv-extra        x86_64  2.28-216.el8                         baseos     1.5 M
+ glibc-langpack-en        x86_64  2.28-216.el8                         baseos     825 k
+Removing dependent packages:
+ coreutils-single         x86_64  8.30-13.el8                          @baseos    1.3 M
+Downgrading:
+ xz-libs                  x86_64  5.2.4-4.el8                          baseos      94 k
+Enabling module streams:
+ python36                         3.6                                                  
+
+Transaction Summary
+=======================================================================================
+Install    54 Packages
+Upgrade     5 Packages
+Remove      1 Package
+Downgrade   1 Package
+
+Total download size: 102 M
+Downloading Packages:
+(1/60): xz-libs-5.2.4-4.el8.x86_64.rpm          791 kB/s |  94 kB     00:00    
+(2/60): autoconf-2.69-29.el8.noarch.rpm         1.5 MB/s | 710 kB     00:00    
+(3/60): automake-1.16.1-7.el8.noarch.rpm        1.4 MB/s | 713 kB     00:00    
+(4/60): bison-3.0.4-10.el8.x86_64.rpm           1.6 MB/s | 688 kB     00:00    
+(5/60): cmake-filesystem-3.20.2-4.el8.x86_64.rp 699 kB/s |  44 kB     00:00    
+(6/60): cmake-rpm-macros-3.20.2-4.el8.noarch.rp 761 kB/s |  44 kB     00:00    
+(7/60): cmake-data-3.20.2-4.el8.noarch.rpm      9.9 MB/s | 1.7 MB     00:00    
+(8/60): isl-0.16.1-6.el8.x86_64.rpm             8.6 MB/s | 841 kB     00:00    
+(9/60): libmpc-1.1.0-9.1.el8.x86_64.rpm         1.0 MB/s |  61 kB     00:00    
+(10/60): cmake-3.20.2-4.el8.x86_64.rpm           29 MB/s |  12 MB     00:00    
+(11/60): libstdc++-devel-8.5.0-17.el8.i686.rpm   13 MB/s | 2.1 MB     00:00    
+(12/60): libstdc++-devel-8.5.0-17.el8.x86_64.rp  15 MB/s | 2.1 MB     00:00    
+(13/60): gcc-c++-8.5.0-17.el8.x86_64.rpm         30 MB/s |  12 MB     00:00    
+(14/60): libtool-2.4.6-25.el8.x86_64.rpm        7.1 MB/s | 709 kB     00:00    
+(15/60): libuv-1.41.1-1.el8_4.x86_64.rpm        1.4 MB/s | 156 kB     00:00    
+(16/60): perl-Thread-Queue-3.13-1.el8.noarch.rp 276 kB/s |  24 kB     00:00    
+(17/60): python3-pip-9.0.3-22.el8.noarch.rpm    328 kB/s |  20 kB     00:00    
+(18/60): python36-3.6.8-38.module_el8.5.0+895+a 317 kB/s |  19 kB     00:00    
+(19/60): vim-filesystem-8.0.1763-19.el8.4.noarc 881 kB/s |  50 kB     00:00    
+(20/60): coreutils-8.30-14.el8.x86_64.rpm       5.8 MB/s | 1.2 MB     00:00    
+(21/60): coreutils-common-8.30-14.el8.x86_64.rp 6.8 MB/s | 2.0 MB     00:00    
+(22/60): binutils-2.30-119.el8.x86_64.rpm        14 MB/s | 5.8 MB     00:00    
+(23/60): glibc-2.28-216.el8.i686.rpm             14 MB/s | 2.0 MB     00:00    
+(24/60): glibc-devel-2.28-216.el8.i686.rpm      1.4 MB/s |  81 kB     00:00    
+(25/60): glibc-devel-2.28-216.el8.x86_64.rpm    2.1 MB/s |  82 kB     00:00    
+(26/60): cpp-8.5.0-17.el8.x86_64.rpm             17 MB/s |  10 MB     00:00    
+(27/60): glibc-gconv-extra-2.28-216.el8.i686.rp 8.4 MB/s | 1.6 MB     00:00    
+(28/60): glibc-gconv-extra-2.28-216.el8.x86_64.  15 MB/s | 1.5 MB     00:00    
+(29/60): glibc-headers-2.28-216.el8.i686.rpm    4.4 MB/s | 487 kB     00:00    
+(30/60): glibc-headers-2.28-216.el8.x86_64.rpm   11 MB/s | 487 kB     00:00    
+(31/60): glibc-langpack-en-2.28-216.el8.x86_64.  16 MB/s | 825 kB     00:00    
+(32/60): libgcc-8.5.0-17.el8.i686.rpm           2.2 MB/s |  88 kB     00:00    
+(33/60): libgomp-8.5.0-17.el8.x86_64.rpm        2.6 MB/s | 207 kB     00:00    
+(34/60): libpkgconf-1.4.2-1.el8.x86_64.rpm      936 kB/s |  35 kB     00:00    
+(35/60): libstdc++-8.5.0-17.el8.i686.rpm        5.6 MB/s | 491 kB     00:00    
+(36/60): gcc-8.5.0-17.el8.x86_64.rpm             23 MB/s |  23 MB     00:01    
+(37/60): libxcrypt-4.1.1-6.el8.i686.rpm         599 kB/s |  74 kB     00:00    
+(38/60): kernel-headers-4.18.0-408.el8.x86_64.r  20 MB/s | 9.8 MB     00:00    
+(39/60): libxcrypt-devel-4.1.1-6.el8.i686.rpm   240 kB/s |  25 kB     00:00    
+(40/60): libxcrypt-devel-4.1.1-6.el8.x86_64.rpm 249 kB/s |  25 kB     00:00    
+(41/60): m4-1.4.18-7.el8.x86_64.rpm             6.1 MB/s | 223 kB     00:00    
+(42/60): patch-2.7.6-11.el8.x86_64.rpm          2.9 MB/s | 138 kB     00:00    
+(43/60): perl-Data-Dumper-2.167-399.el8.x86_64. 1.5 MB/s |  58 kB     00:00    
+(44/60): make-4.2.1-11.el8.x86_64.rpm           6.5 MB/s | 498 kB     00:00    
+(45/60): pkgconf-1.4.2-1.el8.x86_64.rpm         1.1 MB/s |  38 kB     00:00    
+(46/60): pkgconf-m4-1.4.2-1.el8.noarch.rpm      607 kB/s |  17 kB     00:00    
+(47/60): pkgconf-pkg-config-1.4.2-1.el8.x86_64. 497 kB/s |  15 kB     00:00    
+(48/60): procps-ng-3.3.15-9.el8.x86_64.rpm      9.1 MB/s | 329 kB     00:00    
+(49/60): platform-python-pip-9.0.3-22.el8.noarc  27 MB/s | 1.6 MB     00:00    
+(50/60): python3-setuptools-39.2.0-6.el8.noarch 2.2 MB/s | 163 kB     00:00    
+(51/60): xz-5.2.4-4.el8.x86_64.rpm              2.6 MB/s | 153 kB     00:00    
+(52/60): rsync-3.1.3-19.el8.x86_64.rpm          4.6 MB/s | 410 kB     00:00    
+(53/60): lbzip2-2.5-15.20171011gitb6dc48a.el8.x 243 kB/s |  98 kB     00:00    
+(54/60): dash-0.5.10.2-4.el8.x86_64.rpm         233 kB/s |  99 kB     00:00    
+(55/60): ccache-3.7.7-1.el8.x86_64.rpm          504 kB/s | 232 kB     00:00    
+(56/60): glibc-minimal-langpack-2.28-216.el8.x8 1.1 MB/s |  64 kB     00:00    
+(57/60): glibc-common-2.28-216.el8.x86_64.rpm    12 MB/s | 1.0 MB     00:00    
+(58/60): libgcc-8.5.0-17.el8.x86_64.rpm         2.5 MB/s |  81 kB     00:00    
+(59/60): glibc-2.28-216.el8.x86_64.rpm           16 MB/s | 2.2 MB     00:00    
+(60/60): libstdc++-8.5.0-17.el8.x86_64.rpm      8.9 MB/s | 454 kB     00:00    
+--------------------------------------------------------------------------------
+Total                                            28 MB/s | 102 MB     00:03     
+Extra Packages for Enterprise Linux 8 - x86_64  1.6 MB/s | 1.6 kB     00:00    
+Importing GPG key 0x2F86D6A1:
+ Userid     : "Fedora EPEL (8) <epel@fedoraproject.org>"
+ Fingerprint: 94E2 79EB 8D8F 25B2 1810 ADF1 21EA 45AB 2F86 D6A1
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Upgrading        : libgcc-8.5.0-17.el8.x86_64                            1/67 
+  Running scriptlet: libgcc-8.5.0-17.el8.x86_64                            1/67 
+  Installing       : kernel-headers-4.18.0-408.el8.x86_64                  2/67 
+  Installing       : cmake-rpm-macros-3.20.2-4.el8.noarch                  3/67 
+  Installing       : cmake-filesystem-3.20.2-4.el8.x86_64                  4/67 
+  Installing       : glibc-langpack-en-2.28-216.el8.x86_64                 5/67 
+  Upgrading        : glibc-common-2.28-216.el8.x86_64                      6/67 
+  Running scriptlet: glibc-2.28-216.el8.x86_64                             7/67 
+  Upgrading        : glibc-2.28-216.el8.x86_64                             7/67 
+  Running scriptlet: glibc-2.28-216.el8.x86_64                             7/67 
+  Installing       : glibc-gconv-extra-2.28-216.el8.x86_64                 8/67 
+  Running scriptlet: glibc-gconv-extra-2.28-216.el8.x86_64                 8/67 
+  Upgrading        : libstdc++-8.5.0-17.el8.x86_64                         9/67 
+  Running scriptlet: libstdc++-8.5.0-17.el8.x86_64                         9/67 
+  Installing       : libmpc-1.1.0-9.1.el8.x86_64                          10/67 
+  Running scriptlet: glibc-headers-2.28-216.el8.i686                      11/67 
+  Installing       : glibc-headers-2.28-216.el8.i686                      11/67 
+  Installing       : m4-1.4.18-7.el8.x86_64                               12/67 
+  Running scriptlet: m4-1.4.18-7.el8.x86_64                               12/67 
+  Installing       : cpp-8.5.0-17.el8.x86_64                              13/67 
+  Running scriptlet: cpp-8.5.0-17.el8.x86_64                              13/67 
+  Downgrading      : xz-libs-5.2.4-4.el8.x86_64                           14/67 
+  Installing       : isl-0.16.1-6.el8.x86_64                              15/67 
+  Running scriptlet: isl-0.16.1-6.el8.x86_64                              15/67 
+  Installing       : libuv-1:1.41.1-1.el8_4.x86_64                        16/67 
+  Running scriptlet: glibc-headers-2.28-216.el8.x86_64                    17/67 
+  Installing       : glibc-headers-2.28-216.el8.x86_64                    17/67 
+  Installing       : libgomp-8.5.0-17.el8.x86_64                          18/67 
+  Running scriptlet: libgomp-8.5.0-17.el8.x86_64                          18/67 
+  Installing       : libpkgconf-1.4.2-1.el8.x86_64                        19/67 
+  Installing       : pkgconf-1.4.2-1.el8.x86_64                           20/67 
+  Installing       : make-1:4.2.1-11.el8.x86_64                           21/67 
+  Running scriptlet: make-1:4.2.1-11.el8.x86_64                           21/67 
+  Installing       : perl-Data-Dumper-2.167-399.el8.x86_64                22/67 
+  Installing       : autoconf-2.69-29.el8.noarch                          23/67 
+  Running scriptlet: autoconf-2.69-29.el8.noarch                          23/67 
+  Installing       : python3-setuptools-39.2.0-6.el8.noarch               24/67 
+  Installing       : platform-python-pip-9.0.3-22.el8.noarch              25/67 
+  Installing       : python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   26/67 
+  Running scriptlet: python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   26/67 
+  Installing       : python3-pip-9.0.3-22.el8.noarch                      27/67 
+  Installing       : pkgconf-m4-1.4.2-1.el8.noarch                        28/67 
+  Installing       : pkgconf-pkg-config-1.4.2-1.el8.x86_64                29/67 
+  Installing       : libxcrypt-devel-4.1.1-6.el8.x86_64                   30/67 
+  Installing       : glibc-devel-2.28-216.el8.x86_64                      31/67 
+  Running scriptlet: glibc-devel-2.28-216.el8.x86_64                      31/67 
+  Installing       : coreutils-common-8.30-14.el8.x86_64                  32/67 
+  Running scriptlet: coreutils-common-8.30-14.el8.x86_64                  32/67 
+  Installing       : coreutils-8.30-14.el8.x86_64                         33/67 
+  Installing       : binutils-2.30-119.el8.x86_64                         34/67 
+  Running scriptlet: binutils-2.30-119.el8.x86_64                         34/67 
+  Installing       : vim-filesystem-2:8.0.1763-19.el8.4.noarch            35/67 
+  Installing       : cmake-data-3.20.2-4.el8.noarch                       36/67 
+  Installing       : cmake-3.20.2-4.el8.x86_64                            37/67 
+  Installing       : perl-Thread-Queue-3.13-1.el8.noarch                  38/67 
+  Installing       : glibc-gconv-extra-2.28-216.el8.i686                  39/67 
+  Running scriptlet: glibc-gconv-extra-2.28-216.el8.i686                  39/67 
+  Running scriptlet: glibc-2.28-216.el8.i686                              40/67 
+  Installing       : glibc-2.28-216.el8.i686                              40/67 
+  Running scriptlet: glibc-2.28-216.el8.i686                              40/67 
+  Installing       : libgcc-8.5.0-17.el8.i686                             41/67 
+  Running scriptlet: libgcc-8.5.0-17.el8.i686                             41/67 
+  Installing       : automake-1.16.1-7.el8.noarch                         42/67 
+  Running scriptlet: ccache-3.7.7-1.el8.x86_64                            43/67 
+  Installing       : ccache-3.7.7-1.el8.x86_64                            43/67 
+  Installing       : xz-5.2.4-4.el8.x86_64                                44/67 
+  Installing       : bison-3.0.4-10.el8.x86_64                            45/67 
+  Running scriptlet: bison-3.0.4-10.el8.x86_64                            45/67 
+  Installing       : libstdc++-devel-8.5.0-17.el8.x86_64                  46/67 
+  Installing       : patch-2.7.6-11.el8.x86_64                            47/67 
+  Installing       : procps-ng-3.3.15-9.el8.x86_64                        48/67 
+  Installing       : rsync-3.1.3-19.el8.x86_64                            49/67 
+  Installing       : dash-0.5.10.2-4.el8.x86_64                           50/67 
+  Running scriptlet: dash-0.5.10.2-4.el8.x86_64                           50/67 
+  Installing       : lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64          51/67 
+  Upgrading        : glibc-minimal-langpack-2.28-216.el8.x86_64           52/67 
+  Installing       : libstdc++-8.5.0-17.el8.i686                          53/67 
+  Running scriptlet: libstdc++-8.5.0-17.el8.i686                          53/67 
+  Installing       : libstdc++-devel-8.5.0-17.el8.i686                    54/67 
+  Installing       : libxcrypt-4.1.1-6.el8.i686                           55/67 
+  Installing       : glibc-devel-2.28-216.el8.i686                        56/67 
+  Running scriptlet: glibc-devel-2.28-216.el8.i686                        56/67 
+  Installing       : libxcrypt-devel-4.1.1-6.el8.i686                     57/67 
+  Installing       : gcc-8.5.0-17.el8.x86_64                              58/67 
+  Running scriptlet: gcc-8.5.0-17.el8.x86_64                              58/67 
+  Installing       : gcc-c++-8.5.0-17.el8.x86_64                          59/67 
+  Running scriptlet: gcc-c++-8.5.0-17.el8.x86_64                          59/67 
+  Installing       : libtool-2.4.6-25.el8.x86_64                          60/67 
+  Running scriptlet: libtool-2.4.6-25.el8.x86_64                          60/67 
+  Cleanup          : libstdc++-8.5.0-15.el8.x86_64                        61/67 
+  Running scriptlet: libstdc++-8.5.0-15.el8.x86_64                        61/67 
+  Erasing          : coreutils-single-8.30-13.el8.x86_64                  62/67 
+  Cleanup          : xz-libs-5.2.4-4.el8_6.x86_64                         63/67 
+  Cleanup          : glibc-2.28-211.el8.x86_64                            64/67 
+  Cleanup          : glibc-minimal-langpack-2.28-211.el8.x86_64           65/67 
+  Cleanup          : glibc-common-2.28-211.el8.x86_64                     66/67 
+  Cleanup          : libgcc-8.5.0-15.el8.x86_64                           67/67 
+  Running scriptlet: libgcc-8.5.0-15.el8.x86_64                           67/67 
+  Running scriptlet: glibc-common-2.28-216.el8.x86_64                     67/67 
+  Verifying        : xz-libs-5.2.4-4.el8.x86_64                            1/67 
+  Verifying        : xz-libs-5.2.4-4.el8_6.x86_64                          2/67 
+  Verifying        : autoconf-2.69-29.el8.noarch                           3/67 
+  Verifying        : automake-1.16.1-7.el8.noarch                          4/67 
+  Verifying        : bison-3.0.4-10.el8.x86_64                             5/67 
+  Verifying        : cmake-3.20.2-4.el8.x86_64                             6/67 
+  Verifying        : cmake-data-3.20.2-4.el8.noarch                        7/67 
+  Verifying        : cmake-filesystem-3.20.2-4.el8.x86_64                  8/67 
+  Verifying        : cmake-rpm-macros-3.20.2-4.el8.noarch                  9/67 
+  Verifying        : gcc-c++-8.5.0-17.el8.x86_64                          10/67 
+  Verifying        : isl-0.16.1-6.el8.x86_64                              11/67 
+  Verifying        : libmpc-1.1.0-9.1.el8.x86_64                          12/67 
+  Verifying        : libstdc++-devel-8.5.0-17.el8.i686                    13/67 
+  Verifying        : libstdc++-devel-8.5.0-17.el8.x86_64                  14/67 
+  Verifying        : libtool-2.4.6-25.el8.x86_64                          15/67 
+  Verifying        : libuv-1:1.41.1-1.el8_4.x86_64                        16/67 
+  Verifying        : perl-Thread-Queue-3.13-1.el8.noarch                  17/67 
+  Verifying        : python3-pip-9.0.3-22.el8.noarch                      18/67 
+  Verifying        : python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_   19/67 
+  Verifying        : vim-filesystem-2:8.0.1763-19.el8.4.noarch            20/67 
+  Verifying        : binutils-2.30-119.el8.x86_64                         21/67 
+  Verifying        : coreutils-8.30-14.el8.x86_64                         22/67 
+  Verifying        : coreutils-common-8.30-14.el8.x86_64                  23/67 
+  Verifying        : cpp-8.5.0-17.el8.x86_64                              24/67 
+  Verifying        : gcc-8.5.0-17.el8.x86_64                              25/67 
+  Verifying        : glibc-2.28-216.el8.i686                              26/67 
+  Verifying        : glibc-devel-2.28-216.el8.i686                        27/67 
+  Verifying        : glibc-devel-2.28-216.el8.x86_64                      28/67 
+  Verifying        : glibc-gconv-extra-2.28-216.el8.i686                  29/67 
+  Verifying        : glibc-gconv-extra-2.28-216.el8.x86_64                30/67 
+  Verifying        : glibc-headers-2.28-216.el8.i686                      31/67 
+  Verifying        : glibc-headers-2.28-216.el8.x86_64                    32/67 
+  Verifying        : glibc-langpack-en-2.28-216.el8.x86_64                33/67 
+  Verifying        : kernel-headers-4.18.0-408.el8.x86_64                 34/67 
+  Verifying        : libgcc-8.5.0-17.el8.i686                             35/67 
+  Verifying        : libgomp-8.5.0-17.el8.x86_64                          36/67 
+  Verifying        : libpkgconf-1.4.2-1.el8.x86_64                        37/67 
+  Verifying        : libstdc++-8.5.0-17.el8.i686                          38/67 
+  Verifying        : libxcrypt-4.1.1-6.el8.i686                           39/67 
+  Verifying        : libxcrypt-devel-4.1.1-6.el8.i686                     40/67 
+  Verifying        : libxcrypt-devel-4.1.1-6.el8.x86_64                   41/67 
+  Verifying        : m4-1.4.18-7.el8.x86_64                               42/67 
+  Verifying        : make-1:4.2.1-11.el8.x86_64                           43/67 
+  Verifying        : patch-2.7.6-11.el8.x86_64                            44/67 
+  Verifying        : perl-Data-Dumper-2.167-399.el8.x86_64                45/67 
+  Verifying        : pkgconf-1.4.2-1.el8.x86_64                           46/67 
+  Verifying        : pkgconf-m4-1.4.2-1.el8.noarch                        47/67 
+  Verifying        : pkgconf-pkg-config-1.4.2-1.el8.x86_64                48/67 
+  Verifying        : platform-python-pip-9.0.3-22.el8.noarch              49/67 
+  Verifying        : procps-ng-3.3.15-9.el8.x86_64                        50/67 
+  Verifying        : python3-setuptools-39.2.0-6.el8.noarch               51/67 
+  Verifying        : rsync-3.1.3-19.el8.x86_64                            52/67 
+  Verifying        : xz-5.2.4-4.el8.x86_64                                53/67 
+  Verifying        : ccache-3.7.7-1.el8.x86_64                            54/67 
+  Verifying        : dash-0.5.10.2-4.el8.x86_64                           55/67 
+  Verifying        : lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64          56/67 
+  Verifying        : glibc-2.28-216.el8.x86_64                            57/67 
+  Verifying        : glibc-2.28-211.el8.x86_64                            58/67 
+  Verifying        : glibc-common-2.28-216.el8.x86_64                     59/67 
+  Verifying        : glibc-common-2.28-211.el8.x86_64                     60/67 
+  Verifying        : glibc-minimal-langpack-2.28-216.el8.x86_64           61/67 
+  Verifying        : glibc-minimal-langpack-2.28-211.el8.x86_64           62/67 
+  Verifying        : libgcc-8.5.0-17.el8.x86_64                           63/67 
+  Verifying        : libgcc-8.5.0-15.el8.x86_64                           64/67 
+  Verifying        : libstdc++-8.5.0-17.el8.x86_64                        65/67 
+  Verifying        : libstdc++-8.5.0-15.el8.x86_64                        66/67 
+  Verifying        : coreutils-single-8.30-13.el8.x86_64                  67/67 
+
+Upgraded:
+  glibc-2.28-216.el8.x86_64                   glibc-common-2.28-216.el8.x86_64 
+  glibc-minimal-langpack-2.28-216.el8.x86_64  libgcc-8.5.0-17.el8.x86_64       
+  libstdc++-8.5.0-17.el8.x86_64              
+Downgraded:
+  xz-libs-5.2.4-4.el8.x86_64                                                    
+Installed:
+  autoconf-2.69-29.el8.noarch                                                   
+  automake-1.16.1-7.el8.noarch                                                  
+  binutils-2.30-119.el8.x86_64                                                  
+  bison-3.0.4-10.el8.x86_64                                                     
+  ccache-3.7.7-1.el8.x86_64                                                     
+  cmake-3.20.2-4.el8.x86_64                                                     
+  cmake-data-3.20.2-4.el8.noarch                                                
+  cmake-filesystem-3.20.2-4.el8.x86_64                                          
+  cmake-rpm-macros-3.20.2-4.el8.noarch                                          
+  coreutils-8.30-14.el8.x86_64                                                  
+  coreutils-common-8.30-14.el8.x86_64                                           
+  cpp-8.5.0-17.el8.x86_64                                                       
+  dash-0.5.10.2-4.el8.x86_64                                                    
+  gcc-8.5.0-17.el8.x86_64                                                       
+  gcc-c++-8.5.0-17.el8.x86_64                                                   
+  glibc-2.28-216.el8.i686                                                       
+  glibc-devel-2.28-216.el8.i686                                                 
+  glibc-devel-2.28-216.el8.x86_64                                               
+  glibc-gconv-extra-2.28-216.el8.i686                                           
+  glibc-gconv-extra-2.28-216.el8.x86_64                                         
+  glibc-headers-2.28-216.el8.i686                                               
+  glibc-headers-2.28-216.el8.x86_64                                             
+  glibc-langpack-en-2.28-216.el8.x86_64                                         
+  isl-0.16.1-6.el8.x86_64                                                       
+  kernel-headers-4.18.0-408.el8.x86_64                                          
+  lbzip2-2.5-15.20171011gitb6dc48a.el8.x86_64                                   
+  libgcc-8.5.0-17.el8.i686                                                      
+  libgomp-8.5.0-17.el8.x86_64                                                   
+  libmpc-1.1.0-9.1.el8.x86_64                                                   
+  libpkgconf-1.4.2-1.el8.x86_64                                                 
+  libstdc++-8.5.0-17.el8.i686                                                   
+  libstdc++-devel-8.5.0-17.el8.i686                                             
+  libstdc++-devel-8.5.0-17.el8.x86_64                                           
+  libtool-2.4.6-25.el8.x86_64                                                   
+  libuv-1:1.41.1-1.el8_4.x86_64                                                 
+  libxcrypt-4.1.1-6.el8.i686                                                    
+  libxcrypt-devel-4.1.1-6.el8.i686                                              
+  libxcrypt-devel-4.1.1-6.el8.x86_64                                            
+  m4-1.4.18-7.el8.x86_64                                                        
+  make-1:4.2.1-11.el8.x86_64                                                    
+  patch-2.7.6-11.el8.x86_64                                                     
+  perl-Data-Dumper-2.167-399.el8.x86_64                                         
+  perl-Thread-Queue-3.13-1.el8.noarch                                           
+  pkgconf-1.4.2-1.el8.x86_64                                                    
+  pkgconf-m4-1.4.2-1.el8.noarch                                                 
+  pkgconf-pkg-config-1.4.2-1.el8.x86_64                                         
+  platform-python-pip-9.0.3-22.el8.noarch                                       
+  procps-ng-3.3.15-9.el8.x86_64                                                 
+  python3-pip-9.0.3-22.el8.noarch                                               
+  python3-setuptools-39.2.0-6.el8.noarch                                        
+  python36-3.6.8-38.module_el8.5.0+895+a459eca8.x86_64                          
+  rsync-3.1.3-19.el8.x86_64                                                     
+  vim-filesystem-2:8.0.1763-19.el8.4.noarch                                     
+  xz-5.2.4-4.el8.x86_64                                                         
+Removed:
+  coreutils-single-8.30-13.el8.x86_64                                           
+
+Complete!
+WARNING: Running pip install with root privileges is generally not a good idea. Try `pip3 install --user` instead.
+Collecting pyzmq
+  Downloading https://files.pythonhosted.org/packages/6c/33/d68be963793bced811ed51903eacb719ed40387d31bf2dd7abf409390107/pyzmq-24.0.1-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.1MB)
+Installing collected packages: pyzmq
+Successfully installed pyzmq-24.0.1
+              total        used        free      shared  buff/cache   available
+Mem:          125Gi       6.0Gi        40Gi       2.0Mi        78Gi       118Gi
+Swap:            0B          0B          0B
+Number of CPUs (nproc): 32
+Byte Order: Little Endian
+Free disk space:
+Filesystem      Size  Used Avail Use% Mounted on
+overlay         488G   71G  418G  15% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs            63G     0   63G   0% /sys/fs/cgroup
+/dev/sda1       488G   71G  418G  15% /tmp
+tmpfs           117G     0  117G   0% /dev/shm
+tmpfs            63G     0   63G   0% /proc/acpi
+tmpfs            63G     0   63G   0% /proc/scsi
+tmpfs            63G     0   63G   0% /sys/firmware
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 9026k  100 9026k    0     0  36.2M      0 --:--:-- --:--:-- --:--:-- 36.2M
+make: Entering directory '/tmp/cirrus-ci-build/depends'
+Fetching boost_1_80_0.tar.bz2 from https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  9  110M    9 10.9M    0     0  8758k      0  0:00:12  0:00:01  0:00:11 8758k 47  110M   47 52.8M    0     0  23.6M      0  0:00:04  0:00:02  0:00:02 44.0M 88  110M   88 97.3M    0     0  30.0M      0  0:00:03  0:00:03 --:--:-- 44.2M100  110M  100  110M    0     0  31.3M      0  0:00:03  0:00:03 --:--:-- 44.3M
+/tmp/cirrus-ci-build/depends/work/download/boost-1.80.0/boost_1_80_0.tar.bz2.temp: OK
+Extracting boost...
+/tmp/cirrus-ci-build/depends/sources/boost_1_80_0.tar.bz2: OK
+Preprocessing boost...
+Configuring boost...
+Building boost...
+Staging boost...
+Postprocessing boost...
+Caching boost...
+Fetching libevent-2.1.12-stable.tar.gz from https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 1075k  100 1075k    0     0  3656k      0 --:--:-- --:--:-- --:--:-- 3656k
+/tmp/cirrus-ci-build/depends/work/download/libevent-2.1.12-stable/libevent-2.1.12-stable.tar.gz.temp: OK
+Extracting libevent...
+/tmp/cirrus-ci-build/depends/sources/libevent-2.1.12-stable.tar.gz: OK
+Preprocessing libevent...
+Configuring libevent...
+Building libevent...
+Staging libevent...
+Postprocessing libevent...
+Caching libevent...
+Fetching freetype-2.11.0.tar.xz from https://download.savannah.gnu.org/releases/freetype
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 2203k  100 2203k    0     0  2269k      0 --:--:-- --:--:-- --:--:-- 7201k
+/tmp/cirrus-ci-build/depends/work/download/freetype-2.11.0/freetype-2.11.0.tar.xz.temp: OK
+Extracting freetype...
+/tmp/cirrus-ci-build/depends/sources/freetype-2.11.0.tar.xz: OK
+Preprocessing freetype...
+Configuring freetype...
+Building freetype...
+Staging freetype...
+Postprocessing freetype...
+Caching freetype...
+Fetching expat-2.4.8.tar.xz from https://github.com/libexpat/libexpat/releases/download/R_2_4_8/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  443k  100  443k    0     0  1459k      0 --:--:-- --:--:-- --:--:-- 1459k
+/tmp/cirrus-ci-build/depends/work/download/expat-2.4.8/expat-2.4.8.tar.xz.temp: OK
+Extracting expat...
+/tmp/cirrus-ci-build/depends/sources/expat-2.4.8.tar.xz: OK
+Preprocessing expat...
+Configuring expat...
+Building expat...
+Staging expat...
+Postprocessing expat...
+Caching expat...
+Fetching fontconfig-2.12.6.tar.bz2 from https://www.freedesktop.org/software/fontconfig/release/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 1586k  100 1586k    0     0  2721k      0 --:--:-- --:--:-- --:--:-- 2721k
+/tmp/cirrus-ci-build/depends/work/download/fontconfig-2.12.6/fontconfig-2.12.6.tar.bz2.temp: OK
+Extracting fontconfig...
+/tmp/cirrus-ci-build/depends/sources/fontconfig-2.12.6.tar.bz2: OK
+Preprocessing fontconfig...
+Configuring fontconfig...
+Building fontconfig...
+Staging fontconfig...
+Postprocessing fontconfig...
+Caching fontconfig...
+Fetching xcb-proto-1.14.1.tar.xz from https://xorg.freedesktop.org/archive/individual/proto
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  140k  100  140k    0     0   355k      0 --:--:-- --:--:-- --:--:--  355k
+/tmp/cirrus-ci-build/depends/work/download/xcb_proto-1.14.1/xcb-proto-1.14.1.tar.xz.temp: OK
+Extracting xcb_proto...
+/tmp/cirrus-ci-build/depends/sources/xcb-proto-1.14.1.tar.xz: OK
+Preprocessing xcb_proto...
+Configuring xcb_proto...
+Building xcb_proto...
+Staging xcb_proto...
+Postprocessing xcb_proto...
+Caching xcb_proto...
+Fetching xproto-7.0.31.tar.bz2 from https://xorg.freedesktop.org/releases/individual/proto
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  293k  100  293k    0     0   875k      0 --:--:-- --:--:-- --:--:--  878k
+/tmp/cirrus-ci-build/depends/work/download/xproto-7.0.31/xproto-7.0.31.tar.bz2.temp: OK
+Extracting xproto...
+/tmp/cirrus-ci-build/depends/sources/xproto-7.0.31.tar.bz2: OK
+Preprocessing xproto...
+Configuring xproto...
+Building xproto...
+Staging xproto...
+Postprocessing xproto...
+Caching xproto...
+Fetching libXau-1.0.9.tar.bz2 from https://xorg.freedesktop.org/releases/individual/lib/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  315k  100  315k    0     0   949k      0 --:--:-- --:--:-- --:--:--  949k
+/tmp/cirrus-ci-build/depends/work/download/libXau-1.0.9/libXau-1.0.9.tar.bz2.temp: OK
+Extracting libXau...
+/tmp/cirrus-ci-build/depends/sources/libXau-1.0.9.tar.bz2: OK
+Preprocessing libXau...
+Configuring libXau...
+Building libXau...
+Staging libXau...
+Postprocessing libXau...
+Caching libXau...
+Fetching libxcb-1.14.tar.xz from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  429k  100  429k    0     0   911k      0 --:--:-- --:--:-- --:--:--  911k
+/tmp/cirrus-ci-build/depends/work/download/libxcb-1.14/libxcb-1.14.tar.xz.temp: OK
+Extracting libxcb...
+/tmp/cirrus-ci-build/depends/sources/libxcb-1.14.tar.xz: OK
+Preprocessing libxcb...
+Configuring libxcb...
+Building libxcb...
+Staging libxcb...
+Postprocessing libxcb...
+Caching libxcb...
+Fetching libxkbcommon-0.8.4.tar.xz from https://xkbcommon.org/download/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  633k  100  633k    0     0   526k      0  0:00:01  0:00:01 --:--:--  525k100  633k  100  633k    0     0   526k      0  0:00:01  0:00:01 --:--:--  525k
+/tmp/cirrus-ci-build/depends/work/download/libxkbcommon-0.8.4/libxkbcommon-0.8.4.tar.xz.temp: OK
+Extracting libxkbcommon...
+/tmp/cirrus-ci-build/depends/sources/libxkbcommon-0.8.4.tar.xz: OK
+Preprocessing libxkbcommon...
+Configuring libxkbcommon...
+Building libxkbcommon...
+Staging libxkbcommon...
+Postprocessing libxkbcommon...
+Caching libxkbcommon...
+Fetching xcb-util-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  290k  100  290k    0     0   825k      0 --:--:-- --:--:-- --:--:--  825k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util-0.4.0/xcb-util-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util...
+Configuring libxcb_util...
+Building libxcb_util...
+Staging libxcb_util...
+Postprocessing libxcb_util...
+Caching libxcb_util...
+Fetching xcb-util-renderutil-0.3.9.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  286k  100  286k    0     0   874k      0 --:--:-- --:--:-- --:--:--  874k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_render-0.3.9/xcb-util-renderutil-0.3.9.tar.bz2.temp: OK
+Extracting libxcb_util_render...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-renderutil-0.3.9.tar.bz2: OK
+Preprocessing libxcb_util_render...
+Configuring libxcb_util_render...
+Building libxcb_util_render...
+Staging libxcb_util_render...
+Postprocessing libxcb_util_render...
+Caching libxcb_util_render...
+Fetching xcb-util-keysyms-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  283k  100  283k    0     0   860k      0 --:--:-- --:--:-- --:--:--  860k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_keysyms-0.4.0/xcb-util-keysyms-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util_keysyms...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-keysyms-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util_keysyms...
+Configuring libxcb_util_keysyms...
+Building libxcb_util_keysyms...
+Staging libxcb_util_keysyms...
+Postprocessing libxcb_util_keysyms...
+Caching libxcb_util_keysyms...
+Fetching xcb-util-image-0.4.0.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  320k  100  320k    0     0   741k      0 --:--:-- --:--:-- --:--:--  741k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_image-0.4.0/xcb-util-image-0.4.0.tar.bz2.temp: OK
+Extracting libxcb_util_image...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-image-0.4.0.tar.bz2: OK
+Preprocessing libxcb_util_image...
+Configuring libxcb_util_image...
+Building libxcb_util_image...
+Staging libxcb_util_image...
+Postprocessing libxcb_util_image...
+Caching libxcb_util_image...
+Fetching xcb-util-wm-0.4.1.tar.bz2 from https://xcb.freedesktop.org/dist
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  314k  100  314k    0     0   938k      0 --:--:-- --:--:-- --:--:--  938k
+/tmp/cirrus-ci-build/depends/work/download/libxcb_util_wm-0.4.1/xcb-util-wm-0.4.1.tar.bz2.temp: OK
+Extracting libxcb_util_wm...
+/tmp/cirrus-ci-build/depends/sources/xcb-util-wm-0.4.1.tar.bz2: OK
+Preprocessing libxcb_util_wm...
+Configuring libxcb_util_wm...
+Building libxcb_util_wm...
+Staging libxcb_util_wm...
+Postprocessing libxcb_util_wm...
+Caching libxcb_util_wm...
+Fetching qtbase-everywhere-opensource-src-5.15.5.tar.xz from https://download.qt.io/official_releases/qt/5.15/5.15.5/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   295  100   295    0     0    544      0 --:--:-- --:--:-- --:--:--   544
+  1 47.9M    1  943k    0     0  1144k      0  0:00:42 --:--:--  0:00:42 1144k100 47.9M  100 47.9M    0     0  36.9M      0  0:00:01  0:00:01 --:--:-- 99.5M
+/tmp/cirrus-ci-build/depends/work/download/qt-5.15.5/qtbase-everywhere-opensource-src-5.15.5.tar.xz.temp: OK
+Fetching qttranslations-everywhere-opensource-src-5.15.5.tar.xz from https://download.qt.io/official_releases/qt/5.15/5.15.5/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   303    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   303  100   303    0     0    560      0 --:--:-- --:--:-- --:--:--   559
+100 1580k  100 1580k    0     0  1870k      0 --:--:-- --:--:-- --:--:-- 1870k
+/tmp/cirrus-ci-build/depends/work/download/qt-5.15.5/qttranslations-everywhere-opensource-src-5.15.5.tar.xz.temp: OK
+Fetching qttools-everywhere-opensource-src-5.15.5.tar.xz from https://download.qt.io/official_releases/qt/5.15/5.15.5/submodules
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   296  100   296    0     0    534      0 --:--:-- --:--:-- --:--:--   534
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 8689k  100 8689k    0     0  9343k      0 --:--:-- --:--:-- --:--:-- 27.0M
+/tmp/cirrus-ci-build/depends/work/download/qt-5.15.5/qttools-everywhere-opensource-src-5.15.5.tar.xz.temp: OK
+Extracting qt...
+/tmp/cirrus-ci-build/depends/sources/qtbase-everywhere-opensource-src-5.15.5.tar.xz: OK
+/tmp/cirrus-ci-build/depends/sources/qttranslations-everywhere-opensource-src-5.15.5.tar.xz: OK
+/tmp/cirrus-ci-build/depends/sources/qttools-everywhere-opensource-src-5.15.5.tar.xz: OK
+Preprocessing qt...
+Configuring qt...
+Building qt...
+Staging qt...
+Postprocessing qt...
+Caching qt...
+Fetching qrencode-3.4.4.tar.bz2 from https://fukuchi.org/works/qrencode/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  360k  100  360k    0     0   842k      0 --:--:-- --:--:-- --:--:--  842k
+/tmp/cirrus-ci-build/depends/work/download/qrencode-3.4.4/qrencode-3.4.4.tar.bz2.temp: OK
+Extracting qrencode...
+/tmp/cirrus-ci-build/depends/sources/qrencode-3.4.4.tar.bz2: OK
+Preprocessing qrencode...
+Configuring qrencode...
+Building qrencode...
+Staging qrencode...
+Postprocessing qrencode...
+Caching qrencode...
+Fetching db-4.8.30.NC.tar.gz from https://download.oracle.com/berkeley-db
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0 21.7M    0 16097    0     0  77389      0  0:04:55 --:--:--  0:04:55 77019100 21.7M  100 21.7M    0     0  58.2M      0 --:--:-- --:--:-- --:--:-- 58.0M
+/tmp/cirrus-ci-build/depends/work/download/bdb-4.8.30/db-4.8.30.NC.tar.gz.temp: OK
+Extracting bdb...
+/tmp/cirrus-ci-build/depends/sources/db-4.8.30.NC.tar.gz: OK
+Preprocessing bdb...
+Configuring bdb...
+Building bdb...
+Staging bdb...
+Postprocessing bdb...
+Caching bdb...
+Fetching sqlite-autoconf-3380500.tar.gz from https://sqlite.org/2022/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 2962k  100 2962k    0     0  7595k      0 --:--:-- --:--:-- --:--:-- 7575k
+/tmp/cirrus-ci-build/depends/work/download/sqlite-3380500/sqlite-autoconf-3380500.tar.gz.temp: OK
+Extracting sqlite...
+/tmp/cirrus-ci-build/depends/sources/sqlite-autoconf-3380500.tar.gz: OK
+Preprocessing sqlite...
+Configuring sqlite...
+Building sqlite...
+Staging sqlite...
+Postprocessing sqlite...
+Caching sqlite...
+Fetching miniupnpc-2.2.2.tar.gz from https://miniupnp.tuxfamily.org/files/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   97k  100   97k    0     0  66406      0  0:00:01  0:00:01 --:--:-- 66450
+/tmp/cirrus-ci-build/depends/work/download/miniupnpc-2.2.2/miniupnpc-2.2.2.tar.gz.temp: OK
+Extracting miniupnpc...
+/tmp/cirrus-ci-build/depends/sources/miniupnpc-2.2.2.tar.gz: OK
+Preprocessing miniupnpc...
+Configuring miniupnpc...
+Building miniupnpc...
+Staging miniupnpc...
+Postprocessing miniupnpc...
+Caching miniupnpc...
+Fetching 07004b97cf691774efebe70404cf22201e4d330d.tar.gz from https://github.com/miniupnp/libnatpmp/archive
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 27663    0 27663    0     0  35374      0 --:--:-- --:--:-- --:--:-- 35374
+/tmp/cirrus-ci-build/depends/work/download/libnatpmp-07004b97cf691774efebe70404cf22201e4d330d/07004b97cf691774efebe70404cf22201e4d330d.tar.gz.temp: OK
+Extracting libnatpmp...
+/tmp/cirrus-ci-build/depends/sources/07004b97cf691774efebe70404cf22201e4d330d.tar.gz: OK
+Preprocessing libnatpmp...
+Configuring libnatpmp...
+Building libnatpmp...
+Staging libnatpmp...
+Postprocessing libnatpmp...
+Caching libnatpmp...
+Fetching systemtap-4.7.tar.gz from https://sourceware.org/systemtap/ftp/releases/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (22) The requested URL returned error: 404 
+Fetching systemtap-4.7.tar.gz from https://bitcoincore.org/depends-sources
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 49 5479k   49 2719k    0     0  5630k      0 --:--:-- --:--:-- --:--:-- 5619k100 5479k  100 5479k    0     0  8643k      0 --:--:-- --:--:-- --:--:-- 8629k
+/tmp/cirrus-ci-build/depends/work/download/systemtap-4.7/systemtap-4.7.tar.gz.temp: OK
+Extracting systemtap...
+/tmp/cirrus-ci-build/depends/sources/systemtap-4.7.tar.gz: OK
+Preprocessing systemtap...
+Configuring systemtap...
+Building systemtap...
+Staging systemtap...
+Postprocessing systemtap...
+Caching systemtap...
+Fetching zeromq-4.3.4.tar.gz from https://github.com/zeromq/libzmq/releases/download/v4.3.4/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 2428k  100 2428k    0     0  7660k      0 --:--:-- --:--:-- --:--:-- 7660k
+/tmp/cirrus-ci-build/depends/work/download/zeromq-4.3.4/zeromq-4.3.4.tar.gz.temp: OK
+Extracting zeromq...
+/tmp/cirrus-ci-build/depends/sources/zeromq-4.3.4.tar.gz: OK
+Preprocessing zeromq...
+Configuring zeromq...
+Building zeromq...
+Staging zeromq...
+Postprocessing zeromq...
+Caching zeromq...
+copying packages: boost libevent qt expat libxcb xcb_proto libXau xproto freetype fontconfig libxkbcommon libxcb_util libxcb_util_render libxcb_util_keysyms libxcb_util_image libxcb_util_wm qrencode bdb sqlite miniupnpc libnatpmp systemtap zeromq
+to: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu
+make: Leaving directory '/tmp/cirrus-ci-build/depends'
+Statistics zeroed
+Set cache size limit to 200.0 MB
+-- The CXX compiler identification is GNU 8.5.0
+-- The C compiler identification is GNU 8.5.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/gcc
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test C_SUPPORTS_O0
+-- Performing Test C_SUPPORTS_O0 - Success
+-- Performing Test C_SUPPORTS_G3
+-- Performing Test C_SUPPORTS_G3 - Success
+-- Performing Test CXX_SUPPORTS_O0
+-- Performing Test CXX_SUPPORTS_O0 - Success
+-- Performing Test CXX_SUPPORTS_G3
+-- Performing Test CXX_SUPPORTS_G3 - Success
+-- Performing Test CXX_SUPPORTS_FTRAPV
+-- Performing Test CXX_SUPPORTS_FTRAPV - Success
+-- Performing Test C_SUPPORTS_O2
+-- Performing Test C_SUPPORTS_O2 - Success
+-- Performing Test C_SUPPORTS_G
+-- Performing Test C_SUPPORTS_G - Success
+-- Performing Test CXX_SUPPORTS_O2
+-- Performing Test CXX_SUPPORTS_O2 - Success
+-- Performing Test CXX_SUPPORTS_G
+-- Performing Test CXX_SUPPORTS_G - Success
+-- Setting build type to "Release" as none was specified
+-- Performing Test CXX_SUPPORTS_FSTACK_REUSE_NONE
+-- Performing Test CXX_SUPPORTS_FSTACK_REUSE_NONE - Success
+-- Performing Test CXX_SUPPORTS_WSTACK_PROTECTOR
+-- Performing Test CXX_SUPPORTS_WSTACK_PROTECTOR - Success
+-- Performing Test CXX_SUPPORTS_FSTACK_PROTECTOR_ALL
+-- Performing Test CXX_SUPPORTS_FSTACK_PROTECTOR_ALL - Success
+-- Performing Test CXX_SUPPORTS_FCF_PROTECTION_FULL
+-- Performing Test CXX_SUPPORTS_FCF_PROTECTION_FULL - Success
+-- Performing Test CXX_SUPPORTS_FSTACK_CLASH_PROTECTION
+-- Performing Test CXX_SUPPORTS_FSTACK_CLASH_PROTECTION - Success
+-- Performing Test LINKER_SUPPORTS_WL___ENABLE_RELOC_SECTION
+-- Performing Test LINKER_SUPPORTS_WL___ENABLE_RELOC_SECTION - Failed
+-- Performing Test LINKER_SUPPORTS_WL___DYNAMICBASE
+-- Performing Test LINKER_SUPPORTS_WL___DYNAMICBASE - Failed
+-- Performing Test LINKER_SUPPORTS_WL___NXCOMPAT
+-- Performing Test LINKER_SUPPORTS_WL___NXCOMPAT - Failed
+-- Performing Test LINKER_SUPPORTS_WL___HIGH_ENTROPY_VA
+-- Performing Test LINKER_SUPPORTS_WL___HIGH_ENTROPY_VA - Failed
+-- Performing Test LINKER_SUPPORTS_WL__Z_RELRO
+-- Performing Test LINKER_SUPPORTS_WL__Z_RELRO - Success
+-- Performing Test LINKER_SUPPORTS_WL__Z_NOW
+-- Performing Test LINKER_SUPPORTS_WL__Z_NOW - Success
+-- Performing Test LINKER_SUPPORTS_WL__Z_SEPARATE_CODE
+-- Performing Test LINKER_SUPPORTS_WL__Z_SEPARATE_CODE - Success
+-- Performing Test CXX_SUPPORTS_WERROR
+-- Performing Test CXX_SUPPORTS_WERROR - Success
+-- Performing Test CXX_SUPPORTS_WERROR_RETURN_TYPE
+-- Performing Test CXX_SUPPORTS_WERROR_RETURN_TYPE - Success
+-- Looking for C++ include byteswap.h
+-- Looking for C++ include byteswap.h - found
+-- Looking for C++ include endian.h
+-- Looking for C++ include endian.h - found
+-- Looking for C++ include stdio.h
+-- Looking for C++ include stdio.h - found
+-- Looking for C++ include stdlib.h
+-- Looking for C++ include stdlib.h - found
+-- Looking for C++ include string.h
+-- Looking for C++ include string.h - found
+-- Looking for C++ include strings.h
+-- Looking for C++ include strings.h - found
+-- Looking for C++ include sys/endian.h
+-- Looking for C++ include sys/endian.h - not found
+-- Looking for C++ include sys/prctl.h
+-- Looking for C++ include sys/prctl.h - found
+-- Looking for C++ include sys/resources.h
+-- Looking for C++ include sys/resources.h - not found
+-- Looking for C++ include sys/select.h
+-- Looking for C++ include sys/select.h - found
+-- Looking for C++ include sys/stat.h
+-- Looking for C++ include sys/stat.h - found
+-- Looking for C++ include sys/sysctl.h
+-- Looking for C++ include sys/sysctl.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include sys/vmmeter.h
+-- Looking for C++ include sys/vmmeter.h - not found
+-- Looking for C++ include unistd.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include vm/vm_param.h
+-- Looking for C++ include vm/vm_param.h - not found
+-- Looking for bswap_16
+-- Looking for bswap_16 - found
+-- Looking for bswap_32
+-- Looking for bswap_32 - found
+-- Looking for bswap_64
+-- Looking for bswap_64 - found
+-- Looking for be16toh
+-- Looking for be16toh - found
+-- Looking for be32toh
+-- Looking for be32toh - found
+-- Looking for be64toh
+-- Looking for be64toh - found
+-- Looking for htobe16
+-- Looking for htobe16 - found
+-- Looking for htobe32
+-- Looking for htobe32 - found
+-- Looking for htobe64
+-- Looking for htobe64 - found
+-- Looking for htole16
+-- Looking for htole16 - found
+-- Looking for htole32
+-- Looking for htole32 - found
+-- Looking for htole64
+-- Looking for htole64 - found
+-- Looking for le16toh
+-- Looking for le16toh - found
+-- Looking for le32toh
+-- Looking for le32toh - found
+-- Looking for le64toh
+-- Looking for le64toh - found
+-- Looking for fdatasync
+-- Looking for fdatasync - found
+-- Looking for fork
+-- Looking for fork - found
+-- Looking for pipe2
+-- Looking for pipe2 - found
+-- Looking for setsid
+-- Looking for setsid - found
+-- Performing Test HAVE_GMTIME_R
+-- Performing Test HAVE_GMTIME_R - Success
+-- Performing Test HAVE_SYSTEM
+-- Performing Test HAVE_SYSTEM - Success
+-- Performing Test STRERROR_R_CHAR_P
+-- Performing Test STRERROR_R_CHAR_P - Success
+-- Performing Test HAVE_DEFAULT_VISIBILITY_ATTRIBUTE
+-- Performing Test HAVE_DEFAULT_VISIBILITY_ATTRIBUTE - Success
+-- Performing Test HAVE_CLMUL
+-- Performing Test HAVE_CLMUL - Failed
+-- Performing Test HAVE_CLZ
+-- Performing Test HAVE_CLZ - Success
+-- Performing Test STD_FILESYSTEM_WORKS_WITHOUT_LINK
+-- Performing Test STD_FILESYSTEM_WORKS_WITHOUT_LINK - Failed
+-- Performing Test STD_FILESYSTEM_NEEDS_LINK_TO_STDCXXFS
+-- Performing Test STD_FILESYSTEM_NEEDS_LINK_TO_STDCXXFS - Success
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE  
+-- Found Boost: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include (found suitable version "1.80.0", minimum required is "1.64.0")  
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.4.2") 
+-- Checking for module 'libevent>=2.1.8'
+--   Found libevent, version 2.1.12-stable
+-- Checking for module 'libevent_pthreads>=2.1.8'
+--   Found libevent_pthreads, version 2.1.12-stable
+-- Checking for module 'sqlite3>=3.7.17'
+--   Found sqlite3, version 3.38.5
+-- Found BerkeleyDB: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libdb_cxx-4.8.a (found suitable version "4.8", minimum required is "4.8") 
+-- Found NATPMP: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libnatpmp.a  
+-- Found MiniUPnPc: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/libminiupnpc.a  
+-- Checking for module 'libzmq>=4'
+--   Found libzmq, version 4.3.4
+-- Performing Test HAVE_USDT_H
+-- Performing Test HAVE_USDT_H - Failed
+-- Checking for module 'libqrencode'
+--   Found libqrencode, version 3.4.4
+-- Performing Test HAVE_SECCOMP_H
+-- Performing Test HAVE_SECCOMP_H - Failed
+-- Performing Test HAVE_BOOST_PROCESS_H
+-- Performing Test HAVE_BOOST_PROCESS_H - Success
+-- Performing Test CRC32C_HAVE_NO_DEPRECATED
+-- Performing Test CRC32C_HAVE_NO_DEPRECATED - Success
+-- Performing Test CRC32C_HAVE_NO_SIGN_COMPARE
+-- Performing Test CRC32C_HAVE_NO_SIGN_COMPARE - Success
+-- Performing Test CRC32C_HAVE_NO_UNUSED_PARAMETER
+-- Performing Test CRC32C_HAVE_NO_UNUSED_PARAMETER - Success
+-- Performing Test CRC32C_HAVE_NO_MISSING_FIELD_INITIALIZERS
+-- Performing Test CRC32C_HAVE_NO_MISSING_FIELD_INITIALIZERS - Success
+-- Performing Test HAVE_BUILTIN_PREFETCH
+-- Performing Test HAVE_BUILTIN_PREFETCH - Success
+-- Performing Test HAVE_MM_PREFETCH
+-- Performing Test HAVE_MM_PREFETCH - Success
+-- Performing Test HAVE_SSE42
+-- Performing Test HAVE_SSE42 - Success
+-- Performing Test HAVE_ARM64_CRC32C
+-- Performing Test HAVE_ARM64_CRC32C - Failed
+-- Performing Test HAVE_STRONG_GETAUXVAL
+-- Performing Test HAVE_STRONG_GETAUXVAL - Failed
+-- Performing Test HAVE_WEAK_GETAUXVAL
+-- Performing Test HAVE_WEAK_GETAUXVAL - Success
+-- Looking for F_FULLFSYNC
+-- Looking for F_FULLFSYNC - not found
+-- Looking for O_CLOEXEC
+-- Looking for O_CLOEXEC - found
+-- Performing Test HAVE_CXX17_HAS_INCLUDE
+-- Performing Test HAVE_CXX17_HAS_INCLUDE - Success
+-- Performing Test HAVE_SSE41
+-- Performing Test HAVE_SSE41 - Success
+-- Performing Test HAVE_AVX2
+-- Performing Test HAVE_AVX2 - Success
+-- Performing Test HAVE_X86_SHANI
+-- Performing Test HAVE_X86_SHANI - Success
+-- Performing Test HAVE_ARM_SHANI
+-- Performing Test HAVE_ARM_SHANI - Failed
+-- Found Qt: /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/lib/cmake/Qt5 (found suitable version "5.15.5", minimum required is "5.11.3")
+
+
+Configure summary
+=================
+Executables:
+  bitcoind ............................ ON
+  bitcoin-cli ......................... ON
+  bitcoin-tx .......................... ON
+  bitcoin-util ........................ ON
+  bitcoin-chainstate (experimental) ... OFF
+  bitcoin-wallet ...................... ON
+Libraries:
+  build shared ........................ ON
+  build static ........................ ON
+  libbitcoinconsensus ................. ON
+  libbitcoinkernel (experimental) ..... OFF
+Wallet support:
+  SQLite, descriptor wallets .......... ON
+  Berkeley DB, legacy wallets ......... ON
+Optional packages:
+  GUI ................................. Qt5
+  QR code (GUI) ....................... ON
+  external signer ..................... ON
+  NAT-PMP ............................. ON
+  UPnP ................................ ON
+  ZeroMQ .............................. ON
+  USDT tracing ........................ OFF
+  experimental syscall sandbox ........ OFF
+Tests:
+  test_bitcoin ........................ ON
+  bench_bitcoin ....................... ON
+
+Cross compiling ....................... TRUE, for Linux, i686
+Preprocessor defined macros ........... 
+C compiler ............................ /usr/bin/gcc
+CFLAGS ................................ -pipe -std=c11 -O2
+C++ compiler .......................... /usr/bin/g++
+CXXFLAGS .............................. -pipe -std=c++17 -O2
+Common compile options ................ -fstack-reuse=none -Wstack-protector -fstack-protector-all -fcf-protection=full -fstack-clash-protection -Werror
+Common link options ................... -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code
+Build type:
+ - CMAKE_BUILD_TYPE ................... Release
+ - CFLAGS ............................. -O2 -g
+ - CXXFLAGS ........................... -O2 -g
+ - LDFLAGS for executables ............ 
+ - LDFLAGS for shared libraries ....... 
+Use assembly routines ................. ON
+Treat compiler warnings as errors ..... ON
+Use ccache for compiling .............. ON
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/cirrus-ci-build/ci/scratch/build
+[  0%] Building CXX object src/univalue/CMakeFiles/univalue.dir/lib/univalue_get.cpp.o
+[  0%] Building CXX object src/univalue/CMakeFiles/univalue.dir/lib/univalue.cpp.o
+[  0%] Building CXX object src/univalue/CMakeFiles/univalue.dir/lib/univalue_read.cpp.o
+[  0%] Building CXX object src/univalue/CMakeFiles/univalue.dir/lib/univalue_write.cpp.o
+[  0%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/minisketch.cpp.o
+[  0%] Building CXX object src/crc32c/CMakeFiles/crc32c_sse42.dir/src/crc32c_sse42.cc.o
+[  0%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha256_sse4.cpp.o
+[  0%] Building C object CMakeFiles/secp256k1.dir/src/secp256k1/src/secp256k1.c.o
+[  0%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/arith_uint256.cpp.o
+[  1%] Building CXX object src/crc32c/CMakeFiles/crc32c_arm64.dir/src/crc32c_arm64.cc.o
+[  1%] Built target crc32c_arm64
+[  1%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_1byte.cpp.o
+[  1%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha256_sse41.cpp.o
+[  1%] Built target crc32c_sse42
+[  1%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_2bytes.cpp.o
+[  1%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_3bytes.cpp.o
+[  2%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_4bytes.cpp.o
+[  2%] Building CXX object src/crc32c/CMakeFiles/crc32c.dir/src/crc32c_portable.cc.o
+[  2%] Building CXX object src/crc32c/CMakeFiles/crc32c.dir/src/crc32c.cc.o
+[  2%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_5bytes.cpp.o
+[  2%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_6bytes.cpp.o
+[  2%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_7bytes.cpp.o
+[  2%] Linking CXX static library libcrc32c.a
+[  2%] Building CXX object CMakeFiles/minisketch.dir/src/minisketch/src/fields/generic_8bytes.cpp.o
+[  2%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha256_avx2.cpp.o
+[  2%] Built target crc32c
+[  2%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha256_x86_shani.cpp.o
+[  3%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/aes.cpp.o
+[  3%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/consensus/merkle.cpp.o
+[  3%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/builder.cc.o
+[  3%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/chacha_poly_aead.cpp.o
+[  3%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/chacha20.cpp.o
+[  3%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/hkdf_sha256_32.cpp.o
+[  3%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/c.cc.o
+[  3%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/consensus/tx_check.cpp.o
+[  3%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/hmac_sha256.cpp.o
+[  4%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/hash.cpp.o
+[  4%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/primitives/block.cpp.o
+[  4%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/primitives/transaction.cpp.o
+[  4%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/db_impl.cc.o
+[  5%] Linking CXX static library libunivalue.a
+[  5%] Built target univalue
+[  5%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/pubkey.cpp.o
+[  6%] Building CXX object src/CMakeFiles/rpc_client.dir/rpc/client.cpp.o
+[  6%] Linking CXX static library libminisketch.a
+[  6%] Built target minisketch
+[  6%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/db_iter.cc.o
+[  6%] Building C object CMakeFiles/secp256k1.dir/src/secp256k1/src/precomputed_ecmult.c.o
+[  6%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/script/interpreter.cpp.o
+[  7%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/dbformat.cc.o
+[  7%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/script/script.cpp.o
+[  8%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/script/script_error.cpp.o
+[  8%] Building C object CMakeFiles/secp256k1.dir/src/secp256k1/src/precomputed_ecmult_gen.c.o
+[  8%] Linking C static library libsecp256k1.a
+[  8%] Built target secp256k1
+[  8%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/hmac_sha512.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/muhash.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/poly1305.cpp.o
+[  9%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/uint256.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/ripemd160.cpp.o
+[  9%] Building CXX object src/CMakeFiles/bitcoin_consensus.dir/util/strencodings.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha1.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha256.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha3.cpp.o
+[  9%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/dumpfile.cc.o
+[  9%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/filename.cc.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/sha512.cpp.o
+[  9%] Building CXX object src/crypto/CMakeFiles/bitcoin_crypto.dir/siphash.cpp.o
+[  9%] Linking CXX static library librpc_client.a
+[  9%] Built target rpc_client
+[  9%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/log_reader.cc.o
+[  9%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/log_writer.cc.o
+[  9%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/memtable.cc.o
+[  9%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/repair.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/table_cache.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/version_edit.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/version_set.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/db/write_batch.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/block_builder.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/block.cc.o
+[ 10%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/filter_block.cc.o
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/format.cc.o
+[ 11%] Built target bitcoin_crypto
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/iterator.cc.o
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/merger.cc.o
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/table_builder.cc.o
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/table.cc.o
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/table/two_level_iterator.cc.o
+[ 11%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/asmap.cpp.o
+[ 11%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/arena.cc.o
+[ 12%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/bloom.cc.o
+[ 12%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/cache.cc.o
+[ 12%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/coding.cc.o
+[ 12%] Built target bitcoin_consensus
+[ 12%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/bitcoinconsensus.cpp.o
+[ 12%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/comparator.cc.o
+[ 12%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/crc32c.cc.o
+[ 12%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/env.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/filter_policy.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/hash.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/logging.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/options.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/status.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/util/env_posix.cc.o
+[ 13%] Building CXX object src/leveldb/CMakeFiles/leveldb.dir/helpers/memenv/memenv.cc.o
+[ 13%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/support/cleanse.cpp.o
+[ 14%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/interpreter.cpp.o
+[ 14%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/bitcoinconsensus.cpp.o
+[ 14%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/support/cleanse.cpp.o
+[ 14%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/interpreter.cpp.o
+[ 15%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/script.cpp.o
+[ 15%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/script_error.cpp.o
+[ 15%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/arith_uint256.cpp.o
+[ 15%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/bip32.cpp.o
+[ 15%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/bytevectorhash.cpp.o
+[ 16%] Linking CXX static library libleveldb.a
+[ 16%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/consensus/merkle.cpp.o
+[ 16%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/consensus/tx_check.cpp.o
+[ 16%] Built target leveldb
+[ 16%] Building CXX object src/zmq/CMakeFiles/bitcoin_zmq.dir/zmqabstractnotifier.cpp.o
+[ 16%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/check.cpp.o
+[ 16%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/error.cpp.o
+[ 16%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/script.cpp.o
+[ 16%] Building CXX object src/zmq/CMakeFiles/bitcoin_zmq.dir/zmqnotificationinterface.cpp.o
+[ 16%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/hash.cpp.o
+[ 16%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/fees.cpp.o
+[ 17%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/getuniquepath.cpp.o
+[ 17%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/primitives/block.cpp.o
+[ 17%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/hasher.cpp.o
+[ 17%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/script_error.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/primitives/transaction.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/pubkey.cpp.o
+[ 18%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/message.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/arith_uint256.cpp.o
+[ 18%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/moneystr.cpp.o
+[ 18%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/rbf.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/uint256.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/consensus/merkle.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus.dir/__/util/strencodings.cpp.o
+[ 18%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/readwritefile.cpp.o
+[ 18%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/consensus/tx_check.cpp.o
+[ 19%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/hash.cpp.o
+[ 19%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/primitives/block.cpp.o
+[ 19%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/settings.cpp.o
+[ 19%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/primitives/transaction.cpp.o
+[ 20%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/serfloat.cpp.o
+[ 20%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/sock.cpp.o
+[ 21%] Building CXX object src/zmq/CMakeFiles/bitcoin_zmq.dir/zmqpublishnotifier.cpp.o
+[ 21%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/spanparsing.cpp.o
+[ 21%] Building CXX object src/zmq/CMakeFiles/bitcoin_zmq.dir/zmqrpc.cpp.o
+[ 21%] Building CXX object src/zmq/CMakeFiles/bitcoin_zmq.dir/zmqutil.cpp.o
+[ 21%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/pubkey.cpp.o
+[ 21%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/strencodings.cpp.o
+[ 21%] Linking CXX shared library libbitcoinconsensus.so
+[ 21%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/uint256.cpp.o
+[ 21%] Built target bitcoinconsensus
+[ 21%] Building CXX object src/script/CMakeFiles/bitcoinconsensus_static.dir/__/util/strencodings.cpp.o
+[ 21%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/string.cpp.o
+[ 21%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/syscall_sandbox.cpp.o
+[ 21%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/syserror.cpp.o
+[ 22%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/system.cpp.o
+[ 22%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/thread.cpp.o
+[ 22%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/threadinterrupt.cpp.o
+[ 22%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/threadnames.cpp.o
+[ 22%] Linking CXX static library libbitcoinconsensus.a
+[ 22%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/time.cpp.o
+[ 22%] Built target bitcoinconsensus_static
+[ 22%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/tokenpipe.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/chainparamsbase.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/clientversion.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/fs.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/interfaces/echo.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/interfaces/handler.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/interfaces/init.cpp.o
+[ 23%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/logging.cpp.o
+[ 24%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/random.cpp.o
+[ 24%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/randomenv.cpp.o
+[ 24%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/rpc/request.cpp.o
+[ 24%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/support/cleanse.cpp.o
+[ 24%] Linking CXX static library libbitcoin_zmq.a
+[ 24%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/support/lockedpool.cpp.o
+[ 24%] Built target bitcoin_zmq
+[ 24%] Building CXX object src/util/CMakeFiles/bitcoin_util.dir/__/sync.cpp.o
+[ 24%] Linking CXX static library libbitcoin_util.a
+[ 24%] Built target bitcoin_util
+[ 24%] Building CXX object src/CMakeFiles/bitcoin_common.dir/bech32.cpp.o
+[ 24%] Building CXX object src/CMakeFiles/bitcoin_common.dir/coins.cpp.o
+[ 24%] Building CXX object src/CMakeFiles/bitcoin_common.dir/common/bloom.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/common/run_command.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/core_read.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/base58.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/deploymentinfo.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/compressor.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/core_write.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/chainparams.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/external_signer.cpp.o
+[ 25%] Building CXX object src/CMakeFiles/bitcoin_common.dir/init/common.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/key.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/key_io.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/merkleblock.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/net_types.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/netaddress.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/netbase.cpp.o
+[ 26%] Building CXX object src/CMakeFiles/bitcoin_common.dir/net_permissions.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/bitcoin_common.dir/outputtype.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/bitcoin_common.dir/policy/feerate.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/bitcoin_common.dir/policy/policy.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/bitcoin_common.dir/protocol.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/bitcoin_common.dir/psbt.cpp.o
+[ 27%] Building CXX object src/CMakeFiles/bitcoin_common.dir/rpc/rawtransaction_util.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/rpc/external_signer.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/rpc/util.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/scheduler.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/script/descriptor.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/script/miniscript.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/script/sign.cpp.o
+[ 28%] Building CXX object src/CMakeFiles/bitcoin_common.dir/script/signingprovider.cpp.o
+[ 29%] Building CXX object src/CMakeFiles/bitcoin_common.dir/script/standard.cpp.o
+[ 29%] Building CXX object src/CMakeFiles/bitcoin_common.dir/warnings.cpp.o
+[ 29%] Building CXX object src/CMakeFiles/bitcoin_common.dir/common/url.cpp.o
+[ 29%] Linking CXX static library libbitcoin_common.a
+[ 29%] Built target bitcoin_common
+[ 29%] Building CXX object src/CMakeFiles/bitcoin-cli.dir/compat/stdin.cpp.o
+[ 30%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/coincontrol.cpp.o
+[ 30%] Building CXX object src/CMakeFiles/bitcoin-cli.dir/bitcoin-cli.cpp.o
+[ 30%] Building CXX object src/CMakeFiles/bitcoin-util.dir/bitcoin-util.cpp.o
+[ 31%] Building CXX object src/CMakeFiles/bitcoin-tx.dir/bitcoin-tx.cpp.o
+[ 31%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/crypter.cpp.o
+[ 31%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/coinselection.cpp.o
+[ 31%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/db.cpp.o
+[ 31%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/context.cpp.o
+[ 31%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/dump.cpp.o
+[ 31%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/external_signer_scriptpubkeyman.cpp.o
+[ 32%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/feebumper.cpp.o
+[ 32%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/fees.cpp.o
+[ 32%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/interfaces.cpp.o
+[ 32%] Linking CXX executable bitcoin-util
+[ 32%] Built target bitcoin-util
+[ 32%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/load.cpp.o
+[ 32%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/receive.cpp.o
+[ 32%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/addresses.cpp.o
+[ 33%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/backup.cpp.o
+[ 33%] Linking CXX executable bitcoin-tx
+[ 33%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/coins.cpp.o
+[ 33%] Built target bitcoin-tx
+[ 33%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/encrypt.cpp.o
+[ 34%] Linking CXX executable bitcoin-cli
+[ 34%] Built target bitcoin-cli
+[ 34%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/spend.cpp.o
+[ 34%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/signmessage.cpp.o
+[ 34%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/transactions.cpp.o
+[ 34%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/util.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/rpc/wallet.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/scriptpubkeyman.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/spend.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/transaction.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/wallet.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/walletdb.cpp.o
+[ 35%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/walletutil.cpp.o
+[ 36%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/sqlite.cpp.o
+[ 36%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/bdb.cpp.o
+[ 36%] Building CXX object src/wallet/CMakeFiles/bitcoin_wallet.dir/salvage.cpp.o
+[ 36%] Linking CXX static library libbitcoin_wallet.a
+[ 36%] Built target bitcoin_wallet
+[ 36%] Building CXX object src/CMakeFiles/bitcoin-wallet.dir/init/bitcoin-wallet.cpp.o
+[ 36%] Building CXX object src/CMakeFiles/bitcoin-wallet.dir/bitcoin-wallet.cpp.o
+[ 36%] Automatic MOC and UIC for target bitcoinqt
+[ 37%] Building CXX object src/CMakeFiles/bitcoin-wallet.dir/wallet/wallettool.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/bitcoin_node.dir/addrdb.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/bitcoin_node.dir/addrman.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/bitcoin_node.dir/chain.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/bitcoin_node.dir/blockencodings.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/bitcoin_node.dir/banman.cpp.o
+[ 38%] Building CXX object src/CMakeFiles/bitcoin_node.dir/blockfilter.cpp.o
+[ 39%] Building CXX object src/CMakeFiles/bitcoin_node.dir/consensus/tx_verify.cpp.o
+[ 39%] Built target bitcoinqt_autogen
+[ 39%] Generating ../../../../../src/qt/locale/bitcoin_zu.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_zu.qm'...
+    Generated 19 translation(s) (0 finished and 19 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 39%] Automatic RCC for bitcoin.qrc
+[ 39%] Generating ../../../../../src/qt/locale/bitcoin_fr.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_fr.qm'...
+    Generated 1053 translation(s) (0 finished and 1053 unfinished)
+[ 39%] Generating ../../../../../src/qt/locale/bitcoin_si.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_si.qm'...
+    Generated 249 translation(s) (0 finished and 249 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 39%] Generating ../../../../../src/qt/locale/bitcoin_bn.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_bn.qm'...
+    Generated 83 translation(s) (0 finished and 83 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 39%] Generating ../../../../../src/qt/locale/bitcoin_sk.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sk.qm'...
+    Generated 1004 translation(s) (0 finished and 1004 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 39%] Generating ../../../../../src/qt/locale/bitcoin_sl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sl.qm'...
+    Generated 1031 translation(s) (0 finished and 1031 unfinished)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_sn.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sn.qm'...
+    Generated 47 translation(s) (0 finished and 47 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_ka.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ka.qm'...
+    Generated 463 translation(s) (0 finished and 463 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_bs.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_bs.qm'...
+    Generated 372 translation(s) (0 finished and 372 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_sq.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sq.qm'...
+    Generated 159 translation(s) (0 finished and 159 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_sr.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sr.qm'...
+    Generated 795 translation(s) (0 finished and 795 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_ga.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ga.qm'...
+    Generated 837 translation(s) (0 finished and 837 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_sv.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sv.qm'...
+    Generated 864 translation(s) (0 finished and 864 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_sw.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sw.qm'...
+    Generated 13 translation(s) (0 finished and 13 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_kk.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_kk.qm'...
+    Generated 184 translation(s) (0 finished and 184 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_gd.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_gd.qm'...
+    Generated 19 translation(s) (0 finished and 19 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 40%] Generating ../../../../../src/qt/locale/bitcoin_kl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_kl.qm'...
+    Generated 48 translation(s) (0 finished and 48 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 41%] Generating ../../../../../src/qt/locale/bitcoin_km.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_km.qm'...
+    Generated 487 translation(s) (0 finished and 487 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 41%] Generating ../../../../../src/qt/locale/bitcoin_ko.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ko.qm'...
+    Generated 970 translation(s) (0 finished and 970 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 41%] Generating ../../../../../src/qt/locale/bitcoin_ca.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ca.qm'...
+    Generated 987 translation(s) (0 finished and 987 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 42%] Generating ../../../../../src/qt/locale/bitcoin_pt_BR.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_pt_BR.qm'...
+    Generated 911 translation(s) (0 finished and 911 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 43%] Generating ../../../../../src/qt/locale/bitcoin_ta.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ta.qm'...
+    Generated 724 translation(s) (0 finished and 724 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 44%] Generating ../../../../../src/qt/locale/bitcoin_gl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_gl.qm'...
+    Generated 386 translation(s) (0 finished and 386 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 44%] Generating ../../../../../src/qt/locale/bitcoin_te.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_te.qm'...
+    Generated 118 translation(s) (0 finished and 118 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_zh_CN.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_zh_CN.qm'...
+    Generated 1016 translation(s) (0 finished and 1016 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_ky.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ky.qm'...
+    Generated 56 translation(s) (0 finished and 56 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_th.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_th.qm'...
+    Generated 319 translation(s) (0 finished and 319 unfinished)
+    Ignored 3 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_gu.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_gu.qm'...
+    Generated 51 translation(s) (0 finished and 51 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_la.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_la.qm'...
+    Generated 290 translation(s) (0 finished and 290 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_cs.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_cs.qm'...
+    Generated 1002 translation(s) (0 finished and 1002 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_zh_TW.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_zh_TW.qm'...
+    Generated 823 translation(s) (0 finished and 823 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_szl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_szl.qm'...
+    Generated 378 translation(s) (0 finished and 378 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Building CXX object src/CMakeFiles/bitcoin_node.dir/dbwrapper.cpp.o
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_tr.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_tr.qm'...
+[ 45%] Building CXX object src/CMakeFiles/bitcoin_node.dir/deploymentstatus.cpp.o
+    Generated 858 translation(s) (0 finished and 858 unfinished)
+    Ignored 5 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_pl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_pl.qm'...
+    Generated 857 translation(s) (0 finished and 857 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 45%] Generating ../../../../../src/qt/locale/bitcoin_ku_IQ.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ku_IQ.qm'...
+    Generated 156 translation(s) (0 finished and 156 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_cy.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_cy.qm'...
+    Generated 198 translation(s) (0 finished and 198 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_he.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_he.qm'...
+    Generated 859 translation(s) (0 finished and 859 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_zh_HK.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_zh_HK.qm'...
+    Generated 129 translation(s) (0 finished and 129 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_es_CL.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_es_CL.qm'...
+    Generated 633 translation(s) (0 finished and 633 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_pt.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_pt.qm'...
+    Generated 981 translation(s) (0 finished and 981 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_da.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_da.qm'...
+    Generated 861 translation(s) (0 finished and 861 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_pam.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_pam.qm'...
+    Generated 238 translation(s) (0 finished and 238 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_es_CO.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_es_CO.qm'...
+    Generated 672 translation(s) (0 finished and 672 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_de.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_de.qm'...
+    Generated 1019 translation(s) (0 finished and 1019 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_lt.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_lt.qm'...
+    Generated 693 translation(s) (0 finished and 693 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_lv.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_lv.qm'...
+    Generated 264 translation(s) (0 finished and 264 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Building CXX object src/CMakeFiles/bitcoin_node.dir/flatfile.cpp.o
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_ug.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ug.qm'...
+    Generated 44 translation(s) (0 finished and 44 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_hr.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_hr.qm'...
+    Generated 762 translation(s) (0 finished and 762 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_yo.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_yo.qm'...
+    Generated 19 translation(s) (0 finished and 19 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Building CXX object src/CMakeFiles/bitcoin_node.dir/headerssync.cpp.o
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_hu.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_hu.qm'...
+    Generated 1055 translation(s) (0 finished and 1055 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_uk.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_uk.qm'...
+    Generated 1081 translation(s) (0 finished and 1081 unfinished)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_ur.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ur.qm'...
+    Generated 134 translation(s) (0 finished and 134 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_gl_ES.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_gl_ES.qm'...
+    Generated 216 translation(s) (0 finished and 216 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 46%] Generating ../../../../../src/qt/locale/bitcoin_sr@latin.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sr@latin.qm'...
+    Generated 173 translation(s) (0 finished and 173 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 47%] Generating ../../../../../src/qt/locale/bitcoin_mk.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_mk.qm'...
+    Generated 105 translation(s) (0 finished and 105 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_id.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_id.qm'...
+    Generated 974 translation(s) (0 finished and 974 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_ml.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ml.qm'...
+    Generated 287 translation(s) (0 finished and 287 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_mn.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_mn.qm'...
+    Generated 211 translation(s) (0 finished and 211 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_mr_IN.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_mr_IN.qm'...
+    Generated 37 translation(s) (0 finished and 37 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_es_DO.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_es_DO.qm'...
+    Generated 402 translation(s) (0 finished and 402 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_zh.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_zh.qm'...
+    Generated 30 translation(s) (0 finished and 30 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 48%] Generating ../../../../../src/qt/locale/bitcoin_ms.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ms.qm'...
+    Generated 102 translation(s) (0 finished and 102 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_uz@Cyrl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_uz@Cyrl.qm'...
+    Generated 378 translation(s) (0 finished and 378 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_my.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_my.qm'...
+    Generated 43 translation(s) (0 finished and 43 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_is.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_is.qm'...
+    Generated 168 translation(s) (0 finished and 168 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_el.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_el.qm'...
+    Generated 945 translation(s) (0 finished and 945 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_vi.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_vi.qm'...
+    Generated 573 translation(s) (0 finished and 573 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_it.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_it.qm'...
+    Generated 1032 translation(s) (0 finished and 1032 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_en.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_en.qm'...
+    Generated 161 translation(s) (131 finished and 30 unfinished)
+    Ignored 988 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_eo.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_eo.qm'...
+    Generated 488 translation(s) (0 finished and 488 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 49%] Generating ../../../../../src/qt/locale/bitcoin_nb.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_nb.qm'...
+    Generated 956 translation(s) (0 finished and 956 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 50%] Generating ../../../../../src/qt/locale/bitcoin_es.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_es.qm'...
+    Generated 577 translation(s) (0 finished and 577 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 50%] Generating ../../../../../src/qt/locale/bitcoin_et.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_et.qm'...
+    Generated 413 translation(s) (0 finished and 413 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 50%] Generating ../../../../../src/qt/locale/bitcoin_am.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_am.qm'...
+    Generated 132 translation(s) (0 finished and 132 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 51%] Generating ../../../../../src/qt/locale/bitcoin_eu.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_eu.qm'...
+    Generated 344 translation(s) (0 finished and 344 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 51%] Building CXX object src/CMakeFiles/bitcoin_node.dir/httprpc.cpp.o
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_ne.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ne.qm'...
+    Generated 78 translation(s) (0 finished and 78 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_ro.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ro.qm'...
+    Generated 756 translation(s) (0 finished and 756 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_ja.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ja.qm'...
+    Generated 1071 translation(s) (0 finished and 1071 unfinished)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_ar.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ar.qm'...
+    Generated 946 translation(s) (0 finished and 946 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_es_VE.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_es_VE.qm'...
+    Generated 327 translation(s) (0 finished and 327 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Building CXX object src/CMakeFiles/bitcoin_node.dir/httpserver.cpp.o
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_uz@Latn.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_uz@Latn.qm'...
+    Generated 14 translation(s) (0 finished and 14 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_zh-Hans.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_zh-Hans.qm'...
+    Generated 57 translation(s) (0 finished and 57 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_es_MX.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_es_MX.qm'...
+    Generated 548 translation(s) (0 finished and 548 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_nl.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_nl.qm'...
+    Generated 1014 translation(s) (0 finished and 1014 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_ru.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_ru.qm'...
+    Generated 985 translation(s) (0 finished and 985 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_no.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_no.qm'...
+    Generated 25 translation(s) (0 finished and 25 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 52%] Generating ../../../../../src/qt/locale/bitcoin_fa.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_fa.qm'...
+    Generated 879 translation(s) (0 finished and 879 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Generating ../../../../../src/qt/locale/bitcoin_az.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_az.qm'...
+    Generated 78 translation(s) (0 finished and 78 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Generating ../../../../../src/qt/locale/bitcoin_fil.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_fil.qm'...
+    Generated 711 translation(s) (0 finished and 711 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Generating ../../../../../src/qt/locale/bitcoin_fi.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_fi.qm'...
+    Generated 964 translation(s) (0 finished and 964 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Generating ../../../../../src/qt/locale/bitcoin_be.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_be.qm'...
+    Generated 237 translation(s) (0 finished and 237 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Generating ../../../../../src/qt/locale/bitcoin_sc.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_sc.qm'...
+    Generated 15 translation(s) (0 finished and 15 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Generating ../../../../../src/qt/locale/bitcoin_bg.qm
+Updating '/tmp/cirrus-ci-build/src/qt/locale/bitcoin_bg.qm'...
+    Generated 571 translation(s) (0 finished and 571 unfinished)
+    Ignored 11 untranslated source text(s)
+[ 53%] Automatic RCC for bitcoin_locale.qrc
+[ 53%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoinqt_autogen/mocs_compilation.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/i2p.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/index/base.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/index/blockfilterindex.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/index/coinstatsindex.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/index/txindex.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/init.cpp.o
+[ 54%] Building CXX object src/CMakeFiles/bitcoin_node.dir/kernel/chain.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/kernel/checks.cpp.o
+[ 55%] Linking CXX executable bitcoin-wallet
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/kernel/coinstats.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/kernel/context.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/kernel/mempool_persist.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/mapport.cpp.o
+[ 55%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bantablemodel.cpp.o
+[ 55%] Built target bitcoin-wallet
+[ 55%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoin.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/net.cpp.o
+[ 55%] Building CXX object src/CMakeFiles/bitcoin_node.dir/netgroup.cpp.o
+[ 56%] Building CXX object src/CMakeFiles/bitcoin_node.dir/net_processing.cpp.o
+[ 56%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/blockstorage.cpp.o
+[ 56%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/caches.cpp.o
+[ 56%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/chainstate.cpp.o
+[ 57%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoinaddressvalidator.cpp.o
+[ 57%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/chainstatemanager_args.cpp.o
+[ 57%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/coin.cpp.o
+[ 57%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoinamountfield.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/connection_types.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/context.cpp.o
+[ 58%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoingui.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/eviction.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/interface_ui.cpp.o
+[ 58%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoinunits.cpp.o
+[ 58%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/clientmodel.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/interfaces.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/mempool_args.cpp.o
+[ 58%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/mempool_persist_args.cpp.o
+[ 58%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/csvmodelwriter.cpp.o
+[ 58%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/guiutil.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/miner.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/minisketchwrapper.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/psbt.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/transaction.cpp.o
+[ 59%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/txreconciliation.cpp.o
+[ 60%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/initexecutor.cpp.o
+[ 60%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/intro.cpp.o
+[ 60%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/modaloverlay.cpp.o
+[ 60%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/utxo_snapshot.cpp.o
+[ 60%] Building CXX object src/CMakeFiles/bitcoin_node.dir/node/validation_cache_args.cpp.o
+[ 60%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/networkstyle.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/bitcoin_node.dir/noui.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/bitcoin_node.dir/policy/fees.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/bitcoin_node.dir/policy/fees_args.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/bitcoin_node.dir/policy/packages.cpp.o
+[ 61%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/notificator.cpp.o
+[ 61%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/optionsdialog.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/bitcoin_node.dir/policy/rbf.cpp.o
+[ 61%] Building CXX object src/CMakeFiles/bitcoin_node.dir/policy/settings.cpp.o
+[ 62%] Building CXX object src/CMakeFiles/bitcoin_node.dir/pow.cpp.o
+[ 62%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rest.cpp.o
+[ 63%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/optionsmodel.cpp.o
+[ 63%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/peertablemodel.cpp.o
+[ 63%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/blockchain.cpp.o
+[ 63%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/fees.cpp.o
+[ 63%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/mempool.cpp.o
+[ 63%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/mining.cpp.o
+[ 63%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/net.cpp.o
+[ 63%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/peertablesortproxy.cpp.o
+[ 63%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/platformstyle.cpp.o
+[ 63%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/qvalidatedlineedit.cpp.o
+[ 63%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/qvaluecombobox.cpp.o
+[ 64%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/node.cpp.o
+[ 64%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/rpcconsole.cpp.o
+[ 64%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/output_script.cpp.o
+[ 64%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/rawtransaction.cpp.o
+[ 65%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/splashscreen.cpp.o
+[ 65%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/trafficgraphwidget.cpp.o
+[ 65%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/utilitydialog.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/server.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/server_util.cpp.o
+[ 65%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/addressbookpage.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/signmessage.cpp.o
+[ 65%] Building CXX object src/CMakeFiles/bitcoin_node.dir/rpc/txoutproof.cpp.o
+[ 65%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/addresstablemodel.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/script/sigcache.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/shutdown.cpp.o
+[ 66%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/askpassphrasedialog.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/signet.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/timedata.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/torcontrol.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/txdb.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/bitcoin_node.dir/txmempool.cpp.o
+[ 67%] Building CXX object src/CMakeFiles/bitcoin_node.dir/txorphanage.cpp.o
+[ 67%] Building CXX object src/CMakeFiles/bitcoin_node.dir/txrequest.cpp.o
+[ 67%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/coincontroldialog.cpp.o
+[ 67%] Building CXX object src/CMakeFiles/bitcoin_node.dir/validation.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/coincontroltreewidget.cpp.o
+[ 68%] Building CXX object src/CMakeFiles/bitcoin_node.dir/validationinterface.cpp.o
+[ 68%] Building CXX object src/CMakeFiles/bitcoin_node.dir/versionbits.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/createwalletdialog.cpp.o
+[ 68%] Building CXX object src/CMakeFiles/bitcoin_node.dir/wallet/init.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/editaddressdialog.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/openuridialog.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/overviewpage.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/paymentserver.cpp.o
+[ 68%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/psbtoperationsdialog.cpp.o
+[ 69%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/qrimagewidget.cpp.o
+[ 69%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/receivecoinsdialog.cpp.o
+[ 69%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/receiverequestdialog.cpp.o
+[ 69%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/recentrequeststablemodel.cpp.o
+[ 69%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/sendcoinsdialog.cpp.o
+[ 69%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/sendcoinsentry.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/signverifymessagedialog.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactiondesc.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactiondescdialog.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactionfilterproxy.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactionoverviewwidget.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactionrecord.cpp.o
+[ 70%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactiontablemodel.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/transactionview.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/walletcontroller.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/walletframe.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/walletmodel.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/walletmodeltransaction.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/walletview.cpp.o
+[ 71%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoinqt_autogen/EWIEGA46WW/qrc_bitcoin.cpp.o
+[ 72%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/bitcoinqt_autogen/EWIEGA46WW/qrc_bitcoin_locale.cpp.o
+[ 72%] Building CXX object src/qt/CMakeFiles/bitcoinqt.dir/__/__/depends/i686-pc-linux-gnu/lib/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin_Import.cpp.o
+[ 73%] Linking CXX static library libbitcoin_node.a
+[ 73%] Linking CXX static library libbitcoinqt.a
+[ 73%] Built target bitcoin_node
+[ 73%] Building CXX object src/CMakeFiles/bitcoind.dir/init/bitcoind.cpp.o
+[ 74%] Building CXX object src/CMakeFiles/bitcoind.dir/bitcoind.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/blockfilter.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/logging.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/net.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/mining.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/setup_common.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/script.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/str.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/transaction_utils.cpp.o
+[ 75%] Built target bitcoinqt
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/txmempool.cpp.o
+[ 75%] Building CXX object src/test/util/CMakeFiles/test_util.dir/validation.cpp.o
+[ 76%] Building CXX object src/test/util/CMakeFiles/test_util.dir/wallet.cpp.o
+[ 76%] Automatic MOC and UIC for target bitcoin-qt
+[ 76%] Built target bitcoin-qt_autogen
+[ 76%] Building CXX object src/qt/CMakeFiles/bitcoin-qt.dir/bitcoin-qt_autogen/mocs_compilation.cpp.o
+[ 76%] Building CXX object src/qt/CMakeFiles/bitcoin-qt.dir/main.cpp.o
+[ 76%] Building CXX object src/qt/CMakeFiles/bitcoin-qt.dir/__/init/bitcoin-qt.cpp.o
+[ 76%] Building CXX object src/qt/CMakeFiles/bitcoin-qt.dir/__/__/depends/i686-pc-linux-gnu/lib/cmake/Qt5Gui/Qt5Gui_QXcbIntegrationPlugin_Import.cpp.o
+[ 76%] Linking CXX executable bitcoind
+[ 76%] Linking CXX executable bitcoin-qt
+[ 76%] Linking CXX static library libtest_util.a
+[ 76%] Built target test_util
+[ 76%] Generating data/block413567.raw.h
+[ 76%] Generating data/asmap.raw.h
+[ 76%] Generating data/tx_valid.json.h
+[ 77%] Generating data/base58_encode_decode.json.h
+[ 77%] Generating data/blockfilters.json.h
+[ 77%] Generating data/bip341_wallet_vectors.json.h
+[ 77%] Generating data/key_io_valid.json.h
+[ 77%] Generating data/key_io_invalid.json.h
+[ 77%] Generating data/script_tests.json.h
+[ 77%] Generating data/sighash.json.h
+[ 78%] Generating data/tx_invalid.json.h
+[ 78%] Built target bitcoind
+[ 78%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/allocator_tests.cpp.o
+[ 78%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/arith_uint256_tests.cpp.o
+[ 78%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/addrman_tests.cpp.o
+[ 78%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/compilerbug_tests.cpp.o
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/amount_tests.cpp.o
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/banman_tests.cpp.o
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/base58_tests.cpp.o
+[ 79%] Built target bitcoin-qt
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/base32_tests.cpp.o
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/base64_tests.cpp.o
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/bech32_tests.cpp.o
+[ 79%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/bip32_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/blockchain_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/blockencodings_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/blockfilter_index_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/blockfilter_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/bloom_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/bswap_tests.cpp.o
+[ 80%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/checkqueue_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/coinstatsindex_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/coins_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/compress_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/crypto_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/cuckoocache_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/dbwrapper_tests.cpp.o
+[ 81%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/denialofservice_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/descriptor_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/flatfile_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/fs_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/getarg_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/hash_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/headers_sync_chainwork_tests.cpp.o
+[ 82%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/httpserver_tests.cpp.o
+[ 83%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/i2p_tests.cpp.o
+[ 83%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/interfaces_tests.cpp.o
+[ 83%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/key_io_tests.cpp.o
+[ 83%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/key_tests.cpp.o
+[ 83%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/logging_tests.cpp.o
+[ 83%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/main.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/mempool_tests.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/merkleblock_tests.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/merkle_tests.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/miner_tests.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/miniscript_tests.cpp.o
+[ 84%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/addrman.cpp.o
+[ 84%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/base58.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/minisketch_tests.cpp.o
+[ 84%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/multisig_tests.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/netbase_tests.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/net_peer_eviction_tests.cpp.o
+[ 85%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/bech32.cpp.o
+[ 85%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/bench.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/net_tests.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/orphanage_tests.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/pmt_tests.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/policyestimator_tests.cpp.o
+[ 85%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/policy_fee_tests.cpp.o
+[ 86%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/pow_tests.cpp.o
+[ 86%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/prevector_tests.cpp.o
+[ 86%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/bench_bitcoin.cpp.o
+[ 86%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/raii_event_tests.cpp.o
+[ 86%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/random_tests.cpp.o
+[ 87%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/block_assemble.cpp.o
+[ 87%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/rbf_tests.cpp.o
+[ 87%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/rest_tests.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/result_tests.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/reverselock_tests.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/rpc_tests.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/sanity_tests.cpp.o
+[ 88%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/ccoins_caching.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/scheduler_tests.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/scriptnum_tests.cpp.o
+[ 88%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/script_p2sh_tests.cpp.o
+[ 88%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/chacha20.cpp.o
+[ 89%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/script_parse_tests.cpp.o
+[ 89%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/chacha_poly_aead.cpp.o
+[ 89%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/checkblock.cpp.o
+[ 89%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/checkqueue.cpp.o
+[ 89%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/script_segwit_tests.cpp.o
+[ 89%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/script_standard_tests.cpp.o
+[ 89%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/script_tests.cpp.o
+[ 89%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/serfloat_tests.cpp.o
+[ 89%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/serialize_tests.cpp.o
+[ 89%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/crypto_hash.cpp.o
+[ 90%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/data.cpp.o
+[ 90%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/settings_tests.cpp.o
+[ 90%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/descriptors.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/sighash_tests.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/sigopcount_tests.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/skiplist_tests.cpp.o
+[ 91%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/duplicate_inputs.cpp.o
+[ 91%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/examples.cpp.o
+[ 91%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/gcs_filter.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/sock_tests.cpp.o
+[ 91%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/hashpadding.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/streams_tests.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/sync_tests.cpp.o
+[ 91%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/system_tests.cpp.o
+[ 91%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/lockedpool.cpp.o
+[ 92%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/logging.cpp.o
+[ 92%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/mempool_eviction.cpp.o
+[ 93%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/timedata_tests.cpp.o
+[ 93%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/torcontrol_tests.cpp.o
+[ 93%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/transaction_tests.cpp.o
+[ 93%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/txindex_tests.cpp.o
+[ 93%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/txpackage_tests.cpp.o
+[ 93%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/mempool_stress.cpp.o
+[ 93%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/txreconciliation_tests.cpp.o
+[ 94%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/txrequest_tests.cpp.o
+[ 94%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/txvalidationcache_tests.cpp.o
+[ 94%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/merkle_root.cpp.o
+[ 94%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/nanobench.cpp.o
+[ 94%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/txvalidation_tests.cpp.o
+[ 94%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/uint256_tests.cpp.o
+[ 94%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/peer_eviction.cpp.o
+[ 94%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/util_tests.cpp.o
+[ 95%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/poly1305.cpp.o
+[ 95%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/prevector.cpp.o
+[ 95%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/rollingbloom.cpp.o
+[ 95%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/util_threadnames_tests.cpp.o
+[ 95%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/rpc_blockchain.cpp.o
+[ 95%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/validation_block_tests.cpp.o
+[ 95%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/rpc_mempool.cpp.o
+[ 96%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/validation_chainstatemanager_tests.cpp.o
+[ 96%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/validation_chainstate_tests.cpp.o
+[ 96%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/validation_flush_tests.cpp.o
+[ 96%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/validationinterface_tests.cpp.o
+[ 96%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/validation_tests.cpp.o
+[ 96%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/strencodings.cpp.o
+[ 96%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/util_time.cpp.o
+[ 97%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/verify_script.cpp.o
+[ 97%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/versionbits_tests.cpp.o
+[ 97%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/coin_selection.cpp.o
+[ 97%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/availablecoins_tests.cpp.o
+[ 97%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/wallet_balance.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/coinselector_tests.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/init_test_fixture.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/init_tests.cpp.o
+[ 98%] Building CXX object src/bench/CMakeFiles/bench_bitcoin.dir/wallet_loading.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/ismine_tests.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/psbt_wallet_tests.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/rpc_util_tests.cpp.o
+[ 98%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/scriptpubkeyman_tests.cpp.o
+[ 99%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/spend_tests.cpp.o
+[ 99%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/util.cpp.o
+[ 99%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/wallet_crypto_tests.cpp.o
+[ 99%] Linking CXX executable bench_bitcoin
+In file included from /tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/include/boost/test/unit_test.hpp:19,
+                 from /tmp/cirrus-ci-build/src/test/script_tests.cpp:32:
+/tmp/cirrus-ci-build/src/test/script_tests.cpp: In member function ‘void script_tests::script_build::test_method()’:
+/tmp/cirrus-ci-build/src/test/script_tests.cpp:456:22: note: variable tracking size limit exceeded with -fvar-tracking-assignments, retrying without
+ BOOST_AUTO_TEST_CASE(script_build)
+                      ^~~~~~~~~~~~
+[ 99%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/wallet_test_fixture.cpp.o
+[ 99%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/wallet_tests.cpp.o
+[ 99%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/wallet_transaction_tests.cpp.o
+[100%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/walletdb_tests.cpp.o
+[100%] Built target bench_bitcoin
+[100%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/walletload_tests.cpp.o
+[100%] Building CXX object src/test/CMakeFiles/test_bitcoin.dir/__/wallet/test/db_tests.cpp.o
+[100%] Linking CXX executable test_bitcoin
+[100%] Built target test_bitcoin
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-wallet
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoind
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-cli
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-tx
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-util
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1/bitcoin-wallet.1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1/bitcoind.1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1/bitcoin-qt.1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1/bitcoin-cli.1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1/bitcoin-tx.1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/share/man/man1/bitcoin-util.1
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.so.0.0.0
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.so.0
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.so
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/libbitcoinconsensus.a
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/include/bitcoinconsensus.h
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/lib/pkgconfig/libbitcoinconsensus.pc
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bitcoin-qt
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/test_bitcoin
+-- Installing: /tmp/cirrus-ci-build/ci/scratch/out/i686-pc-linux-gnu/bin/bench_bitcoin
+ccache version 3.7.7
+cache directory                     /tmp/ccache_dir
+primary config                      /tmp/ccache_dir/ccache.conf
+secondary config      (readonly)    /etc/ccache.conf
+stats updated                       Wed Nov 23 20:21:51 2022
+stats zeroed                        Wed Nov 23 20:16:13 2022
+cache hit (direct)                     2
+cache hit (preprocessed)              12
+cache miss                           514
+cache hit rate                      2.65 %
+cleanups performed                    92
+files in cache                       566
+cache size                         177.9 MB
+max cache size                     200.0 MB
+4.0K	/tmp/cirrus-ci-build/depends/SDKs/
+28K	/tmp/cirrus-ci-build/depends/builders/
+59M	/tmp/cirrus-ci-build/depends/built/
+40K	/tmp/cirrus-ci-build/depends/hosts/
+328M	/tmp/cirrus-ci-build/depends/i686-pc-linux-gnu/
+148K	/tmp/cirrus-ci-build/depends/packages/
+132K	/tmp/cirrus-ci-build/depends/patches/
+4.0K	/tmp/cirrus-ci-build/depends/sdk-sources/
+210M	/tmp/cirrus-ci-build/depends/sources/
+208K	/tmp/cirrus-ci-build/depends/work/
+4.0K	/tmp/cirrus-ci-build/releases/i686-pc-linux-gnu
+Consolidate compiler generated dependencies of target univalue
+[  1%] Built target univalue
+Consolidate compiler generated dependencies of target bitcoin_crypto
+[  4%] Built target bitcoin_crypto
+Consolidate compiler generated dependencies of target bitcoin_util
+[ 11%] Built target bitcoin_util
+Consolidate compiler generated dependencies of target secp256k1
+[ 11%] Built target secp256k1
+Consolidate compiler generated dependencies of target bitcoin_consensus
+[ 14%] Built target bitcoin_consensus
+Consolidate compiler generated dependencies of target bitcoin_common
+[ 21%] Built target bitcoin_common
+Consolidate compiler generated dependencies of target bitcoin_wallet
+[ 28%] Built target bitcoin_wallet
+Consolidate compiler generated dependencies of target minisketch
+[ 29%] Built target minisketch
+Consolidate compiler generated dependencies of target crc32c_arm64
+[ 30%] Built target crc32c_arm64
+Consolidate compiler generated dependencies of target crc32c_sse42
+[ 30%] Built target crc32c_sse42
+Consolidate compiler generated dependencies of target crc32c
+[ 30%] Built target crc32c
+Consolidate compiler generated dependencies of target leveldb
+[ 39%] Built target leveldb
+Consolidate compiler generated dependencies of target bitcoin_zmq
+[ 40%] Built target bitcoin_zmq
+Consolidate compiler generated dependencies of target bitcoin_node
+[ 59%] Built target bitcoin_node
+Consolidate compiler generated dependencies of target test_util
+[ 61%] Built target test_util
+Consolidate compiler generated dependencies of target bitcoinconsensus_static
+[ 64%] Built target bitcoinconsensus_static
+Consolidate compiler generated dependencies of target bench_bitcoin
+[ 71%] Built target bench_bitcoin
+Consolidate compiler generated dependencies of target rpc_client
+[ 73%] Built target rpc_client
+Consolidate compiler generated dependencies of target test_bitcoin
+[100%] Built target test_bitcoin
+Running with --sanity-check option, benchmark results will be useless.
+Warning, results might be unstable:
+* CPU governor is '' but should be 'performance'
+* Turbo is enabled, CPU frequency will fluctuate
+
+Recommendations
+* Use 'pyperf system tune' before benchmarking. See https://github.com/psf/pyperf
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|       53,692,266.00 |               18.62 |    0.0% |      0.05 | `AddrManAdd`
+|      101,492,532.00 |                9.85 |    0.0% |      0.10 | `AddrManAddThenGood`
+|          805,210.00 |            1,241.91 |    0.0% |      0.00 | `AddrManGetAddr`
+|        2,459,109.00 |              406.65 |    0.0% |      0.00 | `AddrManSelect`
+|          607,551.00 |            1,645.95 |    0.0% |      0.00 | `AssembleBlock`
+
+|             ns/byte |              byte/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|              365.94 |        2,732,707.09 |    0.0% |      0.00 | `Base58CheckEncode`
+|               61.76 |       16,190,476.19 |    0.0% |      0.00 | `Base58Decode`
+|               68.75 |       14,545,454.55 |    0.0% |      0.00 | `Base58Encode`
+|               33.65 |       29,714,285.71 |    0.0% |      0.00 | `Bech32Decode`
+|               50.31 |       19,875,776.40 |    0.0% |      0.00 | `Bech32Encode`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|              930.00 |        1,075,268.82 |    0.0% |      0.00 | `BenchLockedPool`
+|              550.00 |        1,818,181.82 |    0.0% |      0.00 | `BenchTimeDeprecated`
+|              100.00 |       10,000,000.00 |    0.0% |      0.00 | `BenchTimeMillis`
+|              140.00 |        7,142,857.14 |    0.0% |      0.00 | `BenchTimeMillisSys`
+|               60.00 |       16,666,666.67 |    0.0% |      0.00 | `BenchTimeMock`
+|      103,095,342.00 |                9.70 |    0.0% |      0.10 | `BlockToJsonVerbose`
+|       63,368,145.00 |               15.78 |    0.0% |      0.06 | `BlockToJsonVerboseWrite`
+|        1,188,669.00 |              841.28 |    0.0% |      0.00 | `BnBExhaustion`
+
+|              ns/job |               job/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|            7,274.90 |          137,458.92 |    0.0% |      0.02 | `CCheckQueueSpeedPrevectorJob`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|            3,911.00 |          255,689.08 |    0.0% |      0.00 | `CCoinsCaching`
+
+|             ns/byte |              byte/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|                2.00 |      499,557,648.40 |    0.0% |      0.00 | `CHACHA20_1MB`
+|                2.30 |      433,898,305.08 |    0.0% |      0.00 | `CHACHA20_256BYTES`
+|                3.12 |      320,000,000.00 |    0.0% |      0.00 | `CHACHA20_64BYTES`
+|                6.81 |      146,832,032.69 |    0.0% |      0.01 | `CHACHA20_POLY1305_AEAD_1MB_ENCRYPT_DECRYPT`
+|                3.41 |      292,947,503.20 |    0.0% |      0.00 | `CHACHA20_POLY1305_AEAD_1MB_ONLY_ENCRYPT`
+|               10.12 |       98,841,698.84 |    0.0% |      0.00 | `CHACHA20_POLY1305_AEAD_256BYTES_ENCRYPT_DECRYPT`
+|                5.04 |      198,449,612.40 |    0.0% |      0.00 | `CHACHA20_POLY1305_AEAD_256BYTES_ONLY_ENCRYPT`
+|               18.59 |       53,781,512.61 |    0.0% |      0.00 | `CHACHA20_POLY1305_AEAD_64BYTES_ENCRYPT_DECRYPT`
+|                9.84 |      101,587,301.59 |    0.0% |      0.00 | `CHACHA20_POLY1305_AEAD_64BYTES_ONLY_ENCRYPT`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|        1,709,230.00 |              585.06 |    0.0% |      0.00 | `CoinSelection`
+|      357,650,311.00 |                2.80 |    0.0% |      0.36 | `ComplexMemPool`
+
+|            ns/block |             block/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|        3,807,109.00 |              262.67 |    0.0% |      0.00 | `DeserializeAndCheckBlockTest`
+|        2,709,610.00 |              369.06 |    0.0% |      0.00 | `DeserializeBlockTest`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|        6,529,800.00 |              153.14 |    0.0% |      0.01 | `DuplicateInputs`
+|           49,231.00 |           20,312.40 |    0.0% |      0.00 | `EvictionProtection0Networks250Candidates`
+|           56,771.00 |           17,614.63 |    0.0% |      0.00 | `EvictionProtection1Networks250Candidates`
+|           73,380.00 |           13,627.69 |    0.0% |      0.00 | `EvictionProtection2Networks250Candidates`
+|           15,580.00 |           64,184.85 |    0.0% |      0.00 | `EvictionProtection3Networks050Candidates`
+|           35,709.00 |           28,004.14 |    0.0% |      0.00 | `EvictionProtection3Networks100Candidates`
+|           69,200.00 |           14,450.87 |    0.0% |      0.00 | `EvictionProtection3Networks250Candidates`
+|       18,521,499.00 |               53.99 |    0.0% |      0.02 | `ExpandDescriptor`
+|              810.00 |        1,234,567.90 |    0.0% |      0.00 | `FastRandom_1bit`
+|              200.00 |        5,000,000.00 |    0.0% |      0.00 | `FastRandom_32bit`
+|          116,331.00 |            8,596.16 |    0.0% |      0.00 | `GCSBlockFilterGetHash`
+|       27,695,378.00 |               36.11 |    0.0% |      0.03 | `GCSFilterConstruct`
+|        2,887,310.00 |              346.34 |    0.0% |      0.00 | `GCSFilterDecode`
+|           12,170.00 |           82,169.27 |    0.0% |      0.00 | `GCSFilterDecodeSkipCheck`
+|          357,000.00 |            2,801.12 |    0.0% |      0.00 | `GCSFilterMatch`
+
+|             ns/byte |              byte/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|                0.67 |    1,492,741,120.36 |    0.0% |      0.00 | `HASH_1MB`
+|                1.80 |      556,521,739.13 |    0.0% |      0.00 | `HASH_256BYTES`
+|                4.53 |      220,689,655.17 |    0.0% |      0.00 | `HASH_64BYTES`
+|                0.96 |    1,039,805,118.50 |    0.0% |      0.00 | `HexStrBench`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|              280.00 |        3,571,428.57 |    0.0% |      0.00 | `LoggingNoCategory`
+|            1,260.00 |          793,650.79 |    0.0% |      0.00 | `LoggingNoFile`
+|            9,020.00 |          110,864.75 |    0.0% |      0.00 | `LoggingNoThreadNames`
+|           10,860.00 |           92,081.03 |    0.0% |      0.00 | `LoggingYoCategory`
+|           10,330.00 |           96,805.42 |    0.0% |      0.00 | `LoggingYoThreadNames`
+|       92,355,882.00 |               10.83 |    0.0% |      0.09 | `MempoolCheck`
+|           83,880.00 |           11,921.79 |    0.0% |      0.00 | `MempoolEviction`
+
+|             ns/leaf |              leaf/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|               97.12 |       10,296,977.60 |    0.0% |      0.00 | `MerkleRoot`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|           23,080.00 |           43,327.56 |    0.0% |      0.00 | `MuHash`
+|           20,370.00 |           49,091.80 |    0.0% |      0.00 | `MuHashDiv`
+|           20,100.00 |           49,751.24 |    0.0% |      0.00 | `MuHashMul`
+|            1,240.00 |          806,451.61 |    0.0% |      0.00 | `MuHashPrecompute`
+
+|             ns/byte |              byte/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|                1.39 |      718,980,814.85 |    0.0% |      0.00 | `POLY1305_1MB`
+|                1.84 |      544,680,851.06 |    0.0% |      0.00 | `POLY1305_256BYTES`
+|                2.34 |      426,666,666.67 |    0.0% |      0.00 | `POLY1305_64BYTES`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|              240.00 |        4,166,666.67 |    0.0% |      0.00 | `PrePadded`
+|               85.00 |       11,764,705.88 |    0.0% |      0.00 | `PrevectorClearNontrivial`
+|               85.00 |       11,764,705.88 |    0.0% |      0.00 | `PrevectorClearTrivial`
+|              107.75 |        9,280,742.46 |    0.0% |      0.00 | `PrevectorDeserializeNontrivial`
+|               20.38 |       49,067,713.44 |    0.0% |      0.00 | `PrevectorDeserializeTrivial`
+|              110.00 |        9,090,909.09 |    0.0% |      0.00 | `PrevectorDestructorNontrivial`
+|              615.00 |        1,626,016.26 |    0.0% |      0.00 | `PrevectorDestructorTrivial`
+|               42.50 |       23,529,411.76 |    0.0% |      0.00 | `PrevectorResizeNontrivial`
+|               42.50 |       23,529,411.76 |    0.0% |      0.00 | `PrevectorResizeTrivial`
+
+|             ns/byte |              byte/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|                2.54 |      394,304,663.44 |    0.0% |      0.00 | `RIPEMD160`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|              740.00 |        1,351,351.35 |    0.0% |      0.00 | `RegularPadded`
+|              950.00 |        1,052,631.58 |    0.0% |      0.00 | `RollingBloom`
+|          102,950.00 |            9,713.45 |    0.0% |      0.00 | `RollingBloomReset`
+|       11,401,859.00 |               87.70 |    0.0% |      0.01 | `RpcMempool`
+
+|             ns/byte |              byte/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|                1.57 |      636,699,350.57 |    0.0% |      0.00 | `SHA1`
+|                0.68 |    1,473,817,629.81 |    0.0% |      0.00 | `SHA256`
+|                1.37 |      730,776,092.77 |    0.0% |      0.00 | `SHA256D64_1024`
+|                7.19 |      139,130,434.78 |    0.0% |      0.00 | `SHA256_32b`
+|               19.13 |       52,267,909.83 |    0.0% |      0.02 | `SHA3_256_1M`
+|               39.02 |       25,625,579.99 |    0.0% |      0.04 | `SHA512`
+
+|               ns/op |                op/s |    err% |     total | benchmark
+|--------------------:|--------------------:|--------:|----------:|:----------
+|              580.00 |        1,724,137.93 |    0.0% |      0.00 | `SipHash_32b`
+|            1,520.00 |          657,894.74 |    0.0% |      0.00 | `Trig`
+|          159,940.00 |            6,252.34 |    0.0% |      0.00 | `VerifyNestedIfScript`
+|          349,130.00 |            2,864.26 |    0.0% |      0.00 | `VerifyScriptBench`
+|           13,590.00 |           73,583.52 |    0.0% |      0.00 | `WalletBalanceClean`
+|          291,370.00 |            3,432.06 |    0.0% |      0.00 | `WalletBalanceDirty`
+|           14,360.00 |           69,637.88 |    0.0% |      0.00 | `WalletBalanceMine`
+|              160.00 |        6,250,000.00 |    0.0% |      0.00 | `WalletBalanceWatch`
+|    1,583,872,503.00 |                0.63 |    0.2% |      7.91 | `WalletLoadingDescriptors`
+|      119,738,470.00 |                8.35 |    1.2% |      0.60 | `WalletLoadingLegacy`
+Internal ctest changing into directory: /tmp/cirrus-ci-build/ci/scratch/build/src/test
+Test project /tmp/cirrus-ci-build/ci/scratch/build/src/test
+        Start   1: addrman_tests:addrman_tests.cpp
+        Start   2: allocator_tests:allocator_tests.cpp
+        Start   3: amount_tests:amount_tests.cpp
+        Start   4: arith_uint256_tests:arith_uint256_tests.cpp
+        Start   5: banman_tests:banman_tests.cpp
+        Start   6: base32_tests:base32_tests.cpp
+        Start   7: base58_tests:base58_tests.cpp
+        Start   8: base64_tests:base64_tests.cpp
+        Start   9: bech32_tests:bech32_tests.cpp
+        Start  10: bip32_tests:bip32_tests.cpp
+        Start  11: blockchain_tests:blockchain_tests.cpp
+        Start  12: blockencodings_tests:blockencodings_tests.cpp
+        Start  13: blockfilter_index_tests:blockfilter_index_tests.cpp
+        Start  14: blockfilter_tests:blockfilter_tests.cpp
+        Start  15: bloom_tests:bloom_tests.cpp
+        Start  16: bswap_tests:bswap_tests.cpp
+        Start  17: checkqueue_tests:checkqueue_tests.cpp
+        Start  18: coinstatsindex_tests:coinstatsindex_tests.cpp
+        Start  19: coins_tests:coins_tests.cpp
+        Start  20: compress_tests:compress_tests.cpp
+        Start  21: crypto_tests:crypto_tests.cpp
+        Start  22: cuckoocache_tests:cuckoocache_tests.cpp
+        Start  23: dbwrapper_tests:dbwrapper_tests.cpp
+        Start  24: denialofservice_tests:denialofservice_tests.cpp
+        Start  25: descriptor_tests:descriptor_tests.cpp
+        Start  26: flatfile_tests:flatfile_tests.cpp
+        Start  27: fs_tests:fs_tests.cpp
+        Start  28: getarg_tests:getarg_tests.cpp
+        Start  29: hash_tests:hash_tests.cpp
+        Start  30: headers_sync_chainwork_tests:headers_sync_chainwork_tests.cpp
+        Start  31: httpserver_tests:httpserver_tests.cpp
+        Start  32: i2p_tests:i2p_tests.cpp
+  1/110 Test   #2: allocator_tests:allocator_tests.cpp .........................................   Passed    0.17 sec
+        Start  33: interfaces_tests:interfaces_tests.cpp
+  2/110 Test   #3: amount_tests:amount_tests.cpp ...............................................   Passed    0.19 sec
+        Start  34: key_io_tests:key_io_tests.cpp
+  3/110 Test   #4: arith_uint256_tests:arith_uint256_tests.cpp .................................   Passed    0.20 sec
+        Start  35: key_tests:key_tests.cpp
+  4/110 Test   #6: base32_tests:base32_tests.cpp ...............................................   Passed    0.20 sec
+        Start  36: logging_tests:logging_tests.cpp
+  5/110 Test   #8: base64_tests:base64_tests.cpp ...............................................   Passed    0.20 sec
+        Start  37: mempool_tests:mempool_tests.cpp
+  6/110 Test   #9: bech32_tests:bech32_tests.cpp ...............................................   Passed    0.20 sec
+        Start  38: merkleblock_tests:merkleblock_tests.cpp
+  7/110 Test  #14: blockfilter_tests:blockfilter_tests.cpp .....................................   Passed    0.21 sec
+        Start  39: merkle_tests:merkle_tests.cpp
+  8/110 Test  #16: bswap_tests:bswap_tests.cpp .................................................   Passed    0.22 sec
+        Start  40: miner_tests:miner_tests.cpp
+  9/110 Test   #5: banman_tests:banman_tests.cpp ...............................................   Passed    0.23 sec
+        Start  41: miniscript_tests:miniscript_tests.cpp
+ 10/110 Test  #11: blockchain_tests:blockchain_tests.cpp .......................................   Passed    0.25 sec
+        Start  42: minisketch_tests:minisketch_tests.cpp
+ 11/110 Test  #29: hash_tests:hash_tests.cpp ...................................................   Passed    0.14 sec
+        Start  43: multisig_tests:multisig_tests.cpp
+ 12/110 Test   #7: base58_tests:base58_tests.cpp ...............................................   Passed    0.31 sec
+        Start  44: netbase_tests:netbase_tests.cpp
+ 13/110 Test  #38: merkleblock_tests:merkleblock_tests.cpp .....................................   Passed    0.13 sec
+        Start  45: net_peer_eviction_tests:net_peer_eviction_tests.cpp
+ 14/110 Test  #10: bip32_tests:bip32_tests.cpp .................................................   Passed    0.35 sec
+        Start  46: net_tests:net_tests.cpp
+ 15/110 Test  #15: bloom_tests:bloom_tests.cpp .................................................   Passed    0.35 sec
+        Start  47: orphanage_tests:orphanage_tests.cpp
+ 16/110 Test  #31: httpserver_tests:httpserver_tests.cpp .......................................   Passed    0.22 sec
+        Start  48: pmt_tests:pmt_tests.cpp
+ 17/110 Test  #26: flatfile_tests:flatfile_tests.cpp ...........................................   Passed    0.30 sec
+        Start  49: policyestimator_tests:policyestimator_tests.cpp
+ 18/110 Test  #27: fs_tests:fs_tests.cpp .......................................................   Passed    0.31 sec
+        Start  50: policy_fee_tests:policy_fee_tests.cpp
+ 19/110 Test  #32: i2p_tests:i2p_tests.cpp .....................................................   Passed    0.26 sec
+        Start  51: pow_tests:pow_tests.cpp
+ 20/110 Test  #34: key_io_tests:key_io_tests.cpp ...............................................   Passed    0.27 sec
+        Start  52: prevector_tests:prevector_tests.cpp
+ 21/110 Test  #36: logging_tests:logging_tests.cpp .............................................   Passed    0.26 sec
+        Start  53: raii_event_tests:raii_event_tests.cpp
+ 22/110 Test  #28: getarg_tests:getarg_tests.cpp ...............................................   Passed    0.36 sec
+        Start  54: random_tests:random_tests.cpp
+ 23/110 Test  #23: dbwrapper_tests:dbwrapper_tests.cpp .........................................   Passed    0.42 sec
+        Start  55: rbf_tests:rbf_tests.cpp
+ 24/110 Test  #43: multisig_tests:multisig_tests.cpp ...........................................   Passed    0.22 sec
+        Start  56: rest_tests:rest_tests.cpp
+ 25/110 Test  #20: compress_tests:compress_tests.cpp ...........................................   Passed    0.46 sec
+        Start  57: result_tests:result_tests.cpp
+ 26/110 Test  #41: miniscript_tests:miniscript_tests.cpp .......................................   Passed    0.24 sec
+        Start  58: reverselock_tests:reverselock_tests.cpp
+ 27/110 Test  #42: minisketch_tests:minisketch_tests.cpp .......................................   Passed    0.24 sec
+        Start  59: rpc_tests:rpc_tests.cpp
+ 28/110 Test  #30: headers_sync_chainwork_tests:headers_sync_chainwork_tests.cpp ...............   Passed    0.38 sec
+        Start  60: sanity_tests:sanity_tests.cpp
+ 29/110 Test  #50: policy_fee_tests:policy_fee_tests.cpp .......................................   Passed    0.15 sec
+        Start  61: scheduler_tests:scheduler_tests.cpp
+ 30/110 Test  #44: netbase_tests:netbase_tests.cpp .............................................   Passed    0.26 sec
+        Start  62: scriptnum_tests:scriptnum_tests.cpp
+ 31/110 Test  #24: denialofservice_tests:denialofservice_tests.cpp .............................   Passed    0.54 sec
+        Start  63: script_p2sh_tests:script_p2sh_tests.cpp
+ 32/110 Test  #57: result_tests:result_tests.cpp ...............................................   Passed    0.13 sec
+        Start  64: script_parse_tests:script_parse_tests.cpp
+ 33/110 Test  #12: blockencodings_tests:blockencodings_tests.cpp ...............................   Passed    0.65 sec
+        Start  65: script_segwit_tests:script_segwit_tests.cpp
+ 34/110 Test  #13: blockfilter_index_tests:blockfilter_index_tests.cpp .........................   Passed    0.67 sec
+        Start  66: script_standard_tests:script_standard_tests.cpp
+ 35/110 Test  #53: raii_event_tests:raii_event_tests.cpp .......................................   Passed    0.22 sec
+        Start  67: script_tests:script_tests.cpp
+ 36/110 Test  #58: reverselock_tests:reverselock_tests.cpp .....................................   Passed    0.19 sec
+        Start  68: serfloat_tests:serfloat_tests.cpp
+ 37/110 Test  #47: orphanage_tests:orphanage_tests.cpp .........................................   Passed    0.34 sec
+        Start  69: serialize_tests:serialize_tests.cpp
+ 38/110 Test  #56: rest_tests:rest_tests.cpp ...................................................   Passed    0.23 sec
+        Start  70: settings_tests:settings_tests.cpp
+ 39/110 Test  #37: mempool_tests:mempool_tests.cpp .............................................   Passed    0.51 sec
+        Start  71: sighash_tests:sighash_tests.cpp
+ 40/110 Test   #1: addrman_tests:addrman_tests.cpp .............................................   Passed    0.73 sec
+        Start  72: sigopcount_tests:sigopcount_tests.cpp
+ 41/110 Test  #60: sanity_tests:sanity_tests.cpp ...............................................   Passed    0.23 sec
+        Start  73: skiplist_tests:skiplist_tests.cpp
+ 42/110 Test  #54: random_tests:random_tests.cpp ...............................................   Passed    0.30 sec
+        Start  74: sock_tests:sock_tests.cpp
+ 43/110 Test  #35: key_tests:key_tests.cpp .....................................................   Passed    0.57 sec
+        Start  75: streams_tests:streams_tests.cpp
+ 44/110 Test  #51: pow_tests:pow_tests.cpp .....................................................   Passed    0.36 sec
+        Start  76: sync_tests:sync_tests.cpp
+ 45/110 Test  #61: scheduler_tests:scheduler_tests.cpp .........................................   Passed    0.22 sec
+        Start  77: system_tests:system_tests.cpp
+ 46/110 Test  #62: scriptnum_tests:scriptnum_tests.cpp .........................................   Passed    0.22 sec
+        Start  78: timedata_tests:timedata_tests.cpp
+ 47/110 Test  #64: script_parse_tests:script_parse_tests.cpp ...................................   Passed    0.17 sec
+        Start  79: torcontrol_tests:torcontrol_tests.cpp
+ 48/110 Test  #45: net_peer_eviction_tests:net_peer_eviction_tests.cpp .........................   Passed    0.47 sec
+        Start  80: transaction_tests:transaction_tests.cpp
+ 49/110 Test  #63: script_p2sh_tests:script_p2sh_tests.cpp .....................................   Passed    0.22 sec
+        Start  81: txindex_tests:txindex_tests.cpp
+ 50/110 Test  #55: rbf_tests:rbf_tests.cpp .....................................................   Passed    0.38 sec
+        Start  82: txpackage_tests:txpackage_tests.cpp
+ 51/110 Test  #48: pmt_tests:pmt_tests.cpp .....................................................   Passed    0.50 sec
+        Start  83: txreconciliation_tests:txreconciliation_tests.cpp
+ 52/110 Test  #66: script_standard_tests:script_standard_tests.cpp .............................   Passed    0.21 sec
+        Start  84: txrequest_tests:txrequest_tests.cpp
+ 53/110 Test  #65: script_segwit_tests:script_segwit_tests.cpp .................................   Passed    0.24 sec
+        Start  85: txvalidationcache_tests:txvalidationcache_tests.cpp
+ 54/110 Test  #76: sync_tests:sync_tests.cpp ...................................................   Passed    0.14 sec
+        Start  86: txvalidation_tests:txvalidation_tests.cpp
+ 55/110 Test  #52: prevector_tests:prevector_tests.cpp .........................................   Passed    0.47 sec
+        Start  87: uint256_tests:uint256_tests.cpp
+ 56/110 Test  #70: settings_tests:settings_tests.cpp ...........................................   Passed    0.24 sec
+        Start  88: util_tests:util_tests.cpp
+ 57/110 Test  #79: torcontrol_tests:torcontrol_tests.cpp .......................................   Passed    0.17 sec
+        Start  89: util_threadnames_tests:util_threadnames_tests.cpp
+ 58/110 Test  #72: sigopcount_tests:sigopcount_tests.cpp .......................................   Passed    0.23 sec
+        Start  90: validation_block_tests:validation_block_tests.cpp
+ 59/110 Test  #49: policyestimator_tests:policyestimator_tests.cpp .............................   Passed    0.58 sec
+        Start  91: validation_chainstatemanager_tests:validation_chainstatemanager_tests.cpp
+ 60/110 Test  #69: serialize_tests:serialize_tests.cpp .........................................   Passed    0.28 sec
+        Start  92: validation_chainstate_tests:validation_chainstate_tests.cpp
+ 61/110 Test  #78: timedata_tests:timedata_tests.cpp ...........................................   Passed    0.20 sec
+        Start  93: validation_flush_tests:validation_flush_tests.cpp
+ 62/110 Test  #74: sock_tests:sock_tests.cpp ...................................................   Passed    0.25 sec
+        Start  94: validationinterface_tests:validationinterface_tests.cpp
+ 63/110 Test  #39: merkle_tests:merkle_tests.cpp ...............................................   Passed    0.83 sec
+        Start  95: validation_tests:validation_tests.cpp
+ 64/110 Test  #46: net_tests:net_tests.cpp .....................................................   Passed    0.72 sec
+        Start  96: versionbits_tests:versionbits_tests.cpp
+ 65/110 Test  #89: util_threadnames_tests:util_threadnames_tests.cpp ...........................   Passed    0.13 sec
+        Start  97: availablecoins_tests:../wallet/test/availablecoins_tests.cpp
+ 66/110 Test  #87: uint256_tests:uint256_tests.cpp .............................................   Passed    0.17 sec
+        Start  98: coinselector_tests:../wallet/test/coinselector_tests.cpp
+ 67/110 Test  #77: system_tests:system_tests.cpp ...............................................   Passed    0.35 sec
+        Start  99: init_tests:../wallet/test/init_tests.cpp
+ 68/110 Test  #75: streams_tests:streams_tests.cpp .............................................   Passed    0.37 sec
+        Start 100: ismine_tests:../wallet/test/ismine_tests.cpp
+ 69/110 Test  #83: txreconciliation_tests:txreconciliation_tests.cpp ...........................   Passed    0.32 sec
+        Start 101: psbt_wallet_tests:../wallet/test/psbt_wallet_tests.cpp
+ 70/110 Test  #86: txvalidation_tests:txvalidation_tests.cpp ...................................   Passed    0.29 sec
+        Start 102: wallet_util_tests:../wallet/test/rpc_util_tests.cpp
+ 71/110 Test  #93: validation_flush_tests:validation_flush_tests.cpp ...........................   Passed    0.25 sec
+        Start 103: scriptpubkeyman_tests:../wallet/test/scriptpubkeyman_tests.cpp
+ 72/110 Test  #22: cuckoocache_tests:cuckoocache_tests.cpp .....................................   Passed    1.28 sec
+        Start 104: spend_tests:../wallet/test/spend_tests.cpp
+ 73/110 Test  #33: interfaces_tests:interfaces_tests.cpp .......................................   Passed    1.15 sec
+        Start 105: wallet_crypto_tests:../wallet/test/wallet_crypto_tests.cpp
+ 74/110 Test #102: wallet_util_tests:../wallet/test/rpc_util_tests.cpp .........................   Passed    0.12 sec
+        Start 106: wallet_tests:../wallet/test/wallet_tests.cpp
+ 75/110 Test #100: ismine_tests:../wallet/test/ismine_tests.cpp ................................   Passed    0.24 sec
+        Start 107: wallet_transaction_tests:../wallet/test/wallet_transaction_tests.cpp
+ 76/110 Test  #25: descriptor_tests:descriptor_tests.cpp .......................................   Passed    1.30 sec
+        Start 108: walletdb_tests:../wallet/test/walletdb_tests.cpp
+ 77/110 Test  #71: sighash_tests:sighash_tests.cpp .............................................   Passed    0.68 sec
+        Start 109: walletload_tests:../wallet/test/walletload_tests.cpp
+ 78/110 Test  #94: validationinterface_tests:validationinterface_tests.cpp .....................   Passed    0.39 sec
+        Start 110: db_tests:../wallet/test/db_tests.cpp
+ 79/110 Test  #81: txindex_tests:txindex_tests.cpp .............................................   Passed    0.59 sec
+ 80/110 Test  #59: rpc_tests:rpc_tests.cpp .....................................................   Passed    0.94 sec
+ 81/110 Test #103: scriptpubkeyman_tests:../wallet/test/scriptpubkeyman_tests.cpp ..............   Passed    0.21 sec
+ 82/110 Test  #99: init_tests:../wallet/test/init_tests.cpp ....................................   Passed    0.34 sec
+ 83/110 Test  #95: validation_tests:validation_tests.cpp .......................................   Passed    0.48 sec
+ 84/110 Test #108: walletdb_tests:../wallet/test/walletdb_tests.cpp ............................   Passed    0.17 sec
+ 85/110 Test  #68: serfloat_tests:serfloat_tests.cpp ...........................................   Passed    0.88 sec
+ 86/110 Test  #92: validation_chainstate_tests:validation_chainstate_tests.cpp .................   Passed    0.61 sec
+ 87/110 Test #107: wallet_transaction_tests:../wallet/test/wallet_transaction_tests.cpp ........   Passed    0.22 sec
+ 88/110 Test #110: db_tests:../wallet/test/db_tests.cpp ........................................   Passed    0.25 sec
+ 89/110 Test #109: walletload_tests:../wallet/test/walletload_tests.cpp ........................   Passed    0.27 sec
+ 90/110 Test  #73: skiplist_tests:skiplist_tests.cpp ...........................................   Passed    0.97 sec
+ 91/110 Test  #88: util_tests:util_tests.cpp ...................................................   Passed    0.75 sec
+ 92/110 Test #101: psbt_wallet_tests:../wallet/test/psbt_wallet_tests.cpp ......................   Passed    0.87 sec
+ 93/110 Test  #96: versionbits_tests:versionbits_tests.cpp .....................................   Passed    1.05 sec
+ 94/110 Test  #82: txpackage_tests:txpackage_tests.cpp .........................................   Passed    1.42 sec
+ 95/110 Test  #91: validation_chainstatemanager_tests:validation_chainstatemanager_tests.cpp ...   Passed    1.95 sec
+ 96/110 Test  #90: validation_block_tests:validation_block_tests.cpp ...........................   Passed    2.11 sec
+ 97/110 Test  #84: txrequest_tests:txrequest_tests.cpp .........................................   Passed    2.23 sec
+ 98/110 Test  #40: miner_tests:miner_tests.cpp .................................................   Passed    2.96 sec
+ 99/110 Test #104: spend_tests:../wallet/test/spend_tests.cpp ..................................   Passed    1.98 sec
+100/110 Test  #97: availablecoins_tests:../wallet/test/availablecoins_tests.cpp ................   Passed    2.24 sec
+101/110 Test  #85: txvalidationcache_tests:txvalidationcache_tests.cpp .........................   Passed    2.68 sec
+102/110 Test  #67: script_tests:script_tests.cpp ...............................................   Passed    4.68 sec
+103/110 Test  #17: checkqueue_tests:checkqueue_tests.cpp .......................................   Passed    5.61 sec
+104/110 Test  #80: transaction_tests:transaction_tests.cpp .....................................   Passed    6.61 sec
+105/110 Test  #21: crypto_tests:crypto_tests.cpp ...............................................   Passed    7.41 sec
+106/110 Test  #18: coinstatsindex_tests:coinstatsindex_tests.cpp ...............................   Passed    9.74 sec
+107/110 Test  #19: coins_tests:coins_tests.cpp .................................................   Passed   12.18 sec
+108/110 Test #105: wallet_crypto_tests:../wallet/test/wallet_crypto_tests.cpp ..................   Passed   11.13 sec
+109/110 Test #106: wallet_tests:../wallet/test/wallet_tests.cpp ................................   Passed   13.58 sec
+110/110 Test  #98: coinselector_tests:../wallet/test/coinselector_tests.cpp ....................   Passed   16.95 sec
+
+100% tests passed, 0 tests failed out of 110
+
+Total Test time (real) =  18.06 sec
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.008s
+
+OK
+[100%] Built target check
+E
+======================================================================
+ERROR: test_framework (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_framework
+Traceback (most recent call last):
+  File "/usr/lib64/python3.6/unittest/loader.py", line 153, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_framework'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+Running Unit Tests for Test Framework Modules
+    
