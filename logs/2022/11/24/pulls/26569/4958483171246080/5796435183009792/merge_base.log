@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26569/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 2ac7336ae [test] Add p2p_tx_privacy.py
+HEAD is now at 106d94ac0 Merge 2ac7336ae9cee342aa47ecf67154dd6e33385ea9 into 38d06e1561013f4ca845fd5ba6ffcc64de67f9c0
