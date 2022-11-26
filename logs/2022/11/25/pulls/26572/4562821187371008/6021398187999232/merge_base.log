@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26572/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 8ec79c3db Hopefully addresses word splitting issues
+HEAD is now at 655f971e4 Merge 8ec79c3dbea76263d3f9414d10efc2c349c68c43 into 9c47eb450346937b3d7ee21b9e669b5c91a7ed6c

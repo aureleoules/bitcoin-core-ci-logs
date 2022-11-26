@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26572/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 501c17eef Use intermediary directory in install.sh script
+HEAD is now at c8b523c1f Merge 501c17eef9e4c0fd1540efbcdbf85647db9954ff into 32599766caa0789ccecbedf81f7053cb8a1972b2

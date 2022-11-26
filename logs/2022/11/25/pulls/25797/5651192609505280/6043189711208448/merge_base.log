@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/25797/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was cfa836d62 [WIP] cmake: Migrate CI tasks to CMake
+HEAD is now at 9ff510c34 Merge cfa836d628052a9acb08c714280ec6f02c0cbe41 into 38d06e1561013f4ca845fd5ba6ffcc64de67f9c0
