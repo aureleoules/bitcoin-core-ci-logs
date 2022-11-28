@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/24865/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 60afb1671 test: Introduce MIN_BLOCKS_TO_KEEP constant
+HEAD is now at 2093f488f Merge 60afb1671a4a49857faf047927bbdbb2db4a49fc into 9c47eb450346937b3d7ee21b9e669b5c91a7ed6c
