@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26590/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was ad3a745d2 [fuzz] Add target for ProxyManager
+HEAD is now at 92fb95082 Merge ad3a745d27f19e3ecca8df7371e88a20d57e6f27 into 5488dc1eb47783259ba8557c5aaca312c3de0634

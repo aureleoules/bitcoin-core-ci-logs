@@ -1,0 +1,44 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-zmq --with-libs=no --with-gui=qt5 --enable-reduce-exports --enable-debug CFLAGS="-g0 -O2 -funsigned-char" CXXFLAGS="-g0 -O2 -funsigned-char" CC=gcc-8 CXX=g++-8
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Creating debian:buster container to run in
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #1: sleeping 0.3 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #2: sleeping 0.6 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #3: sleeping 1.2 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #4: sleeping 2.4 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #5: sleeping 4.8 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #6: sleeping 9.6 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #7: sleeping 19.2 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #8: sleeping 38.4 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #9: sleeping 60 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Before retry #10: sleeping 60 seconds
+Error response from daemon: Head "https://registry-1.docker.io/v2/library/debian/manifests/buster": received unexpected HTTP status: 503 Service Unavailable
+Retries exhausted
