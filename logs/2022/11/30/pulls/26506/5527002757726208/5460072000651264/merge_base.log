@@ -1,0 +1,7 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+fatal: unable to access 'https://github.com/bitcoin/bitcoin.git/': Failed to connect to github.com port 443 after 75010 ms: Operation timed out
+
+Exit status: 128

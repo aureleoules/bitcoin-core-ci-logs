@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26584/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 7dd8b095a refactor network names/ids in cli to rely on netbase
+HEAD is now at 9d8e54886 Merge 7dd8b095ada2711487057788206deb7e310b8092 into e2bfd41f832dc7c7be6f17e928352f0eb2865f66

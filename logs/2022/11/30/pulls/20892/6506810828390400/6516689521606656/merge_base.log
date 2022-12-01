@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/20892/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was db522c174 tests: Run both descriptor and legacy wallet modes in single invocation
+HEAD is now at b20262221 Merge db522c174b5f179c9cb7cce4013a275f7334b686 into e2bfd41f832dc7c7be6f17e928352f0eb2865f66
