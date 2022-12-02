@@ -1,0 +1,164 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-fuzz --with-sanitizers=fuzzer,address,undefined,integer CC='clang -ftrivial-auto-var-init=pattern' CXX='clang++ -ftrivial-auto-var-init=pattern'
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping procps, it is already installed and upgrade is not set.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils
+  bzip2 clang-14 cpp cpp-11 dpkg-dev file g++ g++-11 gcc gcc-11 gcc-11-base
+  lib32gcc-s1 lib32stdc++6 libasan6 libatomic1 libbinutils libboost1.74-dev
+  libc-dev-bin libc6-dev libc6-i386 libcc1-0 libclang-common-14-dev
+  libclang-cpp14 libclang1-14 libcrypt-dev libctf-nobfd0 libctf0 libcurl4
+  libdpkg-perl libevent-2.1-7 libevent-core-2.1-7 libevent-extra-2.1-7
+  libevent-openssl-2.1-7 libevent-pthreads-2.1-7 libgc1 libgcc-11-dev
+  libglib2.0-0 libgomp1 libhiredis0.14 libicu70 libisl23 libitm1 libllvm14
+  liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec3 libmpfr6 libnsl-dev
+  libobjc-11-dev libobjc4 libpfm4 libpopt0 libpython3-stdlib
+  libpython3.10-minimal libpython3.10-stdlib libquadmath0 libreadline8
+  libsigsegv2 libsqlite3-0 libstdc++-11-dev libtirpc-dev libtsan0 libubsan1
+  libxml2 linux-libc-dev llvm-14 llvm-14-linker-tools llvm-14-runtime
+  llvm-runtime lto-disabled-list m4 make media-types ncal python3-minimal
+  python3.10 python3.10-minimal readline-common rpcsvc-proto xz-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  calendar whois vacation mailutils bzip2-doc distcc | icecc clang-14-doc
+  cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib
+  gcc-11-doc gcc-multilib manpages-dev flex gdb gcc-doc gcc-11-multilib
+  libboost-doc libboost1.74-doc libboost-atomic1.74-dev
+  libboost-chrono1.74-dev libboost-container1.74-dev libboost-context1.74-dev
+  libboost-contract1.74-dev libboost-coroutine1.74-dev
+  libboost-date-time1.74-dev libboost-exception1.74-dev libboost-fiber1.74-dev
+  libboost-filesystem1.74-dev libboost-graph1.74-dev
+  libboost-graph-parallel1.74-dev libboost-iostreams1.74-dev
+  libboost-locale1.74-dev libboost-log1.74-dev libboost-math1.74-dev
+  libboost-mpi1.74-dev libboost-mpi-python1.74-dev libboost-numpy1.74-dev
+  libboost-program-options1.74-dev libboost-python1.74-dev
+  libboost-random1.74-dev libboost-regex1.74-dev
+  libboost-serialization1.74-dev libboost-stacktrace1.74-dev
+  libboost-system1.74-dev libboost-test1.74-dev libboost-thread1.74-dev
+  libboost-timer1.74-dev libboost-type-erasure1.74-dev libboost-wave1.74-dev
+  libboost1.74-tools-dev libmpfrc++-dev libntl-dev libboost-nowide1.74-dev
+  glibc-doc gnupg bzr sqlite3-doc libstdc++-11-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk llvm-14-doc m4-doc make-doc python3-doc
+  python3-tk python3-venv python3.10-venv python3.10-doc binfmt-support
+  readline-doc openssh-server
+Recommended packages:
+  llvm-14-dev fakeroot gnupg libalgorithm-merge-perl manpages manpages-dev
+  libc-devtools libfile-fcntllock-perl liblocale-gettext-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libltdl-dev binfmt-support
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binutils binutils-common
+  binutils-x86-64-linux-gnu bison bsdextrautils bsdmainutils build-essential
+  bzip2 ccache clang clang-14 cpp cpp-11 curl dpkg-dev file g++ g++-11 gcc
+  gcc-11 gcc-11-base lib32gcc-s1 lib32stdc++6 libasan6 libatomic1 libbinutils
+  libboost-dev libboost1.74-dev libc-dev-bin libc6-dev libc6-i386 libcc1-0
+  libclang-common-14-dev libclang-cpp14 libclang1-14 libcrypt-dev
+  libctf-nobfd0 libctf0 libcurl4 libdpkg-perl libevent-2.1-7
+  libevent-core-2.1-7 libevent-dev libevent-extra-2.1-7 libevent-openssl-2.1-7
+  libevent-pthreads-2.1-7 libgc1 libgcc-11-dev libglib2.0-0 libgomp1
+  libhiredis0.14 libicu70 libisl23 libitm1 libllvm14 liblsan0 libmagic-mgc
+  libmagic1 libmpc3 libmpdec3 libmpfr6 libnsl-dev libobjc-11-dev libobjc4
+  libpfm4 libpopt0 libpython3-stdlib libpython3.10-minimal
+  libpython3.10-stdlib libquadmath0 libreadline8 libsigsegv2 libsqlite3-0
+  libsqlite3-dev libstdc++-11-dev libtirpc-dev libtool libtsan0 libubsan1
+  libxml2 linux-libc-dev llvm llvm-14 llvm-14-linker-tools llvm-14-runtime
+  llvm-runtime lto-disabled-list m4 make media-types ncal pkg-config python3
+  python3-minimal python3.10 python3.10-minimal readline-common rpcsvc-proto
+  rsync xz-utils
+0 upgraded, 103 newly installed, 0 to remove and 2 not upgraded.
+Need to get 166 MB of archives.
+After this operation, 797 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.6-1~22.04.1 [810 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.6-1~22.04.1 [2263 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-minimal amd64 3.10.6-1~22.04 [24.3 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 readline-common all 8.1.2-1 [53.5 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy/main amd64 libreadline8 amd64 8.1.2-1 [153 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsqlite3-0 amd64 3.37.2-2ubuntu0.1 [641 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.6-1~22.04.1 [1831 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.6-1~22.04.1 [497 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3-stdlib amd64 3.10.6-1~22.04 [6910 B]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3 amd64 3.10.6-1~22.04 [22.8 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libpopt0 amd64 1.18-3build1 [28.2 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 rsync amd64 3.2.3-8ubuntu3.1 [404 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libglib2.0-0 amd64 2.72.4-0ubuntu1 [1461 kB]
+Get:16 http://archive.ubuntu.com/ubuntu jammy/main amd64 libicu70 amd64 70.1-2 [10.6 MB]
+Get:17 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxml2 amd64 2.9.13+dfsg-1ubuntu0.1 [763 kB]
+Get:18 http://archive.ubuntu.com/ubuntu jammy/main amd64 bsdextrautils amd64 2.37.2-4ubuntu3 [71.1 kB]
+Get:19 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmagic-mgc amd64 1:5.41-3 [257 kB]
+Get:20 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmagic1 amd64 1:5.41-3 [87.2 kB]
+Get:21 http://archive.ubuntu.com/ubuntu jammy/main amd64 file amd64 1:5.41-3 [21.5 kB]
+Get:22 http://archive.ubuntu.com/ubuntu jammy/main amd64 xz-utils amd64 5.2.5-2ubuntu1 [84.8 kB]
+Get:23 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsigsegv2 amd64 2.13-1ubuntu3 [14.6 kB]
+Get:24 http://archive.ubuntu.com/ubuntu jammy/main amd64 m4 amd64 1.4.18-5ubuntu2 [199 kB]
+Get:25 http://archive.ubuntu.com/ubuntu jammy/main amd64 autoconf all 2.71-2 [338 kB]
+Get:26 http://archive.ubuntu.com/ubuntu jammy/main amd64 autotools-dev all 20220109.1 [44.9 kB]
+Get:27 http://archive.ubuntu.com/ubuntu jammy/main amd64 automake all 1:1.16.5-1.3 [558 kB]
+Get:28 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 binutils-common amd64 2.38-4ubuntu2 [221 kB]
+Get:29 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libbinutils amd64 2.38-4ubuntu2 [661 kB]
+Get:30 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libctf-nobfd0 amd64 2.38-4ubuntu2 [107 kB]
+Get:31 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libctf0 amd64 2.38-4ubuntu2 [103 kB]
+Get:32 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.38-4ubuntu2 [2328 kB]
+Get:33 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 binutils amd64 2.38-4ubuntu2 [3198 B]
+Get:34 http://archive.ubuntu.com/ubuntu jammy/main amd64 bison amd64 2:3.8.2+dfsg-1build1 [748 kB]
+Get:35 http://archive.ubuntu.com/ubuntu jammy/universe amd64 ncal amd64 12.1.7+nmu3ubuntu2 [20.2 kB]
+Get:36 http://archive.ubuntu.com/ubuntu jammy/universe amd64 bsdmainutils all 12.1.7+nmu3ubuntu2 [3170 B]
+Get:37 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc-dev-bin amd64 2.35-0ubuntu3.1 [20.4 kB]
+Get:38 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-56.62 [1333 kB]
+Get:39 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcrypt-dev amd64 1:4.4.27-1 [112 kB]
+Get:40 http://archive.ubuntu.com/ubuntu jammy/main amd64 rpcsvc-proto amd64 1.4.2-0ubuntu6 [68.5 kB]
+Get:41 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libtirpc-dev amd64 1.3.2-2ubuntu0.1 [192 kB]
+Get:42 http://archive.ubuntu.com/ubuntu jammy/main amd64 libnsl-dev amd64 1.3.0-2build2 [71.3 kB]
+Get:43 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6-dev amd64 2.35-0ubuntu3.1 [2099 kB]
+Get:44 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 gcc-11-base amd64 11.3.0-1ubuntu1~22.04 [20.8 kB]
+Get:45 http://archive.ubuntu.com/ubuntu jammy/main amd64 libisl23 amd64 0.24-2build1 [727 kB]
+Get:46 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpfr6 amd64 4.1.0-3build3 [1425 kB]
+Get:47 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpc3 amd64 1.2.1-2build1 [46.9 kB]
+Get:48 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 cpp-11 amd64 11.3.0-1ubuntu1~22.04 [9967 kB]
+Get:49 http://archive.ubuntu.com/ubuntu jammy/main amd64 cpp amd64 4:11.2.0-1ubuntu1 [27.7 kB]
+Get:50 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libcc1-0 amd64 12.1.0-2ubuntu1~22.04 [47.4 kB]
+Get:51 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgomp1 amd64 12.1.0-2ubuntu1~22.04 [126 kB]
+Get:52 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libitm1 amd64 12.1.0-2ubuntu1~22.04 [30.2 kB]
+Get:53 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libatomic1 amd64 12.1.0-2ubuntu1~22.04 [10.4 kB]
+Get:54 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libasan6 amd64 11.3.0-1ubuntu1~22.04 [2284 kB]
+Get:55 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 liblsan0 amd64 12.1.0-2ubuntu1~22.04 [1069 kB]
+Get:56 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libtsan0 amd64 11.3.0-1ubuntu1~22.04 [2262 kB]
+Get:57 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libubsan1 amd64 12.1.0-2ubuntu1~22.04 [976 kB]
+Get:58 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libquadmath0 amd64 12.1.0-2ubuntu1~22.04 [154 kB]
+Get:59 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libgcc-11-dev amd64 11.3.0-1ubuntu1~22.04 [2517 kB]
+Get:60 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 gcc-11 amd64 11.3.0-1ubuntu1~22.04 [20.1 MB]
+Get:61 http://archive.ubuntu.com/ubuntu jammy/main amd64 gcc amd64 4:11.2.0-1ubuntu1 [5112 B]
+Get:62 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libstdc++-11-dev amd64 11.3.0-1ubuntu1~22.04 [2087 kB]
+Get:63 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 g++-11 amd64 11.3.0-1ubuntu1~22.04 [11.4 MB]
+
+Timed out!

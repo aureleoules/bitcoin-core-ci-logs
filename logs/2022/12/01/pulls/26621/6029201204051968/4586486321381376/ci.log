@@ -1,0 +1,88 @@
+./ci/test_run_all.sh
+Setting specific values in env
+Fallback to default values in env (if not yet set)
+CCACHE_TEMPDIR=/tmp/.ccache-temp
+BASE_OUTDIR=/tmp/cirrus-ci-build/ci/scratch/out/x86_64-pc-linux-gnu
+TSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/tsan:halt_on_error=1:log_path=/tmp/cirrus-ci-build/ci/scratch/sanitizer-output/tsan
+CCACHE_SIZE=200M
+CCACHE_DIR=/tmp/ccache_dir
+BASE_BUILD_DIR=/tmp/cirrus-ci-build/ci/scratch/build
+BASE_ROOT_DIR=/tmp/cirrus-ci-build
+CCACHE_COMPRESS=1
+ASAN_OPTIONS=detect_stack_use_after_return=1:check_initialization_order=1:strict_init_order=1
+LSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/lsan
+BOOST_TEST_RANDOM=1
+BITCOIN_CONFIG=--enable-zmq CPPFLAGS='-DARENA_DEBUG -DDEBUG_LOCKORDER -DDEBUG_LOCKCONTENTION' CXXFLAGS='-g' --with-sanitizers=thread CC=clang-13 CXX='clang++-13 -stdlib=libc++'
+UBSAN_OPTIONS=suppressions=/tmp/cirrus-ci-build/test/sanitizer_suppressions/ubsan:print_stacktrace=1:halt_on_error=1:report_error_type=1
+BASE_SCRATCH_DIR=/tmp/cirrus-ci-build/ci/scratch
+CCACHE_NOHASHDIR=1
+LC_ALL=C.UTF-8
+PREVIOUS_RELEASES_DIR=/tmp/cirrus-ci-build/releases/x86_64-pc-linux-gnu
+DEBIAN_FRONTEND=noninteractive
+Running on host system without docker wrapper
+Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Skipping ca-certificates, it is already installed and upgrade is not set.
+ca-certificates set to manually installed.
+Skipping procps, it is already installed and upgrade is not set.
+Skipping git, it is already installed and upgrade is not set.
+The following additional packages will be installed:
+  autoconf binutils binutils-common binutils-x86-64-linux-gnu bsdextrautils
+  bzip2 cpp cpp-11 dpkg-dev file g++ g++-11 gcc gcc-11 gcc-11-base lib32gcc-s1
+  lib32stdc++6 libasan6 libatomic1 libbinutils libc++1-13 libc++abi1-13
+  libc-dev-bin libc6-dev libc6-i386 libcc1-0 libclang-common-13-dev
+  libclang-cpp13 libclang1-13 libcrypt-dev libctf-nobfd0 libctf0 libcurl4
+  libdpkg-perl libgc1 libgcc-11-dev libglib2.0-0 libgomp1 libhiredis0.14
+  libicu70 libisl23 libitm1 libllvm13 liblsan0 libmagic-mgc libmagic1 libmpc3
+  libmpdec3 libmpfr6 libnorm1 libnsl-dev libobjc-11-dev libobjc4 libpfm4
+  libpgm-5.3-0 libpopt0 libpython3-stdlib libpython3.10-minimal
+  libpython3.10-stdlib libquadmath0 libreadline8 libsigsegv2 libsodium23
+  libsqlite3-0 libstdc++-11-dev libtirpc-dev libtsan0 libubsan1 libunwind-13
+  libunwind-13-dev libxml2 libzmq5 linux-libc-dev llvm-13-linker-tools
+  llvm-13-runtime lto-disabled-list m4 make media-types ncal
+  python3-cffi-backend python3-minimal python3-pkg-resources python3-py
+  python3.10 python3.10-minimal readline-common rpcsvc-proto xz-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc gettext binutils-doc bison-doc
+  calendar whois vacation mailutils bzip2-doc distcc | icecc clang-13-doc
+  cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib
+  gcc-11-doc gcc-multilib manpages-dev flex gdb gcc-doc gcc-11-multilib clang
+  glibc-doc gnupg bzr libstdc++-11-doc libtool-doc gfortran
+  | fortran95-compiler gcj-jdk llvm-13-doc m4-doc make-doc python3-doc
+  python3-tk python3-venv python3-setuptools subversion python3-pytest
+  python3.10-venv python3.10-doc binfmt-support readline-doc openssh-server
+Recommended packages:
+  llvm-13-dev fakeroot gnupg libalgorithm-merge-perl manpages manpages-dev
+  libc-devtools libfile-fcntllock-perl liblocale-gettext-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libltdl-dev binfmt-support
+The following NEW packages will be installed:
+  autoconf automake autotools-dev binutils binutils-common
+  binutils-x86-64-linux-gnu bison bsdextrautils bsdmainutils build-essential
+  bzip2 ccache clang-13 cpp cpp-11 curl dpkg-dev file g++ g++-11 gcc gcc-11
+  gcc-11-base lib32gcc-s1 lib32stdc++6 libasan6 libatomic1 libbinutils
+  libc++-13-dev libc++1-13 libc++abi-13-dev libc++abi1-13 libc-dev-bin
+  libc6-dev libc6-i386 libcc1-0 libclang-common-13-dev libclang-cpp13
+  libclang1-13 libcrypt-dev libctf-nobfd0 libctf0 libcurl4 libdpkg-perl libgc1
+  libgcc-11-dev libglib2.0-0 libgomp1 libhiredis0.14 libicu70 libisl23 libitm1
+  libllvm13 liblsan0 libmagic-mgc libmagic1 libmpc3 libmpdec3 libmpfr6
+  libnorm1 libnsl-dev libobjc-11-dev libobjc4 libpfm4 libpgm-5.3-0 libpopt0
+  libpython3-stdlib libpython3.10-minimal libpython3.10-stdlib libquadmath0
+  libreadline8 libsigsegv2 libsodium23 libsqlite3-0 libstdc++-11-dev
+  libtirpc-dev libtool libtsan0 libubsan1 libunwind-13 libunwind-13-dev
+  libxml2 libzmq5 linux-libc-dev llvm-13 llvm-13-linker-tools llvm-13-runtime
+  lto-disabled-list m4 make media-types ncal pkg-config python3
+  python3-cffi-backend python3-minimal python3-pkg-resources python3-py
+  python3-zmq python3.10 python3.10-minimal readline-common rpcsvc-proto rsync
+  xz-utils
+0 upgraded, 105 newly installed, 0 to remove and 2 not upgraded.
+Need to get 154 MB of archives.
+After this operation, 655 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.6-1~22.04.1 [810 kB]
+
+Timed out!
