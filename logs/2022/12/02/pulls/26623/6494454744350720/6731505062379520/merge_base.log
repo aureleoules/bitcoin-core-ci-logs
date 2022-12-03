@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26623/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was cf51f61ef contrib: Add CFLAG env variable when MacOS version > 11.0.0
+HEAD is now at 200052fed Merge cf51f61ef6690b52806634cd8fc1719f72f480eb into 4037478114d4b3e4824ac200dcd569890dbf9544

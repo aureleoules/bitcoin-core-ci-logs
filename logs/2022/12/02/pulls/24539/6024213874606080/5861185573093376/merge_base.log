@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/24539/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 2d6f407fb Do not require -txindex for -txospenderindex
+HEAD is now at 74873721a Merge 2d6f407fb70e6afe004cfcdc563a6fab00f29e42 into 9e59d21fbe5746b220f35b0a5a735198c3e6dcdb
