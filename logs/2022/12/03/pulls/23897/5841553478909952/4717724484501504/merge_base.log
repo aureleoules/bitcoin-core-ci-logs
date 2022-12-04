@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/23897/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 63d6b9a9f refactor: Move calculation logic out from `CheckSequenceLocksAtTip()`
+HEAD is now at 5e5beb3b6 Merge 63d6b9a9f067b81fed6029099a4643996e8d274b into cac29f5cd66f005ce65edd697990d495a904a1f1

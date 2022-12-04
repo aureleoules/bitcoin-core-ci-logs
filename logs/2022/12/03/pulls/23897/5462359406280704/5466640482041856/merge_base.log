@@ -1,0 +1,19 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Fetched 324 kB in 0s (818 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 39 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/23897/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 4e83b98ec refactor: Move calculation logic out from `CheckSequenceLocksAtTip()`
+HEAD is now at a34b4b749 Merge 4e83b98ecf6021d54af5f75c3657eefd3fd87a1e into cac29f5cd66f005ce65edd697990d495a904a1f1
