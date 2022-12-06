@@ -1,0 +1,1537 @@
+1e8c62b29 updated to reflect pull-request suggestions / renamed some GUI elements
+9e0dba8c1 fixed amount part of URI in QR-Codes / removed (no label) string if we have NO label / coding style updates / removed an unused variable
+460b66b14 Remove obsolete Win32 AffinityBugWorkaround()
+b87c0fc44 version.h: separate client, net sections.  Move more constants to this file.
+93e447b63 BIP 0031: pong message
+940e22fd8 Fix OSX build errors.
+ee12c3d60 Use filesystem::path instead of manual string tinkering
+2232717cb Remove path.make_preferred() calls, and fix compiler error in bitcoinrpc RE: boost::system
+5ca4f13b8 by popular request, make 4th bar of connection icon green
+457716717 Fix build.h dependencies
+5d464a4a5 Force regeneration of build.h in qmake builds
+a20c0d0f6 Build identification strings
+86d563494 Toggle main window hide on tray icon click
+9c2c932f8 Added comment lines in French & Turkish which basically mean "Bitcoin, virtual P2P cryptocurrency".
+f342dac1c Do not report spurious deadlocks caused by TRY_LOCK
+908037fe1 Support for parametrized locks in deadlock detector
+f8dcd5ca6 Use scoped locks instead of CRITICAL_BLOCK
+fa2544e79 Bugfix: Replace "URL" with "URI" where we aren't actually working with URLs
+3e3435222 Show error message instead of exception crash when unable to bind RPC port
+42c63d3ad fixed small error in bitcoinrpc.cpp
+36949554a updated util.cpp to use make_preferred()
+93fb7489a updated bitcoinrpc.cpp to use make_preferred() and removed double inclusion of boost/filesystem.hpp
+9c24588e7 updated db.cpp to use make_preferred()
+f9781fc62 Change sign message bitcoin address tooltip to "The address to sign the message with" Closes #1050
+7993454a9 Document strlcpy.h in assets-attribution.txt since it isn't MIT-licensed
+e88ed65a3 Flush on log size instead of transaction count
+7f10522c4 removed obsolete boost workaround (boost ticket #4258)
+5ce4c2a23 Remove USE_SSL #define
+723cafcbc Bug fix listtransactions from/count handling.
+e5c027b49 Verify status of encrypt/decrypt calls to detect failed padding
+cf8525a57 removed an unneeded space in bitcoin-qt.pro
+fc42e9fae removed an unused / obsolete tag from bitcoin.qrc
+ea8c55cfd Enable addmultisigaddress RPC call for main network
+f487746de Remove half-implemented publish/subscribe system
+3a8ca61bd Add ifdef RELEASE to makefile.osx as the compile-for-older-macs flags
+092631f0b Condition variable for outbound connection slots
+712fd182b Locking system overhaul, add condition variables
+5cccb13da Move from noui.h / ui.h to one ui_interface.h with dummy implementation for the daemon.
+5a60b66a9 Use a messagebox to display the error when -server is provided without providing a rpc password
+7cfbe1fee qtui.h/noui.h interface cleanup
+1a3f0da92 support RPC stop and encryptwallet with UI
+5d7cebdad move translation function _ to qtui.h/noui.h instead of util.h
+6cb6d6234 remove dependency on serialize.h and util.h for SecureString
+f0b5e9e11 remove unused CalledSetStatusBar and UIThreadCall notifications
+98e617587 Update UI through async calls MainFrameRepaint and AddressBookRepaint instead of a timer.
+75b632320 remove HTML code around "Wallet" (displayed on overview page) and use Qt tags for font settings
+7e7bcce2d Code deduplication: make function in GUIUtil to get connection type to call object slot in GUI thread with invokeMethod.
+55f69a470 move QT_PLUGINS stuff to qt main file, where it belongs
+52d3a4812 VC2010 compile fixes
+853a4a81b clarified comment why we use an own progressbar style / included "~" in the tr() call
+ec9a4904f changed percentage done in tooltip to float to be more precise / allowed plurals in translation for "x block(s) remaining"
+a7a69cd07 polished code and fixed progress display (was very jerky at the end of a sync)
+e9de46c43 color update for progress bar
+c7c0c9317 implemented OS independent progress bar style / moved one-time functions used on the bar to a better code location
+5519660a0 changed progressbar text to "~n blocks remaining"
+068ed1e83 removed relative progressbar display and moved re-worked network detection code to setNumBlocks()
+9ceae8ace modified block DL progressbar to be dynamic and more precise
+2675fe621 Increase time ago of last block for "up to date" status from 30 to 90 minutes
+f3da2a88c Bump version to 0.6.0.99 for 0.6.1 merge window
+b5271c886 hide Delete button (only) on ReceivingTab / hide Sign message button (only) on SendingTab
+94e6967e9 Updated my GPG key
+7e05b9722 fixed typo in comment in netbase.h and bignum.h
+25c5eca89 Use transactions-updated as flush condition
+f3f9da868 Bump version to 0.6.0rc6
+6293a9f87 Workaround hangs when upgrading old addr.dat files
+9f1834703 Auto-remove logs, and decrease logfile size to 10M
+3d1d5fafc made tray icon tooltip translatable
+0b637e0b8 removed an ugly line break in a transaction tooltip for case TransactionStatus::Mature
+7b2eecd42 update translations from transifex
+8d29329f9 Update version to 60005 (0.6.0rc5)
+53cb1a49e Use erase instead of rewrite to remove old addr entries
+a56881b00 Remove wxWidgets .exe and locales during setup
+7b90edb5a Disable bitcoin: URI handling on Windows for the 0.6 release
+6b8de05d0 Begin doxygen-compatible comments
+4004b9a40 make sure Window is shown when clicking bitcoin: Links to get user attention
+0ec76d834 Fix URI link to bitcoin-qt.exe instead of bitcoin.exe
+bf1afb02c Give DNS seeds a random age between 3 and 7 days old
+a6aee96c7 remove unused functions from util.h/util.cpp
+a41957b87 Add Luke-Jr's PGP key to gitian-downloader
+439e1497e Introduce explicit -walletupgrade option
+49e1501b5 Move QMAKE_LIBS_QT_ENTRY adjustment to bitcoin side of build
+ef12c2184 Check minversion before loading the rest of the wallet
+4538e45c4 Add -checklevel and improve -checkblocks
+100da7367 Fix warning about deprecated unescaped backslash
+8f188ece3 Remove -bip16 and -paytoscripthashtime command-line arguments
+4a43dfbf3 replace call to PrintConsole with call to error()
+2fac1028a updated translation process documentation
+a1a0469f9 More debug output for failed reorganizations
+246c20e8a Correct date
+0aa89c08f Prevent stuck block download in large reorganisations
+89516bd4e Speed up block downloading
+7868808b2 Avoid some pointless warnings while compiling
+eae82d8ee Use last checkpoint instead of hard-coded 140,700. Fixes #913.
+3f1bb1ac7 Proper support for Growl 1.3 notifications
+9aa459b29 assertion in CBlock::SetBestChainInner was too strong
+d6b08f6f2 remove bitcoin_cs_CZ from bitcoin.qrc and delete bitcoin_cs_CZ.ts
+603061a7e updated english language source file via lupdate
+8afd4699e fixed a capitalization error in the german translation
+7c4fabde6 update german translation from transifex
+ecf07f272 Limit getheaders to a hard 2000.
+aa3d4c022 Make the sendcoins dialog use the configured unit type, even on the first attempt.
+bb13d056e When disconnecting a node, clear the received buffer so that we do not process any already received messages.
+652856fb6 update german translation from transifex
+44b69cf25 Bump CLIENT_VERSION for rc4 release
+8864019f6 Fix Win32 RPC Crashes.
+98ff031eb update translations from transifex
+6c757e99f add shell one-liner for updating translations in bitcoin.qrc
+08ed96d85 Yet another attempt at implementing "minimize to tray" that works on all OSes
+f94177367 Fix windows build in windows Qt SDK
+30dfc64f4 Link -lrt library on Linux
+e318b99d9 Bump CLIENT_VERSION for rc3 release
+d68dcf741 Limit the impact of reorganisations on the database
+3cc062493 Print more diagnostic info for the various DB_CORRUPT conditions
+21e875c95 Print wallet load errors (to debug.log)
+82a10c817 Resolves issue #922 - "wallet passphrase timeout of several years doesn't work"
+f8c478c4f fix typo src/net.cpp
+a206b0ea1 Do not allow overwriting unspent transactions (BIP 30)
+50abb5516 Updated Mac build process
+95486d5c4 Fix release-process.txt for new deps zip.
+142e60418 DoS fix for mapOrphanTransactions
+27adfb2e0 "February"
+07ed49a47 Do not start bitcoin: thread on OSX. fixes #889
+c4341fa6a Add mruset and use it for setInventoryKnown
+46aa2a6bd Move BIP16 switchover time to April 1
+42c8b56f6 Store addrProxy port in settings
+3f8cb2c56 Reworked QT settings
+972060ce0 bitcoind changes to stop storing settings in wallet.dat.
+21ae37d21 Simplify MyGetSpecialFolderPath and fix possible buffer overflow (#901)
+88c41c43e Move 'Backup Wallet' to file menu
+4a10d4c6d Fix addrProxy setting
+71ba9abba In UI, handle cases in which the last received block was generated in the future (secs<0)
+db9f2e011 Do not invoke anti-DoS system for invalid BIP16 transactions
+ec4efde40 Add option "-splash" so we can disable the splash screen. Don't show splash screen when -min is specified on the command line.
+5fee401fe CAddrMan: stochastic address manager
+8c12851ed Checkpoint block 168,000
+3d0a0a9b9 Make deps build deterministic and upgrade to libpng 1.5.9.
+34f878891 Cleanup JSON-RPC getblock output to be consistent - Add "size" and "bits" - Rename "blockcount" to "height" - Rename "hashprevious" and "hashnext" to "previousblockhash" and "nextblockhash" (respectively)
+c170d03e0 Bugfix: Instead of reporting "bitcoin-qt" for both bitcoind and Bitcoin-Qt, report "Satoshi" which is at least correct
+92d5864b8 Leave IRC enabled by default on testnet
+18c0fa97d Post-feb20 simplifications
+73aa0421a ProcessBlock is sometimes called with pfrom==NULL
+0d56f11ad Fix tests after 38067c18
+5a5cc6ac0 Sign message description changes discussed in #bitcoin-dev
+9fa042a96 Typo fix
+ceaa13eff Report number of (dis)connected blocks in reorganization
+46245b478 Fix #616: remove base_uint::operator&=(uint64 b)
+a3342d096 Fix #626: RecvLine wrong error message
+a09f101f1 Fix #650: CKey::SetSecret BIGNUM leak
+27a0ed8a0 Hide tray icon in destructor, as deleting will let it linger until quit (on Ubuntu)
+fcfd7ff8f Free pwalletdbEncryption after encryping wallet
+38067c18f Make compressed pubkeys require 0.6.0
+9976cf070 Move GenerateNewKey back to CWallet
+0b807a417 Add SetMinVersion to CWallet
+a06113b0c Workaround for BN_bn2mpi reading/writing out of bounds
+db1a5609a Fix compilation warning.
+17690ea5a Do show/showNormal only when needed.
+72075edaf Allow setting UI language from commandline (implements #678)
+f9f75f320 Only fill in label from address book, if no label is filled in yet, fixes #840
+a3f3e54ee Change #ifdef GUI to #ifdef QT_GUI, GUI is not defined anymore...
+bc5e6b9f2 On windows, show message box with help, as there is no stderr (fixes #702)
+83d1d1a90 Hide window from taskbar when "minimize to tray" active by making window into Tool window
+23b3cf9d1 Restructure IPC URL handling (fixes #851)
+39231e910 don't allow -daemon in bitcoin-qt (changes only #defines)
+d3896211d fix typo in CNetAddr::IsRFC4843()  (fixes #850)
+d64e124cf Fix #846.  Allow negative options such as "nolisten=1" in bitcoin.conf as well as on the command line.
+0f8cb5db7 Fix issue #848 : broken mining on testnet
+c59881eae Symbolic names for threads
+7dcd20048 Properly include $*_LIB_PATH in makefile.unix
+b03cb1578 Make bitcoin-qt static-link libqrcode and add it for debian pkgs.
+32af6b16f Fix compilation warning.
+cc201e01f Several shutdown-related fixes
+25ab17585 Bugfix: do not create CAddress for invalid accepts
+303a47c09 fix default suffixes in save dialog in GNOME, make it more clear that PNG is used (solves #833)
+c85c37acb increase BitcoinAddressValidator::MaxAddressLength from 34 to 35
+4efbda3f2 Added 'Backup Wallet' menu option
+1df182ff8 (trivial) regularize coding style
+d27b4576f Add export action to file menu (as long as we have a file menu, export certainly should be there)
+aa625ed6e Extra wallet locking fixes
+b0529ffd9 Fix wallet locking locking
+88bc5f948 Macros for manual critical sections
+6af93ee2e Fix Minimize to the tray instead of the taskbar
+cd5ee3bbb Fix wallet encryption with compressed pubkeys
+402deef94 Fix #822
+245484679 Add Bitcoin-Qt test suite with some bitcoin: URL Tests to start.
+cce89ead1 Add -req prefixes to comply with BIP21.
+2e5a781c6 Enable accessible widgets Qt module on win32, so that people with screen readers such as NVDA can make sense of it.
+baba6e7de Get ext. IP from UPnP, make sure addrMe IsRoutable() in version.
+74f28bf1f Fix #794.  Only remove transactions from memory pool when they're actually in the memory pool.
+328b26d40 Update readme-qt.rst for 0.6.0
+f1142dcc5 Update doc/release-process.txt
+9909340f3 Split smaller dependencies out of gitian-win32 into deps-win32
+882164196 Update all copyrights to 2012
+6bf4253a6 Increase client version to 0.6
+9d952d17b Look for flushwallet/listen/irc/dnsseed/upnp instead of noflushwallet/etc. And switch default for irc to 0.
+3ad9f8a70 New GetArg features: allow --, and booleans can be -foo or -nofoo
+3ae073555 Unit tests for the GetArg() methods
+7bf8b7c25 -bip16 option (default: 1) to support / not support BIP 16. And bumped default BIP16 switchover date from Feb 15 to Mar 1
+ab07866c8 Restructure credit transaction decomposition (solves issue #689)
+f051ee5f9 Update zlib and libpng (previous version had a security issue)
+0104e36d4 Mac deploy tool: make dylibs writeable when copying into app bundle, so they can be stripped/nametool'ed
+f118b5fc5 miniupnpc Porfile removed; new and improved macdeployqtplus
+9d4b05c0d fetch translations from transifex
+f69b82e78 Change up/down increment in UI to 0.001 BTC (issue #760)
+b04f301c8 Have bitcoind recommend a secure RPC password. Increase invalid password delay.
+5d1b8f172 Avoid advertising the node's address when it is not listening or IsInitialBlockDownload().
+d2291cce9 Remove loose amp; from Portugese translation (issue #701)
+8beb917c6 Allow -upnp to override setting in wallet (and simplify logic a bit)
+177dbcaac Fix UPnP by reannouncing every 20 minutes.
+c52296a73 Testnet difficulty calculation changes, to take effect Feb 15 2012
+68649bef9 CreateNewBlock was not adding in transaction fees.
+2bc4fd609 Bitcoin-Qt signmessage GUI (pull request #582)
+91f43a33f Full checking of all loaded keys
+b25cc627a Check consistency of private keys
+341519523 Support makefile.osx building test_bitcoin with dynamic boost
+34c69036d Rename src/obj/test to src/obj-test to workaround bug in older GNU Make
+149f580c8 Only store transactions with missing inputs in the orphan pool.
+dc77dce07 Fixed addmultisigaddress if looking up public keys from locked wallets.
+ca9afa840 Bugfix: Support building test_bitcoin with shared-object boost test framework
+198fb229a Add DEBUG_LOCKCONTENTION, to warn each time a thread waits to lock.
+575bdcde9 Sanitize AreInputsStandard slightly
+137d0685a Simplify counting of P2SH sigops to match BIP 16 (thanks to Matt Corallo for prompting this).
+1240a1b0a Back out spacing changes to json spirit code
+39f0d9686 Make transactions with extra data in their scriptSig's non-standard.
+b2f76e9de Update seednodes, pick long-uptime nodes with version >= 0.4.0
+9965e1d04 Various updates to the release process
+06706ab8e Remove erroneous ":" in front of port in options dialog (introduced with network refactor)
+be4d08b26 fix the build (port IP validation in options to network refactoring)
+b2a967cd0 Revert to global progress indication (see #753)
+c981d768b Fix handling of default ports
+ab8451225 Added mintime and curtime to RPC getmemorypool
+52a3d2635 Separated COINBASE_FLAGS out into main.h and made RPC getmemorypool return it
+29b727315 *Clear all has a tooltip now *About dialog updated
+b985efaac Replace tabs with four spaces to comply with coding standard in doc/coding.txt
+9e8818ec9 Remove base58 encoding from validateaddress/addmultisigaddress
+406346053 Refactor: needing to call ConnectInputs to process coinbase transactions was counter-intuitive
+8d7849b6d Refactored ConnectInputs, so valid-transaction-checks are done before ECDSA-verifying signatures.
+922e8e292 Replace OP_EVAL (BIP 12) with Pay-to-script-hash (BIP 16).
+d11a58a2d Remove not-used-anywhere scriptPrereq from SignSignature()
+10ba0a3ef Minor code cleanup to use fHaveUPnP instead of #ifdef
+b24e6e4d1 Add -keepnode which attempts to -addnode and keep a connection open
+a1de57a06 Compile with extra warnings turned on. And more makefile/code tidying up.
+340f0876e collect more info on tx pooling and block finding for getmininginfo
+6950bb620 Add new "getmininginfo" JSON-RPC method, with mining-only fields moved out of "getinfo"
+025d49548 Remove broken Visual C++ makefile.vc, and removed annoying HEADERS= list from other makefiles
+ebf9065c2 Qt: Show transaction ID in details
+a4902c9e7 Remove unused definition
+b3974ec9d Unit tests for EC key routines
+d4d9c734c Compact signatures with compressed pubkeys
+11529c6e4 Compressed pubkeys
+65c82be02 Remove mentions on anonymity in debian folder.
+67a42f929 Network stack refactor
+7453497ee make transaction description read-only (UI fix)
+7d145a0f5 Add support for opening bitcoin: URIs directly.
+9a93c4c02 Automatically refocus on new SendCoinsEntrys and scroll to them.
+f7a9a1139 Fix horrific performance found by gmaxwell.
+d237f62c2 -blocknotify=command argument, implemented using system() and boost::thread
+8677f9c75 I broke -testnet with my TOR option-parsing fixes.
+0fcf91ea1 Fix issue #659, and cleanup wallet/command-line argument handling a bit
+ecaa91d1d Fix typo (#734)
+a75d7066b Fix some address-handling deadlocks
+6ec76ca09 make sure IsMine only returns true when we own all keys
+56c6e3696 Fix transaction type in UI: not all tx'es with "from"/"to" field are necessarily IP tx'es
+6d6d392b2 Fixed OP_EVAL recursion unit test, checks for both infinite and exactly-3-deep recursion
+89772f932 Fix OP_EVAL recursion depth counting
+61977f956 Check all prevout.n if one transaction provides multiple inputs
+60835d962 assert condition in previous commit was backwards
+6996a9d71 Check for valid prevout.n in FetchInputs. IsStandardInputs could crash if given invalid input index.
+0b5d6f1e2 Add QR Code support to Win32 Gitian build.
+119473974 Fix Linux gitian descriptor to use QRCode support.
+cad574513 Add libqrencode-dev to the debian/ubuntu apt-get lines.
+56690a69d No reason to have any qrcode stuff in the bitcoind osx makefile.
+fe358165e Be more conservative: check all transactions in blocks after last checkpoint.
+8a53cb0b9 New RPC commands: getblockhash and getblock
+c58e7d4e0 Copy amount to clipboard (implements #657) - Also, unify similar code related to copying transaction fields to clipboard
+c4a4a4b88 Add context menu for address book page (implements part 1 of issue #648)
+e07345719 Move HtmlEscape (escape for qt rich text controls) to qt gui utilities
+c75abc9f7 Comments update
+7415b805c Fix #722.
+2e17ac83c Fix broken ExtractAddress (refactored, made callers check for addresses in keystore if they care)
+ce336fdc2 Back out testnet default address change, it breaks accounts on old wallets.
+bde280b9a Revert "Use standard C99 (and Qt) types for 64-bit integers"
+21d9f3678 Use standard C99 (and Qt) types for 64-bit integers
+f18a119ac Implement "Start on window system startup" on Win32 + Linux.
+77f21f158 include util.h to get SecureString definition.
+0e87f34be Include limits, not climints (using std::numeric_limits now)
+22123c85f Added QRCode generation functions via libqrencode. Switch on with USE_QRENCODE=1. Amended build docs for Linux and OSX, and OSX makefile. Added package 'qrencode' to gitian.yml
+9ef7fa344 Code cleanup: use ECDSA_size() instead of fixed 10,000 byte sig buffer, and explicity init static var
+26ce92b35 Use std::numeric_limits<> for typesafe INT_MAX/etc
+bd846c0e5 Cleanup: removed dead code, and use C99 typedefs for int64 (supported by all modern c++ compilers)
+9e470585b Update bitcoin address numbers for latest luke-jr/sipa scheme
+be237c119 Fix logic for IsChange() for send-to-self transactions.
+2a45a494b Use block times for 'hard' OP_EVAL switchover, and refactored EvalScript so it takes a flag for how to interpret OP_EVAL. Also increased IsStandard size of scriptSigs to 500 bytes, so a 3-of-3 multisig transaction IsStandard.
+a0871afb2 Interpret OP_EVAL as OP_NOP until Feb 1, 2012
+fae3e2aab Disable addmultisigaddress if not testnet
+d7062ef1b Put OP_EVAL string in coinbase of generated blocks
+3ae65166b add key.o and rpcdump.o to makefile.linux-mingw
+e679ec969 OP_EVAL implementation
+cc40ba215 Global fixture to send output to console instead of debug.log
+bf798734d Support 3 new multisignature IsStandard transactions
+1466b8b78 Rework unit tests so test_bitcoin.cpp does not #include them all
+7e55c1ab6 Collapse no-op ExtractAddress/ExtractAddressInner
+f8ded588a Implement BIP 14 : separate protocol version from client version
+95d888a6d Key import and export
+30ab2c9c4 Preparations for key import/export
+15a8590ec CBitcoinSecret added (base58 encoded privkey)
+93db3fcea Add GetSecret() and GetKeys() to CKeyStore
+4c6e22953 Make CWalletTx::pwallet private
+cce16fdc6 Add blockhash and blockindex to transaction info
+647734881 Add my DNS seed domain
+6e39e7c9b Move more newlines out of strings, and fix translations.
+fdaf1dfd2 Add laanwj to gitian download scripts.
+4051e7988 Update debian changelog to 0.5.1.
+8896c2d9d Bump version 0.5.99 (prep for pulling for version 0.6)
+61a8c0569 Add sipa's new dnsseed.
+dbbf1d4a4 GetMinFee takes a mode parameter (GMF_{BLOCK,RELAY,SEND}) instead of fForRelay
+a880b29ca Bugfix: fForRelay should be false when deciding required fee to include in blocks
+7ca47cece Fix status bar not displaying Alerts.
+01ea41b20 Add "About Qt" menu option to show built-in Qt About dialog
+857aa7378 Enable wordwrap for long message in passphrase dialog - Remove explicit resizing from constructor to prevent potential hang
+43421af2e move \\n outside _() in --help
+1d8b4cd54 added translations: pt_BR zh_CN
+7ad4ca9c1 updated translations: es es_CL nb ru
+94b97046f Restore compatibility with miniupnpc 1.5 (without breaking miniupnp 1.6)
+45198af2b Prevent window from being shown momentarily when using -min - In a previous patch, show() was added to all the page switcher functions. As the contructor calls showOverviewPage(), this means the window is shown in the constructor. - This change prevents this by connecting show() to the signal instead.
+4dba26620 When using Qt GUI, move parameter-parsing to start of qt/bitcoin.cpp:main()
+a22535144 Re-enable RPCSSL in gitian builds.
+7915370cb Implement -min option to start minimized
+3f9144d42 Move -lgdi32 after -lcrypto (fixes #681).
+1c4aab926 Retain only the most recent time samples
+5e1ddc421 Only log time samples in debug mode
+f81ce5bd6 Speed up RPC authentication (reworked pull from Joel Katz)
+10fd7f668 Orphan block fill-up-memory attack prevention
+eb5fff9e1 Moved checkpoints out of main, to prep for using them to help prevent DoS attacks
+e1b1055b4 Add missing command-line arguments to --help/-? output
+2bc6ceceb Move DNS Seed lookup to a new thread.
+24911ac65 Make home and addressbook icon more consistent with other toolbar icons (make it blue and flip light source direction)
+94f778bde Implement an mlock()'d string class for storing passphrases
+d8b864086 allow for filtering addresses and labels by searching for the typed string anywhere, not just at the beginning (#641)
+b790077c3 update translation: de
+8787ee699 add translations: hu uk
+e92e97f1e Small fixes in both spanish translations
+50aa850fc update translations: da de nl ru zh_TW
+4b53cff90 add italian translation
+605ca141c Don't forget to bump release numbers in READMEs next time
+795faa595 Bump version numbers to 0.5.1
+e6389c322 Update release process instructions
+67c454c67 Bump version to 0.5.1
+a3c675d1a Bugfix: only make QListView transparent, not its tooltips
+555d1cd02 Update contrib/debian/ for 0.5.0 release and fix copyright file.
+aa1ed9265 update debian copyright file for MIT icon relicensing
+459d3fb77 relicense my own images as MIT
+f53c5ede7 close old db when rewriting
+b2d3b2d65 Never remove database files on shutdown, it caused unreadable wallets on some testers' machines.
+1c15f8865 Only remove database log files on shutdown after wallet encryption/rewrite
+37971fcc7 Create new keypool for newly encrypted wallets.
+c4de91847 Tweak handling of boost filesystem versions
+8d0923109 Fix crash-on-osx-on-shutdown bug. And cleanup CDB handling in Rewrite.
+709c1b267 Fix boost filesystem incompatibility problem
+4585f7e2c add message about restarting bitcoin after encrypting wallet succesfully
+d764d9161 Obsolete keypool and make sure database removes log files on shutdown.
+9e9869d0f Resilvering
+af836ad58 Improve documentation for UI classes
+66112ed6e Example documented class
+15ceadf7a Add doxygen documentation configuration file
+405ce5a87 Add model null pointer check (solves issue #595 and https://github.com/laanwj/bitcoin-qt/issues/29)
+19197d5e2 Do not launch Shutdown in a new thread in case we are running the UI.
+29c8b9416 Deprecate RPC getblocknumber
+0fe19a3a2 Replace kfm_home with go-home for "overview"
+d2e21a9d7 update doc/assets-attribution.txt
+6be6be2ed Tool/process for including correct qt translations in mac .App
+81dd7aa4c Replace icons with Nuvola (LGPL 2.1): some (but not all) GPL-licensed
+5a7321562 Replace icons with Nuvola (LGPL 2.1): all non-free except for those by Wladimir van der Laan (who will hopefully relicense)
+5efee7da8 Release process doc fixes
+dead0ff8c Add robustness against null models
+9bc9593df Fix segmentation fault when editing address not in address book (issue #615)
+38f33ce4a Add debian build folder
+2b814d6eb Re-add bitcoin(32&80).xpm
+560078a76 add doc/translation_process.md
+e1739cbf3 merged translations from transifex: da de es es_CL nb nl ru zh_TW
+d6245ca5d Mention Qt4 runtime dependencies
+a5f07cbea Static link on Linux. And better document release process on OSX.
+d825e6a31 Some extra comments
+1615c1475 add zh_TW locale
+2989b462a Add English translation to fix plural(s).
+f6aacbfe6 Mac releases use macdeployqtplus
+c589f0911 Make qt-win32 gitian build deterministic
+f873b84d6 Added simple critical section test cases.
+a8fe4b7a5 Added a copy of the GPLv3 to macdeployqtplus
+6eaa1b36f Mac Deployment Script
+3083cf100 Cleaned up the critical section macros.
+434a483d5 Update documentation to reflect 0.5 reality. And removed leading $ from shell commands, so it is easier to copy and paste from release-process.txt.
+8fb6134aa attempt to make build deterministic
+533c82ce9 do not use -fstack-protector on Windows
+fca0e799c Update Win32 gitian descriptor for bitcoin-qt.
+2f91039c7 Add gitian descriptor for qt cross compile via MinGW.
+02d630c37 Remove vladimir's DNS seed, at his request.
+8d3e1becf Save translators some work - Remove duplicate translation strings (that somehow came from old wx UI and ended up in bitcoinstrings.cpp)
+383ad8b8a Add notes on getting gitian builds going
+7ec064b88 Update documentation to reflect reality (no win32 gitian builds, new Mac process)
+472bbb750 Update openssl to 1.0.0e.
+d1df57174 Update setup.nsi for bitcoin-qt.
+438adb6c2 Decrease number of installed packages for Linux Gitian build.
+f5e760268 Remove wxWidgets gitian descriptors.
+8ab246297 Update Linux gitian descriptor for bitcoin-qt.
+aaf71d845 Allow miniupnpc include path specificaiton and fix link on Win32.
+5f2e76b8c Optionally include additional QT plugins when required to build.
+3f197952b Add BOOST_THREAD_USE_LIB define.
+0e569e4a2 Add option to specify a different suffix for boost_thread.
+0767e6919 Add returns to avoid annoying compile-time warnings.
+d04159021 Add -Wno-strict-aliasing because boost breaks that too much.
+25a9a1f62 Only define __STDC_LIMIT_MACROS if not already defined.
+f891cc941 Update qt readme to indicate Qt is now the primary GUI.
+6c33ec404 Warn about the qt-at-spi bug in Ubuntu 11.10.
+5c92622ad Translation lookup logic improvements - use wildcard for TRANSLATIONS in bitcoin-qt.pro to automatically build all translations present in src/qt/locale (thanks @tcatm) - first load translations/<language>.qm, then translations/<language>_<TERRITORY>.qm, so that territory-specific translations take precedence, but the fallback is on the base language if no territory-specific translation exists.
+3a30f34f1 Revert "translation fixes"
+f86ecd4a0 translation fixes - use wildcard for TRANSLATIONS in bitcoin-qt.pro to automatically build all translations present in src/qt/locale (thanks @tcatm) - rename language files to the usual <lang>_<TERRITORY> - include recently added language files for es_ES and nb_NO
+38a9edba2 update translations: nb, es_CL (from transifex)
+7298ebb43 Added Caps Lock check and warning at askpassphrasedialog.
+1e5f93938 Added a workaround for an Ubuntu bug which causes -fstack-protector-all to be disregarded.
+efb3d3292 Make build work on Mac OS X 10.7 Lion (32bit dependencies through MacPorts)
+e44a00ae0 bitcoind does not need to link with gthread-2.0
+a1e0bb5a0 Allow users to customize CXX, CXXFLAGS, and LDFLAGS normally
+ef49d8a6c Add spanish translation to TRANSLATIONS
+b50ac8f73 Mac OSX release process changes
+53f21f6ee Added Spanish translation for qt
+d85f24580 Add alt-1..alt-5 shortcut to switch between tabs
+527137e3e Improved Mac experience; QDoubleSpinBox for BitcoinAmountField
+d934e7e3d Make "Quit" menu saner - Use 'x' for Exit shortcut - Set Ctrl-Q as global quit key sequence
+b4d0588d0 Add support to makefile.unix for the same parameters used by bitcoin-qt.pro, dynamic linking unless STATIC=1 is passed
+bdf2f7e71 Fix typo. Improve Gentoo instructions.
+4adf78bad Improved Gentoo instructions.
+c60aec9c2 Fix extraneous directory specifier, beautify bash syntax $VAR -> ${VAR}
+7b465b663 Collate generic dependency information. Segregate distribution-specific (Ubuntu/Debian) information. Add Gentoo information.
+94eaab771 Bump version to 0.5.0.0
+0b3f3657c Remove old wx translations, updated qt translations
+c1131a28a Remove ui_res from makefiles
+6853e627f Fix build on windows and mac
+903a25583 Bugfix: "bits" should be a hex-string, not a number (that just doesn't make sense)
+b95e6376d Fix for 64bit build
+ae81b82fb Use C's const char* for status strings rather than C++'s std::string, which is slower
+9e5322d23 Fix miner_test unit test bug
+4ffbdcc0f Auto-build dependencies
+e9e7bb968 Update mac Makefile and build instructions to use MacPorts
+3552497ae Send "Connection: close" HTTP header with JSON-RPC requests (client)
+514b18722 Remove 2 second sleep from CheckWork
+65ba3e2f5 Bugfix: report error creating ThreadSocketHandler thread just like the rest
+a4e6ae101 Only GetAdjustedTime once for the retry loop
+5a105cdb7 Added bitrpc.py which allows for sending of all standard Bitcoin commands via RPC rather than as command line args.
+8ad100a55 Added wallet tools
+350480177 Declare integer constant LL
+c923fe71b Update release-process to point to gitian.sigs repo.
+ba2db7262 Edited doc/readme-qt.rst via GitHub
+5d3083c3f Bugfix: Restore old behaviour of USE_UPNP as close as possible (built & enabled by default, can be disabled or unsupported by option)
+74567f7ef remove code that reads addr.txt in LoadAddreses()
+074d584a0 Added RPC call 'getmemorypool' that provides everything needed to construct a block with a custom generation transaction and submit a solution
+2f7f2a5fc remove possibility of 63 bit overflow in ParseMoney - also, add unit tests for various functions in util.cpp/util.h
+608dacf68 only install translator when not empty
+452506fc4 simpler ByteReverse
+6ccff2cbd remove cryptopp dependency, add simple unittest for SHA256Transform()
+8f1631b79 make USE_SSL actually work (thanks @prusnak for noticing)
+07e288236 qmake build system improvements - USE_SSL=1 to support RPC SSL - BDB_LIB_SUFFIX= to link against specific BDB version - Fix typo - Start lrelease during qmake phase to prevent errors/warnings
+20091df72 Add assertion size>0 to MedianFilter
+f33a43efd Update "other files" in Qt Creator with all documentation now that the projects merged
+a8b95ce6e use median filter for peer-reported reported number of blocks - fixes problem that one misconfigured or malicious node can mess up progress bar - implementation in src/util.h - testcase in src/test/util_tests.cpp
+f8acc29fc deprecate midstate and hash1 in getwork
+eec44dad1 remove deprecated RPCs
+45723584c Update release-process.txt with gitian release instructions.
+590204087 translation handling improvements
+3a570dc80 Use key recovery for message signatures
+01cc52631 Compact signatures and key recovery
+d9867551f base64-based sign/verify
+b53d6284e Incorporate pubkey in signature, check based on address
+cc2567e32 Sign and verify message with bitcoin address and public key
+e93bf37e8 Test case for base64 encode/decode
+4b603f1cd Inline base64 encoder/decoder
+4e67a6216 Faster Base64 decoder.
+a1ef0d19b Removing the if statement entirely - not needed.
+a8c108bca Remove DoS penalty for SigOpCount or immature transactions
+609acbf43 Send Coins page not cleared when changing tabs. Clear all button for clearing the entries
+13945b2a6 Updated readme file with timers.
+36eccc517 Output build temp files in build/ instead of current directory.
+adea540e3 Update build instructions for the new, no-wxwidgets world
+81cadd74d Fix build: put back rules to build cryptopp files
+565c4771b Remove wxWidgets
+b14bd4df5 Skip verifying transaction signatures during initial block-chain download
+6b8a5ab62 Bump version to 0.4.1
+010c4fc0b Change define to determine use of DBUS to USE_DBUS, to prevent overlap with Qt-defined QT_DBUS
+99cec89cb make qmake build system more configurable (as suggested by lukejr)
+c1ffdc580 Update release process for repackaging gitian builds, and osx dmg
+3fc4c3a9f Add win32 gitian download config.
+a4f2c8419 Script to create OSX .dmg diskimage file.
+0920ad152 Restructure gitian files and add download config files.
+16d6963ef Fix QA email address
+90efeb5dd Updated dutch translation
+b8afa21fa show balance in sendcoins screen (issue #24)
+2fc80399b Update binary mo to match latest po translation.
+806704c23 More denial-of-service misbehavior detection: version/addr/inv/getdata messages
+3e52aaf21 Transaction/Block denial-of-service detection/response
+15f3ad4db Framework for banning mis-behaving peers
+54d02f158 SetMockTime() for cleaner unit testing
+9b490f71b put Q_OBJECT everywhere it should be (removes warnings when running lupdate)
+88367a5fb SocketHandler thread can be detached
+0465c41c8 move current qt specific readme to doc/, restore original README.md
+e122e4235 assure that base bitcoind and bitcoin still build
+3c66913cd move qt-specific scripts to qt-specific directory in scripts/
+e674680dd missed printf in AbortMessage(); merged printfs in EndMessage
+59090133c log low-level network messages only when fDebug is set
+67c699437 Update to the Chinese Simp translation
+6083295f4 Update bitcoin icon to make nsis setup exe deterministic.
+c1e667222 make German translation up-to-date
+3f94dfa25 Add some hardening to protect against unknown/future exploits.
+c4149423f Updated German translation
+b4af75c07 Spanish translation update
+83312d7c6 remove transparency effect and windows-specific code for now, it's not working as supposed
+2c1fd3c39 Some Mac OS X specific things
+d33cc2b5e clarify function signature (GetNumBlocksOfPeers) and use number of 'frozen' blocks as initial value for number of peer blocks
+78b3bf56f The synchronization progress bar now compares the amount of total blocks to amount of blocks downloaded at application start-up. Could be probably implemented better.
+029591247 Update gitian build descriptors to produce proper builds.
+3448ce56f wxWidgets needs to be at least version 2.9.1 because wallet crypto uses ToStdString() which is not in 2.9.0
+9b9e2f174 http -> https
+f077d1ad6 fix the build (moved code use 'this' instead of 'window')
+94723e27a Pull request #21: windows fixes/cleanup by Matoking
+940669657 Fix AddAddress cs_mapaddresses/db transaction deadlock
+83f4cd156 Bugfix: Use timestamp in coinbase rather than "bits", needed to ensure coinbase txn is unique even if address is the same
+49c8e53ee Save coinbase, not just extraNonce
+cbd959c47 Revert "Define MSG_NOSIGNAL to 0 on platforms where it is unavailable."
+fd5eaf323 Add binary mo for new translation.
+6a0296791 Define MSG_NOSIGNAL to 0 on platforms where it is unavailable.
+905cbf0bf Romanian translation added
+e39f92565 ignore stuff
+e03209979 Add a note to only include .po file
+cc558f060 README.md: word wrap text file
+adb8a55b4 Updated readme file
+e077cce61 Optimize database writes for transactions with lots of TxIns. Patch from ArtForz, who discovered the problem.
+cf9195c80 (k)ubuntu 10.04+ notification support (based on @zwierzak his code)
+7b7d46be8 Fix build process to actually work.
+a687d4f57 Support for boost filesystem version 3
+7464e647d Bumped version numbers to 0.4.0rc1
+ec74e8a44 Versions 0.3.20 THROUGH 0.3.23 have trouble with blockchain downloads; avoid them
+4785e6df7 Edited README.rst via GitHub
+0aca8577b support USE_UPNP setting
+fb462ab27 Update binary mos to latest translations.
+b53e277ba Stay connected to seed nodes; disconnecting causes problems if you are trying to make the initial blockchain download.
+b2d1129f2 bitcoin-qt cannot be used as command line rpc client
+c5aa1b139 update to work with new lock system, add protocol.* to build system
+c591cc50e If compiled -DDEBUG_LOCKORDER and run with -debug, print out every mutex lock/unlock (helpful for debugging something-is-holding-a-mutex-too-long problems)
+fb4525996 Do not try to download blockchain from 0.3.23 nodes
+86fd7c5af Give hard-coded seed nodes a random last-seen time, to randomize order they're tried.
+bca179e8b Update the list of seednodes.
+2f4c30fd8 Fix bad merge: getaccountaddress was broken for new accounts
+36d9b2311 Fixed regression I introduced: wallets with lots of transactions were unusable in GUI.
+ed02c95d5 obtain cs_wallet mutex to protect vchDefaultKey
+123e5bd99 Fix RPC call name in error message.
+7db3b75b3 Logic running with -keypool=0 was wrong (empty keys were being returned). Fixes #445
+e3c26b257 SetCrypted() obtains keystore lock, to be safe.
+541e585d8 Fix typo ("you own security")
+471426fb3 Fixed potential deadlocks in GUI code. Also changed semantics of CWalletTx::GetTxTime(); now always returns the time the transaction was received by this node, not the average block time. And added information about -DDEBUG_LOCKORDER to coding.txt.
+6cc4a62c0 Fix rpc-hanging deadlocks
+b0243da77 Highlight mis-matching locks
+927aaa0f2 Add reference python miner, in contrib/pyminer/
+6c85cbecf comments and readme update
+b7bcaf940 Wallet encryption part 2: ask passphrase when needed, add menu options
+3f0816e3d add russian translation and add unicode compatibility (merges pull request #20)
+829e21733 CHECKMULTISIG unit tests.
+e40bef3c0 Add Gitian Build descriptors for Boost and wxWidgets.
+ae8adeb90 Wallet encryption part 1: show wallet encryption status
+b4ada906c Upgrade dependancies and tweak build process.
+3bb23e5c8 Mingw gitian build with deterministic bitcoin.exe by use of faketime
+bef41ada0 Mingw gitian with separate wxWidgets and boost
+d2cbb14d7 Linux gitian config with separate wxWidgets build
+98deeaef1 Edited locale/pl/LC_MESSAGES/bitcoin.po via GitHub
+e4dde849a Move CInv to protocol.[ch]pp
+33e28c994 Move CAddress to protocol.[ch]pp
+507fd9d15 Start moving protocol-specific code to protocol.[ch]pp
+82dc6426b Move func 'REF' from util.h to serialize.h
+e49b83bb1 Cleanup makefiles such that diffs to them are smaller
+99860de3c Make some global variables less-global (static)
+865ed8a1e Compile with DEBUG_LOCKORDER to detect inconsistent lock orderings that can cause deadlocks
+dac48972d Updated czech translation
+872b1f3e4 update README for issue #15
+317c73357 add russian translation by msva
+c7286112e Remove unused ScanMessageStart function
+b2fd0ca1c src/makefile.unix: remove -DFOURWAYSSE2
+8c4738d5a fix issue #13
+d0d9486f4 Updated checkpoints, maybe Tx fee should be reduced to 0.0001 from 0.0005 and maximum minimum tx should be 0.0010.
+eb72eae30 Don't std::advance past beginning of transactions array.  Fixes #465
+59ed5cb39 Add specific wallet encryption details to doc/README
+8acb491ee Fix incorrect RPC error messages
+2f8f51d1e Missed a 'password' should be 'passphrase'.
+25133bd74 Use 'unsigned char' rather than 'char' for pchMessageStart.
+7c3002bf2 Qualify make_tuple with boost:: namespace.
+ec93a0e21 Test for SO_NOSIGPIPE rather than assuming all BSDs support it.
+9f0ac1694 Do-nothing MapPort() ifndef USE_UPNP.  fixes #450
+b2120e223 Unify copyright notices.
+2c3691d53 Cleanup test suite output to be more useful.
+3c8cecda1 Add file for transaction tests.
+a8330e004 Add a file for script tests
+5f6a654d3 Add prototype for EvalScript() to script.h
+e707d29dd Fix testing setup
+02962ba84 Add missing include to serialize.h
+8a62fec3e Add missing includes to net.h
+437173f43 Add missing include to script.h
+fcedd45c3 Add missing includes to key.h
+b0849613b QtUI code cleanup / comment improvements
+fb390d350 add TODOs in  parseBitcoinURL
+f839f9657 update readme
+c359ac912 allow empty/missing amounts in URL
+856aacf38 don't include <QDebug>
+db7f02341 Accept "bitcoin:" URL drops from browsers
+e74e8a184 reorganize transaction model data function, and transaction tooltip
+d4e3cb4c0 improve sync spinner
+00f4f8d54 speling fix
+126185aaa improve tooltip over transactions
+ffccb5691 select new address immediately after creation
+2351a3fc9 minimize amount of text in status bar; show only icons, if the user wants explanation they can view the tooltip
+1b3920196 when clicking a transaction on the overview page, send the user to the transactions page
+186f3e2f0 Clarity: change definition of "confirmed"  to "counts towards balance"
+01a509fa2 Don't listen if on TOR (resolves #441).
+2ccd47596 fix drawing on gtk
+82303fc3c unconfirmed amount = grey
+918150048 Make it clear that setting proxy requires restart to fully apply.
+a99ac8d3f show last few transactions on overview page
+2566b30c3 make amount field the same width as decimals field
+4d2ef6e5b avoid strAddress + validity checks
+6e903b0b3 add attribution for wallet image
+5762295ec update readme and splash screen text
+10d680cff add splash screen
+156569816 Identify as "Bitcoin + version number" when mapping UPnP port
+364685e19 Translation from "Open Bitcoin" to "Verstuur Bitcoins"
+d8f5c59a5 show n/a for mined transactions (and send to self) instead of empty field
+05bcf7089 address icons
+33208fb55 Check for duplicate txins in CheckTransaction.
+dedf83a19 Properly html-escape labels
+a5e132587 comment update
+f0ec774d9 make sure address book model is up to date after sending coins
+8c2143d4d Comment "deprecated"
+04f38adf7 Remove unused variable
+2f5d38094 Hide addresses in transaction overview by default, they can be re-shown as a configuration option
+1aafe34a0 Make dot in amount field more apparent
+19fba3cd2 Make debug info more interesting (show SHA160 addresses for inputs)
+3b59297b3 Remove no longer valid comment
+ee014e5b1 Full support for other units, add configuration option for default unit (used when displaying amounts)
+7df001be9 normalize SIGNAL/SLOT signatures (http://marcmutz.wordpress.com/effective-qt/prefer-to-use-normalised-signalslot-signatures/)
+384625c1a also accept numbers without dot/decimals for parsing, fixes transaction filter row
+687c82558 Fix EncryptKeys crash introduced by a9ba4710, identified by TD.
+a139ed74f CAddrDB::LoadAddresses: properly initialize CAddress
+b63241d45 Bugfix: don't overuse limited ExtractAddress
+dd6103564 show amounts in <b>bold</b> in confirmation dialog
+690c723e5 make SetHash160 return a value (as specified in the function signature)
+5326a3124 make SetHash160 return a value (as specified in the function signature)
+c0b892fee update readme
+83c8d678a Reset unit to default when clearing the field, to prevent confusion
+f2b10f646 refuse to format nor parse invalid units
+587e52855 allow multiple units in bitcoin amount widget (for example, for sending) using a combobox
+ca1dbe10e Negative transaction color changed to red (was grey due to mistake)
+67ed7d9d4 Fix UNIX-specific thread handle leak.
+e780b94bd fix unit names (μBTC)
+e285ffcd0 preparations for multiple unit (uBTC, mBTC, BTC) support, fix amount entry issue
+bbae0fc9e put color constants in guiconstants.h
+a8c50c06e Clean up the project file.
+2af40a501 On Mac OS X do not link aginst the boost libraries in UNIX:LIBS
+daa1a7398 better exit icon
+f5472574a make all tab icons blue/gray for more consistencyx
+591dcaf68 improve tooltip texts
+a7dd11c6d Fix for small change outputs
+8a13456f3 add windows program (.exe) icon
+2eac3a6de Allow ammount field to be empty so that one can specify .05 instead of having to type the leading zero as in 0.05
+8b936b617 Implement range... transaction filter
+73cd5e521 fix clear() (clear red/invalid status)
+643160f6e Actually use mapAlreadyAskedFor.
+174b3eddc one remove/delete icon is enough and the red minus better matches the add icon
+68e327ae7 move buttons to bottom of send coins tab, outside of scroll area
+24c835b0b windows build fix
+03f8b5456 Fix bug with accessing vchData[0] when vchData is empty. Fix typo in CBase58Data::CompareTo
+a75e1e329 Fix "Last received block was generated Up to date"
+1907b96d6 put sendcoins entries in scroll area, so that window does not become bigger than screen with many recipients
+8dcffd4d0 show rotating spinner when block download out of date, tick otherwise
+5df0b03c9 make initial block download reporting somewhat better by tracking version responses
+cb61b8dc4 split off CBase58Data from CBitcoinAddress
+2ffba736e Use CBitcoinAddress instead of string/uint160
+03fbd7904 get rid of mapPubKeys
+680178209 Changed Russian translation according to comment in issue 395
+e609c468d Added German wallet encryption messages translation.
+241844eab Basically some grammatical fixes of the German translation.
+b5f918cbd readme update
+2a429030f update readme
+9b9cd3dd2 add missing icon
+9958e09db Revert "Now that send coins / receive coins etc are tabs, remove them from menu, and reorganize menu bar"
+a5e6d7233 add sendmany support
+88cab1e4a Added crypter to makefile.vc.
+97f908e48 Suppress uninitialized warnings.
+a24b23622 move README.md out of the way for now
+a35ee9633 Add call to request unconfirmed balance
+249c6818f fix quoting
+ea37fb918 Now that send coins / receive coins etc are tabs, remove them from menu, and reorganize menu bar
+608810a3e Fix error when export is cancelled without specifying a filename.
+76aed0141 listsinceblock now shows txns with 0 confirms, as well as allows the lastblock return property to be targeted to the block with the specified depth
+5b2f35167 Add listsinceblock command for retrieving all wallet transactions in blocks after the specified block
+77b615ceb solve warnings at startup
+494fc9a85 added polish wallet encryption messages
+3a10d1c49 Fix bad return values in LoadWallet.
+d655a26c9 Single DB transaction for addresses from DNS seeds
+a2606bad0 Fix Build in GetReservedKey() in wallet.cpp
+8c4146914 Single DB transaction for all addresses in a message
+cee69980b Generate Warning when using default key.
+0d7b28e52 Fix crashes when a wallet is locked and GetReservedKey() is called
+84c3c2ebe fix warning: control reaches end of non-void function [-Wreturn-type]
+93752b8a3 fix warning: variable ‘nMinDepth’ set but not used [-Wunused-but-set-variable]
+d5e9d0000 Fix makefile.linux-mingw
+d5115a71a Bugfix: add autogenerated addresses to address book
+2a097fc5e Update mac build (alkor on forums)
+e9fd7d9fa doc/README: word wrap into something readable
+24a0def8c Bump version to 0.3.25
+116df55e2 Update CWallet::LoadWallet for proper return type.
+d0538a81b fix warning: unused function 'SigIllHandlerSSE2' [-Wunused-function]
+858cebed7 fix warning: unused variable 'X' [-Wunused-variable]
+225f222c9 fix warning: X enumeration values not handled in switch [-Wswitch-enum]
+d7f1d200a fix warning: comparison of unsigned expression < 0 is always false [-Wtautological-compare]
+f85c09744 fix warnings: using the result of an assignment as a condition without parentheses [-Wparentheses]
+ecf1c79aa fix warnings: expression result unused [-Wunused-value]
+df4018141 fix warning on 64bit systems: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+0ca8324f5 Update makefile.linux-mingw to work with crypter and UPnP fix.
+aaa468563 Increase resolution of Windows icon.
+7414733be Make an invalid addrIncoming so that old clients crash.
+96f34cd5c Use DB Transactions when encrypting wallet. This speeds up the encryption process significantly.
+0efda1a79 Do not use obsolete CPrivKey for passing keys around
+b6b039d84 Add Wallet Encryption section to README
+fbeb5fb48 Add the walletlock RPC method to lock the wallet manually.
+81598083e Dynamically remove/insert the Options for encryption in the menus.
+98545d2cd Push unlocked_until in getinfo.
+ddebdd9a8 Set the number of SHA512 rounds based on the speed of the computer.
+4e87d341f Add wallet privkey encryption.
+aa0bcaaf2 Remove NSIS branding from bottom divider.
+230b89477 Set default compression for NSIS installer to LZMA.
+4a843976e also show balloon on sent transaction, to notify when coins sent
+df5ccbd2b Show unconfirmed balance on overview page
+eee0d2391 Make tooltip on refresh more clear
+6c9498147 Add logos/branding currently found on bitcoin.org into NSIS installer.
+a48c67195 Make mlock() and munlock() portable to systems that require the address to be on a page boundary.
+c87cdc916 wxp/mingw build fixes
+0b814f9ea add better windows7/vista look by nico_w
+7668631d1 remove placeholder text from ui form, code generator screws up on older qt
+ea8440d74 Add -fstack-protector to gcc CXX flags
+adad8e46c README update
+f54d59ba4 add export functionality for address book / receiving addresses
+2eace48d9 remove magic number: change threshold for nLockTime to constant
+fa989f42c remove magic number: change threshold for nLockTime to constant
+aa496b75c remove magic number: change threshold for nLockTime to constant
+460cd40aa Readme update
+51d7cc07f Add context menu on transaction list: copy label, copy address, edit label, show details
+35105534e Transaction list: less terse tooltip
+3ddf10e5c send coins dialog: make sure send button remain default button (triggered with enter)
+f08736405 Compile 'sv' translation
+83b823704 forgot synced icons
+d8aeb8dd2 Reorganize "send coins" tab
+84c8506e9 Display a "freshness" indicator instead of nr of blocks
+c1aacf0be mlock() all private keys in memory
+acd650161 Prepare codebase for Encrypted Keys.
+8ffec99b0 update README
+610121480 "Status" doesn't fit into narrow first column in transaction history, make the header empty
+ba3d0255f Add German translation by nico_w
+0002bdddf add [testnet] to whatever the current window title is
+a7e506d69 clarify todo/dones in readme
+94fe42a94 Selection/tab navigation fixes
+3479849dc convert to full tab-based ui
+5eaa1b435 Qt handles the "..." for too long table rows. Remove this functionality from TransactionTableModel...
+ae3d0aba1 Sync to bitcoin git e94010b2395694d56dd6
+42c405ad2 temp patch for qtui
+33c75fd9a CKeyStore::AddKey must return a boolean
+fbaee7a85 Export functionality for transaction list
+d52a0f3bc Rename "History" tab to more logical "Transactions", move "Number of transactions" from status bar to overview page
+fac047480 minor language/text updates
+e59924680 Improve view of generated transactions (show clock icon when still maturing)
+393adf7ac Address book: Disable "copy to clipboard" and "Delete" buttons when nothing selected
+8bca4099c Remove code for no longer existing edit button in address book dialog
+e1f3d64c4 Add "BTC" to all amount widgets, to make clear what the unit is
+64c8b6994 tab reorg phase 1: split main gui into "overview" and "history"
+825aa7d8d make balance selectable / copyable
+7ec552676 Add minversion to wallet.
+09923991e Enable UPnP by default on bitcoin, but not on bitcoind (on gitian)
+3f0950ea0 Revert "Make UPnP default on Bitcoin but not on Bitcoind."
+e9f61c878 Fix synchronization of default key
+fa105b1d3 Added a couple minor things to match newer build process.
+b8f174a5c as there is no "default receiving address" in this GUI, don't autogenerate new addresses on receiving
+59f9c8e8c Do not use comma as thousands separator Using the comma as thousands separator causes problems for parts of the world where comma == decimal point.  Germans sending 0,001 bitcoins are unpleasantly surprised when that results in 1 BTC getting sent.
+9dfb2d281 add windows build instructions
+3913c387c Eliminate useless padding
+8fe2308b3 windows build fixes
+d547a4433 Block-chain lock-in at 134444
+096a89009 Minor translation changes for latest build
+482e57812 move another setPlaceHolderText to 4.7+ only code
+21e47f8d0 remove libboostall-dev is not needed dependency
+fc27eb188 Bump OSX version to 0.3.24 (missed in previous commit)
+b4b536d78 Bump version to 0.3.24.
+ecde936ae remove "edit" button, document double-click behaviour to edit
+154e25ff6 ui improvements: allow inline editing of labels/addresses in address book table, better tab order in send dialog, set focus on sending address table when coming from send coins dialog
+c1ffa5b1c make tooltip equal to placeholder
+669b0a583 Check addresses in address book for validity
+ebff5c40a Send: dialog redesign (automatically look up label for entered address)
+013df1cc3 Give more detailed error messages for connection failure.
+05da981f0 update build instructions (thanks tschaboo)
+bb82fdb54 "Receive coins" instead of "Receiving addresses"
+f48b4c889 Placeholder text can only be used for Qt 4.7+
+58d9badfe Add keystore.h to makefile.vs's header list.
+12a4af47c Further updated Visual C++ makefile.
+ee1f88422 Make UPnP default on Bitcoin but not on Bitcoind.
+362efb24c Enable DNS seeding by default.
+e5b47b432 Remove "default address" from main GUI screen, it only confuses people
+05bae43c3 Add "last month" filter
+f8b5028cd Updated Visual C++ makefile.
+b5384e93e make amount column wider, so that more decimals fit in
+cdff41c12 cleanup unused constants
+ce8f78a7b Only use dnsseeds and static seeds when not on testnet.
+ab90d6e62 reverse address and label (suggestion by Danube)
+0052fe7bb General cleanups
+497317453 Limit response to getblocks to half of output buffer size
+f03c31db8 Add new DNSSeed dnsseed.bluematt.me.
+c60015a26 Fix detailed transaction information on doubleclick
+64f125f35 Address book: show unlabeled addresses as (no label)
+8b040f812 fix sorting in address table dialog
+c16eb9494 add icons to address book dialog buttons
+d61b7d13e Add "receiving addresses" to toolbar
+d56c6f312 Make it very clear when on testnet (green icon, add [testnet] to title)
+ef079e183 Split off WalletModel from ClientModel, to be able to support multi-wallets in future
+929eb9dc6 show an error if amount is not valid (either the amount or decimals is empty)
+6ed283946 Make it more clear what the "New" button does
+ceb6d4e11 Implement filter row instead of tabs, allows for more expressive filters
+19a5975d5 add "BTC" to balance for clarity
+ecd3e728b Fix connection failure debug output
+3e76df748 added polish translation
+3cfe12c1b use 256x256 window icon, to prevent uglyness on OSes that show full-size icons for apps
+4d410cfce Fix AddressBook syncrhonization between a CWallet and CWalletDB
+d8dda9de8 Add OSX App bundle and correct build instructions to reflect reality.
+8baf865c9 Boost unit-testing framework. make -f makefile.{unix,osx,mingw} test_bitcoin to compile dumb, do-almost-nothing placeholder unit tests.
+7aff3d585 add icons to "New..." and "Copy to clipboard" buttons
+34fa17824 Change transaction table: - Split "Description" column into "Type" and "Address", to make sorting easier (and facilitate filtering in the future) - Merged "credit" and "debit" columns into one "amount" column that can be black (positive) or red (negative)
+e913574e0 rpc: don't send 403 when using SSL to prevent DoS
+c9e70d4c0 rpc server: send '403 Forbidden' to rejected clients
+e8ef3da71 update core to d0d80170a2ca73004e08fb85007fe055cbf4e411 (CWallet class)
+d99f5a470 reduce spacing between "Add to address book as" and the text field
+d3800d59d Fix segfault when creating new wallet
+cae5264a4 fix typo in dutch translation
+42e950aa6 update dutch translation
+0030c1bd6 compile fixes by Unthinkingbit
+a404b1512 Improve look/usablity of send coins dialog
+38deedc1b allow adding address to address book in send dialog
+c88e14fe2 Call "initial download" "synchronizing with network" instead
+40951d81a finish nl translation
+6665c2431 use buttonbox for options dialog
+ed2c01405 Edited init.cpp to include a check that -datadir exists
+daaee738f experiment with internationalization (nl), unbreak build (externui.h->qtui.h)
+47c6215c2 use #ifdef QT_UI to distinguish Qt UI instead of hardcoded #if 0
+5f280ff55 clarify text
+b9e80983a Allow changing default address (fixes issue #6)
+f5927f5b3 highlight default address
+c92fc340a when going to decimals field using ./, select it all, so that entry starts from scratch instead of appending to previous value
+50d08dc1e fix issue #7
+54e903a54 Add comment to tooltip that only sending addresses can be deleted
+84114e341 Fix some padding and focus issues with the new BitcoinAmountWidget
+f193c57a6 introduce bitcoin amount field with split amount/decimals, to protect against mistakes (https://forum.bitcoin.org/index.php?topic=19168.0)
+18b99e3f6 number of confirmations is no longer magic value
+98705aa51 Bugfixes walletclass
+3c7ebaedc fixes for mac build
+926e14b36 Fix missing includes needed for Boost 1.46.
+aa0c5e87e CWalletTx::GetAmounts(): pass NULL for CKeyStore*, rather than false to fix warning.
+0f9ee792d initial block download spans total blocks minus threshold
+eade21319 add GetTotalBlocksEstimate() function, move magic number to constant
+6cab66354 On initial block chain download, show a progress bar
+0eeb4f5d5 update bitcoin core from git (eeac8727bc0a951631bd)
+245ab4d0a add configure and receive icon
+4acfe655d Update translations and remove obsolete translations.
+45c4a0b35 Use explicit resource initialization, apparently needed on some platforms
+7df70c000 Prevent notification balloon-spam on initial block download, const-correctness in client model
+0f3981bea remove commented code, use // for one-line comments and comments inside functions
+aa5297266 fix issue #3 (dark theme compat)
+e4347a43b add license for md2k7's icons
+553af2f70 remove unused icons
+e61cfaf5c add svg sources for icons
+89c94b557 better icons for confirmations
+eeac8727b doc/release-process.txt: minor updates
+8c69f1fb2 show connection meter "full" only at 10+ connections
+aec8763a8 add attribution for icons
+58557b5af transaction status icons
+cf450e1b4 icons test
+64c7ee7e6 CWallet class
+e89b9f6a2 move wallet code to separate file
+b1ef1b24c add connection meter
+a790ec588 Make status column narrow (icon only, details on tooltip)
+c02ec5426 FormatFullVersion: build fix related to recent translation improvement
+c60da7355 Consistent Bitcoin example address
+9399225b8 Update swedish translation
+5363cb05f Add berkelydb version warning
+f15df6bb7 link to -lcrypto as well
+6315130e6 Internationalization -- conversion of strings from bitcoin core
+39cf857db Internationalization -- initial step, make _ return a std::string to prevent memory leaks
+e83474f2e Address book: select action (edit/select) based on context
+249300aeb Status column reorganization
+02d87b3aa Reset extraNonce only when prevBlock changes, so miners can continue updating the time on their work until it's stale
+92ab03afc new icons -- test
+d066e2574 replace icons
+3ac5aa4a9 add svg version of icon, so that it can be scaled to bigger sizes later
+ab2fe68fd prepare internationalization; rename project to bitcoin-qt
+18cf21452 update bitcoin core to git ce148944c776ae8e91cc058f44ddce356c7cebc9
+0424613ba add the bitcoin (MIT?) license
+c428d9e76 remove wallet updating debug output
+37f793c63 use stylized icon by bitboy
+76d660ebd Faster timeout when connecting
+ca93cc563 Double check translation and improved a translation string
+0304f4a75 add build instructions to doc
+ba4081c1f move back to original directory structure
+5813089e0 Somewhat confident now, tested on GNOME+KDE, with all types of transactions. Next step is integration into bitcoin tree.
+5e1feddcb Add tooltips, make "amount" entry consistent in Options dialog
+a299e551f Remove unused variable
+b734954a6 Added Swedish translation
+725d460e4 show notification balloon on incoming transaction
+a777f7b9b show transaction details on doubleclick
+c30075142 address book edit: edit the right row
+5b0dc80bf use real copyright sign in about dialog
+66d536ed0 transaction details dialog on doubleclick
+6854a2ade Add minimal release process docs.
+6de1326ba Lower minimum relay TX fee to 0.0001 (from 0.0005) BTC.
+3a8182c10 Updated Chinese Simp translation
+8e86dca25 consistent bracing style
+c6710c7a7 Fix CPU Usage bug when using -nolisten and have no connections.
+a9d3af882 Demystify a few magic numbers.
+671745739 align "amount" input in send coins dialog to the right
+352b4ea5b Reduce minimum TX fee for new transactions, to 0.0005.
+822f2e3dd update to newest git bitcoin core
+b7726d924 ask fee
+6f07e2221 Bump version to 0.3.23.
+00b8acdf4 fix
+467c31ea0 show messages from core/net thread
+352083cb2 Implement Minimize to tray / Minimize on close
+cddc003e7 Disable map upnp option if built without USE_UPNP
+e29b623db save changed options in database
+4663e339b show actual version nr in about dialog
+afacb3406 comment update
+a4b4cc290 comment update
+75ff9d841 update most importent TODOs in readme
+b9e41844c fix "send to" address book
+64bca50d5 update transaction status as new blocks come in
+2547f1f7e create new address from main gui, move address book model to client model
+9d9a4e874 support incremental wallet updates
+ca81b168d create keypool in LoadWallet()
+48208883d Finish implementation of address book
+dab03e34f Make base58 validator explicit
+4e6303d39 Add common temp files to .gitignore.
+482cb6569 Fix rfc1918 and rfc3927 compliance for ignoring non-internet-routable hosts.
+44384a460 edit address dialog: basic data/widget binding
+5c94371f9 resolve dependency issues
+e104c7937 Bugfix for dnsseed introduced by dnslookup
+e457b0214 namespacing, user friendly base58 entry, addressbook work
+ef1b844e7 monospace font for bitcoin addresses
+df6dfb4ab readme fix
+9357dcf68 update readme
+9aef9bca3 define PAIR_TYPE as std::pair
+f96681c5e beginning of address model
+c51f05125 Add addresses that we've sent to to the address book
+5d5990dc8 Impl->Priv
+c3e0734db implement options model / improve view with validators
+c6dd35f03 Apply button
+968d55aaf move getTransactionFee to OptionsModel
+92f20d53f implement options model, show current options in options dialog
+6630c1cbf sending support
+1d7e321c1 mark specific warnings to disable for the cases where bitcoin core "sins"
+8c937da5f "Receive with" i.s.o. "Receive from" address
+63760fa1c auto-update transaction list
+12a1256c1 bugfix: accept free transactions
+f6c18bc9e documentation, small fixes
+3e1ea1c02 Generated transactions are 'other', and only show up in All tab
+e923f8188 extend generation descriptions
+0eba00447 use real ParseMoney function to parse input to Send dialog
+dd8e82f79 fix balance display, display number of transactions
+f79efbab6 look up addresses in address book
+f488e7358 transaction color based on confirmed/not confirmed, basic transaction model impl
+0856c1a03 work on transaction list model
+af531f044 Fix GUI build on UNIX.
+213f76363 bind transactionmodel
+0649b6af9 Update to openssl-1.0.0d and enable RPC-SSL on Win32
+bd39b48f1 Handle high DPI a bit more gracefully on Win32. #243
+5e1e458ec loss of significance in difficulty (by lfm)
+db69432dc Reset Last-Translator on de po to the proper value.
+7709ee622 Czech translation
+7609e35f1 Fixed some mistakes in the German translation.
+db3b14c96 Fixed 2 things on the italian translation
+77172463a Fixes #240 and #244 - delete delete[] mismatch.
+2bfda1be1 Separate required fee for relaying and creation
+ca253d591 Fix for small change outputs
+00af90ab3 Updated spanish translation
+a9ea3cd76 Updated dutch translation
+e295947d0 Chinese Translation
+08cf0629f Add esperanto translation.
+11adda400 Update russian translation to latest git.
+8968bf2e3 use user roles instead of hidden columns for model sort/filter keys
+858ff187f don't start in server mode
+18cab09a9 core initialisation, client model binding
+1c528eeee Update transactions already in the wallet when rescanning.
+ad88e7626 go on testnet for now
+e4c3232f4 Update Italian translation to latest git.
+7ee8e5bf8 Revert "OSX build tweaks (laszlo)"
+cbb2b59a9 Update NSIS Installer file to support the new directory structure.
+69a27a4ec irc: #bitcoin is overflowing.  split up into 100 randomly-joined channels.
+69ae372b5 OSX build tweaks (laszlo)
+6c5064b5c Update Gitian Build Descriptor to match new directory layout.
+97c9d444a Update Lithuanian Translation to latest git.
+31f293128 Only include certain boost headers if necessary.
+6b783965c Remove some globally unused headers from headers.h
+b201c1f60 Bugfix for dnslookup: irc.cpp still used old CAddress constructor
+769e457d9 Update German translation to latest git.
+b3ff4878f Update spanish translation to newest git.
+270e944e3 doc/README: bump version to 0.3.22
+29bbcab6b update build system for macosx
+fdd7d0474 Only include strlcpy.h when we have to
+edd309e53 Only include init.h when we have to
+40c2614ef Only include net.h when we have to
+ed0c14324 Only included rpc.h when necessary
+1512d5ce6 Only include db.h when we have to.
+f23f9a03c Only include irc.h when needed
+b90626021 add readme file
+fb7e2901b remove debug stuff for implemented methods
+992ff49b4 make send coins dialog more user friendly (better checking)
+f44194951 Build error mingw, missing std::
+00bcfe0b7 -port option to listen on arbitrary port
+85663f2c1 update to bitcoin-git
+223b6f1ba make bitcoin include files more modular
+6a8062a30 todo update
+69d605f41 integration of core bitcoin
+bcb971f93 Fix MinGW build due to bad pointers to ui.rc pixmaps stuff.
+545a679ae bugfix in dnslookup code: didn't compile in mingw
+2097c09a9 integrate a few extra .h files
+c24d047b9 core is a more appropriate name for the bitcoin library
+6644d98d9 integration phase
+1f2e0df86 begin integration with bitcoin upstream
+95f5b3677 Add Lithuanian translation.
+4d1bb15e3 more improvements
+b8e302eb5 improve address book, add less conspicious toolbar icon
+871f9979c make address settable from outside
+5d1d69453 Add #ifdef USE_UPNP around usage of fUseUPnP to fix build failure.
+1a6d504a3 make balance/blocks/connections/transactions settable through slots
+3f323a61f clipboard handling
+d5da2f7b3 rename UI controls
+3a7abc2c7 update
+0fd01780e lowercase
+df577886e rename to qt standard
+8812ce7b2 add options dialog, spawn dialogs at the right place
+aa4a9c525 Reset extraNonce only every 15 seconds, just in case some miner is updating time himself and stuff
+3a8029f03 Update nTime after nExtraNonce to avoid potential race (extraNonce being reset due to just-occurred time change after nTime is set)
+2a2487514 Decrease minimum TX fee to 0.0005 BTC.
+a630da640 Replace CENT with new constant MIN_TX_FEE, where appropriate.
+a6a5bb7c2 Support for name lookups in -connect and -addnode
+af9437766 implement filtering, action listeners
+052272575 ignore generated resource file
+de11d8285 update model
+832fb114a Allow move RPC to take account balances negative Use case:  Customer owes you bitcoins, so you create a payment address associated with an account with a negative balance (the amount they owe). When customer pays, that account balance will go to zero.
+94ccfa8c5 new resource location
+053980bb1 moved files
+13740b7ed Use resource system
+d9068ad5a Add settxfee RPC, to permit setting default TX fee at runtime.
+e8adcf88c Help for sendtoaddress/sendfrom was wrong: amounts are rounded to 0.00000001
+59d18adc4 listtransactions number-of-params check was wrong.
+c0430f42b Fix broken build (invalid use of qualified name std::advance)
+e6ad2c879 Initial commit of changes to make JSON-RPC HTTP headers case-insensitive, as per RFC 2616
+1355cfe13 add all (unpopulated) dialogs
+4d27c9603 update
+f79405b5e restore orig send image
+aaa1c3c40 initial commit
+ec86134a0 Allow using the [from] parameter also from command-line
+2f62b1299 When an error is returned, the client crashes as EndModal is called twice. This fixes that and simply returns instead.  At least GTK won't complain.
+894031bbd Clarify the meaning of USE_UPNP in build-unix.txt
+d299c28ec removed tooltip balance until it can be made to change without opening the UI
+3451c5a9b Remove the option to generate coins from the Options Dialog.
+e5577d554 Fix broken build (remove declarations of GUI generate methods)
+d67cfd146 fixed some translations which was... weird
+bd3bd83dd added balance to tooltips
+3b7925eb7 added "Send Bitcoins" option in the tray menu
+ddbc4647f Bump version number to 0.3.22 Doing this now because I always forget to do it later. (I'm hoping the next release will actually be 0.4.0)
+dec289e82 gitian: strip binaries
+26e0de41c gitian descriptor with miniupnpc
+2d9b9fecd Remove unnecessary line which creates a dependency on wx's png library.
+be2fa90b9 Bugfix in recursive check in IsConfirmed()
+84c3fb07b directory re-organization (keeps the old build system)
+a925c32cc Fix segfault when we're unable to create the lock file.
+1a5364bd1 Link with libpthread on Linux, required by libboost_thread.
+64ad448ad Better wording for transaction fee notification messages
+ca5884873 More 0.3.21 release prep
+344888add Update date in license.txt
+8857aeb22 Monitor incoming transactions for spends by (a copy of) your own wallet
+5ec05f0a2 Accept non-standard transactions on testnet.
+72e962cf5 getbalance '*' was ignoring minconf param.
+6a76c60e6 Automatically rescan after restoring wallet.dat
+e93e5349c Remove GUI's "Generate Coins" option from the menu.
+f285d4f4f Fix for #156: UPnP segfault when no valid UPnP IGDs are found.
+9ff411f7f Set time locale to POSIX in rfc1123Time so weekday/months in http responses are correct.
+17616eac1 Send/return full bitcoin version string in Server and User-Agent HTTP headers
+a58432035 Ensure version number->string conversion is consistent
+5aef2c0d5 add parameter from to listtransactions this allows querying for ranges, i.e. transactions [from, from+count)
+973800b52 Exit when no UPnP router found and fUseUPnP gets set to 0.
+d7f028723 build: add note for Snow Leopard users and fix typos in linking instructions
+b37f09aa2 New checkpoint at block 118,000
+66fb32d26 pidfile support for daemon
+c59b6f704 Bugfix for spentpertxout: slow startup
+aca3f961d select transaction outputs separately
+335e878be Spent per txout
+d12ea887b disable -daemon on windows; bitcoind forks only with -daemon set
+d98beea89 rfc1123Time: increase buffer size for time string
+198fd7b0b Report immature coinbase transactions in listtransactions
+0a4cb8697 Fixed issue 76 -- RPC error where addresses from addressbook's sending tab appear in listaccounts
+6f074b71b RPC sendmany must acquire cs_main lock
+f5f1878ba Fix deadlocks in setaccount, sendfrom RPC calls
+b26141e2c Remove 4way SSE2 scanhash implementation.
+a2b6c1930 Update DNS seed list
+8bb5edc1c Allow UPnP mapping when USE_UPNP is defined and miniupnpc is installed at build time(statically linked).
+454bc8647 allow coredumps by not catching SIGSEGV
+8203ec4b1 [locale] Regenerate es, nl binary message catalogs
+c3f140033 catch SIGINT, SIGHUP and SIGSEGV and shutdown cleanly
+1c09a4adb daemon-mode: add sleep() loop to prevent defunct child process, call setsid() in child
+a07dca7cd Updated dutch translation
+b7ebc662e Update copyright in About box from 2010 to 2011
+f30dabb2a Update Spanish translation.
+e2e5f5cd9 Fix -logtimestamps to only print time prefix once per output line
+b931ed856 sendmany RPC command, to send to multiple recipients in one transaction.
+88abf7038 Make sure rate-limiting code is thread-safe
+5de8b54c5 Continuously rate-limit free transactions. Changed algorithm to use continuous exponential function instead of discrete 10-minute window. Changed -limitfreerelay to be kilobytes-per-minute instead of boolean.
+f4f298727 remove from/message field from uiproject
+81d3b1c82 Update copyright in About box from 2010 to 2011
+32fb5dfef Bump version number to 0.3.21 (lest we forget)
+ca221e6c2 Only log timestamps if -logtimestamps is set.
+fe460d47b Add timestamp prefix to each line in the debug log (this time with human-readable times)
+448b4516f dnsseed: fix printf
+f684aec4f DNS seeding
+cbc920d47 shy patch from Hal
+c1f74f152 throw JSONRPCError(-5, "Invalid bitcoin address") instead.
+279ab5e62 setaccount should return if an invalid address is provided. This prevents setaccount from creating new accounts which do not have any addresses.
+e1205e4d1 -help: do not show -server and -daemon in bitcoind
+ea7cd3175 force fDaemon in bitcoind
+a79409afa fix whitespace
+dda48ccd0 fix -daemon switch
+f36b494ae Make send/receive limits bigger (10MB each)
+395c1f44b Fix minimum transaction fee calculation mismatch between CreateTransaction and CreateBlock
+a14bf1946 Bugfix: avoid sub-cent change (lost in fees) whenever possible
+8a9cad44a Avoid sprintf decimal-point localization
+6665aca02 fix missing newline in help
+a357424a2 Added .gitignore, which prevents 'bitcoin' and 'bitcoind' from showing up in git.
+84711b18b build-unix.txt: Updated (now OK to use wxWidgets > 2.9.0).
+84778a5b4 makefile.unix: Fixed errors building bitcoind without wxWidgets installed.     WXINCLUDEPATHS and WXLIBS now assigned with '=' instead of ':='.     This means they are only evaluated on-demand, and they will never be     requested by 'make bitcoind', so it won't try to call wx-config.
+3415b15a5 makefile.unix: WXINCLUDEPATHS now only used for building GUI object files.     Moved it out of CXXFLAGS and into the command-line for the GUI objects.     It will no longer be invoked for non-GUI and crypto object files.
+8314b7f5e makefile.unix: Removed redundant use of wx-config in DEFS (it was being included twice).     Also changed wx-config --cppflags to --cxxflags. I am not sure what the     difference is supposed to be, but --cppflags does not include -pthread.
+b0ad55a08 ParseMoney: allow full precision
+87504abb0 FormatMoney: show full-precision values
+789259d2e Do not round input amounts; allow RPC full precision.
+83b9f4279 Use ValueFromAmount consistently
+ccd7fe8de Bump version to 0.3.20.02
+4d9b223ac remove From/Message fields from SendDialog
+d787e00a3 Changed setup for mingw toolchain
+e6e87891a Windows mingw32 makefile and build notes (thanks m0mchil)
+930a07c3f Bump version to 0.3.20.01
+0d0bd331a move gitian descriptor file
+5a3e82f9f Set maxconnections default to 125
+9cbae55a6 Denial-of-service flood control Drop connections that are either sending messages too fast to handle or are processing messages so slowly data starts to back up. Adds two new options:   -maxreceivebuffer  Default: 2000 (2000*1000 bytes)   -maxsendbuffer     Default: 256  (256*1000 bytes)
+cf7c1874f Update windows build process for 0.3.20 release
+47908a890 Visual C++ compatibility fixes
+8fd402bfc Set SO_REUSEADDR for JSON-RPC port
+d2e2cb0d2 Added 320 fresh seednodes to replace the old ones.
+98ba262a4 Reset testnet with a new genesis block
+768b41017 add gitian build descriptor
+bd7d9140f new checkpoint at block 105,000
+b1ca5eb58 do not create 'Your Address' account
+f0b7952ca 1. Change hardcoded g++ to $(CXX) 2. Change CFLAGS to CXXFLAGS 3. Add binaries to clean target 4. Generate wxWidgets includes/ldflags/etc from wx-config
+b1a657a00 Explicitly state that make -f makfile.unix is the way to build
+d9711a579 Don't scan the time offsets vector repeatedly once we've displayed the warning that the user's clock may be wrong.
+10abe4f26 Repeatedly resetting the timestamp for seed nodes in the database was slow.  Only update the database if it's a real change.
+84e7ad922 Bump version number to 0.3.20
+4698dd9a0 Fix -maxconnections.  It used to account for the 8 outbound connections twice when calculating the number of slots left for incoming connections.
+c90ea2bd6 cpuid instruction clobbers eax/ebx/ecx/edx
+2aadc8bb5 The -rpcssl command line option is a boolean, like -server, -daemon, -testnet, etc.  Specifying -rpcssl=1 is the same as just -rpcssl, as for any other boolean flag, so let's show it the same in the help text.
+ae42d69d7 Updated development process description
+5284e1b60 Add const bool VERSION_IS_BETA to serialize.h and use it when formatting the version string.  Show the version string in --help text too.
+05563e9ef Add -rescan option to --help output
+8b8d59eef Don't use GetBoolArg() and mapArgs; use one or the other.
+dbe79d345 Fix bus error in DebugPrint if -datadir given non-existent directory.
+10152506f The --help text wasn't showing the default values for three of the options, as follows:
+aaac71d38 Add new command line argument "-printtoconsole" to send debugging output to the console instead of to debug.log.  The code for this was already in place, but there was no way other than editing the source and rebuilding to turn it on.
+f1307515b print -rescan timing info in debug.log
+ab931be45 Fix issue 34: correct spelling of -rpcsslcertificatechainfile in --help text.
+d9574c2f1 Reconcile getbalance and listaccounts 0 in the shared-wallet case If you copied your wallet and used it on two different machines, the balance reported by getbalance and the sum(listaccounts) could disagree, because you might receive payments for an address that is in your wallet but not your address book.  Now all such transactions are credited to the default empty-string account.
+1d23c7436 ReacceptWalletTransactions bugfix
+0654e1c4e include version information in help output
+ed4e8830d don't set statusbar background color
+04a9217dc Add the -keypool option description to help output
+fa446a563 Fix setaccount/getaccountaddress interaction bug See https://github.com/bitcoin/bitcoin/issues#issue/29
+2eb09b66e Fix so listaccounts with minconf works.
+80be6e69a Add account/address details to gettransaction output
+f86655fdd Add time to category:move transactions.
+72b986163 don't advertise on IRC if we don't allow external connections
+5f88e8887 add -nolisten command line option
+ddb68aceb Add address to listtransactions output
+2d96276e2 EndModal fix for Mac from piotrp
+86c2bdfd5 EndModal fix for Mac from piotrp
+cba3a1741 Straw-man for dev process
+1c0bf23ba Missed a int64_t cast when I added transaction time output
+59948a6e1 listtransactions was reporting address instead of account for 'receive' setgenerate true 0  is now the same as setgenerate false And return transaction time
+809ee7959 New RPC command: listaccounts.  New RPC setting -rpctimeout.  And listtransactions '*'
+629e37dde get external ip from irc
+fc73ad644 -- version 0.3.19 release
+986b5e257 correction
+97ee01ad8 added some DoS limits, removed safe mode
+822018013 -- version 0.3.18 release
+a206a2398 IsStandard() check for CScripts: only relay/include in blocks CScripts we can understand.
+865c3a238 fix wallet.dat compatibility problem if you downgrade from 0.3.17 and then upgrade again
+f03304a9c preps for future client-only mode, jgarzik's initial download speedup
+bdde31d78 All boolean options/flags now work the same way.
+bfd471f53 JSON methods: listtransactions, gettransaction, move, sendfrom and getbalance <account>
+84d7c981d added boost tuples to serialize.h
+24324d83e -- version 0.3.17 release
+b7ccd48dd still working on account-based commands getbalance, move and sendfrom, they're only for testing for now
+776d0f345 new getwork
+e4ff4e689 Depracate "label" API, replacing with account New RPC methods: move, sendfrom Change to getbalance (now takes optional [account] argument) Renamed methods with "label" in their names. sendtoaddress returns hexadecimal transaction ID instead of "sent".
+298a77149 added transaction fee setting in UI options menu, cut free transaction area from 50KB to 26KB
+51d9b435c small bugfix
+f35e21e2e require some minimal priority for free transactions to slow down transaction spam
+683bcb915 efficiently sort transaction dependencies in one pass
+c4679ad0f OutputDebugStringF fix for Mac FileVault problem, take 3 (cannot use a CRITICAL_BLOCK because of undefined order calling static destructors; instead, keep debug.log open, and tell people to use copytruncate when doing log rotation)
+2f7a9997c Make OutputDebugStringF thread-safe again (thanks ArtForz for catching)
+026c5f761 Re-open debug.log every ten minutes instead of every printf; fixes performance problem with Mac FileVault.
+222e3de4b Update websites used for GetMyExternalIP
+910bd4575 -- version 0.3.15 release
+838e8c916 Add paytxfee to getinfo output
+e2a186af1 SelectCoins first pass tries not to use coins with less than 6 confirmations
+461764cbb -paytxfee is now per KB, BitcoinMiner prioritise transactions by how old their dependencies are
+3b8848fa4 Fix IsInitialBlockDownload if running on testnet
+3cac997e1 Prevent double-sends from quick double-button-clicks
+c891967b6 bugfixes from Dean Gores, addr system changes, make sure no gen before block 74000
+c285051c0 testnet and keypoololdest added to RPC getinfo output.  And RPC now sends proper HTTP Date headers.
+2ce73dbe8 -- version 0.3.14 release
+d9c6b09ac Gavin Andresen: multiple instance check, -testnet use port 18333
+2ea5fa071 validateaddress RPC command
+bcd88403e Update README now that main svn has -testnet built in
+5cbf75324 Gavin's TEST network as -testnet switch, misc fixes
+2fad3d34b makefile.unix tweak from Xunie so bitcoind links on Ubuntu 10.04 x86_64
+77cd030ac Fixed description of -rpcuser/-rpcpassword options.
+ed54768f5 -rpcssl=1 option, allowing secure HTTPS JSON-RPC connections on OSX/Unix.
+83082f04a dkaparis: boost::bind build fix for c++0x
+103849419 key pool for safer wallet backup
+0a27bd065 updated Russian translation
+b22c88423 recursive function to determine if own unconfirmed transaction can be spent
+dc8adc3b4 Russian translation by eurekafag
+178152f60 fixed linux build, dkaparis: _WIN32_WINNT 0x500 -- version 0.3.13 release
+a790fa46f don't count or spend payments until they have 1 confirmation, misc cleanup, changed internal version number from 312 to 31300 -- version 0.3.13
+81b2d877f Update README.md
+9b8eb4d69 changed free transactions per block threshold
+8d13ca1f1 changed free transactions per block threshold
+645cc8cf4 Add branch README.md
+172f00602 only accept transactions sent by IP address if -allowreceivebyip is specified
+6aeb45187 only accept transactions sent by IP address if -allowreceivebyip is specified
+efae3da41 config option -rpcallowip= to accept json-rpc connections from another machine
+fe37c3501 config option -rpcallowip= to accept json-rpc connections from another machine
+3df62878c reorganize BitcoinMiner to make it easier to add different SHA256 routines
+71cc095cb reorganize BitcoinMiner to make it easier to add different SHA256 routines
+fdbf76d4f dropped DB_PRIVATE from dbenv.open
+c8ad9b837 dropped DB_PRIVATE from dbenv.open
+c39b06866 fix build on non-intel architectures, thanks teknohog
+2323664a3 fix build on non-intel architectures, thanks teknohog
+496823249 fix problem sending the last cent with sub-cent fractional change
+00728c24e fix problem sending the last cent with sub-cent fractional change
+7629d36a5 try to auto-detect whether to use 128-bit 4-way SSE2
+8555125a1 try to auto-detect whether to use 128-bit 4-way SSE2
+3f6475377 Gavin Andresen: clean shutdown on SIGTERM
+14002c8eb Gavin Andresen: clean shutdown on SIGTERM
+f1e1fb4bd cleanup, catch some recoverable exceptions and continue
+8c9479c6b cleanup, catch some recoverable exceptions and continue -- version 0.3.12 release
+d743f0355 Gavin Andresen: json-rpc return standard error objects with error code numbers, json-rpc command line client return exit code, added rpc backupwallet command
+0a61b0df1 propset svn:eol-style native
+343328c6b added -testsafemode switch -- version 0.3.11 release
+d3631907d change switch name to -disablesafemode
+87cfcfd37 more rpc methods allowed in safe mode
+522dfe342 alert system -- version 0.3.11
+c545563d4 warning message if clock is too far off
+7a37c906a block index checking on load, extra redundant checks, misc refactoring
+5b721607b added -testsafemode switch -- version 0.3.11 release
+2ef9cfa5b change switch name to -disablesafemode
+7d7797b14 more rpc methods allowed in safe mode
+401926283 alert system -- version 0.3.11
+2201a0808 warning message if clock is too far off
+05454818d block index checking on load, extra redundant checks, misc refactoring
+43deefa43 do an extra CheckBlock in ConnectBlock
+21ca2d833 erase the bad chain after disconnecting it
+bb3fd0293 blocks-1, verify block chain on load, so wouldn't have needed to delete blk*.dat, it would have done a reorg automatically
+c923cdbd5 wrap sha256.cpp in FOURWAYSSE2 #ifdef
+019b45660 added -march=amdfam10 to sha256.cpp in makefile.unix
+7d489192f makefile.unix to build with option to enable tcatm's 4-way SSE2 SHA-256 with -4way switch on Linux
+44a0de186 do an extra CheckBlock in ConnectBlock
+a01d5876f erase the bad chain after disconnecting it
+15399da9f blocks-1, verify block chain on load, so wouldn't have needed to delete blk*.dat, it would have done a reorg automatically
+6da916d4a wrap sha256.cpp in FOURWAYSSE2 #ifdef
+e540144b2 added -march=amdfam10 to sha256.cpp in makefile.unix
+76793dc96 fix for block 74638 overflow output transaction
+6ac7f9f14 misc changes
+08fee7520 makefile.unix to build with option to enable tcatm's 4-way SSE2 SHA-256 with -4way switch on Linux -- version 0.3.10 release
+85de7d7c0 scanback check to prevent adding to the 74638 overflow chain
+d4c6b90ca fix for block 74638 overflow output transaction
+4bd188c43 misc changes
+2d12315c9 Quick fix: bad block 74,652
+7f71fd13a fix -datadir=./subdir relative path, autostart off by default except on windows, fix occasional "vector iterator not dereferencable" assertion with msvc, fix readlink compile warning on linux build, use sys/param.h and BSD define instead of __BSD__, -paytxfee switch
+01cd2fdaf fix -datadir=./subdir relative path, autostart off by default except on windows, fix occasional "vector iterator not dereferencable" assertion with msvc, fix readlink compile warning on linux build, use sys/param.h and BSD define instead of __BSD__, -paytxfee switch
+819adfff6 fix build, thanks jgarzik
+f5d2bc8a3 disable SSE2 on 32-bit
+9db7bf5f5 gethashespersec and added version and hashespersec to getinfo
+410b618d1 json-spirit print reals with 8 decimal places, bitcoind help <command> instead of bitcoind <command> -?
+428773279 fix build, thanks jgarzik
+0cff7a8aa disable SSE2 on 32-bit
+fb83d2876 gethashespersec and added version and hashespersec to getinfo
+342e1b733 json-spirit print reals with 8 decimal places, bitcoind help <command> instead of bitcoind <command> -?
+c2fa70ddf always make 8 outbound connections even if have inbound, limit one outbound connection per a.b.?.? range, switch -maxconnections=#
+8a38d5663 enable SSE2 in all builds to fix crypto++ SHA-256 on 64-bit
+dd9e71843 correct typo for mac compile, update makefile to use llvm
+94cfec07f always make 8 outbound connections even if have inbound, limit one outbound connection per a.b.?.? range, switch -maxconnections=#
+e6b7ab574 enable SSE2 in all builds to fix crypto++ SHA-256 on 64-bit
+0c5072227 correct typo for mac compile, update makefile to use llvm
+b34e8c3c3 new safety feature displays a warning message and locks down RPC if it detects a problem that may require an upgrade -- version 0.3.8
+2c06be915 new safety feature displays a warning message and locks down RPC if it detects a problem that may require an upgrade -- version 0.3.8
+73aa26264 fixed segfault in bignum.h, additional security limits, refactoring -- version 0.3.7
+6ff5f718b fixed segfault in bignum.h, additional security limits, refactoring -- version 0.3.7
+e1cb7ce01 simplified makefile.unix, updated build-unix.txt instructions to include boost 1.37
+01bed1828 simplified makefile.unix, updated build-unix.txt instructions to include boost 1.37
+a75560d82 reverted makefile.unix wx-config -- version 0.3.6
+ec82517c8 Fredrik Roubert: simplified makefile.unix with wx-config, misc
+31ffe954b fixed makefile.osx
+872d60f6e fixed makefile.vc
+757f0769d reverted makefile.unix wx-config -- version 0.3.6
+17b274028 Fredrik Roubert: simplified makefile.unix with wx-config, misc
+f6f8237a7 fixed makefile.osx
+0bd084011 fixed makefile.vc
+2689f4d02 better IsInitialBlockDownload
+3dd20ff2f added a subset of Crypto++ 5.6.0 with 48% faster ASM SHA-256, combined speedup 2.5x faster vs 0.3.3, thanks BlackEye for figuring out the alignment problem
+f79751c29 better IsInitialBlockDownload
+813505cc1 added a subset of Crypto++ 5.6.0 with 48% faster ASM SHA-256, combined speedup 2.5x faster vs 0.3.3, thanks BlackEye for figuring out the alignment problem
+9f35575ca tcatm's cached SHA256 state idea, about 70% faster generating
+520f36731 tcatm's cached SHA256 state idea, about 70% faster generating
+b6dc3b517 bitcoind now compiles without wxWidgets or wxBase
+f0c11b191 Gavin: BIO_FLAGS_BASE64_NO_NL
+40cd03694 Gavin Andresen's JSON-RPC HTTP authentication, faster initial block download -- version 0.3.3
+793200e5e bitcoind now compiles without wxWidgets or wxBase
+6966768a5 Gavin: BIO_FLAGS_BASE64_NO_NL
+7d46f9250 Lachesis: remove newlines every 64 characters in EncodeBase64
+3b7cd5d89 Gavin Andresen's JSON-RPC HTTP authentication, faster initial block download -- version 0.3.3
+fe98cf8dc Configuration file, HTTP Basic authentication
+e96cd730d json-rpc password, minor UI tweaks, removed some outdated txt files
+4110f33cd security safeguards, limited addr messages -- version 0.3.2
+8e79c6475 version 0.3.1 release
+05708fc63 Spanish translation by milkiway, French translation by aidos
+9d2174b6f version 0.3.1 rc1
+e8bff10f0 minor UI tweaks, removed some outdated txt files, (and json-rpc password -rpcpw= switch, which we're going to revert)
+ae922a36a security safeguards, limited addr messages -- version 0.3.2
+673a6d15d version 0.3.1 release
+0bbc812f4 Spanish translation by milkiway, French translation by aidos
+d01eaf042 version 0.3.1 rc1
+a30b56ebe fix openssl linkage problems, disable minimize to tray on Linux because it has too many problems including a CPU peg bug
+8bd66202c Fix CRLF
+6e5d67e82 switched from wxStandardPaths to GetDefaultDataDir, fixes bug reported by m0mchil when username contains non-lower-ASCII characters -- version 0.3.1
+f32339e70 switched from wxStandardPaths to GetDefaultDataDir, fixes bug reported by m0mchil when username contains non-lower-ASCII characters -- version 0.3.1
+20c6bfad1 Gavin Andresen: implementation of autostart on system startup option on Linux
+c8063ff03 Gavin Andresen: implementation of autostart on system startup option on Linux
+50d49d9c2 Portuguese translation by Tiago Faria
+cefe611ce Portuguese translation by Tiago Faria
+d88277378 Laszlo's fix to make generate threads idle priority on Linux, replaced some wxBase dependencies: wxMutex, wxFileExists, wxStandardPaths, wxGetLocalTimeMillis
+a280b4e66 Laszlo's fix to make generate threads idle priority on Linux, replaced some wxBase dependencies: wxMutex, wxFileExists, wxStandardPaths, wxGetLocalTimeMillis
+d77eac25b version 0.3 release
+603c7ccea version 0.3 release
+f077bc0f4 reduced max outbound connections from 15 to 8 --version 0.3 rc4
+64f937069 reduced max outbound connections from 15 to 8 --version 0.3 rc4
+06c471639 version 0.3 rc2
+e2bf70145 version 0.3 rc2
+8700fae12 build-unix.txt: updated a few version numbers
+c929529f9 build-unix.txt: updated a few version numbers
+340120853 updated build-unix.txt instructions: sudo apt-get install libboost-all-dev
+6cc56d8e8 updated build-unix.txt instructions: sudo apt-get install libboost-all-dev
+3c3fc50c7 added instructions to build-unix.txt for building wxBase, which is needed to compile bitcoind
+2adc9062d added instructions to build-unix.txt for building wxBase, which is needed to compile bitcoind
+6344edc36 version 0.3 rc1
+6970bd96d version 0.3 rc1
+445520bf3 added new files to setup.nsi, updated version numbers
+d63b0adab added new files to setup.nsi, updated version numbers
+8efd8f7f4 re-enable hiding taskbar button on minimize on linux, though it doesn't work cleanly
+bed3ad104 re-enable hiding taskbar button on minimize on linux, though it doesn't work cleanly
+36bb88e1b fix system tray icon on windows
+dbe23aada fix system tray icon on windows
+161c38ba6 80x80 xpm icon for ubuntu, alignment tweaked to scale nicely to 20x20 and 16x16
+a66d097cb 80x80 xpm icon for ubuntu, alignment tweaked to scale nicely to 20x20 and 16x16
+68b973a91 fixed colors on ubuntu lucid, enabled -O2 in makefile.unix, boost removed -mt from their library names in 1.40, updated bitcoin icon, hashmeter, generated and hashmeter log entries -- version 0.2.13
+3ca507a6e fixed colors on ubuntu lucid, enabled -O2 in makefile.unix, boost removed -mt from their library names in 1.40, updated bitcoin icon, hashmeter, generated and hashmeter log entries -- version 0.2.13
+24ba1b64e use seed nodes as fallback if IRC fails or with TOR -- version 0.2.12
+c58e10565 use seed nodes as fallback if IRC fails or with TOR -- version 0.2.12
+6a4a35549 German translation by DataWraith
+904ff7d07 German translation by DataWraith
+e5681bb12 more addr message error checking -- version 0.2.11
+d0ac235c8 more addr message error checking -- version 0.2.11
+bed005b63 revert makefile.unix from -02 back to -00 to fix compile on linux, -02 doesn't really help on linux anyway
+78c7bb8e2 revert makefile.unix from -02 back to -00 to fix compile on linux, -02 doesn't really help on linux anyway
+f93d5f9ff automatically change displayed address whenever it receives anything, added help and -? for daemon command line rpc commands, only relay addr messages to 5 random nodes to save bandwidth, started setting wtx.fFromMe flag, trickle out tx inventory messages to protect privacy  -- version 0.2.10
+3b318ed09 automatically change displayed address whenever it receives anything, added help and -? for daemon command line rpc commands, only relay addr messages to 5 random nodes to save bandwidth, started setting wtx.fFromMe flag, trickle out tx inventory messages to protect privacy  -- version 0.2.10
+2ca175883 Dutch translation by Xunie (93% complete)
+d9dac6772 Dutch translation by Xunie (93% complete)
+1da44d2e9 Italian translation by Joozero
+5fe8bc0b4 Italian translation by Joozero
+42605ce8b better prevention of inventory relaying during initial download, message checksum between nodes with 0.2.9 or higher, optimization level up from -O0 to -O2, rpc functions: setlabel, getlabel, getaddressesbylabel, getreceivedbyaddress, getreceivedbylabel, listreceivedbyaddress, listreceivedbylabel  -- version 0.2.9
+7a47324c7 better prevention of inventory relaying during initial download, message checksum between nodes with 0.2.9 or higher, optimization level up from -O0 to -O2, rpc functions: setlabel, getlabel, getaddressesbylabel, getreceivedbyaddress, getreceivedbylabel, listreceivedbyaddress, listreceivedbylabel  -- version 0.2.9
+124baa4cc build-osx.txt build instructions and makefile.osx from Laszlo
+9c1e9f0b6 build-osx.txt build instructions and makefile.osx from Laszlo
+2d98de1b3 Mac OS build fixes by laszlo -- version 0.2.8
+240f3fbe2 Mac OS build fixes by laszlo -- version 0.2.8
+966cca4bd misc
+288424ad6 misc
+2cffa7ce3 fixed runaway memory alloc bug on 64-bit in ParseString found by sirius-m
+91e615bfe fixed runaway memory alloc bug on 64-bit in ParseString found by sirius-m
+d7d80a74d fix unsafe string handling in wxGetTranslation
+9a3358220 fix unsafe string handling in wxGetTranslation
+6557910cc wx/utils.h and wx/clipbrd.h not needed on bitcoind wxbase build
+8a46ed83c wx/utils.h and wx/clipbrd.h not needed on bitcoind wxbase build
+c2430126d GUI-less build target bitcoind that links to wxBase and shouldn't need GTK, split init and shutdown from ui.cpp into init.cpp, support wxUSE_GUI=0 -- version 0.2.7
+5eede9d4d GUI-less build target bitcoind that links to wxBase and shouldn't need GTK, split init and shutdown from ui.cpp into init.cpp, support wxUSE_GUI=0 -- version 0.2.7
+cb420a1df run as daemon without GUI, hooked wxApp::Initialize to ignore gtk-init-check failure if no GUI, fork to daemonize, rpc getinfo, getconnectioncount, getbalance, getgenerate, setgenerate, -- version 0.2.6
+30158c77e run as daemon without GUI, hooked wxApp::Initialize to ignore gtk-init-check failure if no GUI, fork to daemonize, rpc getinfo, getconnectioncount, getbalance, getgenerate, setgenerate, -- version 0.2.6
+0184604aa transaction filter tabs instead of view->show generated -- version 0.2.5
+ee618d754 transaction filter tabs instead of view->show generated -- version 0.2.5
+75199de53 Address Book with tabs instead of separate Your Address book, with live update of default address in main window, New... button on main window for creating new receiving address, made receiving address labels more visible, ask user before paying transaction fee, when sending to bitcoin address also use a bitcoin address for the change, added some event.Skip() to fix UI glitches -- version 0.2.4
+6ff4388ff Address Book with tabs instead of separate Your Address book, with live update of default address in main window, New... button on main window for creating new receiving address, made receiving address labels more visible, ask user before paying transaction fee, when sending to bitcoin address also use a bitcoin address for the change, added some event.Skip() to fix UI glitches -- version 0.2.4
+c6ab3cf6d safer wxGetTranslation wrapper
+794298063 safer wxGetTranslation wrapper
+e48065976 all builds are now with wxWidgets-2.9.0, we are now using UTF-8, added support for language translation file locale/<lang>/LC_MESSAGES/bitcoin.mo -- version 0.2.2
+bcd271403 all builds are now with wxWidgets-2.9.0, we are now using UTF-8, added support for language translation file locale/<lang>/LC_MESSAGES/bitcoin.mo -- version 0.2.2
+2b63e68bb fix mingw makefile to use correct wxWidgets include, this is the last version of makefile and makefile.vc for wxWidgets-2.8
+f3cd4206b fix mingw makefile to use correct wxWidgets include, this is the last version of makefile and makefile.vc for wxWidgets-2.8
+5253d1ab7 strip out unfinished product, review and market stuff, enable _() instead of wxT() in uiproject.fbp so it uses wxGetTranslation for the wxFormBuilder generated part of the UI
+cc4b78d59 strip out unfinished product, review and market stuff, enable _() instead of wxT() in uiproject.fbp so it uses wxGetTranslation for the wxFormBuilder generated part of the UI
+64a474a49 renamed a few rpc methods
+297a50a06 renamed a few rpc methods
+c4319e678 Workaround for bug on wxWidgets 2.9.0 Ubuntu 9.10 64-bit where first character of the hidden columns were displayed so status column had three numbers overprinted.  Fixed by adding a leading space to the hidden columns.  64-bit compile with wxWidgets 2.9.0 seems to be fully working normally now.
+7271c7ff3 Workaround for bug on wxWidgets 2.9.0 Ubuntu 9.10 64-bit where first character of the hidden columns were displayed so status column had three numbers overprinted.  Fixed by adding a leading space to the hidden columns.  64-bit compile with wxWidgets 2.9.0 seems to be fully working normally now.
+c85dfb148 updated build-unix.txt
+19765903d updated build-unix.txt
+98500d70a command line and JSON-RPC first draft, requires Boost 1.35 or higher for boost::asio, added SetBitcoinAddress and GetBitcoinAddress methods on CScript, critsect interlocks around mapAddressBook, added some random delays in tx broadcast to improve privacy, now compiles with MSVC 8.0
+22f721dbf command line and JSON-RPC first draft, requires Boost 1.35 or higher for boost::asio, added SetBitcoinAddress and GetBitcoinAddress methods on CScript, critsect interlocks around mapAddressBook, added some random delays in tx broadcast to improve privacy, now compiles with MSVC 8.0
+fa9dbd6b6 better error message in check_type(), tell the types by name instead of by number
+73278c0a1 better error message in check_type(), tell the types by name instead of by number
+75990a46a JSON Spirit library from http://www.codeproject.com/KB/recipes/JSON_Spirit.aspx, MIT license
+40d324f10 JSON Spirit library from http://www.codeproject.com/KB/recipes/JSON_Spirit.aspx, MIT license
+c41226d84 revert revision 56, going in different direction with boost::asio and JSON-RPC
+1c5d5e58c revert revision 56, going in different direction with boost::asio and JSON-RPC
+082e725b3 Added some basic IPC functionality using wxServer, wxClient and wxConnection. Added the -blockamount command line option for an example of usage.
+a43c00c56 Added some basic IPC functionality using wxServer, wxClient and wxConnection. Added the -blockamount command line option for an example of usage.
+53d508072 update fSpent flag on wallet transactions if they're seen spent in case copy of wallet.dat was used elsewhere or restored from backup, better error dialog box if try to spend already spent coins, got rid of unused notebook with only one tab on main dialog, nicer looking About dialog, resize About dialog better on linux
+2939cab06 update fSpent flag on wallet transactions if they're seen spent in case copy of wallet.dat was used elsewhere or restored from backup, better error dialog box if try to spend already spent coins, got rid of unused notebook with only one tab on main dialog, nicer looking About dialog, resize About dialog better on linux
+8be979d9a now compiles on 64-bit Ubuntu Karmic with wxWidgets-2.9.0, fixes for wxWidgets-2.9.0, added superfluous GetEventHandler()'s, there's still a bug on wx2.9.0 that the status number is mashed up for some reason otherwise seems to run fine
+9e56521b4 now compiles on 64-bit Ubuntu Karmic with wxWidgets-2.9.0, fixes for wxWidgets-2.9.0, added superfluous GetEventHandler()'s, there's still a bug on wx2.9.0 that the status number is mashed up for some reason otherwise seems to run fine
+cb0f89646 simplify AddAddress, readcompactsize limit, fixed a 64-bit compile error in serialize.h, change status "# blocks" to "# confirmations" and widen the column.
+80264be42 simplify AddAddress, readcompactsize limit, fixed a 64-bit compile error in serialize.h, change status "# blocks" to "# confirmations" and widen the column.
+9a3656234 command line switch -noui
+95d839f15 command line switch -noui
+312c2c42b a few header changes for freebsd from madhatter
+9228c53cf a few header changes for freebsd from madhatter
+e2c2648c1 filter out duplicate getblocks and don't relay inv messages during initial block download -- 0.2 rc2
+2da02dd77 filter out duplicate getblocks and don't relay inv messages during initial block download -- 0.2 rc2
+adb50ffe3 misc
+2ed2b9a3e misc
+e89977945 restrict file permissions on linux to the user only
+bd336ba27 restrict file permissions on linux to the user only
+e39bc50eb misc exit code, updated setup.nsi
+25b12b883 misc exit code, updated setup.nsi
+651d33556 misc
+433fb54b2 misc
+4ea3f3da1 retry IRC if name in use, resize to fit ubuntu's giant default font, scroll debug.log, pause gen during initial block download
+0bbbee96b retry IRC if name in use, resize to fit ubuntu's giant default font, scroll debug.log, pause gen during initial block download
+b075bbf98 misc
+ba0909e96 misc
+107d9e288 fix transaction fee bug in CreateTransaction, higher size cutoff for free transactions in GetMinFee
+658b5b414 fix transaction fee bug in CreateTransaction, higher size cutoff for free transactions in GetMinFee
+52f4cb485 minor fix to batched initial download in case requester has more than 500 block non-main branch
+70918a664 minor fix to batched initial download in case requester has more than 500 block non-main branch
+c5c7911da bugfix Db::open/close and zombie sockets bugs fix double-close of socket handle, keep databases open, close db cursors, initial block download in batches of 500 blocks, fix misc warnings, subver linux-test8
+e4db37442 bugfix Db::open/close and zombie sockets bugs fix double-close of socket handle, keep databases open, close db cursors, initial block download in batches of 500 blocks, fix misc warnings, subver linux-test8
+b349e3dca misc compile error
+01fe1d213 misc compile error
+70e79525c monitor ThreadSocketHandler and terminate and restart if hung, convert _beginthread to CreateThread wrapper, disconnect inactive connections, ping, break up long messages to speed up initial download, better priorities for initiating connections, track how many nodes have requested our blocks and transactions, status #/offline and warning message on unsent blocks, minimize on close as separate option -- linux-test5
+31e6ea7f5 monitor ThreadSocketHandler and terminate and restart if hung, convert _beginthread to CreateThread wrapper, disconnect inactive connections, ping, break up long messages to speed up initial download, better priorities for initiating connections, track how many nodes have requested our blocks and transactions, status #/offline and warning message on unsent blocks, minimize on close as separate option -- linux-test5
+956468c29 Get local host IP on Linux, Shutdown() a little cleaner -- linux-0.1.6-test1 waypoint
+e9c2b5c84 Get local host IP on Linux, Shutdown() a little cleaner -- linux-0.1.6-test1 waypoint
+b4e235f9f ui tweaks, multiple xpm icon sizes
+158ea66c6 ui tweaks, multiple xpm icon sizes
+8b4cefd32 UI tweaks, use BindListenPort to detect instance already running, setsockopt(SO_REUSEADDR) so can bind during TIME_WAIT after exit and restart
+1a01afab2 UI tweaks, use BindListenPort to detect instance already running, setsockopt(SO_REUSEADDR) so can bind during TIME_WAIT after exit and restart
+8acda009d UIThreadCall, ThreadSafeMessageBox
+85c33b960 UIThreadCall, ThreadSafeMessageBox
+300d4608f got rid of CheckForShutdown, replaced some thread-unsafe wxWidgets calls, Linux fixes, socket send MSG_NOSIGNAL, bind INADDR_ANY, works reliably on Linux now except if wxMessageBox is used in a thread other than the GUI thread
+93cfb02ac got rid of CheckForShutdown, replaced some thread-unsafe wxWidgets calls, Linux fixes, socket send MSG_NOSIGNAL, bind INADDR_ANY, works reliably on Linux now except if wxMessageBox is used in a thread other than the GUI thread
+e4c05d317 unix build merged in, bitmap resources from xpm instead of rc, better addr relay, better selection of addrs by time last seen for faster connect
+fba408894 unix build merged in, bitmap resources from xpm instead of rc, better addr relay, better selection of addrs by time last seen for faster connect
+b7362c07a renamed build.txt to build-msw.txt
+f7d3cc0e5 renamed build.txt to build-msw.txt
+4ac57f013 move debug.log and db.log to data dir, portable GetDataDir, optimize GetBalance, fix repaint bogdown, -addnode and -? switches
+e66ec79b1 move debug.log and db.log to data dir, portable GetDataDir, optimize GetBalance, fix repaint bogdown, -addnode and -? switches
+5750932cd added wx/stdpaths.h
+99142385d added wx/stdpaths.h
+fe9f3d626 Linux alternatives for the Windows headers and PerformanceCounter. Some typedefs and #defines for the Linux build. Fixed GetDataDir.
+e874738d3 Linux alternatives for the Windows headers and PerformanceCounter. Some typedefs and #defines for the Linux build. Fixed GetDataDir.
+32d490313 make CheckDiskSpace portable
+8938414f0 make CheckDiskSpace portable
+a0c17c03e setup script removes startup shortcut and runs with highest exec level
+ae3ae3df7 setup script removes startup shortcut and runs with highest exec level
+e8474beb6 better wallet.dat flush, consolidated QueryPerformanceCounter, PRI64d printf portability
+7be46ce48 better wallet.dat flush, consolidated QueryPerformanceCounter, PRI64d printf portability
+dc73b326f CCriticalSection using wxWidgets instead of Windows OS calls
+fc0e97a70 CCriticalSection using wxWidgets instead of Windows OS calls
+dd519206a addr relaying fixes, proxy option and privacy patches, detect connect to self, non-final tx locktime changes, fix hide unconfirmed generated
+cc0b4c3b6 addr relaying fixes, proxy option and privacy patches, detect connect to self, non-final tx locktime changes, fix hide unconfirmed generated
+fa2a0338d fix display of new generated coins, fix assertion in bitcoinminer
+6ccefea62 fix display of new generated coins, fix assertion in bitcoinminer
+e39dfe8ea Removed autorun regkey creation
+44e1254d1 Removed autorun regkey creation
+99cef996c flush wallet.dat, multi-proc, reorg options, revert to startup folder shortcut
+521099868 flush wallet.dat, multi-proc, reorg options, revert to startup folder shortcut
+0cc05617d Fixed the installer script and made the autostart registry based.
+c199b8499 Fixed the installer script and made the autostart registry based.
+661f87800 Added NSIS installer generation script
+f13dff697 Added NSIS installer generation script
+429187c6a Startup folder shortcut opens the program minimized. Restoring a minimized-to-tray window works correctly.
+f01a4ca4e Startup folder shortcut opens the program minimized. Restoring a minimized-to-tray window works correctly.
+6d97df0e9 startup shortcut works
+75aa0fbf7 startup shortcut works
+dba0fd9b6 tray icon + ask before closing
+d1b70ffa0 tray icon + ask before closing
+8dca7864f No dll's here
+e00d4805d No dll's here
+465e1d99f Added changelog.txt
+edffb50b9 Added changelog.txt
+e071a3f6c First commit
+4405b78d6 First commit
+     

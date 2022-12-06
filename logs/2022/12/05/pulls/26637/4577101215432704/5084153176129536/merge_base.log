@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26637/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 457628152 ci: Use pyenv for the lint task
+HEAD is now at bcf90673c Merge 4576281529f3dcc173016a9ca96001af92730d0e into fe8d15c907d0ca170ce171e7655f9c7cd4a0194f
