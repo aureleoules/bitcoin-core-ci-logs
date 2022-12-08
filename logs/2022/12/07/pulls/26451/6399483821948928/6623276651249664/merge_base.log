@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26451/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 41b0a2343 Test that we use "worst-case" ancestor feerates when evaluating replacement transactions.
+HEAD is now at 95a23271d Merge 41b0a23433b545ac6e6576a2e85df929e4635323 into 9052d869c9679d997931084384c026450c2d918b
