@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 43 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26662/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 707d60d9b [fuzz] Add HeadersSyncState target
+HEAD is now at 65eeb1a78 Merge 707d60d9b4c45511d3ffb9d108302cbaa397deca into 1801d8c3c900d0c3a0d05f9ec096419e3f286f6b
