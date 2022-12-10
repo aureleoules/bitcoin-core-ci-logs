@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26345/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 2dd9f4161 fix: make the base_blob constructor explicit
+HEAD is now at f3404471d Merge 2dd9f41615698ed2f346b94dac1f214fae7d2bb1 into 9e229a542ff2107be43eff2e4b992841367f0366
