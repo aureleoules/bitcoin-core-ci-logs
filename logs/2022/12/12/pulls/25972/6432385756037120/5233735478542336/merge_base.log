@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/25972/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 0269c90d6 build: no-longer disable WARN_CXXFLAGS when CXXFLAGS is set
+HEAD is now at a1e0ecdda Merge 0269c90d60bba26969d9920d9e622d3a66ab4335 into 6061eb6564105ad54703a7cf3282590d0e1a7f28
