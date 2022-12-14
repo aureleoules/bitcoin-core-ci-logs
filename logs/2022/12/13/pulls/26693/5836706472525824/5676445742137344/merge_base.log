@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26693/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was fad82b698 build: add si-check.py to EXTRA_DIST
+HEAD is now at 9f010c5c9 Merge fad82b698478909c5a19a57790b640edb2f20e0f into 968f03e65c98a9a36aea6c57a29306839b0ada57

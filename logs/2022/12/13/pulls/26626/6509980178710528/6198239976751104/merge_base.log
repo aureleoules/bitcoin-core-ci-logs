@@ -1,0 +1,22 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:5 http://de.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [763 kB]
+Get:6 http://de.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [766 kB]
+Get:7 http://de.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [130 kB]
+Fetched 1,983 kB in 0s (4,013 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 42 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26626/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was e8a4225fc descriptors: Change pos to uint32_t
+HEAD is now at bc16abdeb Merge e8a4225fc235f93224215bd182a5f00e25527e3d into 8f3021155e8cc5c322654ddfab241705ac303a1f
