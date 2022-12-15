@@ -1,0 +1,63 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy InRelease
+Get:2 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]
+Get:3 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports InRelease [99.8 kB]
+Get:4 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+Get:5 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5,652 kB]
+Get:6 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+Get:7 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+Get:8 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+Get:9 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8,372 B]
+Get:10 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [763 kB]
+Get:11 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [171 kB]
+Get:12 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [11.5 kB]
+Get:13 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [493 kB]
+Get:14 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [75.6 kB]
+Get:15 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [766 kB]
+Get:16 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [130 kB]
+Get:17 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [14.2 kB]
+Get:18 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [7,300 B]
+Get:19 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [2,432 B]
+Get:20 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [420 B]
+Get:21 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [3,324 B]
+Get:22 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [1,580 B]
+Get:23 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [272 B]
+Get:24 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+Get:25 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [6,740 B]
+Get:26 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [9,460 B]
+Get:27 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [348 B]
+Get:28 http://us-central1.gce.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+Get:29 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Get:30 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [530 kB]
+Get:31 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [114 kB]
+Get:32 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [7,388 B]
+Get:33 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [457 kB]
+Get:34 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [69.9 kB]
+Get:35 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [622 kB]
+Get:36 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [82.9 kB]
+Get:37 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [11.0 kB]
+Get:38 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [4,268 B]
+Get:39 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [972 B]
+Get:40 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+Fetched 25.0 MB in 2s (11.4 MB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+git set to manually installed.
+The following packages were automatically installed and are no longer required:
+  libatasmart4 libblockdev-fs2 libblockdev-loop2 libblockdev-part-err2
+  libblockdev-part2 libblockdev-swap2 libblockdev-utils2 libblockdev2
+  libmbim-glib4 libmbim-proxy libmm-glib0 libnspr4 libnss3 libnuma1
+  libparted-fs-resize0 libqmi-glib5 libqmi-proxy libtcl8.6 libudisks2-0 tcl
+  tcl8.6 usb-modeswitch usb-modeswitch-data
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/24897/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was f67b49c92 bench: add benchmark for silent payments
+HEAD is now at 8d1580e60 Merge f67b49c92c7b8179e3f42491cf1723b6ce4d00b7 into 678889e6c6231cf461de59eefe6fb8eb07468848
