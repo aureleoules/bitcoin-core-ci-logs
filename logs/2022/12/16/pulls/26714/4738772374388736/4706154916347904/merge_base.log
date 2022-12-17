@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26714/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was a204adab4 test: add coverage for unparsable `-maxuploadtarget`
+HEAD is now at 2b9a92282 Merge a204adab4ace8a1912b4faff2c1d35d454bbf7b7 into 7386da7a0b08cd2df8ba88dae1fab9d36424b15c

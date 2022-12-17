@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://de.archive.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 45 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26584/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was d7156fc82 cli: include local ("unreachable") peers in -netinfo table
+HEAD is now at 1bd6f7a9f Merge d7156fc820c8fafd7f08eb51bb61dc306d14e710 into 7386da7a0b08cd2df8ba88dae1fab9d36424b15c
