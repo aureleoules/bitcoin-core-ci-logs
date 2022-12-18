@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26699/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was e5d070fe4 test,gui: add coverage for PSBT creation on legacy watch-only wallets
+HEAD is now at cb69bb538 Merge e5d070fe451f1ec78717b698f10a0be38e7c99c9 into 66c08e741dc8d0bbe52fcdd9202858394491e773
