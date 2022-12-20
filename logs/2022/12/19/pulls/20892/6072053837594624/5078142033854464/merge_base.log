@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/20892/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 84a175e8b tests: Automatically run both wallet types in parallel for wallet tests
+HEAD is now at dc5108451 Merge 84a175e8b225a6768c02c334eabcafccefeb3308 into 8ab19237e11ee510a7941a4ab429471b29cccd69
