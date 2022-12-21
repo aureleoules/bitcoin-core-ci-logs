@@ -1,0 +1,60 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv4 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv6 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call python test\functional\feature_remove_pruned_files_on_startup.py 
+2022-12-20T16:23:26.747000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\bitcoin_func_test_6pqcy38m
+2022-12-20T16:23:37.091000Z TestFramework (ERROR): Assertion failed
+Traceback (most recent call last):
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 134, in main
+    self.run_test()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\feature_remove_pruned_files_on_startup.py", line 42, in run_test
+    assert(os.path.exists(rev0) == False)
+AssertionError
+2022-12-20T16:23:37.157000Z TestFramework (INFO): Stopping nodes
+Traceback (most recent call last):
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\feature_remove_pruned_files_on_startup.py", line 53, in <module>
+    FeatureRemovePrunedFilesOnStartupTest().main()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 157, in main
+    exit_code = self.shutdown()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 313, in shutdown
+    self.stop_nodes()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 581, in stop_nodes
+    node.stop_node(wait=wait, wait_until_stopped=False)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_node.py", line 342, in stop_node
+    self.stop(wait=wait)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\coverage.py", line 49, in __call__
+    return_val = self.auth_service_proxy_instance.__call__(*args, **kwargs)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\authproxy.py", line 144, in __call__
+    response, status = self._request('POST', self.__url.path, postdata.encode('utf-8'))
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\authproxy.py", line 107, in _request
+    self.__conn.request(method, path, postdata, headers)
+  File "C:\Python39\lib\http\client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Python39\lib\http\client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Python39\lib\http\client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Python39\lib\http\client.py", line 1012, in _send_output
+    self.send(msg)
+  File "C:\Python39\lib\http\client.py", line 952, in send
+    self.connect()
+  File "C:\Python39\lib\http\client.py", line 923, in connect
+    self.sock = self._create_connection(
+  File "C:\Python39\lib\socket.py", line 843, in create_connection
+    raise err
+  File "C:\Python39\lib\socket.py", line 831, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+[node 0] Cleaning up leftover process
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 1 NEQ 0 exit /b 1 
