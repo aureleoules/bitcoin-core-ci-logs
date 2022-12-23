@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26744/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 4496b1603 Create Kicking out the Ukranian neo-nazi Hennadii Stepanov from the Bitcoin organization.txt
+HEAD is now at 4b3827b9e Merge 4496b16039f201f6bcca2b9b7c670502c729f65a into f3bc1a72825fe2b51f4bc20e004cef464f05b965

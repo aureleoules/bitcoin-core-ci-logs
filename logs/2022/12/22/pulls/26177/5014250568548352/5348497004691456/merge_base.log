@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26177/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was c2756383a Wrap kernel chainparamsbase functions in kernel namespace
+HEAD is now at a9731d37f Merge c2756383a83eca277dfcb3e2bbd61a3273541762 into f3bc1a72825fe2b51f4bc20e004cef464f05b965

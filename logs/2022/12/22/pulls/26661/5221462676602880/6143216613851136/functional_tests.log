@@ -1,0 +1,727 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv4 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv6 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call python test\functional\test_runner.py --nocleanup --ci --quiet --combinedlogslen=4000 --jobs=6 --timeout-factor=8 --extended --exclude feature_dbcrash 
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.995s
+
+OK
+Running Unit Tests for Test Framework Modules
+177/258 - feature_startupnotify.py failed, Duration: 4 s
+
+stdout:
+2022-12-22T03:15:02.315000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78
+2022-12-22T03:15:03.761000Z TestFramework (INFO): Test -startupnotify command is run when node starts
+2022-12-22T03:15:06.079000Z TestFramework (INFO): Test -startupnotify is executed once
+2022-12-22T03:15:06.079000Z TestFramework (ERROR): Assertion failed
+Traceback (most recent call last):
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 134, in main
+    self.run_test()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\feature_startupnotify.py", line 34, in run_test
+    assert_equal(file_content.count(FILE_NAME), 1)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\util.py", line 56, in assert_equal
+    raise AssertionError("not(%s)" % " == ".join(str(arg) for arg in (thing1, thing2) + args))
+AssertionError: not(0 == 1)
+2022-12-22T03:15:06.141000Z TestFramework (INFO): Stopping nodes
+2022-12-22T03:15:06.418000Z TestFramework (WARNING): Not cleaning up dir C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): Test failed. Test logging available at C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78/test_framework.log
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): 
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): Hint: Call C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\combine_logs.py 'C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78' to consolidate all logs
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): 
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log.
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues
+2022-12-22T03:15:06.418000Z TestFramework (ERROR): 
+
+
+stderr:
+
+
+Combine the logs and print the last 4000 lines ...
+
+============
+Combined log for C:\Users\ContainerAdministrator\AppData\Local\Temp/test_runner_₿_🏃_20221222_024304/feature_startupnotify_78:
+============
+
+ test  2022-12-22T03:15:02.297000Z TestFramework (DEBUG): PRNG seed is: 5918259400060363864 
+ test  2022-12-22T03:15:02.297000Z TestFramework (DEBUG): Setting up network thread 
+ test  2022-12-22T03:15:02.315000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78 
+ test  2022-12-22T03:15:02.315000Z TestFramework (DEBUG): Copy cache directory C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\cache\node0 to node 0 
+ test  2022-12-22T03:15:02.362000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up 
+ node0 2022-12-22T03:15:03.230582Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:149] [LogPackageVersion] Bitcoin Core version v24.99.0-unk (release build) 
+ node0 2022-12-22T03:15:03.230654Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:667] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 
+ node0 2022-12-22T03:15:03.232325Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\context.cpp:21] [Context] Using the 'standard' SHA256 implementation 
+ node0 2022-12-22T03:15:03.250713Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:120] [StartLogging] Default data directory C:\Users\ContainerAdministrator\AppData\Roaming\Bitcoin 
+ node0 2022-12-22T03:15:03.251702Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:121] [StartLogging] Using data directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest 
+ node0 2022-12-22T03:15:03.251865Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:126] [StartLogging] Config file: C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\bitcoin.conf 
+ node0 2022-12-22T03:15:03.251942Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: regtest="1" 
+ node0 2022-12-22T03:15:03.252006Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" 
+ node0 2022-12-22T03:15:03.252060Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] connect="0" 
+ node0 2022-12-22T03:15:03.252120Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] discover="0" 
+ node0 2022-12-22T03:15:03.252173Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" 
+ node0 2022-12-22T03:15:03.252234Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" 
+ node0 2022-12-22T03:15:03.252287Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" 
+ node0 2022-12-22T03:15:03.252339Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] keypool="1" 
+ node0 2022-12-22T03:15:03.252399Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] listenonion="0" 
+ node0 2022-12-22T03:15:03.252472Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] natpmp="0" 
+ node0 2022-12-22T03:15:03.252527Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" 
+ node0 2022-12-22T03:15:03.252586Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] port="14936" 
+ node0 2022-12-22T03:15:03.252648Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" 
+ node0 2022-12-22T03:15:03.252707Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" 
+ node0 2022-12-22T03:15:03.252770Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcport="19936" 
+ node0 2022-12-22T03:15:03.252834Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] server="1" 
+ node0 2022-12-22T03:15:03.252939Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" 
+ node0 2022-12-22T03:15:03.253006Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" 
+ node0 2022-12-22T03:15:03.253064Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] upnp="0" 
+ node0 2022-12-22T03:15:03.253134Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: datadir="C:\\Users\\ContainerAdministrator\\AppData\\Local\\Temp\\test_runner_₿_🏃_20221222_024304\\feature_startupnotify_78\\node0" 
+ node0 2022-12-22T03:15:03.253195Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debug="" 
+ node0 2022-12-22T03:15:03.253257Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="libevent" 
+ node0 2022-12-22T03:15:03.253312Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="leveldb" 
+ node0 2022-12-22T03:15:03.253372Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="rand" 
+ node0 2022-12-22T03:15:03.253424Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: disablewallet="" 
+ node0 2022-12-22T03:15:03.253486Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: loglevel="trace" 
+ node0 2022-12-22T03:15:03.253547Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logsourcelocations="" 
+ node0 2022-12-22T03:15:03.253604Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logthreadnames="" 
+ node0 2022-12-22T03:15:03.253672Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logtimemicros="" 
+ node0 2022-12-22T03:15:03.253736Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: uacomment="testnode0" 
+ node0 2022-12-22T03:15:03.253794Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1111] [AppInitMain] Using at most 125 automatic connections (2048 file descriptors available) 
+ node0 2022-12-22T03:15:03.301897Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\script\sigcache.cpp:103] [InitSignatureCache] Using 16 MiB out of 16 MiB requested for signature cache, able to store 524288 elements 
+ node0 2022-12-22T03:15:03.335406Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:1663] [InitScriptExecutionCache] Using 16 MiB out of 16 MiB requested for script execution cache, able to store 524288 elements 
+ node0 2022-12-22T03:15:03.335555Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1143] [AppInitMain] Script verification uses 5 additional threads 
+ node0 2022-12-22T03:15:03.336035Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\wallet\init.cpp:135] [Construct] Wallet disabled! 
+ node0 2022-12-22T03:15:03.355500Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] scheduler thread start 
+ node0 2022-12-22T03:15:03.357684Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:185] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 
+ node0 2022-12-22T03:15:03.359981Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:320] [HTTPBindAddresses] Binding RPC on address ::1 port 19936 
+ node0 2022-12-22T03:15:03.360842Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:320] [HTTPBindAddresses] Binding RPC on address 127.0.0.1 port 19936 
+ node0 2022-12-22T03:15:03.361021Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:400] [InitHTTPServer] [http] Initialized HTTP server 
+ node0 2022-12-22T03:15:03.361090Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:402] [InitHTTPServer] [http] creating work queue of depth 16 
+ node0 2022-12-22T03:15:03.361140Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:289] [StartRPC] [rpc] Starting RPC 
+ node0 2022-12-22T03:15:03.361231Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server 
+ node0 2022-12-22T03:15:03.361294Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. 
+ node0 2022-12-22T03:15:03.366345Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\.cookie 
+ node0 2022-12-22T03:15:03.366469Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:670] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) 
+ node0 2022-12-22T03:15:03.366541Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:670] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-12-22T03:15:03.366602Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:424] [StartHTTPServer] [http] Starting HTTP server 
+ node0 2022-12-22T03:15:03.366659Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:426] [StartHTTPServer] [http] starting 4 worker threads 
+ node0 2022-12-22T03:15:03.366977Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1228] [AppInitMain] Using /16 prefix for IP bucketing 
+ node0 2022-12-22T03:15:03.367079Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… 
+ node0 2022-12-22T03:15:03.368634Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\addrdb.cpp:198] [LoadAddrman] Creating peers.dat because the file was not found ("C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\peers.dat") 
+ node0 2022-12-22T03:15:03.373965Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading banlist… 
+ node0 2022-12-22T03:15:03.374120Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:41] [LoadBanlist] Recreating the banlist database 
+ node0 2022-12-22T03:15:03.374493Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:67] [DumpBanlist] [net] Flushed 0 banned node addresses/subnets to disk  0ms 
+ node0 2022-12-22T03:15:03.374598Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1535] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false 
+ node0 2022-12-22T03:15:03.374676Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2196] [SetNetworkActive] SetNetworkActive: true 
+ node0 2022-12-22T03:15:03.376434Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:551] [CBlockPolicyEstimator] Failed to read fee estimates from C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\fee_estimates.dat. Continue anyway. 
+ node0 2022-12-22T03:15:03.376772Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1442] [AppInitMain] Cache configuration: 
+ node0 2022-12-22T03:15:03.376841Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1443] [AppInitMain] * Using 2.0 MiB for block index database 
+ node0 2022-12-22T03:15:03.376902Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1451] [AppInitMain] * Using 8.0 MiB for chain state database 
+ node0 2022-12-22T03:15:03.377038Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1469] [AppInitMain] * Using 440.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) 
+ node0 2022-12-22T03:15:03.377259Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading block index… 
+ node0 2022-12-22T03:15:03.377326Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:41] [LoadChainstate] Validating signatures for all blocks. 
+ node0 2022-12-22T03:15:03.377388Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:43] [LoadChainstate] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 
+ node0 2022-12-22T03:15:03.378641Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\blocks\index 
+ node0 2022-12-22T03:15:03.380866Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:286] [ThreadHTTP] [http] Entering http event loop 
+ node0 2022-12-22T03:15:03.400117Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-22T03:15:03.400272Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\blocks\index: 0000000000000000 
+ node0 2022-12-22T03:15:03.405911Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:331] [LoadBlockIndexDB] LoadBlockIndexDB: last block file = 0 
+ node0 2022-12-22T03:15:03.406071Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:335] [LoadBlockIndexDB] LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=200, size=52530, heights=0...199, time=2011-02-02...2011-02-02) 
+ node0 2022-12-22T03:15:03.406143Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:346] [LoadBlockIndexDB] Checking all blk files are present... 
+ node0 2022-12-22T03:15:03.408109Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:119] [LoadChainstate] Initializing chainstate Chainstate [ibd] @ height -1 (null) 
+ node0 2022-12-22T03:15:03.409116Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate 
+ node0 2022-12-22T03:15:03.432940Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-22T03:15:03.433295Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate: bce46dbd2a3fefe3 
+ node0 2022-12-22T03:15:03.433812Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4006] [LoadChainTip] Loaded best chain: hashBestChain=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c height=199 date=2011-02-02T23:17:17Z progress=1.000000 
+ node0 2022-12-22T03:15:03.434005Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:5221] [MaybeRebalanceCaches] [snapshot] allocating all cache to the IBD chainstate 
+ node0 2022-12-22T03:15:03.435360Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate 
+ node0 2022-12-22T03:15:03.446762Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-22T03:15:03.447042Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate: bce46dbd2a3fefe3 
+ node0 2022-12-22T03:15:03.447132Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4764] [ResizeCoinsCaches] [Chainstate [ibd] @ height 199 (39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c)] resized coinsdb cache to 8.0 MiB 
+ node0 2022-12-22T03:15:03.447213Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4766] [ResizeCoinsCaches] [Chainstate [ibd] @ height 199 (39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c)] resized coinstip cache to 440.0 MiB 
+ node0 2022-12-22T03:15:03.447306Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Verifying blocks… 
+ node0 2022-12-22T03:15:03.447384Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4037] [VerifyDB] Verifying last 6 blocks at level 3 
+ node0 2022-12-22T03:15:03.447464Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4044] [VerifyDB] [0%]...[16%]...[33%]...[50%]...[66%]...Received a POST request for / from 127.0.0.1:57355 
+ node0 2022-12-22T03:15:03.464891Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4052] [VerifyDB] [83%]...ThreadRPCServer method=getblockcount user=__cookie__ 
+ node0 2022-12-22T03:15:03.468287Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4052] [VerifyDB] [99%]...[DONE]. 
+ node0 2022-12-22T03:15:03.468376Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4131] [VerifyDB] No coin database inconsistencies in last 6 blocks (6 transactions) 
+ node0 2022-12-22T03:15:03.468444Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1511] [AppInitMain]  block index              91ms 
+ node0 2022-12-22T03:15:03.469891Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1600] [AppInitMain] Setting NODE_NETWORK on non-prune mode 
+ node0 2022-12-22T03:15:03.470180Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1685] [AppInitMain] block tree size = 200 
+ node0 2022-12-22T03:15:03.470245Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1697] [AppInitMain] nBestHeight = 199 
+ node0 2022-12-22T03:15:03.470576Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2129] [BindListenPort] Bound to 127.0.0.1:14936 
+ node0 2022-12-22T03:15:03.470740Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2129] [BindListenPort] Bound to 127.0.0.1:18445 
+ node0 2022-12-22T03:15:03.470826Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Starting network threads… 
+ node0 2022-12-22T03:15:03.470966Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2335] [Start] DNS seeding disabled 
+ node0 2022-12-22T03:15:03.471144Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Done loading 
+ node0 2022-12-22T03:15:03.471453Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] loadblk thread start 
+ node0 2022-12-22T03:15:03.471778Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:47] [LoadMempool] Failed to open mempool file from disk. Continuing anyway. 
+ node0 2022-12-22T03:15:03.471844Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] loadblk thread exit 
+ node0 2022-12-22T03:15:03.471970Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] msghand thread start 
+ node0 2022-12-22T03:15:03.474207Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] net thread start 
+ node0 2022-12-22T03:15:03.474448Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] addcon thread start 
+ test  2022-12-22T03:15:03.729000Z TestFramework.node0 (DEBUG): RPC successfully started 
+ test  2022-12-22T03:15:03.729000Z TestFramework (DEBUG): Generate a block with current time 
+ test  2022-12-22T03:15:03.729000Z TestFramework.node0 (DEBUG): TestNode.generate() dispatches `generate` call to `generatetoaddress` 
+ node0 2022-12-22T03:15:03.731651Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57363 
+ node0 2022-12-22T03:15:03.731899Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockcount user=__cookie__ 
+ node0 2022-12-22T03:15:03.733408Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57365 
+ node0 2022-12-22T03:15:03.733594Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getmempoolinfo user=__cookie__ 
+ node0 2022-12-22T03:15:03.735766Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57367 
+ node0 2022-12-22T03:15:03.735985Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockchaininfo user=__cookie__ 
+ node0 2022-12-22T03:15:03.738968Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57368 
+ node0 2022-12-22T03:15:03.739199Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=generatetoaddress user=__cookie__ 
+ node0 2022-12-22T03:15:03.739710Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\miner.cpp:163] [CreateNewBlock] CreateNewBlock(): block weight: 904 txs: 0 fees: 0 sigops 400 
+ node0 2022-12-22T03:15:03.739955Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2068] [ConnectBlock] [bench]     - Sanity checks: 0.01ms [0.00s (0.01ms/blk)] 
+ node0 2022-12-22T03:15:03.740101Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2170] [ConnectBlock] [bench]     - Fork checks: 0.17ms [0.00s (0.17ms/blk)] 
+ node0 2022-12-22T03:15:03.740228Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2260] [ConnectBlock] [bench]       - Connect 1 transactions: 0.12ms (0.122ms/tx, 0.000ms/txin) [0.00s (0.12ms/blk)] 
+ node0 2022-12-22T03:15:03.740318Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2278] [ConnectBlock] [bench]     - Verify 0 txins: 0.22ms (0.000ms/txin) [0.00s (0.22ms/blk)] 
+ node0 2022-12-22T03:15:03.740402Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\miner.cpp:181] [CreateNewBlock] [bench] CreateNewBlock() packages: 0.07ms (0 packages, 0 updated descendants), validity: 0.79ms (total 0.85ms) 
+ node0 2022-12-22T03:15:03.743521Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2740] [ConnectTip] [bench]   - Using cached block 
+ node0 2022-12-22T03:15:03.743722Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2751] [ConnectTip] [bench]   - Load block from disk: 0.12ms [0.00s (0.12ms/blk)] 
+ node0 2022-12-22T03:15:03.743849Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2068] [ConnectBlock] [bench]     - Sanity checks: 0.00ms [0.00s (0.01ms/blk)] 
+ node0 2022-12-22T03:15:03.743950Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2170] [ConnectBlock] [bench]     - Fork checks: 0.11ms [0.00s (0.14ms/blk)] 
+ node0 2022-12-22T03:15:03.744024Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2260] [ConnectBlock] [bench]       - Connect 1 transactions: 0.07ms (0.067ms/tx, 0.000ms/txin) [0.00s (0.09ms/blk)] 
+ node0 2022-12-22T03:15:03.744081Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2278] [ConnectBlock] [bench]     - Verify 0 txins: 0.13ms (0.000ms/txin) [0.00s (0.17ms/blk)] 
+ node0 2022-12-22T03:15:03.745781Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2292] [ConnectBlock] [bench]     - Write undo data: 1.66ms [0.00s (0.83ms/blk)] 
+ node0 2022-12-22T03:15:03.745867Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2307] [ConnectBlock] [bench]     - Index writing: 0.12ms [0.00s (0.06ms/blk)] 
+ node0 2022-12-22T03:15:03.746058Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:255] [BlockChecked] [validation] BlockChecked: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 state=Valid 
+ node0 2022-12-22T03:15:03.746189Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2767] [ConnectTip] [bench]   - Connect total: 2.53ms [0.00s (1.27ms/blk)] 
+ node0 2022-12-22T03:15:03.746277Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2776] [ConnectTip] [bench]   - Flush: 0.10ms [0.00s (0.05ms/blk)] 
+ node0 2022-12-22T03:15:03.746357Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2786] [ConnectTip] [bench]   - Writing chainstate: 0.08ms [0.00s (0.04ms/blk)] 
+ node0 2022-12-22T03:15:03.747637Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:667] [processBlock] [estimatefee] Blockpolicy estimates updated by 0 of 0 block txs, since last block 0 of 0 tracked, mempool map size 0, max target 0 from current 
+ node0 2022-12-22T03:15:03.747736Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:1545] [IsInitialBlockDownload] Leaving InitialBlockDownload (latching to false) 
+ node0 2022-12-22T03:15:03.747978Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2546] [UpdateTipLog] UpdateTip: new best=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 height=200 version=0x30000000 log2_work=8.651052 tx=201 date='2022-12-22T03:15:03Z' progress=1.000000 cache=0.0MiB(1txo) 
+ node0 2022-12-22T03:15:03.748087Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2802] [ConnectTip] [bench]   - Connect postprocess: 1.73ms [0.00s (0.86ms/blk)] 
+ node0 2022-12-22T03:15:03.748166Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2806] [ConnectTip] [bench] - Connect block: 4.56ms [0.00s (2.28ms/blk)] 
+ node0 2022-12-22T03:15:03.748253Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txmempool.cpp:658] [check] [mempool] Checking mempool with 0 transactions and 0 inputs 
+ node0 2022-12-22T03:15:03.748377Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:232] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 block height=200 
+ node0 2022-12-22T03:15:03.748515Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:204] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 fork block hash=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c (in IBD=false) 
+ node0 2022-12-22T03:15:03.750977Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57369 
+ node0 2022-12-22T03:15:03.751551Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:232] [operator ()] [validation] BlockConnected: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 block height=200 
+ node0 2022-12-22T03:15:03.751728Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:204] [operator ()] [validation] UpdatedBlockTip: new block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 fork block hash=39455d83324a3dbbb15712ab63dd2f96b45a30f271617aa16c12483a561f721c (in IBD=false) 
+ node0 2022-12-22T03:15:03.751964Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblock user=__cookie__ 
+ node0 2022-12-22T03:15:03.755576Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57370 
+ node0 2022-12-22T03:15:03.755810Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=submitblock user=__cookie__ 
+ node0 2022-12-22T03:15:03.757407Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57371 
+ node0 2022-12-22T03:15:03.757610Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockchaininfo user=__cookie__ 
+ node0 2022-12-22T03:15:03.759393Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57372 
+ node0 2022-12-22T03:15:03.759583Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getbestblockhash user=__cookie__ 
+ node0 2022-12-22T03:15:03.760844Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57373 
+ test  2022-12-22T03:15:03.761000Z TestFramework (INFO): Test -startupnotify command is run when node starts 
+ test  2022-12-22T03:15:03.761000Z TestFramework.node0 (DEBUG): Stopping node 
+ node0 2022-12-22T03:15:03.761042Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getrawmempool user=__cookie__ 
+ node0 2022-12-22T03:15:03.762852Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57374 
+ node0 2022-12-22T03:15:03.763078Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=syncwithvalidationinterfacequeue user=__cookie__ 
+ node0 2022-12-22T03:15:03.766176Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57376 
+ node0 2022-12-22T03:15:03.766379Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ 
+ node0 2022-12-22T03:15:03.766559Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:436] [InterruptHTTPServer] [http] Interrupting HTTP server 
+ node0 2022-12-22T03:15:03.766627Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server 
+ node0 2022-12-22T03:15:03.766957Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:299] [operator ()] [rpc] Interrupting RPC 
+ node0 2022-12-22T03:15:03.767091Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:217] [Shutdown] Shutdown: In progress... 
+ node0 2022-12-22T03:15:03.767158Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server 
+ node0 2022-12-22T03:15:03.767289Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] addcon thread exit 
+ node0 2022-12-22T03:15:03.767403Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:685] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) 
+ node0 2022-12-22T03:15:03.767539Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:685] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-12-22T03:15:03.767599Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:311] [operator ()] [rpc] Stopping RPC 
+ node0 2022-12-22T03:15:03.768010Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:383] [OnRPCStopped] [rpc] RPC stopped. 
+ node0 2022-12-22T03:15:03.768101Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:448] [StopHTTPServer] [http] Stopping HTTP server 
+ node0 2022-12-22T03:15:03.768199Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:450] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit 
+ node0 2022-12-22T03:15:03.768361Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:289] [ThreadHTTP] [http] Exited http event loop 
+ node0 2022-12-22T03:15:03.768446Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:463] [StopHTTPServer] [http] Waiting for HTTP event thread to exit 
+ node0 2022-12-22T03:15:03.768735Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:475] [StopHTTPServer] [http] Stopped HTTP server 
+ node0 2022-12-22T03:15:03.776851Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] net thread exit 
+ node0 2022-12-22T03:15:03.855439Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] msghand thread exit 
+ node0 2022-12-22T03:15:03.860730Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1507] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  4ms 
+ node0 2022-12-22T03:15:03.860910Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] scheduler thread exit 
+ node0 2022-12-22T03:15:03.862318Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. 
+ node0 2022-12-22T03:15:03.865691Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 1.89e-05s to copy, 0.0036519s to dump 
+ node0 2022-12-22T03:15:03.865774Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:1011] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 1.8e-06s 
+ node0 2022-12-22T03:15:03.872551Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-12-22T03:15:03.878258Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.62ms) 
+ node0 2022-12-22T03:15:03.878320Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-12-22T03:15:03.882459Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (4.07ms) 
+ node0 2022-12-22T03:15:03.882559Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (1 coins, 0kB) started 
+ node0 2022-12-22T03:15:03.882940Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-12-22T03:15:03.883122Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 1 changed transaction outputs (out of 1) to coin database... 
+ node0 2022-12-22T03:15:03.883215Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (1 coins, 0kB) completed (0.58ms) 
+ node0 2022-12-22T03:15:03.883293Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 
+ node0 2022-12-22T03:15:03.883380Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [operator ()] [validation] ChainStateFlushed: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 
+ node0 2022-12-22T03:15:03.883613Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-12-22T03:15:03.887862Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (4.14ms) 
+ node0 2022-12-22T03:15:03.887943Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-12-22T03:15:03.892884Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (4.86ms) 
+ node0 2022-12-22T03:15:03.892998Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started 
+ node0 2022-12-22T03:15:03.893273Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-12-22T03:15:03.893395Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... 
+ node0 2022-12-22T03:15:03.893477Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.41ms) 
+ node0 2022-12-22T03:15:03.893555Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 
+ node0 2022-12-22T03:15:03.895219Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:334] [Shutdown] Shutdown: done 
+ test  2022-12-22T03:15:03.948000Z TestFramework.node0 (DEBUG): Node stopped 
+ test  2022-12-22T03:15:03.948000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up 
+ node0 2022-12-22T03:15:05.290993Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:149] [LogPackageVersion] Bitcoin Core version v24.99.0-unk (release build) 
+ node0 2022-12-22T03:15:05.291080Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:667] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 
+ node0 2022-12-22T03:15:05.292731Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\context.cpp:21] [Context] Using the 'standard' SHA256 implementation 
+ node0 2022-12-22T03:15:05.328303Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:120] [StartLogging] Default data directory C:\Users\ContainerAdministrator\AppData\Roaming\Bitcoin 
+ node0 2022-12-22T03:15:05.328395Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:121] [StartLogging] Using data directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest 
+ node0 2022-12-22T03:15:05.328597Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:126] [StartLogging] Config file: C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\bitcoin.conf 
+ node0 2022-12-22T03:15:05.328683Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: regtest="1" 
+ node0 2022-12-22T03:15:05.328749Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" 
+ node0 2022-12-22T03:15:05.328804Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] connect="0" 
+ node0 2022-12-22T03:15:05.328864Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] discover="0" 
+ node0 2022-12-22T03:15:05.328921Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" 
+ node0 2022-12-22T03:15:05.328984Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" 
+ node0 2022-12-22T03:15:05.329039Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" 
+ node0 2022-12-22T03:15:05.329104Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] keypool="1" 
+ node0 2022-12-22T03:15:05.329165Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] listenonion="0" 
+ node0 2022-12-22T03:15:05.329233Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] natpmp="0" 
+ node0 2022-12-22T03:15:05.329289Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" 
+ node0 2022-12-22T03:15:05.329350Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] port="14936" 
+ node0 2022-12-22T03:15:05.329408Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" 
+ node0 2022-12-22T03:15:05.329467Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" 
+ node0 2022-12-22T03:15:05.329531Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcport="19936" 
+ node0 2022-12-22T03:15:05.329602Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] server="1" 
+ node0 2022-12-22T03:15:05.329660Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" 
+ node0 2022-12-22T03:15:05.329725Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" 
+ node0 2022-12-22T03:15:05.329785Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] upnp="0" 
+ node0 2022-12-22T03:15:05.329882Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: datadir="C:\\Users\\ContainerAdministrator\\AppData\\Local\\Temp\\test_runner_₿_🏃_20221222_024304\\feature_startupnotify_78\\node0" 
+ node0 2022-12-22T03:15:05.330039Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debug="" 
+ node0 2022-12-22T03:15:05.330121Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="libevent" 
+ node0 2022-12-22T03:15:05.332254Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="leveldb" 
+ node0 2022-12-22T03:15:05.332332Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="rand" 
+ node0 2022-12-22T03:15:05.332387Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: disablewallet="" 
+ node0 2022-12-22T03:15:05.332451Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: loglevel="trace" 
+ node0 2022-12-22T03:15:05.332512Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logsourcelocations="" 
+ node0 2022-12-22T03:15:05.332573Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logthreadnames="" 
+ node0 2022-12-22T03:15:05.332627Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logtimemicros="" 
+ node0 2022-12-22T03:15:05.332691Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: startupnotify="echo 'test.txt' >> node0/test.txt" 
+ node0 2022-12-22T03:15:05.332750Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: uacomment="testnode0" 
+ node0 2022-12-22T03:15:05.332807Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1111] [AppInitMain] Using at most 125 automatic connections (2048 file descriptors available) 
+ node0 2022-12-22T03:15:05.387552Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\script\sigcache.cpp:103] [InitSignatureCache] Using 16 MiB out of 16 MiB requested for signature cache, able to store 524288 elements 
+ node0 2022-12-22T03:15:05.422292Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:1663] [InitScriptExecutionCache] Using 16 MiB out of 16 MiB requested for script execution cache, able to store 524288 elements 
+ node0 2022-12-22T03:15:05.422402Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1143] [AppInitMain] Script verification uses 5 additional threads 
+ node0 2022-12-22T03:15:05.422890Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\wallet\init.cpp:135] [Construct] Wallet disabled! 
+ node0 2022-12-22T03:15:05.482002Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:185] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 
+ node0 2022-12-22T03:15:05.698573Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] scheduler thread start 
+ node0 2022-12-22T03:15:05.727087Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:320] [HTTPBindAddresses] Binding RPC on address ::1 port 19936 
+ node0 2022-12-22T03:15:05.727938Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:320] [HTTPBindAddresses] Binding RPC on address 127.0.0.1 port 19936 
+ node0 2022-12-22T03:15:05.728122Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:400] [InitHTTPServer] [http] Initialized HTTP server 
+ node0 2022-12-22T03:15:05.728203Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:402] [InitHTTPServer] [http] creating work queue of depth 16 
+ node0 2022-12-22T03:15:05.728255Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:289] [StartRPC] [rpc] Starting RPC 
+ node0 2022-12-22T03:15:05.728365Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server 
+ node0 2022-12-22T03:15:05.728436Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. 
+ node0 2022-12-22T03:15:05.729392Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\.cookie 
+ node0 2022-12-22T03:15:05.729508Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:670] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) 
+ node0 2022-12-22T03:15:05.729585Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:670] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-12-22T03:15:05.729646Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:424] [StartHTTPServer] [http] Starting HTTP server 
+ node0 2022-12-22T03:15:05.729702Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:426] [StartHTTPServer] [http] starting 4 worker threads 
+ node0 2022-12-22T03:15:05.730027Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1228] [AppInitMain] Using /16 prefix for IP bucketing 
+ node0 2022-12-22T03:15:05.730114Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… 
+ node0 2022-12-22T03:15:05.731528Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [addrman] CheckAddrman: new 0, tried 0, total 0 started 
+ node0 2022-12-22T03:15:05.731945Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [addrman] CheckAddrman: completed (0.33ms) 
+ node0 2022-12-22T03:15:05.732066Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\addrdb.cpp:194] [LoadAddrman] Loaded 0 addresses from peers.dat  1ms 
+ node0 2022-12-22T03:15:05.732595Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading banlist… 
+ node0 2022-12-22T03:15:05.732943Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:39] [LoadBanlist] [net] Loaded 0 banned node addresses/subnets  0ms 
+ node0 2022-12-22T03:15:05.733090Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1535] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false 
+ node0 2022-12-22T03:15:05.733157Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2196] [SetNetworkActive] SetNetworkActive: true 
+ node0 2022-12-22T03:15:05.738878Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:456] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 48 blocks 
+ node0 2022-12-22T03:15:05.740252Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:456] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 12 blocks 
+ node0 2022-12-22T03:15:05.744844Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:456] [Read] [estimatefee] Reading estimates: 190 buckets counting confirms up to 1008 blocks 
+ node0 2022-12-22T03:15:05.745806Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1442] [AppInitMain] Cache configuration: 
+ node0 2022-12-22T03:15:05.745880Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1443] [AppInitMain] * Using 2.0 MiB for block index database 
+ node0 2022-12-22T03:15:05.745937Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1451] [AppInitMain] * Using 8.0 MiB for chain state database 
+ node0 2022-12-22T03:15:05.746105Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1469] [AppInitMain] * Using 440.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) 
+ node0 2022-12-22T03:15:05.746371Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading block index… 
+ node0 2022-12-22T03:15:05.746447Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:41] [LoadChainstate] Validating signatures for all blocks. 
+ node0 2022-12-22T03:15:05.746512Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:43] [LoadChainstate] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 
+ node0 2022-12-22T03:15:05.747916Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\blocks\index 
+ node0 2022-12-22T03:15:05.765131Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-22T03:15:05.765279Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\blocks\index: 0000000000000000 
+ node0 2022-12-22T03:15:05.771949Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:331] [LoadBlockIndexDB] LoadBlockIndexDB: last block file = 0 
+ node0 2022-12-22T03:15:05.772092Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:335] [LoadBlockIndexDB] LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=201, size=52791, heights=0...200, time=2011-02-02...2022-12-22) 
+ node0 2022-12-22T03:15:05.772162Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:346] [LoadBlockIndexDB] Checking all blk files are present... 
+ node0 2022-12-22T03:15:05.774783Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:119] [LoadChainstate] Initializing chainstate Chainstate [ibd] @ height -1 (null) 
+ node0 2022-12-22T03:15:05.776213Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate 
+ node0 2022-12-22T03:15:05.792319Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-22T03:15:05.792614Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate: bce46dbd2a3fefe3 
+ node0 2022-12-22T03:15:05.793176Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4006] [LoadChainTip] Loaded best chain: hashBestChain=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 height=200 date=2022-12-22T03:15:03Z progress=1.000000 
+ node0 2022-12-22T03:15:05.793280Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:5221] [MaybeRebalanceCaches] [snapshot] allocating all cache to the IBD chainstate 
+ node0 2022-12-22T03:15:05.794482Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate 
+ node0 2022-12-22T03:15:05.805578Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-22T03:15:05.805936Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78\node0\regtest\chainstate: bce46dbd2a3fefe3 
+ node0 2022-12-22T03:15:05.806033Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4764] [ResizeCoinsCaches] [Chainstate [ibd] @ height 200 (70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1)] resized coinsdb cache to 8.0 MiB 
+ node0 2022-12-22T03:15:05.806129Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4766] [ResizeCoinsCaches] [Chainstate [ibd] @ height 200 (70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1)] resized coinstip cache to 440.0 MiB 
+ node0 2022-12-22T03:15:05.806231Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Verifying blocks… 
+ node0 2022-12-22T03:15:05.806312Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4037] [VerifyDB] Verifying last 6 blocks at level 3 
+ node0 2022-12-22T03:15:05.806389Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4044] [VerifyDB] [0%]...[16%]...[33%]...[50%]...[66%]...[83%]...[99%]...[DONE]. 
+ node0 2022-12-22T03:15:05.832863Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4131] [VerifyDB] No coin database inconsistencies in last 6 blocks (6 transactions) 
+ node0 2022-12-22T03:15:05.832935Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1511] [AppInitMain]  block index              86ms 
+ node0 2022-12-22T03:15:05.834576Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1600] [AppInitMain] Setting NODE_NETWORK on non-prune mode 
+ node0 2022-12-22T03:15:05.834935Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1685] [AppInitMain] block tree size = 201 
+ node0 2022-12-22T03:15:05.835005Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1697] [AppInitMain] nBestHeight = 200 
+ node0 2022-12-22T03:15:05.835367Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2129] [BindListenPort] Bound to 127.0.0.1:14936 
+ node0 2022-12-22T03:15:05.835540Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2129] [BindListenPort] Bound to 127.0.0.1:18445 
+ node0 2022-12-22T03:15:05.835635Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Starting network threads… 
+ node0 2022-12-22T03:15:05.835793Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2335] [Start] DNS seeding disabled 
+ node0 2022-12-22T03:15:05.835988Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Done loading 
+ node0 2022-12-22T03:15:05.887336Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:286] [ThreadHTTP] [http] Entering http event loop 
+ node0 2022-12-22T03:15:05.890939Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] addcon thread start 
+ node0 2022-12-22T03:15:05.934557Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] loadblk thread start 
+ node0 2022-12-22T03:15:05.935081Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:121] [LoadMempool] Imported mempool transactions from disk: 0 succeeded, 0 failed, 0 expired, 0 already there, 0 waiting for initial broadcast 
+ node0 2022-12-22T03:15:05.935167Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] loadblk thread exit 
+ test  2022-12-22T03:15:05.953000Z TestFramework.node0 (DEBUG): RPC successfully started 
+ node0 2022-12-22T03:15:05.953649Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57500 
+ node0 2022-12-22T03:15:05.954096Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] net thread start 
+ node0 2022-12-22T03:15:05.954219Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockcount user=__cookie__ 
+ node0 2022-12-22T03:15:05.955787Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57507 
+ node0 2022-12-22T03:15:05.956041Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getmempoolinfo user=__cookie__ 
+ node0 2022-12-22T03:15:05.967964Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] msghand thread start 
+ test  2022-12-22T03:15:06.079000Z TestFramework (INFO): Test -startupnotify is executed once 
+ test  2022-12-22T03:15:06.079000Z TestFramework (ERROR): Assertion failed 
+                                   Traceback (most recent call last):
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 134, in main
+                                       self.run_test()
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\feature_startupnotify.py", line 34, in run_test
+                                       assert_equal(file_content.count(FILE_NAME), 1)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\util.py", line 56, in assert_equal
+                                       raise AssertionError("not(%s)" % " == ".join(str(arg) for arg in (thing1, thing2) + args))
+                                   AssertionError: not(0 == 1)
+ test  2022-12-22T03:15:06.079000Z TestFramework (DEBUG): Closing down network thread 
+ test  2022-12-22T03:15:06.141000Z TestFramework (INFO): Stopping nodes 
+ test  2022-12-22T03:15:06.141000Z TestFramework.node0 (DEBUG): Stopping node 
+ node0 2022-12-22T03:15:06.146586Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:57529 
+ node0 2022-12-22T03:15:06.146868Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ 
+ node0 2022-12-22T03:15:06.147057Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:436] [InterruptHTTPServer] [http] Interrupting HTTP server 
+ node0 2022-12-22T03:15:06.147142Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server 
+ node0 2022-12-22T03:15:06.147200Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:299] [operator ()] [rpc] Interrupting RPC 
+ node0 2022-12-22T03:15:06.147280Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:217] [Shutdown] Shutdown: In progress... 
+ node0 2022-12-22T03:15:06.147337Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server 
+ node0 2022-12-22T03:15:06.147393Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:685] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) 
+ node0 2022-12-22T03:15:06.147456Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:685] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-12-22T03:15:06.147511Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:311] [operator ()] [rpc] Stopping RPC 
+ node0 2022-12-22T03:15:06.147839Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] addcon thread exit 
+ node0 2022-12-22T03:15:06.148350Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:383] [OnRPCStopped] [rpc] RPC stopped. 
+ node0 2022-12-22T03:15:06.148414Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:448] [StopHTTPServer] [http] Stopping HTTP server 
+ node0 2022-12-22T03:15:06.148470Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:450] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit 
+ node0 2022-12-22T03:15:06.148709Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:463] [StopHTTPServer] [http] Waiting for HTTP event thread to exit 
+ node0 2022-12-22T03:15:06.148790Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:289] [ThreadHTTP] [http] Exited http event loop 
+ node0 2022-12-22T03:15:06.149156Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:475] [StopHTTPServer] [http] Stopped HTTP server 
+ node0 2022-12-22T03:15:06.193194Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] msghand thread exit 
+ node0 2022-12-22T03:15:06.204606Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] net thread exit 
+ node0 2022-12-22T03:15:06.222720Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1507] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  7ms 
+ node0 2022-12-22T03:15:06.222947Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] scheduler thread exit 
+ node0 2022-12-22T03:15:06.224514Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. 
+ node0 2022-12-22T03:15:06.229023Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 2.54e-05s to copy, 0.0048316s to dump 
+ node0 2022-12-22T03:15:06.229108Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:1011] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 1.7e-06s 
+ node0 2022-12-22T03:15:06.237178Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-12-22T03:15:06.242837Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.55ms) 
+ node0 2022-12-22T03:15:06.242919Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-12-22T03:15:06.246914Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.92ms) 
+ node0 2022-12-22T03:15:06.247035Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started 
+ node0 2022-12-22T03:15:06.247302Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-12-22T03:15:06.247506Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... 
+ node0 2022-12-22T03:15:06.247596Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.49ms) 
+ node0 2022-12-22T03:15:06.247686Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 
+ node0 2022-12-22T03:15:06.247784Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [operator ()] [validation] ChainStateFlushed: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 
+ node0 2022-12-22T03:15:06.247950Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-12-22T03:15:06.254137Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (6.10ms) 
+ node0 2022-12-22T03:15:06.254219Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-12-22T03:15:06.257944Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.65ms) 
+ node0 2022-12-22T03:15:06.258036Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started 
+ node0 2022-12-22T03:15:06.258320Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-12-22T03:15:06.258446Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... 
+ node0 2022-12-22T03:15:06.258531Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.42ms) 
+ node0 2022-12-22T03:15:06.258605Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=70dee853ec2d04e6eb340feb10a619b51f7597d810671619665a7cfdf355f8d1 
+ node0 2022-12-22T03:15:06.260145Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:334] [Shutdown] Shutdown: done 
+ test  2022-12-22T03:15:06.418000Z TestFramework.node0 (DEBUG): Node stopped 
+ test  2022-12-22T03:15:06.418000Z TestFramework (WARNING): Not cleaning up dir C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): Test failed. Test logging available at C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78/test_framework.log 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): Hint: Call C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\combine_logs.py 'C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221222_024304\feature_startupnotify_78' to consolidate all logs 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log. 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues 
+ test  2022-12-22T03:15:06.418000Z TestFramework (ERROR): 
+
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, feature_config_args.py, wallet_migration.py, p2p_ibd_txrelay.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, wallet_migration.py, p2p_ibd_txrelay.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, wallet_migration.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py]
+Remaining jobs: [feature_index_prune.py]
+
+TEST                                                   | STATUS    | DURATION
+
+example_test.py                                        | ✓ Passed  | 5 s
+feature_abortnode.py                                   | ✓ Passed  | 3 s
+feature_addrman.py                                     | ✓ Passed  | 10 s
+feature_anchors.py                                     | ✓ Passed  | 4 s
+feature_asmap.py                                       | ✓ Passed  | 9 s
+feature_assumevalid.py                                 | ✓ Passed  | 95 s
+feature_bip68_sequence.py                              | ✓ Passed  | 75 s
+feature_block.py                                       | ✓ Passed  | 566 s
+feature_blocksdir.py                                   | ✓ Passed  | 3 s
+feature_cltv.py                                        | ✓ Passed  | 4 s
+feature_coinstatsindex.py                              | ✓ Passed  | 122 s
+feature_config_args.py                                 | ✓ Passed  | 28 s
+feature_csv_activation.py                              | ✓ Passed  | 45 s
+feature_dersig.py                                      | ✓ Passed  | 5 s
+feature_dirsymlinks.py                                 | ✓ Passed  | 3 s
+feature_discover.py                                    | ✓ Passed  | 10 s
+feature_fee_estimation.py                              | ✓ Passed  | 345 s
+feature_filelock.py                                    | ✓ Passed  | 6 s
+feature_help.py                                        | ✓ Passed  | 2 s
+feature_includeconf.py                                 | ✓ Passed  | 6 s
+feature_index_prune.py                                 | ✓ Passed  | 2284 s
+feature_loadblock.py                                   | ✓ Passed  | 6 s
+feature_logging.py                                     | ✓ Passed  | 26 s
+feature_maxtipage.py                                   | ✓ Passed  | 64 s
+feature_maxuploadtarget.py                             | ✓ Passed  | 236 s
+feature_minchainwork.py                                | ✓ Passed  | 15 s
+feature_notifications.py                               | ✓ Passed  | 15 s
+feature_nulldummy.py                                   | ✓ Passed  | 3 s
+feature_presegwit_node_upgrade.py                      | ✓ Passed  | 3 s
+feature_proxy.py                                       | ✓ Passed  | 16 s
+feature_pruning.py                                     | ✓ Passed  | 2212 s
+feature_rbf.py                                         | ✓ Passed  | 27 s
+feature_reindex.py                                     | ✓ Passed  | 12 s
+feature_segwit.py --descriptors                        | ✓ Passed  | 20 s
+feature_segwit.py --legacy-wallet                      | ✓ Passed  | 40 s
+feature_settings.py                                    | ✓ Passed  | 7 s
+feature_shutdown.py                                    | ✓ Passed  | 2 s
+feature_signet.py                                      | ✓ Passed  | 19 s
+feature_taproot.py                                     | ✓ Passed  | 314 s
+feature_uacomment.py                                   | ✓ Passed  | 16 s
+feature_utxo_set_hash.py                               | ✓ Passed  | 5 s
+feature_versionbits_warning.py                         | ✓ Passed  | 10 s
+interface_bitcoin_cli.py --descriptors                 | ✓ Passed  | 23 s
+interface_bitcoin_cli.py --legacy-wallet               | ✓ Passed  | 25 s
+interface_http.py                                      | ✓ Passed  | 3 s
+interface_rest.py                                      | ✓ Passed  | 6 s
+interface_rpc.py                                       | ✓ Passed  | 35 s
+interface_zmq.py                                       | ✓ Passed  | 28 s
+mempool_accept.py                                      | ✓ Passed  | 10 s
+mempool_accept_wtxid.py                                | ✓ Passed  | 10 s
+mempool_datacarrier.py                                 | ✓ Passed  | 3 s
+mempool_expiry.py                                      | ✓ Passed  | 5 s
+mempool_limit.py                                       | ✓ Passed  | 25 s
+mempool_package_limits.py                              | ✓ Passed  | 6 s
+mempool_package_onemore.py                             | ✓ Passed  | 2 s
+mempool_packages.py                                    | ✓ Passed  | 17 s
+mempool_persist.py --descriptors                       | ✓ Passed  | 92 s
+mempool_reorg.py                                       | ✓ Passed  | 5 s
+mempool_resurrect.py                                   | ✓ Passed  | 3 s
+mempool_spend_coinbase.py                              | ✓ Passed  | 6 s
+mempool_unbroadcast.py                                 | ✓ Passed  | 15 s
+mempool_updatefromblock.py                             | ✓ Passed  | 382 s
+mining_basic.py                                        | ✓ Passed  | 20 s
+mining_getblocktemplate_longpoll.py                    | ✓ Passed  | 76 s
+mining_prioritisetransaction.py                        | ✓ Passed  | 22 s
+p2p_add_connections.py                                 | ✓ Passed  | 10 s
+p2p_addr_relay.py                                      | ✓ Passed  | 25 s
+p2p_addrfetch.py                                       | ✓ Passed  | 2 s
+p2p_addrv2_relay.py                                    | ✓ Passed  | 4 s
+p2p_block_sync.py                                      | ✓ Passed  | 4 s
+p2p_blockfilters.py                                    | ✓ Passed  | 95 s
+p2p_blocksonly.py                                      | ✓ Passed  | 14 s
+p2p_compactblocks.py                                   | ✓ Passed  | 12 s
+p2p_compactblocks_blocksonly.py                        | ✓ Passed  | 4 s
+p2p_compactblocks_hb.py                                | ✓ Passed  | 23 s
+p2p_disconnect_ban.py                                  | ✓ Passed  | 6 s
+p2p_dns_seeds.py                                       | ✓ Passed  | 40 s
+p2p_dos_header_tree.py                                 | ✓ Passed  | 6 s
+p2p_eviction.py                                        | ✓ Passed  | 7 s
+p2p_feefilter.py                                       | ✓ Passed  | 37 s
+p2p_filter.py                                          | ✓ Passed  | 6 s
+p2p_fingerprint.py                                     | ✓ Passed  | 8 s
+p2p_getaddr_caching.py                                 | ✓ Passed  | 28 s
+p2p_getdata.py                                         | ✓ Passed  | 2 s
+p2p_headers_sync_with_minchainwork.py                  | ✓ Passed  | 254 s
+p2p_i2p_ports.py                                       | ✓ Passed  | 18 s
+p2p_i2p_sessions.py                                    | ✓ Passed  | 6 s
+p2p_ibd_txrelay.py                                     | ✓ Passed  | 4 s
+p2p_initial_headers_sync.py                            | ✓ Passed  | 2 s
+p2p_invalid_block.py                                   | ✓ Passed  | 3 s
+p2p_invalid_locator.py                                 | ✓ Passed  | 3 s
+p2p_invalid_messages.py                                | ✓ Passed  | 133 s
+p2p_invalid_tx.py                                      | ✓ Passed  | 11 s
+p2p_leak.py                                            | ✓ Passed  | 7 s
+p2p_leak_tx.py                                         | ✓ Passed  | 3 s
+p2p_message_capture.py                                 | ✓ Passed  | 2 s
+p2p_nobloomfilter_messages.py                          | ✓ Passed  | 4 s
+p2p_node_network_limited.py                            | ✓ Passed  | 54 s
+p2p_permissions.py                                     | ✓ Passed  | 24 s
+p2p_ping.py                                            | ✓ Passed  | 3 s
+p2p_segwit.py                                          | ✓ Passed  | 175 s
+p2p_sendheaders.py                                     | ✓ Passed  | 49 s
+p2p_sendtxrcncl.py                                     | ✓ Passed  | 15 s
+p2p_timeouts.py                                        | ✓ Passed  | 20 s
+p2p_tx_download.py                                     | ✓ Passed  | 51 s
+p2p_tx_privacy.py                                      | ✓ Passed  | 2 s
+p2p_unrequested_blocks.py                              | ✓ Passed  | 10 s
+rpc_blockchain.py                                      | ✓ Passed  | 29 s
+rpc_createmultisig.py                                  | ✓ Passed  | 60 s
+rpc_decodescript.py                                    | ✓ Passed  | 3 s
+rpc_deprecated.py                                      | ✓ Passed  | 2 s
+rpc_deriveaddresses.py                                 | ✓ Passed  | 2 s
+rpc_deriveaddresses.py --usecli                        | ✓ Passed  | 3 s
+rpc_dumptxoutset.py                                    | ✓ Passed  | 4 s
+rpc_estimatefee.py                                     | ✓ Passed  | 2 s
+rpc_generate.py                                        | ✓ Passed  | 2 s
+rpc_getblockfilter.py                                  | ✓ Passed  | 4 s
+rpc_getblockfrompeer.py                                | ✓ Passed  | 5 s
+rpc_getblockstats.py                                   | ✓ Passed  | 3 s
+rpc_getchaintips.py                                    | ✓ Passed  | 5 s
+rpc_getdescriptorinfo.py                               | ✓ Passed  | 2 s
+rpc_help.py                                            | ✓ Passed  | 3 s
+rpc_invalid_address_message.py                         | ✓ Passed  | 2 s
+rpc_invalidateblock.py                                 | ✓ Passed  | 3 s
+rpc_mempool_info.py                                    | ✓ Passed  | 2 s
+rpc_misc.py                                            | ✓ Passed  | 95 s
+rpc_named_arguments.py                                 | ✓ Passed  | 2 s
+rpc_net.py                                             | ✓ Passed  | 29 s
+rpc_packages.py                                        | ✓ Passed  | 10 s
+rpc_preciousblock.py                                   | ✓ Passed  | 3 s
+rpc_psbt.py --descriptors                              | ✓ Passed  | 59 s
+rpc_psbt.py --legacy-wallet                            | ✓ Passed  | 59 s
+rpc_rawtransaction.py --legacy-wallet                  | ✓ Passed  | 19 s
+rpc_scanblocks.py                                      | ✓ Passed  | 4 s
+rpc_scantxoutset.py                                    | ✓ Passed  | 59 s
+rpc_setban.py                                          | ✓ Passed  | 7 s
+rpc_signer.py                                          | ✓ Passed  | 21 s
+rpc_signmessagewithprivkey.py                          | ✓ Passed  | 1 s
+rpc_signrawtransactionwithkey.py                       | ✓ Passed  | 5 s
+rpc_txoutproof.py                                      | ✓ Passed  | 8 s
+rpc_uptime.py                                          | ✓ Passed  | 3 s
+rpc_users.py                                           | ✓ Passed  | 14 s
+rpc_whitelist.py                                       | ✓ Passed  | 2 s
+tool_wallet.py --descriptors                           | ✓ Passed  | 46 s
+tool_wallet.py --legacy-wallet                         | ✓ Passed  | 48 s
+wallet_abandonconflict.py --descriptors                | ✓ Passed  | 14 s
+wallet_abandonconflict.py --legacy-wallet              | ✓ Passed  | 15 s
+wallet_address_types.py --descriptors                  | ✓ Passed  | 39 s
+wallet_address_types.py --legacy-wallet                | ✓ Passed  | 60 s
+wallet_avoid_mixing_output_types.py --descriptors      | ✓ Passed  | 22 s
+wallet_avoidreuse.py --descriptors                     | ✓ Passed  | 63 s
+wallet_avoidreuse.py --legacy-wallet                   | ✓ Passed  | 205 s
+wallet_backup.py --descriptors                         | ✓ Passed  | 52 s
+wallet_backup.py --legacy-wallet                       | ✓ Passed  | 60 s
+wallet_balance.py --descriptors                        | ✓ Passed  | 12 s
+wallet_balance.py --legacy-wallet                      | ✓ Passed  | 13 s
+wallet_basic.py --descriptors                          | ✓ Passed  | 81 s
+wallet_basic.py --legacy-wallet                        | ✓ Passed  | 88 s
+wallet_bumpfee.py --descriptors                        | ✓ Passed  | 49 s
+wallet_bumpfee.py --legacy-wallet                      | ✓ Passed  | 64 s
+wallet_coinbase_category.py --descriptors              | ✓ Passed  | 3 s
+wallet_coinbase_category.py --legacy-wallet            | ✓ Passed  | 3 s
+wallet_create_tx.py --descriptors                      | ✓ Passed  | 21 s
+wallet_create_tx.py --legacy-wallet                    | ✓ Passed  | 26 s
+wallet_createwallet.py --descriptors                   | ✓ Passed  | 7 s
+wallet_createwallet.py --legacy-wallet                 | ✓ Passed  | 6 s
+wallet_createwallet.py --usecli                        | ✓ Passed  | 21 s
+wallet_crosschain.py                                   | ✓ Passed  | 2 s
+wallet_descriptor.py --descriptors                     | ✓ Passed  | 22 s
+wallet_disable.py                                      | ✓ Passed  | 2 s
+wallet_dump.py --legacy-wallet                         | ✓ Passed  | 35 s
+wallet_encryption.py --descriptors                     | ✓ Passed  | 8 s
+wallet_encryption.py --legacy-wallet                   | ✓ Passed  | 7 s
+wallet_fallbackfee.py --descriptors                    | ✓ Passed  | 6 s
+wallet_fallbackfee.py --legacy-wallet                  | ✓ Passed  | 4 s
+wallet_fast_rescan.py --descriptors                    | ✓ Passed  | 57 s
+wallet_fundrawtransaction.py --descriptors             | ✓ Passed  | 97 s
+wallet_fundrawtransaction.py --legacy-wallet           | ✓ Passed  | 133 s
+wallet_groups.py --descriptors                         | ✓ Passed  | 90 s
+wallet_groups.py --legacy-wallet                       | ✓ Passed  | 96 s
+wallet_hd.py --descriptors                             | ✓ Passed  | 12 s
+wallet_hd.py --legacy-wallet                           | ✓ Passed  | 22 s
+wallet_implicitsegwit.py --legacy-wallet               | ✓ Passed  | 15 s
+wallet_import_rescan.py --legacy-wallet                | ✓ Passed  | 119 s
+wallet_import_with_label.py --legacy-wallet            | ✓ Passed  | 3 s
+wallet_importdescriptors.py --descriptors              | ✓ Passed  | 97 s
+wallet_importmulti.py --legacy-wallet                  | ✓ Passed  | 51 s
+wallet_importprunedfunds.py --descriptors              | ✓ Passed  | 6 s
+wallet_importprunedfunds.py --legacy-wallet            | ✓ Passed  | 7 s
+wallet_keypool.py --descriptors                        | ✓ Passed  | 10 s
+wallet_keypool.py --legacy-wallet                      | ✓ Passed  | 10 s
+wallet_keypool_topup.py --descriptors                  | ✓ Passed  | 24 s
+wallet_keypool_topup.py --legacy-wallet                | ✓ Passed  | 37 s
+wallet_labels.py --descriptors                         | ✓ Passed  | 6 s
+wallet_labels.py --legacy-wallet                       | ✓ Passed  | 10 s
+wallet_listdescriptors.py --descriptors                | ✓ Passed  | 7 s
+wallet_listreceivedby.py --descriptors                 | ✓ Passed  | 13 s
+wallet_listreceivedby.py --legacy-wallet               | ✓ Passed  | 16 s
+wallet_listsinceblock.py --descriptors                 | ✓ Passed  | 24 s
+wallet_listsinceblock.py --legacy-wallet               | ✓ Passed  | 21 s
+wallet_listtransactions.py --descriptors               | ✓ Passed  | 65 s
+wallet_listtransactions.py --legacy-wallet             | ✓ Passed  | 75 s
+wallet_migration.py                                    | ✓ Passed  | 19 s
+wallet_miniscript.py --descriptors                     | ✓ Passed  | 5 s
+wallet_multisig_descriptor_psbt.py --descriptors       | ✓ Passed  | 14 s
+wallet_multiwallet.py --descriptors                    | ✓ Passed  | 73 s
+wallet_multiwallet.py --legacy-wallet                  | ✓ Passed  | 81 s
+wallet_multiwallet.py --usecli                         | ✓ Passed  | 50 s
+wallet_orphanedreward.py                               | ✓ Passed  | 19 s
+wallet_pruning.py --legacy-wallet                      | ✓ Passed  | 744 s
+wallet_reorgsrestore.py                                | ✓ Passed  | 11 s
+wallet_resendwallettransactions.py --descriptors       | ✓ Passed  | 9 s
+wallet_resendwallettransactions.py --legacy-wallet     | ✓ Passed  | 6 s
+wallet_send.py --descriptors                           | ✓ Passed  | 22 s
+wallet_send.py --legacy-wallet                         | ✓ Passed  | 30 s
+wallet_sendall.py --descriptors                        | ✓ Passed  | 44 s
+wallet_sendall.py --legacy-wallet                      | ✓ Passed  | 76 s
+wallet_signer.py --descriptors                         | ✓ Passed  | 40 s
+wallet_signmessagewithaddress.py                       | ✓ Passed  | 2 s
+wallet_signrawtransactionwithwallet.py --descriptors   | ✓ Passed  | 5 s
+wallet_signrawtransactionwithwallet.py --legacy-wallet | ✓ Passed  | 6 s
+wallet_simulaterawtx.py --descriptors                  | ✓ Passed  | 4 s
+wallet_simulaterawtx.py --legacy-wallet                | ✓ Passed  | 5 s
+wallet_startup.py                                      | ✓ Passed  | 5 s
+wallet_taproot.py --descriptors                        | ✓ Passed  | 245 s
+wallet_timelock.py                                     | ✓ Passed  | 7 s
+wallet_transactiontime_rescan.py --descriptors         | ✓ Passed  | 17 s
+wallet_transactiontime_rescan.py --legacy-wallet       | ✓ Passed  | 19 s
+wallet_txn_clone.py                                    | ✓ Passed  | 5 s
+wallet_txn_clone.py --mineblock                        | ✓ Passed  | 8 s
+wallet_txn_clone.py --segwit                           | ✓ Passed  | 5 s
+wallet_txn_doublespend.py --descriptors                | ✓ Passed  | 8 s
+wallet_txn_doublespend.py --legacy-wallet              | ✓ Passed  | 5 s
+wallet_txn_doublespend.py --mineblock                  | ✓ Passed  | 7 s
+wallet_watchonly.py --legacy-wallet                    | ✓ Passed  | 6 s
+wallet_watchonly.py --usecli --legacy-wallet           | ✓ Passed  | 14 s
+feature_bind_extra.py                                  | ○ Skipped | 1 s
+feature_bind_port_discover.py                          | ○ Skipped | 0 s
+feature_bind_port_externalip.py                        | ○ Skipped | 0 s
+feature_init.py                                        | ○ Skipped | 2 s
+feature_syscall_sandbox.py                             | ○ Skipped | 0 s
+feature_txindex_compatibility.py                       | ○ Skipped | 0 s
+feature_unsupported_utxo_db.py                         | ○ Skipped | 0 s
+interface_usdt_coinselection.py                        | ○ Skipped | 1 s
+interface_usdt_net.py                                  | ○ Skipped | 1 s
+interface_usdt_utxocache.py                            | ○ Skipped | 0 s
+interface_usdt_validation.py                           | ○ Skipped | 1 s
+mempool_compatibility.py                               | ○ Skipped | 0 s
+rpc_bind.py --ipv4                                     | ○ Skipped | 1 s
+rpc_bind.py --ipv6                                     | ○ Skipped | 1 s
+rpc_bind.py --nonloopback                              | ○ Skipped | 1 s
+tool_signet_miner.py --descriptors                     | ○ Skipped | 0 s
+tool_signet_miner.py --legacy-wallet                   | ○ Skipped | 0 s
+wallet_backwards_compatibility.py --descriptors        | ○ Skipped | 1 s
+wallet_backwards_compatibility.py --legacy-wallet      | ○ Skipped | 1 s
+wallet_inactive_hdchains.py --legacy-wallet            | ○ Skipped | 1 s
+wallet_upgradewallet.py --legacy-wallet                | ○ Skipped | 0 s
+feature_startupnotify.py                               | ✖ Failed  | 4 s
+
+ALL                                                    | ✖ Failed  | 13098 s (accumulated) 
+Runtime: 2284 s
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 1 NEQ 0 exit /b 1 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      

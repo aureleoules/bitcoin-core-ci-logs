@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/19792/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was be8a3ca7f test: Introduce datadir_path helper
+HEAD is now at 630276cfe Merge be8a3ca7fbd37b12258570604b5a824e887d3d38 into f3bc1a72825fe2b51f4bc20e004cef464f05b965
