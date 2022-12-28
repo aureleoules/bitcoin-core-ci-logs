@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26756/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was ca8dbf664 wallet: Remove unused `CachedTxGetAvailableCredit()` function
+HEAD is now at a0628d9e0 Merge ca8dbf664c0da2677b50bf9d28911a2048f64046 into e9262ea32a6e1d364fb7974844fadc36f931f8c6
