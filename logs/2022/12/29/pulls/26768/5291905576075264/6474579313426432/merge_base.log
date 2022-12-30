@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26768/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was fad3f96a4 ci: Use clang-15 in tsan task
+HEAD is now at f0dc99263 Merge fad3f96a4bf2c696e92f08dbbe3a3f0ee3b95013 into 3b6e0f0345a5e7b437881f651d9b4e0881f7fd5e

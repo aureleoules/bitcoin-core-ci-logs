@@ -1,0 +1,549 @@
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv4 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call netsh int ipv6 set dynamicport tcp start=1025 num=64511 
+Ok.
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 0 NEQ 0 exit /b 0 
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>call python test\functional\test_runner.py --nocleanup --ci --quiet --combinedlogslen=4000 --jobs=6 --timeout-factor=8 --extended --exclude feature_dbcrash 
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.004s
+
+OK
+Running Unit Tests for Test Framework Modules
+169/259 - mempool_fee_histogram.py failed, Duration: 2 s
+
+stdout:
+2022-12-29T21:42:02.710000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87
+2022-12-29T21:42:03.805000Z TestFramework (ERROR): JSONRPC error
+Traceback (most recent call last):
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 133, in main
+    self.setup()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 297, in setup
+    self.setup_network()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 391, in setup_network
+    self.setup_nodes()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 415, in setup_nodes
+    self.import_deterministic_coinbase_privkeys()
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 432, in import_deterministic_coinbase_privkeys
+    self.init_wallet(node=i)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 439, in init_wallet
+    n.createwallet(wallet_name=wallet_name, descriptors=self.options.descriptors, load_on_startup=True)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_node.py", line 763, in createwallet
+    return self.__getattr__('createwallet')(wallet_name, disable_private_keys, blank, passphrase, avoid_reuse, descriptors, load_on_startup, external_signer)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\coverage.py", line 49, in __call__
+    return_val = self.auth_service_proxy_instance.__call__(*args, **kwargs)
+  File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\authproxy.py", line 146, in __call__
+    raise JSONRPCException(response['error'], status)
+test_framework.authproxy.JSONRPCException: Method not found (-32601)
+2022-12-29T21:42:03.883000Z TestFramework (INFO): Stopping nodes
+2022-12-29T21:42:04.008000Z TestFramework (WARNING): Not cleaning up dir C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): Test failed. Test logging available at C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87/test_framework.log
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): 
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): Hint: Call C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\combine_logs.py 'C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87' to consolidate all logs
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): 
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log.
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues
+2022-12-29T21:42:04.008000Z TestFramework (ERROR): 
+
+
+stderr:
+
+
+Combine the logs and print the last 4000 lines ...
+
+============
+Combined log for C:\Users\ContainerAdministrator\AppData\Local\Temp/test_runner_₿_🏃_20221229_211303/mempool_fee_histogram_87:
+============
+
+ test  2022-12-29T21:42:02.710000Z TestFramework (DEBUG): PRNG seed is: 7019612847889312618 
+ test  2022-12-29T21:42:02.710000Z TestFramework (DEBUG): Setting up network thread 
+ test  2022-12-29T21:42:02.710000Z TestFramework (INFO): Initializing test directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87 
+ test  2022-12-29T21:42:02.726000Z TestFramework.node0 (DEBUG): bitcoind started, waiting for RPC to come up 
+ node0 2022-12-29T21:42:03.454720Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:149] [LogPackageVersion] Bitcoin Core version v24.99.0-unk (release build) 
+ node0 2022-12-29T21:42:03.454789Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:667] [InitParameterInteraction] InitParameterInteraction: parameter interaction: -bind set -> setting -listen=1 
+ node0 2022-12-29T21:42:03.456313Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\context.cpp:21] [Context] Using the 'standard' SHA256 implementation 
+ node0 2022-12-29T21:42:03.482332Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:120] [StartLogging] Default data directory C:\Users\ContainerAdministrator\AppData\Roaming\Bitcoin 
+ node0 2022-12-29T21:42:03.483109Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:121] [StartLogging] Using data directory C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest 
+ node0 2022-12-29T21:42:03.483251Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init\common.cpp:126] [StartLogging] Config file: C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\bitcoin.conf 
+ node0 2022-12-29T21:42:03.483329Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: regtest="1" 
+ node0 2022-12-29T21:42:03.483396Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] bind="127.0.0.1" 
+ node0 2022-12-29T21:42:03.483449Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] connect="0" 
+ node0 2022-12-29T21:42:03.483509Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] discover="0" 
+ node0 2022-12-29T21:42:03.483561Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] dnsseed="0" 
+ node0 2022-12-29T21:42:03.483621Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fallbackfee="0.0002" 
+ node0 2022-12-29T21:42:03.483669Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] fixedseeds="0" 
+ node0 2022-12-29T21:42:03.483718Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] keypool="1" 
+ node0 2022-12-29T21:42:03.483772Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] listenonion="0" 
+ node0 2022-12-29T21:42:03.483840Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] natpmp="0" 
+ node0 2022-12-29T21:42:03.483890Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] peertimeout="999999999" 
+ node0 2022-12-29T21:42:03.483951Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] port="15044" 
+ node0 2022-12-29T21:42:03.484003Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] printtoconsole="0" 
+ node0 2022-12-29T21:42:03.484056Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcdoccheck="1" 
+ node0 2022-12-29T21:42:03.484114Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] rpcport="20044" 
+ node0 2022-12-29T21:42:03.484173Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] server="1" 
+ node0 2022-12-29T21:42:03.484273Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] shrinkdebugfile="0" 
+ node0 2022-12-29T21:42:03.484340Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] unsafesqlitesync="1" 
+ node0 2022-12-29T21:42:03.484399Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Config file arg: [regtest] upnp="0" 
+ node0 2022-12-29T21:42:03.484468Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: datadir="C:\\Users\\ContainerAdministrator\\AppData\\Local\\Temp\\test_runner_₿_🏃_20221229_211303\\mempool_fee_histogram_87\\node0" 
+ node0 2022-12-29T21:42:03.484529Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debug="" 
+ node0 2022-12-29T21:42:03.484590Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="libevent" 
+ node0 2022-12-29T21:42:03.484645Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="leveldb" 
+ node0 2022-12-29T21:42:03.484704Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: debugexclude="rand" 
+ node0 2022-12-29T21:42:03.484755Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: disablewallet="" 
+ node0 2022-12-29T21:42:03.484817Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: loglevel="trace" 
+ node0 2022-12-29T21:42:03.484878Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logsourcelocations="" 
+ node0 2022-12-29T21:42:03.484934Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logthreadnames="" 
+ node0 2022-12-29T21:42:03.485000Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: logtimemicros="" 
+ node0 2022-12-29T21:42:03.485064Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\system.cpp:1120] [logArgsPrefix] Command-line arg: uacomment="testnode0" 
+ node0 2022-12-29T21:42:03.485120Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1111] [AppInitMain] Using at most 125 automatic connections (2048 file descriptors available) 
+ node0 2022-12-29T21:42:03.516559Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\script\sigcache.cpp:103] [InitSignatureCache] Using 16 MiB out of 16 MiB requested for signature cache, able to store 524288 elements 
+ node0 2022-12-29T21:42:03.548396Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:1663] [InitScriptExecutionCache] Using 16 MiB out of 16 MiB requested for script execution cache, able to store 524288 elements 
+ node0 2022-12-29T21:42:03.548496Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1143] [AppInitMain] Script verification uses 5 additional threads 
+ node0 2022-12-29T21:42:03.548956Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\wallet\init.cpp:135] [Construct] Wallet disabled! 
+ node0 2022-12-29T21:42:03.573327Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:185] [InitHTTPAllowList] [http] Allowing HTTP connections from: 127.0.0.0/8 ::1/128 
+ node0 2022-12-29T21:42:03.575565Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:320] [HTTPBindAddresses] Binding RPC on address ::1 port 20044 
+ node0 2022-12-29T21:42:03.576596Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:320] [HTTPBindAddresses] Binding RPC on address 127.0.0.1 port 20044 
+ node0 2022-12-29T21:42:03.576779Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:400] [InitHTTPServer] [http] Initialized HTTP server 
+ node0 2022-12-29T21:42:03.576847Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:402] [InitHTTPServer] [http] creating work queue of depth 16 
+ node0 2022-12-29T21:42:03.576897Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:289] [StartRPC] [rpc] Starting RPC 
+ node0 2022-12-29T21:42:03.576990Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:296] [StartHTTPRPC] [rpc] Starting HTTP RPC server 
+ node0 2022-12-29T21:42:03.577095Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:245] [InitRPCAuthentication] Using random cookie authentication. 
+ node0 2022-12-29T21:42:03.579097Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:106] [GenerateAuthCookie] Generated RPC authentication cookie C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\.cookie 
+ node0 2022-12-29T21:42:03.579209Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:670] [RegisterHTTPHandler] [http] Registering HTTP handler for / (exactmatch 1) 
+ node0 2022-12-29T21:42:03.579277Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:670] [RegisterHTTPHandler] [http] Registering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-12-29T21:42:03.579337Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:424] [StartHTTPServer] [http] Starting HTTP server 
+ node0 2022-12-29T21:42:03.579393Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:426] [StartHTTPServer] [http] starting 4 worker threads 
+ node0 2022-12-29T21:42:03.579695Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1228] [AppInitMain] Using /16 prefix for IP bucketing 
+ node0 2022-12-29T21:42:03.579775Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading P2P addresses… 
+ node0 2022-12-29T21:42:03.581212Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\addrdb.cpp:198] [LoadAddrman] Creating peers.dat because the file was not found ("C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\peers.dat") 
+ node0 2022-12-29T21:42:03.586680Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading banlist… 
+ node0 2022-12-29T21:42:03.586834Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:41] [LoadBanlist] Recreating the banlist database 
+ node0 2022-12-29T21:42:03.587254Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\banman.cpp:67] [DumpBanlist] [net] Flushed 0 banned node addresses/subnets to disk  0ms 
+ node0 2022-12-29T21:42:03.587368Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1535] [SetTryNewOutboundPeer] [net] setting try another outbound peer=false 
+ node0 2022-12-29T21:42:03.587429Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2196] [SetNetworkActive] SetNetworkActive: true 
+ node0 2022-12-29T21:42:03.589199Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:551] [CBlockPolicyEstimator] Failed to read fee estimates from C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\fee_estimates.dat. Continue anyway. 
+ node0 2022-12-29T21:42:03.589537Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1442] [AppInitMain] Cache configuration: 
+ node0 2022-12-29T21:42:03.589602Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1443] [AppInitMain] * Using 2.0 MiB for block index database 
+ node0 2022-12-29T21:42:03.589664Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1451] [AppInitMain] * Using 8.0 MiB for chain state database 
+ node0 2022-12-29T21:42:03.589806Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1469] [AppInitMain] * Using 440.0 MiB for in-memory UTXO set (plus up to 286.1 MiB of unused mempool space) 
+ node0 2022-12-29T21:42:03.590031Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Loading block index… 
+ node0 2022-12-29T21:42:03.590099Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:41] [LoadChainstate] Validating signatures for all blocks. 
+ node0 2022-12-29T21:42:03.590162Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:43] [LoadChainstate] Setting nMinimumChainWork=0000000000000000000000000000000000000000000000000000000000000000 
+ node0 2022-12-29T21:42:03.591365Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\blocks\index 
+ node0 2022-12-29T21:42:03.592962Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] scheduler thread start 
+ node0 2022-12-29T21:42:03.610103Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:286] [ThreadHTTP] [http] Entering http event loop 
+ node0 2022-12-29T21:42:03.613939Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-29T21:42:03.614052Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\blocks\index: 0000000000000000 
+ node0 2022-12-29T21:42:03.614186Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:331] [LoadBlockIndexDB] LoadBlockIndexDB: last block file = 0 
+ node0 2022-12-29T21:42:03.614281Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:335] [LoadBlockIndexDB] LoadBlockIndexDB: last block file info: CBlockFileInfo(blocks=0, size=0, heights=0...0, time=1970-01-01...1970-01-01) 
+ node0 2022-12-29T21:42:03.614333Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\blockstorage.cpp:346] [LoadBlockIndexDB] Checking all blk files are present... 
+ node0 2022-12-29T21:42:03.614393Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4337] [LoadBlockIndex] Initializing databases... 
+ node0 2022-12-29T21:42:03.615936Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\flatfile.cpp:69] [Allocate] [validation] Pre-allocating up to position 0x1000000 in blk00000.dat 
+ node0 2022-12-29T21:42:03.617476Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\node\chainstate.cpp:119] [LoadChainstate] Initializing chainstate Chainstate [ibd] @ height -1 (null) 
+ node0 2022-12-29T21:42:03.618703Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\chainstate 
+ node0 2022-12-29T21:42:03.631812Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-29T21:42:03.632012Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:180] [CDBWrapper] Wrote new obfuscate key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\chainstate: 4b4d09918c3bd8f3 
+ node0 2022-12-29T21:42:03.632121Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\chainstate: 4b4d09918c3bd8f3 
+ node0 2022-12-29T21:42:03.632301Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:5221] [MaybeRebalanceCaches] [snapshot] allocating all cache to the IBD chainstate 
+ node0 2022-12-29T21:42:03.633512Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:150] [CDBWrapper] Opening LevelDB in C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\chainstate 
+ node0 2022-12-29T21:42:03.646669Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:158] [CDBWrapper] Opened LevelDB successfully 
+ node0 2022-12-29T21:42:03.646796Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\dbwrapper.cpp:183] [CDBWrapper] Using obfuscation key for C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87\node0\regtest\chainstate: 4b4d09918c3bd8f3 
+ node0 2022-12-29T21:42:03.646913Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4764] [ResizeCoinsCaches] [Chainstate [ibd] @ height -1 (null)] resized coinsdb cache to 8.0 MiB 
+ node0 2022-12-29T21:42:03.646986Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:4766] [ResizeCoinsCaches] [Chainstate [ibd] @ height -1 (null)] resized coinstip cache to 440.0 MiB 
+ node0 2022-12-29T21:42:03.647081Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Verifying blocks… 
+ node0 2022-12-29T21:42:03.647154Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1511] [AppInitMain]  block index              57ms 
+ node0 2022-12-29T21:42:03.648577Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1600] [AppInitMain] Setting NODE_NETWORK on non-prune mode 
+ node0 2022-12-29T21:42:03.649081Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] loadblk thread start 
+ node0 2022-12-29T21:42:03.650746Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2751] [ConnectTip] [bench]   - Load block from disk: 1.48ms [0.00s (infms/blk)] 
+ node0 2022-12-29T21:42:03.650975Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:255] [BlockChecked] [validation] BlockChecked: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 state=Valid 
+ node0 2022-12-29T21:42:03.651076Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2767] [ConnectTip] [bench]   - Connect total: 0.36ms [0.00s (0.36ms/blk)] 
+ node0 2022-12-29T21:42:03.651144Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2776] [ConnectTip] [bench]   - Flush: 0.07ms [0.00s (0.07ms/blk)] 
+ node0 2022-12-29T21:42:03.651213Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2786] [ConnectTip] [bench]   - Writing chainstate: 0.07ms [0.00s (0.07ms/blk)] 
+ node0 2022-12-29T21:42:03.651370Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2546] [UpdateTipLog] UpdateTip: new best=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 height=0 version=0x00000001 log2_work=1.000000 tx=1 date='2011-02-02T23:16:42Z' progress=1.000000 cache=0.0MiB(0txo) 
+ node0 2022-12-29T21:42:03.651439Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2802] [ConnectTip] [bench]   - Connect postprocess: 0.22ms [0.00s (0.22ms/blk)] 
+ node0 2022-12-29T21:42:03.651503Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validation.cpp:2806] [ConnectTip] [bench] - Connect block: 2.19ms [0.00s (2.19ms/blk)] 
+ node0 2022-12-29T21:42:03.651573Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txmempool.cpp:658] [check] [mempool] Checking mempool with 0 transactions and 0 inputs 
+ node0 2022-12-29T21:42:03.651671Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:232] [BlockConnected] [validation] Enqueuing BlockConnected: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 block height=0 
+ node0 2022-12-29T21:42:03.651787Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:232] [operator ()] [validation] BlockConnected: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 block height=0 
+ node0 2022-12-29T21:42:03.651906Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:204] [UpdatedBlockTip] [validation] Enqueuing UpdatedBlockTip: new block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 fork block hash=null (in IBD=true) 
+ node0 2022-12-29T21:42:03.652033Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1685] [AppInitMain] block tree size = 1 
+ node0 2022-12-29T21:42:03.652098Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:1697] [AppInitMain] nBestHeight = 0 
+ node0 2022-12-29T21:42:03.652169Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:204] [operator ()] [validation] UpdatedBlockTip: new block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 fork block hash=null (in IBD=true) 
+ node0 2022-12-29T21:42:03.652431Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2129] [BindListenPort] Bound to 127.0.0.1:15044 
+ node0 2022-12-29T21:42:03.652572Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2129] [BindListenPort] Bound to 127.0.0.1:18445 
+ node0 2022-12-29T21:42:03.652649Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Starting network threads… 
+ node0 2022-12-29T21:42:03.652777Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:2335] [Start] DNS seeding disabled 
+ node0 2022-12-29T21:42:03.652950Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\noui.cpp:56] [noui_InitMessage] init message: Done loading 
+ node0 2022-12-29T21:42:03.653289Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:47] [LoadMempool] Failed to open mempool file from disk. Continuing anyway. 
+ node0 2022-12-29T21:42:03.653350Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] loadblk thread exit 
+ node0 2022-12-29T21:42:03.653776Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] addcon thread start 
+ node0 2022-12-29T21:42:03.662114Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] net thread start 
+ node0 2022-12-29T21:42:03.662408Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:20] [TraceThread] msghand thread start 
+ test  2022-12-29T21:42:03.805000Z TestFramework.node0 (DEBUG): RPC successfully started 
+ test  2022-12-29T21:42:03.805000Z TestFramework (ERROR): JSONRPC error 
+                                   Traceback (most recent call last):
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 133, in main
+                                       self.setup()
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 297, in setup
+                                       self.setup_network()
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 391, in setup_network
+                                       self.setup_nodes()
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 415, in setup_nodes
+                                       self.import_deterministic_coinbase_privkeys()
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 432, in import_deterministic_coinbase_privkeys
+                                       self.init_wallet(node=i)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_framework.py", line 439, in init_wallet
+                                       n.createwallet(wallet_name=wallet_name, descriptors=self.options.descriptors, load_on_startup=True)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\test_node.py", line 763, in createwallet
+                                       return self.__getattr__('createwallet')(wallet_name, disable_private_keys, blank, passphrase, avoid_reuse, descriptors, load_on_startup, external_signer)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\coverage.py", line 49, in __call__
+                                       return_val = self.auth_service_proxy_instance.__call__(*args, **kwargs)
+                                     File "C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\test_framework\authproxy.py", line 146, in __call__
+                                       raise JSONRPCException(response['error'], status)
+                                   test_framework.authproxy.JSONRPCException: Method not found (-32601)
+ node0 2022-12-29T21:42:03.812824Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:52994 
+ node0 2022-12-29T21:42:03.813036Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getblockcount user=__cookie__ 
+ node0 2022-12-29T21:42:03.814454Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:52995 
+ node0 2022-12-29T21:42:03.814650Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=getmempoolinfo user=__cookie__ 
+ node0 2022-12-29T21:42:03.816631Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:52996 
+ node0 2022-12-29T21:42:03.816844Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=createwallet user=__cookie__ 
+ test  2022-12-29T21:42:03.821000Z TestFramework (DEBUG): Closing down network thread 
+ test  2022-12-29T21:42:03.883000Z TestFramework (INFO): Stopping nodes 
+ test  2022-12-29T21:42:03.883000Z TestFramework.node0 (DEBUG): Stopping node 
+ node0 2022-12-29T21:42:03.885322Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:239] [http_request_cb] [http] Received a POST request for / from 127.0.0.1:52997 
+ node0 2022-12-29T21:42:03.885576Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\request.cpp:179] [parse] [rpc] ThreadRPCServer method=stop user=__cookie__ 
+ node0 2022-12-29T21:42:03.885773Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:436] [InterruptHTTPServer] [http] Interrupting HTTP server 
+ node0 2022-12-29T21:42:03.885860Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:314] [InterruptHTTPRPC] [rpc] Interrupting HTTP RPC server 
+ node0 2022-12-29T21:42:03.885942Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:299] [operator ()] [rpc] Interrupting RPC 
+ node0 2022-12-29T21:42:03.886066Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:217] [Shutdown] Shutdown: In progress... 
+ node0 2022-12-29T21:42:03.886120Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httprpc.cpp:319] [StopHTTPRPC] [rpc] Stopping HTTP RPC server 
+ node0 2022-12-29T21:42:03.886176Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:685] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for / (exactmatch 1) 
+ node0 2022-12-29T21:42:03.886238Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:685] [UnregisterHTTPHandler] [http] Unregistering HTTP handler for /wallet/ (exactmatch 0) 
+ node0 2022-12-29T21:42:03.886293Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\rpc\server.cpp:311] [operator ()] [rpc] Stopping RPC 
+ node0 2022-12-29T21:42:03.886532Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] msghand thread exit 
+ node0 2022-12-29T21:42:03.886753Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:383] [OnRPCStopped] [rpc] RPC stopped. 
+ node0 2022-12-29T21:42:03.886816Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:448] [StopHTTPServer] [http] Stopping HTTP server 
+ node0 2022-12-29T21:42:03.886871Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:450] [StopHTTPServer] [http] Waiting for HTTP worker threads to exit 
+ node0 2022-12-29T21:42:03.887133Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] addcon thread exit 
+ node0 2022-12-29T21:42:03.887398Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:289] [ThreadHTTP] [http] Exited http event loop 
+ node0 2022-12-29T21:42:03.887494Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:463] [StopHTTPServer] [http] Waiting for HTTP event thread to exit 
+ node0 2022-12-29T21:42:03.887723Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\httpserver.cpp:475] [StopHTTPServer] [http] Stopped HTTP server 
+ node0 2022-12-29T21:42:03.899446Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] net thread exit 
+ node0 2022-12-29T21:42:03.905183Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\net.cpp:1507] [DumpAddresses] [net] Flushed 0 addresses to peers.dat  5ms 
+ node0 2022-12-29T21:42:03.905325Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\util\thread.cpp:22] [TraceThread] scheduler thread exit 
+ node0 2022-12-29T21:42:03.906579Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:168] [DumpMempool] Writing 0 unbroadcast transactions to disk. 
+ node0 2022-12-29T21:42:03.909931Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\kernel\mempool_persist.cpp:181] [DumpMempool] Dumped mempool: 1.61e-05s to copy, 0.0036209s to dump 
+ node0 2022-12-29T21:42:03.910017Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\policy\fees.cpp:1011] [FlushUnconfirmed] [estimatefee] Recorded 0 unconfirmed txs from mempool in 5.1e-06s 
+ node0 2022-12-29T21:42:03.917800Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-12-29T21:42:03.922973Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.08ms) 
+ node0 2022-12-29T21:42:03.923053Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-12-29T21:42:03.926414Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.29ms) 
+ node0 2022-12-29T21:42:03.926512Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started 
+ node0 2022-12-29T21:42:03.926726Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-12-29T21:42:03.926879Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... 
+ node0 2022-12-29T21:42:03.926961Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.38ms) 
+ node0 2022-12-29T21:42:03.927023Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 
+ node0 2022-12-29T21:42:03.927099Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [operator ()] [validation] ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 
+ node0 2022-12-29T21:42:03.927279Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk started 
+ node0 2022-12-29T21:42:03.932352Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block and undo data to disk completed (5.00ms) 
+ node0 2022-12-29T21:42:03.932428Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk started 
+ node0 2022-12-29T21:42:03.935663Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write block index to disk completed (3.17ms) 
+ node0 2022-12-29T21:42:03.935750Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) started 
+ node0 2022-12-29T21:42:03.935984Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:169] [BatchWrite] [coindb] Writing final batch of 0.00 MiB 
+ node0 2022-12-29T21:42:03.936093Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\txdb.cpp:171] [BatchWrite] [coindb] Committed 0 changed transaction outputs (out of 0) to coin database... 
+ node0 2022-12-29T21:42:03.936164Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\logging\timer.h:57] [Log] [bench] FlushStateToDisk: write coins cache to disk (0 coins, 0kB) completed (0.35ms) 
+ node0 2022-12-29T21:42:03.936276Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\validationinterface.cpp:250] [ChainStateFlushed] [validation] Enqueuing ChainStateFlushed: block hash=0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206 
+ node0 2022-12-29T21:42:03.937645Z [C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\src\init.cpp:334] [Shutdown] Shutdown: done 
+ test  2022-12-29T21:42:04.008000Z TestFramework.node0 (DEBUG): Node stopped 
+ test  2022-12-29T21:42:04.008000Z TestFramework (WARNING): Not cleaning up dir C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): Test failed. Test logging available at C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87/test_framework.log 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): Hint: Call C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\test\functional\combine_logs.py 'C:\Users\ContainerAdministrator\AppData\Local\Temp\test_runner_₿_🏃_20221229_211303\mempool_fee_histogram_87' to consolidate all logs 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): If this failure happened unexpectedly or intermittently, please file a bug and provide a link or upload of the combined log. 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): https://github.com/bitcoin/bitcoin/issues 
+ test  2022-12-29T21:42:04.008000Z TestFramework (ERROR): 
+
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, feature_config_args.py, wallet_migration.py, p2p_ibd_txrelay.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, feature_config_args.py, wallet_migration.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py, wallet_migration.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py, feature_coinstatsindex.py]
+Remaining jobs: [feature_pruning.py, feature_index_prune.py]
+Remaining jobs: [feature_index_prune.py]
+
+TEST                                                   | STATUS    | DURATION
+
+example_test.py                                        | ✓ Passed  | 4 s
+feature_abortnode.py                                   | ✓ Passed  | 2 s
+feature_addrman.py                                     | ✓ Passed  | 7 s
+feature_anchors.py                                     | ✓ Passed  | 3 s
+feature_asmap.py                                       | ✓ Passed  | 8 s
+feature_assumevalid.py                                 | ✓ Passed  | 79 s
+feature_bip68_sequence.py                              | ✓ Passed  | 65 s
+feature_block.py                                       | ✓ Passed  | 550 s
+feature_blocksdir.py                                   | ✓ Passed  | 2 s
+feature_cltv.py                                        | ✓ Passed  | 3 s
+feature_coinstatsindex.py                              | ✓ Passed  | 119 s
+feature_config_args.py                                 | ✓ Passed  | 26 s
+feature_csv_activation.py                              | ✓ Passed  | 37 s
+feature_dersig.py                                      | ✓ Passed  | 3 s
+feature_dirsymlinks.py                                 | ✓ Passed  | 2 s
+feature_discover.py                                    | ✓ Passed  | 6 s
+feature_fee_estimation.py                              | ✓ Passed  | 385 s
+feature_filelock.py                                    | ✓ Passed  | 4 s
+feature_help.py                                        | ✓ Passed  | 2 s
+feature_includeconf.py                                 | ✓ Passed  | 4 s
+feature_index_prune.py                                 | ✓ Passed  | 2144 s
+feature_loadblock.py                                   | ✓ Passed  | 4 s
+feature_logging.py                                     | ✓ Passed  | 8 s
+feature_maxtipage.py                                   | ✓ Passed  | 46 s
+feature_maxuploadtarget.py                             | ✓ Passed  | 214 s
+feature_minchainwork.py                                | ✓ Passed  | 12 s
+feature_notifications.py                               | ✓ Passed  | 19 s
+feature_nulldummy.py                                   | ✓ Passed  | 2 s
+feature_presegwit_node_upgrade.py                      | ✓ Passed  | 3 s
+feature_proxy.py                                       | ✓ Passed  | 9 s
+feature_pruning.py                                     | ✓ Passed  | 2044 s
+feature_rbf.py                                         | ✓ Passed  | 20 s
+feature_reindex.py                                     | ✓ Passed  | 9 s
+feature_segwit.py --descriptors                        | ✓ Passed  | 19 s
+feature_segwit.py --legacy-wallet                      | ✓ Passed  | 41 s
+feature_settings.py                                    | ✓ Passed  | 6 s
+feature_shutdown.py                                    | ✓ Passed  | 2 s
+feature_signet.py                                      | ✓ Passed  | 17 s
+feature_startupnotify.py                               | ✓ Passed  | 3 s
+feature_taproot.py                                     | ✓ Passed  | 296 s
+feature_uacomment.py                                   | ✓ Passed  | 11 s
+feature_utxo_set_hash.py                               | ✓ Passed  | 3 s
+feature_versionbits_warning.py                         | ✓ Passed  | 8 s
+interface_bitcoin_cli.py --descriptors                 | ✓ Passed  | 18 s
+interface_bitcoin_cli.py --legacy-wallet               | ✓ Passed  | 18 s
+interface_http.py                                      | ✓ Passed  | 2 s
+interface_rest.py                                      | ✓ Passed  | 7 s
+interface_rpc.py                                       | ✓ Passed  | 33 s
+interface_zmq.py                                       | ✓ Passed  | 31 s
+mempool_accept.py                                      | ✓ Passed  | 8 s
+mempool_accept_wtxid.py                                | ✓ Passed  | 21 s
+mempool_datacarrier.py                                 | ✓ Passed  | 2 s
+mempool_expiry.py                                      | ✓ Passed  | 4 s
+mempool_limit.py                                       | ✓ Passed  | 19 s
+mempool_package_limits.py                              | ✓ Passed  | 5 s
+mempool_package_onemore.py                             | ✓ Passed  | 2 s
+mempool_packages.py                                    | ✓ Passed  | 14 s
+mempool_persist.py --descriptors                       | ✓ Passed  | 64 s
+mempool_reorg.py                                       | ✓ Passed  | 4 s
+mempool_resurrect.py                                   | ✓ Passed  | 2 s
+mempool_spend_coinbase.py                              | ✓ Passed  | 1 s
+mempool_unbroadcast.py                                 | ✓ Passed  | 14 s
+mempool_updatefromblock.py                             | ✓ Passed  | 363 s
+mining_basic.py                                        | ✓ Passed  | 16 s
+mining_getblocktemplate_longpoll.py                    | ✓ Passed  | 78 s
+mining_prioritisetransaction.py                        | ✓ Passed  | 21 s
+p2p_add_connections.py                                 | ✓ Passed  | 8 s
+p2p_addr_relay.py                                      | ✓ Passed  | 24 s
+p2p_addrfetch.py                                       | ✓ Passed  | 2 s
+p2p_addrv2_relay.py                                    | ✓ Passed  | 2 s
+p2p_block_sync.py                                      | ✓ Passed  | 2 s
+p2p_blockfilters.py                                    | ✓ Passed  | 75 s
+p2p_blocksonly.py                                      | ✓ Passed  | 17 s
+p2p_compactblocks.py                                   | ✓ Passed  | 10 s
+p2p_compactblocks_blocksonly.py                        | ✓ Passed  | 3 s
+p2p_compactblocks_hb.py                                | ✓ Passed  | 23 s
+p2p_disconnect_ban.py                                  | ✓ Passed  | 5 s
+p2p_dns_seeds.py                                       | ✓ Passed  | 35 s
+p2p_dos_header_tree.py                                 | ✓ Passed  | 4 s
+p2p_eviction.py                                        | ✓ Passed  | 7 s
+p2p_feefilter.py                                       | ✓ Passed  | 20 s
+p2p_filter.py                                          | ✓ Passed  | 5 s
+p2p_fingerprint.py                                     | ✓ Passed  | 2 s
+p2p_getaddr_caching.py                                 | ✓ Passed  | 28 s
+p2p_getdata.py                                         | ✓ Passed  | 1 s
+p2p_headers_sync_with_minchainwork.py                  | ✓ Passed  | 237 s
+p2p_i2p_ports.py                                       | ✓ Passed  | 18 s
+p2p_i2p_sessions.py                                    | ✓ Passed  | 6 s
+p2p_ibd_txrelay.py                                     | ✓ Passed  | 3 s
+p2p_initial_headers_sync.py                            | ✓ Passed  | 2 s
+p2p_invalid_block.py                                   | ✓ Passed  | 3 s
+p2p_invalid_locator.py                                 | ✓ Passed  | 3 s
+p2p_invalid_messages.py                                | ✓ Passed  | 102 s
+p2p_invalid_tx.py                                      | ✓ Passed  | 10 s
+p2p_leak.py                                            | ✓ Passed  | 7 s
+p2p_leak_tx.py                                         | ✓ Passed  | 3 s
+p2p_message_capture.py                                 | ✓ Passed  | 1 s
+p2p_nobloomfilter_messages.py                          | ✓ Passed  | 2 s
+p2p_node_network_limited.py                            | ✓ Passed  | 53 s
+p2p_permissions.py                                     | ✓ Passed  | 20 s
+p2p_ping.py                                            | ✓ Passed  | 2 s
+p2p_segwit.py                                          | ✓ Passed  | 167 s
+p2p_sendheaders.py                                     | ✓ Passed  | 26 s
+p2p_sendtxrcncl.py                                     | ✓ Passed  | 10 s
+p2p_timeouts.py                                        | ✓ Passed  | 17 s
+p2p_tx_download.py                                     | ✓ Passed  | 46 s
+p2p_tx_privacy.py                                      | ✓ Passed  | 4 s
+p2p_unrequested_blocks.py                              | ✓ Passed  | 9 s
+rpc_blockchain.py                                      | ✓ Passed  | 25 s
+rpc_createmultisig.py                                  | ✓ Passed  | 52 s
+rpc_decodescript.py                                    | ✓ Passed  | 2 s
+rpc_deprecated.py                                      | ✓ Passed  | 1 s
+rpc_deriveaddresses.py                                 | ✓ Passed  | 1 s
+rpc_deriveaddresses.py --usecli                        | ✓ Passed  | 2 s
+rpc_dumptxoutset.py                                    | ✓ Passed  | 2 s
+rpc_estimatefee.py                                     | ✓ Passed  | 2 s
+rpc_generate.py                                        | ✓ Passed  | 1 s
+rpc_getblockfilter.py                                  | ✓ Passed  | 3 s
+rpc_getblockfrompeer.py                                | ✓ Passed  | 3 s
+rpc_getblockstats.py                                   | ✓ Passed  | 3 s
+rpc_getchaintips.py                                    | ✓ Passed  | 7 s
+rpc_getdescriptorinfo.py                               | ✓ Passed  | 2 s
+rpc_help.py                                            | ✓ Passed  | 3 s
+rpc_invalid_address_message.py                         | ✓ Passed  | 1 s
+rpc_invalidateblock.py                                 | ✓ Passed  | 2 s
+rpc_mempool_info.py                                    | ✓ Passed  | 1 s
+rpc_misc.py                                            | ✓ Passed  | 87 s
+rpc_named_arguments.py                                 | ✓ Passed  | 1 s
+rpc_net.py                                             | ✓ Passed  | 30 s
+rpc_packages.py                                        | ✓ Passed  | 9 s
+rpc_preciousblock.py                                   | ✓ Passed  | 3 s
+rpc_psbt.py --descriptors                              | ✓ Passed  | 55 s
+rpc_psbt.py --legacy-wallet                            | ✓ Passed  | 59 s
+rpc_rawtransaction.py --legacy-wallet                  | ✓ Passed  | 19 s
+rpc_scanblocks.py                                      | ✓ Passed  | 3 s
+rpc_scantxoutset.py                                    | ✓ Passed  | 52 s
+rpc_setban.py                                          | ✓ Passed  | 6 s
+rpc_signer.py                                          | ✓ Passed  | 15 s
+rpc_signmessagewithprivkey.py                          | ✓ Passed  | 1 s
+rpc_signrawtransactionwithkey.py                       | ✓ Passed  | 5 s
+rpc_txoutproof.py                                      | ✓ Passed  | 10 s
+rpc_uptime.py                                          | ✓ Passed  | 2 s
+rpc_users.py                                           | ✓ Passed  | 9 s
+rpc_whitelist.py                                       | ✓ Passed  | 1 s
+tool_wallet.py --descriptors                           | ✓ Passed  | 34 s
+tool_wallet.py --legacy-wallet                         | ✓ Passed  | 37 s
+wallet_abandonconflict.py --descriptors                | ✓ Passed  | 14 s
+wallet_abandonconflict.py --legacy-wallet              | ✓ Passed  | 18 s
+wallet_address_types.py --descriptors                  | ✓ Passed  | 37 s
+wallet_address_types.py --legacy-wallet                | ✓ Passed  | 55 s
+wallet_avoid_mixing_output_types.py --descriptors      | ✓ Passed  | 20 s
+wallet_avoidreuse.py --descriptors                     | ✓ Passed  | 61 s
+wallet_avoidreuse.py --legacy-wallet                   | ✓ Passed  | 193 s
+wallet_backup.py --descriptors                         | ✓ Passed  | 38 s
+wallet_backup.py --legacy-wallet                       | ✓ Passed  | 72 s
+wallet_balance.py --descriptors                        | ✓ Passed  | 9 s
+wallet_balance.py --legacy-wallet                      | ✓ Passed  | 11 s
+wallet_basic.py --descriptors                          | ✓ Passed  | 60 s
+wallet_basic.py --legacy-wallet                        | ✓ Passed  | 74 s
+wallet_bumpfee.py --descriptors                        | ✓ Passed  | 55 s
+wallet_bumpfee.py --legacy-wallet                      | ✓ Passed  | 51 s
+wallet_coinbase_category.py --descriptors              | ✓ Passed  | 3 s
+wallet_coinbase_category.py --legacy-wallet            | ✓ Passed  | 3 s
+wallet_create_tx.py --descriptors                      | ✓ Passed  | 14 s
+wallet_create_tx.py --legacy-wallet                    | ✓ Passed  | 20 s
+wallet_createwallet.py --descriptors                   | ✓ Passed  | 6 s
+wallet_createwallet.py --legacy-wallet                 | ✓ Passed  | 6 s
+wallet_createwallet.py --usecli                        | ✓ Passed  | 9 s
+wallet_crosschain.py                                   | ✓ Passed  | 3 s
+wallet_descriptor.py --descriptors                     | ✓ Passed  | 21 s
+wallet_disable.py                                      | ✓ Passed  | 1 s
+wallet_dump.py --legacy-wallet                         | ✓ Passed  | 35 s
+wallet_encryption.py --descriptors                     | ✓ Passed  | 6 s
+wallet_encryption.py --legacy-wallet                   | ✓ Passed  | 6 s
+wallet_fallbackfee.py --descriptors                    | ✓ Passed  | 4 s
+wallet_fallbackfee.py --legacy-wallet                  | ✓ Passed  | 4 s
+wallet_fast_rescan.py --descriptors                    | ✓ Passed  | 50 s
+wallet_fundrawtransaction.py --descriptors             | ✓ Passed  | 96 s
+wallet_fundrawtransaction.py --legacy-wallet           | ✓ Passed  | 133 s
+wallet_groups.py --descriptors                         | ✓ Passed  | 85 s
+wallet_groups.py --legacy-wallet                       | ✓ Passed  | 67 s
+wallet_hd.py --descriptors                             | ✓ Passed  | 10 s
+wallet_hd.py --legacy-wallet                           | ✓ Passed  | 22 s
+wallet_implicitsegwit.py --legacy-wallet               | ✓ Passed  | 11 s
+wallet_import_rescan.py --legacy-wallet                | ✓ Passed  | 113 s
+wallet_import_with_label.py --legacy-wallet            | ✓ Passed  | 3 s
+wallet_importdescriptors.py --descriptors              | ✓ Passed  | 81 s
+wallet_importmulti.py --legacy-wallet                  | ✓ Passed  | 47 s
+wallet_importprunedfunds.py --descriptors              | ✓ Passed  | 6 s
+wallet_importprunedfunds.py --legacy-wallet            | ✓ Passed  | 4 s
+wallet_keypool.py --descriptors                        | ✓ Passed  | 9 s
+wallet_keypool.py --legacy-wallet                      | ✓ Passed  | 9 s
+wallet_keypool_topup.py --descriptors                  | ✓ Passed  | 24 s
+wallet_keypool_topup.py --legacy-wallet                | ✓ Passed  | 28 s
+wallet_labels.py --descriptors                         | ✓ Passed  | 5 s
+wallet_labels.py --legacy-wallet                       | ✓ Passed  | 8 s
+wallet_listdescriptors.py --descriptors                | ✓ Passed  | 4 s
+wallet_listreceivedby.py --descriptors                 | ✓ Passed  | 14 s
+wallet_listreceivedby.py --legacy-wallet               | ✓ Passed  | 14 s
+wallet_listsinceblock.py --descriptors                 | ✓ Passed  | 16 s
+wallet_listsinceblock.py --legacy-wallet               | ✓ Passed  | 18 s
+wallet_listtransactions.py --descriptors               | ✓ Passed  | 54 s
+wallet_listtransactions.py --legacy-wallet             | ✓ Passed  | 63 s
+wallet_migration.py                                    | ✓ Passed  | 17 s
+wallet_miniscript.py --descriptors                     | ✓ Passed  | 4 s
+wallet_multisig_descriptor_psbt.py --descriptors       | ✓ Passed  | 11 s
+wallet_multiwallet.py --descriptors                    | ✓ Passed  | 71 s
+wallet_multiwallet.py --legacy-wallet                  | ✓ Passed  | 76 s
+wallet_multiwallet.py --usecli                         | ✓ Passed  | 47 s
+wallet_orphanedreward.py                               | ✓ Passed  | 14 s
+wallet_pruning.py --legacy-wallet                      | ✓ Passed  | 750 s
+wallet_reorgsrestore.py                                | ✓ Passed  | 8 s
+wallet_resendwallettransactions.py --descriptors       | ✓ Passed  | 4 s
+wallet_resendwallettransactions.py --legacy-wallet     | ✓ Passed  | 6 s
+wallet_send.py --descriptors                           | ✓ Passed  | 17 s
+wallet_send.py --legacy-wallet                         | ✓ Passed  | 23 s
+wallet_sendall.py --descriptors                        | ✓ Passed  | 40 s
+wallet_sendall.py --legacy-wallet                      | ✓ Passed  | 67 s
+wallet_signer.py --descriptors                         | ✓ Passed  | 27 s
+wallet_signmessagewithaddress.py                       | ✓ Passed  | 1 s
+wallet_signrawtransactionwithwallet.py --descriptors   | ✓ Passed  | 5 s
+wallet_signrawtransactionwithwallet.py --legacy-wallet | ✓ Passed  | 5 s
+wallet_simulaterawtx.py --descriptors                  | ✓ Passed  | 3 s
+wallet_simulaterawtx.py --legacy-wallet                | ✓ Passed  | 3 s
+wallet_startup.py                                      | ✓ Passed  | 5 s
+wallet_taproot.py --descriptors                        | ✓ Passed  | 217 s
+wallet_timelock.py                                     | ✓ Passed  | 3 s
+wallet_transactiontime_rescan.py --descriptors         | ✓ Passed  | 16 s
+wallet_transactiontime_rescan.py --legacy-wallet       | ✓ Passed  | 17 s
+wallet_txn_clone.py                                    | ✓ Passed  | 5 s
+wallet_txn_clone.py --mineblock                        | ✓ Passed  | 7 s
+wallet_txn_clone.py --segwit                           | ✓ Passed  | 4 s
+wallet_txn_doublespend.py --descriptors                | ✓ Passed  | 6 s
+wallet_txn_doublespend.py --legacy-wallet              | ✓ Passed  | 4 s
+wallet_txn_doublespend.py --mineblock                  | ✓ Passed  | 6 s
+wallet_watchonly.py --legacy-wallet                    | ✓ Passed  | 4 s
+wallet_watchonly.py --usecli --legacy-wallet           | ✓ Passed  | 8 s
+feature_bind_extra.py                                  | ○ Skipped | 1 s
+feature_bind_port_discover.py                          | ○ Skipped | 0 s
+feature_bind_port_externalip.py                        | ○ Skipped | 0 s
+feature_init.py                                        | ○ Skipped | 2 s
+feature_syscall_sandbox.py                             | ○ Skipped | 0 s
+feature_txindex_compatibility.py                       | ○ Skipped | 0 s
+feature_unsupported_utxo_db.py                         | ○ Skipped | 0 s
+interface_usdt_coinselection.py                        | ○ Skipped | 0 s
+interface_usdt_net.py                                  | ○ Skipped | 0 s
+interface_usdt_utxocache.py                            | ○ Skipped | 0 s
+interface_usdt_validation.py                           | ○ Skipped | 0 s
+mempool_compatibility.py                               | ○ Skipped | 0 s
+rpc_bind.py --ipv4                                     | ○ Skipped | 1 s
+rpc_bind.py --ipv6                                     | ○ Skipped | 1 s
+rpc_bind.py --nonloopback                              | ○ Skipped | 1 s
+tool_signet_miner.py --descriptors                     | ○ Skipped | 0 s
+tool_signet_miner.py --legacy-wallet                   | ○ Skipped | 0 s
+wallet_backwards_compatibility.py --descriptors        | ○ Skipped | 1 s
+wallet_backwards_compatibility.py --legacy-wallet      | ○ Skipped | 0 s
+wallet_inactive_hdchains.py --legacy-wallet            | ○ Skipped | 1 s
+wallet_upgradewallet.py --legacy-wallet                | ○ Skipped | 0 s
+mempool_fee_histogram.py                               | ✖ Failed  | 2 s
+
+ALL                                                    | ✖ Failed  | 11987 s (accumulated) 
+Runtime: 2144 s
+
+
+C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build>if 1 NEQ 0 exit /b 1 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
