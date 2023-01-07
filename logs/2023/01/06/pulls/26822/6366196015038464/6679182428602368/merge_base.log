@@ -1,0 +1,9 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+git
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26822/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was ff52aaf13 test: add coverage for absolute timestamp in `setban`
+HEAD is now at 650258e89 Merge ff52aaf1316853f74a9cbdfd13260a1576e7cde4 into 911a40ead256b8849166cff1b745b9c9898e2da8
