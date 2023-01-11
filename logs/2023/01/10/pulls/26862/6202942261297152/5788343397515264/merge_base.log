@@ -1,0 +1,18 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 55 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26862/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 652e388f2 Added argument -onionport for customize Tor connections port & disable bind onion port if service not started
+HEAD is now at 0eb93c700 Merge 652e388f25a99874d6d2b0f2caebd8c30a63d044 into 0e81d119e09dba13dddb42506855ba8eba761238

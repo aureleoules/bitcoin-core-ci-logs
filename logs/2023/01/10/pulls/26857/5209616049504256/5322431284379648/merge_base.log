@@ -1,0 +1,26 @@
+bash -c "$PACKAGE_MANAGER_INSTALL git"
+Hit:1 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease [114 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease [99.8 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease [110 kB]
+Get:5 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 Packages [799 kB]
+Get:6 https://mirror.hetzner.com/ubuntu/packages jammy-updates/main amd64 c-n-f Metadata [12.0 kB]
+Get:7 https://mirror.hetzner.com/ubuntu/packages jammy-updates/universe amd64 Packages [781 kB]
+Get:8 https://mirror.hetzner.com/ubuntu/security jammy-security/main amd64 Packages [558 kB]
+Get:9 https://mirror.hetzner.com/ubuntu/security jammy-security/main Translation-en [118 kB]
+Get:10 https://mirror.hetzner.com/ubuntu/security jammy-security/restricted amd64 Packages [489 kB]
+Get:11 https://mirror.hetzner.com/ubuntu/security jammy-security/restricted Translation-en [74.9 kB]
+Fetched 3,156 kB in 1s (4,364 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.34.1-1ubuntu1.5).
+0 upgraded, 0 newly installed, 0 to remove and 55 not upgraded.
+if [ "$CIRRUS_PR" = "" ]; then exit 0; fi
+git fetch $CIRRUS_REPO_CLONE_URL "pull/${CIRRUS_PR}/merge"
+From https://github.com/bitcoin/bitcoin
+ * branch                refs/pull/26857/merge -> FETCH_HEAD
+git checkout FETCH_HEAD
+Previous HEAD position was 7490e5d8b fixup! clamp input amounts to accommodate fuzz tests
+HEAD is now at 36874cdf2 Merge 7490e5d8bb7de9f39897bf54de53ff331c83705e into b264410e012a61b103e1a03c43df4e17b9b75452
